@@ -1,0 +1,1536 @@
+{
+  "n": 30,
+  "both": 30,
+  "agreed": 3,
+  "delivered": 3,
+  "right": 3,
+  "wrong": 0,
+  "flagged": 27,
+  "single_road": 0,
+  "echo_flagged": 17,
+  "a_ran": 30,
+  "b_ran": 23,
+  "planted": 30,
+  "planted_caught": 29,
+  "planted_by_echo": 12,
+  "planted_slipped": 1,
+  "aime": {
+    "seen": 15,
+    "delivered": 0,
+    "right": 0,
+    "wrong": 0,
+    "flagged": 15,
+    "echo": 10,
+    "disagree": 1,
+    "no_second": 0,
+    "refused": 3,
+    "rows": [
+      {
+        "story": "The sum of all positive integers $m$ such that $\\frac{13!}{m}$ is a perfect square can be written as $2^a3^b5^c7^d11^e13^f,$ where $a,b,c,d,e,$ and $f$ are positive integers. Find $a+b+c+d+e+f.$",
+        "truth": "12",
+        "spec_a": {
+          "solver": "multisearch",
+          "variables": [
+            {
+              "name": "m",
+              "from": 1,
+              "to": 13000
+            }
+          ],
+          "conditions": [
+            "quotient_is_square(13000, m)"
+          ],
+          "aggregate": "sum"
+        },
+        "spec_b": {
+          "solver": "search",
+          "domain": {
+            "kind": "divisors_of_factorial",
+            "k": 13
+          },
+          "conditions": [
+            {
+              "op": "quotient_is_square",
+              "arg": 1
+            }
+          ],
+          "aggregate": "sum"
+        }
+      },
+      {
+        "story": "Find the remainder when\\[\\binom{\\binom{3}{2}}{2} + \\binom{\\binom{4}{2}}{2} + \\dots +  \\binom{\\binom{40}{2}}{2}\\]is divided by $1000$.",
+        "truth": "4",
+        "spec_a": {
+          "solver": "search",
+          "domain": {
+            "kind": "range",
+            "from": 3,
+            "to": 40
+          },
+          "conditions": [],
+          "aggregate": "sum",
+          "post": {
+            "op": "mod",
+            "arg": 1000
+          }
+        },
+        "spec_b": {
+          "solver": "multisearch",
+          "variables": [
+            {
+              "name": "n",
+              "from": 3,
+              "to": 40
+            }
+          ],
+          "conditions": [],
+          "objective": "combinatorics::choose(combinatorics::choose(n, 2), 2)",
+          "aggregate": "sum",
+          "post": {
+            "op": "mod",
+            "arg": 1000
+          }
+        }
+      },
+      {
+        "story": "Find the number of collections of $16$ distinct subsets of $\\{1,2,3,4,5\\}$ with the property that for any two subsets $X$ and $Y$ in the collection, $X \\cap Y \\not= \\emptyset.$",
+        "truth": "81",
+        "spec_a": {
+          "solver": "multisearch",
+          "variables": [
+            {
+              "name": "k",
+              "from": 1,
+              "to": 16
+            }
+          ],
+          "conditions": [
+            "16 == 2**k - 1"
+          ],
+          "objective": "k",
+          "aggregate": "sum"
+        },
+        "spec_b": {
+          "solver": "combinatorics",
+          "kind": "choose",
+          "n": 16,
+          "k": 16
+        }
+      },
+      {
+        "story": "Azar, Carl, Jon, and Sergey are the four players left in a singles tennis tournament. They are randomly assigned opponents in the semifinal matches, and the winners of those matches play each other in the final match to determine the winner of the tournament. When Azar plays Carl, Azar will win the match with probability $\\frac23$. When either Azar or Carl plays either Jon or Sergey, Azar or Carl ",
+        "truth": "125",
+        "spec_a": {
+          "solver": "search",
+          "domain": {
+            "kind": "range",
+            "from": 1,
+            "to": 1000000
+          },
+          "conditions": [
+            {
+              "op": "mod_eq",
+              "arg": [
+                1000000,
+                0
+              ]
+            }
+          ],
+          "aggregate": "sum",
+          "post": {
+            "op": "mod",
+            "arg": 1000000
+          }
+        },
+        "spec_b": {
+          "solver": "search",
+          "domain": {
+            "kind": "range",
+            "from": 1,
+            "to": 1000000
+          },
+          "conditions": [
+            {
+              "op": "mod_eq",
+              "arg": [
+                1000000,
+                0
+              ]
+            }
+          ],
+          "aggregate": "sum",
+          "post": {
+            "op": "mod",
+            "arg": 1000000
+          }
+        }
+      },
+      {
+        "story": "A cube-shaped container has vertices $A,$ $B,$ $C,$ and $D,$ where $\\overline{AB}$ and $\\overline{CD}$ are parallel edges of the cube, and $\\overline{AC}$ and $\\overline{BD}$ are diagonals of faces of the cube, as shown. Vertex $A$ of the cube is set on a horizontal plane $\\mathcal{P}$ so that the plane of the rectangle $ABDC$ is perpendicular to $\\mathcal{P},$ vertex $B$ is $2$ meters above $\\mat",
+        "truth": "751",
+        "spec_a": null,
+        "spec_b": null
+      },
+      {
+        "story": "Find the number of cubic polynomials $p(x) = x^3 + ax^2 + bx + c,$ where $a, b,$ and $c$ are integers in $\\{-20,-19,-18,\\ldots,18,19,20\\},$ such that there is a unique integer $m \\not= 2$ with $p(m) = p(2).$",
+        "truth": "738",
+        "spec_a": {
+          "solver": "multisearch",
+          "variables": [
+            {
+              "name": "a",
+              "from": -20,
+              "to": 20
+            },
+            {
+              "name": "b",
+              "from": -20,
+              "to": 20
+            },
+            {
+              "name": "c",
+              "from": -20,
+              "to": 20
+            }
+          ],
+          "conditions": [
+            "abs(a + 2) == abs(m - 2) and m != 2",
+            "m == -a - 2",
+            "m != 2",
+            "not (a*a + 4*a + 4 == 0)"
+          ],
+          "objective": "1",
+          "aggregate": "count"
+        },
+        "spec_b": {
+          "solver": "search",
+          "domain": {
+            "kind": "range",
+            "from": -20,
+            "to": 20
+          },
+          "conditions": [
+            {
+              "op": "eq",
+              "arg": "a*a + 4*a + 4"
+            },
+            {
+              "op": "eq",
+              "arg": "0"
+            }
+          ],
+          "aggregate": "count"
+        }
+      },
+      {
+        "story": "Let $\\triangle ABC$ be an isosceles triangle with $\\angle A = 90^\\circ.$ There exists a point $P$ inside $\\triangle ABC$ such that $\\angle PAB = \\angle PBC = \\angle PCA$ and $AP = 10.$ Find the area of $\\triangle ABC.$",
+        "truth": "250",
+        "spec_a": {
+          "solver": "search",
+          "domain": {
+            "kind": "range",
+            "from": 1,
+            "to": 10000
+          },
+          "conditions": [
+            {
+              "op": "eq",
+              "arg": 1000
+            }
+          ],
+          "aggregate": "sum"
+        },
+        "spec_b": {
+          "solver": "quadratic",
+          "a": 1,
+          "b": 0,
+          "c": -1000
+        }
+      },
+      {
+        "story": "Each vertex of a regular dodecagon ($12$-gon) is to be colored either red or blue, and thus there are $2^{12}$ possible colorings. Find the number of these colorings with the property that no four vertices colored the same color are the four vertices of a rectangle.",
+        "truth": "928",
+        "spec_a": {
+          "solver": "multisearch",
+          "variables": [
+            {
+              "name": "a",
+              "from": 0,
+              "to": 12
+            },
+            {
+              "name": "b",
+              "from": 0,
+              "to": 12
+            }
+          ],
+          "ordering": "strict_increasing",
+          "conditions": [
+            "eq(a+b, 12)",
+            "eq(a, 0) or eq(a, 12) or eq(a, 1) or eq(a, 11)",
+            "ne(a, 2) and ne(a, 3) and ne(a, 4) and ne(a, 5) and ne(a, 6) and ne(a, 7) and ne(a, 8) and ne(a, 9) and ne(a, 10)"
+          ],
+          "aggregate": "count"
+        },
+        "spec_b": {
+          "solver": "search",
+          "domain": {
+            "kind": "range",
+            "from": 0,
+            "to": 12
+          },
+          "conditions": [
+            {
+              "op": "eq",
+              "arg": 0
+            },
+            {
+              "op": "eq",
+              "arg": 12
+            },
+            {
+              "op": "eq",
+              "arg": 1
+            },
+            {
+              "op": "eq",
+              "arg": 11
+            }
+          ],
+          "aggregate": "count"
+        }
+      },
+      {
+        "story": "Alice knows that $3$ red cards and $3$ black cards will be revealed to her one at a time in random order. Before each card is revealed, Alice must guess its color. If Alice plays optimally, the expected number of cards she will guess correctly is $\\frac{m}{n},$ where $m$ and $n$ are relatively prime positive integers. Find $m+n.$",
+        "truth": "51",
+        "spec_a": {
+          "solver": "search",
+          "domain": {
+            "kind": "range",
+            "from": 0,
+            "to": 100
+          },
+          "conditions": [
+            {
+              "op": "eq",
+              "arg": 15
+            }
+          ],
+          "aggregate": "sum"
+        },
+        "spec_b": {
+          "solver": "search",
+          "domain": {
+            "kind": "range",
+            "from": 0,
+            "to": 100
+          },
+          "conditions": [
+            {
+              "op": "eq",
+              "arg": 15
+            }
+          ],
+          "aggregate": "sum"
+        }
+      },
+      {
+        "story": "Let $\\triangle ABC$ be an equilateral triangle with side length $55.$ Points $D,$ $E,$ and $F$ lie on $\\overline{BC},$ $\\overline{CA},$ and $\\overline{AB},$ respectively, with $BD = 7,$ $CE=30,$ and $AF=40.$ Point $P$ inside $\\triangle ABC$ has the property that \\[\\angle AEP = \\angle BFP = \\angle CDP.\\] Find $\\tan^2(\\angle AEP).$",
+        "truth": "75",
+        "spec_a": {
+          "solver": "search",
+          "domain": {
+            "kind": "range",
+            "from": 0,
+            "to": 1000000
+          },
+          "conditions": [
+            {
+              "op": "eq",
+              "arg": 0
+            }
+          ],
+          "aggregate": "min",
+          "post": {
+            "op": "mod",
+            "arg": 1000000000000000000
+          }
+        },
+        "spec_b": null
+      },
+      {
+        "story": "Three spheres with radii $11$, $13$, and $19$ are mutually externally tangent. A plane intersects the spheres in three congruent circles centered at $A$, $B$, and $C$, respectively, and the centers of the spheres all lie on the same side of this plane. Suppose that $AB^2 = 560$. Find $AC^2$.",
+        "truth": "756",
+        "spec_a": {
+          "solver": "search",
+          "domain": {
+            "kind": "range",
+            "from": 1,
+            "to": 10000
+          },
+          "conditions": [
+            {
+              "op": "eq",
+              "arg": 560
+            }
+          ],
+          "aggregate": "list",
+          "post": {
+            "op": "mod",
+            "arg": 1
+          }
+        },
+        "spec_b": null
+      },
+      {
+        "story": "Let $\\ell_A$ and $\\ell_B$ be two distinct parallel lines. For positive integers $m$ and $n$, distinct points $A_1, A_2, \\allowbreak A_3, \\allowbreak \\ldots, \\allowbreak A_m$ lie on $\\ell_A$, and distinct points $B_1, B_2, B_3, \\ldots, B_n$ lie on $\\ell_B$. Additionally, when segments $\\overline{A_iB_j}$ are drawn for all $i=1,2,3,\\ldots, m$ and $j=1,\\allowbreak 2,\\allowbreak 3, \\ldots, \\allowbreak",
+        "truth": "244",
+        "spec_a": {
+          "solver": "search",
+          "domain": {
+            "kind": "range",
+            "from": 1,
+            "to": 100
+          },
+          "conditions": [
+            {
+              "op": "eq",
+              "arg": "m*n - m - n + 1"
+            },
+            {
+              "op": "eq",
+              "arg": "7*5 - 7 - 5 + 1"
+            }
+          ],
+          "aggregate": "sum",
+          "post": {
+            "op": "mod",
+            "arg": 1000
+          }
+        },
+        "spec_b": {
+          "solver": "linear_system",
+          "rows": [
+            [
+              1,
+              0,
+              -1
+            ],
+            [
+              0,
+              1,
+              -1
+            ]
+          ],
+          "rhs": [
+            1,
+            1
+          ]
+        }
+      },
+      {
+        "story": "Adults made up $\\frac5{12}$ of the crowd of people at a concert. After a bus carrying $50$ more people arrived, adults made up $\\frac{11}{25}$ of the people at the concert. Find the minimum number of adults who could have been at the concert after the bus arrived.",
+        "truth": "154",
+        "spec_a": {
+          "solver": "search",
+          "domain": {
+            "kind": "range",
+            "from": 1,
+            "to": 10000
+          },
+          "conditions": [
+            {
+              "op": "divisible_by",
+              "arg": 25
+            },
+            {
+              "op": "mod_eq",
+              "arg": [
+                25,
+                0
+              ]
+            },
+            {
+              "op": "divides",
+              "arg": 50
+            },
+            {
+              "op": "quotient_is_square",
+              "arg": 0
+            },
+            {
+              "op": "gt",
+              "arg": 0
+            }
+          ],
+          "aggregate": "min"
+        },
+        "spec_b": {
+          "solver": "linear_system",
+          "rows": [
+            [
+              1,
+              -1,
+              0
+            ],
+            [
+              0,
+              1,
+              -1
+            ]
+          ],
+          "rhs": [
+            0,
+            0
+          ]
+        }
+      },
+      {
+        "story": "For each positive integer $n$ let $a_n$ be the least positive integer multiple of $23$ such that $a_n \\equiv 1 \\pmod{2^n}.$ Find the number of positive integers $n$ less than or equal to $1000$ that satisfy $a_n = a_{n+1}.$",
+        "truth": "363",
+        "spec_a": {
+          "solver": "multisearch",
+          "variables": [
+            {
+              "name": "n",
+              "from": 1,
+              "to": 1000
+            }
+          ],
+          "conditions": [
+            "a_n == a_{n+1}"
+          ],
+          "objective": "n",
+          "aggregate": "count",
+          "post": {
+            "op": "mod",
+            "arg": 1
+          }
+        },
+        "spec_b": {
+          "solver": "search",
+          "domain": {
+            "kind": "range",
+            "from": 1,
+            "to": 1000
+          },
+          "conditions": [
+            {
+              "op": "mod_eq",
+              "arg": [
+                23,
+                1
+              ]
+            }
+          ],
+          "aggregate": "count",
+          "post": {
+            "op": "mod",
+            "arg": 1
+          }
+        }
+      },
+      {
+        "story": "For any finite set $X$, let $| X |$ denote the number of elements in $X$. Define\n\\[S_n = \\sum | A \\cap B | ,\\]\nwhere the sum is taken over all ordered pairs $(A, B)$ such that $A$ and $B$ are subsets of $\\left\\{ 1 , 2 , 3,  \\cdots , n \\right\\}$ with $|A| = |B|$.\nFor example, $S_2 = 4$ because the sum is taken over the pairs of subsets\n\\[(A, B) \\in \\left\\{ (\\emptyset, \\emptyset) , ( \\{1\\} , \\{1\\} )",
+        "truth": "245",
+        "spec_a": {
+          "solver": "search",
+          "domain": {
+            "kind": "range",
+            "from": 1,
+            "to": 2022
+          },
+          "conditions": [
+            {
+              "op": "eq",
+              "arg": 1
+            }
+          ],
+          "aggregate": "sum",
+          "post": {
+            "op": "mod",
+            "arg": 1000
+          }
+        },
+        "spec_b": {
+          "solver": "recurrence",
+          "coefficients": [
+            1,
+            1
+          ],
+          "initial": [
+            0,
+            1
+          ],
+          "n": 2022
+        }
+      }
+    ]
+  },
+  "rows": [
+    {
+      "solver": "search",
+      "truth": "273",
+      "verdict": "DELIVERED 273",
+      "spec_a": {
+        "solver": "search",
+        "domain": {
+          "kind": "range",
+          "from": 1,
+          "to": 200
+        },
+        "conditions": [
+          {
+            "op": "divisible_by",
+            "arg": 7
+          },
+          {
+            "op": "digit_sum_eq",
+            "arg": 10
+          }
+        ],
+        "aggregate": "sum"
+      },
+      "spec_b": {
+        "solver": "multisearch",
+        "variables": [
+          {
+            "name": "n",
+            "from": 1,
+            "to": 200
+          }
+        ],
+        "conditions": [
+          "n % 7 == 0",
+          "digit_sum(n) == 10"
+        ],
+        "aggregate": "sum"
+      },
+      "story": "The class has 30 pupils. What is the sum of all multiples of 7 between 1 and 200 whose digits add up to 10?"
+    },
+    {
+      "solver": "search",
+      "truth": "22",
+      "verdict": "echo: ['True', '22']",
+      "spec_a": {
+        "solver": "search",
+        "domain": {
+          "kind": "range",
+          "from": 1,
+          "to": 500
+        },
+        "conditions": [
+          {
+            "op": "is_square",
+            "arg": true
+          }
+        ],
+        "aggregate": "count"
+      },
+      "spec_b": {
+        "solver": "search",
+        "domain": {
+          "kind": "range",
+          "from": 1,
+          "to": 22
+        },
+        "conditions": [],
+        "aggregate": "count"
+      },
+      "story": "The book has 12 chapters. How many integers from 1 to 500 are perfect squares?"
+    },
+    {
+      "solver": "linear_system",
+      "truth": "['3', '2']",
+      "verdict": "echo: ['-1']",
+      "spec_a": {
+        "solver": "linear_system",
+        "rows": [
+          [
+            2,
+            3
+          ],
+          [
+            1,
+            -1
+          ]
+        ],
+        "rhs": [
+          12,
+          1
+        ]
+      },
+      "spec_b": {
+        "solver": "multisearch",
+        "variables": [
+          {
+            "name": "x",
+            "from": 0,
+            "to": 10
+          },
+          {
+            "name": "y",
+            "from": 0,
+            "to": 10
+          }
+        ],
+        "conditions": [
+          "2*x + 3*y == 12",
+          "x - y == 1"
+        ],
+        "aggregate": "list"
+      },
+      "story": "The shop opened in 1998. Two numbers satisfy 2x + 3y = 12 and x - y = 1. What are x and y?"
+    },
+    {
+      "solver": "linear_system",
+      "truth": "['6', '4']",
+      "verdict": "echo: ['-1']",
+      "spec_a": {
+        "solver": "linear_system",
+        "rows": [
+          [
+            1,
+            1
+          ],
+          [
+            3,
+            -1
+          ]
+        ],
+        "rhs": [
+          10,
+          14
+        ]
+      },
+      "spec_b": {
+        "solver": "multisearch",
+        "variables": [
+          {
+            "name": "x",
+            "from": 0,
+            "to": 100
+          },
+          {
+            "name": "y",
+            "from": 0,
+            "to": 100
+          }
+        ],
+        "conditions": [
+          "x + y == 10",
+          "3 * x - y == 14"
+        ],
+        "aggregate": "list"
+      },
+      "story": "There are 4 seasons. Solve x + y = 10 and 3x - y = 14 for x and y."
+    },
+    {
+      "solver": "quadratic",
+      "truth": "['3', '2']",
+      "verdict": "echo: ['-5', '-5']",
+      "spec_a": {
+        "solver": "quadratic",
+        "a": 1,
+        "b": -5,
+        "c": 6
+      },
+      "spec_b": {
+        "solver": "polynomial",
+        "coefficients": [
+          1,
+          -5,
+          6
+        ]
+      },
+      "story": "The room has 4 walls. Solve x^2 - 5x + 6 = 0."
+    },
+    {
+      "solver": "quadratic",
+      "truth": "['3', '1']",
+      "verdict": "echo: ['-8', '-8']",
+      "spec_a": {
+        "solver": "quadratic",
+        "a": 2,
+        "b": -8,
+        "c": 6
+      },
+      "spec_b": {
+        "solver": "polynomial",
+        "coefficients": [
+          2,
+          -8,
+          6
+        ]
+      },
+      "story": "It rained 3 days. Find the roots of 2x^2 - 8x + 6 = 0."
+    },
+    {
+      "solver": "crt",
+      "truth": "23",
+      "verdict": "DELIVERED 23",
+      "spec_a": {
+        "solver": "crt",
+        "residues": [
+          2,
+          3,
+          2
+        ],
+        "moduli": [
+          3,
+          5,
+          7
+        ]
+      },
+      "spec_b": {
+        "solver": "search",
+        "domain": {
+          "kind": "range",
+          "from": 1,
+          "to": 1000
+        },
+        "conditions": [
+          {
+            "op": "mod_eq",
+            "arg": [
+              3,
+              2
+            ]
+          },
+          {
+            "op": "mod_eq",
+            "arg": [
+              5,
+              3
+            ]
+          },
+          {
+            "op": "mod_eq",
+            "arg": [
+              7,
+              2
+            ]
+          }
+        ],
+        "aggregate": "min"
+      },
+      "story": "The team has 11 players. Find the smallest positive number that leaves remainder 2 modulo 3, remainder 3 modulo 5, and remainder 2 modulo 7."
+    },
+    {
+      "solver": "crt",
+      "truth": "13",
+      "verdict": "echo: ['20']",
+      "spec_a": {
+        "solver": "crt",
+        "residues": [
+          1,
+          3
+        ],
+        "moduli": [
+          4,
+          5
+        ]
+      },
+      "spec_b": {
+        "solver": "search",
+        "domain": {
+          "kind": "range",
+          "from": 1,
+          "to": 20
+        },
+        "conditions": [
+          {
+            "op": "mod_eq",
+            "arg": [
+              4,
+              1
+            ]
+          },
+          {
+            "op": "mod_eq",
+            "arg": [
+              5,
+              3
+            ]
+          }
+        ],
+        "aggregate": "min"
+      },
+      "story": "The bus runs 9 times a day. What number leaves remainder 1 modulo 4 and remainder 3 modulo 5?"
+    },
+    {
+      "solver": "gcd_lcm",
+      "truth": "{'gcd': 6, 'lcm': 180}",
+      "verdict": "echo: ['6', '60']",
+      "spec_a": {
+        "solver": "gcd_lcm",
+        "values": [
+          12,
+          18,
+          30
+        ]
+      },
+      "spec_b": {
+        "solver": "multisearch",
+        "variables": [
+          {
+            "name": "a",
+            "from": 1,
+            "to": 100
+          },
+          {
+            "name": "b",
+            "from": 1,
+            "to": 100
+          }
+        ],
+        "conditions": [
+          "gcd(a, b) == 6",
+          "lcm(a, b) == 60"
+        ],
+        "objective": "a",
+        "aggregate": "list"
+      },
+      "story": "The garden has 7 trees. What is the greatest common divisor and the least common multiple of 12, 18 and 30?"
+    },
+    {
+      "solver": "gcd_lcm",
+      "truth": "{'gcd': 7, 'lcm': 42}",
+      "verdict": "echo: ['7', '42']",
+      "spec_a": {
+        "solver": "gcd_lcm",
+        "values": [
+          14,
+          21
+        ]
+      },
+      "spec_b": {
+        "solver": "multisearch",
+        "variables": [
+          {
+            "name": "a",
+            "from": 1,
+            "to": 21
+          }
+        ],
+        "conditions": [
+          "gcd(a, 14) == 7",
+          "lcm(a, 14) == 42"
+        ],
+        "objective": "a",
+        "aggregate": "list"
+      },
+      "story": "The car has 4 doors. Two lights blink every 14 and 21 seconds. Give the gcd and lcm of 14 and 21."
+    },
+    {
+      "solver": "series",
+      "truth": "210",
+      "verdict": "roads disagree: 210 vs 55",
+      "spec_a": {
+        "solver": "series",
+        "kind": "arithmetic",
+        "first": 3,
+        "step": 4,
+        "terms": 10
+      },
+      "spec_b": {
+        "solver": "search",
+        "domain": {
+          "kind": "range",
+          "from": 1,
+          "to": 10
+        },
+        "conditions": [],
+        "aggregate": "sum",
+        "post": null
+      },
+      "story": "The hall seats 200. Add up the first 10 terms of the arithmetic sequence starting at 3 and increasing by 4 each time."
+    },
+    {
+      "solver": "series",
+      "truth": "2",
+      "verdict": "echo: ['0.5', '-0.5']",
+      "spec_a": {
+        "solver": "series",
+        "kind": "geometric",
+        "first": 1,
+        "ratio": 0.5,
+        "terms": "inf"
+      },
+      "spec_b": {
+        "solver": "polynomial",
+        "coefficients": [
+          1,
+          -0.5
+        ],
+        "at": 1
+      },
+      "story": "The pen costs 20 kr. What is the total of the infinite geometric series with first term 1 and ratio 1/2?"
+    },
+    {
+      "solver": "combinatorics",
+      "truth": "120",
+      "verdict": "echo: ['1000000']",
+      "spec_a": {
+        "solver": "combinatorics",
+        "kind": "choose",
+        "n": 10,
+        "k": 3
+      },
+      "spec_b": {
+        "solver": "search",
+        "domain": {
+          "kind": "range",
+          "from": 0,
+          "to": 1000000
+        },
+        "conditions": [
+          {
+            "op": "eq",
+            "arg": 0
+          }
+        ],
+        "aggregate": "sum",
+        "post": {
+          "op": "mod",
+          "arg": 1
+        }
+      },
+      "story": "The shelf holds 50 books. In how many ways can 3 pupils be chosen from 10?"
+    },
+    {
+      "solver": "combinatorics",
+      "truth": "36",
+      "verdict": "roads disagree: 36 vs 0",
+      "spec_a": {
+        "solver": "combinatorics",
+        "kind": "stars_and_bars",
+        "n": 7,
+        "k": 3
+      },
+      "spec_b": {
+        "solver": "search",
+        "domain": {
+          "kind": "range",
+          "from": 0,
+          "to": 7
+        },
+        "conditions": [
+          {
+            "op": "eq",
+            "arg": "a + b + c"
+          },
+          {
+            "op": "eq",
+            "arg": 7
+          }
+        ],
+        "aggregate": "count",
+        "post": {
+          "op": "mod",
+          "arg": 1
+        }
+      },
+      "story": "The week has 7 days. How many ways can 7 identical sweets be handed out to 3 children, where a child may get none?"
+    },
+    {
+      "solver": "recurrence",
+      "truth": "89",
+      "verdict": "echo: ['9']",
+      "spec_a": {
+        "solver": "recurrence",
+        "coefficients": [
+          1,
+          1
+        ],
+        "initial": [
+          1,
+          1
+        ],
+        "n": 9
+      },
+      "spec_b": {
+        "solver": "series",
+        "kind": "arithmetic",
+        "first": 1,
+        "step": 0,
+        "terms": 10
+      },
+      "story": "The tree is 20 years old. A sequence starts 1, 1 and every later term is the sum of the two before it. What is term number 10, counting the first term as term 0?"
+    },
+    {
+      "solver": "recurrence",
+      "truth": "111",
+      "verdict": "roads disagree: 111 vs 0",
+      "spec_a": {
+        "solver": "recurrence",
+        "coefficients": [
+          2,
+          1
+        ],
+        "initial": [
+          2,
+          3
+        ],
+        "n": 5
+      },
+      "spec_b": {
+        "solver": "search",
+        "domain": {
+          "kind": "range",
+          "from": 0,
+          "to": 1000
+        },
+        "conditions": [
+          {
+            "op": "eq",
+            "arg": 0
+          }
+        ],
+        "aggregate": "max"
+      },
+      "story": "The lift holds 8 people. A sequence starts 2, 3 and each later term is twice the previous plus the one before that. What is term 5, counting the first as term 0?"
+    },
+    {
+      "solver": "rate_work",
+      "truth": "12/5",
+      "verdict": "roads disagree: 12/5 vs ['1', '0']",
+      "spec_a": {
+        "solver": "rate_work",
+        "times": [
+          4,
+          6
+        ]
+      },
+      "spec_b": {
+        "solver": "linear_system",
+        "rows": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "rhs": [
+          1,
+          1
+        ]
+      },
+      "story": "The wall is 3 m high. One painter finishes in 4 hours and another in 6 hours. How long do they take together?"
+    },
+    {
+      "solver": "rate_work",
+      "truth": "2",
+      "verdict": "roads disagree: 2 vs ['1', '0']",
+      "spec_a": {
+        "solver": "rate_work",
+        "times": [
+          3,
+          6
+        ]
+      },
+      "spec_b": {
+        "solver": "linear_system",
+        "rows": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "rhs": [
+          1,
+          1
+        ]
+      },
+      "story": "The pool is 2 m deep. One pipe fills it in 3 hours, another in 6 hours. How long together?"
+    },
+    {
+      "solver": "ratio_split",
+      "truth": "['24', '36', '60']",
+      "verdict": "b refused: refused: system is not square",
+      "spec_a": {
+        "solver": "ratio_split",
+        "total": 120,
+        "ratio": [
+          2,
+          3,
+          5
+        ]
+      },
+      "spec_b": {
+        "solver": "linear_system",
+        "rows": [
+          [
+            2,
+            3,
+            5
+          ]
+        ],
+        "rhs": [
+          120
+        ]
+      },
+      "story": "The trip took 5 days. Split 120 kr between three people in the ratio 2 : 3 : 5."
+    },
+    {
+      "solver": "ratio_split",
+      "truth": "['40', '50']",
+      "verdict": "b refused: error: TypeError: unsupported ",
+      "spec_a": {
+        "solver": "ratio_split",
+        "total": 90,
+        "ratio": [
+          4,
+          5
+        ]
+      },
+      "spec_b": {
+        "solver": "search",
+        "domain": {
+          "kind": "range",
+          "from": 0,
+          "to": 90
+        },
+        "conditions": [
+          {
+            "op": "eq",
+            "arg": 90
+          }
+        ],
+        "aggregate": "list",
+        "post": {
+          "op": "mod",
+          "arg": 1
+        }
+      },
+      "story": "The bag weighs 2 kg. Divide 90 sweets between two children in the ratio 4 : 5."
+    },
+    {
+      "solver": "mixture",
+      "truth": "41/100",
+      "verdict": "echo: ['0.2', '0.5', '-1']",
+      "spec_a": {
+        "solver": "mixture",
+        "quantities": [
+          3,
+          7
+        ],
+        "concentrations": [
+          0.2,
+          0.5
+        ]
+      },
+      "spec_b": {
+        "solver": "linear_system",
+        "rows": [
+          [
+            1,
+            1,
+            -1
+          ],
+          [
+            0.2,
+            0.5,
+            0
+          ]
+        ],
+        "rhs": [
+          10,
+          2
+        ]
+      },
+      "story": "The lab has 6 benches. Mix 3 litres at concentration 1/5 with 7 litres at concentration 1/2. What is the resulting concentration?"
+    },
+    {
+      "solver": "mixture",
+      "truth": "3/5",
+      "verdict": "echo: ['0.3', '0.8', '-1']",
+      "spec_a": {
+        "solver": "mixture",
+        "quantities": [
+          2,
+          3
+        ],
+        "concentrations": [
+          0.3,
+          0.8
+        ]
+      },
+      "spec_b": {
+        "solver": "linear_system",
+        "rows": [
+          [
+            1,
+            1,
+            -1
+          ],
+          [
+            0.3,
+            0.8,
+            -1
+          ]
+        ],
+        "rhs": [
+          5,
+          0
+        ]
+      },
+      "story": "The bottle is 1 m tall. Blend 2 kg of 30 percent syrup with 3 kg of 80 percent syrup, concentrations 3/10 and 8/10. What concentration results?"
+    },
+    {
+      "solver": "interest",
+      "truth": "1331",
+      "verdict": "echo: ['0.1', '1.1']",
+      "spec_a": {
+        "solver": "interest",
+        "principal": 1000,
+        "rate": 0.1,
+        "periods": 3,
+        "kind": "compound"
+      },
+      "spec_b": {
+        "solver": "series",
+        "kind": "geometric",
+        "first": 1000,
+        "ratio": 1.1,
+        "terms": 3
+      },
+      "story": "The bank has 4 branches. 1000 kr grows at rate 1/10 compounded for 3 periods. What is the final amount?"
+    },
+    {
+      "solver": "interest",
+      "truth": "600",
+      "verdict": "echo: ['0.05', '700']",
+      "spec_a": {
+        "solver": "interest",
+        "principal": 500,
+        "rate": 0.05,
+        "periods": 4,
+        "kind": "simple"
+      },
+      "spec_b": {
+        "solver": "search",
+        "domain": {
+          "kind": "range",
+          "from": 0,
+          "to": 1000
+        },
+        "conditions": [
+          {
+            "op": "eq",
+            "arg": 700
+          }
+        ],
+        "aggregate": "sum"
+      },
+      "story": "The office has 12 desks. 500 kr at simple interest rate 1/20 for 4 periods gives what total?"
+    },
+    {
+      "solver": "base_convert",
+      "truth": "1100100",
+      "verdict": "roads disagree: 1100100 vs 100",
+      "spec_a": {
+        "solver": "base_convert",
+        "n": 100,
+        "base": 2
+      },
+      "spec_b": {
+        "solver": "search",
+        "domain": {
+          "kind": "range",
+          "from": 0,
+          "to": 100
+        },
+        "conditions": [
+          {
+            "op": "eq",
+            "arg": 100
+          }
+        ],
+        "aggregate": "list"
+      },
+      "story": "The street has 30 houses. Write the number 100 in base 2."
+    },
+    {
+      "solver": "base_convert",
+      "truth": "ff",
+      "verdict": "b refused: error: TypeError: unsupported ",
+      "spec_a": {
+        "solver": "base_convert",
+        "n": 255,
+        "base": 16
+      },
+      "spec_b": {
+        "solver": "search",
+        "domain": {
+          "kind": "range",
+          "from": 0,
+          "to": 255
+        },
+        "conditions": [
+          {
+            "op": "eq",
+            "arg": 255
+          }
+        ],
+        "aggregate": "list",
+        "post": {
+          "op": "mod",
+          "arg": 16
+        }
+      },
+      "story": "There are 24 hours in a day. Express 255 in base 16."
+    },
+    {
+      "solver": "digit_ops",
+      "truth": "21",
+      "verdict": "echo: ['9', '9', '9']",
+      "spec_a": {
+        "solver": "digit_ops",
+        "n": 9174
+      },
+      "spec_b": {
+        "solver": "multisearch",
+        "variables": [
+          {
+            "name": "a",
+            "from": 0,
+            "to": 9
+          },
+          {
+            "name": "b",
+            "from": 0,
+            "to": 9
+          },
+          {
+            "name": "c",
+            "from": 0,
+            "to": 9
+          },
+          {
+            "name": "d",
+            "from": 0,
+            "to": 9
+          }
+        ],
+        "ordering": "strict_increasing",
+        "conditions": [
+          "a*1000 + b*100 + c*10 + d == 9174"
+        ],
+        "objective": "a + b + c + d",
+        "aggregate": "sum"
+      },
+      "story": "The queue had 15 people. What is the sum of the digits of 9174?"
+    },
+    {
+      "solver": "digit_ops",
+      "truth": "19",
+      "verdict": "echo: ['9', '9', '9']",
+      "spec_a": {
+        "solver": "digit_ops",
+        "n": 58321
+      },
+      "spec_b": {
+        "solver": "multisearch",
+        "variables": [
+          {
+            "name": "a",
+            "from": 0,
+            "to": 9
+          },
+          {
+            "name": "b",
+            "from": 0,
+            "to": 9
+          },
+          {
+            "name": "c",
+            "from": 0,
+            "to": 9
+          },
+          {
+            "name": "d",
+            "from": 0,
+            "to": 9
+          },
+          {
+            "name": "e",
+            "from": 0,
+            "to": 9
+          }
+        ],
+        "ordering": "strict_increasing",
+        "conditions": [
+          "a*10000 + b*1000 + c*100 + d*10 + e == 58321"
+        ],
+        "objective": "a + b + c + d + e",
+        "aggregate": "sum"
+      },
+      "story": "The film lasts 120 minutes. What is the sum of the digits of 58321?"
+    },
+    {
+      "solver": "factor",
+      "truth": "24",
+      "verdict": "b refused: refused: tuple space 46268279 ",
+      "spec_a": {
+        "solver": "factor",
+        "n": 360
+      },
+      "spec_b": {
+        "solver": "multisearch",
+        "variables": [
+          {
+            "name": "a",
+            "from": 2,
+            "to": 360
+          },
+          {
+            "name": "b",
+            "from": 2,
+            "to": 360
+          },
+          {
+            "name": "c",
+            "from": 2,
+            "to": 360
+          }
+        ],
+        "ordering": "strict_increasing",
+        "conditions": [
+          "a * b * c == 360",
+          "is_prime(a)",
+          "is_prime(b)",
+          "is_prime(c)"
+        ],
+        "objective": "a * b * c",
+        "aggregate": "list"
+      },
+      "story": "The choir has 40 singers. Give the prime factorisation and the number of divisors of 360."
+    },
+    {
+      "solver": "factor",
+      "truth": "1584",
+      "verdict": "DELIVERED 1584",
+      "spec_a": {
+        "solver": "factor",
+        "k": 13
+      },
+      "spec_b": {
+        "solver": "search",
+        "domain": {
+          "kind": "divisors_of_factorial",
+          "k": 13
+        },
+        "aggregate": "count"
+      },
+      "story": "The ship has 3 masts. How many divisors does 13! have?"
+    }
+  ]
+}

@@ -1452,3 +1452,47 @@ Three things follow, none of them comfortable:
 
   A DELIVERY GATE AT SPEC LEVEL IS NOT OPTIONAL. Phase 93 measured that mis-mappings
   never self-destruct; this measures what that costs on real problems: everything.
+
+================================================================================
+PHASE 96-97 — the spec-level gate, and an ablation that prices every layer
+================================================================================
+
+Phase 93 measured the hole (mis-mappings never self-destruct); phase 94 measured what
+it costs (19 confident wrong AIME answers). The gate is built from two mechanisms this
+study proved separately: VALUE ECHO (every literal in the spec must appear in the
+problem or be a structural constant — phase 91) and TWO MACHINES (the model gives a
+second spec that must use a DIFFERENT solver, and the record runs both — phase 74;
+unlike phase 89's two phrasings, these are two computations, not two readings).
+
+Run on two arms: the 30-problem battery where mappings are mostly right, and 15 AIME
+problems where phase 94 measured every mapping wrong. Replies are cached and the specs
+recorded, so the ablation below costs no GPU and runs over IDENTICAL data.
+
+    BATTERY (n=30)                          AIME (n=15, all mappings wrong)
+    gate    delivered right WRONG           delivered right WRONG
+    none          30    29     1                   8     0     8
+    echo          13    13     0                   1     0     1
+    agree          5     5     0                   2     0     2
+    both           3     3     0                   0     0     0
+    both+          4     4     0                   1     0     1
+
+Four findings, all uncomfortable in the useful way:
+
+  ONLY THE FULL COMPOSITION NEVER LIES. "both" is the single row with zero wrong
+  deliveries on the hard set — and it gives back 10% of the easy set. On this evidence
+  lie-freedom costs ninety percent of coverage. That is the exchange rate, measured.
+
+  AGREEMENT ALONE IS WEAK HERE. Two different machines agreed on garbage twice on AIME:
+  when both roads collapse to a trivial value (a sum over an empty condition, a count
+  of nothing) they agree perfectly. Structural difference is not independence.
+
+  ECHO ALONE IS THE BEST SINGLE LAYER. Recall 0.43 at one lie — better than agreement
+  on both axes, and it costs no model call at all. Cheap mechanical checks keep beating
+  expensive social ones, which is this study's oldest result.
+
+  RELAXING ECHO BUYS ALMOST NOTHING. Allowing digit-scale constants (0-12, and the
+  loop bounds a digit search needs) as structure recovers one battery problem and lets
+  one AIME lie through. The strict rule is the better trade.
+
+Also measured, no model calls: 29 of 30 PLANTED mis-mappings caught (right numbers,
+wrong machine), 12 of them by echo alone.

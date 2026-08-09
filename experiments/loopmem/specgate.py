@@ -39,6 +39,24 @@ from solvemap import BATTERY, PREDICATE_HELP, SCHEMAS, answer_of, parse_spec  # 
 from solvers2 import run2  # noqa: E402
 
 STRUCTURAL = {0, 1, 2, 10, 100, 1000}      # constants a spec may use unquoted
+# Digit bounds and small loop limits are structure, not data: a spec that searches
+# digits 0..9 has invented nothing. Measured cost of NOT allowing these: 17 of 30
+# battery problems flagged on literals like a repeated 9.
+STRUCTURAL_RELAXED = STRUCTURAL | set(range(0, 13)) | {20, 50, 60, 360, 1000000}
+
+CACHE = Path("data/custom/specgate-cache.json")
+
+
+def cached_ask(prompt, n=600):
+    """Replies are cached by prompt so the gate's ablation costs no GPU to recompute."""
+    store = json.loads(CACHE.read_text()) if CACHE.exists() else {}
+    key = str(hash(prompt))
+    if key in store:
+        return store[key]
+    reply = ask_spec(prompt, n=n)
+    store[key] = reply
+    CACHE.write_text(json.dumps(store))
+    return reply
 
 TWO_ROADS = """Map this problem onto the solver catalogue TWICE, using a DIFFERENT
 solver each time, so two different machines compute the same answer. Do not compute
@@ -76,7 +94,7 @@ def literals(obj, out=None):
     return out
 
 
-def value_echo(spec, story):
+def value_echo(spec, story, allowed=None):
     """Which literals are NOT in the text and not structural — the mechanical filter."""
     nums = re.findall(r"\d+(?:\.\d+)?(?:/\d+)?", story)
     text_vals = set(nums)
@@ -90,7 +108,7 @@ def value_echo(spec, story):
         if lit in text_vals:
             continue
         try:
-            if float(F(lit)) in STRUCTURAL:
+            if float(F(lit)) in (allowed or STRUCTURAL):
                 continue
         except (ValueError, ZeroDivisionError):
             pass
@@ -150,9 +168,9 @@ def main(n_inspect=0, out="data/custom/specgate.json"):
              planted=0, planted_caught=0, planted_by_echo=0, planted_slipped=0)
     rows = []
     for solver, story, truth in BATTERY:
-        reply = ask_spec(TWO_ROADS.format(story=story, catalogue=catalogue,
-                                          preds=PREDICATE_HELP,
-                                          funcs=EXPR_FUNCS_HELP), n=600)
+        reply = cached_ask(TWO_ROADS.format(story=story, catalogue=catalogue,
+                                            preds=PREDICATE_HELP,
+                                            funcs=EXPR_FUNCS_HELP))
         outer = parse_spec(reply)
         sa = sb = None
         if outer:
@@ -200,6 +218,7 @@ def main(n_inspect=0, out="data/custom/specgate.json"):
                 ok = na == norm(truth)
                 t["right" if ok else "wrong"] += 1
                 row["verdict"] = f"DELIVERED {na}" + ("" if ok else f" != {truth}")
+        row["spec_a"], row["spec_b"], row["story"] = sa, sb, story
         rows.append(row)
         print(f"{solver:<14} {row['verdict'][:66]}")
 
@@ -241,14 +260,17 @@ def main(n_inspect=0, out="data/custom/specgate.json"):
     apicks = _r.Random(5).sample(aime, 30)[:15]
     a = dict(seen=0, delivered=0, right=0, wrong=0, flagged=0, echo=0,
              disagree=0, no_second=0, refused=0)
+    arows = []
     for problem, truth in apicks:
+        arows.append({"story": problem[:400], "truth": str(truth)})
         a["seen"] += 1
-        reply = ask_spec(TWO_ROADS.format(story=problem, catalogue=catalogue,
-                                          preds=PREDICATE_HELP,
-                                          funcs=EXPR_FUNCS_HELP), n=600)
+        reply = cached_ask(TWO_ROADS.format(story=problem, catalogue=catalogue,
+                                            preds=PREDICATE_HELP,
+                                            funcs=EXPR_FUNCS_HELP))
         outer = parse_spec(reply)
         sa = outer.get("spec_a") if outer else None
         sb = outer.get("spec_b") if outer else None
+        arows[-1].update({"spec_a": sa, "spec_b": sb})
         if not isinstance(sa, dict):
             a["flagged"] += 1
             continue
@@ -278,6 +300,7 @@ def main(n_inspect=0, out="data/custom/specgate.json"):
         a["delivered"] += 1
         ok = norm(answer_of(ra)) == norm(str(truth))
         a["right" if ok else "wrong"] += 1
+    a["rows"] = arows
     print(f"\nAIME arm ({a['seen']} problems where phase 94 measured every mapping "
           f"wrong):")
     print(f"  delivered {a['delivered']} (right {a['right']}, WRONG {a['wrong']}), "

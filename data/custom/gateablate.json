@@ -1,0 +1,68 @@
+{
+  "battery": {
+    "none": {
+      "delivered": 30,
+      "right": 29,
+      "wrong": 1,
+      "flagged": 0
+    },
+    "echo": {
+      "delivered": 13,
+      "right": 13,
+      "wrong": 0,
+      "flagged": 17
+    },
+    "agree": {
+      "delivered": 5,
+      "right": 5,
+      "wrong": 0,
+      "flagged": 25
+    },
+    "both": {
+      "delivered": 3,
+      "right": 3,
+      "wrong": 0,
+      "flagged": 27
+    },
+    "both+": {
+      "delivered": 4,
+      "right": 4,
+      "wrong": 0,
+      "flagged": 26
+    }
+  },
+  "aime": {
+    "none": {
+      "delivered": 8,
+      "right": 0,
+      "wrong": 8,
+      "flagged": 7
+    },
+    "echo": {
+      "delivered": 1,
+      "right": 0,
+      "wrong": 1,
+      "flagged": 14
+    },
+    "agree": {
+      "delivered": 2,
+      "right": 0,
+      "wrong": 2,
+      "flagged": 13
+    },
+    "both": {
+      "delivered": 0,
+      "right": 0,
+      "wrong": 0,
+      "flagged": 15
+    },
+    "both+": {
+      "delivered": 1,
+      "right": 0,
+      "wrong": 1,
+      "flagged": 14
+    }
+  },
+  "n_battery": 30,
+  "n_aime": 15
+}
