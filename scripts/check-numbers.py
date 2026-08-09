@@ -1464,6 +1464,17 @@ CHECKS = [
      23.0, 0.001, "deliveries exact through the coupled system, against 19 lexical"),
     ("data/custom/formgraph.json", lambda d: float(d["fit_empty"]),
      0.0, 0.001, "stories no formula shape could fit"),
+    # MPEqs' solver library: classes of problems, exact, and a chained AIME solve.
+    ("data/custom/solvers.json", lambda d: float(d["passed"]),
+     22.0, 0.001, "solver self-test cases exact of 22"),
+    ("data/custom/solvers.json", lambda d: float(d["failed"]),
+     0.0, 0.001, "self-test failures after the anchor autopsy"),
+    ("data/custom/solvers.json", lambda d: float(d["refusals_named"]),
+     6.0, 0.001, "refusals raised with the right reason"),
+    ("data/custom/solvers.json", lambda d: float(d["chain_answer"]),
+     12.0, 0.001, "the chained AIME answer: search then factor then exponent sum"),
+    ("data/custom/solvers.json", lambda d: float(d["solvers"] + d["predicates"]),
+     37.0, 0.001, "solvers plus search predicates in the library"),
     # Two-sided labels on the chord metric: no better than one relay, twice the memory.
     ("data/custom/hub-corpus.json", lambda d: d["exact_cell_pct"],
      1.34, 0.7, "two-sided hub labels on the angular metric"),

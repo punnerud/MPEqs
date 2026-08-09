@@ -1310,3 +1310,36 @@ Authority flows one way, and both directions were measured:
 Every delivered number computed exactly by the record from the model's verified
 graph; the founding division holds: the model reads, embeddings propose, the typed
 graph disposes, arithmetic never leaves the record's hands.
+
+================================================================================
+PHASE 92 — MPEqs' generic solver library: the record grows by CLASSES
+================================================================================
+
+Phase 91 gave the record a formula library — one relation per entry. This gives it a
+SOLVER library: parameterised machines for whole problem classes, each taking a typed
+spec (never code), executing exactly in Fractions or integers, refusing by name, and
+reporting its work so a runaway search dies instead of hanging.
+
+    15 solvers: search, linear_system, quadratic, crt, gcd_lcm, series,
+    combinatorics, recurrence, rate_work, ratio_split, mixture, interest,
+    base_convert, digit_ops, factor
+    22 search predicates, 45 wordings (the lexical face, for embedding proposal)
+    22/22 self-test cases exact, 6/6 refusals named and correct
+
+The load-bearing one is SEARCH, because so many olympiad questions are "the <aggregate>
+of all n in <domain> such that <conditions>": a domain (integer range, divisors of N,
+divisors of k! via Legendre so 13! is never built), a conjunction of predicates, an
+aggregate, and a post-op — which is exactly how AIME's "answer mod 1000" is said.
+
+AND IT SOLVES A REAL AIME PROBLEM BY CHAINING, WITH NO MODEL AT ALL. "The sum of all m
+with 13!/m a perfect square is 2^a 3^b 5^c 7^d 11^e 13^f; find a+b+c+d+e+f": search
+returns 9,698,458,770, factor returns 2·3²·5·7³·11·13⁴, the exponent sum is 12 — the
+published answer, and the problem phase 89's solo arms got right only 2 times in 10.
+
+FOUR SELF-TEST FAILURES, AUTOPSIED: three were MY hand anchors (the 13! sum invented as
+4989600 when hand derivation gives 9698458770; eight digit-sum multiples of 7 where
+there are ten; 43/100 for a mixture that is 41/100), one was a REAL code bug (factor
+with k=13 still demanded an "n", and the dispatcher reported the KeyError honestly as
+an error rather than an answer). The tally across the study is now 7 hand-anchor errors
+against 1 machinery error, and the machinery error was caught by the anchors — which is
+the whole argument for writing truths before code.

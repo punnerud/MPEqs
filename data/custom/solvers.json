@@ -1,0 +1,169 @@
+{
+  "chain_answer": 12,
+  "chain_ok": true,
+  "cases": 22,
+  "passed": 22,
+  "failed": 0,
+  "refusals": 6,
+  "refusals_named": 6,
+  "cross_check": true,
+  "solvers": 15,
+  "predicates": 22,
+  "wordings": 45,
+  "rows": [
+    {
+      "solver": "search",
+      "ok": true,
+      "got": "9698458770",
+      "truth": "9698458770",
+      "why": "ok"
+    },
+    {
+      "solver": "search",
+      "ok": true,
+      "got": "10",
+      "truth": "10",
+      "why": "ok"
+    },
+    {
+      "solver": "search",
+      "ok": true,
+      "got": "385",
+      "truth": "385",
+      "why": "ok"
+    },
+    {
+      "solver": "search",
+      "ok": true,
+      "got": "24",
+      "truth": "24",
+      "why": "ok"
+    },
+    {
+      "solver": "linear_system",
+      "ok": true,
+      "got": "['3', '2']",
+      "truth": "['3', '2']",
+      "why": "ok"
+    },
+    {
+      "solver": "linear_system",
+      "ok": true,
+      "got": "['1', '2', '3']",
+      "truth": "['1', '2', '3']",
+      "why": "ok"
+    },
+    {
+      "solver": "quadratic",
+      "ok": true,
+      "got": "['3', '2']",
+      "truth": "['3', '2']",
+      "why": "ok"
+    },
+    {
+      "solver": "quadratic",
+      "ok": true,
+      "got": "['-1', '-1']",
+      "truth": "['-1', '-1']",
+      "why": "ok"
+    },
+    {
+      "solver": "crt",
+      "ok": true,
+      "got": "23",
+      "truth": "23",
+      "why": "ok"
+    },
+    {
+      "solver": "gcd_lcm",
+      "ok": true,
+      "got": "{'gcd': 6, 'lcm': 180}",
+      "truth": "{'gcd': 6, 'lcm': 180}",
+      "why": "ok"
+    },
+    {
+      "solver": "series",
+      "ok": true,
+      "got": "210",
+      "truth": "210",
+      "why": "ok"
+    },
+    {
+      "solver": "series",
+      "ok": true,
+      "got": "2",
+      "truth": "2",
+      "why": "ok"
+    },
+    {
+      "solver": "combinatorics",
+      "ok": true,
+      "got": "120",
+      "truth": "120",
+      "why": "ok"
+    },
+    {
+      "solver": "combinatorics",
+      "ok": true,
+      "got": "36",
+      "truth": "36",
+      "why": "ok"
+    },
+    {
+      "solver": "combinatorics",
+      "ok": true,
+      "got": "44",
+      "truth": "44",
+      "why": "ok"
+    },
+    {
+      "solver": "recurrence",
+      "ok": true,
+      "got": "89",
+      "truth": "89",
+      "why": "ok"
+    },
+    {
+      "solver": "rate_work",
+      "ok": true,
+      "got": "12/5",
+      "truth": "12/5",
+      "why": "ok"
+    },
+    {
+      "solver": "ratio_split",
+      "ok": true,
+      "got": "['24', '36', '60']",
+      "truth": "['24', '36', '60']",
+      "why": "ok"
+    },
+    {
+      "solver": "mixture",
+      "ok": true,
+      "got": "41/100",
+      "truth": "41/100",
+      "why": "ok"
+    },
+    {
+      "solver": "interest",
+      "ok": true,
+      "got": "1331",
+      "truth": "1331",
+      "why": "ok"
+    },
+    {
+      "solver": "base_convert",
+      "ok": true,
+      "got": "1100100",
+      "truth": "1100100",
+      "why": "ok"
+    },
+    {
+      "solver": "factor",
+      "ok": true,
+      "got": "1584",
+      "truth": "None",
+      "why": "ok"
+    }
+  ]
+}
