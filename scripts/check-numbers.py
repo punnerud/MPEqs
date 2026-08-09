@@ -1475,6 +1475,23 @@ CHECKS = [
      12.0, 0.001, "the chained AIME answer: search then factor then exponent sum"),
     ("data/custom/solvers.json", lambda d: float(d["solvers"] + d["predicates"]),
      37.0, 0.001, "solvers plus search predicates in the library"),
+    # Mapping onto the library: guiding lost, and mis-mappings never self-destruct.
+    ("data/custom/solvemap.json", lambda d: float(d["free_exact"]),
+     29.0, 0.001, "free-arm exact deliveries of 30"),
+    ("data/custom/solvemap.json", lambda d: float(d["guided_exact"]),
+     26.0, 0.001, "guided-arm exact deliveries — narrowing the job lost"),
+    ("data/custom/solvemap.json",
+     lambda d: float(d["free_refused"] + d["guided_refused"]),
+     0.0, 0.001, "specs the record refused: none, so mis-mappings answer confidently"),
+    ("data/custom/solvemap.json", lambda d: float(d["embed_top1"]),
+     28.0, 0.001, "solver classes the embedding alone picked right"),
+    # Growth: expressions, tuples, polynomials, coordinates, modular arithmetic.
+    ("data/custom/solvers2.json", lambda d: float(d["passed"]),
+     15.0, 0.001, "grown-library self-test cases exact"),
+    ("data/custom/solvers2.json", lambda d: float(d["refusals_named"]),
+     6.0, 0.001, "refusals named, three of them expression-sandbox escapes"),
+    ("data/custom/solvers2.json", lambda d: float(d["solvers_total"]),
+     19.0, 0.001, "solvers in MPEqs after the growth phase"),
     # Two-sided labels on the chord metric: no better than one relay, twice the memory.
     ("data/custom/hub-corpus.json", lambda d: d["exact_cell_pct"],
      1.34, 0.7, "two-sided hub labels on the angular metric"),

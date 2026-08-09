@@ -1343,3 +1343,72 @@ with k=13 still demanded an "n", and the dispatcher reported the KeyError honest
 an error rather than an answer). The tally across the study is now 7 hand-anchor errors
 against 1 machinery error, and the machinery error was caught by the anchors — which is
 the whole argument for writing truths before code.
+
+================================================================================
+PHASE 93 — mapping problems onto the solver library, and a hypothesis that died
+================================================================================
+
+Thirty problems (two per solver, distractor quantities throughout, truths verified
+against the library BEFORE any model call — which caught three more of my anchors:
+273 not 812, a(5)=111 not 63, digit sum 21 not 24). The model emits a JSON spec; the
+record validates and executes; nobody computes but the record.
+
+    embedding alone picks the right solver        28/30
+    FREE   (whole catalogue, model chooses)       solver right 27/30, all 30 specs
+                                                  parsed and ran -> EXACT 29/30
+    GUIDED (embedding chooses, model fills only)  solver right 26/30, 28 parsed
+                                                  -> EXACT 26/30
+
+TWO FINDINGS, BOTH AGAINST WHAT I WROTE IN THE FILE'S OWN DOCSTRING BEFORE RUNNING IT:
+
+  GUIDING MADE IT WORSE. The division of labour that has won at every earlier scale —
+  narrow the model's job to slot-filling — LOSES here, 26 against 29. The two embedding
+  misses propagate into confident wrong answers (a search problem forced through
+  digit_ops returns 1; an arithmetic series forced through recurrence returns 487),
+  and two mixture specs simply never came. Seeing the whole catalogue is itself
+  information: at 35B, choosing was not the bottleneck, and taking the choice away
+  removed a correction the model was making for free.
+
+  A WRONG CHOICE DOES NOT SELF-DESTRUCT. Both arms refused ZERO specs. The slots are
+  generic enough that a mis-chosen solver still fills and still runs, so the record's
+  validation catches malformed specs but not misapplied ones. The delivery gate this
+  study wants at spec level does not exist yet — that is now a measured hole, not an
+  assumption.
+
+And the one FREE "error" is not one: the CRT problem was mapped onto search over a
+range with two mod_eq conditions and aggregate "list", which found exactly [13] — the
+right number in the wrong shape. Alternative valid mappings are real (the label is not
+the only correct answer), and a shape-normalising comparator would score FREE 30/30.
+Reported both ways rather than rescored.
+
+================================================================================
+PHASE 95 (built before phase 94's evidence, deliberately) — the library grows by
+expressions: tuples, polynomials, coordinates, modular arithmetic
+================================================================================
+
+Phase 92's search has a fixed predicate list and ONE variable, which is exactly where
+competition problems escape it: they ask about pairs and triples related by arithmetic
+nobody enumerated in advance. The general move is to let conditions be EXPRESSIONS,
+written as ordinary strings — because format is capability (phase 84), and
+"a*a + b*b == c*c" is something any model can write while nested predicate JSON is not.
+
+Safety is phase 90's discipline reused: the string goes through Python's own parser and
+is walked against a whitelist of node types and function names, so what executes is
+arithmetic over bound variables and nothing else.
+
+    multisearch  1-4 variables with ranges, optional strict ordering, expression
+                 conditions tested AS SOON AS their variables bind (so triples are
+                 feasible), an objective expression, aggregates, mod post-op
+    polynomial   exact rational roots (verified, not guessed), Vieta, evaluation
+    geometry     exact coordinates: squared distance, shoelace area, collinearity,
+                 circle through three points, line intersection
+    modular      modpow, inverse, multiplicative order, totient
+
+    15/15 self-test cases exact, 6/6 refusals named — three of them attempted
+    escapes from the expression sandbox (an __import__ call, an attribute access,
+    a variable-exponent power), all refused by the AST walk before evaluation
+    MPEqs now holds 19 solvers; expressions admit 14 functions over up to 4 variables
+
+Written and self-tested BEFORE the coverage sweep of phase 94 ran, so that phase's
+named-missing list is an honest test of whether this growth was aimed at the right
+thing — a prediction, registered by timestamp in the repository, not a rationalisation.

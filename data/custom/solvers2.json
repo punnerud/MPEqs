@@ -1,0 +1,116 @@
+{
+  "cases": 15,
+  "passed": 15,
+  "failed": 0,
+  "refusals": 6,
+  "refusals_named": 6,
+  "solvers_total": 19,
+  "expr_funcs": 14,
+  "rows": [
+    {
+      "solver": "multisearch",
+      "ok": true,
+      "got": "6",
+      "truth": "6",
+      "why": "ok"
+    },
+    {
+      "solver": "multisearch",
+      "ok": true,
+      "got": "8",
+      "truth": "8",
+      "why": "ok"
+    },
+    {
+      "solver": "multisearch",
+      "ok": true,
+      "got": "70",
+      "truth": "70",
+      "why": "ok"
+    },
+    {
+      "solver": "multisearch",
+      "ok": true,
+      "got": "10",
+      "truth": "10",
+      "why": "ok"
+    },
+    {
+      "solver": "polynomial",
+      "ok": true,
+      "got": "['1', '2', '3']",
+      "truth": "['1', '2', '3']",
+      "why": "ok"
+    },
+    {
+      "solver": "polynomial",
+      "ok": true,
+      "got": "36",
+      "truth": "36",
+      "why": "ok"
+    },
+    {
+      "solver": "geometry",
+      "ok": true,
+      "got": "12",
+      "truth": "12",
+      "why": "ok"
+    },
+    {
+      "solver": "geometry",
+      "ok": true,
+      "got": "25",
+      "truth": "25",
+      "why": "ok"
+    },
+    {
+      "solver": "geometry",
+      "ok": true,
+      "got": "['1', '1']",
+      "truth": "None",
+      "why": "ok"
+    },
+    {
+      "solver": "geometry",
+      "ok": true,
+      "got": "['6', '4']",
+      "truth": "['6', '4']",
+      "why": "ok"
+    },
+    {
+      "solver": "modular",
+      "ok": true,
+      "got": "9",
+      "truth": "9",
+      "why": "ok"
+    },
+    {
+      "solver": "modular",
+      "ok": true,
+      "got": "3",
+      "truth": "3",
+      "why": "ok"
+    },
+    {
+      "solver": "modular",
+      "ok": true,
+      "got": "12",
+      "truth": "12",
+      "why": "ok"
+    },
+    {
+      "solver": "modular",
+      "ok": true,
+      "got": "4",
+      "truth": "4",
+      "why": "ok"
+    },
+    {
+      "solver": "crt",
+      "ok": true,
+      "got": "23",
+      "truth": "23",
+      "why": "ok"
+    }
+  ]
+}

@@ -1,0 +1,228 @@
+{
+  "n": 30,
+  "embed_top1": 28,
+  "free_solver_right": 27,
+  "free_parsed": 30,
+  "free_ran": 30,
+  "free_exact": 29,
+  "free_wrong": 1,
+  "free_refused": 0,
+  "guided_solver_right": 26,
+  "guided_parsed": 28,
+  "guided_ran": 28,
+  "guided_exact": 26,
+  "guided_wrong": 2,
+  "guided_refused": 0,
+  "rows": [
+    {
+      "solver": "search",
+      "story": "The class has 30 pupils. What is the sum of all mult",
+      "embed": "digit_ops",
+      "free": "273",
+      "guided": "1 != 273"
+    },
+    {
+      "solver": "search",
+      "story": "The book has 12 chapters. How many integers from 1 t",
+      "embed": "search",
+      "free": "22",
+      "guided": "22"
+    },
+    {
+      "solver": "linear_system",
+      "story": "The shop opened in 1998. Two numbers satisfy 2x + 3y",
+      "embed": "linear_system",
+      "free": "['3', '2']",
+      "guided": "['3', '2']"
+    },
+    {
+      "solver": "linear_system",
+      "story": "There are 4 seasons. Solve x + y = 10 and 3x - y = 1",
+      "embed": "linear_system",
+      "free": "['6', '4']",
+      "guided": "['6', '4']"
+    },
+    {
+      "solver": "quadratic",
+      "story": "The room has 4 walls. Solve x^2 - 5x + 6 = 0.",
+      "embed": "quadratic",
+      "free": "['3', '2']",
+      "guided": "['3', '2']"
+    },
+    {
+      "solver": "quadratic",
+      "story": "It rained 3 days. Find the roots of 2x^2 - 8x + 6 = ",
+      "embed": "quadratic",
+      "free": "['3', '1']",
+      "guided": "['3', '1']"
+    },
+    {
+      "solver": "crt",
+      "story": "The team has 11 players. Find the smallest positive ",
+      "embed": "crt",
+      "free": "23",
+      "guided": "23"
+    },
+    {
+      "solver": "crt",
+      "story": "The bus runs 9 times a day. What number leaves remai",
+      "embed": "crt",
+      "free": "[13] != 13",
+      "guided": "13"
+    },
+    {
+      "solver": "gcd_lcm",
+      "story": "The garden has 7 trees. What is the greatest common ",
+      "embed": "gcd_lcm",
+      "free": "{'gcd': 6, 'lcm': 180}",
+      "guided": "{'gcd': 6, 'lcm': 180}"
+    },
+    {
+      "solver": "gcd_lcm",
+      "story": "The car has 4 doors. Two lights blink every 14 and 2",
+      "embed": "gcd_lcm",
+      "free": "{'gcd': 7, 'lcm': 42}",
+      "guided": "{'gcd': 7, 'lcm': 42}"
+    },
+    {
+      "solver": "series",
+      "story": "The hall seats 200. Add up the first 10 terms of the",
+      "embed": "recurrence",
+      "free": "210",
+      "guided": "487 != 210"
+    },
+    {
+      "solver": "series",
+      "story": "The pen costs 20 kr. What is the total of the infini",
+      "embed": "series",
+      "free": "2",
+      "guided": "2"
+    },
+    {
+      "solver": "combinatorics",
+      "story": "The shelf holds 50 books. In how many ways can 3 pup",
+      "embed": "combinatorics",
+      "free": "120",
+      "guided": "120"
+    },
+    {
+      "solver": "combinatorics",
+      "story": "The week has 7 days. How many ways can 7 identical s",
+      "embed": "combinatorics",
+      "free": "36",
+      "guided": "36"
+    },
+    {
+      "solver": "recurrence",
+      "story": "The tree is 20 years old. A sequence starts 1, 1 and",
+      "embed": "recurrence",
+      "free": "89",
+      "guided": "89"
+    },
+    {
+      "solver": "recurrence",
+      "story": "The lift holds 8 people. A sequence starts 2, 3 and ",
+      "embed": "recurrence",
+      "free": "111",
+      "guided": "111"
+    },
+    {
+      "solver": "rate_work",
+      "story": "The wall is 3 m high. One painter finishes in 4 hour",
+      "embed": "rate_work",
+      "free": "12/5",
+      "guided": "12/5"
+    },
+    {
+      "solver": "rate_work",
+      "story": "The pool is 2 m deep. One pipe fills it in 3 hours, ",
+      "embed": "rate_work",
+      "free": "2",
+      "guided": "2"
+    },
+    {
+      "solver": "ratio_split",
+      "story": "The trip took 5 days. Split 120 kr between three peo",
+      "embed": "ratio_split",
+      "free": "['24', '36', '60']",
+      "guided": "['24', '36', '60']"
+    },
+    {
+      "solver": "ratio_split",
+      "story": "The bag weighs 2 kg. Divide 90 sweets between two ch",
+      "embed": "ratio_split",
+      "free": "['40', '50']",
+      "guided": "['40', '50']"
+    },
+    {
+      "solver": "mixture",
+      "story": "The lab has 6 benches. Mix 3 litres at concentration",
+      "embed": "mixture",
+      "free": "41/100",
+      "guided": "no spec"
+    },
+    {
+      "solver": "mixture",
+      "story": "The bottle is 1 m tall. Blend 2 kg of 30 percent syr",
+      "embed": "mixture",
+      "free": "3/5",
+      "guided": "no spec"
+    },
+    {
+      "solver": "interest",
+      "story": "The bank has 4 branches. 1000 kr grows at rate 1/10 ",
+      "embed": "interest",
+      "free": "1331",
+      "guided": "1331"
+    },
+    {
+      "solver": "interest",
+      "story": "The office has 12 desks. 500 kr at simple interest r",
+      "embed": "interest",
+      "free": "600",
+      "guided": "600"
+    },
+    {
+      "solver": "base_convert",
+      "story": "The street has 30 houses. Write the number 100 in ba",
+      "embed": "base_convert",
+      "free": "1100100",
+      "guided": "1100100"
+    },
+    {
+      "solver": "base_convert",
+      "story": "There are 24 hours in a day. Express 255 in base 16.",
+      "embed": "base_convert",
+      "free": "ff",
+      "guided": "ff"
+    },
+    {
+      "solver": "digit_ops",
+      "story": "The queue had 15 people. What is the sum of the digi",
+      "embed": "digit_ops",
+      "free": "21",
+      "guided": "21"
+    },
+    {
+      "solver": "digit_ops",
+      "story": "The film lasts 120 minutes. What is the sum of the d",
+      "embed": "digit_ops",
+      "free": "19",
+      "guided": "19"
+    },
+    {
+      "solver": "factor",
+      "story": "The choir has 40 singers. Give the prime factorisati",
+      "embed": "factor",
+      "free": "24",
+      "guided": "24"
+    },
+    {
+      "solver": "factor",
+      "story": "The ship has 3 masts. How many divisors does 13! hav",
+      "embed": "factor",
+      "free": "1584",
+      "guided": "1584"
+    }
+  ]
+}
