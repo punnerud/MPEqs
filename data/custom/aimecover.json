@@ -1,0 +1,197 @@
+{
+  "n": 30,
+  "library": 1,
+  "claimed": 22,
+  "ran": 19,
+  "wrong": 19,
+  "refused": 3,
+  "no_reply": 3,
+  "declined": 5,
+  "solvers_used": {
+    "search": 16,
+    "linear_system": 3,
+    "recurrence": 1,
+    "quadratic": 2
+  },
+  "missing": [
+    "geometric probability on a circle with diametric constraints",
+    "symbolic algebra and logarithmic equation solving",
+    "solving systems of nonlinear equations with square roots and algebraic manipulation",
+    "geometric reasoning and symbolic algebra",
+    "geometric reasoning and algebraic manipulation"
+  ],
+  "rows": [
+    {
+      "truth": "12",
+      "i": 0,
+      "outcome": "13 != 12",
+      "solver": "search"
+    },
+    {
+      "truth": "4",
+      "i": 1,
+      "outcome": "817 != 4",
+      "solver": "search"
+    },
+    {
+      "truth": "81",
+      "i": 2,
+      "outcome": "2 != 81",
+      "solver": "search"
+    },
+    {
+      "truth": "125",
+      "i": 3,
+      "outcome": "1 != 125",
+      "solver": "search"
+    },
+    {
+      "truth": "751",
+      "i": 4,
+      "outcome": "['0', '2', '8', '10'] != 751",
+      "solver": "linear_system"
+    },
+    {
+      "truth": "738",
+      "i": 5,
+      "outcome": "41 != 738",
+      "solver": "search"
+    },
+    {
+      "truth": "250",
+      "i": 6,
+      "outcome": "spec refused: refused: system is not square",
+      "solver": "linear_system"
+    },
+    {
+      "truth": "928",
+      "i": 7,
+      "outcome": "0 != 928",
+      "solver": "search"
+    },
+    {
+      "truth": "51",
+      "i": 8,
+      "outcome": "0 != 51",
+      "solver": "search"
+    },
+    {
+      "truth": "75",
+      "i": 9,
+      "outcome": "None != 75",
+      "solver": "search"
+    },
+    {
+      "truth": "756",
+      "i": 10,
+      "outcome": "unparseable reply"
+    },
+    {
+      "truth": "244",
+      "i": 11,
+      "outcome": "233 != 244",
+      "solver": "recurrence"
+    },
+    {
+      "truth": "154",
+      "i": 12,
+      "outcome": "None != 154",
+      "solver": "search"
+    },
+    {
+      "truth": "363",
+      "i": 13,
+      "outcome": "0 != 363",
+      "solver": "search"
+    },
+    {
+      "truth": "245",
+      "i": 14,
+      "outcome": "1 != 245",
+      "solver": "search"
+    },
+    {
+      "truth": "550",
+      "i": 15,
+      "outcome": "[] != 550",
+      "solver": "quadratic"
+    },
+    {
+      "truth": "227",
+      "i": 16,
+      "outcome": "[] != 227",
+      "solver": "search"
+    },
+    {
+      "truth": "21",
+      "i": 17,
+      "outcome": "0 != 21",
+      "solver": "search"
+    },
+    {
+      "truth": "191",
+      "i": 18,
+      "outcome": "declined: geometric probability on a circle with diametric constraints"
+    },
+    {
+      "truth": "585",
+      "i": 19,
+      "outcome": "999 != 585",
+      "solver": "search"
+    },
+    {
+      "truth": "112",
+      "i": 20,
+      "outcome": "declined: symbolic algebra and logarithmic equation solving"
+    },
+    {
+      "truth": "125",
+      "i": 21,
+      "outcome": "spec refused: error: TypeError: unsupported operand type(s) for %: 'list' ",
+      "solver": "search"
+    },
+    {
+      "truth": "33",
+      "i": 22,
+      "outcome": "declined: solving systems of nonlinear equations with square roots and algebraic"
+    },
+    {
+      "truth": "349",
+      "i": 23,
+      "outcome": "unparseable reply"
+    },
+    {
+      "truth": "106",
+      "i": 24,
+      "outcome": "['(-0 +- sqrt(512)) / 2'] != 106",
+      "solver": "quadratic"
+    },
+    {
+      "truth": "116",
+      "i": 25,
+      "outcome": "spec refused: refused: system is not square",
+      "solver": "linear_system"
+    },
+    {
+      "truth": "378",
+      "i": 26,
+      "outcome": "declined: geometric reasoning and symbolic algebra"
+    },
+    {
+      "truth": "841",
+      "i": 27,
+      "outcome": "unparseable reply"
+    },
+    {
+      "truth": "180",
+      "i": 28,
+      "outcome": "declined: geometric reasoning and algebraic manipulation"
+    },
+    {
+      "truth": "459",
+      "i": 29,
+      "outcome": "0 != 459",
+      "solver": "search"
+    }
+  ]
+}

@@ -27,7 +27,7 @@ from collections import Counter
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from aimebudget import ask_work  # noqa: E402
+from aimebudget import BIN, QWEN, ask_work  # noqa: E402
 from olympiad import load_problems  # noqa: E402
 from solvemap import PREDICATE_HELP, SCHEMAS, answer_of, parse_spec  # noqa: E402
 from solvers import run  # noqa: E402
@@ -55,6 +55,27 @@ SCHEMAS2 = {
 }
 EXPR_FUNCS_HELP = ("abs, min, max, gcd, lcm, isqrt, digit_sum, digit_count, "
                    "is_square, is_prime, num_divisors")
+
+def ask_spec(prompt, n=700):
+    """Same runner as phase 89, with the JSON opening brace PREFILLED into the reply.
+
+    The first sweep read 22 of 30 replies as unparseable, and the autopsy said the model
+    had ignored the format and written 2400-3500 characters of prose working instead —
+    solving rather than mapping. Prefilling one character removes the prose branch
+    entirely, which is phase 84's law (format is capability) applied at 35B. Declared as
+    a format intervention, not a capability claim: the same model, told where to start.
+    """
+    import subprocess
+    from pathlib import Path as _P
+    _P("/tmp/aimecover-in.txt").write_text(
+        "<|im_start|>user\n" + prompt + "<|im_end|>\n<|im_start|>assistant\n"
+        "<think>\n</think>\n\n{")
+    out = subprocess.run(
+        [BIN, "-m", QWEN, "-f", "/tmp/aimecover-in.txt", "-n", str(n), "--temp", "0",
+         "-no-cnv", "-st", "-ngl", "99"], capture_output=True, text=True).stdout
+    tail = out.rsplit("</think>", 1)[-1].split("[end of text]")[0]
+    return "{" + tail.split("{", 1)[-1] if "{" in tail else tail
+
 
 MAP_OR_NAME = """Map this competition problem onto ONE solver from the catalogue, or
 say what is missing. Do not compute the answer yourself — the executor computes it from
@@ -88,8 +109,8 @@ def main(n_problems=30, library=1, seed=5, out=None):
     tally = Counter()
     missing, rows = [], []
     for i, (problem, truth) in enumerate(picks):
-        reply = ask_work(MAP_OR_NAME.format(problem=problem, catalogue=catalogue,
-                                            preds=PREDICATE_HELP), n=1200)
+        reply = ask_spec(MAP_OR_NAME.format(problem=problem, catalogue=catalogue,
+                                            preds=PREDICATE_HELP))
         spec = parse_spec(reply)
         row = {"truth": str(truth), "i": i}
         if spec is None:

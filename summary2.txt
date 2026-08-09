@@ -1412,3 +1412,43 @@ arithmetic over bound variables and nothing else.
 Written and self-tested BEFORE the coverage sweep of phase 94 ran, so that phase's
 named-missing list is an honest test of whether this growth was aimed at the right
 thing — a prediction, registered by timestamp in the repository, not a rationalisation.
+
+================================================================================
+PHASE 94 — how much of AIME the vocabulary actually reaches: measured, and it is 0
+================================================================================
+
+Thirty real AIME problems, the whole 15-solver catalogue in the prompt, and one
+instruction: map it onto a solver, or NAME what is missing. The record then runs every
+spec it is handed and compares to the published answer.
+
+FIRST SWEEP WAS A HARNESS FAILURE, AND THE AUTOPSY SAID SO. Twenty-two of thirty replies
+read as "unparseable" — which would have looked like a coverage result. The raw replies
+were 2,400-3,500 characters of PROSE WORKING: the model had ignored the output format and
+started solving instead of mapping. Prefilling the JSON opening brace into the assistant
+turn removed the prose branch entirely — one character, phase 84's law at 35B — and the
+sweep was re-run.
+
+THE REAL NUMBERS, and they are stark:
+
+    claimed a mapping      22/30   (declined 5, still unparseable 3)
+    the spec ran           19      (the record refused 3 as malformed)
+    exact vs published     0       (wrong 19)
+
+    solvers reached for: search 16, linear_system 3, quadratic 2, recurrence 1
+    named as missing: geometric probability, symbolic algebra and logarithms,
+    nonlinear systems with radicals, geometric reasoning (x2)
+
+Three things follow, none of them comfortable:
+
+  WILLINGNESS TO MAP IS NOT REACH. Told to map, the model maps anything — a tennis
+  tournament probability became a sum over a range with condition "eq 1"; a cube-geometry
+  volume became an identity linear system. Nineteen confident wrong numbers came out of
+  a pipeline whose every component is exact.
+
+  THE BOTTLENECK IS THE MAPPING, NOT THE MACHINES. Problem 0 IS in vocabulary — phase 92
+  solved it by hand-chaining search and factor to the published answer 12 — and the model
+  chose the right domain (divisors_of_factorial, k=13) but passed arg=13 instead of 13!.
+  A parameter, not a capability.
+
+  A DELIVERY GATE AT SPEC LEVEL IS NOT OPTIONAL. Phase 93 measured that mis-mappings
+  never self-destruct; this measures what that costs on real problems: everything.

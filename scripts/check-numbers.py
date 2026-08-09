@@ -1492,6 +1492,15 @@ CHECKS = [
      6.0, 0.001, "refusals named, three of them expression-sandbox escapes"),
     ("data/custom/solvers2.json", lambda d: float(d["solvers_total"]),
      19.0, 0.001, "solvers in MPEqs after the growth phase"),
+    # AIME coverage: willingness to map is not reach.
+    ("data/custom/aimecover.json", lambda d: float(d.get("claimed", 0)),
+     22.0, 0.001, "AIME problems the model claimed it could map"),
+    ("data/custom/aimecover.json", lambda d: float(d.get("ran", 0)),
+     19.0, 0.001, "specs that validated and executed"),
+    ("data/custom/aimecover.json", lambda d: float(d.get("exact", 0)),
+     0.0, 0.001, "of which matched the published answer — none"),
+    ("data/custom/aimecover.json", lambda d: float(d.get("declined", 0)),
+     5.0, 0.001, "problems where the model named the missing capability instead"),
     # Two-sided labels on the chord metric: no better than one relay, twice the memory.
     ("data/custom/hub-corpus.json", lambda d: d["exact_cell_pct"],
      1.34, 0.7, "two-sided hub labels on the angular metric"),
