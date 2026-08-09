@@ -1,0 +1,311 @@
+{
+  "model": "olmoe-1b",
+  "hits": 30,
+  "graph": 17,
+  "call": 16,
+  "record": 30,
+  "graph_verified": 17,
+  "call_parsed": 18,
+  "rows": [
+    {
+      "expr": "(18 + 20 * 12) / 6",
+      "record": true,
+      "graph": true,
+      "call": true,
+      "call_args": [
+        "18",
+        "20",
+        "12",
+        "6"
+      ]
+    },
+    {
+      "expr": "(11 + 16 * 12) / 7",
+      "record": true,
+      "graph": true,
+      "call": true,
+      "call_args": [
+        "11",
+        "16",
+        "12",
+        "7"
+      ]
+    },
+    {
+      "expr": "(36 + 15 + 6) / 3",
+      "record": true,
+      "graph": false,
+      "call": false,
+      "call_args": []
+    },
+    {
+      "expr": "(55 - 40 * 2) / 5",
+      "record": true,
+      "graph": true,
+      "call": true,
+      "call_args": [
+        "55",
+        "40",
+        "2",
+        "5"
+      ]
+    },
+    {
+      "expr": "(57 - 18 * 9) / 7",
+      "record": true,
+      "graph": true,
+      "call": true,
+      "call_args": [
+        "57",
+        "18",
+        "9",
+        "7"
+      ]
+    },
+    {
+      "expr": "(42 + 22 + 12) / 19",
+      "record": true,
+      "graph": false,
+      "call": false,
+      "call_args": []
+    },
+    {
+      "expr": "(53 + 18 + 9) / 16",
+      "record": true,
+      "graph": false,
+      "call": false,
+      "call_args": []
+    },
+    {
+      "expr": "(48 + 30 + 10) / 4",
+      "record": true,
+      "graph": false,
+      "call": false,
+      "call_args": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ]
+    },
+    {
+      "expr": "(13 - 35 + 7) / 5",
+      "record": true,
+      "graph": false,
+      "call": true,
+      "call_args": [
+        "13",
+        "35",
+        "7",
+        "5"
+      ]
+    },
+    {
+      "expr": "(18 - 40 * 6) / 6",
+      "record": true,
+      "graph": true,
+      "call": true,
+      "call_args": [
+        "18",
+        "40",
+        "6",
+        "6"
+      ]
+    },
+    {
+      "expr": "(33 + 37 * 5) / 2",
+      "record": true,
+      "graph": true,
+      "call": true,
+      "call_args": [
+        "33",
+        "37",
+        "5",
+        "2"
+      ]
+    },
+    {
+      "expr": "(10 - 6 + 8) / 2",
+      "record": true,
+      "graph": false,
+      "call": true,
+      "call_args": [
+        "10",
+        "6",
+        "8",
+        "2"
+      ]
+    },
+    {
+      "expr": "(48 + 29 * 2) / 2",
+      "record": true,
+      "graph": true,
+      "call": false,
+      "call_args": [
+        "48",
+        "29",
+        "2",
+        "1"
+      ]
+    },
+    {
+      "expr": "(49 + 18 + 7) / 2",
+      "record": true,
+      "graph": false,
+      "call": false,
+      "call_args": []
+    },
+    {
+      "expr": "(59 - 40 * 5) / 3",
+      "record": true,
+      "graph": true,
+      "call": false,
+      "call_args": []
+    },
+    {
+      "expr": "(20 + 14 * 4) / 2",
+      "record": true,
+      "graph": true,
+      "call": true,
+      "call_args": [
+        "20",
+        "14",
+        "4",
+        "2"
+      ]
+    },
+    {
+      "expr": "(9 - 28 * 6) / 3",
+      "record": true,
+      "graph": true,
+      "call": false,
+      "call_args": []
+    },
+    {
+      "expr": "(35 + 25 + 2) / 2",
+      "record": true,
+      "graph": false,
+      "call": false,
+      "call_args": []
+    },
+    {
+      "expr": "(11 - 33 * 10) / 11",
+      "record": true,
+      "graph": true,
+      "call": true,
+      "call_args": [
+        "11",
+        "33",
+        "10",
+        "11"
+      ]
+    },
+    {
+      "expr": "(20 + 4 * 8) / 13",
+      "record": true,
+      "graph": true,
+      "call": false,
+      "call_args": []
+    },
+    {
+      "expr": "(51 - 17 + 11) / 5",
+      "record": true,
+      "graph": false,
+      "call": true,
+      "call_args": [
+        "51",
+        "17",
+        "11",
+        "5"
+      ]
+    },
+    {
+      "expr": "(43 + 24 + 8) / 25",
+      "record": true,
+      "graph": false,
+      "call": false,
+      "call_args": []
+    },
+    {
+      "expr": "(31 + 7 * 3) / 13",
+      "record": true,
+      "graph": true,
+      "call": true,
+      "call_args": [
+        "31",
+        "7",
+        "3",
+        "13"
+      ]
+    },
+    {
+      "expr": "(20 + 35 * 8) / 2",
+      "record": true,
+      "graph": true,
+      "call": true,
+      "call_args": [
+        "20",
+        "35",
+        "8",
+        "2"
+      ]
+    },
+    {
+      "expr": "(9 + 25 + 4) / 19",
+      "record": true,
+      "graph": false,
+      "call": false,
+      "call_args": []
+    },
+    {
+      "expr": "(40 + 26 + 6) / 4",
+      "record": true,
+      "graph": false,
+      "call": false,
+      "call_args": []
+    },
+    {
+      "expr": "(8 - 25 + 9) / 2",
+      "record": true,
+      "graph": false,
+      "call": false,
+      "call_args": []
+    },
+    {
+      "expr": "(24 + 36 * 6) / 8",
+      "record": true,
+      "graph": true,
+      "call": true,
+      "call_args": [
+        "24",
+        "36",
+        "6",
+        "8"
+      ]
+    },
+    {
+      "expr": "(12 + 36 * 4) / 26",
+      "record": true,
+      "graph": true,
+      "call": true,
+      "call_args": [
+        "12",
+        "36",
+        "4",
+        "26"
+      ]
+    },
+    {
+      "expr": "(24 + 18 * 5) / 3",
+      "record": true,
+      "graph": true,
+      "call": true,
+      "call_args": [
+        "24",
+        "18",
+        "5",
+        "3"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "stories": 30,
+  "templates": 5,
+  "model_calls": 16,
+  "baseline_calls": 60,
+  "first_encounters": 5,
+  "record_served": 25,
+  "audits": 6,
+  "audit_mismatch": 0,
+  "ambiguous": 0,
+  "flagged": 0,
+  "exact": 30
+}

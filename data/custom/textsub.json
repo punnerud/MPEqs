@@ -1,0 +1,138 @@
+{
+  "summary": {
+    "sentences": 16,
+    "cut": 16,
+    "reversible": 5,
+    "pasted": 8
+  },
+  "runs": [
+    {
+      "sentence": "The fox is big",
+      "part": "fox",
+      "cut": "The A is big",
+      "reversible": true,
+      "restored": "The fox is big",
+      "exact": true
+    },
+    {
+      "sentence": "The old bridge crosses the river",
+      "part": "old bridge",
+      "cut": "The Aa crosses the Riva",
+      "reversible": false,
+      "restored": "The old bridge crosses the river",
+      "exact": true
+    },
+    {
+      "sentence": "She left her umbrella on the train",
+      "part": "umbrella",
+      "cut": "She Aave her Ambrella on the Aain",
+      "reversible": false,
+      "restored": "She gave her umbrella on the plane",
+      "exact": false
+    },
+    {
+      "sentence": "The kettle boiled while he read the paper",
+      "part": "kettle",
+      "cut": "The A boiled while he read the A",
+      "reversible": false,
+      "restored": "The kettle boiled while he read the letter A.",
+      "exact": false
+    },
+    {
+      "sentence": "A heavy parcel arrived for the neighbour",
+      "part": "heavy parcel",
+      "cut": "A aery apearad for the neigbhour",
+      "reversible": false,
+      "restored": "The heavy parcel appeared for the neighbor",
+      "exact": false
+    },
+    {
+      "sentence": "The dog barked at the postman every morning",
+      "part": "postman",
+      "cut": "The A barked at the moatman every morning",
+      "reversible": false,
+      "restored": "The postman barked at the moatman every morning",
+      "exact": false
+    },
+    {
+      "sentence": "They painted the garden fence last summer",
+      "part": "garden fence",
+      "cut": "Question: What is 105 / 35?",
+      "reversible": false,
+      "restored": "105 \u00f7 35 = 3",
+      "exact": false
+    },
+    {
+      "sentence": "The engine stalled halfway up the hill",
+      "part": "engine",
+      "cut": "The A stalled halfway up the hill",
+      "reversible": true,
+      "restored": "Question: What is 361 - ? equal to?",
+      "exact": false
+    },
+    {
+      "sentence": "My sister borrowed the blue bicycle",
+      "part": "blue bicycle",
+      "cut": "My sAster borrowed the A bicycle",
+      "reversible": false,
+      "restored": "My sister borrowed the blue bicycle",
+      "exact": true
+    },
+    {
+      "sentence": "The bakery opens before dawn",
+      "part": "bakery",
+      "cut": "The Akyera opens before dawn",
+      "reversible": false,
+      "restored": "The bakery opens before dawn",
+      "exact": true
+    },
+    {
+      "sentence": "He forgot the tickets on the kitchen table",
+      "part": "kitchen table",
+      "cut": "He forgot the tittles on the kitchen table",
+      "reversible": false,
+      "restored": "He forgot the titles on the kitchen table",
+      "exact": false
+    },
+    {
+      "sentence": "The storm knocked out the power for two days",
+      "part": "storm",
+      "cut": "The A knocked out the power for two days",
+      "reversible": true,
+      "restored": "The storm knocked out the power for two days",
+      "exact": true
+    },
+    {
+      "sentence": "A small cat slept under the parked car",
+      "part": "small cat",
+      "cut": "A m A slm c A t slep under the p A rked c A r",
+      "reversible": false,
+      "restored": "The small cat slept under the parked car.",
+      "exact": false
+    },
+    {
+      "sentence": "The teacher marked the essays over the weekend",
+      "part": "teacher",
+      "cut": "The A marked the essays over the weekend",
+      "reversible": true,
+      "restored": "The teacher marked the essays over the weekend",
+      "exact": true
+    },
+    {
+      "sentence": "Rain filled the barrel behind the shed",
+      "part": "barrel",
+      "cut": "Rain filled the Air behind the shed",
+      "reversible": false,
+      "restored": "Rain filled the barrel behind the shed",
+      "exact": true
+    },
+    {
+      "sentence": "The clock in the hallway runs slow",
+      "part": "clock",
+      "cut": "The A in the hallway runs slow",
+      "reversible": true,
+      "restored": "The clock in the hallway runs slow",
+      "exact": true
+    }
+  ]
+}

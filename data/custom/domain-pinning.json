@@ -1,0 +1,36 @@
+{
+  "code-c": {
+    "code-c": [
+      89.4,
+      2.68
+    ],
+    "code-python": [
+      85.4,
+      3.68
+    ],
+    "wikitext": [
+      43.4,
+      14.98
+    ]
+  },
+  "norwegian": {
+    "norwegian": [
+      89.9,
+      2.57
+    ],
+    "wikitext": [
+      62.7,
+      9.85
+    ],
+    "code-c": [
+      63.5,
+      9.48
+    ]
+  },
+  "budget_mib": 2048,
+  "fields": [
+    "hit_pct",
+    "ms_per_token"
+  ],
+  "note": "corrected moetrace; the artefact trace gave 55.4 % and 12.56 ms for every pairing"
+}

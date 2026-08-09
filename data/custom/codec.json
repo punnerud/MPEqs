@@ -1,0 +1,23 @@
+{
+  "n": 8920,
+  "k": 16,
+  "grid": 0.0001,
+  "sizes": {
+    "raw": 1141760,
+    "gzip": 672756,
+    "bzip2": 636194,
+    "lzma": 543692,
+    "matcodec-style": 543637,
+    "matcodec + gzip": 467604,
+    "matcodec + lzma": 445388,
+    "delta codec": 451311,
+    "delta + gzip": 406919,
+    "delta + lzma": 376972
+  },
+  "lossless_on_grid": true,
+  "max_error_rad": 5.0076293945267025e-05,
+  "mean_residual_bits": 11.4597533632287,
+  "best_general": 543692,
+  "best_codec": 376972,
+  "advantage": 1.442260963679
+}

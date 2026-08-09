@@ -1,0 +1,84 @@
+{
+  "summary": {
+    "tasks": 8,
+    "correct": 0,
+    "wrong": 0,
+    "ran_out": 8,
+    "total_stored": 0,
+    "total_rejected": 48
+  },
+  "runs": [
+    {
+      "problem": "((47 + 38) * 3 - 12) / 9",
+      "answer": 27,
+      "stored": 0,
+      "rejected": 6,
+      "outcome": "ran out",
+      "final": null,
+      "store": {}
+    },
+    {
+      "problem": "(120 / 4 + 15) * 2 - 30",
+      "answer": 60,
+      "stored": 0,
+      "rejected": 6,
+      "outcome": "ran out",
+      "final": null,
+      "store": {}
+    },
+    {
+      "problem": "((9 * 7) + (8 * 6)) - 51",
+      "answer": 60,
+      "stored": 0,
+      "rejected": 6,
+      "outcome": "ran out",
+      "final": null,
+      "store": {}
+    },
+    {
+      "problem": "(200 - 45 * 3) / 5 + 12",
+      "answer": 25,
+      "stored": 0,
+      "rejected": 6,
+      "outcome": "ran out",
+      "final": null,
+      "store": {}
+    },
+    {
+      "problem": "((15 + 25) / 8) * 14 - 20",
+      "answer": 50,
+      "stored": 0,
+      "rejected": 6,
+      "outcome": "ran out",
+      "final": null,
+      "store": {}
+    },
+    {
+      "problem": "(6 * 6 + 4 * 4) / 13 + 7",
+      "answer": 11,
+      "stored": 0,
+      "rejected": 6,
+      "outcome": "ran out",
+      "final": null,
+      "store": {}
+    },
+    {
+      "problem": "((100 - 28) / 6) * 5 - 30",
+      "answer": 30,
+      "stored": 0,
+      "rejected": 6,
+      "outcome": "ran out",
+      "final": null,
+      "store": {}
+    },
+    {
+      "problem": "(81 / 9 + 11) * 3 - 40",
+      "answer": 20,
+      "stored": 0,
+      "rejected": 6,
+      "outcome": "ran out",
+      "final": null,
+      "store": {}
+    }
+  ]
+}

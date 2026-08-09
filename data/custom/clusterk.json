@@ -1,0 +1,53 @@
+{
+  "baseline": 0.05571748878923767,
+  "rows": [
+    {
+      "k": 2,
+      "components": 5026,
+      "largest": 12,
+      "clusters": 1010,
+      "covered": 4040,
+      "purity": 0.9532178217821782
+    },
+    {
+      "k": 3,
+      "components": 3247,
+      "largest": 118,
+      "clusters": 773,
+      "covered": 5983,
+      "purity": 0.8931973926124018
+    },
+    {
+      "k": 4,
+      "components": 1946,
+      "largest": 3716,
+      "clusters": 310,
+      "covered": 7034,
+      "purity": 0.45464884845038384
+    },
+    {
+      "k": 6,
+      "components": 819,
+      "largest": 7807,
+      "clusters": 49,
+      "covered": 8049,
+      "purity": 0.08063113430239781
+    },
+    {
+      "k": 8,
+      "components": 451,
+      "largest": 8374,
+      "clusters": 15,
+      "covered": 8431,
+      "purity": 0.060846874629344086
+    },
+    {
+      "k": 16,
+      "components": 72,
+      "largest": 8843,
+      "clusters": 1,
+      "covered": 8843,
+      "purity": 0.0557503109804365
+    }
+  ]
+}

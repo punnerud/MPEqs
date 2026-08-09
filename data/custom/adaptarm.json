@@ -1,0 +1,1340 @@
+{
+  "qwen-35b": {
+    "solo": 51,
+    "graph": 45,
+    "adapt": 41,
+    "adapt_parsed": 60,
+    "n": 60,
+    "rows": [
+      {
+        "model": "qwen-35b",
+        "truth": "16",
+        "solo": "16",
+        "graph": "16",
+        "adapt": "16",
+        "retrieved": [
+          "A tractor trailer has a load of <N> pounds.  <N>% ",
+          "John has a donkey and an elephant.  The elephant w"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "74",
+        "solo": "74",
+        "graph": "74",
+        "adapt": "74",
+        "retrieved": [
+          "Anna baked <N> cupcakes. She gives away <N>/<N> of",
+          "Jim is baking loaves of bread. He has <N>g of flou"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "17",
+        "solo": "21",
+        "graph": "19",
+        "adapt": "15",
+        "retrieved": [
+          "Antoinette weighs <N> less kilograms than twice Ru",
+          "Anne's female cat weighs <N> kilograms. Her male c"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "26",
+        "solo": "26",
+        "graph": "26",
+        "adapt": "26",
+        "retrieved": [
+          "A certain tree was <N> meters tall at the end of <",
+          "Haley grows at the rate of <N> inches every year. "
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "187",
+        "solo": "187",
+        "graph": "187",
+        "adapt": "187",
+        "retrieved": [
+          "Tom got <N> oranges and <N> apples. If he sold <N>",
+          "Mark is looking to buy a total of <N> pieces of fr"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "452",
+        "solo": "15",
+        "graph": "212",
+        "adapt": "212",
+        "retrieved": [
+          "Audrey was asleep for <N> hours last night and dre",
+          "Tim gets <N> hours of sleep <N> days in a row.  To"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "525",
+        "solo": "19",
+        "graph": "5338669175328555/17592186044416",
+        "adapt": "5864062014805333/17592186044416",
+        "retrieved": [
+          "Ian is looking to lose some weight.  He decides to",
+          "Andy started out the year weighing <N> pounds. He "
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "72",
+        "solo": "72",
+        "graph": "72",
+        "adapt": "72",
+        "retrieved": [
+          "Justin has a box that is <N> inches in height. The",
+          "A box is <N> inches in height <N> inches in width "
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "1",
+        "solo": "1",
+        "graph": "1",
+        "adapt": "1",
+        "retrieved": [
+          "Some students want to buy pencils from a stationer",
+          "A merchant bought <N> keyboards and <N> printers f"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "50",
+        "solo": "50",
+        "graph": "50",
+        "adapt": "50",
+        "retrieved": [
+          "On a school trip to the seashore Alan and his frie",
+          "Jillian Savannah and Clayton were collecting shell"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "27",
+        "solo": "27",
+        "graph": "27",
+        "adapt": "27",
+        "retrieved": [
+          "Lizzie has half as many crayons as Bobbie. Bobbie ",
+          "There are <N> students in a class. Only one-fourth"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "11",
+        "solo": "11",
+        "graph": "11",
+        "adapt": "85",
+        "retrieved": [
+          "Shara collects shells. She had <N> shells before s",
+          "Ali had a collection of seashells. He started with"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "2",
+        "solo": "2",
+        "graph": "3",
+        "adapt": "2",
+        "retrieved": [
+          "Betty picked <N> strawberries. Matthew picked <N> ",
+          "Michael has <N> packs of crayons and wants to buy "
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "255",
+        "solo": "255",
+        "graph": "255",
+        "adapt": "330",
+        "retrieved": [
+          "John gets lost on his way home.  His normal trip i",
+          "Tamika drove for <N> hours at an average speed of "
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "-3",
+        "solo": "-3",
+        "graph": "-3",
+        "adapt": "-3",
+        "retrieved": [
+          "In one hour Addison mountain's temperature will de",
+          "Utopia National Park hosted <N> elephants on Frida"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "76",
+        "solo": "76",
+        "graph": "76",
+        "adapt": "76",
+        "retrieved": [
+          "A floral shop had a three day sale on rose bouquet",
+          "Louise is baking cakes for a gathering. She needs "
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "16",
+        "solo": "16",
+        "graph": "29/2",
+        "adapt": "8",
+        "retrieved": [
+          "Yesterday Bruce and Michael were playing football ",
+          "A soccer team had <N> players prepared for a socce"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "243",
+        "solo": "243",
+        "graph": "243",
+        "adapt": "243",
+        "retrieved": [
+          "A clothing store sells <N> shirts and <N> pairs of",
+          "Mary and Rose went shopping to buy presents. They "
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "59",
+        "solo": "59",
+        "graph": "39",
+        "adapt": "39",
+        "retrieved": [
+          "Bob runs <N> miles per hour. His friend Jim runs a",
+          "John gets lost on his way home.  His normal trip i"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "48",
+        "solo": "36",
+        "graph": "48",
+        "adapt": "12",
+        "retrieved": [
+          "Greta George and Gloria entered their turtles in t",
+          "John gets lost on his way home.  His normal trip i"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "100",
+        "solo": "100",
+        "graph": "100",
+        "adapt": "100",
+        "retrieved": [
+          "A floral shop had a three day sale on rose bouquet",
+          "Susan had a bouquet of <N> dozen roses.  She gave "
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "5",
+        "solo": "5",
+        "graph": "5",
+        "adapt": "5",
+        "retrieved": [
+          "Ayen jogs for <N> minutes every day during weekday",
+          "Madeline spends <N> hours a week in class. She spe"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "540",
+        "solo": "540",
+        "graph": "540",
+        "adapt": "540",
+        "retrieved": [
+          "Debra is the host of a country music radio show an",
+          "James buys <N> CDs.  Two of them are <N> hours eac"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "14",
+        "solo": "14",
+        "graph": "0",
+        "adapt": "16",
+        "retrieved": [
+          "The bus started its route. At its first stop <N> p",
+          "The seats of a bus are arranged in <N> rows of <N>"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "75",
+        "solo": "15",
+        "graph": "15",
+        "adapt": "15",
+        "retrieved": [
+          "Honey earned <N> a day. Every day she spent part o",
+          "In a jar that has <N> ants the number of ants in t"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "360",
+        "solo": "240",
+        "graph": "360",
+        "adapt": "360",
+        "retrieved": [
+          "If Janet reads <N> pages a day and Belinda reads <",
+          "Berry wants to make sure he reads an average of <N"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "36",
+        "solo": "36",
+        "graph": "60",
+        "adapt": "36",
+        "retrieved": [
+          "Mr. Williams bought <N> gallons of juice for a par",
+          "Alexa has a lemonade stand where she sells lemonad"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "210",
+        "solo": "210",
+        "graph": "210",
+        "adapt": "395/2",
+        "retrieved": [
+          "Bill put his french fries in the oven after it fin",
+          "Marcus can fit <N> pies in his oven at once. He ba"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "64",
+        "solo": "64",
+        "graph": "64",
+        "adapt": "64",
+        "retrieved": [
+          "During the holidays Lance works as a merchandiser.",
+          "Rafael works <N> hours on Monday and <N> hours on "
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "168",
+        "solo": "166",
+        "graph": "76",
+        "adapt": "124",
+        "retrieved": [
+          "Suraya picked <N> apples more than Caleb and Caleb",
+          "Tim has <N> less apples than Martha and Harry has "
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "762",
+        "solo": "762",
+        "graph": "762",
+        "adapt": "762",
+        "retrieved": [
+          "James has <N> marbles.  He puts them into <N> bags",
+          "Chelsea has <N> kilos of sugar. She divides them i"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "540",
+        "solo": "540",
+        "graph": "540",
+        "adapt": "540",
+        "retrieved": [
+          "Nicki spent the last year running a lot. For the f",
+          "Ayen jogs for <N> minutes every day during weekday"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "366",
+        "solo": "366",
+        "graph": "366",
+        "adapt": "366",
+        "retrieved": [
+          "A bookseller sells <N> books in January <N> in Feb",
+          "Tara has been planning to buy a laptop which costs"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "26",
+        "solo": "26",
+        "graph": "-4",
+        "adapt": "48",
+        "retrieved": [
+          "Guise went to a restaurant and ate ten hot dogs on",
+          "Lisa is looking to attempt a World Record. She has"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "80",
+        "solo": "80",
+        "graph": "80",
+        "adapt": "-80",
+        "retrieved": [
+          "A young girl pours <N> blue beads and <N> yellow b",
+          "Kate bought <N> packs of red bouncy balls and <N> "
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "160",
+        "solo": "160",
+        "graph": "160",
+        "adapt": "160",
+        "retrieved": [
+          "A farmer has twice as many pigs as cows and <N> mo",
+          "Farmer Brown raises emus large birds. His flock ha"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "4",
+        "solo": "4",
+        "graph": "3",
+        "adapt": "13",
+        "retrieved": [
+          "Jeanette is practicing her juggling. Each week she",
+          "At the circus the clown has <N> dozen balloons on "
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "1",
+        "solo": "1",
+        "graph": "1",
+        "adapt": "1",
+        "retrieved": [
+          "Nina has two pairs of shoes. She bought one of the",
+          "Charlotte needs to know how much money to have wit"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "10800",
+        "solo": "10800",
+        "graph": "10800",
+        "adapt": "91800",
+        "retrieved": [
+          "A clothing store sells <N> shirts and <N> pairs of",
+          "John bought a tennis racket. He also bought sneake"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "2000",
+        "solo": "2000",
+        "graph": "2000",
+        "adapt": "2000",
+        "retrieved": [
+          "Jeff committed to run for an hour a day during wee",
+          "If Clover goes for a <N>-mile walk in the morning "
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "24",
+        "solo": "24",
+        "graph": "24",
+        "adapt": "24",
+        "retrieved": [
+          "The sum of Mario and Maria's ages now is <N>. Mari",
+          "Michael has two brothers. His oldest brother is <N"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "20",
+        "solo": "20",
+        "graph": "20",
+        "adapt": "20",
+        "retrieved": [
+          "John puts <N> in his piggy bank every month for <N",
+          "James buys <N> packs of beef that are <N> pounds e"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "3000",
+        "solo": "3000",
+        "graph": "3000",
+        "adapt": "3000",
+        "retrieved": [
+          "Jason is climbing a telephone pole next to a tree ",
+          "John climbs <N> staircases.  The first staircase h"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "81",
+        "solo": "135",
+        "graph": "135",
+        "adapt": "135",
+        "retrieved": [
+          "The electricity price in Coco's town is <N> per kW",
+          "Kurt's old refrigerator cost <N> a day in electric"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "15",
+        "solo": "15",
+        "graph": "15",
+        "adapt": "15",
+        "retrieved": [
+          "James gets paid <N>/mile to drive a truck carrying",
+          "Carla needs to drive her car to do a bunch of erra"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "1450000",
+        "solo": "1450000",
+        "graph": "29999950000",
+        "adapt": "149999350000",
+        "retrieved": [
+          "John pays for half the cost of raising a child.  I",
+          "John runs a telethon to raise money.  For the firs"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "20",
+        "solo": "20",
+        "graph": "20",
+        "adapt": "20",
+        "retrieved": [
+          "John buys <N> newspapers.  Each newspaper sells fo",
+          "A salesman bought a case of <N> backpacks for <N>."
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "98",
+        "solo": "98",
+        "graph": "98",
+        "adapt": "98",
+        "retrieved": [
+          "Yulia was able to net <N> in profit this week. Her",
+          "Mrs. Lim milks her cows twice a day. Yesterday mor"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "75",
+        "solo": "75",
+        "graph": "75",
+        "adapt": "75",
+        "retrieved": [
+          "A baker is making bread according to a recipe that",
+          "Tim buys <N> dozen eggs.  Eggs cost .<N> each.  Ho"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "500",
+        "solo": "6",
+        "graph": "400",
+        "adapt": "400",
+        "retrieved": [
+          "Annie has some money. The restaurant next door sel",
+          "Tina is getting <N> for each book she sells. If sh"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "39",
+        "solo": "39",
+        "graph": "39",
+        "adapt": "39",
+        "retrieved": [
+          "Josh has some money. He spent <N> on a drink and t",
+          "Mr. Sam shared a certain amount of money between h"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "13",
+        "solo": "13",
+        "graph": "13",
+        "adapt": "13",
+        "retrieved": [
+          "Tony has to run several errands in a day.  He need",
+          "A driver travels <N> miles per hour for <N> hours "
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "576",
+        "solo": "576",
+        "graph": "576",
+        "adapt": "576",
+        "retrieved": [
+          "A garden produced <N> potatoes <N> fewer cucumbers",
+          "Pat is having a picnic with her family. She has <N"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "5",
+        "solo": "5",
+        "graph": "5",
+        "adapt": "5",
+        "retrieved": [
+          "James buys <N> packs of beef that are <N> pounds e",
+          "James buys steaks for buy one get one free.  The p"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "60",
+        "solo": "60",
+        "graph": "60",
+        "adapt": "60",
+        "retrieved": [
+          "John gets lost on his way home.  His normal trip i",
+          "Tony is driving his car between his town and a fri"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "8",
+        "solo": "8",
+        "graph": "8",
+        "adapt": "8",
+        "retrieved": [
+          "Maria goes to the coffee shop <N> times a day. Eve",
+          "Nancy buys <N> coffees a day.  She grabs a double "
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "260",
+        "solo": "260",
+        "graph": "260",
+        "adapt": "260",
+        "retrieved": [
+          "A farmer has twice as many pigs as cows and <N> mo",
+          "In a field where there are <N> animals there are <"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "32",
+        "solo": "32",
+        "graph": "32",
+        "adapt": "32",
+        "retrieved": [
+          "Mark made a chalkboard that is <N> feet wide. It i",
+          "Ann is cutting fabric to make curtains. She cuts a"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "32",
+        "solo": "32",
+        "graph": "32",
+        "adapt": "32",
+        "retrieved": [
+          "You can buy <N> apples or <N> watermelon for the s",
+          "Arven bought five puppies for a total cost of <N>."
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "40",
+        "solo": "40",
+        "graph": "40",
+        "adapt": "40",
+        "retrieved": [
+          "Bobby has <N> toy cars and the number of cars he h",
+          "Bonny just bought her <N>th pair of shoes which is"
+        ]
+      }
+    ]
+  },
+  "olmoe-1b": {
+    "solo": 37,
+    "graph": 15,
+    "adapt": 4,
+    "adapt_parsed": 58,
+    "n": 60,
+    "rows": [
+      {
+        "model": "olmoe-1b",
+        "truth": "16",
+        "solo": "15",
+        "graph": "160000",
+        "adapt": "2300",
+        "retrieved": [
+          "A tractor trailer has a load of <N> pounds.  <N>% ",
+          "John has a donkey and an elephant.  The elephant w"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "74",
+        "solo": "74",
+        "graph": "74",
+        "adapt": "74",
+        "retrieved": [
+          "Anna baked <N> cupcakes. She gives away <N>/<N> of",
+          "Jim is baking loaves of bread. He has <N>g of flou"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "17",
+        "solo": "17",
+        "graph": "35",
+        "adapt": "None",
+        "retrieved": [
+          "Antoinette weighs <N> less kilograms than twice Ru",
+          "Anne's female cat weighs <N> kilograms. Her male c"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "26",
+        "solo": "13",
+        "graph": "26",
+        "adapt": "118",
+        "retrieved": [
+          "A certain tree was <N> meters tall at the end of <",
+          "Haley grows at the rate of <N> inches every year. "
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "187",
+        "solo": "187",
+        "graph": "187",
+        "adapt": "152",
+        "retrieved": [
+          "Tom got <N> oranges and <N> apples. If he sold <N>",
+          "Mark is looking to buy a total of <N> pieces of fr"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "452",
+        "solo": "452",
+        "graph": "282",
+        "adapt": "None",
+        "retrieved": [
+          "Audrey was asleep for <N> hours last night and dre",
+          "Tim gets <N> hours of sleep <N> days in a row.  To"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "525",
+        "solo": "19",
+        "graph": "-1024667678376511/35184372088832",
+        "adapt": "19425",
+        "retrieved": [
+          "Ian is looking to lose some weight.  He decides to",
+          "Andy started out the year weighing <N> pounds. He "
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "72",
+        "solo": "72",
+        "graph": "60",
+        "adapt": "360",
+        "retrieved": [
+          "Justin has a box that is <N> inches in height. The",
+          "A box is <N> inches in height <N> inches in width "
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "1",
+        "solo": "1",
+        "graph": "8",
+        "adapt": "1080863910568919/9007199254740992",
+        "retrieved": [
+          "Some students want to buy pencils from a stationer",
+          "A merchant bought <N> keyboards and <N> printers f"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "50",
+        "solo": "50",
+        "graph": "50",
+        "adapt": "50",
+        "retrieved": [
+          "On a school trip to the seashore Alan and his frie",
+          "Jillian Savannah and Clayton were collecting shell"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "27",
+        "solo": "27",
+        "graph": "None",
+        "adapt": "-4",
+        "retrieved": [
+          "Lizzie has half as many crayons as Bobbie. Bobbie ",
+          "There are <N> students in a class. Only one-fourth"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "11",
+        "solo": "40",
+        "graph": "29",
+        "adapt": "34",
+        "retrieved": [
+          "Shara collects shells. She had <N> shells before s",
+          "Ali had a collection of seashells. He started with"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "2",
+        "solo": "2",
+        "graph": "1/2",
+        "adapt": "4181913939701175/1125899906842624",
+        "retrieved": [
+          "Betty picked <N> strawberries. Matthew picked <N> ",
+          "Michael has <N> packs of crayons and wants to buy "
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "255",
+        "solo": "255",
+        "graph": "66",
+        "adapt": "-120",
+        "retrieved": [
+          "John gets lost on his way home.  His normal trip i",
+          "Tamika drove for <N> hours at an average speed of "
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "-3",
+        "solo": "-3",
+        "graph": "-3",
+        "adapt": "3",
+        "retrieved": [
+          "In one hour Addison mountain's temperature will de",
+          "Utopia National Park hosted <N> elephants on Frida"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "76",
+        "solo": "76",
+        "graph": "76",
+        "adapt": "8",
+        "retrieved": [
+          "A floral shop had a three day sale on rose bouquet",
+          "Louise is baking cakes for a gathering. She needs "
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "16",
+        "solo": "16",
+        "graph": "62",
+        "adapt": "18",
+        "retrieved": [
+          "Yesterday Bruce and Michael were playing football ",
+          "A soccer team had <N> players prepared for a socce"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "243",
+        "solo": "243",
+        "graph": "243",
+        "adapt": "45",
+        "retrieved": [
+          "A clothing store sells <N> shirts and <N> pairs of",
+          "Mary and Rose went shopping to buy presents. They "
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "59",
+        "solo": "64",
+        "graph": "156",
+        "adapt": "4957087089848775/281474976710656",
+        "retrieved": [
+          "Bob runs <N> miles per hour. His friend Jim runs a",
+          "John gets lost on his way home.  His normal trip i"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "48",
+        "solo": "108",
+        "graph": "66",
+        "adapt": "5",
+        "retrieved": [
+          "Greta George and Gloria entered their turtles in t",
+          "John gets lost on his way home.  His normal trip i"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "100",
+        "solo": "100",
+        "graph": "380",
+        "adapt": "-37",
+        "retrieved": [
+          "A floral shop had a three day sale on rose bouquet",
+          "Susan had a bouquet of <N> dozen roses.  She gave "
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "5",
+        "solo": "5",
+        "graph": "6004799503160661/72057594037927936",
+        "adapt": "7686143364045647/4611686018427387904",
+        "retrieved": [
+          "Ayen jogs for <N> minutes every day during weekday",
+          "Madeline spends <N> hours a week in class. She spe"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "540",
+        "solo": "390",
+        "graph": "540",
+        "adapt": "1560",
+        "retrieved": [
+          "Debra is the host of a country music radio show an",
+          "James buys <N> CDs.  Two of them are <N> hours eac"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "14",
+        "solo": "14",
+        "graph": "None",
+        "adapt": "8",
+        "retrieved": [
+          "The bus started its route. At its first stop <N> p",
+          "The seats of a bus are arranged in <N> rows of <N>"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "75",
+        "solo": "0",
+        "graph": "75",
+        "adapt": "60",
+        "retrieved": [
+          "Honey earned <N> a day. Every day she spent part o",
+          "In a jar that has <N> ants the number of ants in t"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "360",
+        "solo": "400",
+        "graph": "None",
+        "adapt": "None",
+        "retrieved": [
+          "If Janet reads <N> pages a day and Belinda reads <",
+          "Berry wants to make sure he reads an average of <N"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "36",
+        "solo": "6",
+        "graph": "None",
+        "adapt": "14",
+        "retrieved": [
+          "Mr. Williams bought <N> gallons of juice for a par",
+          "Alexa has a lemonade stand where she sells lemonad"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "210",
+        "solo": "450",
+        "graph": "73",
+        "adapt": "None",
+        "retrieved": [
+          "Bill put his french fries in the oven after it fin",
+          "Marcus can fit <N> pies in his oven at once. He ba"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "64",
+        "solo": "64",
+        "graph": "64",
+        "adapt": "None",
+        "retrieved": [
+          "During the holidays Lance works as a merchandiser.",
+          "Rafael works <N> hours on Monday and <N> hours on "
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "168",
+        "solo": "160",
+        "graph": "None",
+        "adapt": "22",
+        "retrieved": [
+          "Suraya picked <N> apples more than Caleb and Caleb",
+          "Tim has <N> less apples than Martha and Harry has "
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "762",
+        "solo": "762",
+        "graph": "1350",
+        "adapt": "162",
+        "retrieved": [
+          "James has <N> marbles.  He puts them into <N> bags",
+          "Chelsea has <N> kilos of sugar. She divides them i"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "540",
+        "solo": "540",
+        "graph": "None",
+        "adapt": "27",
+        "retrieved": [
+          "Nicki spent the last year running a lot. For the f",
+          "Ayen jogs for <N> minutes every day during weekday"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "366",
+        "solo": "366",
+        "graph": "8520247545031557/140737488355328",
+        "adapt": "24",
+        "retrieved": [
+          "A bookseller sells <N> books in January <N> in Feb",
+          "Tara has been planning to buy a laptop which costs"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "26",
+        "solo": "18",
+        "graph": "50",
+        "adapt": "32",
+        "retrieved": [
+          "Guise went to a restaurant and ate ten hot dogs on",
+          "Lisa is looking to attempt a World Record. She has"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "80",
+        "solo": "80",
+        "graph": "None",
+        "adapt": "-60",
+        "retrieved": [
+          "A young girl pours <N> blue beads and <N> yellow b",
+          "Kate bought <N> packs of red bouncy balls and <N> "
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "160",
+        "solo": "240",
+        "graph": "180",
+        "adapt": "300",
+        "retrieved": [
+          "A farmer has twice as many pigs as cows and <N> mo",
+          "Farmer Brown raises emus large birds. His flock ha"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "4",
+        "solo": "3",
+        "graph": "9",
+        "adapt": "6",
+        "retrieved": [
+          "Jeanette is practicing her juggling. Each week she",
+          "At the circus the clown has <N> dozen balloons on "
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "1",
+        "solo": "1",
+        "graph": "1",
+        "adapt": "-15",
+        "retrieved": [
+          "Nina has two pairs of shoes. She bought one of the",
+          "Charlotte needs to know how much money to have wit"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "10800",
+        "solo": "9000",
+        "graph": "10800",
+        "adapt": "2250",
+        "retrieved": [
+          "A clothing store sells <N> shirts and <N> pairs of",
+          "John bought a tennis racket. He also bought sneake"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "2000",
+        "solo": "4000",
+        "graph": "None",
+        "adapt": "None",
+        "retrieved": [
+          "Jeff committed to run for an hour a day during wee",
+          "If Clover goes for a <N>-mile walk in the morning "
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "24",
+        "solo": "24",
+        "graph": "None",
+        "adapt": "None",
+        "retrieved": [
+          "The sum of Mario and Maria's ages now is <N>. Mari",
+          "Michael has two brothers. His oldest brother is <N"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "20",
+        "solo": "20",
+        "graph": "160",
+        "adapt": "None",
+        "retrieved": [
+          "John puts <N> in his piggy bank every month for <N",
+          "James buys <N> packs of beef that are <N> pounds e"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "3000",
+        "solo": "12000",
+        "graph": "36",
+        "adapt": "22000",
+        "retrieved": [
+          "Jason is climbing a telephone pole next to a tree ",
+          "John climbs <N> staircases.  The first staircase h"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "81",
+        "solo": "81/1000",
+        "graph": "None",
+        "adapt": "None",
+        "retrieved": [
+          "The electricity price in Coco's town is <N> per kW",
+          "Kurt's old refrigerator cost <N> a day in electric"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "15",
+        "solo": "15",
+        "graph": "50",
+        "adapt": "105/2",
+        "retrieved": [
+          "James gets paid <N>/mile to drive a truck carrying",
+          "Carla needs to drive her car to do a bunch of erra"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "1450000",
+        "solo": "1600000",
+        "graph": "None",
+        "adapt": "775000",
+        "retrieved": [
+          "John pays for half the cost of raising a child.  I",
+          "John runs a telethon to raise money.  For the firs"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "20",
+        "solo": "-180",
+        "graph": "190",
+        "adapt": "204",
+        "retrieved": [
+          "John buys <N> newspapers.  Each newspaper sells fo",
+          "A salesman bought a case of <N> backpacks for <N>."
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "98",
+        "solo": "98",
+        "graph": "None",
+        "adapt": "231",
+        "retrieved": [
+          "Yulia was able to net <N> in profit this week. Her",
+          "Mrs. Lim milks her cows twice a day. Yesterday mor"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "75",
+        "solo": "75",
+        "graph": "75",
+        "adapt": "75/2",
+        "retrieved": [
+          "A baker is making bread according to a recipe that",
+          "Tim buys <N> dozen eggs.  Eggs cost .<N> each.  Ho"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "500",
+        "solo": "400",
+        "graph": "-14",
+        "adapt": "650",
+        "retrieved": [
+          "Annie has some money. The restaurant next door sel",
+          "Tina is getting <N> for each book she sells. If sh"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "39",
+        "solo": "39",
+        "graph": "6004799503160661/1125899906842624",
+        "adapt": "124",
+        "retrieved": [
+          "Josh has some money. He spent <N> on a drink and t",
+          "Mr. Sam shared a certain amount of money between h"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "13",
+        "solo": "13",
+        "graph": "None",
+        "adapt": "13",
+        "retrieved": [
+          "Tony has to run several errands in a day.  He need",
+          "A driver travels <N> miles per hour for <N> hours "
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "576",
+        "solo": "576",
+        "graph": "16",
+        "adapt": "None",
+        "retrieved": [
+          "A garden produced <N> potatoes <N> fewer cucumbers",
+          "Pat is having a picnic with her family. She has <N"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "5",
+        "solo": "5",
+        "graph": "3602879701896397/18014398509481984",
+        "adapt": "3602879701896397/18014398509481984",
+        "retrieved": [
+          "James buys <N> packs of beef that are <N> pounds e",
+          "James buys steaks for buy one get one free.  The p"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "60",
+        "solo": "60",
+        "graph": "3600",
+        "adapt": "180",
+        "retrieved": [
+          "John gets lost on his way home.  His normal trip i",
+          "Tony is driving his car between his town and a fri"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "8",
+        "solo": "8",
+        "graph": "None",
+        "adapt": "None",
+        "retrieved": [
+          "Maria goes to the coffee shop <N> times a day. Eve",
+          "Nancy buys <N> coffees a day.  She grabs a double "
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "260",
+        "solo": "260",
+        "graph": "260",
+        "adapt": "260",
+        "retrieved": [
+          "A farmer has twice as many pigs as cows and <N> mo",
+          "In a field where there are <N> animals there are <"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "32",
+        "solo": "32",
+        "graph": "32",
+        "adapt": "None",
+        "retrieved": [
+          "Mark made a chalkboard that is <N> feet wide. It i",
+          "Ann is cutting fabric to make curtains. She cuts a"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "32",
+        "solo": "32",
+        "graph": "73",
+        "adapt": "6417629469002957/562949953421312",
+        "retrieved": [
+          "You can buy <N> apples or <N> watermelon for the s",
+          "Arven bought five puppies for a total cost of <N>."
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "40",
+        "solo": "55",
+        "graph": "None",
+        "adapt": "None",
+        "retrieved": [
+          "Bobby has <N> toy cars and the number of cars he h",
+          "Bonny just bought her <N>th pair of shoes which is"
+        ]
+      }
+    ]
+  }
+}

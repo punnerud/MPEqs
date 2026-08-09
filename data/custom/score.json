@@ -1,0 +1,23 @@
+{
+  "tokens": 1000,
+  "predicted_lift_inside": 8.0,
+  "measured_lift_inside": 5.692,
+  "measured_lift_across": 0.229,
+  "recall": 0.881,
+  "false_positives": 2,
+  "coact_analyze": {
+    "rank_contributions": [],
+    "cross_layer": []
+  },
+  "measured_lift_inside_observed": 5.886,
+  "measured_lift_across_observed": 0.209,
+  "compliance": 0.7115,
+  "independent": {
+    "max lift": 8.5124,
+    "pairs >= 2x lift, %": 12.1839
+  },
+  "coact_reported": {
+    "max lift": 8.51,
+    "pairs >= 2x lift, %": 12.18
+  }
+}

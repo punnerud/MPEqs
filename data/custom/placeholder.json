@@ -1,0 +1,490 @@
+{
+  "summary": {
+    "letter": {
+      "substituted": 15,
+      "reverses": 15,
+      "model_restores": 13,
+      "refused": 1,
+      "cases": 16
+    },
+    "category": {
+      "substituted": 12,
+      "reverses": 12,
+      "model_restores": 9,
+      "refused": 4,
+      "cases": 16
+    },
+    "numbered": {
+      "substituted": 16,
+      "reverses": 16,
+      "model_restores": 13,
+      "refused": 0,
+      "cases": 16
+    }
+  },
+  "runs": [
+    {
+      "scheme": "letter",
+      "sentence": "The fox is big",
+      "shortened": "The A is big",
+      "bindings": {
+        "A": "fox"
+      },
+      "restored": "The fox is big",
+      "model_ok": true
+    },
+    {
+      "scheme": "letter",
+      "sentence": "The old bridge crosses the river",
+      "shortened": "The old A crosses the river",
+      "bindings": {
+        "A": "bridge"
+      },
+      "restored": "The bridge crosses the river",
+      "model_ok": false
+    },
+    {
+      "scheme": "letter",
+      "sentence": "She left her umbrella on the train",
+      "shortened": "She left her A on the train",
+      "bindings": {
+        "A": "umbrella"
+      },
+      "restored": "She left her umbrella on the train",
+      "model_ok": true
+    },
+    {
+      "scheme": "letter",
+      "sentence": "The kettle boiled while he read",
+      "shortened": "The A boiled while he read",
+      "bindings": {
+        "A": "kettle"
+      },
+      "restored": "The kettle boiled while he read",
+      "model_ok": true
+    },
+    {
+      "scheme": "letter",
+      "sentence": "A heavy parcel arrived for the neighbour",
+      "refused": "'A' already appears in the sentence"
+    },
+    {
+      "scheme": "letter",
+      "sentence": "The dog barked at the postman",
+      "shortened": "The A barked at the postman",
+      "bindings": {
+        "A": "dog"
+      },
+      "restored": "The dog barked at the postman",
+      "model_ok": true
+    },
+    {
+      "scheme": "letter",
+      "sentence": "They painted the garden fence last summer",
+      "shortened": "They painted the garden A last summer",
+      "bindings": {
+        "A": "fence"
+      },
+      "restored": "They painted the fence the garden last summer",
+      "model_ok": false
+    },
+    {
+      "scheme": "letter",
+      "sentence": "The engine stalled halfway up the hill",
+      "shortened": "The A stalled halfway up the hill",
+      "bindings": {
+        "A": "engine"
+      },
+      "restored": "The engine stalled halfway up the hill",
+      "model_ok": true
+    },
+    {
+      "scheme": "letter",
+      "sentence": "My sister borrowed the blue bicycle",
+      "shortened": "My sister borrowed the blue A",
+      "bindings": {
+        "A": "bicycle"
+      },
+      "restored": "My sister borrowed the blue bicycle",
+      "model_ok": true
+    },
+    {
+      "scheme": "letter",
+      "sentence": "The bakery opens before dawn",
+      "shortened": "The A opens before dawn",
+      "bindings": {
+        "A": "bakery"
+      },
+      "restored": "The bakery opens before dawn",
+      "model_ok": true
+    },
+    {
+      "scheme": "letter",
+      "sentence": "He forgot the tickets on the kitchen table",
+      "shortened": "He forgot the A on the kitchen table",
+      "bindings": {
+        "A": "tickets"
+      },
+      "restored": "He forgot the tickets on the kitchen table",
+      "model_ok": true
+    },
+    {
+      "scheme": "letter",
+      "sentence": "The storm knocked out the power for two days",
+      "shortened": "The A knocked out the power for two days",
+      "bindings": {
+        "A": "storm"
+      },
+      "restored": "The storm knocked out the power for two days",
+      "model_ok": true
+    },
+    {
+      "scheme": "letter",
+      "sentence": "The fox chased the dog across the field",
+      "shortened": "The A chased the B across the field",
+      "bindings": {
+        "A": "fox",
+        "B": "dog"
+      },
+      "restored": "The fox chased the dog across the field",
+      "model_ok": true
+    },
+    {
+      "scheme": "letter",
+      "sentence": "The car overtook the lorry on the bridge",
+      "shortened": "The A overtook the B on the bridge",
+      "bindings": {
+        "A": "car",
+        "B": "lorry"
+      },
+      "restored": "The car overtook the lorry on the bridge",
+      "model_ok": true
+    },
+    {
+      "scheme": "letter",
+      "sentence": "The hammer lay beside the saw",
+      "shortened": "The A lay beside the B",
+      "bindings": {
+        "A": "hammer",
+        "B": "saw"
+      },
+      "restored": "The hammer lay beside the saw",
+      "model_ok": true
+    },
+    {
+      "scheme": "letter",
+      "sentence": "The cat watched the bird from the window",
+      "shortened": "The A watched the B from the window",
+      "bindings": {
+        "A": "cat",
+        "B": "bird"
+      },
+      "restored": "The cat watched the bird from the window",
+      "model_ok": true
+    },
+    {
+      "scheme": "category",
+      "sentence": "The fox is big",
+      "shortened": "The animal is big",
+      "bindings": {
+        "animal": "fox"
+      },
+      "restored": "The fox is big",
+      "model_ok": true
+    },
+    {
+      "scheme": "category",
+      "sentence": "The old bridge crosses the river",
+      "shortened": "The old structure crosses the river",
+      "bindings": {
+        "structure": "bridge"
+      },
+      "restored": "The bridge crosses the river",
+      "model_ok": false
+    },
+    {
+      "scheme": "category",
+      "sentence": "She left her umbrella on the train",
+      "shortened": "She left her object on the train",
+      "bindings": {
+        "object": "umbrella"
+      },
+      "restored": "She left her umbrella on the train",
+      "model_ok": true
+    },
+    {
+      "scheme": "category",
+      "sentence": "The kettle boiled while he read",
+      "shortened": "The appliance boiled while he read",
+      "bindings": {
+        "appliance": "kettle"
+      },
+      "restored": "The kettle boiled while he read",
+      "model_ok": true
+    },
+    {
+      "scheme": "category",
+      "sentence": "A heavy parcel arrived for the neighbour",
+      "shortened": "A heavy object arrived for the neighbour",
+      "bindings": {
+        "object": "parcel"
+      },
+      "restored": "A parcel arrived for the neighbour",
+      "model_ok": false
+    },
+    {
+      "scheme": "category",
+      "sentence": "The dog barked at the postman",
+      "shortened": "The animal barked at the postman",
+      "bindings": {
+        "animal": "dog"
+      },
+      "restored": "The dog barked at the postman",
+      "model_ok": true
+    },
+    {
+      "scheme": "category",
+      "sentence": "They painted the garden fence last summer",
+      "shortened": "They painted the garden structure last summer",
+      "bindings": {
+        "structure": "fence"
+      },
+      "restored": "They painted the fence last summer",
+      "model_ok": false
+    },
+    {
+      "scheme": "category",
+      "sentence": "The engine stalled halfway up the hill",
+      "shortened": "The machine stalled halfway up the hill",
+      "bindings": {
+        "machine": "engine"
+      },
+      "restored": "The engine stalled halfway up the hill",
+      "model_ok": true
+    },
+    {
+      "scheme": "category",
+      "sentence": "My sister borrowed the blue bicycle",
+      "shortened": "My sister borrowed the blue vehicle",
+      "bindings": {
+        "vehicle": "bicycle"
+      },
+      "restored": "My sister borrowed the blue bicycle",
+      "model_ok": true
+    },
+    {
+      "scheme": "category",
+      "sentence": "The bakery opens before dawn",
+      "shortened": "The building opens before dawn",
+      "bindings": {
+        "building": "bakery"
+      },
+      "restored": "The bakery opens before dawn",
+      "model_ok": true
+    },
+    {
+      "scheme": "category",
+      "sentence": "He forgot the tickets on the kitchen table",
+      "shortened": "He forgot the object on the kitchen table",
+      "bindings": {
+        "object": "tickets"
+      },
+      "restored": "He forgot the tickets on the kitchen table",
+      "model_ok": true
+    },
+    {
+      "scheme": "category",
+      "sentence": "The storm knocked out the power for two days",
+      "shortened": "The event knocked out the power for two days",
+      "bindings": {
+        "event": "storm"
+      },
+      "restored": "The storm knocked out the power for two days",
+      "model_ok": true
+    },
+    {
+      "scheme": "category",
+      "sentence": "The fox chased the dog across the field",
+      "refused": "'animal' already stands for 'fox'"
+    },
+    {
+      "scheme": "category",
+      "sentence": "The car overtook the lorry on the bridge",
+      "refused": "'vehicle' already stands for 'car'"
+    },
+    {
+      "scheme": "category",
+      "sentence": "The hammer lay beside the saw",
+      "refused": "'tool' already stands for 'hammer'"
+    },
+    {
+      "scheme": "category",
+      "sentence": "The cat watched the bird from the window",
+      "refused": "'animal' already stands for 'cat'"
+    },
+    {
+      "scheme": "numbered",
+      "sentence": "The fox is big",
+      "shortened": "The animal is big",
+      "bindings": {
+        "animal": "fox"
+      },
+      "restored": "The fox is big",
+      "model_ok": true
+    },
+    {
+      "scheme": "numbered",
+      "sentence": "The old bridge crosses the river",
+      "shortened": "The old structure crosses the river",
+      "bindings": {
+        "structure": "bridge"
+      },
+      "restored": "The bridge crosses the river",
+      "model_ok": false
+    },
+    {
+      "scheme": "numbered",
+      "sentence": "She left her umbrella on the train",
+      "shortened": "She left her object on the train",
+      "bindings": {
+        "object": "umbrella"
+      },
+      "restored": "She left her umbrella on the train",
+      "model_ok": true
+    },
+    {
+      "scheme": "numbered",
+      "sentence": "The kettle boiled while he read",
+      "shortened": "The appliance boiled while he read",
+      "bindings": {
+        "appliance": "kettle"
+      },
+      "restored": "The kettle boiled while he read",
+      "model_ok": true
+    },
+    {
+      "scheme": "numbered",
+      "sentence": "A heavy parcel arrived for the neighbour",
+      "shortened": "A heavy object arrived for the neighbour",
+      "bindings": {
+        "object": "parcel"
+      },
+      "restored": "A parcel arrived for the neighbour",
+      "model_ok": false
+    },
+    {
+      "scheme": "numbered",
+      "sentence": "The dog barked at the postman",
+      "shortened": "The animal barked at the postman",
+      "bindings": {
+        "animal": "dog"
+      },
+      "restored": "The dog barked at the postman",
+      "model_ok": true
+    },
+    {
+      "scheme": "numbered",
+      "sentence": "They painted the garden fence last summer",
+      "shortened": "They painted the garden structure last summer",
+      "bindings": {
+        "structure": "fence"
+      },
+      "restored": "They painted the fence last summer",
+      "model_ok": false
+    },
+    {
+      "scheme": "numbered",
+      "sentence": "The engine stalled halfway up the hill",
+      "shortened": "The machine stalled halfway up the hill",
+      "bindings": {
+        "machine": "engine"
+      },
+      "restored": "The engine stalled halfway up the hill",
+      "model_ok": true
+    },
+    {
+      "scheme": "numbered",
+      "sentence": "My sister borrowed the blue bicycle",
+      "shortened": "My sister borrowed the blue vehicle",
+      "bindings": {
+        "vehicle": "bicycle"
+      },
+      "restored": "My sister borrowed the blue bicycle",
+      "model_ok": true
+    },
+    {
+      "scheme": "numbered",
+      "sentence": "The bakery opens before dawn",
+      "shortened": "The building opens before dawn",
+      "bindings": {
+        "building": "bakery"
+      },
+      "restored": "The bakery opens before dawn",
+      "model_ok": true
+    },
+    {
+      "scheme": "numbered",
+      "sentence": "He forgot the tickets on the kitchen table",
+      "shortened": "He forgot the object on the kitchen table",
+      "bindings": {
+        "object": "tickets"
+      },
+      "restored": "He forgot the tickets on the kitchen table",
+      "model_ok": true
+    },
+    {
+      "scheme": "numbered",
+      "sentence": "The storm knocked out the power for two days",
+      "shortened": "The event knocked out the power for two days",
+      "bindings": {
+        "event": "storm"
+      },
+      "restored": "The storm knocked out the power for two days",
+      "model_ok": true
+    },
+    {
+      "scheme": "numbered",
+      "sentence": "The fox chased the dog across the field",
+      "shortened": "The animal1 chased the animal2 across the field",
+      "bindings": {
+        "animal1": "fox",
+        "animal2": "dog"
+      },
+      "restored": "The fox chased the dog across the field",
+      "model_ok": true
+    },
+    {
+      "scheme": "numbered",
+      "sentence": "The car overtook the lorry on the bridge",
+      "shortened": "The vehicle1 overtook the vehicle2 on the bridge",
+      "bindings": {
+        "vehicle1": "car",
+        "vehicle2": "lorry"
+      },
+      "restored": "The car overtook the lorry on the bridge",
+      "model_ok": true
+    },
+    {
+      "scheme": "numbered",
+      "sentence": "The hammer lay beside the saw",
+      "shortened": "The tool1 lay beside the tool2",
+      "bindings": {
+        "tool1": "hammer",
+        "tool2": "saw"
+      },
+      "restored": "The hammer lay beside the saw",
+      "model_ok": true
+    },
+    {
+      "scheme": "numbered",
+      "sentence": "The cat watched the bird from the window",
+      "shortened": "The animal1 watched the animal2 from the window",
+      "bindings": {
+        "animal1": "cat",
+        "animal2": "bird"
+      },
+      "restored": "The cat watched the bird from the window",
+      "model_ok": true
+    }
+  ]
+}

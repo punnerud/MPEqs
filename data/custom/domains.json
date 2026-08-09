@@ -1,0 +1,16 @@
+{
+  "n": 3200,
+  "domains": [
+    "arithmetic",
+    "norwegian",
+    "physics",
+    "prose"
+  ],
+  "purity": 0.9741,
+  "lift": 3.896,
+  "physics_to_arithmetic": 1.2532,
+  "physics_to_prose": 1.4215,
+  "arithmetic_to_prose": 1.4463,
+  "within": 0.9019,
+  "between": 1.3707
+}

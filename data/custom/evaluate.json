@@ -1,0 +1,74 @@
+{
+  "summary": {
+    "tasks": 8,
+    "wrote_expression": 7,
+    "correct": 6,
+    "baseline_stepwise_correct": 0
+  },
+  "runs": [
+    {
+      "problem": "((47 + 38) * 3 - 12) / 9",
+      "answer": 27,
+      "expression": "((47 + 38) * 3 - 12) / 9",
+      "evaluated": 27.0,
+      "model_claim": null,
+      "correct": true
+    },
+    {
+      "problem": "(120 / 4 + 15) * 2 - 30",
+      "answer": 60,
+      "expression": "120 / 4 + 15 * 2 - 30",
+      "evaluated": 30.0,
+      "model_claim": null,
+      "correct": false
+    },
+    {
+      "problem": "((9 * 7) + (8 * 6)) - 51",
+      "answer": 60,
+      "expression": "((9 * 7) + (8 * 6)) - 51",
+      "evaluated": 60,
+      "model_claim": null,
+      "correct": true
+    },
+    {
+      "problem": "(200 - 45 * 3) / 5 + 12",
+      "answer": 25,
+      "expression": "(200 - 45 * 3) / 5 + 12",
+      "evaluated": 25.0,
+      "model_claim": null,
+      "correct": true
+    },
+    {
+      "problem": "((15 + 25) / 8) * 14 - 20",
+      "answer": 50,
+      "expression": "((15 + 25) / 8) * 14 - 20",
+      "evaluated": 50.0,
+      "model_claim": null,
+      "correct": true
+    },
+    {
+      "problem": "(6 * 6 + 4 * 4) / 13 + 7",
+      "answer": 11,
+      "expression": null,
+      "evaluated": null,
+      "model_claim": null,
+      "correct": false
+    },
+    {
+      "problem": "((100 - 28) / 6) * 5 - 30",
+      "answer": 30,
+      "expression": "((100 - 28) / 6) * 5 - 30",
+      "evaluated": 30.0,
+      "model_claim": null,
+      "correct": true
+    },
+    {
+      "problem": "(81 / 9 + 11) * 3 - 40",
+      "answer": 20,
+      "expression": "(81 / 9 + 11) * 3 - 40",
+      "evaluated": 20.0,
+      "model_claim": null,
+      "correct": true
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "betweenness": {
+    "exact_cell_pct": 25.70272600431738,
+    "hubs": 64,
+    "k": 16,
+    "max_violation": 1,
+    "n": 3897,
+    "recall_at_k": 0.11602564102564103,
+    "resident_bytes": 639904,
+    "residual_ratio": 0.097948181729978,
+    "rows_sampled": 156,
+    "squarings": 0,
+    "violations": 30602
+  },
+  "facility_location": {
+    "exact_cell_pct": 17.73219080713947,
+    "hubs": 64,
+    "k": 16,
+    "max_violation": 1,
+    "n": 3897,
+    "recall_at_k": 0.14871794871794872,
+    "resident_bytes": 639904,
+    "residual_ratio": 0.10785986937193075,
+    "rows_sampled": 156,
+    "squarings": 0,
+    "violations": 16944
+  },
+  "gateway_concentration": 20.49880966698008,
+  "graph_k": 16,
+  "hubs": 64,
+  "k": 16,
+  "n": 3897,
+  "reachable_pct": 100.0
+}

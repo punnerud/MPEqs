@@ -1,0 +1,17 @@
+{
+  "n": 8000,
+  "landmarks": 32,
+  "rows_sampled": 616,
+  "quantum_units_per_radian": 1000.0,
+  "resident_bytes": 1032128,
+  "exact_block_pct": 1.7857142857142858,
+  "within_tol_block_pct": 1.7857142857142858,
+  "tol_units": 2,
+  "exact_cell_pct": 3.0626596181665566,
+  "mean_residual": 722.397378406067,
+  "mean_distance": 1355.3867394950344,
+  "residual_ratio": 0.532982474563094,
+  "triangle_violations": 0,
+  "max_violation": 0,
+  "mean_bound_width": 1527.9207983384288
+}

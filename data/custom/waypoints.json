@@ -1,0 +1,14 @@
+{
+  "n": 4000,
+  "k": 16,
+  "routes": 8940,
+  "mean_hops": 5.36,
+  "max_hops": 10,
+  "top1pct_traversal_share": 0.3132,
+  "flat_graph_share": 0.01,
+  "gateway_concentration": 31.32,
+  "nodes_carrying_half": 148,
+  "nodes_touched_pct": 52.6,
+  "geodesic_betweenness_exact_cell_pct": 39.08,
+  "landmarks_by_betweenness": 32
+}

@@ -1,0 +1,18 @@
+{
+  "olmoe-1b": {
+    "tasks": 60,
+    "hits": 11,
+    "solver_arm": 15,
+    "best_model_arm": 14,
+    "calls_saved": 33,
+    "hit_correct_rate": 1.0
+  },
+  "qwen-35b": {
+    "tasks": 20,
+    "hits": 16,
+    "solver_arm": 18,
+    "best_model_arm": 16,
+    "calls_saved": 48,
+    "hit_correct_rate": 1.0
+  }
+}

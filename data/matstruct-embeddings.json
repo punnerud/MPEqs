@@ -1,0 +1,42 @@
+{
+  "matrix": "matrix-embeddings.matx",
+  "n": 3893,
+  "quantum": 0.0015162504034669161,
+  "tol_units": 1,
+  "spread": {
+    "mean": 1.5162504034669162,
+    "stddev": 0.11493432891037009,
+    "coefficient_of_variation": 0.07580168067726281,
+    "p01": 1.0589663982391357,
+    "p99": 1.705069661140442,
+    "dynamic_range": 1.610126311822222
+  },
+  "triangle": {
+    "triples": 499610,
+    "violations": 0,
+    "violation_pct": 0.0,
+    "max_violation": 0.0,
+    "max_relative": 0.0,
+    "mean_relative_violation": 0.0,
+    "is_metric": true
+  },
+  "clusters": {
+    "k": 8,
+    "intra_over_inter": 0.9104823086269589,
+    "mean_silhouette": 0.05115178105891742,
+    "smallest_cluster": 167,
+    "largest_cluster": 1010
+  },
+  "rank1": {
+    "blocks": 56,
+    "mean_residual_ratio": 0.10060529068587246,
+    "cells_within_tol_pct": 1.7884509883180528,
+    "blocks_fully_within_tol_pct": 0.0,
+    "varint_ratio": 0.3685665039514985,
+    "deflate_ratio": 0.2990061585310638,
+    "mean_only_residual_ratio": 0.05209570183575941,
+    "rank1_gain_over_mean_pct": -93.11629777644193
+  },
+  "predicted_ratio": 3.3444127201684704,
+  "verdict": "MARGINAL — some structure, but well short of matcodec's 6.4x on road data."
+}

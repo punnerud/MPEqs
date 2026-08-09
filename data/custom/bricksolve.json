@@ -1,0 +1,19 @@
+{
+  "binary_assignments": 4,
+  "binary_surviving": 1,
+  "binary_recovered": true,
+  "coupled_v": "150",
+  "coupled_m": "20",
+  "coupled_types_ok": true,
+  "coupled_checks": true,
+  "factory": {
+    "available": true,
+    "engine_probes": 12,
+    "inferred": [
+      "1",
+      "-1000"
+    ],
+    "third_probe_ok": true,
+    "is_offset_brick": true
+  }
+}

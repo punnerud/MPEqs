@@ -1,0 +1,279 @@
+{
+  "problems": 12,
+  "a_right": 12,
+  "b_right": 12,
+  "echoes": 0,
+  "agree": 12,
+  "agree_true": 12,
+  "agree_wrong": 0,
+  "retries": 0,
+  "retry_fixed": 0,
+  "flagged": 0,
+  "e2e": 12,
+  "rows": [
+    {
+      "story": "Think of a number. Three times the number plus 4 equals twice the number plus 9. What is the number?",
+      "truth": [
+        "3",
+        "4",
+        "2",
+        "9"
+      ],
+      "a": [
+        "3",
+        "4",
+        "2",
+        "9"
+      ],
+      "b": [
+        "3",
+        "4",
+        "2",
+        "9"
+      ],
+      "status": "x = 5"
+    },
+    {
+      "story": "Ada is some years old. Half of Ada's age in years plus 7 equals twice Ada's age in years plus 1. What is Ada's age in years?",
+      "truth": [
+        "1/2",
+        "7",
+        "2",
+        "1"
+      ],
+      "a": [
+        "1/2",
+        "7",
+        "2",
+        "1"
+      ],
+      "b": [
+        "1/2",
+        "7",
+        "2",
+        "1"
+      ],
+      "status": "x = 4"
+    },
+    {
+      "story": "A ticket costs some amount. Five times the price plus 2 equals three times the price plus 14. What is the price?",
+      "truth": [
+        "5",
+        "2",
+        "3",
+        "14"
+      ],
+      "a": [
+        "5",
+        "2",
+        "3",
+        "14"
+      ],
+      "b": [
+        "5",
+        "2",
+        "3",
+        "14"
+      ],
+      "status": "x = 6"
+    },
+    {
+      "story": "Think of a number. A third of the number plus 8 equals the number plus 2. What is the number?",
+      "truth": [
+        "1/3",
+        "8",
+        "1",
+        "2"
+      ],
+      "a": [
+        "1/3",
+        "8",
+        "1",
+        "2"
+      ],
+      "b": [
+        "1/3",
+        "8",
+        "1",
+        "2"
+      ],
+      "status": "x = 9"
+    },
+    {
+      "story": "Ada is some years old. Four times Ada's age in years minus 3 equals twice Ada's age in years plus 11. What is Ada's age in years?",
+      "truth": [
+        "4",
+        "-3",
+        "2",
+        "11"
+      ],
+      "a": [
+        "4",
+        "-3",
+        "2",
+        "11"
+      ],
+      "b": [
+        "4",
+        "-3",
+        "2",
+        "11"
+      ],
+      "status": "x = 7"
+    },
+    {
+      "story": "A ticket costs some amount. Twice the price plus 5 equals half of the price plus 17. What is the price?",
+      "truth": [
+        "2",
+        "5",
+        "1/2",
+        "17"
+      ],
+      "a": [
+        "2",
+        "5",
+        "1/2",
+        "17"
+      ],
+      "b": [
+        "2",
+        "5",
+        "1/2",
+        "17"
+      ],
+      "status": "x = 8"
+    },
+    {
+      "story": "Think of a number. Three times the number equals the number plus 12. What is the number?",
+      "truth": [
+        "3",
+        "0",
+        "1",
+        "12"
+      ],
+      "a": [
+        "3",
+        "0",
+        "1",
+        "12"
+      ],
+      "b": [
+        "3",
+        "0",
+        "1",
+        "12"
+      ],
+      "status": "x = 6"
+    },
+    {
+      "story": "Ada is some years old. Half of Ada's age in years plus 9 equals a third of Ada's age in years plus 10. What is Ada's age in years?",
+      "truth": [
+        "1/2",
+        "9",
+        "1/3",
+        "10"
+      ],
+      "a": [
+        "1/2",
+        "9",
+        "1/3",
+        "10"
+      ],
+      "b": [
+        "1/2",
+        "9",
+        "1/3",
+        "10"
+      ],
+      "status": "x = 6"
+    },
+    {
+      "story": "A ticket costs some amount. Four times the price plus 6 equals 18. What is the price?",
+      "truth": [
+        "4",
+        "6",
+        "0",
+        "18"
+      ],
+      "a": [
+        "4",
+        "6",
+        "0",
+        "18"
+      ],
+      "b": [
+        "4",
+        "6",
+        "0",
+        "18"
+      ],
+      "status": "x = 3"
+    },
+    {
+      "story": "Think of a number. Twice the number plus 13 equals 19. What is the number?",
+      "truth": [
+        "2",
+        "13",
+        "0",
+        "19"
+      ],
+      "a": [
+        "2",
+        "13",
+        "0",
+        "19"
+      ],
+      "b": [
+        "2",
+        "13",
+        "0",
+        "19"
+      ],
+      "status": "x = 3"
+    },
+    {
+      "story": "Ada is some years old. Five times Ada's age in years minus 2 equals four times Ada's age in years plus 3. What is Ada's age in years?",
+      "truth": [
+        "5",
+        "-2",
+        "4",
+        "3"
+      ],
+      "a": [
+        "5",
+        "-2",
+        "4",
+        "3"
+      ],
+      "b": [
+        "5",
+        "-2",
+        "4",
+        "3"
+      ],
+      "status": "x = 5"
+    },
+    {
+      "story": "A ticket costs some amount. Three times the price plus 10 equals twice the price plus 16. What is the price?",
+      "truth": [
+        "3",
+        "10",
+        "2",
+        "16"
+      ],
+      "a": [
+        "3",
+        "10",
+        "2",
+        "16"
+      ],
+      "b": [
+        "3",
+        "10",
+        "2",
+        "16"
+      ],
+      "status": "x = 6"
+    }
+  ]
+}

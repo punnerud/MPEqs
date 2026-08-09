@@ -1,0 +1,86 @@
+{
+  "n": 8920,
+  "dim": 384,
+  "bits": 8,
+  "queries": 40,
+  "uncompressed_retrieval": 40,
+  "raw_bytes": 13701120,
+  "roots": 29,
+  "rows": [
+    {
+      "method": "raw f32",
+      "bytes": 13701120,
+      "max_err": 0.0,
+      "retrieval": 40
+    },
+    {
+      "method": "gzip(f32)",
+      "bytes": 12647962,
+      "max_err": 0.0,
+      "retrieval": 40
+    },
+    {
+      "method": "lzma(f32)",
+      "bytes": 10874064,
+      "max_err": 0.0,
+      "retrieval": 40
+    },
+    {
+      "method": "scalar only",
+      "bytes": 2876021,
+      "sizes": {
+        "raw": 3425284,
+        "gzip": 2876021,
+        "lzma": 2894360
+      },
+      "max_err": 0.0010420233011245728,
+      "retrieval": 40
+    },
+    {
+      "method": "centroid + residual",
+      "bytes": 2871930,
+      "sizes": {
+        "raw": 3426820,
+        "gzip": 2871930,
+        "lzma": 2890232
+      },
+      "max_err": 0.001024104654788971,
+      "retrieval": 40
+    },
+    {
+      "method": "rank-8 + residual",
+      "bytes": 3117111,
+      "sizes": {
+        "raw": 3724548,
+        "gzip": 3117111,
+        "lzma": 3131832
+      },
+      "max_err": 0.0009631142020225525,
+      "retrieval": 40
+    },
+    {
+      "method": "rank-32 + residual",
+      "bytes": 3902424,
+      "sizes": {
+        "raw": 4617732,
+        "gzip": 3902424,
+        "lzma": 3911988
+      },
+      "max_err": 0.0008736029267311096,
+      "retrieval": 40
+    },
+    {
+      "method": "graph-delta + residual",
+      "bytes": 2781837,
+      "sizes": {
+        "raw": 3425284,
+        "gzip": 2781837,
+        "lzma": 2797160
+      },
+      "max_err": 0.008865001611411572,
+      "retrieval": 40
+    }
+  ],
+  "best_lossless_retrieval": "graph-delta + residual",
+  "best_lossless_bytes": 2781837
+}

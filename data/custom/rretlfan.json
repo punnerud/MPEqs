@@ -1,0 +1,300 @@
+{
+  "qwen-35b": {
+    "n": 20,
+    "solved": 2,
+    "rejoined_exact": 20,
+    "mean_fanout": 3.35,
+    "calls": 67,
+    "rows": [
+      {
+        "truth": "123",
+        "answer": "123",
+        "parts": 2,
+        "ok": true,
+        "why": "ok"
+      },
+      {
+        "truth": "30",
+        "answer": "None",
+        "parts": 3,
+        "ok": false,
+        "why": "problem numbers missing from the system: 10"
+      },
+      {
+        "truth": "21",
+        "answer": "44",
+        "parts": 3,
+        "ok": false,
+        "why": "ok"
+      },
+      {
+        "truth": "2",
+        "answer": "None",
+        "parts": 4,
+        "ok": false,
+        "why": "a definition does not reduce to arithmetic"
+      },
+      {
+        "truth": "20",
+        "answer": "None",
+        "parts": 6,
+        "ok": false,
+        "why": "a definition does not reduce to arithmetic"
+      },
+      {
+        "truth": "15",
+        "answer": "35",
+        "parts": 3,
+        "ok": false,
+        "why": "ok"
+      },
+      {
+        "truth": "100",
+        "answer": "None",
+        "parts": 4,
+        "ok": false,
+        "why": "a definition does not reduce to arithmetic"
+      },
+      {
+        "truth": "20",
+        "answer": "4",
+        "parts": 4,
+        "ok": false,
+        "why": "ok"
+      },
+      {
+        "truth": "60",
+        "answer": "None",
+        "parts": 2,
+        "ok": false,
+        "why": "problem numbers missing from the system: 25"
+      },
+      {
+        "truth": "68",
+        "answer": "None",
+        "parts": 2,
+        "ok": false,
+        "why": "problem numbers missing from the system: 20"
+      },
+      {
+        "truth": "25",
+        "answer": "300",
+        "parts": 3,
+        "ok": false,
+        "why": "ok"
+      },
+      {
+        "truth": "120",
+        "answer": "70",
+        "parts": 2,
+        "ok": false,
+        "why": "ok"
+      },
+      {
+        "truth": "44",
+        "answer": "None",
+        "parts": 3,
+        "ok": false,
+        "why": "a definition does not reduce to arithmetic"
+      },
+      {
+        "truth": "243",
+        "answer": "None",
+        "parts": 6,
+        "ok": false,
+        "why": "problem numbers missing from the system: 16.50, 22.50, 3"
+      },
+      {
+        "truth": "10",
+        "answer": "None",
+        "parts": 3,
+        "ok": false,
+        "why": "problem numbers missing from the system: 1, 24"
+      },
+      {
+        "truth": "83",
+        "answer": "None",
+        "parts": 4,
+        "ok": false,
+        "why": "a definition does not reduce to arithmetic"
+      },
+      {
+        "truth": "360",
+        "answer": "None",
+        "parts": 3,
+        "ok": false,
+        "why": "a definition does not reduce to arithmetic"
+      },
+      {
+        "truth": "21",
+        "answer": "54",
+        "parts": 3,
+        "ok": false,
+        "why": "ok"
+      },
+      {
+        "truth": "82",
+        "answer": "82",
+        "parts": 3,
+        "ok": true,
+        "why": "ok"
+      },
+      {
+        "truth": "10",
+        "answer": "None",
+        "parts": 4,
+        "ok": false,
+        "why": "a definition does not reduce to arithmetic"
+      }
+    ]
+  },
+  "olmoe-1b": {
+    "n": 20,
+    "solved": 0,
+    "rejoined_exact": 20,
+    "mean_fanout": 3.35,
+    "calls": 67,
+    "rows": [
+      {
+        "truth": "123",
+        "answer": "None",
+        "parts": 2,
+        "ok": false,
+        "why": "problem numbers missing from the system: 1, 10, 3, 30"
+      },
+      {
+        "truth": "30",
+        "answer": "None",
+        "parts": 3,
+        "ok": false,
+        "why": "problem numbers missing from the system: 10, 60"
+      },
+      {
+        "truth": "21",
+        "answer": "None",
+        "parts": 3,
+        "ok": false,
+        "why": "problem numbers missing from the system: 23, 42, 44"
+      },
+      {
+        "truth": "2",
+        "answer": "None",
+        "parts": 4,
+        "ok": false,
+        "why": "problem numbers missing from the system: 4, 400, 60"
+      },
+      {
+        "truth": "20",
+        "answer": "None",
+        "parts": 6,
+        "ok": false,
+        "why": "problem numbers missing from the system: 30, 6"
+      },
+      {
+        "truth": "15",
+        "answer": "None",
+        "parts": 3,
+        "ok": false,
+        "why": "problem numbers missing from the system: 10, 15"
+      },
+      {
+        "truth": "100",
+        "answer": "None",
+        "parts": 4,
+        "ok": false,
+        "why": "problem numbers missing from the system: 1100, 1350, 250, 350, 6, 9"
+      },
+      {
+        "truth": "20",
+        "answer": "None",
+        "parts": 4,
+        "ok": false,
+        "why": "problem numbers missing from the system: 3, 4"
+      },
+      {
+        "truth": "60",
+        "answer": "None",
+        "parts": 2,
+        "ok": false,
+        "why": "problem numbers missing from the system: 20, 25"
+      },
+      {
+        "truth": "68",
+        "answer": "26",
+        "parts": 2,
+        "ok": false,
+        "why": "ok"
+      },
+      {
+        "truth": "25",
+        "answer": "None",
+        "parts": 3,
+        "ok": false,
+        "why": "problem numbers missing from the system: 300, 50"
+      },
+      {
+        "truth": "120",
+        "answer": "None",
+        "parts": 2,
+        "ok": false,
+        "why": "problem numbers missing from the system: 20, 50"
+      },
+      {
+        "truth": "44",
+        "answer": "None",
+        "parts": 3,
+        "ok": false,
+        "why": "problem numbers missing from the system: 220, 40"
+      },
+      {
+        "truth": "243",
+        "answer": "None",
+        "parts": 6,
+        "ok": false,
+        "why": "problem numbers missing from the system: 16.50, 22.50, 42"
+      },
+      {
+        "truth": "10",
+        "answer": "None",
+        "parts": 3,
+        "ok": false,
+        "why": "problem numbers missing from the system: 1, 24, 6"
+      },
+      {
+        "truth": "83",
+        "answer": "None",
+        "parts": 4,
+        "ok": false,
+        "why": "problem numbers missing from the system: 3755, 5000"
+      },
+      {
+        "truth": "360",
+        "answer": "None",
+        "parts": 3,
+        "ok": false,
+        "why": "problem numbers missing from the system: 2, 3"
+      },
+      {
+        "truth": "21",
+        "answer": "None",
+        "parts": 3,
+        "ok": false,
+        "why": "problem numbers missing from the system: 54, 6"
+      },
+      {
+        "truth": "82",
+        "answer": "None",
+        "parts": 3,
+        "ok": false,
+        "why": "problem numbers missing from the system: 38, 6"
+      },
+      {
+        "truth": "10",
+        "answer": "None",
+        "parts": 4,
+        "ok": false,
+        "why": "problem numbers missing from the system: 2, 20, 5"
+      }
+    ]
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "model": "Qwen3.6-35B-A3B-UD-IQ1_M.gguf",
+  "tokens": 24,
+  "batch": 1,
+  "reps": 3,
+  "cost_model": {
+    "c_fetch_ns": 227798.19228250135,
+    "c_byte_ns": 0.27595777432057117,
+    "provenance": "measured"
+  },
+  "max_bridged_gap": 3,
+  "cache_contaminated": false,
+  "results": [
+    {
+      "method": "identity",
+      "n_fetches": 20784,
+      "bytes": 7066632192,
+      "median_ms": 5038.4130000000005,
+      "all_ms": [
+        5112.288417000001,
+        5013.508416,
+        5038.4130000000005
+      ],
+      "ms_per_token": 209.93387500000003,
+      "fetches_per_token": 866.0,
+      "mib_per_token": 280.802734375,
+      "effective_gb_s": 1.4025511985619281,
+      "speedup_vs_reference": 1.0
+    },
+    {
+      "method": "frequency",
+      "n_fetches": 15468,
+      "bytes": 8433057792,
+      "median_ms": 4800.744916000001,
+      "all_ms": [
+        4805.6614580000005,
+        4800.744916000001,
+        4781.945708
+      ],
+      "ms_per_token": 200.0310381666667,
+      "fetches_per_token": 644.5,
+      "mib_per_token": 335.099609375,
+      "effective_gb_s": 1.7566144295428339,
+      "speedup_vs_reference": 1.0495065012114881
+    },
+    {
+      "method": "mincut",
+      "n_fetches": 12009,
+      "bytes": 8410349568,
+      "median_ms": 4443.159542,
+      "all_ms": [
+        4454.655,
+        4429.187083999999,
+        4443.159542
+      ],
+      "ms_per_token": 185.13164758333335,
+      "fetches_per_token": 500.375,
+      "mib_per_token": 334.197265625,
+      "effective_gb_s": 1.8928758889927793,
+      "speedup_vs_reference": 1.133970759405155
+    },
+    {
+      "method": "chain",
+      "n_fetches": 13299,
+      "bytes": 7701446656,
+      "median_ms": 4299.361666000001,
+      "all_ms": [
+        4332.707125,
+        4299.361666000001,
+        4289.667708
+      ],
+      "ms_per_token": 179.1400694166667,
+      "fetches_per_token": 554.125,
+      "mib_per_token": 306.0279947916667,
+      "effective_gb_s": 1.7913000241185102,
+      "speedup_vs_reference": 1.1718979214622787
+    }
+  ]
+}

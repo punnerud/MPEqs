@@ -1,0 +1,178 @@
+{
+  "model": "OLMoE-1B-7B-0125-Instruct-Q4_K_M.gguf",
+  "tokens": 96,
+  "max_read_bytes": 8388608,
+  "cost_model": {
+    "c_fetch_ns": 230740.77671410117,
+    "c_byte_ns": 0.28557675984241576
+  },
+  "expert_bytes_total": 3900702720,
+  "working_set": [
+    {
+      "layer": 0,
+      "n_expert": 64,
+      "mean_distinct_512": 64.0,
+      "max_distinct_512": 64.0,
+      "mean_distinct_64": 64.0
+    },
+    {
+      "layer": 1,
+      "n_expert": 64,
+      "mean_distinct_512": 64.0,
+      "max_distinct_512": 64.0,
+      "mean_distinct_64": 64.0
+    },
+    {
+      "layer": 2,
+      "n_expert": 64,
+      "mean_distinct_512": 64.0,
+      "max_distinct_512": 64.0,
+      "mean_distinct_64": 64.0
+    },
+    {
+      "layer": 3,
+      "n_expert": 64,
+      "mean_distinct_512": 64.0,
+      "max_distinct_512": 64.0,
+      "mean_distinct_64": 64.0
+    },
+    {
+      "layer": 4,
+      "n_expert": 64,
+      "mean_distinct_512": 64.0,
+      "max_distinct_512": 64.0,
+      "mean_distinct_64": 64.0
+    },
+    {
+      "layer": 5,
+      "n_expert": 64,
+      "mean_distinct_512": 64.0,
+      "max_distinct_512": 64.0,
+      "mean_distinct_64": 64.0
+    },
+    {
+      "layer": 6,
+      "n_expert": 64,
+      "mean_distinct_512": 64.0,
+      "max_distinct_512": 64.0,
+      "mean_distinct_64": 64.0
+    },
+    {
+      "layer": 7,
+      "n_expert": 64,
+      "mean_distinct_512": 64.0,
+      "max_distinct_512": 64.0,
+      "mean_distinct_64": 64.0
+    },
+    {
+      "layer": 8,
+      "n_expert": 64,
+      "mean_distinct_512": 64.0,
+      "max_distinct_512": 64.0,
+      "mean_distinct_64": 64.0
+    },
+    {
+      "layer": 9,
+      "n_expert": 64,
+      "mean_distinct_512": 64.0,
+      "max_distinct_512": 64.0,
+      "mean_distinct_64": 64.0
+    },
+    {
+      "layer": 10,
+      "n_expert": 64,
+      "mean_distinct_512": 64.0,
+      "max_distinct_512": 64.0,
+      "mean_distinct_64": 64.0
+    },
+    {
+      "layer": 11,
+      "n_expert": 64,
+      "mean_distinct_512": 64.0,
+      "max_distinct_512": 64.0,
+      "mean_distinct_64": 64.0
+    },
+    {
+      "layer": 12,
+      "n_expert": 64,
+      "mean_distinct_512": 64.0,
+      "max_distinct_512": 64.0,
+      "mean_distinct_64": 64.0
+    },
+    {
+      "layer": 13,
+      "n_expert": 64,
+      "mean_distinct_512": 64.0,
+      "max_distinct_512": 64.0,
+      "mean_distinct_64": 64.0
+    },
+    {
+      "layer": 14,
+      "n_expert": 64,
+      "mean_distinct_512": 64.0,
+      "max_distinct_512": 64.0,
+      "mean_distinct_64": 64.0
+    },
+    {
+      "layer": 15,
+      "n_expert": 64,
+      "mean_distinct_512": 64.0,
+      "max_distinct_512": 64.0,
+      "mean_distinct_64": 64.0
+    }
+  ],
+  "results": [
+    {
+      "layout": "identity",
+      "policy": "staticpinned",
+      "cache_mib": 0,
+      "lambda_ns_per_mass": 0.0,
+      "hit_rate_pct": 0.0,
+      "fetches_per_token": 344.125,
+      "mib_per_token": 466.343994140625,
+      "quality_cost_pct": 0.0,
+      "skipped_experts_per_token": 0.0,
+      "millis": 19342.240459,
+      "ms_per_token": 201.48167144791668
+    },
+    {
+      "layout": "identity",
+      "policy": "staticpinned",
+      "cache_mib": 2048,
+      "lambda_ns_per_mass": 0.0,
+      "hit_rate_pct": 55.37109375,
+      "fetches_per_token": 153.75,
+      "mib_per_token": 209.897216796875,
+      "quality_cost_pct": 0.0,
+      "skipped_experts_per_token": 0.0,
+      "millis": 8994.802333,
+      "ms_per_token": 93.69585763541666
+    },
+    {
+      "layout": "chain",
+      "policy": "staticpinned",
+      "cache_mib": 0,
+      "lambda_ns_per_mass": 0.0,
+      "hit_rate_pct": 0.0,
+      "fetches_per_token": 311.5,
+      "mib_per_token": 466.216552734375,
+      "quality_cost_pct": 0.0,
+      "skipped_experts_per_token": 0.0,
+      "millis": 19027.073875,
+      "ms_per_token": 198.19868619791666
+    },
+    {
+      "layout": "chain",
+      "policy": "staticpinned",
+      "cache_mib": 2048,
+      "lambda_ns_per_mass": 0.0,
+      "hit_rate_pct": 55.37109375,
+      "fetches_per_token": 136.25,
+      "mib_per_token": 209.828857421875,
+      "quality_cost_pct": 0.0,
+      "skipped_experts_per_token": 0.0,
+      "millis": 8817.956584000001,
+      "ms_per_token": 91.85371441666668
+    }
+  ]
+}

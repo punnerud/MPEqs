@@ -1,0 +1,172 @@
+{
+  "model": "qwen-35b",
+  "n": 20,
+  "solved": 2,
+  "foreign_refusals": 69,
+  "retried_ok": 11,
+  "not_reduce": 0,
+  "missing_numbers": 8,
+  "calls": 107,
+  "rows": [
+    {
+      "truth": "123",
+      "answer": "None",
+      "ok": false,
+      "why": "problem numbers missing from the system: 1, 10",
+      "n_names": 14,
+      "defs": 14
+    },
+    {
+      "truth": "30",
+      "answer": "None",
+      "ok": false,
+      "why": "the asked node '' is never defined",
+      "n_names": 22,
+      "defs": 0
+    },
+    {
+      "truth": "21",
+      "answer": "None",
+      "ok": false,
+      "why": "problem numbers missing from the system: 23, 42",
+      "n_names": 8,
+      "defs": 2
+    },
+    {
+      "truth": "2",
+      "answer": "None",
+      "ok": false,
+      "why": "problem numbers missing from the system: 3, 4, 60",
+      "n_names": 30,
+      "defs": 9
+    },
+    {
+      "truth": "20",
+      "answer": "None",
+      "ok": false,
+      "why": "problem numbers missing from the system: 2, 30, 6",
+      "n_names": 18,
+      "defs": 4
+    },
+    {
+      "truth": "15",
+      "answer": "None",
+      "ok": false,
+      "why": "problem numbers missing from the system: 10, 15, 50",
+      "n_names": 13,
+      "defs": 13
+    },
+    {
+      "truth": "100",
+      "answer": "None",
+      "ok": false,
+      "why": "the asked node '' is never defined",
+      "n_names": 21,
+      "defs": 0
+    },
+    {
+      "truth": "20",
+      "answer": "None",
+      "ok": false,
+      "why": "the asked node '' is never defined",
+      "n_names": 11,
+      "defs": 0
+    },
+    {
+      "truth": "60",
+      "answer": "None",
+      "ok": false,
+      "why": "problem numbers missing from the system: 25",
+      "n_names": 13,
+      "defs": 13
+    },
+    {
+      "truth": "68",
+      "answer": "None",
+      "ok": false,
+      "why": "problem numbers missing from the system: 20",
+      "n_names": 12,
+      "defs": 12
+    },
+    {
+      "truth": "25",
+      "answer": "None",
+      "ok": false,
+      "why": "the asked node '' is never defined",
+      "n_names": 20,
+      "defs": 0
+    },
+    {
+      "truth": "120",
+      "answer": "None",
+      "ok": false,
+      "why": "the asked node '' is never defined",
+      "n_names": 8,
+      "defs": 0
+    },
+    {
+      "truth": "44",
+      "answer": "44",
+      "ok": true,
+      "why": null,
+      "n_names": 9,
+      "defs": 7
+    },
+    {
+      "truth": "243",
+      "answer": "None",
+      "ok": false,
+      "why": "problem numbers missing from the system: 22.50, 42",
+      "n_names": 10,
+      "defs": 6
+    },
+    {
+      "truth": "10",
+      "answer": "None",
+      "ok": false,
+      "why": "the asked node '' is never defined",
+      "n_names": 9,
+      "defs": 0
+    },
+    {
+      "truth": "83",
+      "answer": "8807821146237611/35184372088832",
+      "ok": false,
+      "why": null,
+      "n_names": 25,
+      "defs": 15
+    },
+    {
+      "truth": "360",
+      "answer": "None",
+      "ok": false,
+      "why": "the asked node '' is never defined",
+      "n_names": 10,
+      "defs": 0
+    },
+    {
+      "truth": "21",
+      "answer": "None",
+      "ok": false,
+      "why": "the asked node '' is never defined",
+      "n_names": 10,
+      "defs": 0
+    },
+    {
+      "truth": "82",
+      "answer": "None",
+      "ok": false,
+      "why": "'dylan' is defined in terms of itself",
+      "n_names": 14,
+      "defs": 5
+    },
+    {
+      "truth": "10",
+      "answer": "10",
+      "ok": true,
+      "why": null,
+      "n_names": 14,
+      "defs": 4
+    }
+  ]
+}

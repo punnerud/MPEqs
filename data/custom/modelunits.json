@@ -1,0 +1,22 @@
+{
+  "gate": {
+    "base": 16,
+    "dim": 17,
+    "fired": 23,
+    "true": 5,
+    "false": 18,
+    "fixed": 7,
+    "unread": 0,
+    "abstract": 2,
+    "n": 20
+  },
+  "routing": {
+    "unique": 9,
+    "unique_right": 3,
+    "ambiguous": 40,
+    "ambig_contains": 5,
+    "no_route": 11,
+    "untaggable": 0,
+    "n": 60
+  }
+}

@@ -1,0 +1,13 @@
+[package]
+name = "moetrace"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+anyhow = { workspace = true }
+clap = { workspace = true }
+gguf = { workspace = true }
+
+[build-dependencies]
+cc = "1"

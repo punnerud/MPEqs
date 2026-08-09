@@ -1,0 +1,142 @@
+{
+  "problems": 8,
+  "a_right": 8,
+  "b_right": 8,
+  "agree": 8,
+  "agree_true": 8,
+  "agree_wrong": 0,
+  "retries": 0,
+  "flagged": 0,
+  "subst_ok": 8,
+  "e2e": 8,
+  "rows": [
+    {
+      "story": "The lab bench is 2 meters long. An object has momentum 3000 in kg*m/s ",
+      "truth": [
+        "3000",
+        "225000"
+      ],
+      "a": [
+        "3000",
+        "225000"
+      ],
+      "b": [
+        "3000",
+        "225000"
+      ],
+      "status": "solution ('20', '150')"
+    },
+    {
+      "story": "The lab bench is 2 meters long. An object has momentum 40 in kg*m/s an",
+      "truth": [
+        "40",
+        "200"
+      ],
+      "a": [
+        "40",
+        "200"
+      ],
+      "b": [
+        "40",
+        "200"
+      ],
+      "status": "solution ('4', '10')"
+    },
+    {
+      "story": "The lab bench is 2 meters long. An object has momentum 200 in kg*m/s a",
+      "truth": [
+        "200",
+        "2500"
+      ],
+      "a": [
+        "200",
+        "2500"
+      ],
+      "b": [
+        "200",
+        "2500"
+      ],
+      "status": "solution ('8', '25')"
+    },
+    {
+      "story": "The lab bench is 2 meters long. An object has momentum 12 in kg*m/s an",
+      "truth": [
+        "12",
+        "36"
+      ],
+      "a": [
+        "12",
+        "36"
+      ],
+      "b": [
+        "12",
+        "36"
+      ],
+      "status": "solution ('2', '6')"
+    },
+    {
+      "story": "Grandma is 74 years old. Two numbers add up to 30, and the first is 2 ",
+      "truth": [
+        "30",
+        "2"
+      ],
+      "a": [
+        "30",
+        "2"
+      ],
+      "b": [
+        "30",
+        "2"
+      ],
+      "status": "solution ('20', '10')"
+    },
+    {
+      "story": "Grandma is 74 years old. Two numbers add up to 32, and the first is 3 ",
+      "truth": [
+        "32",
+        "3"
+      ],
+      "a": [
+        "32",
+        "3"
+      ],
+      "b": [
+        "32",
+        "3"
+      ],
+      "status": "solution ('24', '8')"
+    },
+    {
+      "story": "Grandma is 74 years old. Two numbers add up to 42, and the first is 5 ",
+      "truth": [
+        "42",
+        "5"
+      ],
+      "a": [
+        "42",
+        "5"
+      ],
+      "b": [
+        "42",
+        "5"
+      ],
+      "status": "solution ('35', '7')"
+    },
+    {
+      "story": "Grandma is 74 years old. Two numbers add up to 24, and the first is 3 ",
+      "truth": [
+        "24",
+        "3"
+      ],
+      "a": [
+        "24",
+        "3"
+      ],
+      "b": [
+        "24",
+        "3"
+      ],
+      "status": "solution ('18', '6')"
+    }
+  ]
+}

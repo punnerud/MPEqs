@@ -1,0 +1,11 @@
+{
+  "jobs": 5,
+  "assumptions": 4,
+  "min_verified": true,
+  "dependents_rerun": 3,
+  "untouched_skipped": 2,
+  "counterfactual_exact": 3,
+  "still_pending": [
+    "commute"
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "task": "synthetic",
+  "slots": 4096,
+  "val_dim": 256,
+  "top_k": 32,
+  "steps": 1200,
+  "regimes": {
+    "plain": {
+      "train_seconds": 6.5,
+      "accuracy_by_k": {
+        "1": 0.8883,
+        "2": 0.9017,
+        "4": 0.9058,
+        "8": 0.9042,
+        "16": 0.9033,
+        "32": 0.9067
+      },
+      "gini_at_full_k": 0.9775,
+      "slots_touched_pct": 5.64,
+      "top1pct_share": 0.5085
+    },
+    "balanced": {
+      "train_seconds": 6.9,
+      "accuracy_by_k": {
+        "1": 0.8267,
+        "2": 0.8317,
+        "4": 0.8508,
+        "8": 0.8642,
+        "16": 0.8717,
+        "32": 0.8775
+      },
+      "gini_at_full_k": 0.8379,
+      "slots_touched_pct": 55.25,
+      "top1pct_share": 0.2248
+    },
+    "concentrated": {
+      "train_seconds": 7.3,
+      "accuracy_by_k": {
+        "1": 0.2533,
+        "2": 0.2533,
+        "4": 0.2533,
+        "8": 0.2533,
+        "16": 0.2533,
+        "32": 0.2533
+      },
+      "gini_at_full_k": 0.9922,
+      "slots_touched_pct": 0.81,
+      "top1pct_share": 1.0
+    }
+  }
+}

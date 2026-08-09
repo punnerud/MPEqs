@@ -1,0 +1,37 @@
+{
+  "sentences": 8920,
+  "articles": 62,
+  "mutual_edges": 39493,
+  "components": 72,
+  "largest": 8843,
+  "clusters_3plus": 1,
+  "covered": 8843,
+  "purity": 0.0557503109804365,
+  "baseline": 0.05571748878923767,
+  "agreement": {
+    "4": {
+      "cases": 9,
+      "right": 9
+    },
+    "1": {
+      "cases": 9,
+      "right": 1
+    },
+    "2": {
+      "cases": 14,
+      "right": 12
+    },
+    "3": {
+      "cases": 8,
+      "right": 7
+    }
+  },
+  "per_variant": {
+    "whole": 29,
+    "first half": 24,
+    "second half": 19,
+    "middle": 15
+  },
+  "cross_article_pairs": 6406,
+  "within_article_pairs": 33087
+}

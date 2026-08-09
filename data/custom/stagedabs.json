@@ -1,0 +1,195 @@
+{
+  "model": "qwen-35b",
+  "n": 20,
+  "solved": 9,
+  "chains_exact": 20,
+  "steps_total": 109,
+  "steps_rev_ok": 109,
+  "refusals": 10,
+  "localised": 4,
+  "repaired_in_place": 2,
+  "span_misses": 86,
+  "mean_absorbed": 0.9666666666666666,
+  "rows": [
+    {
+      "truth": "123",
+      "answer": "123",
+      "ok": true,
+      "steps": 5,
+      "refusal": null,
+      "repaired": false,
+      "absorbed": 1.0
+    },
+    {
+      "truth": "30",
+      "answer": "30",
+      "ok": true,
+      "steps": 7,
+      "refusal": null,
+      "repaired": false,
+      "absorbed": 1.0
+    },
+    {
+      "truth": "21",
+      "answer": "21",
+      "ok": true,
+      "steps": 5,
+      "refusal": null,
+      "repaired": false,
+      "absorbed": 1.0
+    },
+    {
+      "truth": "2",
+      "answer": "2",
+      "ok": true,
+      "steps": 5,
+      "refusal": null,
+      "repaired": false,
+      "absorbed": 1.0
+    },
+    {
+      "truth": "20",
+      "answer": "4728779608739021/562949953421312",
+      "ok": false,
+      "steps": 9,
+      "refusal": null,
+      "repaired": true,
+      "absorbed": 1.0
+    },
+    {
+      "truth": "15",
+      "answer": "15",
+      "ok": true,
+      "steps": 8,
+      "refusal": null,
+      "repaired": false,
+      "absorbed": 1.0
+    },
+    {
+      "truth": "100",
+      "answer": "None",
+      "ok": false,
+      "steps": 5,
+      "refusal": "a definition does not reduce to arithmetic",
+      "repaired": false,
+      "absorbed": 1.0
+    },
+    {
+      "truth": "20",
+      "answer": "20",
+      "ok": true,
+      "steps": 5,
+      "refusal": null,
+      "repaired": false,
+      "absorbed": 1.0
+    },
+    {
+      "truth": "60",
+      "answer": "None",
+      "ok": false,
+      "steps": 8,
+      "refusal": "a definition does not reduce to arithmetic",
+      "repaired": false,
+      "absorbed": 1.0
+    },
+    {
+      "truth": "68",
+      "answer": "68",
+      "ok": true,
+      "steps": 3,
+      "refusal": null,
+      "repaired": false,
+      "absorbed": 1.0
+    },
+    {
+      "truth": "25",
+      "answer": "None",
+      "ok": false,
+      "steps": 4,
+      "refusal": "a definition does not reduce to arithmetic",
+      "repaired": false,
+      "absorbed": 1.0
+    },
+    {
+      "truth": "120",
+      "answer": "70",
+      "ok": false,
+      "steps": 3,
+      "refusal": null,
+      "repaired": false,
+      "absorbed": 1.0
+    },
+    {
+      "truth": "44",
+      "answer": "44",
+      "ok": true,
+      "steps": 5,
+      "refusal": null,
+      "repaired": true,
+      "absorbed": 1.0
+    },
+    {
+      "truth": "243",
+      "answer": "42",
+      "ok": false,
+      "steps": 6,
+      "refusal": null,
+      "repaired": false,
+      "absorbed": 1.0
+    },
+    {
+      "truth": "10",
+      "answer": "18",
+      "ok": false,
+      "steps": 4,
+      "refusal": null,
+      "repaired": false,
+      "absorbed": 1.0
+    },
+    {
+      "truth": "83",
+      "answer": "None",
+      "ok": false,
+      "steps": 8,
+      "refusal": "a definition does not reduce to arithmetic",
+      "repaired": false,
+      "absorbed": 1.0
+    },
+    {
+      "truth": "360",
+      "answer": "None",
+      "ok": false,
+      "steps": 6,
+      "refusal": "a definition does not reduce to arithmetic",
+      "repaired": false,
+      "absorbed": 1.0
+    },
+    {
+      "truth": "21",
+      "answer": "None",
+      "ok": false,
+      "steps": 6,
+      "refusal": "a definition does not reduce to arithmetic",
+      "repaired": false,
+      "absorbed": 1.0
+    },
+    {
+      "truth": "82",
+      "answer": "82",
+      "ok": true,
+      "steps": 6,
+      "refusal": null,
+      "repaired": false,
+      "absorbed": 1.0
+    },
+    {
+      "truth": "10",
+      "answer": "None",
+      "ok": false,
+      "steps": 1,
+      "refusal": "problem numbers missing from the system: 2",
+      "repaired": false,
+      "absorbed": 0.3333333333333333
+    }
+  ]
+}

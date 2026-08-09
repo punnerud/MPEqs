@@ -1,0 +1,83 @@
+{
+  "steps": 5000,
+  "pool_sizes": [
+    256,
+    1024,
+    4096,
+    0
+  ],
+  "rows": [
+    {
+      "arm": "baseline",
+      "pool": 256,
+      "holdout_accuracy": 0.0006,
+      "hard_accuracy": 0.0008
+    },
+    {
+      "arm": "probing",
+      "pool": 256,
+      "holdout_accuracy": 0.0009,
+      "hard_accuracy": 0.0008
+    },
+    {
+      "arm": "consistency",
+      "pool": 256,
+      "holdout_accuracy": 0.0011,
+      "hard_accuracy": 0.001
+    },
+    {
+      "arm": "baseline",
+      "pool": 1024,
+      "holdout_accuracy": 0.0012,
+      "hard_accuracy": 0.0008
+    },
+    {
+      "arm": "probing",
+      "pool": 1024,
+      "holdout_accuracy": 0.002,
+      "hard_accuracy": 0.0013
+    },
+    {
+      "arm": "consistency",
+      "pool": 1024,
+      "holdout_accuracy": 0.0016,
+      "hard_accuracy": 0.0013
+    },
+    {
+      "arm": "baseline",
+      "pool": 4096,
+      "holdout_accuracy": 0.0282,
+      "hard_accuracy": 0.0276
+    },
+    {
+      "arm": "probing",
+      "pool": 4096,
+      "holdout_accuracy": 0.0756,
+      "hard_accuracy": 0.0734
+    },
+    {
+      "arm": "consistency",
+      "pool": 4096,
+      "holdout_accuracy": 0.0364,
+      "hard_accuracy": 0.0351
+    },
+    {
+      "arm": "baseline",
+      "pool": 0,
+      "holdout_accuracy": 0.4064,
+      "hard_accuracy": 0.3803
+    },
+    {
+      "arm": "probing",
+      "pool": 0,
+      "holdout_accuracy": 0.1511,
+      "hard_accuracy": 0.155
+    },
+    {
+      "arm": "consistency",
+      "pool": 0,
+      "holdout_accuracy": 0.0191,
+      "hard_accuracy": 0.0187
+    }
+  ]
+}

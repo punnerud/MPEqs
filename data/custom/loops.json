@@ -1,0 +1,142 @@
+{
+  "summary": {
+    "tasks": 8,
+    "correct": 0,
+    "wrong": 2,
+    "ran_out": 5,
+    "with_repeats": 2,
+    "total_repeats": 2,
+    "total_stateless": 20,
+    "total_steps": 41
+  },
+  "runs": [
+    {
+      "problem": "((47 + 38) * 3 - 12) / 9",
+      "answer": 27,
+      "steps": 6,
+      "outcome": "ran out",
+      "repeats": 0,
+      "stateless": 4,
+      "final": null,
+      "history": [
+        "expression = (47 + 38) * 3 - 12 / 9",
+        "Let's simplify the expression step by step:",
+        "expression = (85 * 3 - 12) / 9",
+        "expression = (255 - 12) / 9",
+        "(255 - 12) / 9 = 243 / 9 = 27",
+        "expression = 27"
+      ]
+    },
+    {
+      "problem": "(120 / 4 + 15) * 2 - 30",
+      "answer": 60,
+      "steps": 6,
+      "outcome": "wrong",
+      "repeats": 0,
+      "stateless": 3,
+      "final": 15,
+      "history": [
+        "divide 120 by 4",
+        "120 / 4 = 30",
+        "add 15 to 30",
+        "Divide 30 by 2",
+        "30 / 2 = 15",
+        "DONE: 15"
+      ]
+    },
+    {
+      "problem": "((9 * 7) + (8 * 6)) - 51",
+      "answer": 60,
+      "steps": 6,
+      "outcome": "ran out",
+      "repeats": 0,
+      "stateless": 3,
+      "final": null,
+      "history": [
+        "inner_expression = (9 * 7) + (8 * 6)",
+        "Calculate the product 9 * 7.",
+        "9 * 7 = 63",
+        "expression = 63 + (8 * 6)",
+        "Calculate 8 * 6.",
+        "8 * 6 = 48"
+      ]
+    },
+    {
+      "problem": "(200 - 45 * 3) / 5 + 12",
+      "answer": 25,
+      "steps": 5,
+      "outcome": "wrong",
+      "repeats": 0,
+      "stateless": 0,
+      "final": 13,
+      "history": [
+        "inner_expr = 200 - 45 * 3",
+        "Let's calculate the inner expression first: 200 - 45 * 3 = 200 - 135 = 65",
+        "expression = 65 / 5",
+        "65 / 5 = 13",
+        "DONE: 13"
+      ]
+    },
+    {
+      "problem": "((15 + 25) / 8) * 14 - 20",
+      "answer": 50,
+      "steps": 6,
+      "outcome": "ran out",
+      "repeats": 1,
+      "stateless": 3,
+      "final": null,
+      "history": [
+        "expression = ((15 + 25) / 8) * 14 - 20",
+        "Let's simplify the expression step by step:",
+        "expression = (40 / 8) * 14 - 20",
+        "expression = 5 * 14 - 20",
+        "result = 5 * 14 - 20",
+        "expression = 5 * 14 - 20"
+      ]
+    },
+    {
+      "problem": "(6 * 6 + 4 * 4) / 13 + 7",
+      "answer": 11,
+      "steps": 6,
+      "outcome": "ran out",
+      "repeats": 1,
+      "stateless": 2,
+      "final": null,
+      "history": [
+        "result = (6 * 6 + 4 * 4) / 13 + 7",
+        "Let's simplify the expression inside the parentheses first: (6 * 6) + (4 * 4) = 36 + 16 = 52",
+        "result = 52 / 13 + 7",
+        "divide 52 by 13.",
+        "result = 52 / 13 + 7",
+        "expression = 52 / 13 + 7"
+      ]
+    },
+    {
+      "problem": "((100 - 28) / 6) * 5 - 30",
+      "answer": 30,
+      "steps": 6,
+      "outcome": "ran out",
+      "repeats": 0,
+      "stateless": 5,
+      "final": null,
+      "history": [
+        "expression = ((100 - 28) / 6) * 5 - 30",
+        "Let's simplify the expression step by step:",
+        "((72 / 6) * 5) - 30",
+        "(12 * 5) - 30",
+        "(60) - 30",
+        "expression = 60 - 30"
+      ]
+    },
+    {
+      "problem": "(81 / 9 + 11) * 3 - 40",
+      "answer": 20,
+      "steps": 0,
+      "outcome": "empty",
+      "repeats": 0,
+      "stateless": 0,
+      "final": null,
+      "history": []
+    }
+  ]
+}

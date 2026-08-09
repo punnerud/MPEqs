@@ -1,0 +1,119 @@
+{
+  "n_problems": 49800,
+  "answer_bits": 14.287712379549449,
+  "steps": 12000,
+  "raw_bits": 1992000,
+  "gzip_bits": 182112,
+  "program_bits": 320,
+  "budget_params_32bit": 22235,
+  "crossed_at_32bit": {
+    "d": 32,
+    "n_expert": 8,
+    "experts_used": 8,
+    "exact_accuracy": 0.7166,
+    "params_resident": 11370,
+    "params_effective": 11370,
+    "seconds": 45.0,
+    "ratio_32bit": 1.4014,
+    "ratio_16bit": 2.8028,
+    "ratio_vs_gzip": 0.5005
+  },
+  "rows": [
+    {
+      "d": 96,
+      "n_expert": 64,
+      "experts_used": 26,
+      "exact_accuracy": 0.8207,
+      "params_resident": 604650,
+      "params_effective": 254442,
+      "seconds": 210.1,
+      "ratio_32bit": 0.0717,
+      "ratio_16bit": 0.1434,
+      "ratio_vs_gzip": 0.0224
+    },
+    {
+      "d": 64,
+      "n_expert": 32,
+      "experts_used": 23,
+      "exact_accuracy": 0.7742,
+      "params_resident": 138922,
+      "params_effective": 102058,
+      "seconds": 106.9,
+      "ratio_32bit": 0.1687,
+      "ratio_16bit": 0.3373,
+      "ratio_vs_gzip": 0.0558
+    },
+    {
+      "d": 48,
+      "n_expert": 16,
+      "experts_used": 14,
+      "exact_accuracy": 0.7579,
+      "params_resident": 41994,
+      "params_effective": 37386,
+      "seconds": 70.7,
+      "ratio_32bit": 0.4508,
+      "ratio_16bit": 0.9015,
+      "ratio_vs_gzip": 0.1522
+    },
+    {
+      "d": 32,
+      "n_expert": 16,
+      "experts_used": 12,
+      "exact_accuracy": 0.6498,
+      "params_resident": 19818,
+      "params_effective": 15722,
+      "seconds": 45.2,
+      "ratio_32bit": 0.919,
+      "ratio_16bit": 1.838,
+      "ratio_vs_gzip": 0.362
+    },
+    {
+      "d": 32,
+      "n_expert": 8,
+      "experts_used": 8,
+      "exact_accuracy": 0.7166,
+      "params_resident": 11370,
+      "params_effective": 11370,
+      "seconds": 45.0,
+      "ratio_32bit": 1.4014,
+      "ratio_16bit": 2.8028,
+      "ratio_vs_gzip": 0.5005
+    },
+    {
+      "d": 24,
+      "n_expert": 8,
+      "experts_used": 8,
+      "exact_accuracy": 0.4809,
+      "params_resident": 7002,
+      "params_effective": 7002,
+      "seconds": 40.2,
+      "ratio_32bit": 1.5271,
+      "ratio_16bit": 3.0543,
+      "ratio_vs_gzip": 0.8128
+    },
+    {
+      "d": 16,
+      "n_expert": 8,
+      "experts_used": 6,
+      "exact_accuracy": 0.3797,
+      "params_resident": 3658,
+      "params_effective": 3146,
+      "seconds": 39.7,
+      "ratio_32bit": 2.6836,
+      "ratio_16bit": 5.3673,
+      "ratio_vs_gzip": 1.809
+    },
+    {
+      "d": 16,
+      "n_expert": 4,
+      "experts_used": 4,
+      "exact_accuracy": 0.4371,
+      "params_resident": 2570,
+      "params_effective": 2570,
+      "seconds": 39.8,
+      "ratio_32bit": 3.7817,
+      "ratio_16bit": 7.5634,
+      "ratio_vs_gzip": 2.2144
+    }
+  ]
+}

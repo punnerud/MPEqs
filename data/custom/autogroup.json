@@ -1,0 +1,228 @@
+{
+  "n": 8000,
+  "buckets": 4,
+  "rows": [
+    {
+      "stage": "1200",
+      "signal": "layer-cluster",
+      "purity": 0.3748,
+      "majority": 0.3721,
+      "lift": 1.0071,
+      "between_over_within": null,
+      "mean_by_carry": []
+    },
+    {
+      "stage": "1200",
+      "signal": "entropy",
+      "purity": 0.3754,
+      "majority": 0.3721,
+      "lift": 1.0087,
+      "between_over_within": 0.00658,
+      "mean_by_carry": [
+        4.5027,
+        4.4967,
+        4.5223,
+        4.5675
+      ]
+    },
+    {
+      "stage": "1200",
+      "signal": "loss",
+      "purity": 0.3761,
+      "majority": 0.3721,
+      "lift": 1.0107,
+      "between_over_within": 0.01377,
+      "mean_by_carry": [
+        4.0416,
+        4.0252,
+        4.0895,
+        4.2202
+      ]
+    },
+    {
+      "stage": "1200",
+      "signal": "gradnorm",
+      "purity": 0.3721,
+      "majority": 0.3721,
+      "lift": 1.0,
+      "between_over_within": 0.00035,
+      "mean_by_carry": [
+        11.9574,
+        11.8381,
+        11.8902,
+        11.9131
+      ]
+    },
+    {
+      "stage": "1200",
+      "signal": "residual (MPEE)",
+      "purity": 0.385,
+      "majority": 0.3721,
+      "lift": 1.0346,
+      "between_over_within": 0.03583,
+      "mean_by_carry": [
+        0.3305,
+        0.3476,
+        0.3568,
+        0.3735
+      ]
+    },
+    {
+      "stage": "1200",
+      "signal": "minilm-cluster",
+      "purity": 0.3757,
+      "majority": 0.3721,
+      "lift": 1.0097,
+      "between_over_within": null,
+      "mean_by_carry": []
+    },
+    {
+      "stage": "6000",
+      "signal": "layer-cluster",
+      "purity": 0.3739,
+      "majority": 0.3721,
+      "lift": 1.0047,
+      "between_over_within": null,
+      "mean_by_carry": []
+    },
+    {
+      "stage": "6000",
+      "signal": "entropy",
+      "purity": 0.3738,
+      "majority": 0.3721,
+      "lift": 1.0044,
+      "between_over_within": 0.00353,
+      "mean_by_carry": [
+        2.473,
+        2.4014,
+        2.3957,
+        2.4273
+      ]
+    },
+    {
+      "stage": "6000",
+      "signal": "loss",
+      "purity": 0.3772,
+      "majority": 0.3721,
+      "lift": 1.0138,
+      "between_over_within": 0.00253,
+      "mean_by_carry": [
+        2.1571,
+        2.0659,
+        2.0773,
+        2.1474
+      ]
+    },
+    {
+      "stage": "6000",
+      "signal": "gradnorm",
+      "purity": 0.3738,
+      "majority": 0.3721,
+      "lift": 1.0044,
+      "between_over_within": 0.00113,
+      "mean_by_carry": [
+        14.8814,
+        14.7274,
+        14.9021,
+        14.895
+      ]
+    },
+    {
+      "stage": "6000",
+      "signal": "residual (MPEE)",
+      "purity": 0.3842,
+      "majority": 0.3721,
+      "lift": 1.0326,
+      "between_over_within": 0.0197,
+      "mean_by_carry": [
+        0.5327,
+        0.5525,
+        0.564,
+        0.5699
+      ]
+    },
+    {
+      "stage": "6000",
+      "signal": "minilm-cluster",
+      "purity": 0.3757,
+      "majority": 0.3721,
+      "lift": 1.0097,
+      "between_over_within": null,
+      "mean_by_carry": []
+    },
+    {
+      "stage": "19200",
+      "signal": "layer-cluster",
+      "purity": 0.3879,
+      "majority": 0.3721,
+      "lift": 1.0423,
+      "between_over_within": null,
+      "mean_by_carry": []
+    },
+    {
+      "stage": "19200",
+      "signal": "entropy",
+      "purity": 0.3728,
+      "majority": 0.3721,
+      "lift": 1.0017,
+      "between_over_within": 0.00064,
+      "mean_by_carry": [
+        0.5348,
+        0.5299,
+        0.544,
+        0.5569
+      ]
+    },
+    {
+      "stage": "19200",
+      "signal": "loss",
+      "purity": 0.3721,
+      "majority": 0.3721,
+      "lift": 1.0,
+      "between_over_within": 0.00129,
+      "mean_by_carry": [
+        0.3067,
+        0.28,
+        0.283,
+        0.3179
+      ]
+    },
+    {
+      "stage": "19200",
+      "signal": "gradnorm",
+      "purity": 0.3721,
+      "majority": 0.3721,
+      "lift": 1.0,
+      "between_over_within": 0.00033,
+      "mean_by_carry": [
+        14.9199,
+        14.9066,
+        14.9386,
+        15.1715
+      ]
+    },
+    {
+      "stage": "19200",
+      "signal": "residual (MPEE)",
+      "purity": 0.3741,
+      "majority": 0.3721,
+      "lift": 1.0054,
+      "between_over_within": 0.00629,
+      "mean_by_carry": [
+        0.6628,
+        0.6518,
+        0.6435,
+        0.6424
+      ]
+    },
+    {
+      "stage": "19200",
+      "signal": "minilm-cluster",
+      "purity": 0.3757,
+      "majority": 0.3721,
+      "lift": 1.0097,
+      "between_over_within": null,
+      "mean_by_carry": []
+    }
+  ]
+}

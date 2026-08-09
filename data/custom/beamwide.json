@@ -1,0 +1,126 @@
+{
+  "leaves": 8920,
+  "queries": 40,
+  "sweep": [
+    {
+      "beam": 1,
+      "exact": 10,
+      "exact_cmp": 33.725,
+      "half": 4,
+      "half_cmp": 33.825
+    },
+    {
+      "beam": 2,
+      "exact": 24,
+      "exact_cmp": 64.45,
+      "half": 12,
+      "half_cmp": 64.4
+    },
+    {
+      "beam": 4,
+      "exact": 29,
+      "exact_cmp": 115.575,
+      "half": 24,
+      "half_cmp": 115.8
+    },
+    {
+      "beam": 8,
+      "exact": 35,
+      "exact_cmp": 210.85,
+      "half": 28,
+      "half_cmp": 210.9
+    },
+    {
+      "beam": 16,
+      "exact": 40,
+      "exact_cmp": 401.0,
+      "half": 35,
+      "half_cmp": 400.425
+    },
+    {
+      "beam": 32,
+      "exact": 40,
+      "exact_cmp": 671.375,
+      "half": 37,
+      "half_cmp": 671.875
+    },
+    {
+      "beam": 64,
+      "exact": 40,
+      "exact_cmp": 1182.75,
+      "half": 37,
+      "half_cmp": 1182.625
+    },
+    {
+      "beam": 128,
+      "exact": 40,
+      "exact_cmp": 2204.875,
+      "half": 37,
+      "half_cmp": 2204.75
+    }
+  ],
+  "scores": [
+    {
+      "mode": "cosine",
+      "beam": 4,
+      "exact": 29,
+      "half": 24
+    },
+    {
+      "mode": "cosine",
+      "beam": 16,
+      "exact": 40,
+      "half": 35
+    },
+    {
+      "mode": "topdims",
+      "beam": 4,
+      "exact": 26,
+      "half": 13
+    },
+    {
+      "mode": "topdims",
+      "beam": 16,
+      "exact": 39,
+      "half": 26
+    },
+    {
+      "mode": "shared",
+      "beam": 4,
+      "exact": 0,
+      "half": 0
+    },
+    {
+      "mode": "shared",
+      "beam": 16,
+      "exact": 1,
+      "half": 1
+    }
+  ],
+  "hops": [
+    {
+      "beam": 4,
+      "kind": "exact",
+      "in_beam": 29,
+      "after_hop": 34
+    },
+    {
+      "beam": 4,
+      "kind": "half",
+      "in_beam": 25,
+      "after_hop": 32
+    },
+    {
+      "beam": 16,
+      "kind": "exact",
+      "in_beam": 40,
+      "after_hop": 40
+    },
+    {
+      "beam": 16,
+      "kind": "half",
+      "in_beam": 36,
+      "after_hop": 39
+    }
+  ]
+}

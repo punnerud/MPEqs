@@ -1,0 +1,53 @@
+{
+  "rounds": 8,
+  "steps_per_round": 1200,
+  "deltas": [
+    1,
+    -1,
+    10,
+    -10,
+    100,
+    -100
+  ],
+  "rows": [
+    {
+      "arm": "baseline",
+      "holdout_accuracy": 0.5303,
+      "per_carry": {
+        "0": 0.5776,
+        "1": 0.5726,
+        "2": 0.5116,
+        "3": 0.4111
+      },
+      "experts_used": 5,
+      "params_effective": 30974,
+      "seconds": 131.1
+    },
+    {
+      "arm": "shuffled",
+      "holdout_accuracy": 0.5117,
+      "per_carry": {
+        "0": 0.5961,
+        "1": 0.5318,
+        "2": 0.5025,
+        "3": 0.3772
+      },
+      "experts_used": 6,
+      "params_effective": 35070,
+      "seconds": 210.8
+    },
+    {
+      "arm": "probing",
+      "holdout_accuracy": 0.8136,
+      "per_carry": {
+        "0": 0.8223,
+        "1": 0.82,
+        "2": 0.8112,
+        "3": 0.7917
+      },
+      "experts_used": 8,
+      "params_effective": 43262,
+      "seconds": 211.4
+    }
+  ]
+}

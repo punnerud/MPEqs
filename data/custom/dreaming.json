@@ -1,0 +1,33 @@
+{
+  "base_accuracy": 0.4623,
+  "base_steps": 8000,
+  "update_steps": 2500,
+  "old_buckets": 72,
+  "top_share": 0.25,
+  "rows": [
+    {
+      "arm": "new-only",
+      "old_buckets_rehearsed": 0,
+      "old_accuracy": 0.0,
+      "retained_fraction": 0.0,
+      "new_accuracy": 0.0045,
+      "experts_used": 13
+    },
+    {
+      "arm": "full-replay",
+      "old_buckets_rehearsed": 72,
+      "old_accuracy": 0.4058,
+      "retained_fraction": 0.8778,
+      "new_accuracy": 0.0028,
+      "experts_used": 5
+    },
+    {
+      "arm": "dream",
+      "old_buckets_rehearsed": 18,
+      "old_accuracy": 0.1427,
+      "retained_fraction": 0.3086,
+      "new_accuracy": 0.0037,
+      "experts_used": 6
+    }
+  ]
+}

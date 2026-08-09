@@ -1,0 +1,12 @@
+[package]
+name = "ggufperm"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+anyhow = { workspace = true }
+clap = { workspace = true }
+gguf = { workspace = true }
+coact = { workspace = true }
+serde_json = { workspace = true }

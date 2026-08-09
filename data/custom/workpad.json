@@ -1,0 +1,11 @@
+{
+  "tests": 25,
+  "failures": 0,
+  "properties": [
+    "derivation",
+    "transitive invalidation",
+    "append-only",
+    "versioned explored set",
+    "retry allowed after correction"
+  ]
+}

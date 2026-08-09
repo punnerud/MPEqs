@@ -1,0 +1,90 @@
+{
+  "families": 8,
+  "authored": 8,
+  "engine_ok": 2,
+  "probe_exact_mounted": 2,
+  "bricks_before": 46,
+  "bricks_after": 50,
+  "units_before": 27,
+  "units_after": 30,
+  "reach_before": 112,
+  "reach_after": 124,
+  "roads_before": 3,
+  "roads_after": 3,
+  "rows": [
+    {
+      "family": "nmi",
+      "truth": [
+        "463/125",
+        "0"
+      ],
+      "stage": "engine refused: unsupported: proc(py) compile error at line 4, column 11: only len(), db.query(."
+    },
+    {
+      "family": "fortnight",
+      "truth": [
+        "14",
+        "0"
+      ],
+      "stage": "mounted",
+      "inferred": [
+        "14",
+        "0"
+      ],
+      "third_ok": true
+    },
+    {
+      "family": "stone",
+      "truth": [
+        "14",
+        "0"
+      ],
+      "stage": "engine refused: unsupported: `stone` was declared residual but not bijective: forward(Int(1)) = "
+    },
+    {
+      "family": "pint",
+      "truth": [
+        "454609/800000",
+        "0"
+      ],
+      "stage": "engine refused: unsupported: `pint` was declared residual but not bijective: forward(Int(1)) = I"
+    },
+    {
+      "family": "sek",
+      "truth": [
+        "97/100",
+        "0"
+      ],
+      "stage": "engine refused: unsupported: proc(py) compile error at line 4, column 11: only len(), db.query(."
+    },
+    {
+      "family": "dkk",
+      "truth": [
+        "38/25",
+        "0"
+      ],
+      "stage": "engine refused: unsupported: proc(py) compile error at line 4, column 11: only len(), db.query(."
+    },
+    {
+      "family": "markup",
+      "truth": [
+        "7/5",
+        "0"
+      ],
+      "stage": "engine refused: unsupported: `markup` was declared residual but not bijective: forward(Int(1)) ="
+    },
+    {
+      "family": "dozen",
+      "truth": [
+        "12",
+        "0"
+      ],
+      "stage": "mounted",
+      "inferred": [
+        "12",
+        "0"
+      ],
+      "third_ok": true
+    }
+  ]
+}

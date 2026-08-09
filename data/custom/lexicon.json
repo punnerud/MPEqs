@@ -1,0 +1,10 @@
+{
+  "lemmas": 147478,
+  "irregulars": 4446,
+  "tokens": 21144,
+  "coverage": 0.7258323874385169,
+  "noun_precision": 0.6063909213080484,
+  "noun_recall": 0.7994094488188976,
+  "verb_precision": 0.5114826752618856,
+  "verb_recall": 0.9477416946621874
+}

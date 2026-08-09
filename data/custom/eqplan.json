@@ -1,0 +1,152 @@
+{
+  "equations": 12,
+  "correct": 11,
+  "parrot_mul": 5,
+  "roads_exact": 36,
+  "rows": [
+    {
+      "eq": "3/2x + 2 = 2x + 8/3",
+      "prices": {
+        "mul_lcm": "6",
+        "div_lead": "30",
+        "sub_x": "9"
+      },
+      "best": "mul_lcm",
+      "pick": "C",
+      "picked": "mul_lcm",
+      "ok": true
+    },
+    {
+      "eq": "5/4x + 1/5 = x + 3",
+      "prices": {
+        "mul_lcm": "8",
+        "div_lead": "80",
+        "sub_x": "15"
+      },
+      "best": "mul_lcm",
+      "pick": "A",
+      "picked": "mul_lcm",
+      "ok": true
+    },
+    {
+      "eq": "8/3x + 9/4 = 2/5x + 3",
+      "prices": {
+        "mul_lcm": "139",
+        "div_lead": "232",
+        "sub_x": "166"
+      },
+      "best": "mul_lcm",
+      "pick": "B",
+      "picked": "mul_lcm",
+      "ok": true
+    },
+    {
+      "eq": "7/2x + 2 = 3/2x + 5/2",
+      "prices": {
+        "mul_lcm": "7",
+        "div_lead": "25",
+        "sub_x": "8"
+      },
+      "best": "mul_lcm",
+      "pick": "C",
+      "picked": "sub_x",
+      "ok": false
+    },
+    {
+      "eq": "3x + 10/3 = 1/2x + 9/4",
+      "prices": {
+        "mul_lcm": "33",
+        "div_lead": "84",
+        "sub_x": "46"
+      },
+      "best": "mul_lcm",
+      "pick": "C",
+      "picked": "mul_lcm",
+      "ok": true
+    },
+    {
+      "eq": "8/3x + 19/5 = 5/3x + 19/3",
+      "prices": {
+        "mul_lcm": "18",
+        "div_lead": "115",
+        "sub_x": "20"
+      },
+      "best": "mul_lcm",
+      "pick": "C",
+      "picked": "mul_lcm",
+      "ok": true
+    },
+    {
+      "eq": "3x + 2 = 2x + 9",
+      "prices": {
+        "mul_lcm": "4",
+        "div_lead": "10",
+        "sub_x": "2"
+      },
+      "best": "sub_x",
+      "pick": "C",
+      "picked": "sub_x",
+      "ok": true
+    },
+    {
+      "eq": "2x + 5 = x + 8",
+      "prices": {
+        "mul_lcm": "4",
+        "div_lead": "7",
+        "sub_x": "2"
+      },
+      "best": "sub_x",
+      "pick": "C",
+      "picked": "sub_x",
+      "ok": true
+    },
+    {
+      "eq": "5x + 6 = 4x + 7",
+      "prices": {
+        "mul_lcm": "4",
+        "div_lead": "16",
+        "sub_x": "2"
+      },
+      "best": "sub_x",
+      "pick": "A",
+      "picked": "sub_x",
+      "ok": true
+    },
+    {
+      "eq": "6x + 3 = 5x + 8",
+      "prices": {
+        "mul_lcm": "4",
+        "div_lead": "19",
+        "sub_x": "2"
+      },
+      "best": "sub_x",
+      "pick": "C",
+      "picked": "sub_x",
+      "ok": true
+    },
+    {
+      "eq": "5x + 5 = 4x + 5",
+      "prices": {
+        "mul_lcm": "4",
+        "div_lead": "16",
+        "sub_x": "2"
+      },
+      "best": "sub_x",
+      "pick": "A",
+      "picked": "sub_x",
+      "ok": true
+    },
+    {
+      "eq": "3x + 6 = 2x + 3",
+      "prices": {
+        "mul_lcm": "4",
+        "div_lead": "10",
+        "sub_x": "2"
+      },
+      "best": "sub_x",
+      "pick": "C",
+      "picked": "sub_x",
+      "ok": true
+    }
+  ]
+}

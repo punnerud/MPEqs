@@ -1,0 +1,70 @@
+{
+  "n": 8920,
+  "queries": 40,
+  "rows": [
+    {
+      "C": 32,
+      "probe": 1,
+      "found": 40,
+      "cmp": 335.45,
+      "cluster_nxn": 1024,
+      "flat_nxn": 79566400
+    },
+    {
+      "C": 32,
+      "probe": 4,
+      "found": 40,
+      "cmp": 1200.3,
+      "cluster_nxn": 1024,
+      "flat_nxn": 79566400
+    },
+    {
+      "C": 94,
+      "probe": 1,
+      "found": 40,
+      "cmp": 200.675,
+      "cluster_nxn": 8836,
+      "flat_nxn": 79566400
+    },
+    {
+      "C": 94,
+      "probe": 4,
+      "found": 40,
+      "cmp": 501.775,
+      "cluster_nxn": 8836,
+      "flat_nxn": 79566400
+    },
+    {
+      "C": 256,
+      "probe": 1,
+      "found": 40,
+      "cmp": 305.625,
+      "cluster_nxn": 65536,
+      "flat_nxn": 79566400
+    },
+    {
+      "C": 256,
+      "probe": 4,
+      "found": 40,
+      "cmp": 432.375,
+      "cluster_nxn": 65536,
+      "flat_nxn": 79566400
+    },
+    {
+      "C": 1024,
+      "probe": 1,
+      "found": 40,
+      "cmp": 1037.05,
+      "cluster_nxn": 1048576,
+      "flat_nxn": 79566400
+    },
+    {
+      "C": 1024,
+      "probe": 4,
+      "found": 40,
+      "cmp": 1074.8,
+      "cluster_nxn": 1048576,
+      "flat_nxn": 79566400
+    }
+  ]
+}

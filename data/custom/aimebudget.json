@@ -1,0 +1,87 @@
+{
+  "n": 10,
+  "budget": 6000,
+  "a": 2,
+  "b": 1,
+  "g": 0,
+  "unclosed": 0,
+  "graphs_ran": 2,
+  "gate_delivered": 3,
+  "gate_right": 1,
+  "gate_wrong": 2,
+  "flagged": 7,
+  "vote_right": 2,
+  "agree3": 0,
+  "rows": [
+    {
+      "truth": "12",
+      "a": "12",
+      "b": "12",
+      "g": "None",
+      "graph_stage": "parse: malformed JSON"
+    },
+    {
+      "truth": "4",
+      "a": "2",
+      "b": "16",
+      "g": "None",
+      "graph_stage": "K is not arithmetic"
+    },
+    {
+      "truth": "81",
+      "a": "6",
+      "b": "16",
+      "g": "31",
+      "graph_stage": "ok"
+    },
+    {
+      "truth": "125",
+      "a": "29",
+      "b": "3",
+      "g": "None",
+      "graph_stage": "parse: no JSON object"
+    },
+    {
+      "truth": "751",
+      "a": "0",
+      "b": "0",
+      "g": "None",
+      "graph_stage": "parse: malformed JSON"
+    },
+    {
+      "truth": "738",
+      "a": "2",
+      "b": "2",
+      "g": "34460",
+      "graph_stage": "ok"
+    },
+    {
+      "truth": "250",
+      "a": "250",
+      "b": "270",
+      "g": "None",
+      "graph_stage": "F is not arithmetic"
+    },
+    {
+      "truth": "928",
+      "a": "4",
+      "b": "6",
+      "g": "None",
+      "graph_stage": "parse: malformed JSON"
+    },
+    {
+      "truth": "51",
+      "a": "3",
+      "b": "1",
+      "g": "None",
+      "graph_stage": "parse: no JSON object"
+    },
+    {
+      "truth": "75",
+      "a": "0",
+      "b": "240",
+      "g": "None",
+      "graph_stage": "K is not arithmetic"
+    }
+  ]
+}

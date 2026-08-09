@@ -1,0 +1,56 @@
+{
+  "summary": {
+    "tasks": 3,
+    "free_correct": 2,
+    "stepwise_correct": 0,
+    "total_refused": 28
+  },
+  "runs": [
+    {
+      "task": "pour a glass of soda",
+      "free_ok": false,
+      "free_order": [
+        "fetch glass",
+        "unscrew cap",
+        "take out bottle",
+        "open fridge",
+        "pour"
+      ],
+      "stepwise_ok": false,
+      "stepwise_order": [],
+      "refused": 10
+    },
+    {
+      "task": "build a table",
+      "free_ok": true,
+      "free_order": [
+        "cut the top",
+        "cut four legs",
+        "sand the parts",
+        "attach legs to top",
+        "stand it up"
+      ],
+      "stepwise_ok": false,
+      "stepwise_order": [
+        "cut four legs"
+      ],
+      "refused": 9
+    },
+    {
+      "task": "make tea",
+      "free_ok": true,
+      "free_order": [
+        "fill kettle",
+        "boil water",
+        "put teabag in cup",
+        "pour water into cup",
+        "remove teabag"
+      ],
+      "stepwise_ok": false,
+      "stepwise_order": [
+        "put teabag in cup"
+      ],
+      "refused": 9
+    }
+  ]
+}

@@ -1,0 +1,260 @@
+{
+  "task_space": 15984004,
+  "answer_bits": 20.931568569324174,
+  "rounds": 12,
+  "steps_per_round": 800,
+  "results": [
+    {
+      "arm": "uniform",
+      "rounds": 12,
+      "final_holdout_accuracy": 0.4656,
+      "per_op": {
+        "+": 0.571,
+        "-": 0.547,
+        "//": 0.743,
+        "x": 0.005
+      },
+      "per_carry": {
+        "0": 0.647,
+        "1": 0.588,
+        "2": 0.532,
+        "3": 0.437
+      },
+      "experts_used": 16,
+      "params_effective": 76030,
+      "task_space": 15984004,
+      "compression_ratio": 64.03,
+      "log": [
+        {
+          "round": 0,
+          "ops": [
+            "+"
+          ],
+          "holdout_accuracy": 0.0367
+        },
+        {
+          "round": 1,
+          "ops": [
+            "+"
+          ],
+          "holdout_accuracy": 0.2175
+        },
+        {
+          "round": 2,
+          "ops": [
+            "+"
+          ],
+          "holdout_accuracy": 0.3962
+        },
+        {
+          "round": 3,
+          "ops": [
+            "+",
+            "-"
+          ],
+          "holdout_accuracy": 0.3068
+        },
+        {
+          "round": 4,
+          "ops": [
+            "+",
+            "-"
+          ],
+          "holdout_accuracy": 0.4368
+        },
+        {
+          "round": 5,
+          "ops": [
+            "+",
+            "-"
+          ],
+          "holdout_accuracy": 0.4828
+        },
+        {
+          "round": 6,
+          "ops": [
+            "+",
+            "-",
+            "x"
+          ],
+          "holdout_accuracy": 0.3087
+        },
+        {
+          "round": 7,
+          "ops": [
+            "+",
+            "-",
+            "x"
+          ],
+          "holdout_accuracy": 0.3243
+        },
+        {
+          "round": 8,
+          "ops": [
+            "+",
+            "-",
+            "x"
+          ],
+          "holdout_accuracy": 0.3358
+        },
+        {
+          "round": 9,
+          "ops": [
+            "+",
+            "-",
+            "x",
+            "//"
+          ],
+          "holdout_accuracy": 0.4228
+        },
+        {
+          "round": 10,
+          "ops": [
+            "+",
+            "-",
+            "x",
+            "//"
+          ],
+          "holdout_accuracy": 0.4477
+        },
+        {
+          "round": 11,
+          "ops": [
+            "+",
+            "-",
+            "x",
+            "//"
+          ],
+          "holdout_accuracy": 0.477
+        }
+      ],
+      "seconds": 138.4
+    },
+    {
+      "arm": "uncertain",
+      "rounds": 12,
+      "final_holdout_accuracy": 0.458,
+      "per_op": {
+        "+": 0.564,
+        "-": 0.585,
+        "//": 0.68,
+        "x": 0.006
+      },
+      "per_carry": {
+        "0": 0.637,
+        "1": 0.585,
+        "2": 0.563,
+        "3": 0.499
+      },
+      "experts_used": 26,
+      "params_effective": 116990,
+      "task_space": 15984004,
+      "compression_ratio": 40.93,
+      "log": [
+        {
+          "round": 0,
+          "ops": [
+            "+"
+          ],
+          "holdout_accuracy": 0.0367
+        },
+        {
+          "round": 1,
+          "ops": [
+            "+"
+          ],
+          "holdout_accuracy": 0.2677
+        },
+        {
+          "round": 2,
+          "ops": [
+            "+"
+          ],
+          "holdout_accuracy": 0.5148
+        },
+        {
+          "round": 3,
+          "ops": [
+            "+",
+            "-"
+          ],
+          "holdout_accuracy": 0.4137
+        },
+        {
+          "round": 4,
+          "ops": [
+            "+",
+            "-"
+          ],
+          "holdout_accuracy": 0.5673
+        },
+        {
+          "round": 5,
+          "ops": [
+            "+",
+            "-"
+          ],
+          "holdout_accuracy": 0.6967
+        },
+        {
+          "round": 6,
+          "ops": [
+            "+",
+            "-",
+            "x"
+          ],
+          "holdout_accuracy": 0.4297
+        },
+        {
+          "round": 7,
+          "ops": [
+            "+",
+            "-",
+            "x"
+          ],
+          "holdout_accuracy": 0.3542
+        },
+        {
+          "round": 8,
+          "ops": [
+            "+",
+            "-",
+            "x"
+          ],
+          "holdout_accuracy": 0.3705
+        },
+        {
+          "round": 9,
+          "ops": [
+            "+",
+            "-",
+            "x",
+            "//"
+          ],
+          "holdout_accuracy": 0.4258
+        },
+        {
+          "round": 10,
+          "ops": [
+            "+",
+            "-",
+            "x",
+            "//"
+          ],
+          "holdout_accuracy": 0.4593
+        },
+        {
+          "round": 11,
+          "ops": [
+            "+",
+            "-",
+            "x",
+            "//"
+          ],
+          "holdout_accuracy": 0.4643
+        }
+      ],
+      "seconds": 138.7
+    }
+  ]
+}

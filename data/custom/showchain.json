@@ -1,0 +1,87 @@
+{
+  "matching": {
+    "strength": 0.49098,
+    "hops": 6,
+    "nodes": [
+      35,
+      603,
+      238,
+      718,
+      847,
+      1234,
+      1540
+    ],
+    "labels": [
+      "arithmetic",
+      "arithmetic",
+      "arithmetic",
+      "arithmetic",
+      "physics",
+      "physics",
+      "physics"
+    ],
+    "links": [
+      1.0,
+      0.9823,
+      1.0,
+      0.9412,
+      1.0,
+      0.9993
+    ],
+    "text": [
+      "721 + 935",
+      "945 + 690",
+      "910 + 351",
+      "277 + 351",
+      "P = 277 J / 6 s",
+      "P = 292 J / 24 s",
+      "P = 293 J / 15 s"
+    ]
+  },
+  "not matching": {
+    "strength": 0.52561,
+    "hops": 6,
+    "nodes": [
+      175,
+      535,
+      514,
+      2222,
+      1928,
+      1607,
+      2191
+    ],
+    "labels": [
+      "arithmetic",
+      "arithmetic",
+      "arithmetic",
+      "prose",
+      "prose",
+      "prose",
+      "prose"
+    ],
+    "links": [
+      1.0,
+      0.9962,
+      0.9939,
+      0.999,
+      1.0,
+      1.0
+    ],
+    "text": [
+      "-694 - 435",
+      "-694 - 262",
+      "213 - 262",
+      " number 22 is to honor Clark . He is the great @-@ nephew of astronomer Clyde Tombaugh , the discoverer of Plu",
+      "teries at Le Treport , Forceville and Louvencourt , following the principles outlined in the Kenyon report . O",
+      "s with the depiction of Pentecost , and the Holy Spirit is juxtaposed with the air @-@ raids on London . In th",
+      "a for a series of secret observation posts ( first in Gibraltar and later in other places like Malta and Aden "
+    ]
+  },
+  "qwen_verdicts": {
+    "matching_chain": "NO. The first item is simple arithmetic addition, while the last involves physics power calculations; they share no transferable knowledge.",
+    "not_matching_chain": "NO. The last item concerns secret observation posts, while the first is an arithmetic calculation; they share no transferable knowledge.",
+    "pivot_277": "It is a surface coincidence. The numbers match, but the mathematical operations and physical meanings differ fundamentally.",
+    "model": "Qwen3.6-35B-A3B-UD-IQ1_M",
+    "caveat": "IQ1_M is aggressive 1-bit quantisation, so this is weak evidence on its own; it is reported because it agrees independently with the measured net transfer and with the mechanism visible in the path."
+  }
+}

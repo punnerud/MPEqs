@@ -1,0 +1,57 @@
+{
+  "n_problems": 300,
+  "n_class": 100,
+  "n_expert": 32,
+  "block": 4,
+  "steps": 2500,
+  "rows": [
+    {
+      "hops": 1,
+      "lambda": 0.0,
+      "exact_accuracy": 1.0,
+      "block_fetches_per_problem": 3.343,
+      "distinct_blocks_per_problem": 3.343,
+      "repeat_fetches_saved_pct": 0.0
+    },
+    {
+      "hops": 1,
+      "lambda": 0.3,
+      "exact_accuracy": 1.0,
+      "block_fetches_per_problem": 1.023,
+      "distinct_blocks_per_problem": 1.023,
+      "repeat_fetches_saved_pct": 0.0
+    },
+    {
+      "hops": 2,
+      "lambda": 0.0,
+      "exact_accuracy": 1.0,
+      "block_fetches_per_problem": 6.283,
+      "distinct_blocks_per_problem": 3.307,
+      "repeat_fetches_saved_pct": 47.4
+    },
+    {
+      "hops": 2,
+      "lambda": 0.3,
+      "exact_accuracy": 1.0,
+      "block_fetches_per_problem": 2.207,
+      "distinct_blocks_per_problem": 1.493,
+      "repeat_fetches_saved_pct": 32.3
+    },
+    {
+      "hops": 4,
+      "lambda": 0.0,
+      "exact_accuracy": 1.0,
+      "block_fetches_per_problem": 12.877,
+      "distinct_blocks_per_problem": 4.46,
+      "repeat_fetches_saved_pct": 65.4
+    },
+    {
+      "hops": 4,
+      "lambda": 0.3,
+      "exact_accuracy": 1.0,
+      "block_fetches_per_problem": 5.673,
+      "distinct_blocks_per_problem": 2.443,
+      "repeat_fetches_saved_pct": 56.9
+    }
+  ]
+}

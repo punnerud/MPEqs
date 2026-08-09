@@ -1,0 +1,972 @@
+{
+  "model": "OLMoE-1B-7B-0125-Instruct-Q4_K_M.gguf",
+  "arch": "olmoe",
+  "n_expert": 64,
+  "n_expert_used": 8,
+  "n_moe_layers": 16,
+  "bytes_per_expert": 4079616,
+  "max_bridged_gap": 0,
+  "cost_model": {
+    "c_fetch_ns": 6662.197230757513,
+    "c_byte_ns": 0.07812373100327522
+  },
+  "train_tokens": 160000,
+  "holdout_tokens": 40000,
+  "methods": [
+    {
+      "method": "identity",
+      "fetches_per_token": 342.33135,
+      "bytes_per_token": 487587840.0,
+      "cost_ns_per_token": 40372860.22459947,
+      "cost_reduction_pct": 0.0,
+      "per_layer": {
+        "0": {
+          "n_tokens": 40000,
+          "fetches": 852747,
+          "bytes": 1305477120000,
+          "cost_ns": 107669912055.74722
+        },
+        "1": {
+          "n_tokens": 40000,
+          "fetches": 859758,
+          "bytes": 1305477120000,
+          "cost_ns": 107716620720.53206
+        },
+        "2": {
+          "n_tokens": 40000,
+          "fetches": 849801,
+          "bytes": 1132462080000,
+          "cost_ns": 94133704778.2245
+        },
+        "3": {
+          "n_tokens": 40000,
+          "fetches": 852465,
+          "bytes": 1132462080000,
+          "cost_ns": 94151452871.64725
+        },
+        "4": {
+          "n_tokens": 40000,
+          "fetches": 849423,
+          "bytes": 1305477120000,
+          "cost_ns": 107647766912.15218
+        },
+        "5": {
+          "n_tokens": 40000,
+          "fetches": 862659,
+          "bytes": 1132462080000,
+          "cost_ns": 94219367310.21759
+        },
+        "6": {
+          "n_tokens": 40000,
+          "fetches": 862623,
+          "bytes": 1132462080000,
+          "cost_ns": 94219127471.11728
+        },
+        "7": {
+          "n_tokens": 40000,
+          "fetches": 864687,
+          "bytes": 1305477120000,
+          "cost_ns": 107749458690.68246
+        },
+        "8": {
+          "n_tokens": 40000,
+          "fetches": 858303,
+          "bytes": 1132462080000,
+          "cost_ns": 94190346779.08041
+        },
+        "9": {
+          "n_tokens": 40000,
+          "fetches": 863307,
+          "bytes": 1132462080000,
+          "cost_ns": 94223684414.02312
+        },
+        "10": {
+          "n_tokens": 40000,
+          "fetches": 852795,
+          "bytes": 1305477120000,
+          "cost_ns": 107670231841.2143
+        },
+        "11": {
+          "n_tokens": 40000,
+          "fetches": 855828,
+          "bytes": 1132462080000,
+          "cost_ns": 94173857840.93428
+        },
+        "12": {
+          "n_tokens": 40000,
+          "fetches": 856350,
+          "bytes": 1132462080000,
+          "cost_ns": 94177335507.88873
+        },
+        "13": {
+          "n_tokens": 40000,
+          "fetches": 849933,
+          "bytes": 1305477120000,
+          "cost_ns": 107651164632.73987
+        },
+        "14": {
+          "n_tokens": 40000,
+          "fetches": 856047,
+          "bytes": 1305477120000,
+          "cost_ns": 107691897306.60872
+        },
+        "15": {
+          "n_tokens": 40000,
+          "fetches": 846528,
+          "bytes": 1305477120000,
+          "cost_ns": 107628479851.16913
+        }
+      }
+    },
+    {
+      "method": "random:1",
+      "fetches_per_token": 342.995625,
+      "bytes_per_token": 487587840.0,
+      "cost_ns_per_token": 40377285.755664945,
+      "cost_reduction_pct": -0.010961648594753171,
+      "per_layer": {
+        "0": {
+          "n_tokens": 40000,
+          "fetches": 860196,
+          "bytes": 1305477120000,
+          "cost_ns": 107719538762.91913
+        },
+        "1": {
+          "n_tokens": 40000,
+          "fetches": 854205,
+          "bytes": 1305477120000,
+          "cost_ns": 107679625539.30966
+        },
+        "2": {
+          "n_tokens": 40000,
+          "fetches": 855285,
+          "bytes": 1132462080000,
+          "cost_ns": 94170240267.83798
+        },
+        "3": {
+          "n_tokens": 40000,
+          "fetches": 856140,
+          "bytes": 1132462080000,
+          "cost_ns": 94175936446.47028
+        },
+        "4": {
+          "n_tokens": 40000,
+          "fetches": 859164,
+          "bytes": 1305477120000,
+          "cost_ns": 107712663375.37698
+        },
+        "5": {
+          "n_tokens": 40000,
+          "fetches": 853392,
+          "bytes": 1132462080000,
+          "cost_ns": 94157628728.48016
+        },
+        "6": {
+          "n_tokens": 40000,
+          "fetches": 854967,
+          "bytes": 1132462080000,
+          "cost_ns": 94168121689.1186
+        },
+        "7": {
+          "n_tokens": 40000,
+          "fetches": 858429,
+          "bytes": 1305477120000,
+          "cost_ns": 107707766660.41238
+        },
+        "8": {
+          "n_tokens": 40000,
+          "fetches": 865380,
+          "bytes": 1132462080000,
+          "cost_ns": 94237495148.88248
+        },
+        "9": {
+          "n_tokens": 40000,
+          "fetches": 845199,
+          "bytes": 1132462080000,
+          "cost_ns": 94103045346.56856
+        },
+        "10": {
+          "n_tokens": 40000,
+          "fetches": 852030,
+          "bytes": 1305477120000,
+          "cost_ns": 107665135260.33276
+        },
+        "11": {
+          "n_tokens": 40000,
+          "fetches": 860661,
+          "bytes": 1132462080000,
+          "cost_ns": 94206056240.15054
+        },
+        "12": {
+          "n_tokens": 40000,
+          "fetches": 854520,
+          "bytes": 1132462080000,
+          "cost_ns": 94165143686.95645
+        },
+        "13": {
+          "n_tokens": 40000,
+          "fetches": 861147,
+          "bytes": 1305477120000,
+          "cost_ns": 107725874512.48558
+        },
+        "14": {
+          "n_tokens": 40000,
+          "fetches": 861150,
+          "bytes": 1305477120000,
+          "cost_ns": 107725894499.07727
+        },
+        "15": {
+          "n_tokens": 40000,
+          "fetches": 867960,
+          "bytes": 1305477120000,
+          "cost_ns": 107771264062.21873
+        }
+      }
+    },
+    {
+      "method": "random:2",
+      "fetches_per_token": 340.697625,
+      "bytes_per_token": 487587840.0,
+      "cost_ns_per_token": 40361976.026428655,
+      "cost_reduction_pct": 0.02695919513818981,
+      "per_layer": {
+        "0": {
+          "n_tokens": 40000,
+          "fetches": 857856,
+          "bytes": 1305477120000,
+          "cost_ns": 107703949221.39915
+        },
+        "1": {
+          "n_tokens": 40000,
+          "fetches": 854376,
+          "bytes": 1305477120000,
+          "cost_ns": 107680764775.03612
+        },
+        "2": {
+          "n_tokens": 40000,
+          "fetches": 853365,
+          "bytes": 1132462080000,
+          "cost_ns": 94157448849.15492
+        },
+        "3": {
+          "n_tokens": 40000,
+          "fetches": 847941,
+          "bytes": 1132462080000,
+          "cost_ns": 94121313091.3753
+        },
+        "4": {
+          "n_tokens": 40000,
+          "fetches": 849564,
+          "bytes": 1305477120000,
+          "cost_ns": 107648706281.96172
+        },
+        "5": {
+          "n_tokens": 40000,
+          "fetches": 852936,
+          "bytes": 1132462080000,
+          "cost_ns": 94154590766.54294
+        },
+        "6": {
+          "n_tokens": 40000,
+          "fetches": 856512,
+          "bytes": 1132462080000,
+          "cost_ns": 94178414783.84012
+        },
+        "7": {
+          "n_tokens": 40000,
+          "fetches": 854928,
+          "bytes": 1305477120000,
+          "cost_ns": 107684442307.9075
+        },
+        "8": {
+          "n_tokens": 40000,
+          "fetches": 856059,
+          "bytes": 1132462080000,
+          "cost_ns": 94175396808.49458
+        },
+        "9": {
+          "n_tokens": 40000,
+          "fetches": 848952,
+          "bytes": 1132462080000,
+          "cost_ns": 94128048572.7756
+        },
+        "10": {
+          "n_tokens": 40000,
+          "fetches": 843990,
+          "bytes": 1305477120000,
+          "cost_ns": 107611571194.59747
+        },
+        "11": {
+          "n_tokens": 40000,
+          "fetches": 849879,
+          "bytes": 1132462080000,
+          "cost_ns": 94134224429.6085
+        },
+        "12": {
+          "n_tokens": 40000,
+          "fetches": 853092,
+          "bytes": 1132462080000,
+          "cost_ns": 94155630069.31093
+        },
+        "13": {
+          "n_tokens": 40000,
+          "fetches": 854787,
+          "bytes": 1305477120000,
+          "cost_ns": 107683502938.09796
+        },
+        "14": {
+          "n_tokens": 40000,
+          "fetches": 850953,
+          "bytes": 1305477120000,
+          "cost_ns": 107657960073.91524
+        },
+        "15": {
+          "n_tokens": 40000,
+          "fetches": 842715,
+          "bytes": 1305477120000,
+          "cost_ns": 107603076893.12827
+        }
+      }
+    },
+    {
+      "method": "random:3",
+      "fetches_per_token": 341.741025,
+      "bytes_per_token": 487587840.0,
+      "cost_ns_per_token": 40368927.36301923,
+      "cost_reduction_pct": 0.009741349902796523,
+      "per_layer": {
+        "0": {
+          "n_tokens": 40000,
+          "fetches": 849441,
+          "bytes": 1305477120000,
+          "cost_ns": 107647886831.70233
+        },
+        "1": {
+          "n_tokens": 40000,
+          "fetches": 855003,
+          "bytes": 1305477120000,
+          "cost_ns": 107684941972.6998
+        },
+        "2": {
+          "n_tokens": 40000,
+          "fetches": 853620,
+          "bytes": 1132462080000,
+          "cost_ns": 94159147709.44878
+        },
+        "3": {
+          "n_tokens": 40000,
+          "fetches": 861531,
+          "bytes": 1132462080000,
+          "cost_ns": 94211852351.7413
+        },
+        "4": {
+          "n_tokens": 40000,
+          "fetches": 854952,
+          "bytes": 1305477120000,
+          "cost_ns": 107684602200.64104
+        },
+        "5": {
+          "n_tokens": 40000,
+          "fetches": 860505,
+          "bytes": 1132462080000,
+          "cost_ns": 94205016937.38254
+        },
+        "6": {
+          "n_tokens": 40000,
+          "fetches": 857895,
+          "bytes": 1132462080000,
+          "cost_ns": 94187628602.61026
+        },
+        "7": {
+          "n_tokens": 40000,
+          "fetches": 857928,
+          "bytes": 1305477120000,
+          "cost_ns": 107704428899.59978
+        },
+        "8": {
+          "n_tokens": 40000,
+          "fetches": 841155,
+          "bytes": 1132462080000,
+          "cost_ns": 94076103420.96738
+        },
+        "9": {
+          "n_tokens": 40000,
+          "fetches": 855381,
+          "bytes": 1132462080000,
+          "cost_ns": 94170879838.77214
+        },
+        "10": {
+          "n_tokens": 40000,
+          "fetches": 850746,
+          "bytes": 1305477120000,
+          "cost_ns": 107656580999.08847
+        },
+        "11": {
+          "n_tokens": 40000,
+          "fetches": 856203,
+          "bytes": 1132462080000,
+          "cost_ns": 94176356164.89581
+        },
+        "12": {
+          "n_tokens": 40000,
+          "fetches": 839949,
+          "bytes": 1132462080000,
+          "cost_ns": 94068068811.10709
+        },
+        "13": {
+          "n_tokens": 40000,
+          "fetches": 865326,
+          "bytes": 1305477120000,
+          "cost_ns": 107753715834.71292
+        },
+        "14": {
+          "n_tokens": 40000,
+          "fetches": 865623,
+          "bytes": 1305477120000,
+          "cost_ns": 107755694507.29045
+        },
+        "15": {
+          "n_tokens": 40000,
+          "fetches": 844383,
+          "bytes": 1305477120000,
+          "cost_ns": 107614189438.10916
+        }
+      }
+    },
+    {
+      "method": "frequency",
+      "fetches_per_token": 341.497725,
+      "bytes_per_token": 487587840.0,
+      "cost_ns_per_token": 40367306.450432986,
+      "cost_reduction_pct": 0.013756206856761669,
+      "per_layer": {
+        "0": {
+          "n_tokens": 40000,
+          "fetches": 856890,
+          "bytes": 1305477120000,
+          "cost_ns": 107697513538.87425
+        },
+        "1": {
+          "n_tokens": 40000,
+          "fetches": 856332,
+          "bytes": 1305477120000,
+          "cost_ns": 107693796032.81949
+        },
+        "2": {
+          "n_tokens": 40000,
+          "fetches": 849372,
+          "bytes": 1132462080000,
+          "cost_ns": 94130846695.61252
+        },
+        "3": {
+          "n_tokens": 40000,
+          "fetches": 855618,
+          "bytes": 1132462080000,
+          "cost_ns": 94172458779.51582
+        },
+        "4": {
+          "n_tokens": 40000,
+          "fetches": 856731,
+          "bytes": 1305477120000,
+          "cost_ns": 107696454249.51456
+        },
+        "5": {
+          "n_tokens": 40000,
+          "fetches": 849552,
+          "bytes": 1132462080000,
+          "cost_ns": 94132045891.11404
+        },
+        "6": {
+          "n_tokens": 40000,
+          "fetches": 852255,
+          "bytes": 1132462080000,
+          "cost_ns": 94150053810.22879
+        },
+        "7": {
+          "n_tokens": 40000,
+          "fetches": 840213,
+          "bytes": 1305477120000,
+          "cost_ns": 107586408075.6569
+        },
+        "8": {
+          "n_tokens": 40000,
+          "fetches": 862515,
+          "bytes": 1132462080000,
+          "cost_ns": 94218407953.81636
+        },
+        "9": {
+          "n_tokens": 40000,
+          "fetches": 860649,
+          "bytes": 1132462080000,
+          "cost_ns": 94205976293.78377
+        },
+        "10": {
+          "n_tokens": 40000,
+          "fetches": 847839,
+          "bytes": 1305477120000,
+          "cost_ns": 107637213991.73866
+        },
+        "11": {
+          "n_tokens": 40000,
+          "fetches": 857904,
+          "bytes": 1132462080000,
+          "cost_ns": 94187688562.38535
+        },
+        "12": {
+          "n_tokens": 40000,
+          "fetches": 855570,
+          "bytes": 1132462080000,
+          "cost_ns": 94172138994.04875
+        },
+        "13": {
+          "n_tokens": 40000,
+          "fetches": 855840,
+          "bytes": 1305477120000,
+          "cost_ns": 107690518231.78195
+        },
+        "14": {
+          "n_tokens": 40000,
+          "fetches": 852273,
+          "bytes": 1305477120000,
+          "cost_ns": 107666754174.25984
+        },
+        "15": {
+          "n_tokens": 40000,
+          "fetches": 850356,
+          "bytes": 1305477120000,
+          "cost_ns": 107653982742.16847
+        }
+      }
+    },
+    {
+      "method": "mincut",
+      "fetches_per_token": 303.569175,
+      "bytes_per_token": 487587840.0,
+      "cost_ns_per_token": 40114618.96965633,
+      "cost_reduction_pct": 0.6396407227689843,
+      "per_layer": {
+        "0": {
+          "n_tokens": 40000,
+          "fetches": 790392,
+          "bytes": 1305477120000,
+          "cost_ns": 107254490747.42334
+        },
+        "1": {
+          "n_tokens": 40000,
+          "fetches": 804738,
+          "bytes": 1305477120000,
+          "cost_ns": 107350066628.89578
+        },
+        "2": {
+          "n_tokens": 40000,
+          "fetches": 799698,
+          "bytes": 1132462080000,
+          "cost_ns": 93799908710.37187
+        },
+        "3": {
+          "n_tokens": 40000,
+          "fetches": 769719,
+          "bytes": 1132462080000,
+          "cost_ns": 93600182699.59099
+        },
+        "4": {
+          "n_tokens": 40000,
+          "fetches": 783366,
+          "bytes": 1305477120000,
+          "cost_ns": 107207682149.68002
+        },
+        "5": {
+          "n_tokens": 40000,
+          "fetches": 771657,
+          "bytes": 1132462080000,
+          "cost_ns": 93613094037.82419
+        },
+        "6": {
+          "n_tokens": 40000,
+          "fetches": 775287,
+          "bytes": 1132462080000,
+          "cost_ns": 93637277813.77185
+        },
+        "7": {
+          "n_tokens": 40000,
+          "fetches": 740430,
+          "bytes": 1305477120000,
+          "cost_ns": 106921634049.38022
+        },
+        "8": {
+          "n_tokens": 40000,
+          "fetches": 732570,
+          "bytes": 1132462080000,
+          "cost_ns": 93352688734.66557
+        },
+        "9": {
+          "n_tokens": 40000,
+          "fetches": 722532,
+          "bytes": 1132462080000,
+          "cost_ns": 93285813598.86324
+        },
+        "10": {
+          "n_tokens": 40000,
+          "fetches": 728673,
+          "bytes": 1305477120000,
+          "cost_ns": 106843306596.53821
+        },
+        "11": {
+          "n_tokens": 40000,
+          "fetches": 742236,
+          "bytes": 1132462080000,
+          "cost_ns": 93417085533.09808
+        },
+        "12": {
+          "n_tokens": 40000,
+          "fetches": 753315,
+          "bytes": 1132462080000,
+          "cost_ns": 93490896016.21764
+        },
+        "13": {
+          "n_tokens": 40000,
+          "fetches": 744981,
+          "bytes": 1305477120000,
+          "cost_ns": 106951953708.9774
+        },
+        "14": {
+          "n_tokens": 40000,
+          "fetches": 740682,
+          "bytes": 1305477120000,
+          "cost_ns": 106923312923.08238
+        },
+        "15": {
+          "n_tokens": 40000,
+          "fetches": 742491,
+          "bytes": 1305477120000,
+          "cost_ns": 106935364837.87282
+        }
+      }
+    },
+    {
+      "method": "chain",
+      "fetches_per_token": 293.68425,
+      "bytes_per_token": 487587840.0,
+      "cost_ns_per_token": 40048763.64969509,
+      "cost_reduction_pct": 0.8027585192165996,
+      "per_layer": {
+        "0": {
+          "n_tokens": 40000,
+          "fetches": 774837,
+          "bytes": 1305477120000,
+          "cost_ns": 107150860269.4989
+        },
+        "1": {
+          "n_tokens": 40000,
+          "fetches": 793551,
+          "bytes": 1305477120000,
+          "cost_ns": 107275536628.4753
+        },
+        "2": {
+          "n_tokens": 40000,
+          "fetches": 785673,
+          "bytes": 1132462080000,
+          "cost_ns": 93706471394.2105
+        },
+        "3": {
+          "n_tokens": 40000,
+          "fetches": 749979,
+          "bytes": 1132462080000,
+          "cost_ns": 93468670926.25583
+        },
+        "4": {
+          "n_tokens": 40000,
+          "fetches": 761463,
+          "bytes": 1305477120000,
+          "cost_ns": 107061760043.73474
+        },
+        "5": {
+          "n_tokens": 40000,
+          "fetches": 756204,
+          "bytes": 1132462080000,
+          "cost_ns": 93510143104.0173
+        },
+        "6": {
+          "n_tokens": 40000,
+          "fetches": 755856,
+          "bytes": 1132462080000,
+          "cost_ns": 93507824659.381
+        },
+        "7": {
+          "n_tokens": 40000,
+          "fetches": 716349,
+          "bytes": 1305477120000,
+          "cost_ns": 106761201677.86635
+        },
+        "8": {
+          "n_tokens": 40000,
+          "fetches": 709650,
+          "bytes": 1132462080000,
+          "cost_ns": 93199991174.13661
+        },
+        "9": {
+          "n_tokens": 40000,
+          "fetches": 686907,
+          "bytes": 1132462080000,
+          "cost_ns": 93048472822.5175
+        },
+        "10": {
+          "n_tokens": 40000,
+          "fetches": 692394,
+          "bytes": 1305477120000,
+          "cost_ns": 106601608743.20355
+        },
+        "11": {
+          "n_tokens": 40000,
+          "fetches": 713673,
+          "bytes": 1132462080000,
+          "cost_ns": 93226793193.59595
+        },
+        "12": {
+          "n_tokens": 40000,
+          "fetches": 717753,
+          "bytes": 1132462080000,
+          "cost_ns": 93253974958.29744
+        },
+        "13": {
+          "n_tokens": 40000,
+          "fetches": 715653,
+          "bytes": 1305477120000,
+          "cost_ns": 106756564788.59375
+        },
+        "14": {
+          "n_tokens": 40000,
+          "fetches": 706431,
+          "bytes": 1305477120000,
+          "cost_ns": 106695126005.7317
+        },
+        "15": {
+          "n_tokens": 40000,
+          "fetches": 710997,
+          "bytes": 1305477120000,
+          "cost_ns": 106725545598.28734
+        }
+      }
+    },
+    {
+      "method": "best+greedy",
+      "fetches_per_token": 294.255075,
+      "bytes_per_token": 487587840.0,
+      "cost_ns_per_token": 40052566.59842934,
+      "cost_reduction_pct": 0.7933389519303338,
+      "per_layer": {
+        "0": {
+          "n_tokens": 40000,
+          "fetches": 775311,
+          "bytes": 1305477120000,
+          "cost_ns": 107154018150.98628
+        },
+        "1": {
+          "n_tokens": 40000,
+          "fetches": 795522,
+          "bytes": 1305477120000,
+          "cost_ns": 107288667819.21712
+        },
+        "2": {
+          "n_tokens": 40000,
+          "fetches": 788424,
+          "bytes": 1132462080000,
+          "cost_ns": 93724799098.79231
+        },
+        "3": {
+          "n_tokens": 40000,
+          "fetches": 752193,
+          "bytes": 1132462080000,
+          "cost_ns": 93483421030.92473
+        },
+        "4": {
+          "n_tokens": 40000,
+          "fetches": 761193,
+          "bytes": 1305477120000,
+          "cost_ns": 107059961250.48244
+        },
+        "5": {
+          "n_tokens": 40000,
+          "fetches": 757704,
+          "bytes": 1132462080000,
+          "cost_ns": 93520136399.86343
+        },
+        "6": {
+          "n_tokens": 40000,
+          "fetches": 757878,
+          "bytes": 1132462080000,
+          "cost_ns": 93521295622.18158
+        },
+        "7": {
+          "n_tokens": 40000,
+          "fetches": 715443,
+          "bytes": 1305477120000,
+          "cost_ns": 106755165727.1753
+        },
+        "8": {
+          "n_tokens": 40000,
+          "fetches": 717171,
+          "bytes": 1132462080000,
+          "cost_ns": 93250097559.50914
+        },
+        "9": {
+          "n_tokens": 40000,
+          "fetches": 689151,
+          "bytes": 1132462080000,
+          "cost_ns": 93063422793.10332
+        },
+        "10": {
+          "n_tokens": 40000,
+          "fetches": 694467,
+          "bytes": 1305477120000,
+          "cost_ns": 106615419478.06291
+        },
+        "11": {
+          "n_tokens": 40000,
+          "fetches": 719703,
+          "bytes": 1132462080000,
+          "cost_ns": 93266966242.89742
+        },
+        "12": {
+          "n_tokens": 40000,
+          "fetches": 715572,
+          "bytes": 1132462080000,
+          "cost_ns": 93239444706.13716
+        },
+        "13": {
+          "n_tokens": 40000,
+          "fetches": 714504,
+          "bytes": 1305477120000,
+          "cost_ns": 106748909923.9756
+        },
+        "14": {
+          "n_tokens": 40000,
+          "fetches": 706626,
+          "bytes": 1305477120000,
+          "cost_ns": 106696425134.1917
+        },
+        "15": {
+          "n_tokens": 40000,
+          "fetches": 709341,
+          "bytes": 1305477120000,
+          "cost_ns": 106714512999.6732
+        }
+      }
+    }
+  ],
+  "cfetch_sweep": [
+    {
+      "c_fetch_us": 0.5,
+      "max_bridged_gap": 0,
+      "best_method": "chain",
+      "best_reduction_pct": 0.06356879874102617,
+      "random_reduction_pct": 0.002134843304610804
+    },
+    {
+      "c_fetch_us": 1.0,
+      "max_bridged_gap": 0,
+      "best_method": "chain",
+      "best_reduction_pct": 0.12657139821951374,
+      "random_reduction_pct": 0.004250671829489473
+    },
+    {
+      "c_fetch_us": 2.0,
+      "max_bridged_gap": 0,
+      "best_method": "chain",
+      "best_reduction_pct": 0.2509079906525221,
+      "random_reduction_pct": 0.008426291742553061
+    },
+    {
+      "c_fetch_us": 5.0,
+      "max_bridged_gap": 0,
+      "best_method": "chain",
+      "best_reduction_pct": 0.6110855440220128,
+      "random_reduction_pct": 0.02052220441521412
+    },
+    {
+      "c_fetch_us": 10.0,
+      "max_bridged_gap": 0,
+      "best_method": "chain",
+      "best_reduction_pct": 1.1717817718388277,
+      "random_reduction_pct": 0.039352174645505875
+    },
+    {
+      "c_fetch_us": 25.0,
+      "max_bridged_gap": 0,
+      "best_method": "chain",
+      "best_reduction_pct": 2.606999737154791,
+      "random_reduction_pct": 0.0875513781003022
+    },
+    {
+      "c_fetch_us": 50.0,
+      "max_bridged_gap": 0,
+      "best_method": "chain",
+      "best_reduction_pct": 4.405741942999974,
+      "random_reduction_pct": 0.14795888667212662
+    },
+    {
+      "c_fetch_us": 100.0,
+      "max_bridged_gap": 0,
+      "best_method": "chain",
+      "best_reduction_pct": 6.747700099224787,
+      "random_reduction_pct": 0.2131902691514022
+    },
+    {
+      "c_fetch_us": 250.0,
+      "max_bridged_gap": 2,
+      "best_method": "chain",
+      "best_reduction_pct": 10.531838661219346,
+      "random_reduction_pct": 0.16490696546028963
+    },
+    {
+      "c_fetch_us": 1000.0,
+      "max_bridged_gap": 9,
+      "best_method": "mincut",
+      "best_reduction_pct": 12.422102473361956,
+      "random_reduction_pct": 0.021930099944699036
+    }
+  ],
+  "edge_weight": "gate",
+  "gate_mass_by_rank": [
+    {
+      "rank": 1,
+      "mean_weight": 0.10537858578839397,
+      "cumulative_pct": 24.282443441389113
+    },
+    {
+      "rank": 2,
+      "mean_weight": 0.07627668746807394,
+      "cumulative_pct": 41.85892101017436
+    },
+    {
+      "rank": 3,
+      "mean_weight": 0.061762952709182715,
+      "cumulative_pct": 56.09099097688954
+    },
+    {
+      "rank": 4,
+      "mean_weight": 0.05150309178093754,
+      "cumulative_pct": 67.95887574560909
+    },
+    {
+      "rank": 5,
+      "mean_weight": 0.04334025328229931,
+      "cumulative_pct": 77.94579330755288
+    },
+    {
+      "rank": 6,
+      "mean_weight": 0.036744008178630175,
+      "cumulative_pct": 86.41273461002189
+    },
+    {
+      "rank": 7,
+      "mean_weight": 0.031491878145337576,
+      "cumulative_pct": 93.66942480192519
+    },
+    {
+      "rank": 8,
+      "mean_weight": 0.02747281438996917,
+      "cumulative_pct": 99.99999999999999
+    }
+  ]
+}

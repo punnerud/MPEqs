@@ -1,0 +1,52 @@
+{
+  "n": 6,
+  "nothink": 1,
+  "think": 0,
+  "tgraph": 0,
+  "graphs_ran": 3,
+  "unclosed": 4,
+  "rows": [
+    {
+      "truth": "12",
+      "nothink": "13",
+      "think": "None",
+      "think_graph": "42",
+      "graph_stage": "ok"
+    },
+    {
+      "truth": "4",
+      "nothink": "4",
+      "think": "2",
+      "think_graph": "None",
+      "graph_stage": "N is not arithmetic"
+    },
+    {
+      "truth": "81",
+      "nothink": "1",
+      "think": "3",
+      "think_graph": "None",
+      "graph_stage": "A is not arithmetic"
+    },
+    {
+      "truth": "125",
+      "nothink": "4",
+      "think": "None",
+      "think_graph": "None",
+      "graph_stage": "parse: no JSON object"
+    },
+    {
+      "truth": "751",
+      "nothink": "2",
+      "think": "None",
+      "think_graph": "91",
+      "graph_stage": "ok"
+    },
+    {
+      "truth": "738",
+      "nothink": "2",
+      "think": "None",
+      "think_graph": "34460",
+      "graph_stage": "ok"
+    }
+  ]
+}

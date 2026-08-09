@@ -1,0 +1,621 @@
+{
+  "tasks": 60,
+  "k": 2,
+  "solo_correct": 7,
+  "graph_correct": 13,
+  "memory_correct": 2,
+  "store_size": 3,
+  "verified_wrong": 1,
+  "first_third": {
+    "solo": 0.2,
+    "graph": 0.2,
+    "memory": 0.05
+  },
+  "last_third": {
+    "solo": 0.0,
+    "graph": 0.15,
+    "memory": 0.0
+  },
+  "rows": [
+    {
+      "i": 0,
+      "expr": "(30 - 37 * 9) / 3",
+      "truth": -101,
+      "solo": -9,
+      "graph": -83,
+      "memory": -83,
+      "verified": true,
+      "store_size": 1
+    },
+    {
+      "i": 1,
+      "expr": "(21 + 11 + 3) / 7",
+      "truth": 5,
+      "solo": 5,
+      "graph": null,
+      "memory": null,
+      "verified": false,
+      "store_size": 1
+    },
+    {
+      "i": 2,
+      "expr": "(43 + 12 * 11) / 5",
+      "truth": 35,
+      "solo": 23,
+      "graph": null,
+      "memory": null,
+      "verified": false,
+      "store_size": 1
+    },
+    {
+      "i": 3,
+      "expr": "(30 + 39 + 5) / 2",
+      "truth": 37,
+      "solo": 14,
+      "graph": null,
+      "memory": null,
+      "verified": false,
+      "store_size": 1
+    },
+    {
+      "i": 4,
+      "expr": "(2 - 7 + 9) / 2",
+      "truth": 2,
+      "solo": 2,
+      "graph": 2,
+      "memory": null,
+      "verified": false,
+      "store_size": 1
+    },
+    {
+      "i": 5,
+      "expr": "(47 + 18 + 7) / 2",
+      "truth": 36,
+      "solo": 28,
+      "graph": null,
+      "memory": null,
+      "verified": false,
+      "store_size": 1
+    },
+    {
+      "i": 6,
+      "expr": "(6 - 38 * 3) / 9",
+      "truth": -12,
+      "solo": -4,
+      "graph": null,
+      "memory": null,
+      "verified": false,
+      "store_size": 1
+    },
+    {
+      "i": 7,
+      "expr": "(26 + 6 * 2) / 2",
+      "truth": 19,
+      "solo": 11,
+      "graph": 19,
+      "memory": null,
+      "verified": false,
+      "store_size": 1
+    },
+    {
+      "i": 8,
+      "expr": "(60 - 5 + 9) / 16",
+      "truth": 4,
+      "solo": 4,
+      "graph": null,
+      "memory": null,
+      "verified": false,
+      "store_size": 1
+    },
+    {
+      "i": 9,
+      "expr": "(6 + 38 + 12) / 7",
+      "truth": 8,
+      "solo": 6,
+      "graph": 8,
+      "memory": null,
+      "verified": false,
+      "store_size": 1
+    },
+    {
+      "i": 10,
+      "expr": "(7 + 21 + 7) / 5",
+      "truth": 7,
+      "solo": 5,
+      "graph": null,
+      "memory": 7,
+      "verified": true,
+      "store_size": 2
+    },
+    {
+      "i": 11,
+      "expr": "(53 + 33 + 4) / 6",
+      "truth": 15,
+      "solo": 14,
+      "graph": null,
+      "memory": null,
+      "verified": false,
+      "store_size": 2
+    },
+    {
+      "i": 12,
+      "expr": "(48 - 10 * 8) / 16",
+      "truth": -2,
+      "solo": 2,
+      "graph": null,
+      "memory": null,
+      "verified": false,
+      "store_size": 2
+    },
+    {
+      "i": 13,
+      "expr": "(28 - 15 + 2) / 3",
+      "truth": 5,
+      "solo": 5,
+      "graph": null,
+      "memory": null,
+      "verified": false,
+      "store_size": 2
+    },
+    {
+      "i": 14,
+      "expr": "(15 + 13 * 8) / 7",
+      "truth": 17,
+      "solo": 6,
+      "graph": 17,
+      "memory": null,
+      "verified": false,
+      "store_size": 2
+    },
+    {
+      "i": 15,
+      "expr": "(15 + 30 + 6) / 17",
+      "truth": 3,
+      "solo": 11,
+      "graph": null,
+      "memory": null,
+      "verified": false,
+      "store_size": 2
+    },
+    {
+      "i": 16,
+      "expr": "(26 + 6 * 3) / 4",
+      "truth": 11,
+      "solo": 8,
+      "graph": null,
+      "memory": null,
+      "verified": false,
+      "store_size": 2
+    },
+    {
+      "i": 17,
+      "expr": "(39 + 32 + 11) / 2",
+      "truth": 41,
+      "solo": 24,
+      "graph": null,
+      "memory": null,
+      "verified": false,
+      "store_size": 2
+    },
+    {
+      "i": 18,
+      "expr": "(42 + 11 * 6) / 6",
+      "truth": 18,
+      "solo": 7,
+      "graph": null,
+      "memory": null,
+      "verified": false,
+      "store_size": 2
+    },
+    {
+      "i": 19,
+      "expr": "(7 + 28 * 2) / 3",
+      "truth": 21,
+      "solo": 10,
+      "graph": null,
+      "memory": null,
+      "verified": false,
+      "store_size": 2
+    },
+    {
+      "i": 20,
+      "expr": "(34 - 18 + 5) / 7",
+      "truth": 3,
+      "solo": 3,
+      "graph": null,
+      "memory": null,
+      "verified": false,
+      "store_size": 2
+    },
+    {
+      "i": 21,
+      "expr": "(54 - 40 * 9) / 18",
+      "truth": -17,
+      "solo": 3,
+      "graph": null,
+      "memory": null,
+      "verified": false,
+      "store_size": 2
+    },
+    {
+      "i": 22,
+      "expr": "(6 - 10 * 5) / 11",
+      "truth": -4,
+      "solo": -4,
+      "graph": null,
+      "memory": null,
+      "verified": false,
+      "store_size": 2
+    },
+    {
+      "i": 23,
+      "expr": "(15 + 15 + 2) / 16",
+      "truth": 2,
+      "solo": 4,
+      "graph": null,
+      "memory": null,
+      "verified": false,
+      "store_size": 2
+    },
+    {
+      "i": 24,
+      "expr": "(30 + 17 * 2) / 8",
+      "truth": 8,
+      "solo": 7,
+      "graph": null,
+      "memory": null,
+      "verified": false,
+      "store_size": 2
+    },
+    {
+      "i": 25,
+      "expr": "(25 + 35 * 11) / 5",
+      "truth": 82,
+      "solo": 10,
+      "graph": null,
+      "memory": null,
+      "verified": false,
+      "store_size": 2
+    },
+    {
+      "i": 26,
+      "expr": "(10 + 30 * 7) / 2",
+      "truth": 110,
+      "solo": 20,
+      "graph": 110,
+      "memory": null,
+      "verified": false,
+      "store_size": 2
+    },
+    {
+      "i": 27,
+      "expr": "(32 + 24 * 6) / 16",
+      "truth": 11,
+      "solo": 6,
+      "graph": null,
+      "memory": null,
+      "verified": false,
+      "store_size": 2
+    },
+    {
+      "i": 28,
+      "expr": "(42 + 6 + 9) / 19",
+      "truth": 3,
+      "solo": 25,
+      "graph": null,
+      "memory": null,
+      "verified": false,
+      "store_size": 2
+    },
+    {
+      "i": 29,
+      "expr": "(41 + 26 * 8) / 3",
+      "truth": 83,
+      "solo": 17,
+      "graph": 83,
+      "memory": null,
+      "verified": false,
+      "store_size": 2
+    },
+    {
+      "i": 30,
+      "expr": "(35 - 34 * 2) / 11",
+      "truth": -3,
+      "solo": 3,
+      "graph": null,
+      "memory": null,
+      "verified": false,
+      "store_size": 2
+    },
+    {
+      "i": 31,
+      "expr": "(3 - 16 + 3) / 5",
+      "truth": -2,
+      "solo": -4,
+      "graph": -2,
+      "memory": null,
+      "verified": false,
+      "store_size": 2
+    },
+    {
+      "i": 32,
+      "expr": "(59 - 2 * 7) / 5",
+      "truth": 9,
+      "solo": 8,
+      "graph": null,
+      "memory": null,
+      "verified": false,
+      "store_size": 2
+    },
+    {
+      "i": 33,
+      "expr": "(35 - 12 + 7) / 3",
+      "truth": 10,
+      "solo": 8,
+      "graph": null,
+      "memory": 10,
+      "verified": true,
+      "store_size": 3
+    },
+    {
+      "i": 34,
+      "expr": "(22 - 27 * 12) / 2",
+      "truth": -151,
+      "solo": -11,
+      "graph": -151,
+      "memory": null,
+      "verified": false,
+      "store_size": 3
+    },
+    {
+      "i": 35,
+      "expr": "(15 - 10 + 4) / 3",
+      "truth": 3,
+      "solo": 3,
+      "graph": null,
+      "memory": null,
+      "verified": false,
+      "store_size": 3
+    },
+    {
+      "i": 36,
+      "expr": "(33 - 22 + 11) / 2",
+      "truth": 11,
+      "solo": 10,
+      "graph": null,
+      "memory": null,
+      "verified": false,
+      "store_size": 3
+    },
+    {
+      "i": 37,
+      "expr": "(55 + 4 + 6) / 13",
+      "truth": 5,
+      "solo": 11,
+      "graph": 5,
+      "memory": null,
+      "verified": false,
+      "store_size": 3
+    },
+    {
+      "i": 38,
+      "expr": "(14 + 3 * 6) / 2",
+      "truth": 16,
+      "solo": 10,
+      "graph": 16,
+      "memory": null,
+      "verified": false,
+      "store_size": 3
+    },
+    {
+      "i": 39,
+      "expr": "(42 + 9 + 9) / 3",
+      "truth": 20,
+      "solo": 22,
+      "graph": null,
+      "memory": null,
+      "verified": false,
+      "store_size": 3
+    },
+    {
+      "i": 40,
+      "expr": "(45 - 14 + 5) / 3",
+      "truth": 12,
+      "solo": 8,
+      "graph": 8,
+      "memory": null,
+      "verified": false,
+      "store_size": 3
+    },
+    {
+      "i": 41,
+      "expr": "(47 + 2 * 9) / 5",
+      "truth": 13,
+      "solo": 12,
+      "graph": null,
+      "memory": null,
+      "verified": false,
+      "store_size": 3
+    },
+    {
+      "i": 42,
+      "expr": "(14 - 2 + 8) / 5",
+      "truth": 4,
+      "solo": 3,
+      "graph": 2,
+      "memory": null,
+      "verified": false,
+      "store_size": 3
+    },
+    {
+      "i": 43,
+      "expr": "(43 + 15 * 3) / 4",
+      "truth": 22,
+      "solo": 11,
+      "graph": null,
+      "memory": null,
+      "verified": false,
+      "store_size": 3
+    },
+    {
+      "i": 44,
+      "expr": "(59 - 26 + 3) / 4",
+      "truth": 9,
+      "solo": 8,
+      "graph": null,
+      "memory": null,
+      "verified": false,
+      "store_size": 3
+    },
+    {
+      "i": 45,
+      "expr": "(60 + 3 * 7) / 9",
+      "truth": 9,
+      "solo": 17,
+      "graph": null,
+      "memory": null,
+      "verified": false,
+      "store_size": 3
+    },
+    {
+      "i": 46,
+      "expr": "(23 - 37 + 8) / 2",
+      "truth": -3,
+      "solo": -2,
+      "graph": -3,
+      "memory": null,
+      "verified": false,
+      "store_size": 3
+    },
+    {
+      "i": 47,
+      "expr": "(15 + 6 * 8) / 9",
+      "truth": 7,
+      "solo": 6,
+      "graph": 7,
+      "memory": null,
+      "verified": false,
+      "store_size": 3
+    },
+    {
+      "i": 48,
+      "expr": "(45 + 10 + 9) / 16",
+      "truth": 4,
+      "solo": 24,
+      "graph": null,
+      "memory": null,
+      "verified": false,
+      "store_size": 3
+    },
+    {
+      "i": 49,
+      "expr": "(56 + 15 + 6) / 11",
+      "truth": 7,
+      "solo": 27,
+      "graph": null,
+      "memory": null,
+      "verified": false,
+      "store_size": 3
+    },
+    {
+      "i": 50,
+      "expr": "(14 + 28 * 10) / 14",
+      "truth": 21,
+      "solo": 4,
+      "graph": null,
+      "memory": null,
+      "verified": false,
+      "store_size": 3
+    },
+    {
+      "i": 51,
+      "expr": "(26 + 3 + 10) / 3",
+      "truth": 13,
+      "solo": 11,
+      "graph": null,
+      "memory": null,
+      "verified": false,
+      "store_size": 3
+    },
+    {
+      "i": 52,
+      "expr": "(33 + 7 + 4) / 22",
+      "truth": 2,
+      "solo": 6,
+      "graph": null,
+      "memory": null,
+      "verified": false,
+      "store_size": 3
+    },
+    {
+      "i": 53,
+      "expr": "(60 + 27 + 6) / 3",
+      "truth": 31,
+      "solo": 45,
+      "graph": null,
+      "memory": null,
+      "verified": false,
+      "store_size": 3
+    },
+    {
+      "i": 54,
+      "expr": "(46 + 3 * 2) / 4",
+      "truth": 13,
+      "solo": 12,
+      "graph": null,
+      "memory": null,
+      "verified": false,
+      "store_size": 3
+    },
+    {
+      "i": 55,
+      "expr": "(2 - 20 * 7) / 23",
+      "truth": -6,
+      "solo": -3,
+      "graph": null,
+      "memory": null,
+      "verified": false,
+      "store_size": 3
+    },
+    {
+      "i": 56,
+      "expr": "(8 + 33 + 11) / 4",
+      "truth": 13,
+      "solo": 12,
+      "graph": 13,
+      "memory": null,
+      "verified": false,
+      "store_size": 3
+    },
+    {
+      "i": 57,
+      "expr": "(35 + 15 * 10) / 5",
+      "truth": 37,
+      "solo": 10,
+      "graph": null,
+      "memory": null,
+      "verified": false,
+      "store_size": 3
+    },
+    {
+      "i": 58,
+      "expr": "(59 - 13 * 7) / 4",
+      "truth": -8,
+      "solo": 8,
+      "graph": null,
+      "memory": null,
+      "verified": false,
+      "store_size": 3
+    },
+    {
+      "i": 59,
+      "expr": "(51 + 14 * 3) / 3",
+      "truth": 31,
+      "solo": 11,
+      "graph": null,
+      "memory": null,
+      "verified": false,
+      "store_size": 3
+    }
+  ]
+}

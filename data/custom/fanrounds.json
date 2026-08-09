@@ -1,0 +1,192 @@
+{
+  "model": "qwen-35b",
+  "n": 20,
+  "solved_r1": 0,
+  "solved_fix": 1,
+  "late_defs": 6,
+  "defs_total": 77,
+  "rounds_used": 44,
+  "calls": 148,
+  "rows": [
+    {
+      "truth": "123",
+      "round1": "None",
+      "fixpoint": "None",
+      "parts": 2,
+      "rounds": 2,
+      "late_defs": 0,
+      "defs": 4
+    },
+    {
+      "truth": "30",
+      "round1": "None",
+      "fixpoint": "None",
+      "parts": 3,
+      "rounds": 3,
+      "late_defs": 2,
+      "defs": 4
+    },
+    {
+      "truth": "21",
+      "round1": "-63",
+      "fixpoint": "-63",
+      "parts": 3,
+      "rounds": 2,
+      "late_defs": 0,
+      "defs": 4
+    },
+    {
+      "truth": "2",
+      "round1": "None",
+      "fixpoint": "None",
+      "parts": 4,
+      "rounds": 2,
+      "late_defs": 0,
+      "defs": 9
+    },
+    {
+      "truth": "20",
+      "round1": "None",
+      "fixpoint": "None",
+      "parts": 6,
+      "rounds": 3,
+      "late_defs": 2,
+      "defs": 6
+    },
+    {
+      "truth": "15",
+      "round1": "None",
+      "fixpoint": "None",
+      "parts": 3,
+      "rounds": 2,
+      "late_defs": 0,
+      "defs": 3
+    },
+    {
+      "truth": "100",
+      "round1": "None",
+      "fixpoint": "None",
+      "parts": 4,
+      "rounds": 2,
+      "late_defs": 0,
+      "defs": 4
+    },
+    {
+      "truth": "20",
+      "round1": "4",
+      "fixpoint": "4",
+      "parts": 4,
+      "rounds": 2,
+      "late_defs": 0,
+      "defs": 4
+    },
+    {
+      "truth": "60",
+      "round1": "None",
+      "fixpoint": "None",
+      "parts": 2,
+      "rounds": 2,
+      "late_defs": 0,
+      "defs": 4
+    },
+    {
+      "truth": "68",
+      "round1": "23",
+      "fixpoint": "23",
+      "parts": 2,
+      "rounds": 2,
+      "late_defs": 0,
+      "defs": 3
+    },
+    {
+      "truth": "25",
+      "round1": "300",
+      "fixpoint": "300",
+      "parts": 3,
+      "rounds": 2,
+      "late_defs": 0,
+      "defs": 3
+    },
+    {
+      "truth": "120",
+      "round1": "70",
+      "fixpoint": "120",
+      "parts": 2,
+      "rounds": 3,
+      "late_defs": 1,
+      "defs": 3
+    },
+    {
+      "truth": "44",
+      "round1": "None",
+      "fixpoint": "None",
+      "parts": 3,
+      "rounds": 2,
+      "late_defs": 0,
+      "defs": 3
+    },
+    {
+      "truth": "243",
+      "round1": "None",
+      "fixpoint": "None",
+      "parts": 6,
+      "rounds": 2,
+      "late_defs": 0,
+      "defs": 3
+    },
+    {
+      "truth": "10",
+      "round1": "None",
+      "fixpoint": "None",
+      "parts": 3,
+      "rounds": 3,
+      "late_defs": 1,
+      "defs": 6
+    },
+    {
+      "truth": "83",
+      "round1": "None",
+      "fixpoint": "None",
+      "parts": 4,
+      "rounds": 2,
+      "late_defs": 0,
+      "defs": 3
+    },
+    {
+      "truth": "360",
+      "round1": "None",
+      "fixpoint": "None",
+      "parts": 3,
+      "rounds": 2,
+      "late_defs": 0,
+      "defs": 2
+    },
+    {
+      "truth": "21",
+      "round1": "None",
+      "fixpoint": "None",
+      "parts": 3,
+      "rounds": 2,
+      "late_defs": 0,
+      "defs": 3
+    },
+    {
+      "truth": "82",
+      "round1": "None",
+      "fixpoint": "None",
+      "parts": 3,
+      "rounds": 2,
+      "late_defs": 0,
+      "defs": 3
+    },
+    {
+      "truth": "10",
+      "round1": "None",
+      "fixpoint": "None",
+      "parts": 4,
+      "rounds": 2,
+      "late_defs": 0,
+      "defs": 3
+    }
+  ]
+}

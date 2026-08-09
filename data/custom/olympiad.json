@@ -1,0 +1,658 @@
+{
+  "summary": {
+    "olmoe-1b/gsm8k": {
+      "solo": 16,
+      "graph": 4,
+      "graph_ran": 14,
+      "vote": 15,
+      "n": 20,
+      "agree": {
+        "False": [
+          18,
+          13
+        ],
+        "True": [
+          2,
+          2
+        ]
+      }
+    },
+    "qwen-35b/gsm8k": {
+      "solo": 19,
+      "graph": 16,
+      "graph_ran": 19,
+      "vote": 19,
+      "n": 20,
+      "agree": {
+        "True": [
+          16,
+          16
+        ],
+        "False": [
+          4,
+          3
+        ]
+      }
+    },
+    "qwen-35b/aime": {
+      "solo": 0,
+      "graph": 0,
+      "graph_ran": 5,
+      "vote": 0,
+      "n": 15,
+      "agree": {
+        "False": [
+          15,
+          0
+        ]
+      }
+    }
+  },
+  "rows": [
+    {
+      "set": "gsm8k",
+      "model": "olmoe-1b",
+      "truth": "123",
+      "solo": "123",
+      "graph": "8309141312498565/562949953421312",
+      "graph_stage": "ok",
+      "recheck": "123",
+      "vote": "123",
+      "all_agree": false
+    },
+    {
+      "set": "gsm8k",
+      "model": "olmoe-1b",
+      "truth": "30",
+      "solo": "30",
+      "graph": "3752999689475413/562949953421312",
+      "graph_stage": "ok",
+      "recheck": "30",
+      "vote": "30",
+      "all_agree": false
+    },
+    {
+      "set": "gsm8k",
+      "model": "olmoe-1b",
+      "truth": "21",
+      "solo": "21",
+      "graph": "21",
+      "graph_stage": "ok",
+      "recheck": "21",
+      "vote": "21",
+      "all_agree": true
+    },
+    {
+      "set": "gsm8k",
+      "model": "olmoe-1b",
+      "truth": "2",
+      "solo": "2",
+      "graph": "182",
+      "graph_stage": "ok",
+      "recheck": "1",
+      "vote": "1",
+      "all_agree": false
+    },
+    {
+      "set": "gsm8k",
+      "model": "olmoe-1b",
+      "truth": "20",
+      "solo": "20",
+      "graph": "None",
+      "graph_stage": "D uses an undefined step",
+      "recheck": "20",
+      "vote": "20",
+      "all_agree": false
+    },
+    {
+      "set": "gsm8k",
+      "model": "olmoe-1b",
+      "truth": "15",
+      "solo": "15",
+      "graph": "85",
+      "graph_stage": "ok",
+      "recheck": "15",
+      "vote": "15",
+      "all_agree": false
+    },
+    {
+      "set": "gsm8k",
+      "model": "olmoe-1b",
+      "truth": "100",
+      "solo": "200",
+      "graph": "3350",
+      "graph_stage": "ok",
+      "recheck": "100",
+      "vote": "200",
+      "all_agree": false
+    },
+    {
+      "set": "gsm8k",
+      "model": "olmoe-1b",
+      "truth": "20",
+      "solo": "20",
+      "graph": "16",
+      "graph_stage": "ok",
+      "recheck": "20",
+      "vote": "20",
+      "all_agree": false
+    },
+    {
+      "set": "gsm8k",
+      "model": "olmoe-1b",
+      "truth": "60",
+      "solo": "40",
+      "graph": "-5559834477477233/17592186044416",
+      "graph_stage": "ok",
+      "recheck": "60",
+      "vote": "40",
+      "all_agree": false
+    },
+    {
+      "set": "gsm8k",
+      "model": "olmoe-1b",
+      "truth": "68",
+      "solo": "68",
+      "graph": "None",
+      "graph_stage": "parse: a key was written twice",
+      "recheck": "68",
+      "vote": "68",
+      "all_agree": false
+    },
+    {
+      "set": "gsm8k",
+      "model": "olmoe-1b",
+      "truth": "25",
+      "solo": "25",
+      "graph": "None",
+      "graph_stage": "A is not arithmetic",
+      "recheck": "25",
+      "vote": "25",
+      "all_agree": false
+    },
+    {
+      "set": "gsm8k",
+      "model": "olmoe-1b",
+      "truth": "120",
+      "solo": "120",
+      "graph": "None",
+      "graph_stage": "C uses an undefined step",
+      "recheck": "120",
+      "vote": "120",
+      "all_agree": false
+    },
+    {
+      "set": "gsm8k",
+      "model": "olmoe-1b",
+      "truth": "44",
+      "solo": "44",
+      "graph": "44",
+      "graph_stage": "ok",
+      "recheck": "44",
+      "vote": "44",
+      "all_agree": true
+    },
+    {
+      "set": "gsm8k",
+      "model": "olmoe-1b",
+      "truth": "243",
+      "solo": "243",
+      "graph": "243",
+      "graph_stage": "ok",
+      "recheck": "189",
+      "vote": "243",
+      "all_agree": false
+    },
+    {
+      "set": "gsm8k",
+      "model": "olmoe-1b",
+      "truth": "10",
+      "solo": "10",
+      "graph": "2",
+      "graph_stage": "ok",
+      "recheck": "16",
+      "vote": "16",
+      "all_agree": false
+    },
+    {
+      "set": "gsm8k",
+      "model": "olmoe-1b",
+      "truth": "83",
+      "solo": "209",
+      "graph": "None",
+      "graph_stage": "C is not arithmetic",
+      "recheck": "0",
+      "vote": "0",
+      "all_agree": false
+    },
+    {
+      "set": "gsm8k",
+      "model": "olmoe-1b",
+      "truth": "360",
+      "solo": "360",
+      "graph": "655",
+      "graph_stage": "ok",
+      "recheck": "360",
+      "vote": "360",
+      "all_agree": false
+    },
+    {
+      "set": "gsm8k",
+      "model": "olmoe-1b",
+      "truth": "21",
+      "solo": "21",
+      "graph": "None",
+      "graph_stage": "A uses an undefined step",
+      "recheck": "21",
+      "vote": "21",
+      "all_agree": false
+    },
+    {
+      "set": "gsm8k",
+      "model": "olmoe-1b",
+      "truth": "82",
+      "solo": "82",
+      "graph": "234",
+      "graph_stage": "ok",
+      "recheck": "82",
+      "vote": "82",
+      "all_agree": false
+    },
+    {
+      "set": "gsm8k",
+      "model": "olmoe-1b",
+      "truth": "10",
+      "solo": "0",
+      "graph": "10",
+      "graph_stage": "ok",
+      "recheck": "10",
+      "vote": "10",
+      "all_agree": false
+    },
+    {
+      "set": "gsm8k",
+      "model": "qwen-35b",
+      "truth": "123",
+      "solo": "123",
+      "graph": "123",
+      "graph_stage": "ok",
+      "recheck": "123",
+      "vote": "123",
+      "all_agree": true
+    },
+    {
+      "set": "gsm8k",
+      "model": "qwen-35b",
+      "truth": "30",
+      "solo": "30",
+      "graph": "30",
+      "graph_stage": "ok",
+      "recheck": "30",
+      "vote": "30",
+      "all_agree": true
+    },
+    {
+      "set": "gsm8k",
+      "model": "qwen-35b",
+      "truth": "21",
+      "solo": "21",
+      "graph": "21",
+      "graph_stage": "ok",
+      "recheck": "21",
+      "vote": "21",
+      "all_agree": true
+    },
+    {
+      "set": "gsm8k",
+      "model": "qwen-35b",
+      "truth": "2",
+      "solo": "2",
+      "graph": "-2",
+      "graph_stage": "ok",
+      "recheck": "2",
+      "vote": "2",
+      "all_agree": false
+    },
+    {
+      "set": "gsm8k",
+      "model": "qwen-35b",
+      "truth": "20",
+      "solo": "8",
+      "graph": "24",
+      "graph_stage": "ok",
+      "recheck": "3",
+      "vote": "8",
+      "all_agree": false
+    },
+    {
+      "set": "gsm8k",
+      "model": "qwen-35b",
+      "truth": "15",
+      "solo": "15",
+      "graph": "15",
+      "graph_stage": "ok",
+      "recheck": "15",
+      "vote": "15",
+      "all_agree": true
+    },
+    {
+      "set": "gsm8k",
+      "model": "qwen-35b",
+      "truth": "100",
+      "solo": "100",
+      "graph": "100",
+      "graph_stage": "ok",
+      "recheck": "100",
+      "vote": "100",
+      "all_agree": true
+    },
+    {
+      "set": "gsm8k",
+      "model": "qwen-35b",
+      "truth": "20",
+      "solo": "20",
+      "graph": "20",
+      "graph_stage": "ok",
+      "recheck": "20",
+      "vote": "20",
+      "all_agree": true
+    },
+    {
+      "set": "gsm8k",
+      "model": "qwen-35b",
+      "truth": "60",
+      "solo": "60",
+      "graph": "60",
+      "graph_stage": "ok",
+      "recheck": "60",
+      "vote": "60",
+      "all_agree": true
+    },
+    {
+      "set": "gsm8k",
+      "model": "qwen-35b",
+      "truth": "68",
+      "solo": "68",
+      "graph": "68",
+      "graph_stage": "ok",
+      "recheck": "68",
+      "vote": "68",
+      "all_agree": true
+    },
+    {
+      "set": "gsm8k",
+      "model": "qwen-35b",
+      "truth": "25",
+      "solo": "25",
+      "graph": "25",
+      "graph_stage": "ok",
+      "recheck": "25",
+      "vote": "25",
+      "all_agree": true
+    },
+    {
+      "set": "gsm8k",
+      "model": "qwen-35b",
+      "truth": "120",
+      "solo": "120",
+      "graph": "120",
+      "graph_stage": "ok",
+      "recheck": "120",
+      "vote": "120",
+      "all_agree": true
+    },
+    {
+      "set": "gsm8k",
+      "model": "qwen-35b",
+      "truth": "44",
+      "solo": "44",
+      "graph": "44",
+      "graph_stage": "ok",
+      "recheck": "44",
+      "vote": "44",
+      "all_agree": true
+    },
+    {
+      "set": "gsm8k",
+      "model": "qwen-35b",
+      "truth": "243",
+      "solo": "243",
+      "graph": "243",
+      "graph_stage": "ok",
+      "recheck": "243",
+      "vote": "243",
+      "all_agree": true
+    },
+    {
+      "set": "gsm8k",
+      "model": "qwen-35b",
+      "truth": "10",
+      "solo": "10",
+      "graph": "10",
+      "graph_stage": "ok",
+      "recheck": "10",
+      "vote": "10",
+      "all_agree": true
+    },
+    {
+      "set": "gsm8k",
+      "model": "qwen-35b",
+      "truth": "83",
+      "solo": "83",
+      "graph": "None",
+      "graph_stage": "C is not arithmetic",
+      "recheck": "83",
+      "vote": "83",
+      "all_agree": false
+    },
+    {
+      "set": "gsm8k",
+      "model": "qwen-35b",
+      "truth": "360",
+      "solo": "360",
+      "graph": "360",
+      "graph_stage": "ok",
+      "recheck": "360",
+      "vote": "360",
+      "all_agree": true
+    },
+    {
+      "set": "gsm8k",
+      "model": "qwen-35b",
+      "truth": "21",
+      "solo": "21",
+      "graph": "33",
+      "graph_stage": "ok",
+      "recheck": "21",
+      "vote": "21",
+      "all_agree": false
+    },
+    {
+      "set": "gsm8k",
+      "model": "qwen-35b",
+      "truth": "82",
+      "solo": "82",
+      "graph": "82",
+      "graph_stage": "ok",
+      "recheck": "82",
+      "vote": "82",
+      "all_agree": true
+    },
+    {
+      "set": "gsm8k",
+      "model": "qwen-35b",
+      "truth": "10",
+      "solo": "10",
+      "graph": "10",
+      "graph_stage": "ok",
+      "recheck": "10",
+      "vote": "10",
+      "all_agree": true
+    },
+    {
+      "set": "aime",
+      "model": "qwen-35b",
+      "truth": "125",
+      "solo": "12",
+      "graph": "None",
+      "graph_stage": "parse: no JSON object",
+      "recheck": "13",
+      "vote": "12",
+      "all_agree": false
+    },
+    {
+      "set": "aime",
+      "model": "qwen-35b",
+      "truth": "33",
+      "solo": "3",
+      "graph": "None",
+      "graph_stage": "A is not arithmetic",
+      "recheck": "1",
+      "vote": "1",
+      "all_agree": false
+    },
+    {
+      "set": "aime",
+      "model": "qwen-35b",
+      "truth": "349",
+      "solo": "1",
+      "graph": "None",
+      "graph_stage": "parse: no JSON object",
+      "recheck": "2",
+      "vote": "1",
+      "all_agree": false
+    },
+    {
+      "set": "aime",
+      "model": "qwen-35b",
+      "truth": "154",
+      "solo": "50",
+      "graph": "7693649363424597/70368744177664",
+      "graph_stage": "ok",
+      "recheck": "25",
+      "vote": "25",
+      "all_agree": false
+    },
+    {
+      "set": "aime",
+      "model": "qwen-35b",
+      "truth": "116",
+      "solo": "16",
+      "graph": "None",
+      "graph_stage": "parse: no JSON object",
+      "recheck": "1152",
+      "vote": "16",
+      "all_agree": false
+    },
+    {
+      "set": "aime",
+      "model": "qwen-35b",
+      "truth": "144",
+      "solo": "1",
+      "graph": "None",
+      "graph_stage": "parse: no JSON object",
+      "recheck": "1",
+      "vote": "1",
+      "all_agree": false
+    },
+    {
+      "set": "aime",
+      "model": "qwen-35b",
+      "truth": "378",
+      "solo": "2",
+      "graph": "None",
+      "graph_stage": "parse: no JSON object",
+      "recheck": "30",
+      "vote": "2",
+      "all_agree": false
+    },
+    {
+      "set": "aime",
+      "model": "qwen-35b",
+      "truth": "841",
+      "solo": "0",
+      "graph": "4169999654972681/2251799813685248",
+      "graph_stage": "ok",
+      "recheck": "0",
+      "vote": "0",
+      "all_agree": false
+    },
+    {
+      "set": "aime",
+      "model": "qwen-35b",
+      "truth": "180",
+      "solo": "0",
+      "graph": "36",
+      "graph_stage": "ok",
+      "recheck": "2",
+      "vote": "0",
+      "all_agree": false
+    },
+    {
+      "set": "aime",
+      "model": "qwen-35b",
+      "truth": "228",
+      "solo": "50",
+      "graph": "None",
+      "graph_stage": "F is not arithmetic",
+      "recheck": "8",
+      "vote": "8",
+      "all_agree": false
+    },
+    {
+      "set": "aime",
+      "model": "qwen-35b",
+      "truth": "167",
+      "solo": "2",
+      "graph": "None",
+      "graph_stage": "parse: malformed JSON",
+      "recheck": "17",
+      "vote": "17",
+      "all_agree": false
+    },
+    {
+      "set": "aime",
+      "model": "qwen-35b",
+      "truth": "112",
+      "solo": "2",
+      "graph": "None",
+      "graph_stage": "parse: no JSON object",
+      "recheck": "2",
+      "vote": "2",
+      "all_agree": false
+    },
+    {
+      "set": "aime",
+      "model": "qwen-35b",
+      "truth": "550",
+      "solo": "0",
+      "graph": "2466256938798129/281474976710656",
+      "graph_stage": "ok",
+      "recheck": "264",
+      "vote": "0",
+      "all_agree": false
+    },
+    {
+      "set": "aime",
+      "model": "qwen-35b",
+      "truth": "392",
+      "solo": "1",
+      "graph": "None",
+      "graph_stage": "H uses an undefined step",
+      "recheck": "1",
+      "vote": "1",
+      "all_agree": false
+    },
+    {
+      "set": "aime",
+      "model": "qwen-35b",
+      "truth": "242",
+      "solo": "180",
+      "graph": "-91",
+      "graph_stage": "ok",
+      "recheck": "90",
+      "vote": "90",
+      "all_agree": false
+    }
+  ]
+}

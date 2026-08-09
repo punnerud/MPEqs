@@ -1,0 +1,74 @@
+{
+  "n_eq": 6498,
+  "n_expert": 64,
+  "hops": 2,
+  "steps": 4000,
+  "forms": [
+    "a*X+b=c",
+    "X/a+b=c",
+    "(X+a)/b=c",
+    "(X-a)*b=c"
+  ],
+  "rows": [
+    {
+      "lambda": 0.0,
+      "beta": 0.0,
+      "hops": 2,
+      "exact_accuracy": 1.0,
+      "per_form_accuracy": {
+        "a*X+b=c": 1.0,
+        "X/a+b=c": 1.0,
+        "(X+a)/b=c": 1.0,
+        "(X-a)*b=c": 1.0
+      },
+      "hop1_predicts_step1": 0.5608,
+      "step1_majority": 0.5377,
+      "hop1_predicts_step2": 0.8854,
+      "step2_majority": 0.2785,
+      "hop1_predicts_order_class": 0.9162,
+      "order_majority": 0.5377,
+      "experts_used": 41,
+      "seconds": 138.5
+    },
+    {
+      "lambda": 1.0,
+      "beta": 0.0,
+      "hops": 2,
+      "exact_accuracy": 0.9417,
+      "per_form_accuracy": {
+        "a*X+b=c": 0.97,
+        "X/a+b=c": 0.922,
+        "(X+a)/b=c": 0.915,
+        "(X-a)*b=c": 0.959
+      },
+      "hop1_predicts_step1": 0.6492,
+      "step1_majority": 0.5377,
+      "hop1_predicts_step2": 0.8146,
+      "step2_majority": 0.2785,
+      "hop1_predicts_order_class": 0.7454,
+      "order_majority": 0.5377,
+      "experts_used": 30,
+      "seconds": 135.0
+    },
+    {
+      "lambda": 1.0,
+      "beta": 1.0,
+      "hops": 2,
+      "exact_accuracy": 0.9778,
+      "per_form_accuracy": {
+        "a*X+b=c": 1.0,
+        "X/a+b=c": 1.0,
+        "(X+a)/b=c": 0.906,
+        "(X-a)*b=c": 1.0
+      },
+      "hop1_predicts_step1": 1.0,
+      "step1_majority": 0.5377,
+      "hop1_predicts_step2": 1.0,
+      "step2_majority": 0.2785,
+      "hop1_predicts_order_class": 1.0,
+      "order_majority": 0.5377,
+      "experts_used": 55,
+      "seconds": 192.6
+    }
+  ]
+}

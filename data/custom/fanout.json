@@ -1,0 +1,860 @@
+{
+  "1b_decomposes": {
+    "right": 12,
+    "ran": 27,
+    "n": 60,
+    "mean_fanout": 2.872340425531915,
+    "seconds": 314.0,
+    "rows": [
+      {
+        "truth": "16",
+        "answer": "None",
+        "stage": "no decomposition",
+        "subs": 0,
+        "ok": false
+      },
+      {
+        "truth": "74",
+        "answer": "74",
+        "stage": "ok",
+        "subs": 3,
+        "ok": true
+      },
+      {
+        "truth": "17",
+        "answer": "17",
+        "stage": "ok",
+        "subs": 3,
+        "ok": true
+      },
+      {
+        "truth": "26",
+        "answer": "43",
+        "stage": "ok",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "187",
+        "answer": "187",
+        "stage": "ok",
+        "subs": 2,
+        "ok": true
+      },
+      {
+        "truth": "452",
+        "answer": "583",
+        "stage": "ok",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "525",
+        "answer": "None",
+        "stage": "combine not arithmetic",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "72",
+        "answer": "None",
+        "stage": "no decomposition",
+        "subs": 0,
+        "ok": false
+      },
+      {
+        "truth": "1",
+        "answer": "None",
+        "stage": "combine not arithmetic",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "50",
+        "answer": "None",
+        "stage": "combine not arithmetic",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "27",
+        "answer": "None",
+        "stage": "no decomposition",
+        "subs": 0,
+        "ok": false
+      },
+      {
+        "truth": "11",
+        "answer": "29",
+        "stage": "ok",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "2",
+        "answer": "None",
+        "stage": "combine not arithmetic",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "255",
+        "answer": "None",
+        "stage": "no decomposition",
+        "subs": 0,
+        "ok": false
+      },
+      {
+        "truth": "-3",
+        "answer": "None",
+        "stage": "combine not arithmetic",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "76",
+        "answer": "76",
+        "stage": "ok",
+        "subs": 3,
+        "ok": true
+      },
+      {
+        "truth": "16",
+        "answer": "None",
+        "stage": "no decomposition",
+        "subs": 0,
+        "ok": false
+      },
+      {
+        "truth": "243",
+        "answer": "None",
+        "stage": "no decomposition",
+        "subs": 0,
+        "ok": false
+      },
+      {
+        "truth": "59",
+        "answer": "48",
+        "stage": "ok",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "48",
+        "answer": "24",
+        "stage": "ok",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "100",
+        "answer": "None",
+        "stage": "combine not arithmetic",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "5",
+        "answer": "None",
+        "stage": "combine not arithmetic",
+        "subs": 2,
+        "ok": false
+      },
+      {
+        "truth": "540",
+        "answer": "None",
+        "stage": "sub 3 unanswered",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "14",
+        "answer": "None",
+        "stage": "combine not arithmetic",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "75",
+        "answer": "None",
+        "stage": "no decomposition",
+        "subs": 0,
+        "ok": false
+      },
+      {
+        "truth": "360",
+        "answer": "360",
+        "stage": "ok",
+        "subs": 3,
+        "ok": true
+      },
+      {
+        "truth": "36",
+        "answer": "36",
+        "stage": "ok",
+        "subs": 3,
+        "ok": true
+      },
+      {
+        "truth": "210",
+        "answer": "380",
+        "stage": "ok",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "64",
+        "answer": "64",
+        "stage": "ok",
+        "subs": 3,
+        "ok": true
+      },
+      {
+        "truth": "168",
+        "answer": "64",
+        "stage": "ok",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "762",
+        "answer": "762",
+        "stage": "ok",
+        "subs": 3,
+        "ok": true
+      },
+      {
+        "truth": "540",
+        "answer": "540",
+        "stage": "ok",
+        "subs": 3,
+        "ok": true
+      },
+      {
+        "truth": "366",
+        "answer": "None",
+        "stage": "combine not arithmetic",
+        "subs": 2,
+        "ok": false
+      },
+      {
+        "truth": "26",
+        "answer": "8159453627557415936",
+        "stage": "ok",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "80",
+        "answer": "None",
+        "stage": "combine not arithmetic",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "160",
+        "answer": "None",
+        "stage": "combine not arithmetic",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "4",
+        "answer": "7",
+        "stage": "ok",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "1",
+        "answer": "None",
+        "stage": "combine not arithmetic",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "10800",
+        "answer": "None",
+        "stage": "combine not arithmetic",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "2000",
+        "answer": "None",
+        "stage": "combine not arithmetic",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "24",
+        "answer": "24",
+        "stage": "ok",
+        "subs": 3,
+        "ok": true
+      },
+      {
+        "truth": "20",
+        "answer": "None",
+        "stage": "no decomposition",
+        "subs": 0,
+        "ok": false
+      },
+      {
+        "truth": "3000",
+        "answer": "4000",
+        "stage": "ok",
+        "subs": 2,
+        "ok": false
+      },
+      {
+        "truth": "81",
+        "answer": "None",
+        "stage": "combine not arithmetic",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "15",
+        "answer": "None",
+        "stage": "no decomposition",
+        "subs": 0,
+        "ok": false
+      },
+      {
+        "truth": "1450000",
+        "answer": "None",
+        "stage": "combine not arithmetic",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "20",
+        "answer": "None",
+        "stage": "combine not arithmetic",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "98",
+        "answer": "None",
+        "stage": "no decomposition",
+        "subs": 0,
+        "ok": false
+      },
+      {
+        "truth": "75",
+        "answer": "30",
+        "stage": "ok",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "500",
+        "answer": "350",
+        "stage": "ok",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "39",
+        "answer": "75",
+        "stage": "ok",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "13",
+        "answer": "None",
+        "stage": "no decomposition",
+        "subs": 0,
+        "ok": false
+      },
+      {
+        "truth": "576",
+        "answer": "576",
+        "stage": "ok",
+        "subs": 3,
+        "ok": true
+      },
+      {
+        "truth": "5",
+        "answer": "None",
+        "stage": "no decomposition",
+        "subs": 0,
+        "ok": false
+      },
+      {
+        "truth": "60",
+        "answer": "None",
+        "stage": "no decomposition",
+        "subs": 0,
+        "ok": false
+      },
+      {
+        "truth": "8",
+        "answer": "None",
+        "stage": "combine not arithmetic",
+        "subs": 2,
+        "ok": false
+      },
+      {
+        "truth": "260",
+        "answer": "180",
+        "stage": "ok",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "32",
+        "answer": "35",
+        "stage": "ok",
+        "subs": 2,
+        "ok": false
+      },
+      {
+        "truth": "32",
+        "answer": "None",
+        "stage": "combine not arithmetic",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "40",
+        "answer": "40",
+        "stage": "ok",
+        "subs": 3,
+        "ok": true
+      }
+    ]
+  },
+  "35b_decomposes": {
+    "right": 28,
+    "ran": 57,
+    "n": 60,
+    "mean_fanout": 2.566666666666667,
+    "seconds": 772.0,
+    "rows": [
+      {
+        "truth": "16",
+        "answer": "98",
+        "stage": "ok",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "74",
+        "answer": "74",
+        "stage": "ok",
+        "subs": 2,
+        "ok": true
+      },
+      {
+        "truth": "17",
+        "answer": "21",
+        "stage": "ok",
+        "subs": 2,
+        "ok": false
+      },
+      {
+        "truth": "26",
+        "answer": "26",
+        "stage": "ok",
+        "subs": 2,
+        "ok": true
+      },
+      {
+        "truth": "187",
+        "answer": "187",
+        "stage": "ok",
+        "subs": 2,
+        "ok": true
+      },
+      {
+        "truth": "452",
+        "answer": "-16",
+        "stage": "ok",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "525",
+        "answer": "525",
+        "stage": "ok",
+        "subs": 3,
+        "ok": true
+      },
+      {
+        "truth": "72",
+        "answer": "72",
+        "stage": "ok",
+        "subs": 2,
+        "ok": true
+      },
+      {
+        "truth": "1",
+        "answer": "1",
+        "stage": "ok",
+        "subs": 2,
+        "ok": true
+      },
+      {
+        "truth": "50",
+        "answer": "30",
+        "stage": "ok",
+        "subs": 2,
+        "ok": false
+      },
+      {
+        "truth": "27",
+        "answer": "13",
+        "stage": "ok",
+        "subs": 2,
+        "ok": false
+      },
+      {
+        "truth": "11",
+        "answer": "-25",
+        "stage": "ok",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "2",
+        "answer": "4",
+        "stage": "ok",
+        "subs": 2,
+        "ok": false
+      },
+      {
+        "truth": "255",
+        "answer": "None",
+        "stage": "sub 3 unanswered",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "-3",
+        "answer": "-3",
+        "stage": "ok",
+        "subs": 2,
+        "ok": true
+      },
+      {
+        "truth": "76",
+        "answer": "148",
+        "stage": "ok",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "16",
+        "answer": "16",
+        "stage": "ok",
+        "subs": 3,
+        "ok": true
+      },
+      {
+        "truth": "243",
+        "answer": "243",
+        "stage": "ok",
+        "subs": 3,
+        "ok": true
+      },
+      {
+        "truth": "59",
+        "answer": "39",
+        "stage": "ok",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "48",
+        "answer": "9",
+        "stage": "ok",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "100",
+        "answer": "100",
+        "stage": "ok",
+        "subs": 3,
+        "ok": true
+      },
+      {
+        "truth": "5",
+        "answer": "5",
+        "stage": "ok",
+        "subs": 3,
+        "ok": true
+      },
+      {
+        "truth": "540",
+        "answer": "540",
+        "stage": "ok",
+        "subs": 2,
+        "ok": true
+      },
+      {
+        "truth": "14",
+        "answer": "11",
+        "stage": "ok",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "75",
+        "answer": "60",
+        "stage": "ok",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "360",
+        "answer": "360",
+        "stage": "ok",
+        "subs": 3,
+        "ok": true
+      },
+      {
+        "truth": "36",
+        "answer": "6",
+        "stage": "ok",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "210",
+        "answer": "5035/2",
+        "stage": "ok",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "64",
+        "answer": "20",
+        "stage": "ok",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "168",
+        "answer": "53",
+        "stage": "ok",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "762",
+        "answer": "1224",
+        "stage": "ok",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "540",
+        "answer": "540",
+        "stage": "ok",
+        "subs": 2,
+        "ok": true
+      },
+      {
+        "truth": "366",
+        "answer": "672",
+        "stage": "ok",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "26",
+        "answer": "14",
+        "stage": "ok",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "80",
+        "answer": "None",
+        "stage": "combine not arithmetic",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "160",
+        "answer": "160",
+        "stage": "ok",
+        "subs": 3,
+        "ok": true
+      },
+      {
+        "truth": "4",
+        "answer": "5",
+        "stage": "ok",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "1",
+        "answer": "None",
+        "stage": "sub 3 unanswered",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "10800",
+        "answer": "10800",
+        "stage": "ok",
+        "subs": 3,
+        "ok": true
+      },
+      {
+        "truth": "2000",
+        "answer": "8000",
+        "stage": "ok",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "24",
+        "answer": "24",
+        "stage": "ok",
+        "subs": 2,
+        "ok": true
+      },
+      {
+        "truth": "20",
+        "answer": "230",
+        "stage": "ok",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "3000",
+        "answer": "3000",
+        "stage": "ok",
+        "subs": 2,
+        "ok": true
+      },
+      {
+        "truth": "81",
+        "answer": "30",
+        "stage": "ok",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "15",
+        "answer": "15/2",
+        "stage": "ok",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "1450000",
+        "answer": "250000",
+        "stage": "ok",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "20",
+        "answer": "30",
+        "stage": "ok",
+        "subs": 2,
+        "ok": false
+      },
+      {
+        "truth": "98",
+        "answer": "98",
+        "stage": "ok",
+        "subs": 2,
+        "ok": true
+      },
+      {
+        "truth": "75",
+        "answer": "75",
+        "stage": "ok",
+        "subs": 2,
+        "ok": true
+      },
+      {
+        "truth": "500",
+        "answer": "50",
+        "stage": "ok",
+        "subs": 2,
+        "ok": false
+      },
+      {
+        "truth": "39",
+        "answer": "36",
+        "stage": "ok",
+        "subs": 3,
+        "ok": false
+      },
+      {
+        "truth": "13",
+        "answer": "13",
+        "stage": "ok",
+        "subs": 2,
+        "ok": true
+      },
+      {
+        "truth": "576",
+        "answer": "576",
+        "stage": "ok",
+        "subs": 2,
+        "ok": true
+      },
+      {
+        "truth": "5",
+        "answer": "5",
+        "stage": "ok",
+        "subs": 2,
+        "ok": true
+      },
+      {
+        "truth": "60",
+        "answer": "60",
+        "stage": "ok",
+        "subs": 3,
+        "ok": true
+      },
+      {
+        "truth": "8",
+        "answer": "8",
+        "stage": "ok",
+        "subs": 2,
+        "ok": true
+      },
+      {
+        "truth": "260",
+        "answer": "260",
+        "stage": "ok",
+        "subs": 2,
+        "ok": true
+      },
+      {
+        "truth": "32",
+        "answer": "32",
+        "stage": "ok",
+        "subs": 2,
+        "ok": true
+      },
+      {
+        "truth": "32",
+        "answer": "32",
+        "stage": "ok",
+        "subs": 2,
+        "ok": true
+      },
+      {
+        "truth": "40",
+        "answer": "25",
+        "stage": "ok",
+        "subs": 2,
+        "ok": false
+      }
+    ]
+  }
+}

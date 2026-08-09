@@ -1,0 +1,38 @@
+{
+  "sentences": 8920,
+  "levels": 5,
+  "branch": 8,
+  "dim": 384,
+  "nodes_per_level": [
+    8920,
+    1115,
+    140,
+    18,
+    3
+  ],
+  "speedup_vs_flat": 267.26591760299624,
+  "exact": {
+    "queries": 40,
+    "tree_correct": 18,
+    "sample_correct": 9,
+    "beam_correct": 31,
+    "mean_comparisons_beam": 115.575,
+    "mean_comparisons_sample": 206.4,
+    "flat_correct": 40,
+    "tree_agrees_with_flat": 18,
+    "mean_comparisons_tree": 33.375,
+    "comparisons_flat": 8920
+  },
+  "half": {
+    "queries": 40,
+    "tree_correct": 8,
+    "sample_correct": 4,
+    "beam_correct": 21,
+    "mean_comparisons_beam": 115.4,
+    "mean_comparisons_sample": 215.8,
+    "flat_correct": 36,
+    "tree_agrees_with_flat": 8,
+    "mean_comparisons_tree": 33.25,
+    "comparisons_flat": 8920
+  }
+}

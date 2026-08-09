@@ -1,0 +1,62 @@
+{
+  "a_digits": 3,
+  "b_digits": 1,
+  "hops": 3,
+  "slots": 8,
+  "slot_width": 32,
+  "steps": 8000,
+  "rows": [
+    {
+      "arm": "baseline",
+      "holdout_accuracy": 1.0,
+      "per_digit_accuracy": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "experts_used": 24,
+      "params_resident": 138730,
+      "seconds": 95.3
+    },
+    {
+      "arm": "scratch",
+      "holdout_accuracy": 1.0,
+      "per_digit_accuracy": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "experts_used": 12,
+      "params_resident": 143499,
+      "seconds": 117.0
+    },
+    {
+      "arm": "partials",
+      "holdout_accuracy": 1.0,
+      "per_digit_accuracy": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "experts_used": 31,
+      "params_resident": 138730,
+      "seconds": 113.0
+    },
+    {
+      "arm": "scratch+partials",
+      "holdout_accuracy": 1.0,
+      "per_digit_accuracy": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "experts_used": 16,
+      "params_resident": 143499,
+      "seconds": 132.8
+    }
+  ]
+}

@@ -1,0 +1,202 @@
+{
+  "n": 8920,
+  "dim": 384,
+  "raw_bytes": 13701120,
+  "target": 40,
+  "queries": 40,
+  "rows": [
+    {
+      "scheme": "global",
+      "bits": 8,
+      "bytes": 2876274,
+      "max_err": 0.0010420233011245728,
+      "retrieval": 40
+    },
+    {
+      "scheme": "global",
+      "bits": 6,
+      "bytes": 2311420,
+      "max_err": 0.004268944263458252,
+      "retrieval": 40
+    },
+    {
+      "scheme": "global",
+      "bits": 5,
+      "bytes": 1952016,
+      "max_err": 0.008822478353977203,
+      "retrieval": 40
+    },
+    {
+      "scheme": "global",
+      "bits": 4,
+      "bytes": 1095856,
+      "max_err": 0.01890530064702034,
+      "retrieval": 40
+    },
+    {
+      "scheme": "global",
+      "bits": 3,
+      "bytes": 730016,
+      "max_err": 0.044112399220466614,
+      "retrieval": 40
+    },
+    {
+      "scheme": "global",
+      "bits": 2,
+      "bytes": 52861,
+      "max_err": 0.13233709335327148,
+      "retrieval": 15
+    },
+    {
+      "scheme": "cluster-64",
+      "bits": 8,
+      "bytes": 2849901,
+      "max_err": 0.0012243986129760742,
+      "retrieval": 40
+    },
+    {
+      "scheme": "cluster-64",
+      "bits": 6,
+      "bytes": 2300636,
+      "max_err": 0.005016069859266281,
+      "retrieval": 40
+    },
+    {
+      "scheme": "cluster-64",
+      "bits": 5,
+      "bytes": 1898360,
+      "max_err": 0.010366545990109444,
+      "retrieval": 40
+    },
+    {
+      "scheme": "cluster-64",
+      "bits": 4,
+      "bytes": 1069692,
+      "max_err": 0.022214028984308243,
+      "retrieval": 40
+    },
+    {
+      "scheme": "cluster-64",
+      "bits": 3,
+      "bytes": 703240,
+      "max_err": 0.05183273181319237,
+      "retrieval": 40
+    },
+    {
+      "scheme": "cluster-64",
+      "bits": 2,
+      "bytes": 114704,
+      "max_err": 0.15549810230731964,
+      "retrieval": 12
+    },
+    {
+      "scheme": "cluster-256",
+      "bits": 8,
+      "bytes": 3147800,
+      "max_err": 0.0010676048696041107,
+      "retrieval": 40
+    },
+    {
+      "scheme": "cluster-256",
+      "bits": 6,
+      "bytes": 2593600,
+      "max_err": 0.004373714327812195,
+      "retrieval": 40
+    },
+    {
+      "scheme": "cluster-256",
+      "bits": 5,
+      "bytes": 2200024,
+      "max_err": 0.00903900247067213,
+      "retrieval": 40
+    },
+    {
+      "scheme": "cluster-256",
+      "bits": 4,
+      "bytes": 1367052,
+      "max_err": 0.01936929300427437,
+      "retrieval": 40
+    },
+    {
+      "scheme": "cluster-256",
+      "bits": 3,
+      "bytes": 1004064,
+      "max_err": 0.04519501328468323,
+      "retrieval": 40
+    },
+    {
+      "scheme": "cluster-256",
+      "bits": 2,
+      "bytes": 394684,
+      "max_err": 0.13558487594127655,
+      "retrieval": 19
+    },
+    {
+      "scheme": "cluster-1024",
+      "bits": 8,
+      "bytes": 4237388,
+      "max_err": 0.0009181350469589233,
+      "retrieval": 40
+    },
+    {
+      "scheme": "cluster-1024",
+      "bits": 6,
+      "bytes": 3680692,
+      "max_err": 0.00376138836145401,
+      "retrieval": 40
+    },
+    {
+      "scheme": "cluster-1024",
+      "bits": 5,
+      "bytes": 3291668,
+      "max_err": 0.007773533463478088,
+      "retrieval": 40
+    },
+    {
+      "scheme": "cluster-1024",
+      "bits": 4,
+      "bytes": 2461664,
+      "max_err": 0.01665756106376648,
+      "retrieval": 40
+    },
+    {
+      "scheme": "cluster-1024",
+      "bits": 3,
+      "bytes": 2101548,
+      "max_err": 0.03886765241622925,
+      "retrieval": 40
+    },
+    {
+      "scheme": "cluster-1024",
+      "bits": 2,
+      "bytes": 1486976,
+      "max_err": 0.11660127341747284,
+      "retrieval": 21
+    }
+  ],
+  "best_per_scheme": {
+    "global": {
+      "bits": 3,
+      "bytes": 730016,
+      "max_err": 0.044112399220466614
+    },
+    "cluster-64": {
+      "bits": 3,
+      "bytes": 703240,
+      "max_err": 0.05183273181319237
+    },
+    "cluster-256": {
+      "bits": 3,
+      "bytes": 1004064,
+      "max_err": 0.04519501328468323
+    },
+    "cluster-1024": {
+      "bits": 3,
+      "bytes": 2101548,
+      "max_err": 0.03886765241622925
+    }
+  },
+  "winner": "cluster-64",
+  "winner_bytes": 703240,
+  "winner_bits": 3
+}

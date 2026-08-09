@@ -1,0 +1,141 @@
+{
+  "model": "OLMoE-1B-7B-0125-Instruct-Q4_K_M.gguf",
+  "tokens": 40,
+  "batch": 1,
+  "reps": 5,
+  "cost_model": {
+    "c_fetch_ns": 227798.19228250135,
+    "c_byte_ns": 0.27595777432057117,
+    "provenance": "measured"
+  },
+  "max_bridged_gap": 0,
+  "cache_contaminated": false,
+  "results": [
+    {
+      "method": "identity",
+      "n_fetches": 13500,
+      "bytes": 19503513600,
+      "median_ms": 6724.160792000001,
+      "all_ms": [
+        6700.134792,
+        6643.467125,
+        6724.160792000001,
+        6725.876833,
+        7284.266625
+      ],
+      "ms_per_token": 168.1040198,
+      "fetches_per_token": 337.5,
+      "mib_per_token": 465.0,
+      "effective_gb_s": 2.900512674117505,
+      "speedup_vs_reference": 1.0
+    },
+    {
+      "method": "random:1",
+      "n_fetches": 13686,
+      "bytes": 19503513600,
+      "median_ms": 6864.834042,
+      "all_ms": [
+        6811.7832499999995,
+        6875.408042,
+        6864.834042,
+        6685.7510409999995,
+        7465.954292
+      ],
+      "ms_per_token": 171.62085105,
+      "fetches_per_token": 342.15,
+      "mib_per_token": 465.0,
+      "effective_gb_s": 2.8410757609979815,
+      "speedup_vs_reference": 0.9795081353548619
+    },
+    {
+      "method": "random:2",
+      "n_fetches": 13581,
+      "bytes": 19503513600,
+      "median_ms": 7019.2865839999995,
+      "all_ms": [
+        7019.2865839999995,
+        6901.428457999999,
+        6931.253667,
+        7086.351792,
+        8026.18775
+      ],
+      "ms_per_token": 175.48216459999998,
+      "fetches_per_token": 339.525,
+      "mib_per_token": 465.0,
+      "effective_gb_s": 2.778560665190245,
+      "speedup_vs_reference": 0.9579550160164826
+    },
+    {
+      "method": "frequency",
+      "n_fetches": 12918,
+      "bytes": 19503513600,
+      "median_ms": 6685.591332999999,
+      "all_ms": [
+        6736.6335,
+        6685.591332999999,
+        6650.248542,
+        6583.88025,
+        6924.660041
+      ],
+      "ms_per_token": 167.139783325,
+      "fetches_per_token": 322.95,
+      "mib_per_token": 465.0,
+      "effective_gb_s": 2.91724585433915,
+      "speedup_vs_reference": 1.0057690422699967
+    },
+    {
+      "method": "mincut",
+      "n_fetches": 10635,
+      "bytes": 19503513600,
+      "median_ms": 6332.523375,
+      "all_ms": [
+        6429.006375,
+        6386.786208,
+        6332.523375,
+        6323.850041,
+        6274.021334
+      ],
+      "ms_per_token": 158.313084375,
+      "fetches_per_token": 265.875,
+      "mib_per_token": 465.0,
+      "effective_gb_s": 3.0798960295981535,
+      "speedup_vs_reference": 1.0618453961885297
+    },
+    {
+      "method": "chain",
+      "n_fetches": 9618,
+      "bytes": 19503513600,
+      "median_ms": 6169.359208999999,
+      "all_ms": [
+        6140.680458000001,
+        6178.019167,
+        6169.359208999999,
+        6301.820917,
+        6007.815124999999
+      ],
+      "ms_per_token": 154.23398022499998,
+      "fetches_per_token": 240.45,
+      "mib_per_token": 465.0,
+      "effective_gb_s": 3.161351598971225,
+      "speedup_vs_reference": 1.0899285588997063
+    },
+    {
+      "method": "best+greedy",
+      "n_fetches": 9543,
+      "bytes": 19503513600,
+      "median_ms": 6121.746416999999,
+      "all_ms": [
+        6121.746416999999,
+        6109.429208,
+        6139.502042,
+        6168.8735,
+        6083.9974999999995
+      ],
+      "ms_per_token": 153.04366042499998,
+      "fetches_per_token": 238.575,
+      "mib_per_token": 465.0,
+      "effective_gb_s": 3.1859394805768217,
+      "speedup_vs_reference": 1.0984056401498608
+    }
+  ]
+}

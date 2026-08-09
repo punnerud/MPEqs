@@ -1,0 +1,512 @@
+{
+  "tasks": 20,
+  "shown": [
+    "(7 + 2 * 5) / 3",
+    "(26 + 6 * 3) / 4"
+  ],
+  "summary": {
+    "olmoe-1b": {
+      "unparsed": 6,
+      "copied": 1,
+      "adapted": 13,
+      "verified": 11,
+      "correct": 11,
+      "provenance": {
+        "(26 + 6 * 3) / 4": 1
+      },
+      "tasks": 20
+    },
+    "qwen-35b": {
+      "copied": 1,
+      "adapted": 19,
+      "verified": 20,
+      "correct": 20,
+      "provenance": {
+        "(26 + 6 * 3) / 4": 1
+      },
+      "tasks": 20
+    }
+  },
+  "rows": [
+    {
+      "model": "olmoe-1b",
+      "expr": "(30 - 37 * 9) / 3",
+      "graph": null,
+      "why": "malformed JSON"
+    },
+    {
+      "model": "olmoe-1b",
+      "expr": "(21 + 11 + 3) / 7",
+      "graph": null,
+      "why": "malformed JSON"
+    },
+    {
+      "model": "olmoe-1b",
+      "expr": "(43 + 12 * 11) / 5",
+      "graph": null,
+      "why": "malformed JSON"
+    },
+    {
+      "model": "olmoe-1b",
+      "expr": "(30 + 39 + 5) / 2",
+      "graph": null,
+      "why": "malformed JSON"
+    },
+    {
+      "model": "olmoe-1b",
+      "expr": "(2 - 7 + 9) / 2",
+      "graph": {
+        "A": "2 - 7",
+        "B": "4",
+        "C": "B / 2",
+        "D": "2"
+      },
+      "copied_from": null,
+      "verified": true,
+      "reason": null,
+      "structurally_right": true
+    },
+    {
+      "model": "olmoe-1b",
+      "expr": "(47 + 18 + 7) / 2",
+      "graph": null,
+      "why": "malformed JSON"
+    },
+    {
+      "model": "olmoe-1b",
+      "expr": "(6 - 38 * 3) / 9",
+      "graph": {
+        "A": "38 \times 3",
+        "B": "6 - (38 \times 3)",
+        "C": "B / 9"
+      },
+      "copied_from": null,
+      "verified": false,
+      "reason": "inlined form does not evaluate",
+      "structurally_right": false
+    },
+    {
+      "model": "olmoe-1b",
+      "expr": "(26 + 6 * 2) / 2",
+      "graph": {
+        "A": "26 + 6 * 2",
+        "B": "38",
+        "C": "B / 2",
+        "D": "19"
+      },
+      "copied_from": null,
+      "verified": true,
+      "reason": null,
+      "structurally_right": true
+    },
+    {
+      "model": "olmoe-1b",
+      "expr": "(60 - 5 + 9) / 16",
+      "graph": {
+        "A": "60 - 5",
+        "B": "A + 9",
+        "C": "B / 16"
+      },
+      "copied_from": null,
+      "verified": true,
+      "reason": null,
+      "structurally_right": true
+    },
+    {
+      "model": "olmoe-1b",
+      "expr": "(6 + 38 + 12) / 7",
+      "graph": {
+        "A": "6 + 38 + 12",
+        "B": "56",
+        "C": "B / 7"
+      },
+      "copied_from": null,
+      "verified": true,
+      "reason": null,
+      "structurally_right": true
+    },
+    {
+      "model": "olmoe-1b",
+      "expr": "(7 + 21 + 7) / 5",
+      "graph": {
+        "A": "7 + 21 + 7",
+        "B": "35",
+        "C": "B / 5",
+        "D": "35 / 5"
+      },
+      "copied_from": null,
+      "verified": true,
+      "reason": null,
+      "structurally_right": true
+    },
+    {
+      "model": "olmoe-1b",
+      "expr": "(53 + 33 + 4) / 6",
+      "graph": null,
+      "why": "malformed JSON"
+    },
+    {
+      "model": "olmoe-1b",
+      "expr": "(48 - 10 * 8) / 16",
+      "graph": {
+        "A": "-32",
+        "B": "-2",
+        "C": "B / 16"
+      },
+      "copied_from": null,
+      "verified": false,
+      "reason": "inlines to a different value",
+      "structurally_right": false
+    },
+    {
+      "model": "olmoe-1b",
+      "expr": "(28 - 15 + 2) / 3",
+      "graph": {
+        "A": "28 - 15",
+        "B": "(28 - 15) + 2",
+        "C": "B / 3"
+      },
+      "copied_from": null,
+      "verified": true,
+      "reason": null,
+      "structurally_right": true
+    },
+    {
+      "model": "olmoe-1b",
+      "expr": "(15 + 13 * 8) / 7",
+      "graph": {
+        "A": "13 * 8",
+        "B": "15 + A",
+        "C": "B / 7"
+      },
+      "copied_from": null,
+      "verified": true,
+      "reason": null,
+      "structurally_right": true
+    },
+    {
+      "model": "olmoe-1b",
+      "expr": "(15 + 30 + 6) / 17",
+      "graph": {
+        "A": "15 + 30 + 6",
+        "B": "A / 17"
+      },
+      "copied_from": null,
+      "verified": true,
+      "reason": null,
+      "structurally_right": true
+    },
+    {
+      "model": "olmoe-1b",
+      "expr": "(26 + 6 * 3) / 4",
+      "graph": {
+        "A": "6 * 3",
+        "B": "26 + A",
+        "C": "B / 4"
+      },
+      "copied_from": "(26 + 6 * 3) / 4",
+      "verified": true,
+      "reason": null,
+      "structurally_right": true
+    },
+    {
+      "model": "olmoe-1b",
+      "expr": "(39 + 32 + 11) / 2",
+      "graph": {
+        "Step 1": "39 + 32",
+        "Step 2": "A",
+        "Step 3": "A / 2"
+      },
+      "copied_from": null,
+      "verified": false,
+      "reason": "Step 2 uses A before it is written",
+      "structurally_right": false
+    },
+    {
+      "model": "olmoe-1b",
+      "expr": "(42 + 11 * 6) / 6",
+      "graph": {
+        "A": "11 * 6",
+        "B": "42 + A",
+        "C": "B / 6"
+      },
+      "copied_from": null,
+      "verified": true,
+      "reason": null,
+      "structurally_right": true
+    },
+    {
+      "model": "olmoe-1b",
+      "expr": "(7 + 28 * 2) / 3",
+      "graph": {
+        "A": "28 * 2",
+        "B": "7 + A",
+        "C": "B / 3"
+      },
+      "copied_from": null,
+      "verified": true,
+      "reason": null,
+      "structurally_right": true
+    },
+    {
+      "model": "qwen-35b",
+      "expr": "(30 - 37 * 9) / 3",
+      "graph": {
+        "A": "37 * 9",
+        "B": "30 - A",
+        "C": "B / 3"
+      },
+      "copied_from": null,
+      "verified": true,
+      "reason": null,
+      "structurally_right": true
+    },
+    {
+      "model": "qwen-35b",
+      "expr": "(21 + 11 + 3) / 7",
+      "graph": {
+        "A": "21 + 11",
+        "B": "A + 3",
+        "C": "B / 7"
+      },
+      "copied_from": null,
+      "verified": true,
+      "reason": null,
+      "structurally_right": true
+    },
+    {
+      "model": "qwen-35b",
+      "expr": "(43 + 12 * 11) / 5",
+      "graph": {
+        "A": "12 * 11",
+        "B": "43 + A",
+        "C": "B / 5"
+      },
+      "copied_from": null,
+      "verified": true,
+      "reason": null,
+      "structurally_right": true
+    },
+    {
+      "model": "qwen-35b",
+      "expr": "(30 + 39 + 5) / 2",
+      "graph": {
+        "A": "30 + 39",
+        "B": "A + 5",
+        "C": "B / 2"
+      },
+      "copied_from": null,
+      "verified": true,
+      "reason": null,
+      "structurally_right": true
+    },
+    {
+      "model": "qwen-35b",
+      "expr": "(2 - 7 + 9) / 2",
+      "graph": {
+        "A": "2 - 7",
+        "B": "A + 9",
+        "C": "B / 2"
+      },
+      "copied_from": null,
+      "verified": true,
+      "reason": null,
+      "structurally_right": true
+    },
+    {
+      "model": "qwen-35b",
+      "expr": "(47 + 18 + 7) / 2",
+      "graph": {
+        "A": "47 + 18",
+        "B": "A + 7",
+        "C": "B / 2"
+      },
+      "copied_from": null,
+      "verified": true,
+      "reason": null,
+      "structurally_right": true
+    },
+    {
+      "model": "qwen-35b",
+      "expr": "(6 - 38 * 3) / 9",
+      "graph": {
+        "A": "38 * 3",
+        "B": "6 - A",
+        "C": "B / 9"
+      },
+      "copied_from": null,
+      "verified": true,
+      "reason": null,
+      "structurally_right": true
+    },
+    {
+      "model": "qwen-35b",
+      "expr": "(26 + 6 * 2) / 2",
+      "graph": {
+        "A": "6 * 2",
+        "B": "26 + A",
+        "C": "B / 2"
+      },
+      "copied_from": null,
+      "verified": true,
+      "reason": null,
+      "structurally_right": true
+    },
+    {
+      "model": "qwen-35b",
+      "expr": "(60 - 5 + 9) / 16",
+      "graph": {
+        "A": "60 - 5",
+        "B": "A + 9",
+        "C": "B / 16"
+      },
+      "copied_from": null,
+      "verified": true,
+      "reason": null,
+      "structurally_right": true
+    },
+    {
+      "model": "qwen-35b",
+      "expr": "(6 + 38 + 12) / 7",
+      "graph": {
+        "A": "6 + 38",
+        "B": "A + 12",
+        "C": "B / 7"
+      },
+      "copied_from": null,
+      "verified": true,
+      "reason": null,
+      "structurally_right": true
+    },
+    {
+      "model": "qwen-35b",
+      "expr": "(7 + 21 + 7) / 5",
+      "graph": {
+        "A": "7 + 21",
+        "B": "A + 7",
+        "C": "B / 5"
+      },
+      "copied_from": null,
+      "verified": true,
+      "reason": null,
+      "structurally_right": true
+    },
+    {
+      "model": "qwen-35b",
+      "expr": "(53 + 33 + 4) / 6",
+      "graph": {
+        "A": "53 + 33",
+        "B": "A + 4",
+        "C": "B / 6"
+      },
+      "copied_from": null,
+      "verified": true,
+      "reason": null,
+      "structurally_right": true
+    },
+    {
+      "model": "qwen-35b",
+      "expr": "(48 - 10 * 8) / 16",
+      "graph": {
+        "A": "10 * 8",
+        "B": "48 - A",
+        "C": "B / 16"
+      },
+      "copied_from": null,
+      "verified": true,
+      "reason": null,
+      "structurally_right": true
+    },
+    {
+      "model": "qwen-35b",
+      "expr": "(28 - 15 + 2) / 3",
+      "graph": {
+        "A": "28 - 15",
+        "B": "A + 2",
+        "C": "B / 3"
+      },
+      "copied_from": null,
+      "verified": true,
+      "reason": null,
+      "structurally_right": true
+    },
+    {
+      "model": "qwen-35b",
+      "expr": "(15 + 13 * 8) / 7",
+      "graph": {
+        "A": "13 * 8",
+        "B": "15 + A",
+        "C": "B / 7"
+      },
+      "copied_from": null,
+      "verified": true,
+      "reason": null,
+      "structurally_right": true
+    },
+    {
+      "model": "qwen-35b",
+      "expr": "(15 + 30 + 6) / 17",
+      "graph": {
+        "A": "15 + 30",
+        "B": "A + 6",
+        "C": "B / 17"
+      },
+      "copied_from": null,
+      "verified": true,
+      "reason": null,
+      "structurally_right": true
+    },
+    {
+      "model": "qwen-35b",
+      "expr": "(26 + 6 * 3) / 4",
+      "graph": {
+        "A": "6 * 3",
+        "B": "26 + A",
+        "C": "B / 4"
+      },
+      "copied_from": "(26 + 6 * 3) / 4",
+      "verified": true,
+      "reason": null,
+      "structurally_right": true
+    },
+    {
+      "model": "qwen-35b",
+      "expr": "(39 + 32 + 11) / 2",
+      "graph": {
+        "A": "39 + 32",
+        "B": "A + 11",
+        "C": "B / 2"
+      },
+      "copied_from": null,
+      "verified": true,
+      "reason": null,
+      "structurally_right": true
+    },
+    {
+      "model": "qwen-35b",
+      "expr": "(42 + 11 * 6) / 6",
+      "graph": {
+        "A": "11 * 6",
+        "B": "42 + A",
+        "C": "B / 6"
+      },
+      "copied_from": null,
+      "verified": true,
+      "reason": null,
+      "structurally_right": true
+    },
+    {
+      "model": "qwen-35b",
+      "expr": "(7 + 28 * 2) / 3",
+      "graph": {
+        "A": "28 * 2",
+        "B": "7 + A",
+        "C": "B / 3"
+      },
+      "copied_from": null,
+      "verified": true,
+      "reason": null,
+      "structurally_right": true
+    }
+  ]
+}

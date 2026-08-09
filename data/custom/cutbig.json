@@ -1,0 +1,730 @@
+{
+  "summary": {
+    "olmoe-1b": {
+      "index": 0,
+      "name": 1,
+      "split": 5,
+      "cases": 14,
+      "document": {
+        "ok": false,
+        "why": "ok",
+        "calls": 2,
+        "sentence": "The kettle boiled while he read",
+        "word": "boiled",
+        "sentences_in_doc": 15,
+        "words_in_sentence": 6,
+        "join_restores": true
+      }
+    },
+    "qwen-35b": {
+      "index": 2,
+      "name": 14,
+      "split": 14,
+      "cases": 14,
+      "document": {
+        "ok": true,
+        "why": "ok",
+        "calls": 2,
+        "sentence": "She left her umbrella on the train",
+        "word": "umbrella",
+        "sentences_in_doc": 15,
+        "words_in_sentence": 7,
+        "join_restores": true
+      }
+    }
+  },
+  "runs": [
+    {
+      "model": "olmoe-1b",
+      "sentence": "The old bridge crosses the river",
+      "target": "old",
+      "index": {
+        "ok": false,
+        "why": "ok",
+        "took": "e o",
+        "reversible": true
+      },
+      "name": {
+        "ok": false,
+        "why": "ok",
+        "word": "bridge",
+        "took": "bridge",
+        "reversible": true
+      },
+      "split": {
+        "ok": true,
+        "why": "ok",
+        "took": "old",
+        "reversible": true,
+        "chose": 2
+      }
+    },
+    {
+      "model": "olmoe-1b",
+      "sentence": "She left her umbrella on the train",
+      "target": "umbrella",
+      "index": {
+        "ok": false,
+        "why": "ok",
+        "took": "e l",
+        "reversible": true
+      },
+      "name": {
+        "ok": false,
+        "why": "ok",
+        "word": "left",
+        "took": "left",
+        "reversible": true
+      },
+      "split": {
+        "ok": true,
+        "why": "ok",
+        "took": "umbrella",
+        "reversible": true,
+        "chose": 4
+      }
+    },
+    {
+      "model": "olmoe-1b",
+      "sentence": "The kettle boiled while he read",
+      "target": "kettle",
+      "index": {
+        "ok": false,
+        "why": "ok",
+        "took": " k",
+        "reversible": true
+      },
+      "name": {
+        "ok": false,
+        "why": "ok",
+        "word": "boiled",
+        "took": "boiled",
+        "reversible": true
+      },
+      "split": {
+        "ok": false,
+        "why": "ok",
+        "took": "boiled",
+        "reversible": true,
+        "chose": 3
+      }
+    },
+    {
+      "model": "olmoe-1b",
+      "sentence": "A heavy parcel arrived today",
+      "target": "heavy",
+      "index": {
+        "ok": false,
+        "why": "ok",
+        "took": "hea",
+        "reversible": true
+      },
+      "name": {
+        "ok": false,
+        "why": "ok",
+        "word": "parcel",
+        "took": "parcel",
+        "reversible": true
+      },
+      "split": {
+        "ok": false,
+        "why": "ok",
+        "took": "parcel",
+        "reversible": true,
+        "chose": 3
+      }
+    },
+    {
+      "model": "olmoe-1b",
+      "sentence": "The dog barked at the postman",
+      "target": "postman",
+      "index": {
+        "ok": false,
+        "why": "ok",
+        "took": "e d",
+        "reversible": true
+      },
+      "name": {
+        "ok": false,
+        "why": "no call"
+      },
+      "split": {
+        "ok": false,
+        "why": "ok",
+        "took": "at",
+        "reversible": true,
+        "chose": 4
+      }
+    },
+    {
+      "model": "olmoe-1b",
+      "sentence": "They painted the garden fence",
+      "target": "garden",
+      "index": {
+        "ok": false,
+        "why": "ok",
+        "took": "ey ",
+        "reversible": true
+      },
+      "name": {
+        "ok": false,
+        "why": "ok",
+        "word": "fence",
+        "took": "fence",
+        "reversible": true
+      },
+      "split": {
+        "ok": true,
+        "why": "ok",
+        "took": "garden",
+        "reversible": true,
+        "chose": 4
+      }
+    },
+    {
+      "model": "olmoe-1b",
+      "sentence": "The engine stalled on the hill",
+      "target": "engine",
+      "index": {
+        "ok": false,
+        "why": "ok",
+        "took": "e e",
+        "reversible": true
+      },
+      "name": {
+        "ok": false,
+        "why": "ok",
+        "word": "stalled",
+        "took": "stalled",
+        "reversible": true
+      },
+      "split": {
+        "ok": false,
+        "why": "ok",
+        "took": "stalled",
+        "reversible": true,
+        "chose": 3
+      }
+    },
+    {
+      "model": "olmoe-1b",
+      "sentence": "My sister borrowed the bicycle",
+      "target": "sister",
+      "index": {
+        "ok": false,
+        "why": "ok",
+        "took": " si",
+        "reversible": true
+      },
+      "name": {
+        "ok": false,
+        "why": "ok",
+        "word": "borrowed",
+        "took": "borrowed",
+        "reversible": true
+      },
+      "split": {
+        "ok": true,
+        "why": "ok",
+        "took": "sister",
+        "reversible": true,
+        "chose": 2
+      }
+    },
+    {
+      "model": "olmoe-1b",
+      "sentence": "The bakery opens before dawn",
+      "target": "bakery",
+      "index": {
+        "ok": false,
+        "why": "ok",
+        "took": "he ",
+        "reversible": true
+      },
+      "name": {
+        "ok": false,
+        "why": "no call"
+      },
+      "split": {
+        "ok": false,
+        "why": "ok",
+        "took": "opens",
+        "reversible": true,
+        "chose": 3
+      }
+    },
+    {
+      "model": "olmoe-1b",
+      "sentence": "He forgot the tickets at home",
+      "target": "tickets",
+      "index": {
+        "ok": false,
+        "why": "ok",
+        "took": " fo",
+        "reversible": true
+      },
+      "name": {
+        "ok": false,
+        "why": "'forgotten' not present",
+        "word": "forgotten"
+      },
+      "split": {
+        "ok": true,
+        "why": "ok",
+        "took": "tickets",
+        "reversible": true,
+        "chose": 4
+      }
+    },
+    {
+      "model": "olmoe-1b",
+      "sentence": "The cat saw the cat on the mat",
+      "target": "cat",
+      "index": {
+        "ok": false,
+        "why": "ok",
+        "took": "e c",
+        "reversible": true
+      },
+      "name": {
+        "ok": false,
+        "why": "ok",
+        "word": "the",
+        "took": "the",
+        "reversible": true
+      },
+      "split": {
+        "ok": false,
+        "why": "ok",
+        "took": "saw",
+        "reversible": true,
+        "chose": 3
+      }
+    },
+    {
+      "model": "olmoe-1b",
+      "sentence": "A train met a train on the bridge",
+      "target": "train",
+      "index": {
+        "ok": false,
+        "why": "ok",
+        "took": "ra",
+        "reversible": true
+      },
+      "name": {
+        "ok": false,
+        "why": "ok",
+        "word": "met",
+        "took": "met",
+        "reversible": true
+      },
+      "split": {
+        "ok": false,
+        "why": "ok",
+        "took": "met",
+        "reversible": true,
+        "chose": 3
+      }
+    },
+    {
+      "model": "olmoe-1b",
+      "sentence": "The bell rang and the bell rang again",
+      "target": "bell",
+      "index": {
+        "ok": false,
+        "why": "ok",
+        "took": "e b",
+        "reversible": true
+      },
+      "name": {
+        "ok": false,
+        "why": "ok",
+        "word": "rang",
+        "took": "rang",
+        "reversible": true
+      },
+      "split": {
+        "ok": false,
+        "why": "ok",
+        "took": "and",
+        "reversible": true,
+        "chose": 4
+      }
+    },
+    {
+      "model": "olmoe-1b",
+      "sentence": "One box beside another box",
+      "target": "box",
+      "index": {
+        "ok": false,
+        "why": "ok",
+        "took": " b",
+        "reversible": true
+      },
+      "name": {
+        "ok": true,
+        "why": "ok",
+        "word": "box",
+        "took": "box",
+        "reversible": true
+      },
+      "split": {
+        "ok": false,
+        "why": "ok",
+        "took": "beside",
+        "reversible": true,
+        "chose": 3
+      }
+    },
+    {
+      "model": "qwen-35b",
+      "sentence": "The old bridge crosses the river",
+      "target": "old",
+      "index": {
+        "ok": false,
+        "why": "ok",
+        "took": "ld ",
+        "reversible": true
+      },
+      "name": {
+        "ok": true,
+        "why": "ok",
+        "word": "old",
+        "took": "old",
+        "reversible": true
+      },
+      "split": {
+        "ok": true,
+        "why": "ok",
+        "took": "old",
+        "reversible": true,
+        "chose": 2
+      }
+    },
+    {
+      "model": "qwen-35b",
+      "sentence": "She left her umbrella on the train",
+      "target": "umbrella",
+      "index": {
+        "ok": false,
+        "why": "ok",
+        "took": "a on the",
+        "reversible": true
+      },
+      "name": {
+        "ok": true,
+        "why": "ok",
+        "word": "umbrella",
+        "took": "umbrella",
+        "reversible": true
+      },
+      "split": {
+        "ok": true,
+        "why": "ok",
+        "took": "umbrella",
+        "reversible": true,
+        "chose": 4
+      }
+    },
+    {
+      "model": "qwen-35b",
+      "sentence": "The kettle boiled while he read",
+      "target": "kettle",
+      "index": {
+        "ok": false,
+        "why": "ok",
+        "took": "ttle b",
+        "reversible": true
+      },
+      "name": {
+        "ok": true,
+        "why": "ok",
+        "word": "kettle",
+        "took": "kettle",
+        "reversible": true
+      },
+      "split": {
+        "ok": true,
+        "why": "ok",
+        "took": "kettle",
+        "reversible": true,
+        "chose": 2
+      }
+    },
+    {
+      "model": "qwen-35b",
+      "sentence": "A heavy parcel arrived today",
+      "target": "heavy",
+      "index": {
+        "ok": true,
+        "why": "ok",
+        "took": "heavy",
+        "reversible": true
+      },
+      "name": {
+        "ok": true,
+        "why": "ok",
+        "word": "heavy",
+        "took": "heavy",
+        "reversible": true
+      },
+      "split": {
+        "ok": true,
+        "why": "ok",
+        "took": "heavy",
+        "reversible": true,
+        "chose": 2
+      }
+    },
+    {
+      "model": "qwen-35b",
+      "sentence": "The dog barked at the postman",
+      "target": "postman",
+      "index": {
+        "ok": false,
+        "why": "ok",
+        "took": "e postm",
+        "reversible": true
+      },
+      "name": {
+        "ok": true,
+        "why": "ok",
+        "word": "postman",
+        "took": "postman",
+        "reversible": true
+      },
+      "split": {
+        "ok": true,
+        "why": "ok",
+        "took": "postman",
+        "reversible": true,
+        "chose": 6
+      }
+    },
+    {
+      "model": "qwen-35b",
+      "sentence": "They painted the garden fence",
+      "target": "garden",
+      "index": {
+        "ok": false,
+        "why": "ok",
+        "took": " garde",
+        "reversible": true
+      },
+      "name": {
+        "ok": true,
+        "why": "ok",
+        "word": "garden",
+        "took": "garden",
+        "reversible": true
+      },
+      "split": {
+        "ok": true,
+        "why": "ok",
+        "took": "garden",
+        "reversible": true,
+        "chose": 4
+      }
+    },
+    {
+      "model": "qwen-35b",
+      "sentence": "The engine stalled on the hill",
+      "target": "engine",
+      "index": {
+        "ok": false,
+        "why": "ok",
+        "took": "ed on ",
+        "reversible": true
+      },
+      "name": {
+        "ok": true,
+        "why": "ok",
+        "word": "engine",
+        "took": "engine",
+        "reversible": true
+      },
+      "split": {
+        "ok": true,
+        "why": "ok",
+        "took": "engine",
+        "reversible": true,
+        "chose": 2
+      }
+    },
+    {
+      "model": "qwen-35b",
+      "sentence": "My sister borrowed the bicycle",
+      "target": "sister",
+      "index": {
+        "ok": false,
+        "why": "ok",
+        "took": "orrowe",
+        "reversible": true
+      },
+      "name": {
+        "ok": true,
+        "why": "ok",
+        "word": "sister",
+        "took": "sister",
+        "reversible": true
+      },
+      "split": {
+        "ok": true,
+        "why": "ok",
+        "took": "sister",
+        "reversible": true,
+        "chose": 2
+      }
+    },
+    {
+      "model": "qwen-35b",
+      "sentence": "The bakery opens before dawn",
+      "target": "bakery",
+      "index": {
+        "ok": false,
+        "why": "ok",
+        "took": "kery o",
+        "reversible": true
+      },
+      "name": {
+        "ok": true,
+        "why": "ok",
+        "word": "bakery",
+        "took": "bakery",
+        "reversible": true
+      },
+      "split": {
+        "ok": true,
+        "why": "ok",
+        "took": "bakery",
+        "reversible": true,
+        "chose": 2
+      }
+    },
+    {
+      "model": "qwen-35b",
+      "sentence": "He forgot the tickets at home",
+      "target": "tickets",
+      "index": {
+        "ok": false,
+        "why": "ok",
+        "took": "ets at ",
+        "reversible": true
+      },
+      "name": {
+        "ok": true,
+        "why": "ok",
+        "word": "tickets",
+        "took": "tickets",
+        "reversible": true
+      },
+      "split": {
+        "ok": true,
+        "why": "ok",
+        "took": "tickets",
+        "reversible": true,
+        "chose": 4
+      }
+    },
+    {
+      "model": "qwen-35b",
+      "sentence": "The cat saw the cat on the mat",
+      "target": "cat",
+      "index": {
+        "ok": true,
+        "why": "ok",
+        "took": "cat",
+        "reversible": true
+      },
+      "name": {
+        "ok": true,
+        "why": "ok",
+        "word": "cat",
+        "took": "cat",
+        "reversible": true
+      },
+      "split": {
+        "ok": true,
+        "why": "ok",
+        "took": "cat",
+        "reversible": true,
+        "chose": 2
+      }
+    },
+    {
+      "model": "qwen-35b",
+      "sentence": "A train met a train on the bridge",
+      "target": "train",
+      "index": {
+        "ok": false,
+        "why": "ok",
+        "took": "t a t",
+        "reversible": true
+      },
+      "name": {
+        "ok": true,
+        "why": "ok",
+        "word": "train",
+        "took": "train",
+        "reversible": true
+      },
+      "split": {
+        "ok": true,
+        "why": "ok",
+        "took": "train",
+        "reversible": true,
+        "chose": 2
+      }
+    },
+    {
+      "model": "qwen-35b",
+      "sentence": "The bell rang and the bell rang again",
+      "target": "bell",
+      "index": {
+        "ok": false,
+        "why": "ok",
+        "took": "d th",
+        "reversible": true
+      },
+      "name": {
+        "ok": true,
+        "why": "ok",
+        "word": "bell",
+        "took": "bell",
+        "reversible": true
+      },
+      "split": {
+        "ok": true,
+        "why": "ok",
+        "took": "bell",
+        "reversible": true,
+        "chose": 2
+      }
+    },
+    {
+      "model": "qwen-35b",
+      "sentence": "One box beside another box",
+      "target": "box",
+      "index": {
+        "ok": false,
+        "why": "ok",
+        "took": "sid",
+        "reversible": true
+      },
+      "name": {
+        "ok": true,
+        "why": "ok",
+        "word": "box",
+        "took": "box",
+        "reversible": true
+      },
+      "split": {
+        "ok": true,
+        "why": "ok",
+        "took": "box",
+        "reversible": true,
+        "chose": 2
+      }
+    }
+  ]
+}

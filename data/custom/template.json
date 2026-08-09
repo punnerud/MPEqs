@@ -1,0 +1,989 @@
+{
+  "summary": {
+    "olmoe-1b": {
+      "tasks": 60,
+      "solo": 4,
+      "graph": 5,
+      "trecord": 14,
+      "tmodel": 9,
+      "hits": 11,
+      "generalised": 2,
+      "refused_generalise": 3,
+      "templates": 2,
+      "instances_covered": 13,
+      "store": [
+        {
+          "skeleton": "(# - # + #) / #",
+          "sources": [
+            "(3 - 16 + 3) / 5"
+          ],
+          "uses": 7,
+          "model_fill_failed": 4
+        },
+        {
+          "skeleton": "(# + # * #) / #",
+          "sources": [
+            "(15 + 6 * 8) / 9"
+          ],
+          "uses": 4,
+          "model_fill_failed": 0
+        }
+      ]
+    },
+    "qwen-35b": {
+      "tasks": 20,
+      "solo": 6,
+      "graph": 16,
+      "trecord": 16,
+      "tmodel": 16,
+      "hits": 16,
+      "generalised": 4,
+      "refused_generalise": 0,
+      "templates": 4,
+      "instances_covered": 20,
+      "store": [
+        {
+          "skeleton": "(# - # * #) / #",
+          "sources": [
+            "(30 - 37 * 9) / 3"
+          ],
+          "uses": 2,
+          "model_fill_failed": 0
+        },
+        {
+          "skeleton": "(# + # + #) / #",
+          "sources": [
+            "(21 + 11 + 3) / 7"
+          ],
+          "uses": 7,
+          "model_fill_failed": 0
+        },
+        {
+          "skeleton": "(# + # * #) / #",
+          "sources": [
+            "(43 + 12 * 11) / 5"
+          ],
+          "uses": 5,
+          "model_fill_failed": 0
+        },
+        {
+          "skeleton": "(# - # + #) / #",
+          "sources": [
+            "(2 - 7 + 9) / 2"
+          ],
+          "uses": 2,
+          "model_fill_failed": 0
+        }
+      ]
+    }
+  },
+  "rows": [
+    {
+      "model": "olmoe-1b",
+      "i": 0,
+      "expr": "(30 - 37 * 9) / 3",
+      "truth": -101,
+      "solo": 9.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 1,
+      "expr": "(21 + 11 + 3) / 7",
+      "truth": 5,
+      "solo": 36.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 2,
+      "expr": "(43 + 12 * 11) / 5",
+      "truth": 35,
+      "solo": 27.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 3,
+      "expr": "(30 + 39 + 5) / 2",
+      "truth": 37,
+      "solo": 14.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 4,
+      "expr": "(2 - 7 + 9) / 2",
+      "truth": 2,
+      "solo": 2.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 5,
+      "expr": "(47 + 18 + 7) / 2",
+      "truth": 36,
+      "solo": 68.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 6,
+      "expr": "(6 - 38 * 3) / 9",
+      "truth": -12,
+      "solo": 6.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 7,
+      "expr": "(26 + 6 * 2) / 2",
+      "truth": 19,
+      "solo": 12.0,
+      "graph": 19.0,
+      "template_hit": false,
+      "trecord": 19.0,
+      "tmodel": 19.0
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 8,
+      "expr": "(60 - 5 + 9) / 16",
+      "truth": 4,
+      "solo": 3.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 9,
+      "expr": "(6 + 38 + 12) / 7",
+      "truth": 8,
+      "solo": 58.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 10,
+      "expr": "(7 + 21 + 7) / 5",
+      "truth": 7,
+      "solo": 40.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 11,
+      "expr": "(53 + 33 + 4) / 6",
+      "truth": 15,
+      "solo": 20.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 12,
+      "expr": "(48 - 10 * 8) / 16",
+      "truth": -2,
+      "solo": 2.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 13,
+      "expr": "(28 - 15 + 2) / 3",
+      "truth": 5,
+      "solo": 1.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 14,
+      "expr": "(15 + 13 * 8) / 7",
+      "truth": 17,
+      "solo": 12.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 15,
+      "expr": "(15 + 30 + 6) / 17",
+      "truth": 3,
+      "solo": 11.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 16,
+      "expr": "(26 + 6 * 3) / 4",
+      "truth": 11,
+      "solo": 12.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 17,
+      "expr": "(39 + 32 + 11) / 2",
+      "truth": 41,
+      "solo": 62.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 18,
+      "expr": "(42 + 11 * 6) / 6",
+      "truth": 18,
+      "solo": 7.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 19,
+      "expr": "(7 + 28 * 2) / 3",
+      "truth": 21,
+      "solo": 17.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 20,
+      "expr": "(34 - 18 + 5) / 7",
+      "truth": 3,
+      "solo": 7.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 21,
+      "expr": "(54 - 40 * 9) / 18",
+      "truth": -17,
+      "solo": 3.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 22,
+      "expr": "(6 - 10 * 5) / 11",
+      "truth": -4,
+      "solo": 4.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 23,
+      "expr": "(15 + 15 + 2) / 16",
+      "truth": 2,
+      "solo": 4.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 24,
+      "expr": "(30 + 17 * 2) / 8",
+      "truth": 8,
+      "solo": 7.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 25,
+      "expr": "(25 + 35 * 11) / 5",
+      "truth": 82,
+      "solo": 20.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 26,
+      "expr": "(10 + 30 * 7) / 2",
+      "truth": 110,
+      "solo": 55.0,
+      "graph": 110.0,
+      "template_hit": false,
+      "trecord": 110.0,
+      "tmodel": 110.0
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 27,
+      "expr": "(32 + 24 * 6) / 16",
+      "truth": 11,
+      "solo": 10.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 28,
+      "expr": "(42 + 6 + 9) / 19",
+      "truth": 3,
+      "solo": 55.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 29,
+      "expr": "(41 + 26 * 8) / 3",
+      "truth": 83,
+      "solo": 22.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 30,
+      "expr": "(35 - 34 * 2) / 11",
+      "truth": -3,
+      "solo": 3.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 31,
+      "expr": "(3 - 16 + 3) / 5",
+      "truth": -2,
+      "solo": 3.0,
+      "graph": 3.0,
+      "template_hit": false,
+      "trecord": 3.0,
+      "tmodel": 3.0
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 32,
+      "expr": "(59 - 2 * 7) / 5",
+      "truth": 9,
+      "solo": 8.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 33,
+      "expr": "(35 - 12 + 7) / 3",
+      "truth": 10,
+      "solo": 12.0,
+      "graph": null,
+      "template_hit": true,
+      "trecord": 10.0,
+      "tmodel": null,
+      "tmodel_verified": false
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 34,
+      "expr": "(22 - 27 * 12) / 2",
+      "truth": -151,
+      "solo": 11.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 35,
+      "expr": "(15 - 10 + 4) / 3",
+      "truth": 3,
+      "solo": 3.0,
+      "graph": null,
+      "template_hit": true,
+      "trecord": 3.0,
+      "tmodel": null,
+      "tmodel_verified": false
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 36,
+      "expr": "(33 - 22 + 11) / 2",
+      "truth": 11,
+      "solo": 12.0,
+      "graph": null,
+      "template_hit": true,
+      "trecord": 11.0,
+      "tmodel": null,
+      "tmodel_verified": false
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 37,
+      "expr": "(55 + 4 + 6) / 13",
+      "truth": 5,
+      "solo": 25.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 38,
+      "expr": "(14 + 3 * 6) / 2",
+      "truth": 16,
+      "solo": 12.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 39,
+      "expr": "(42 + 9 + 9) / 3",
+      "truth": 20,
+      "solo": 22.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 40,
+      "expr": "(45 - 14 + 5) / 3",
+      "truth": 12,
+      "solo": 8.0,
+      "graph": 12.0,
+      "template_hit": true,
+      "trecord": 12.0,
+      "tmodel": null,
+      "tmodel_verified": false
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 41,
+      "expr": "(47 + 2 * 9) / 5",
+      "truth": 13,
+      "solo": 14.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 42,
+      "expr": "(14 - 2 + 8) / 5",
+      "truth": 4,
+      "solo": 6.0,
+      "graph": null,
+      "template_hit": true,
+      "trecord": 4.0,
+      "tmodel": 2.0,
+      "tmodel_verified": true
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 43,
+      "expr": "(43 + 15 * 3) / 4",
+      "truth": 22,
+      "solo": 22.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 44,
+      "expr": "(59 - 26 + 3) / 4",
+      "truth": 9,
+      "solo": 26.0,
+      "graph": null,
+      "template_hit": true,
+      "trecord": 9.0,
+      "tmodel": 9.0,
+      "tmodel_verified": true
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 45,
+      "expr": "(60 + 3 * 7) / 9",
+      "truth": 9,
+      "solo": 21.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 46,
+      "expr": "(23 - 37 + 8) / 2",
+      "truth": -3,
+      "solo": 2.0,
+      "graph": 3.0,
+      "template_hit": true,
+      "trecord": 11.0,
+      "tmodel": 11.0,
+      "tmodel_verified": true
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 47,
+      "expr": "(15 + 6 * 8) / 9",
+      "truth": 7,
+      "solo": 7.0,
+      "graph": 7.0,
+      "template_hit": false,
+      "trecord": 7.0,
+      "tmodel": 7.0
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 48,
+      "expr": "(45 + 10 + 9) / 16",
+      "truth": 4,
+      "solo": 24.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 49,
+      "expr": "(56 + 15 + 6) / 11",
+      "truth": 7,
+      "solo": 77.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 50,
+      "expr": "(14 + 28 * 10) / 14",
+      "truth": 21,
+      "solo": 4.0,
+      "graph": null,
+      "template_hit": true,
+      "trecord": 21.0,
+      "tmodel": 21.0,
+      "tmodel_verified": true
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 51,
+      "expr": "(26 + 3 + 10) / 3",
+      "truth": 13,
+      "solo": 41.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 52,
+      "expr": "(33 + 7 + 4) / 22",
+      "truth": 2,
+      "solo": 34.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 53,
+      "expr": "(60 + 27 + 6) / 3",
+      "truth": 31,
+      "solo": 95.0,
+      "graph": 31.0,
+      "template_hit": false,
+      "trecord": 31.0,
+      "tmodel": 31.0
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 54,
+      "expr": "(46 + 3 * 2) / 4",
+      "truth": 13,
+      "solo": 12.0,
+      "graph": null,
+      "template_hit": true,
+      "trecord": 13.0,
+      "tmodel": 13.0,
+      "tmodel_verified": true
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 55,
+      "expr": "(2 - 20 * 7) / 23",
+      "truth": -6,
+      "solo": 3.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 56,
+      "expr": "(8 + 33 + 11) / 4",
+      "truth": 13,
+      "solo": 58.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 57,
+      "expr": "(35 + 15 * 10) / 5",
+      "truth": 37,
+      "solo": 10.0,
+      "graph": null,
+      "template_hit": true,
+      "trecord": 37.0,
+      "tmodel": 37.0,
+      "tmodel_verified": true
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 58,
+      "expr": "(59 - 13 * 7) / 4",
+      "truth": -8,
+      "solo": 3.0,
+      "graph": null,
+      "template_hit": false,
+      "trecord": null,
+      "tmodel": null
+    },
+    {
+      "model": "olmoe-1b",
+      "i": 59,
+      "expr": "(51 + 14 * 3) / 3",
+      "truth": 31,
+      "solo": 22.0,
+      "graph": null,
+      "template_hit": true,
+      "trecord": 31.0,
+      "tmodel": 31.0,
+      "tmodel_verified": true
+    },
+    {
+      "model": "qwen-35b",
+      "i": 0,
+      "expr": "(30 - 37 * 9) / 3",
+      "truth": -101,
+      "solo": 101.0,
+      "graph": 101.0,
+      "template_hit": false,
+      "trecord": 101.0,
+      "tmodel": 101.0
+    },
+    {
+      "model": "qwen-35b",
+      "i": 1,
+      "expr": "(21 + 11 + 3) / 7",
+      "truth": 5,
+      "solo": 5.0,
+      "graph": 5.0,
+      "template_hit": false,
+      "trecord": 5.0,
+      "tmodel": 5.0
+    },
+    {
+      "model": "qwen-35b",
+      "i": 2,
+      "expr": "(43 + 12 * 11) / 5",
+      "truth": 35,
+      "solo": 103.0,
+      "graph": 35.0,
+      "template_hit": false,
+      "trecord": 35.0,
+      "tmodel": 35.0
+    },
+    {
+      "model": "qwen-35b",
+      "i": 3,
+      "expr": "(30 + 39 + 5) / 2",
+      "truth": 37,
+      "solo": 37.0,
+      "graph": 37.0,
+      "template_hit": true,
+      "trecord": 37.0,
+      "tmodel": 37.0,
+      "tmodel_verified": true
+    },
+    {
+      "model": "qwen-35b",
+      "i": 4,
+      "expr": "(2 - 7 + 9) / 2",
+      "truth": 2,
+      "solo": 6.0,
+      "graph": 7.0,
+      "template_hit": false,
+      "trecord": 7.0,
+      "tmodel": 7.0
+    },
+    {
+      "model": "qwen-35b",
+      "i": 5,
+      "expr": "(47 + 18 + 7) / 2",
+      "truth": 36,
+      "solo": 37.0,
+      "graph": 36.0,
+      "template_hit": true,
+      "trecord": 36.0,
+      "tmodel": 36.0,
+      "tmodel_verified": true
+    },
+    {
+      "model": "qwen-35b",
+      "i": 6,
+      "expr": "(6 - 38 * 3) / 9",
+      "truth": -12,
+      "solo": 10.0,
+      "graph": 12.0,
+      "template_hit": true,
+      "trecord": 12.0,
+      "tmodel": 12.0,
+      "tmodel_verified": true
+    },
+    {
+      "model": "qwen-35b",
+      "i": 7,
+      "expr": "(26 + 6 * 2) / 2",
+      "truth": 19,
+      "solo": 17.0,
+      "graph": 19.0,
+      "template_hit": true,
+      "trecord": 19.0,
+      "tmodel": 19.0,
+      "tmodel_verified": true
+    },
+    {
+      "model": "qwen-35b",
+      "i": 8,
+      "expr": "(60 - 5 + 9) / 16",
+      "truth": 4,
+      "solo": 3.0,
+      "graph": 4.0,
+      "template_hit": true,
+      "trecord": 4.0,
+      "tmodel": 4.0,
+      "tmodel_verified": true
+    },
+    {
+      "model": "qwen-35b",
+      "i": 9,
+      "expr": "(6 + 38 + 12) / 7",
+      "truth": 8,
+      "solo": 7.0,
+      "graph": 8.0,
+      "template_hit": true,
+      "trecord": 8.0,
+      "tmodel": 8.0,
+      "tmodel_verified": true
+    },
+    {
+      "model": "qwen-35b",
+      "i": 10,
+      "expr": "(7 + 21 + 7) / 5",
+      "truth": 7,
+      "solo": 7.0,
+      "graph": 7.0,
+      "template_hit": true,
+      "trecord": 7.0,
+      "tmodel": 7.0,
+      "tmodel_verified": true
+    },
+    {
+      "model": "qwen-35b",
+      "i": 11,
+      "expr": "(53 + 33 + 4) / 6",
+      "truth": 15,
+      "solo": 16.0,
+      "graph": 15.0,
+      "template_hit": true,
+      "trecord": 15.0,
+      "tmodel": 15.0,
+      "tmodel_verified": true
+    },
+    {
+      "model": "qwen-35b",
+      "i": 12,
+      "expr": "(48 - 10 * 8) / 16",
+      "truth": -2,
+      "solo": 1.0,
+      "graph": 2.0,
+      "template_hit": true,
+      "trecord": 2.0,
+      "tmodel": 2.0,
+      "tmodel_verified": true
+    },
+    {
+      "model": "qwen-35b",
+      "i": 13,
+      "expr": "(28 - 15 + 2) / 3",
+      "truth": 5,
+      "solo": 5.0,
+      "graph": 5.0,
+      "template_hit": true,
+      "trecord": 5.0,
+      "tmodel": 5.0,
+      "tmodel_verified": true
+    },
+    {
+      "model": "qwen-35b",
+      "i": 14,
+      "expr": "(15 + 13 * 8) / 7",
+      "truth": 17,
+      "solo": 29.0,
+      "graph": 17.0,
+      "template_hit": true,
+      "trecord": 17.0,
+      "tmodel": 17.0,
+      "tmodel_verified": true
+    },
+    {
+      "model": "qwen-35b",
+      "i": 15,
+      "expr": "(15 + 30 + 6) / 17",
+      "truth": 3,
+      "solo": 3.0,
+      "graph": 3.0,
+      "template_hit": true,
+      "trecord": 3.0,
+      "tmodel": 3.0,
+      "tmodel_verified": true
+    },
+    {
+      "model": "qwen-35b",
+      "i": 16,
+      "expr": "(26 + 6 * 3) / 4",
+      "truth": 11,
+      "solo": 9.0,
+      "graph": 11.0,
+      "template_hit": true,
+      "trecord": 11.0,
+      "tmodel": 11.0,
+      "tmodel_verified": true
+    },
+    {
+      "model": "qwen-35b",
+      "i": 17,
+      "expr": "(39 + 32 + 11) / 2",
+      "truth": 41,
+      "solo": 41.0,
+      "graph": 41.0,
+      "template_hit": true,
+      "trecord": 41.0,
+      "tmodel": 41.0,
+      "tmodel_verified": true
+    },
+    {
+      "model": "qwen-35b",
+      "i": 18,
+      "expr": "(42 + 11 * 6) / 6",
+      "truth": 18,
+      "solo": 11.0,
+      "graph": 18.0,
+      "template_hit": true,
+      "trecord": 18.0,
+      "tmodel": 18.0,
+      "tmodel_verified": true
+    },
+    {
+      "model": "qwen-35b",
+      "i": 19,
+      "expr": "(7 + 28 * 2) / 3",
+      "truth": 21,
+      "solo": 19.0,
+      "graph": 21.0,
+      "template_hit": true,
+      "trecord": 21.0,
+      "tmodel": 21.0,
+      "tmodel_verified": true
+    }
+  ]
+}

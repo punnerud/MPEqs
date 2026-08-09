@@ -1,0 +1,136 @@
+{
+  "n": 9000,
+  "buckets": 3,
+  "rows": [
+    {
+      "stage": "6000",
+      "signal": "layer-cluster",
+      "op_lift": 1.4493,
+      "carry_lift": 1.0074,
+      "op_between_over_within": null,
+      "carry_between_over_within": null,
+      "accuracy_by_op": {
+        "+": 0.072,
+        "-": 0.077,
+        "x": 0.001
+      }
+    },
+    {
+      "stage": "6000",
+      "signal": "entropy",
+      "op_lift": 2.0433,
+      "carry_lift": 1.0,
+      "op_between_over_within": 18.78045,
+      "carry_between_over_within": 0.00249,
+      "accuracy_by_op": {
+        "+": 0.072,
+        "-": 0.077,
+        "x": 0.001
+      }
+    },
+    {
+      "stage": "6000",
+      "signal": "loss",
+      "op_lift": 2.0223,
+      "carry_lift": 1.0018,
+      "op_between_over_within": 11.03896,
+      "carry_between_over_within": 0.00461,
+      "accuracy_by_op": {
+        "+": 0.072,
+        "-": 0.077,
+        "x": 0.001
+      }
+    },
+    {
+      "stage": "6000",
+      "signal": "gradnorm",
+      "op_lift": 1.0087,
+      "carry_lift": 1.0,
+      "op_between_over_within": 8e-05,
+      "carry_between_over_within": 0.00033,
+      "accuracy_by_op": {
+        "+": 0.072,
+        "-": 0.077,
+        "x": 0.001
+      }
+    },
+    {
+      "stage": "6000",
+      "signal": "residual (MPEE)",
+      "op_lift": 1.3427,
+      "carry_lift": 1.0478,
+      "op_between_over_within": 0.09491,
+      "carry_between_over_within": 0.00281,
+      "accuracy_by_op": {
+        "+": 0.072,
+        "-": 0.077,
+        "x": 0.001
+      }
+    },
+    {
+      "stage": "19200",
+      "signal": "layer-cluster",
+      "op_lift": 1.6603,
+      "carry_lift": 1.0005,
+      "op_between_over_within": null,
+      "carry_between_over_within": null,
+      "accuracy_by_op": {
+        "+": 0.836,
+        "-": 0.82,
+        "x": 0.005
+      }
+    },
+    {
+      "stage": "19200",
+      "signal": "entropy",
+      "op_lift": 2.022,
+      "carry_lift": 1.0,
+      "op_between_over_within": 59.20119,
+      "carry_between_over_within": 0.00664,
+      "accuracy_by_op": {
+        "+": 0.836,
+        "-": 0.82,
+        "x": 0.005
+      }
+    },
+    {
+      "stage": "19200",
+      "signal": "loss",
+      "op_lift": 2.0113,
+      "carry_lift": 1.006,
+      "op_between_over_within": 24.06491,
+      "carry_between_over_within": 0.00633,
+      "accuracy_by_op": {
+        "+": 0.836,
+        "-": 0.82,
+        "x": 0.005
+      }
+    },
+    {
+      "stage": "19200",
+      "signal": "gradnorm",
+      "op_lift": 1.032,
+      "carry_lift": 1.0138,
+      "op_between_over_within": 0.00074,
+      "carry_between_over_within": 0.00135,
+      "accuracy_by_op": {
+        "+": 0.836,
+        "-": 0.82,
+        "x": 0.005
+      }
+    },
+    {
+      "stage": "19200",
+      "signal": "residual (MPEE)",
+      "op_lift": 1.2157,
+      "carry_lift": 1.0097,
+      "op_between_over_within": 0.06551,
+      "carry_between_over_within": 0.00499,
+      "accuracy_by_op": {
+        "+": 0.836,
+        "-": 0.82,
+        "x": 0.005
+      }
+    }
+  ]
+}

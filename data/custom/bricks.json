@@ -1,0 +1,47 @@
+{
+  "bricks": 32,
+  "tasks": 5,
+  "found": 5,
+  "exact": 5,
+  "reverse_reciprocal": 5,
+  "fanout_matches_direct": true,
+  "types_explored_total": 122,
+  "kmh_to_fts_100": "312500/3429",
+  "rows": [
+    {
+      "task": "km/hour -> foot/second",
+      "found": true,
+      "chain_len": 6,
+      "exact": true,
+      "explored_types": 34
+    },
+    {
+      "task": "mile/gallon -> km/litre",
+      "found": true,
+      "chain_len": 2,
+      "exact": true,
+      "explored_types": 3
+    },
+    {
+      "task": "g/ml -> pound/gallon",
+      "found": true,
+      "chain_len": 4,
+      "exact": true,
+      "explored_types": 9
+    },
+    {
+      "task": "yard/minute -> mm/second",
+      "found": true,
+      "chain_len": 5,
+      "exact": true,
+      "explored_types": 19
+    },
+    {
+      "task": "mile/hour^2 -> m/second^2",
+      "found": true,
+      "chain_len": 6,
+      "exact": true,
+      "explored_types": 57
+    }
+  ]
+}

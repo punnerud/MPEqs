@@ -1,0 +1,43 @@
+{
+  "matrix": "matrix-expgeo6.matx",
+  "n": 64,
+  "quantum": 0.003754808535296766,
+  "tol_units": 1,
+  "spread": {
+    "mean": 3.7548085352967657,
+    "stddev": 1.5234197716867777,
+    "coefficient_of_variation": 0.4057250209607219,
+    "p01": 0.762277364730835,
+    "p99": 6.823625564575195,
+    "dynamic_range": 8.951630837135852
+  },
+  "triangle": {
+    "triples": 953567,
+    "violations": 0,
+    "violation_pct": 0.0,
+    "max_violation": 0.0,
+    "max_relative": 0.0,
+    "mean_relative_violation": 0.0,
+    "is_metric": true
+  },
+  "clusters": {
+    "k": 8,
+    "intra_over_inter": 0.4528344296448239,
+    "mean_silhouette": 0.26018174653389486,
+    "smallest_cluster": 5,
+    "largest_cluster": 12
+  },
+  "rank1": {
+    "blocks": 56,
+    "mean_residual_ratio": 0.15634348024485561,
+    "cells_within_tol_pct": 50.90497737556561,
+    "blocks_fully_within_tol_pct": 0.0,
+    "degenerate_blocks": 0,
+    "varint_ratio": 0.3304581447963801,
+    "deflate_ratio": 0.19923642533936653,
+    "mean_only_residual_ratio": 0.25357203446351967,
+    "rank1_gain_over_mean_pct": 38.34356356542619
+  },
+  "predicted_ratio": 5.01916252661462,
+  "verdict": "MARGINAL — the base fits, but almost no block is exact, so nothing can be read without decoding."
+}

@@ -1,0 +1,38 @@
+{
+  "n": 3893,
+  "dim": 384,
+  "by_k": [
+    {
+      "k": 4,
+      "mean_hops": 11.16,
+      "median_hops": 11,
+      "p99_hops": 19,
+      "max_hops": 24,
+      "reachable_pct": 88.4
+    },
+    {
+      "k": 8,
+      "mean_hops": 6.84,
+      "median_hops": 7,
+      "p99_hops": 12,
+      "max_hops": 15,
+      "reachable_pct": 95.5
+    },
+    {
+      "k": 16,
+      "mean_hops": 4.81,
+      "median_hops": 5,
+      "p99_hops": 8,
+      "max_hops": 10,
+      "reachable_pct": 100.0
+    },
+    {
+      "k": 32,
+      "mean_hops": 3.57,
+      "median_hops": 4,
+      "p99_hops": 5,
+      "max_hops": 6,
+      "reachable_pct": 100.0
+    }
+  ]
+}

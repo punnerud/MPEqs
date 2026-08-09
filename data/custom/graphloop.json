@@ -1,0 +1,126 @@
+{
+  "n_expert": 32,
+  "steps": 2500,
+  "rows": [
+    {
+      "hops": 2,
+      "graph_routing": false,
+      "lambda": 0.0,
+      "exact_accuracy": 1.0,
+      "experts_scored_per_hop": [
+        32.0,
+        32.0
+      ],
+      "mean_experts_scored": 32.0,
+      "avg_graph_degree": 18.3,
+      "block_fetches_per_problem": 6.283,
+      "distinct_blocks_per_problem": 3.307
+    },
+    {
+      "hops": 2,
+      "graph_routing": false,
+      "lambda": 0.3,
+      "exact_accuracy": 1.0,
+      "experts_scored_per_hop": [
+        32.0,
+        32.0
+      ],
+      "mean_experts_scored": 32.0,
+      "avg_graph_degree": 23.3,
+      "block_fetches_per_problem": 4.697,
+      "distinct_blocks_per_problem": 3.417
+    },
+    {
+      "hops": 2,
+      "graph_routing": true,
+      "lambda": 0.0,
+      "exact_accuracy": 1.0,
+      "experts_scored_per_hop": [
+        32.0,
+        14.9
+      ],
+      "mean_experts_scored": 23.5,
+      "avg_graph_degree": 18.6,
+      "block_fetches_per_problem": 6.287,
+      "distinct_blocks_per_problem": 3.32
+    },
+    {
+      "hops": 2,
+      "graph_routing": true,
+      "lambda": 0.3,
+      "exact_accuracy": 1.0,
+      "experts_scored_per_hop": [
+        32.0,
+        11.9
+      ],
+      "mean_experts_scored": 22.0,
+      "avg_graph_degree": 23.3,
+      "block_fetches_per_problem": 4.623,
+      "distinct_blocks_per_problem": 3.107
+    },
+    {
+      "hops": 4,
+      "graph_routing": false,
+      "lambda": 0.0,
+      "exact_accuracy": 1.0,
+      "experts_scored_per_hop": [
+        32.0,
+        32.0,
+        32.0,
+        32.0
+      ],
+      "mean_experts_scored": 32.0,
+      "avg_graph_degree": 26.1,
+      "block_fetches_per_problem": 12.877,
+      "distinct_blocks_per_problem": 4.46
+    },
+    {
+      "hops": 4,
+      "graph_routing": false,
+      "lambda": 0.3,
+      "exact_accuracy": 1.0,
+      "experts_scored_per_hop": [
+        32.0,
+        32.0,
+        32.0,
+        32.0
+      ],
+      "mean_experts_scored": 32.0,
+      "avg_graph_degree": 31.0,
+      "block_fetches_per_problem": 9.683,
+      "distinct_blocks_per_problem": 4.853
+    },
+    {
+      "hops": 4,
+      "graph_routing": true,
+      "lambda": 0.0,
+      "exact_accuracy": 1.0,
+      "experts_scored_per_hop": [
+        32.0,
+        16.2,
+        16.0,
+        15.9
+      ],
+      "mean_experts_scored": 20.0,
+      "avg_graph_degree": 27.0,
+      "block_fetches_per_problem": 13.0,
+      "distinct_blocks_per_problem": 4.5
+    },
+    {
+      "hops": 4,
+      "graph_routing": true,
+      "lambda": 0.3,
+      "exact_accuracy": 1.0,
+      "experts_scored_per_hop": [
+        32.0,
+        15.0,
+        15.5,
+        15.7
+      ],
+      "mean_experts_scored": 19.5,
+      "avg_graph_degree": 30.9,
+      "block_fetches_per_problem": 9.73,
+      "distinct_blocks_per_problem": 4.45
+    }
+  ]
+}

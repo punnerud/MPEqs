@@ -1,0 +1,33 @@
+{
+  "model": "qwen-35b",
+  "registered": 3,
+  "tasks": 4,
+  "rows": [
+    {
+      "task": "absval",
+      "stage": "registered",
+      "probes": 12,
+      "applied": false,
+      "why": "unsupported: `absval` refuses row Int(2) of `t_absval.v` (value Int(0): division by zero); the run is aborted \u2014 a partia"
+    },
+    {
+      "task": "tens",
+      "stage": "refused",
+      "error": "unsupported: `tens` was declared residual but not bijective: forward(Int(1)) = Int(0), but inverse of that is Int(0), not Int(1)"
+    },
+    {
+      "task": "evenhalf",
+      "stage": "registered",
+      "probes": 12,
+      "applied": false,
+      "why": "unsupported: `evenhalf` refuses row Int(2) of `t_evenhalf.v` (value Int(0): division by zero); the run is aborted \u2014 a pa"
+    },
+    {
+      "task": "offset",
+      "stage": "registered",
+      "probes": 12,
+      "applied": false,
+      "why": "unsupported: `offset` refuses row Int(2) of `t_offset.v` (value Int(0): division by zero); the run is aborted \u2014 a partia"
+    }
+  ]
+}

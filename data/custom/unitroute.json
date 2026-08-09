@@ -1,0 +1,12 @@
+{
+  "edges": 16,
+  "units": 20,
+  "simple_pairs": 94,
+  "reverse_exact": 94,
+  "speed_conversions": 1560,
+  "compound_conversions": 7652,
+  "example_kmh": 17380.9152,
+  "rate_checks_exact": 4,
+  "dim_accepted": 2,
+  "dim_refused": 2
+}

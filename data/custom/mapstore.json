@@ -1,0 +1,477 @@
+{
+  "summary": {
+    "store_kept": 1554,
+    "store_failed_exec": 106,
+    "store_failed_round": 312,
+    "plan_shapes": 599,
+    "tests": 60,
+    "compatible": 56,
+    "solved": 0
+  },
+  "rows": [
+    {
+      "q": "John's car breaks down.  The car weighs 1200 pounds and he has luggage",
+      "template": "There are <N> people going on an airplane trip.  They each have <N> ba",
+      "sim": 0.6232320070266724,
+      "got": "-5625746534523645/281474976710656",
+      "truth": "16",
+      "ok": false
+    },
+    {
+      "q": "The bakers at the Beverly Hills Bakery baked 200 loaves of bread on Mo",
+      "template": "Jim is baking loaves of bread. He has <N>g of flour in the cupboard <N",
+      "sim": 0.6893156170845032,
+      "got": "8691947280825057/4503599627370496",
+      "truth": "74",
+      "ok": false
+    },
+    {
+      "q": "Cindy's math and science books weigh 2 pounds each.  Her French book w",
+      "template": "Brenda weighs <N> pounds more than <N> times Mel's weight. If Brenda w",
+      "sim": 0.715800940990448,
+      "got": "105/2",
+      "truth": "17",
+      "ok": false
+    },
+    {
+      "q": "A crocodile grows 8 inches long in 4 years. At this rate, how many inc",
+      "template": "Haley grows at the rate of <N> inches every year. If she is currently ",
+      "sim": 0.5969099402427673,
+      "got": "108",
+      "truth": "26",
+      "ok": false
+    },
+    {
+      "q": "A raspberry bush has 6 clusters of 20 fruit each and 67 individual fru",
+      "template": "Tom's fruit bowl contains <N> oranges and <N> lemons. After Tom eats <",
+      "sim": 0.6400377154350281,
+      "got": "23",
+      "truth": "187",
+      "ok": false
+    },
+    {
+      "q": "Kim sleepwalks, to monitor her sleeping hours, she installs a camera i",
+      "stage": "no compatible template"
+    },
+    {
+      "q": "For a New Year's resolution, Andy wants to lose 30 lbs. by his birthda",
+      "template": "Ian is looking to lose some weight.  He decides to start jogging aroun",
+      "sim": 0.6316593885421753,
+      "got": "5674898724005161/70368744177664",
+      "truth": "525",
+      "ok": false
+    },
+    {
+      "q": "John has 3 boxes.  Each box is 5 inches by 6 inches by 4 inches.  The ",
+      "template": "A box is <N> inches in height <N> inches in width and <N> inches in le",
+      "sim": 0.6519581079483032,
+      "got": "15/2",
+      "truth": "72",
+      "ok": false
+    },
+    {
+      "q": "A magazine costs half as much as a book. The book costs $4. A pen cost",
+      "template": "There were <N> dollars in the cookie jar. Doris spent <N> from the coo",
+      "sim": 0.6196527481079102,
+      "got": "-5",
+      "truth": "1",
+      "ok": false
+    },
+    {
+      "q": "Kylie and Robert enjoy going to the beach to collect shells. On Monday",
+      "template": "Jillian Savannah and Clayton were collecting shells on the beach. Jill",
+      "sim": 0.6470107436180115,
+      "got": "27/2",
+      "truth": "50",
+      "ok": false
+    },
+    {
+      "q": "Two thirds of Jana's puppies are Pomeranians. One third of the Pomeran",
+      "template": "Lizzie has half as many crayons as Bobbie. Bobbie has three times as m",
+      "sim": 0.6653686761856079,
+      "got": "9",
+      "truth": "27",
+      "ok": false
+    },
+    {
+      "q": "A pirate crew is digging for buried treasure on the island marked X on",
+      "template": "Guise went to a restaurant and ate ten hot dogs on a Monday. That week",
+      "sim": 0.4988058805465698,
+      "got": "36",
+      "truth": "11",
+      "ok": false
+    },
+    {
+      "q": "Suzie loves to chew fruit-flavored gum. She bought four packs of gum t",
+      "template": "Connie redeemed all her arcade tickets today. She spent half of them o",
+      "sim": 0.6867222785949707,
+      "got": "18",
+      "truth": "2",
+      "ok": false
+    },
+    {
+      "q": "The Llesis family drove and hiked 6 hours to their vacation spot. They",
+      "template": "Tamika drove for <N> hours at an average speed of <N> miles per hour. ",
+      "sim": 0.7099844217300415,
+      "got": "25",
+      "truth": "255",
+      "ok": false
+    },
+    {
+      "q": "The temperature was 2 degrees Celsius. It dropped 8 degrees Celsius ov",
+      "template": "In one hour Addison mountain's temperature will decrease to <N>/<N>  o",
+      "sim": 0.6742541790008545,
+      "got": "-60",
+      "truth": "-3",
+      "ok": false
+    },
+    {
+      "q": "Rose went to the store on Monday and bought 4 cakes. Tuesday she went ",
+      "template": "Ali has a small flower shop. He sold <N> flowers on Monday <N> flowers",
+      "sim": 0.6760079264640808,
+      "got": "17",
+      "truth": "76",
+      "ok": false
+    },
+    {
+      "q": "In the first half of a soccer match, team A scores 4 goals while team ",
+      "template": "Taro and Vlad play a video game competition together earning <N> point",
+      "sim": 0.5278112888336182,
+      "got": "-78",
+      "truth": "16",
+      "ok": false
+    },
+    {
+      "q": "Mishka bought 3 pairs of shorts, 3 pairs of pants, and 3 pairs of shoe",
+      "template": "Josh went to the shopping center. He bought <N> films and <N> books. H",
+      "sim": 0.6908154487609863,
+      "got": "369/2",
+      "truth": "243",
+      "ok": false
+    },
+    {
+      "q": "Jon runs a triathlon.  It takes him 40 minutes for the swim, an hour a",
+      "stage": "no compatible template"
+    },
+    {
+      "q": "If it takes 3 kangaroos traveling at the same speed a total of 18 hour",
+      "template": "Greta George and Gloria entered their turtles in the Key West Turtle R",
+      "sim": 0.6664364337921143,
+      "got": "8",
+      "truth": "48",
+      "ok": false
+    },
+    {
+      "q": "Ford owns a garden and he grows 40 roses every week. He supplies Roses",
+      "template": "Wilma has a garden with <N> types of flowers. The garden has <N> rows ",
+      "sim": 0.6639960408210754,
+      "got": "264",
+      "truth": "100",
+      "ok": false
+    },
+    {
+      "q": "Hallie had dance practice for 1 hour on Tuesdays and 2 hours on Thursd",
+      "template": "Jake is watching a new show and is worried about how much time he has ",
+      "sim": 0.6422823071479797,
+      "got": "-31",
+      "truth": "5",
+      "ok": false
+    },
+    {
+      "q": "Carrie is planning the caroling schedule. The choir plans to sing \"Dec",
+      "template": "James buys <N> CDs.  Two of them are <N> hours each.  The last one is ",
+      "sim": 0.5971737504005432,
+      "got": "960",
+      "truth": "540",
+      "ok": false
+    },
+    {
+      "q": "Some people got on a bus at the terminal. At the first bus stop, 5 mor",
+      "template": "<N> people run for president.  John manages to capture <N> votes. Jame",
+      "sim": 0.6600053906440735,
+      "got": "-980",
+      "truth": "14",
+      "ok": false
+    },
+    {
+      "q": "Debra is monitoring a beehive to see how many bees come and go in a da",
+      "stage": "no compatible template"
+    },
+    {
+      "q": "Alani's family decided that the children should write stories of any k",
+      "template": "If Janet reads <N> pages a day and Belinda reads <N> pages a day how m",
+      "sim": 0.5662062764167786,
+      "got": "-4200",
+      "truth": "360",
+      "ok": false
+    },
+    {
+      "q": "Tim wanted to make lemonade for a pool party.  For a gallon of lemonad",
+      "template": "Andy is mixing blue green and white paint in a <N> : <N> : <N> ratio. ",
+      "sim": 0.6352841854095459,
+      "got": "22",
+      "truth": "36",
+      "ok": false
+    },
+    {
+      "q": "Garrett is popping popcorn for a snack. As the pan of kernels heats up",
+      "template": "While cultivating a small farm a farmer spent <N> on corn seeds <N> on",
+      "sim": 0.5529220700263977,
+      "got": "4",
+      "truth": "210",
+      "ok": false
+    },
+    {
+      "q": "Colby works for a manufacturing company in the packaging division.  He",
+      "template": "During the holidays Lance works as a merchandiser. He works <N> hours ",
+      "sim": 0.6992658972740173,
+      "got": "1",
+      "truth": "64",
+      "ok": false
+    },
+    {
+      "q": "Andrea has 8 more apples than Jamal and half as many bananas as Jamal.",
+      "template": "Suraya picked <N> apples more than Caleb and Caleb picked <N> apples l",
+      "sim": 0.742906928062439,
+      "got": "35",
+      "truth": "168",
+      "ok": false
+    },
+    {
+      "q": "Mary buys 3 bags of M&Ms. The first bag has 300 M&Ms in it. The second",
+      "template": "MIlle is making snack packs for her kindergarten class. She's going to",
+      "sim": 0.6361833214759827,
+      "got": "105/4",
+      "truth": "762",
+      "ok": false
+    },
+    {
+      "q": "James decides to run 3 sprints 3 times a week.  He runs 60 meters each",
+      "template": "Ayen jogs for <N> minutes every day during weekdays. This week on Tues",
+      "sim": 0.7016861438751221,
+      "got": "5854679515581645/4503599627370496",
+      "truth": "540",
+      "ok": false
+    },
+    {
+      "q": "A new program had 60 downloads in the first month. The number of downl",
+      "template": "Bobby has <N> toy cars and the number of cars he has increases by <N>%",
+      "sim": 0.636839747428894,
+      "got": "405/2",
+      "truth": "366",
+      "ok": false
+    },
+    {
+      "q": "A food caterer was told to prepare gourmet hot dogs for 36 guests. Whi",
+      "template": "Sarah Mary and Tuan decided to go to the restaurant for a meal. They d",
+      "sim": 0.6339923143386841,
+      "got": "6004799503160661/562949953421312",
+      "truth": "26",
+      "ok": false
+    },
+    {
+      "q": "Two sisters, Elizabeth and Margareth, bought beads. Elizabeth bought 1",
+      "stage": "no compatible template"
+    },
+    {
+      "q": "Farmer Brown has 60 animals on his farm, all either chickens or cows. ",
+      "template": "Farmer Brown raises emus large birds. His flock has a total of <N> hea",
+      "sim": 0.7585349082946777,
+      "got": "20",
+      "truth": "160",
+      "ok": false
+    },
+    {
+      "q": "Josh decides to take up juggling to perform at the school talent show ",
+      "template": "Jeanette is practicing her juggling. Each week she can juggle <N> more",
+      "sim": 0.6340471506118774,
+      "got": "7",
+      "truth": "4",
+      "ok": false
+    },
+    {
+      "q": "Marilyn wants to buy a pair of boots online. On Amazon.com, the boots ",
+      "template": "John needs to replace his shoes so he decides to buy a <N> pair of Nik",
+      "sim": 0.551952600479126,
+      "got": "22",
+      "truth": "1",
+      "ok": false
+    },
+    {
+      "q": "James buys a new wardrobe.  He buys 10 suits and 10 dress pants.  He a",
+      "template": "A salesman bought a case of <N> backpacks for <N>. He sold <N> of them",
+      "sim": 0.7011757493019104,
+      "got": "659",
+      "truth": "10800",
+      "ok": false
+    },
+    {
+      "q": "Elliott is trying to walk 10,000 steps a day. He finished half of his ",
+      "template": "If Clover goes for a <N>-mile walk in the morning and another <N>-mile",
+      "sim": 0.633029580116272,
+      "got": "40000000",
+      "truth": "2000",
+      "ok": false
+    },
+    {
+      "q": "Caroline is three times older than Ben. Ben is two times older than Ch",
+      "template": "Tom\u2019s cat is <N> years old.  His rabbit is half the age of his cat.  H",
+      "sim": 0.630902111530304,
+      "got": "6",
+      "truth": "24",
+      "ok": false
+    },
+    {
+      "q": "Dexter has five pigs. Each one eats 4 pounds of feed, twice a day. If ",
+      "template": "James buys steaks for buy one get one free.  The price is <N> per poun",
+      "sim": 0.6433128118515015,
+      "got": "600",
+      "truth": "20",
+      "ok": false
+    },
+    {
+      "q": "Stanley was standing on the side of the mountain, at an elevation of 1",
+      "template": "Jason is climbing a telephone pole next to a tree his friend Matt is c",
+      "sim": 0.6402480602264404,
+      "got": "11999958",
+      "truth": "3000",
+      "ok": false
+    },
+    {
+      "q": "Mel uses a 900-watt air conditioner for 8 hours a day. This means that",
+      "template": "From March to August Sam made <N> doing <N> hours of yard work. Howeve",
+      "sim": 0.5383194088935852,
+      "got": "-1376099886140985/562949953421312",
+      "truth": "81",
+      "ok": false
+    },
+    {
+      "q": "Andy's car fuel efficiency is 10 MPG (miles per gallon). If the curren",
+      "template": "John uses <N> liters of fuel per km to travel. How many liters of fuel",
+      "sim": 0.6949794888496399,
+      "got": "80",
+      "truth": "15",
+      "ok": false
+    },
+    {
+      "q": "John decides to build a program capable of identifying cancer cells.  ",
+      "template": "John decides to install a ramp in his house.  He needs to get permits ",
+      "sim": 0.6339164972305298,
+      "got": "98700",
+      "truth": "1450000",
+      "ok": false
+    },
+    {
+      "q": "Charlie wants to sell beeswax candles.  For every pound of beeswax, he",
+      "template": "John buys <N> newspapers.  Each newspaper sells for <N>.  He sells <N>",
+      "sim": 0.7018970847129822,
+      "got": "-170",
+      "truth": "20",
+      "ok": false
+    },
+    {
+      "q": "Cecelia went to the milk store and found out that a gallon jar costs $",
+      "template": "Jackie's favorite cosmetic company was offering free shipping when you",
+      "sim": 0.5748999714851379,
+      "got": "12",
+      "truth": "98",
+      "ok": false
+    },
+    {
+      "q": "A farmer has 900 eggs. He placed them on a tray, which holds 30 eggs e",
+      "template": "A baker is making bread according to a recipe that requires him to use",
+      "sim": 0.7387735843658447,
+      "got": "2001599834386887/288230376151711744",
+      "truth": "75",
+      "ok": false
+    },
+    {
+      "q": "Carmen goes to an auction to win an antique desk. She accepts the open",
+      "template": "Tina is getting <N> for each book she sells. If she realizes a <N> pro",
+      "sim": 0.6896001100540161,
+      "got": "6158768721190421/72057594037927936",
+      "truth": "500",
+      "ok": false
+    },
+    {
+      "q": "$18 is shared among 3 boys. The eldest added $5 to his share and added",
+      "template": "<N> was divided between Kelvin and Samuel. Samuel received <N>/<N> of ",
+      "sim": 0.6833510398864746,
+      "got": "-2617717283409101/70368744177664",
+      "truth": "39",
+      "ok": false
+    },
+    {
+      "q": "On Monday, Walt walked 4 miles. Tuesday, he walked 6 times as many mil",
+      "template": "Tony has to run several errands in a day.  He needs to drive <N> miles",
+      "sim": 0.7496111392974854,
+      "got": "51/2",
+      "truth": "13",
+      "ok": false
+    },
+    {
+      "q": "If 6 potatoes makes 36 hash browns, how many hash browns can you make ",
+      "template": "Daphney buys <N> kg of potatoes at the supermarket. If <N> kg of potat",
+      "sim": 0.5078398585319519,
+      "got": "16",
+      "truth": "576",
+      "ok": false
+    },
+    {
+      "q": "Prince is a butcher. He sells 15kg of meat every hour he works, and he",
+      "template": "James buys <N> packs of beef that are <N> pounds each.  The price of b",
+      "sim": 0.7223567366600037,
+      "got": "825",
+      "truth": "5",
+      "ok": false
+    },
+    {
+      "q": "Michael is traveling on the interstate at an average speed of 50km/hr ",
+      "template": "John gets lost on his way home.  His normal trip is <N> miles and woul",
+      "sim": 0.6480276584625244,
+      "got": "5",
+      "truth": "60",
+      "ok": false
+    },
+    {
+      "q": "Eight more than four times the number of coffee mugs in the teacher\u2019s ",
+      "template": "Ivy baked <N> cupcakes in the morning and fifteen more cupcakes in the",
+      "sim": 0.5822983980178833,
+      "got": "95",
+      "truth": "8",
+      "ok": false
+    },
+    {
+      "q": "Toulouse has twice as many sheep as Charleston. Charleston has 4 times",
+      "template": "A farmer has twice as many pigs as cows and <N> more cows than goats. ",
+      "sim": 0.6520287990570068,
+      "got": "11",
+      "truth": "260",
+      "ok": false
+    },
+    {
+      "q": "Ian has a board that is 40 feet long. He decides to make a cut so he c",
+      "template": "Mark made a chalkboard that is <N> feet wide. It is <N> times as long ",
+      "sim": 0.6450718641281128,
+      "got": "6400",
+      "truth": "32",
+      "ok": false
+    },
+    {
+      "q": "A certain company is in the business of selling fresh fruit. One crate",
+      "template": "A bag of dozen apples costs <N> and Brian has already spent <N> on kiw",
+      "sim": 0.6860824823379517,
+      "got": "24",
+      "truth": "32",
+      "ok": false
+    },
+    {
+      "q": "Brian's friend Bobby has 5 fewer than 3 times as many video games as B",
+      "template": "A basketball team played <N> games and won <N>% of the games. It still",
+      "sim": 0.5573991537094116,
+      "got": "18",
+      "truth": "40",
+      "ok": false
+    }
+  ]
+}

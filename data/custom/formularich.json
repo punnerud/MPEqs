@@ -1,0 +1,171 @@
+{
+  "summary": {
+    "unique": 40,
+    "unique_right": 40,
+    "ambiguous": 0,
+    "ambig_contains": 0,
+    "no_route": 0
+  },
+  "rows": [
+    {
+      "kind": "rate_time",
+      "n": 1
+    },
+    {
+      "kind": "price",
+      "n": 1
+    },
+    {
+      "kind": "rate_time",
+      "n": 1
+    },
+    {
+      "kind": "speed",
+      "n": 1
+    },
+    {
+      "kind": "rate_time",
+      "n": 1
+    },
+    {
+      "kind": "price",
+      "n": 1
+    },
+    {
+      "kind": "speed",
+      "n": 1
+    },
+    {
+      "kind": "price",
+      "n": 1
+    },
+    {
+      "kind": "density",
+      "n": 1
+    },
+    {
+      "kind": "speed",
+      "n": 1
+    },
+    {
+      "kind": "speed",
+      "n": 1
+    },
+    {
+      "kind": "price",
+      "n": 1
+    },
+    {
+      "kind": "speed",
+      "n": 1
+    },
+    {
+      "kind": "density",
+      "n": 1
+    },
+    {
+      "kind": "speed",
+      "n": 1
+    },
+    {
+      "kind": "price",
+      "n": 1
+    },
+    {
+      "kind": "speed",
+      "n": 1
+    },
+    {
+      "kind": "speed",
+      "n": 1
+    },
+    {
+      "kind": "price",
+      "n": 1
+    },
+    {
+      "kind": "speed",
+      "n": 1
+    },
+    {
+      "kind": "speed",
+      "n": 1
+    },
+    {
+      "kind": "speed",
+      "n": 1
+    },
+    {
+      "kind": "rate_time",
+      "n": 1
+    },
+    {
+      "kind": "speed",
+      "n": 1
+    },
+    {
+      "kind": "rate_time",
+      "n": 1
+    },
+    {
+      "kind": "density",
+      "n": 1
+    },
+    {
+      "kind": "density",
+      "n": 1
+    },
+    {
+      "kind": "rate_time",
+      "n": 1
+    },
+    {
+      "kind": "price",
+      "n": 1
+    },
+    {
+      "kind": "price",
+      "n": 1
+    },
+    {
+      "kind": "density",
+      "n": 1
+    },
+    {
+      "kind": "density",
+      "n": 1
+    },
+    {
+      "kind": "price",
+      "n": 1
+    },
+    {
+      "kind": "speed",
+      "n": 1
+    },
+    {
+      "kind": "density",
+      "n": 1
+    },
+    {
+      "kind": "price",
+      "n": 1
+    },
+    {
+      "kind": "speed",
+      "n": 1
+    },
+    {
+      "kind": "speed",
+      "n": 1
+    },
+    {
+      "kind": "rate_time",
+      "n": 1
+    },
+    {
+      "kind": "density",
+      "n": 1
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "add": {
+    "n": 50000,
+    "dim": 64,
+    "hops": 3,
+    "steps": 9600,
+    "a_digits": 3,
+    "b_digits": 3,
+    "ops": [
+      "+",
+      "-"
+    ],
+    "holdout_accuracy": 0.7305,
+    "meta_fields": [
+      "carries",
+      "op",
+      "a_digits",
+      "b_digits",
+      "correct"
+    ],
+    "layer_files": [
+      "add-L0.f32",
+      "add-L1.f32",
+      "add-L2.f32"
+    ],
+    "seconds": 111.8
+  },
+  "mul": {
+    "n": 50000,
+    "dim": 64,
+    "hops": 3,
+    "steps": 9600,
+    "a_digits": 3,
+    "b_digits": 2,
+    "ops": [
+      "x"
+    ],
+    "holdout_accuracy": 0.0464,
+    "meta_fields": [
+      "carries",
+      "op",
+      "a_digits",
+      "b_digits",
+      "correct"
+    ],
+    "layer_files": [
+      "mul-L0.f32",
+      "mul-L1.f32",
+      "mul-L2.f32"
+    ],
+    "seconds": 117.2
+  }
+}

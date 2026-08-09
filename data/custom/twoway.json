@@ -1,0 +1,268 @@
+{
+  "numeric": {
+    "tasks": 12,
+    "detected": 12,
+    "localised": 11,
+    "repaired": 11,
+    "clean_zero": 11,
+    "runs": [
+      {
+        "a": 859,
+        "b": 467,
+        "truth": 1326,
+        "corrupt_col": 2,
+        "forward": 1426,
+        "residue": 1,
+        "per_col": [
+          0,
+          0,
+          1
+        ],
+        "located": 2,
+        "repaired": 1326,
+        "calls": 6,
+        "clean_residue": 0,
+        "clean_forward": 1326
+      },
+      {
+        "a": 961,
+        "b": 857,
+        "truth": 1818,
+        "corrupt_col": 2,
+        "forward": 1918,
+        "residue": 10,
+        "per_col": [
+          1,
+          0,
+          -9
+        ],
+        "located": 0,
+        "repaired": 1918,
+        "calls": 6,
+        "clean_residue": 1,
+        "clean_forward": 1818
+      },
+      {
+        "a": 960,
+        "b": 576,
+        "truth": 1536,
+        "corrupt_col": 0,
+        "forward": 1537,
+        "residue": 1,
+        "per_col": [
+          1,
+          0,
+          0
+        ],
+        "located": 0,
+        "repaired": 1536,
+        "calls": 6,
+        "clean_residue": 0,
+        "clean_forward": 1536
+      },
+      {
+        "a": 989,
+        "b": 352,
+        "truth": 1341,
+        "corrupt_col": 1,
+        "forward": 1351,
+        "residue": 1,
+        "per_col": [
+          0,
+          1,
+          0
+        ],
+        "located": 1,
+        "repaired": 1341,
+        "calls": 6,
+        "clean_residue": 0,
+        "clean_forward": 1341
+      },
+      {
+        "a": 687,
+        "b": 355,
+        "truth": 1042,
+        "corrupt_col": 0,
+        "forward": 1043,
+        "residue": 1,
+        "per_col": [
+          1,
+          0,
+          0
+        ],
+        "located": 0,
+        "repaired": 1042,
+        "calls": 6,
+        "clean_residue": 0,
+        "clean_forward": 1042
+      },
+      {
+        "a": 286,
+        "b": 988,
+        "truth": 1274,
+        "corrupt_col": 1,
+        "forward": 1284,
+        "residue": 1,
+        "per_col": [
+          0,
+          1,
+          0
+        ],
+        "located": 1,
+        "repaired": 1274,
+        "calls": 6,
+        "clean_residue": 0,
+        "clean_forward": 1274
+      },
+      {
+        "a": 263,
+        "b": 880,
+        "truth": 1143,
+        "corrupt_col": 0,
+        "forward": 1144,
+        "residue": 1,
+        "per_col": [
+          1,
+          0,
+          0
+        ],
+        "located": 0,
+        "repaired": 1143,
+        "calls": 6,
+        "clean_residue": 0,
+        "clean_forward": 1143
+      },
+      {
+        "a": 892,
+        "b": 320,
+        "truth": 1212,
+        "corrupt_col": 0,
+        "forward": 1213,
+        "residue": 1,
+        "per_col": [
+          1,
+          0,
+          0
+        ],
+        "located": 0,
+        "repaired": 1212,
+        "calls": 6,
+        "clean_residue": 0,
+        "clean_forward": 1212
+      },
+      {
+        "a": 993,
+        "b": 270,
+        "truth": 1263,
+        "corrupt_col": 1,
+        "forward": 1273,
+        "residue": 18,
+        "per_col": [
+          0,
+          -9,
+          -9
+        ],
+        "located": 1,
+        "repaired": 1263,
+        "calls": 6,
+        "clean_residue": 0,
+        "clean_forward": 1263
+      },
+      {
+        "a": 652,
+        "b": 997,
+        "truth": 1649,
+        "corrupt_col": 2,
+        "forward": 1749,
+        "residue": 1,
+        "per_col": [
+          0,
+          0,
+          1
+        ],
+        "located": 2,
+        "repaired": 1649,
+        "calls": 6,
+        "clean_residue": 0,
+        "clean_forward": 1649
+      },
+      {
+        "a": 286,
+        "b": 807,
+        "truth": 1093,
+        "corrupt_col": 0,
+        "forward": 1094,
+        "residue": 1,
+        "per_col": [
+          1,
+          0,
+          0
+        ],
+        "located": 0,
+        "repaired": 1093,
+        "calls": 6,
+        "clean_residue": 0,
+        "clean_forward": 1093
+      },
+      {
+        "a": 408,
+        "b": 937,
+        "truth": 1345,
+        "corrupt_col": 2,
+        "forward": 1445,
+        "residue": 1,
+        "per_col": [
+          0,
+          0,
+          1
+        ],
+        "located": 2,
+        "repaired": 1345,
+        "calls": 6,
+        "clean_residue": 0,
+        "clean_forward": 1345
+      }
+    ]
+  },
+  "procedural": {
+    "tasks": 3,
+    "correct": 2,
+    "runs": [
+      {
+        "task": "pour a glass of soda",
+        "ok": true,
+        "chain": [
+          "open fridge",
+          "take out bottle",
+          "unscrew cap",
+          "fetch glass",
+          "pour"
+        ],
+        "refused": 6,
+        "residue_left": []
+      },
+      {
+        "task": "build a table",
+        "ok": false,
+        "chain": [],
+        "refused": 14,
+        "residue_left": [
+          "table standing"
+        ]
+      },
+      {
+        "task": "make tea",
+        "ok": true,
+        "chain": [
+          "put teabag in cup",
+          "fill kettle",
+          "boil water",
+          "pour water into cup",
+          "remove teabag"
+        ],
+        "refused": 8,
+        "residue_left": []
+      }
+    ]
+  }
+}

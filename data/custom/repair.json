@@ -1,0 +1,22 @@
+{
+  "tasks": 80,
+  "hits": 76,
+  "covered": 76,
+  "defects": 1,
+  "repaired": 1,
+  "unrepairable": 0,
+  "ambiguous_stored": 4,
+  "templates": 4,
+  "events": [
+    {
+      "expr": "(12 - 4 * 5) / 4",
+      "skeleton": "(# - # * #) / #",
+      "survivors": 2,
+      "fit_new": 1,
+      "sources_used": 3,
+      "repaired": true,
+      "covers_all_old": true,
+      "covers_new": true
+    }
+  ]
+}

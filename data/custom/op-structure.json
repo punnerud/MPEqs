@@ -1,0 +1,41 @@
+{
+  "steps": 2500,
+  "rows": [
+    {
+      "lambda": 0.0,
+      "exact_accuracy": 1.0,
+      "overlap_plus_minus": 0.422,
+      "overlap_plus_times": 0.545,
+      "overlap_minus_times": 0.412,
+      "experts_used": 16,
+      "prediction_holds": false
+    },
+    {
+      "lambda": 0.1,
+      "exact_accuracy": 1.0,
+      "overlap_plus_minus": 0.528,
+      "overlap_plus_times": 0.54,
+      "overlap_minus_times": 0.435,
+      "experts_used": 15,
+      "prediction_holds": false
+    },
+    {
+      "lambda": 0.3,
+      "exact_accuracy": 1.0,
+      "overlap_plus_minus": 0.01,
+      "overlap_plus_times": 0.007,
+      "overlap_minus_times": 0.99,
+      "experts_used": 8,
+      "prediction_holds": false
+    },
+    {
+      "lambda": 1.0,
+      "exact_accuracy": 1.0,
+      "overlap_plus_minus": 0.0,
+      "overlap_plus_times": 0.0,
+      "overlap_minus_times": 1.0,
+      "experts_used": 8,
+      "prediction_holds": false
+    }
+  ]
+}

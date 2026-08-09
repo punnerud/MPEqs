@@ -1,0 +1,256 @@
+{
+  "numeric": {
+    "tasks": 20,
+    "whole_correct": 3,
+    "substituted_correct": 2,
+    "tokens_before": 9.0,
+    "tokens_after": 8.3,
+    "runs": [
+      {
+        "expr": "(22 + 11 * 8) / 22",
+        "truth": 5,
+        "whole": 5,
+        "substituted": 10,
+        "nodes": {
+          "Y": "11 * 8"
+        },
+        "refused": 1,
+        "calls": 4,
+        "tokens_before": 9,
+        "tokens_after": 7
+      },
+      {
+        "expr": "(37 + 29 * 2) / 5",
+        "truth": 19,
+        "whole": 10,
+        "substituted": 11,
+        "nodes": {
+          "Y": "29 * 2"
+        },
+        "refused": 1,
+        "calls": 4,
+        "tokens_before": 9,
+        "tokens_after": 7
+      },
+      {
+        "expr": "(38 + 39 * 8) / 2",
+        "truth": 175,
+        "whole": 37,
+        "substituted": 138,
+        "nodes": {
+          "Y": "38 + 39 * 8"
+        },
+        "refused": 2,
+        "calls": 5,
+        "tokens_before": 9,
+        "tokens_after": 5
+      },
+      {
+        "expr": "(38 + 21 * 10) / 8",
+        "truth": 31,
+        "whole": 8,
+        "substituted": 10,
+        "nodes": {
+          "Y": "21 * 10"
+        },
+        "refused": 1,
+        "calls": 4,
+        "tokens_before": 9,
+        "tokens_after": 7
+      },
+      {
+        "expr": "(38 + 14 * 7) / 2",
+        "truth": 68,
+        "whole": 22,
+        "substituted": 22,
+        "nodes": {},
+        "refused": 1,
+        "calls": 2,
+        "tokens_before": 9,
+        "tokens_after": 9
+      },
+      {
+        "expr": "(41 - 15 + 9) / 7",
+        "truth": 5,
+        "whole": 5,
+        "substituted": 5,
+        "nodes": {},
+        "refused": 1,
+        "calls": 2,
+        "tokens_before": 9,
+        "tokens_after": 9
+      },
+      {
+        "expr": "(39 - 31 * 7) / 2",
+        "truth": -89,
+        "whole": 8,
+        "substituted": 8,
+        "nodes": {},
+        "refused": 1,
+        "calls": 2,
+        "tokens_before": 9,
+        "tokens_after": 9
+      },
+      {
+        "expr": "(46 - 17 + 3) / 8",
+        "truth": 4,
+        "whole": 3,
+        "substituted": 8,
+        "nodes": {
+          "Y": "3"
+        },
+        "refused": 1,
+        "calls": 4,
+        "tokens_before": 9,
+        "tokens_after": 9
+      },
+      {
+        "expr": "(48 + 30 * 6) / 12",
+        "truth": 19,
+        "whole": 12,
+        "substituted": 18,
+        "nodes": {
+          "Y": "48"
+        },
+        "refused": 1,
+        "calls": 4,
+        "tokens_before": 9,
+        "tokens_after": 9
+      },
+      {
+        "expr": "(24 - 40 * 9) / 3",
+        "truth": -112,
+        "whole": -18,
+        "substituted": -18,
+        "nodes": {},
+        "refused": 1,
+        "calls": 2,
+        "tokens_before": 9,
+        "tokens_after": 9
+      },
+      {
+        "expr": "(19 + 32 * 12) / 13",
+        "truth": 31,
+        "whole": 5,
+        "substituted": 25,
+        "nodes": {
+          "Y": "32 * 12"
+        },
+        "refused": 1,
+        "calls": 4,
+        "tokens_before": 9,
+        "tokens_after": 7
+      },
+      {
+        "expr": "(58 - 24 + 2) / 3",
+        "truth": 12,
+        "whole": 8,
+        "substituted": 8,
+        "nodes": {},
+        "refused": 1,
+        "calls": 2,
+        "tokens_before": 9,
+        "tokens_after": 9
+      },
+      {
+        "expr": "(41 + 9 * 9) / 2",
+        "truth": 61,
+        "whole": 22,
+        "substituted": 22,
+        "nodes": {},
+        "refused": 1,
+        "calls": 2,
+        "tokens_before": 9,
+        "tokens_after": 9
+      },
+      {
+        "expr": "(12 - 30 * 8) / 6",
+        "truth": -38,
+        "whole": -6,
+        "substituted": -6,
+        "nodes": {},
+        "refused": 1,
+        "calls": 2,
+        "tokens_before": 9,
+        "tokens_after": 9
+      },
+      {
+        "expr": "(58 + 26 * 5) / 2",
+        "truth": 94,
+        "whole": 20,
+        "substituted": 20,
+        "nodes": {},
+        "refused": 1,
+        "calls": 2,
+        "tokens_before": 9,
+        "tokens_after": 9
+      },
+      {
+        "expr": "(11 + 16 * 12) / 29",
+        "truth": 7,
+        "whole": 6,
+        "substituted": 8,
+        "nodes": {
+          "Y": "16 * 12"
+        },
+        "refused": 1,
+        "calls": 4,
+        "tokens_before": 9,
+        "tokens_after": 7
+      },
+      {
+        "expr": "(55 - 39 + 4) / 2",
+        "truth": 10,
+        "whole": 8,
+        "substituted": 8,
+        "nodes": {},
+        "refused": 1,
+        "calls": 2,
+        "tokens_before": 9,
+        "tokens_after": 9
+      },
+      {
+        "expr": "(46 + 34 + 11) / 13",
+        "truth": 7,
+        "whole": 11,
+        "substituted": 11,
+        "nodes": {},
+        "refused": 1,
+        "calls": 2,
+        "tokens_before": 9,
+        "tokens_after": 9
+      },
+      {
+        "expr": "(27 + 27 + 8) / 2",
+        "truth": 31,
+        "whole": 22,
+        "substituted": 18,
+        "nodes": {
+          "Y": "8"
+        },
+        "refused": 1,
+        "calls": 4,
+        "tokens_before": 9,
+        "tokens_after": 9
+      },
+      {
+        "expr": "(5 + 14 + 3) / 2",
+        "truth": 11,
+        "whole": 11,
+        "substituted": 11,
+        "nodes": {},
+        "refused": 1,
+        "calls": 2,
+        "tokens_before": 9,
+        "tokens_after": 9
+      }
+    ]
+  },
+  "expansions": {
+    "provide something to hang it on -> nail": true,
+    "provide something to hang it on -> plug and hook": true,
+    "provide something to hang it on -> adhesive strip": true
+  },
+  "expansions_ok": 3,
+  "expansions_total": 3
+}

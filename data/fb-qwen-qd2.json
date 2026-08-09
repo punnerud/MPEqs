@@ -1,0 +1,46 @@
+{
+  "model": "Qwen3.6-35B-A3B-UD-IQ1_M.gguf",
+  "tokens": 32,
+  "batch": 1,
+  "reps": 3,
+  "cost_model": {
+    "c_fetch_ns": 230740.77671410117,
+    "c_byte_ns": 0.28557675984241576
+  },
+  "max_bridged_gap": 2,
+  "cache_contaminated": false,
+  "results": [
+    {
+      "method": "identity",
+      "n_fetches": 28242,
+      "bytes": 9022521344,
+      "median_ms": 2994.8915,
+      "all_ms": [
+        2981.51,
+        2996.655375,
+        2994.8915
+      ],
+      "ms_per_token": 93.590359375,
+      "fetches_per_token": 882.5625,
+      "mib_per_token": 268.89208984375,
+      "effective_gb_s": 3.0126371335989965,
+      "speedup_vs_reference": 1.0
+    },
+    {
+      "method": "chain",
+      "n_fetches": 22572,
+      "bytes": 8958074880,
+      "median_ms": 2763.820458,
+      "all_ms": [
+        2763.820458,
+        2748.5080829999997,
+        2793.168083
+      ],
+      "ms_per_token": 86.3693893125,
+      "fetches_per_token": 705.375,
+      "mib_per_token": 266.971435546875,
+      "effective_gb_s": 3.241192767811837,
+      "speedup_vs_reference": 1.083605663070897
+    }
+  ]
+}

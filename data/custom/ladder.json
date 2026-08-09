@@ -1,0 +1,213 @@
+{
+  "qwen-35b": {
+    "registered": 1,
+    "tasks": 4,
+    "rungs_used": {
+      "absval": 0,
+      "tens": null,
+      "evenhalf": null,
+      "offset": null
+    },
+    "mean_rung": 0.0,
+    "counter_examples_banked": 12,
+    "rows": [
+      {
+        "task": "absval",
+        "rungs": [
+          {
+            "rung": 0,
+            "stage": "registered",
+            "probes": 216,
+            "applied": true,
+            "rows": 8,
+            "residuals": 8,
+            "edit_carried": true,
+            "untouched_restored": true
+          }
+        ],
+        "registered_at_rung": 0
+      },
+      {
+        "task": "tens",
+        "rungs": [
+          {
+            "rung": 0,
+            "stage": "refused",
+            "error": "unsupported: `tensL0_v0` was declared residual but not bijective: forward(Float(-0.0)) = Float(-0.0), but inverse of that is Float(0.0), not Float(-0.0)"
+          },
+          {
+            "rung": 1,
+            "stage": "refused",
+            "error": "unsupported: `tensL1_v1` was declared residual but not bijective: forward(Float(inf)) = Float(inf), but inverse of that is Float(NaN), not Float(inf)"
+          },
+          {
+            "rung": 2,
+            "stage": "refused",
+            "error": "unsupported: `tensL2_v2` was declared residual but no round trip: forward(Int(1)) = (Int(0), residual Int(1)), but the inverse refuses that pair"
+          },
+          {
+            "rung": 3,
+            "stage": "refused",
+            "error": "unsupported: `tensL3_v3` was declared residual but no round trip: forward(Int(1)) = (Int(0), residual Int(1)), but the inverse refuses that pair"
+          }
+        ]
+      },
+      {
+        "task": "evenhalf",
+        "rungs": [
+          {
+            "rung": 0,
+            "stage": "refused",
+            "error": "unsupported: `evenhalfL0_v0` was declared residual but not bijective: forward(Float(1.0)) and forward(Float(2.2250738585072014e-308)) are both Float(0.0), so at"
+          },
+          {
+            "rung": 1,
+            "stage": "refused",
+            "error": "unsupported: `evenhalfL1_v1` was declared residual but not bijective: forward(Float(1.0)) and forward(Float(2.2250738585072014e-308)) are both Float(0.0), so at"
+          },
+          {
+            "rung": 2,
+            "stage": "refused",
+            "error": "unsupported: `evenhalfL2_v2` was declared residual but no round trip: forward(Int(1)) = (Int(0), residual Int(1)), but the inverse refuses that pair"
+          },
+          {
+            "rung": 3,
+            "stage": "refused",
+            "error": "unsupported: `evenhalfL3_v3` was declared residual but no round trip: forward(Int(1)) = (Int(0), residual Int(1)), but the inverse refuses that pair"
+          }
+        ]
+      },
+      {
+        "task": "offset",
+        "rungs": [
+          {
+            "rung": 0,
+            "stage": "refused",
+            "error": "unsupported: `offsetL0_v0` was declared residual but not bijective: forward(Float(0.0)) and forward(Float(-0.0)) are both Float(-1000.0), so at most one of them"
+          },
+          {
+            "rung": 1,
+            "stage": "refused",
+            "error": "unsupported: `offsetL1_v1` was declared residual but not bijective: forward(Float(0.0)) and forward(Float(-0.0)) are both Float(-1000.0), so at most one of them"
+          },
+          {
+            "rung": 2,
+            "stage": "refused",
+            "error": "unsupported: `offsetL2_v2` was declared residual but not bijective: forward(Float(1.3354325845006427e17)) = Float(1.3354325845006326e17), but inverse of that is"
+          },
+          {
+            "rung": 3,
+            "stage": "refused",
+            "error": "unsupported: `offsetL3_v3` was declared residual but not bijective: forward(Float(1.3354325845006427e17)) = Float(1.3354325845006326e17), but inverse of that is"
+          }
+        ]
+      }
+    ]
+  },
+  "olmoe-1b": {
+    "registered": 0,
+    "tasks": 4,
+    "rungs_used": {
+      "absval": null,
+      "tens": null,
+      "evenhalf": null,
+      "offset": null
+    },
+    "mean_rung": null,
+    "counter_examples_banked": 8,
+    "rows": [
+      {
+        "task": "absval",
+        "rungs": [
+          {
+            "rung": 0,
+            "stage": "no valid functions"
+          },
+          {
+            "rung": 1,
+            "stage": "no valid functions"
+          },
+          {
+            "rung": 2,
+            "stage": "refused",
+            "error": "unsupported: proc(py) compile error at line 5, column 11: conditional expression (use an if statement) is not supported"
+          },
+          {
+            "rung": 3,
+            "stage": "no valid functions"
+          }
+        ]
+      },
+      {
+        "task": "tens",
+        "rungs": [
+          {
+            "rung": 0,
+            "stage": "no valid functions"
+          },
+          {
+            "rung": 1,
+            "stage": "no valid functions"
+          },
+          {
+            "rung": 2,
+            "stage": "refused",
+            "error": "unsupported: proc(py) compile error at line 6, column 11: tuple literal is not supported"
+          },
+          {
+            "rung": 3,
+            "stage": "no valid functions"
+          }
+        ]
+      },
+      {
+        "task": "evenhalf",
+        "rungs": [
+          {
+            "rung": 0,
+            "stage": "refused",
+            "error": "unsupported: `evenhalfL0_v0` was declared residual but not bijective: forward(Int(1)) = Int(0), but inverse of that is Int(2), not Int(1)"
+          },
+          {
+            "rung": 1,
+            "stage": "refused",
+            "error": "unsupported: proc(py) compile error at line 1, column 0: parameter defaults are not supported"
+          },
+          {
+            "rung": 2,
+            "stage": "refused",
+            "error": "unsupported: proc(py) compile error at line 6, column 15: only len(), db.query(...) and db.execute(...) may be called"
+          },
+          {
+            "rung": 3,
+            "stage": "refused",
+            "error": "unsupported: proc(py) compile error at line 3, column 15: only len(), db.query(...) and db.execute(...) may be called"
+          }
+        ]
+      },
+      {
+        "task": "offset",
+        "rungs": [
+          {
+            "rung": 0,
+            "stage": "no valid functions"
+          },
+          {
+            "rung": 1,
+            "stage": "no valid functions"
+          },
+          {
+            "rung": 2,
+            "stage": "refused",
+            "error": "unsupported: proc(py) compile error at line 6, column 11: tuple literal is not supported"
+          },
+          {
+            "rung": 3,
+            "stage": "refused",
+            "error": "unsupported: `offsetL3_v3` was declared residual but not bijective: forward(Int(0)) = Int(-1000), but inverse of that is Int(-1000), not Int(0)"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "tasks": 3,
+  "correct": 2,
+  "runs": [
+    {
+      "task": "pour a glass of soda",
+      "ok": true,
+      "chain": [
+        "open fridge",
+        "take out bottle",
+        "unscrew cap",
+        "fetch glass",
+        "pour"
+      ],
+      "refused": 6,
+      "residue_left": []
+    },
+    {
+      "task": "build a table",
+      "ok": false,
+      "chain": [],
+      "refused": 14,
+      "residue_left": [
+        "table standing"
+      ]
+    },
+    {
+      "task": "make tea",
+      "ok": true,
+      "chain": [
+        "put teabag in cup",
+        "fill kettle",
+        "boil water",
+        "pour water into cup",
+        "remove teabag"
+      ],
+      "refused": 8,
+      "residue_left": []
+    }
+  ]
+}

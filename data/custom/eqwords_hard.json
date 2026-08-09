@@ -1,0 +1,278 @@
+{
+  "problems": 12,
+  "a_right": 11,
+  "b_right": 10,
+  "agree": 11,
+  "agree_true": 11,
+  "agree_wrong": 0,
+  "retries": 3,
+  "retry_fixed": 2,
+  "flagged": 1,
+  "e2e": 11,
+  "rows": [
+    {
+      "story": "Kari wrote 6 pages in her diary today. Twice the number plus 9 is the same as three times the number plus 4. What is the number?",
+      "truth": [
+        "3",
+        "4",
+        "2",
+        "9"
+      ],
+      "a": [
+        "2",
+        "9",
+        "3",
+        "4"
+      ],
+      "b": [
+        "2",
+        "9",
+        "3",
+        "4"
+      ],
+      "status": "x = 5"
+    },
+    {
+      "story": "Ada has 3 cats. Twice Ada's age in years plus 1 is the same as half of Ada's age in years plus 7. What is Ada's age in years?",
+      "truth": [
+        "1/2",
+        "7",
+        "2",
+        "1"
+      ],
+      "a": [
+        "2",
+        "1",
+        "1/2",
+        "7"
+      ],
+      "b": [
+        "2",
+        "1",
+        "1/2",
+        "7"
+      ],
+      "status": "x = 4"
+    },
+    {
+      "story": "The shop sold 14 tickets yesterday. Three times the price plus 14 is the same as five times the price plus 2. What is the price?",
+      "truth": [
+        "5",
+        "2",
+        "3",
+        "14"
+      ],
+      "a": [
+        "3",
+        "14",
+        "5",
+        "2"
+      ],
+      "b": [
+        "3",
+        "14",
+        "5",
+        "2"
+      ],
+      "status": "x = 6"
+    },
+    {
+      "story": "Kari wrote 6 pages in her diary today. The number plus 2 is the same as a third of the number plus 8. What is the number?",
+      "truth": [
+        "1/3",
+        "8",
+        "1",
+        "2"
+      ],
+      "a": [
+        "1",
+        "2",
+        "1/3",
+        "8"
+      ],
+      "b": [
+        "1",
+        "2",
+        "1/3",
+        "8"
+      ],
+      "status": "x = 9"
+    },
+    {
+      "story": "Ada has 3 cats. Twice Ada's age in years plus 11 is the same as four times Ada's age in years minus 3. What is Ada's age in years?",
+      "truth": [
+        "4",
+        "-3",
+        "2",
+        "11"
+      ],
+      "a": [
+        "2",
+        "11",
+        "4",
+        "-3"
+      ],
+      "b": [
+        "2",
+        "11",
+        "4",
+        "-3"
+      ],
+      "status": "x = 7"
+    },
+    {
+      "story": "The shop sold 14 tickets yesterday. Half of the price plus 17 is the same as twice the price plus 5. What is the price?",
+      "truth": [
+        "2",
+        "5",
+        "1/2",
+        "17"
+      ],
+      "a": [
+        "1/2",
+        "17",
+        "2",
+        "5"
+      ],
+      "b": [
+        "1/2",
+        "17",
+        "2",
+        "5"
+      ],
+      "status": "x = 8"
+    },
+    {
+      "story": "Kari wrote 6 pages in her diary today. The number plus 12 is the same as three times the number. What is the number?",
+      "truth": [
+        "3",
+        "0",
+        "1",
+        "12"
+      ],
+      "a": [
+        "1",
+        "12",
+        "3",
+        "0"
+      ],
+      "b": [
+        "1",
+        "12",
+        "3",
+        "0"
+      ],
+      "status": "x = 6"
+    },
+    {
+      "story": "Ada has 3 cats. A third of Ada's age in years plus 10 is the same as half of Ada's age in years plus 9. What is Ada's age in years?",
+      "truth": [
+        "1/2",
+        "9",
+        "1/3",
+        "10"
+      ],
+      "a": [
+        "1/3",
+        "10",
+        "1/2",
+        "9"
+      ],
+      "b": [
+        "1/3",
+        "10",
+        "1/2",
+        "9"
+      ],
+      "status": "x = 6"
+    },
+    {
+      "story": "The shop sold 14 tickets yesterday. 18 is the same as four times the price plus 6. What is the price?",
+      "truth": [
+        "4",
+        "6",
+        "0",
+        "18"
+      ],
+      "a": [
+        "4",
+        "6",
+        "0",
+        "18"
+      ],
+      "b": [
+        "4",
+        "6",
+        "0",
+        "18"
+      ],
+      "status": "x = 3"
+    },
+    {
+      "story": "Kari wrote 6 pages in her diary today. 19 is the same as twice the number plus 13. What is the number?",
+      "truth": [
+        "2",
+        "13",
+        "0",
+        "19"
+      ],
+      "a": [
+        "2",
+        "13",
+        "1",
+        "19"
+      ],
+      "b": [
+        "2",
+        "13",
+        "0",
+        "19"
+      ],
+      "status": "flagged"
+    },
+    {
+      "story": "Ada has 3 cats. Four times Ada's age in years plus 3 is the same as five times Ada's age in years minus 2. What is Ada's age in years?",
+      "truth": [
+        "5",
+        "-2",
+        "4",
+        "3"
+      ],
+      "a": [
+        "4",
+        "3",
+        "5",
+        "-2"
+      ],
+      "b": [
+        "4",
+        "3",
+        "5",
+        "-2"
+      ],
+      "status": "x = 5"
+    },
+    {
+      "story": "The shop sold 14 tickets yesterday. Twice the price plus 16 is the same as three times the price plus 10. What is the price?",
+      "truth": [
+        "3",
+        "10",
+        "2",
+        "16"
+      ],
+      "a": [
+        "2",
+        "16",
+        "3",
+        "10"
+      ],
+      "b": [
+        "2",
+        "16",
+        "3",
+        "10"
+      ],
+      "status": "x = 6"
+    }
+  ]
+}

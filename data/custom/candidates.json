@@ -1,0 +1,10 @@
+{
+  "n": 3000,
+  "direct_wrong": 156,
+  "reached_2hop": 153,
+  "reached_3hop": 155,
+  "precision_all_2hop": 0.015,
+  "precision_top50_2hop": 0.0,
+  "candidates_2hop": 130906,
+  "note": "coverage near-complete, ranking absent \u2014 different failures, different fixes"
+}

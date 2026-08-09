@@ -1,0 +1,1577 @@
+{
+  "summary": {
+    "tasks": 20,
+    "whole_correct": 3,
+    "mean_diff_ok": 10.4,
+    "mean_diff_bad": 11.23076923076923,
+    "big_diff_when_wrong": 0.3076923076923077,
+    "first_correct": 1,
+    "checked_correct": 5,
+    "split_correct": 5,
+    "steps_verified": 30,
+    "steps_rejected": 52,
+    "error_rate_by_op": {
+      "?": 1.0,
+      "*": 0.07142857142857142,
+      "-": 0.0,
+      "/": 0.5769230769230769,
+      "+": 0.5
+    }
+  },
+  "runs": [
+    {
+      "expr": "(22 + 11 * 8) / 22",
+      "truth": 5,
+      "whole": 5,
+      "first_value": null,
+      "checked_value": null,
+      "split_value": null,
+      "trace": [
+        {
+          "state": "(22 + 11 * 8) / 22",
+          "from": "2 + 11 * 8) / 22",
+          "to": "0 + 9 * 6) / 20",
+          "verdict": "changes the value",
+          "attempt": 0,
+          "diff_size": 31,
+          "op": "/",
+          "max_operand": 22.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(22 + 11 * 8) / 22",
+          "from": "11 *",
+          "to": "8",
+          "verdict": "ok",
+          "attempt": 1,
+          "diff_size": 5,
+          "op": "*",
+          "max_operand": 11.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(22 + 88) / 22",
+          "from": "22",
+          "to": "30",
+          "verdict": "changes the value",
+          "attempt": 0,
+          "diff_size": 4,
+          "op": "?",
+          "max_operand": 22.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(22 + 88) / 22",
+          "from": "22 + 88",
+          "to": "30 + 22",
+          "verdict": "changes the value",
+          "attempt": 1,
+          "diff_size": 14,
+          "op": "+",
+          "max_operand": 88.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": true
+        },
+        {
+          "state": "(22 + 88) / 22",
+          "from": null,
+          "to": null,
+          "verdict": "no rewrite",
+          "attempt": 2,
+          "diff_size": 0
+        }
+      ]
+    },
+    {
+      "expr": "(37 + 29 * 2) / 5",
+      "truth": 19,
+      "whole": 10,
+      "first_value": null,
+      "checked_value": 19.0,
+      "split_value": 19.0,
+      "trace": [
+        {
+          "state": "(37 + 29 * 2) / 5",
+          "from": "37 + 29 * 2) / 5",
+          "to": "50 - 12 * 3) / 4",
+          "verdict": "changes the value",
+          "attempt": 0,
+          "diff_size": 32,
+          "op": "/",
+          "max_operand": 37.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(37 + 29 * 2) / 5",
+          "from": "29 * 2",
+          "to": "58",
+          "verdict": "ok",
+          "attempt": 1,
+          "diff_size": 8,
+          "op": "*",
+          "max_operand": 29.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(37 + 58) / 5",
+          "from": "37",
+          "to": "55",
+          "verdict": "changes the value",
+          "attempt": 0,
+          "diff_size": 4,
+          "op": "?",
+          "max_operand": 37.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(37 + 58) / 5",
+          "from": "37 + 58) / 5",
+          "to": "95 / 5)",
+          "verdict": "ok",
+          "attempt": 1,
+          "diff_size": 19,
+          "op": "/",
+          "max_operand": 58.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(95 / 5)",
+          "from": "(95 / 5)",
+          "to": "19",
+          "verdict": "ok",
+          "attempt": 0,
+          "diff_size": 10,
+          "op": "/",
+          "max_operand": 95.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        }
+      ]
+    },
+    {
+      "expr": "(38 + 39 * 8) / 2",
+      "truth": 175,
+      "whole": 37,
+      "first_value": null,
+      "checked_value": 175.0,
+      "split_value": 175.0,
+      "trace": [
+        {
+          "state": "(38 + 39 * 8) / 2",
+          "from": "38 + 39 * 8) / 2",
+          "to": "50 + 11 * 3) / 4",
+          "verdict": "changes the value",
+          "attempt": 0,
+          "diff_size": 32,
+          "op": "/",
+          "max_operand": 39.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(38 + 39 * 8) / 2",
+          "from": "9 * 8",
+          "to": "12",
+          "verdict": "ok",
+          "attempt": 1,
+          "diff_size": 7,
+          "op": "*",
+          "max_operand": 9.0,
+          "two_digit": false,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(38 + 312) / 2",
+          "from": "8 + 312) / 2",
+          "to": "50 / 2)",
+          "verdict": "ok",
+          "attempt": 0,
+          "diff_size": 19,
+          "op": "/",
+          "max_operand": 312.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(350 / 2)",
+          "from": "(350 / 2)",
+          "to": "175",
+          "verdict": "ok",
+          "attempt": 0,
+          "diff_size": 12,
+          "op": "/",
+          "max_operand": 350.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": true
+        }
+      ]
+    },
+    {
+      "expr": "(38 + 21 * 10) / 8",
+      "truth": 31,
+      "whole": 8,
+      "first_value": null,
+      "checked_value": null,
+      "split_value": null,
+      "trace": [
+        {
+          "state": "(38 + 21 * 10) / 8",
+          "from": "38 + 21 * 10) / 8",
+          "to": "99 + 50 * 6) / 15",
+          "verdict": "changes the value",
+          "attempt": 0,
+          "diff_size": 34,
+          "op": "/",
+          "max_operand": 38.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(38 + 21 * 10) / 8",
+          "from": "* 1",
+          "to": "",
+          "verdict": "ok",
+          "attempt": 1,
+          "diff_size": 3,
+          "op": "*",
+          "max_operand": 1.0,
+          "two_digit": false,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(38 + 210) / 8",
+          "from": "3",
+          "to": "4",
+          "verdict": "changes the value",
+          "attempt": 0,
+          "diff_size": 2,
+          "op": "?",
+          "max_operand": 3.0,
+          "two_digit": false,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(38 + 210) / 8",
+          "from": null,
+          "to": null,
+          "verdict": "no rewrite",
+          "attempt": 1,
+          "diff_size": 0
+        },
+        {
+          "state": "(38 + 210) / 8",
+          "from": null,
+          "to": null,
+          "verdict": "no rewrite",
+          "attempt": 2,
+          "diff_size": 0
+        }
+      ]
+    },
+    {
+      "expr": "(38 + 14 * 7) / 2",
+      "truth": 68,
+      "whole": 22,
+      "first_value": null,
+      "checked_value": 68.0,
+      "split_value": 68.0,
+      "trace": [
+        {
+          "state": "(38 + 14 * 7) / 2",
+          "from": "38 + 14 * 7) / 2",
+          "to": "15 - 3 * 4) / 1",
+          "verdict": "changes the value",
+          "attempt": 0,
+          "diff_size": 31,
+          "op": "/",
+          "max_operand": 38.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(38 + 14 * 7) / 2",
+          "from": "14 * 7",
+          "to": "98",
+          "verdict": "ok",
+          "attempt": 1,
+          "diff_size": 8,
+          "op": "*",
+          "max_operand": 14.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(38 + 98) / 2",
+          "from": "38 + 98) / 2",
+          "to": "136 / 2)",
+          "verdict": "ok",
+          "attempt": 0,
+          "diff_size": 20,
+          "op": "/",
+          "max_operand": 98.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(136 / 2)",
+          "from": "(136 / 2)",
+          "to": "68",
+          "verdict": "ok",
+          "attempt": 0,
+          "diff_size": 11,
+          "op": "/",
+          "max_operand": 136.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        }
+      ]
+    },
+    {
+      "expr": "(41 - 15 + 9) / 7",
+      "truth": 5,
+      "whole": 5,
+      "first_value": null,
+      "checked_value": null,
+      "split_value": null,
+      "trace": [
+        {
+          "state": "(41 - 15 + 9) / 7",
+          "from": null,
+          "to": null,
+          "verdict": "no rewrite",
+          "attempt": 0,
+          "diff_size": 0
+        },
+        {
+          "state": "(41 - 15 + 9) / 7",
+          "from": "+ 9)",
+          "to": ") + 9",
+          "verdict": "changes the value",
+          "attempt": 1,
+          "diff_size": 9,
+          "op": "+",
+          "max_operand": 9.0,
+          "two_digit": false,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(41 - 15 + 9) / 7",
+          "from": null,
+          "to": null,
+          "verdict": "no rewrite",
+          "attempt": 2,
+          "diff_size": 0
+        }
+      ]
+    },
+    {
+      "expr": "(39 - 31 * 7) / 2",
+      "truth": -89,
+      "whole": 8,
+      "first_value": null,
+      "checked_value": null,
+      "split_value": null,
+      "trace": [
+        {
+          "state": "(39 - 31 * 7) / 2",
+          "from": "31 *",
+          "to": "21",
+          "verdict": "ok",
+          "attempt": 0,
+          "diff_size": 6,
+          "op": "*",
+          "max_operand": 31.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(39 - 217) / 2",
+          "from": null,
+          "to": null,
+          "verdict": "no rewrite",
+          "attempt": 0,
+          "diff_size": 0
+        },
+        {
+          "state": "(39 - 217) / 2",
+          "from": "7",
+          "to": "6",
+          "verdict": "changes the value",
+          "attempt": 1,
+          "diff_size": 2,
+          "op": "?",
+          "max_operand": 7.0,
+          "two_digit": false,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(39 - 217) / 2",
+          "from": "7",
+          "to": "6",
+          "verdict": "changes the value",
+          "attempt": 2,
+          "diff_size": 2,
+          "op": "?",
+          "max_operand": 7.0,
+          "two_digit": false,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(39 - 216) / 2",
+          "from": null,
+          "to": null,
+          "verdict": "no rewrite",
+          "attempt": 0,
+          "diff_size": 0
+        },
+        {
+          "state": "(39 - 216) / 2",
+          "from": "216",
+          "to": "108",
+          "verdict": "changes the value",
+          "attempt": 1,
+          "diff_size": 6,
+          "op": "?",
+          "max_operand": 216.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": true
+        },
+        {
+          "state": "(39 - 216) / 2",
+          "from": "216",
+          "to": "108",
+          "verdict": "changes the value",
+          "attempt": 2,
+          "diff_size": 6,
+          "op": "?",
+          "max_operand": 216.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": true
+        },
+        {
+          "state": "(39 - 108) / 2",
+          "from": null,
+          "to": null,
+          "verdict": "no rewrite",
+          "attempt": 0,
+          "diff_size": 0
+        },
+        {
+          "state": "(39 - 108) / 2",
+          "from": null,
+          "to": null,
+          "verdict": "no rewrite",
+          "attempt": 1,
+          "diff_size": 0
+        },
+        {
+          "state": "(39 - 108) / 2",
+          "from": null,
+          "to": null,
+          "verdict": "no rewrite",
+          "attempt": 2,
+          "diff_size": 0
+        }
+      ]
+    },
+    {
+      "expr": "(46 - 17 + 3) / 8",
+      "truth": 4,
+      "whole": 3,
+      "first_value": 3.625,
+      "checked_value": null,
+      "split_value": null,
+      "trace": [
+        {
+          "state": "(46 - 17 + 3) / 8",
+          "from": "46 - 17 + 3",
+          "to": "29",
+          "verdict": "changes the value",
+          "attempt": 0,
+          "diff_size": 13,
+          "op": "+",
+          "max_operand": 46.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(46 - 17 + 3) / 8",
+          "from": "46",
+          "to": "29",
+          "verdict": "changes the value",
+          "attempt": 1,
+          "diff_size": 4,
+          "op": "?",
+          "max_operand": 46.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(46 - 17 + 3) / 8",
+          "from": "46",
+          "to": "29",
+          "verdict": "changes the value",
+          "attempt": 2,
+          "diff_size": 4,
+          "op": "?",
+          "max_operand": 46.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(29 - 17 + 3) / 8",
+          "from": "29",
+          "to": "12",
+          "verdict": "changes the value",
+          "attempt": 0,
+          "diff_size": 4,
+          "op": "?",
+          "max_operand": 29.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(29 - 17 + 3) / 8",
+          "from": "29",
+          "to": "12",
+          "verdict": "changes the value",
+          "attempt": 1,
+          "diff_size": 4,
+          "op": "?",
+          "max_operand": 29.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(29 - 17 + 3) / 8",
+          "from": "29",
+          "to": "12",
+          "verdict": "changes the value",
+          "attempt": 2,
+          "diff_size": 4,
+          "op": "?",
+          "max_operand": 29.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(12 - 17 + 3) / 8",
+          "from": null,
+          "to": null,
+          "verdict": "no rewrite",
+          "attempt": 0,
+          "diff_size": 0
+        },
+        {
+          "state": "(12 - 17 + 3) / 8",
+          "from": "7",
+          "to": "4",
+          "verdict": "changes the value",
+          "attempt": 1,
+          "diff_size": 2,
+          "op": "?",
+          "max_operand": 7.0,
+          "two_digit": false,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(12 - 17 + 3) / 8",
+          "from": "7",
+          "to": "4",
+          "verdict": "changes the value",
+          "attempt": 2,
+          "diff_size": 2,
+          "op": "?",
+          "max_operand": 7.0,
+          "two_digit": false,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(12 - 14 + 3) / 8",
+          "from": "4",
+          "to": "0",
+          "verdict": "changes the value",
+          "attempt": 0,
+          "diff_size": 2,
+          "op": "?",
+          "max_operand": 4.0,
+          "two_digit": false,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(12 - 14 + 3) / 8",
+          "from": "4",
+          "to": "0",
+          "verdict": "changes the value",
+          "attempt": 1,
+          "diff_size": 2,
+          "op": "?",
+          "max_operand": 4.0,
+          "two_digit": false,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(12 - 14 + 3) / 8",
+          "from": "4",
+          "to": "0",
+          "verdict": "changes the value",
+          "attempt": 2,
+          "diff_size": 2,
+          "op": "?",
+          "max_operand": 4.0,
+          "two_digit": false,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(12 - 10 + 3) / 8",
+          "from": "2 - 10 + 3) / 8",
+          "to": "5 / 3) - (4 * 2)",
+          "verdict": "changes the value",
+          "attempt": 0,
+          "diff_size": 31,
+          "op": "/",
+          "max_operand": 10.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(12 - 10 + 3) / 8",
+          "from": null,
+          "to": null,
+          "verdict": "no rewrite",
+          "attempt": 1,
+          "diff_size": 0
+        },
+        {
+          "state": "(12 - 10 + 3) / 8",
+          "from": "12 - 10",
+          "to": "2",
+          "verdict": "ok",
+          "attempt": 2,
+          "diff_size": 8,
+          "op": "-",
+          "max_operand": 12.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(2 + 3) / 8",
+          "from": "(2 + 3)",
+          "to": "5",
+          "verdict": "ok",
+          "attempt": 0,
+          "diff_size": 8,
+          "op": "+",
+          "max_operand": 3.0,
+          "two_digit": false,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "5 / 8",
+          "from": "8",
+          "to": "4",
+          "verdict": "changes the value",
+          "attempt": 0,
+          "diff_size": 2,
+          "op": "?",
+          "max_operand": 8.0,
+          "two_digit": false,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "5 / 8",
+          "from": "8",
+          "to": "4",
+          "verdict": "changes the value",
+          "attempt": 1,
+          "diff_size": 2,
+          "op": "?",
+          "max_operand": 8.0,
+          "two_digit": false,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "5 / 8",
+          "from": "8",
+          "to": "4",
+          "verdict": "changes the value",
+          "attempt": 2,
+          "diff_size": 2,
+          "op": "?",
+          "max_operand": 8.0,
+          "two_digit": false,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "5 / 4",
+          "from": "/ 4",
+          "to": "",
+          "verdict": "changes the value",
+          "attempt": 0,
+          "diff_size": 3,
+          "op": "/",
+          "max_operand": 4.0,
+          "two_digit": false,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "5 / 4",
+          "from": "",
+          "to": "* 2",
+          "verdict": "changes the value",
+          "attempt": 1,
+          "diff_size": 3
+        },
+        {
+          "state": "5 / 4",
+          "from": "4",
+          "to": "(4 - 1)",
+          "verdict": "changes the value",
+          "attempt": 2,
+          "diff_size": 8,
+          "op": "?",
+          "max_operand": 4.0,
+          "two_digit": false,
+          "negative_result": false,
+          "result_over_100": false
+        }
+      ]
+    },
+    {
+      "expr": "(48 + 30 * 6) / 12",
+      "truth": 19,
+      "whole": 12,
+      "first_value": null,
+      "checked_value": null,
+      "split_value": null,
+      "trace": [
+        {
+          "state": "(48 + 30 * 6) / 12",
+          "from": "30 * 6",
+          "to": "180",
+          "verdict": "ok",
+          "attempt": 0,
+          "diff_size": 9,
+          "op": "*",
+          "max_operand": 30.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": true
+        },
+        {
+          "state": "(48 + 180) / 12",
+          "from": "48 + 180) / 12",
+          "to": "108 / 12)",
+          "verdict": "changes the value",
+          "attempt": 0,
+          "diff_size": 23,
+          "op": "/",
+          "max_operand": 180.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(48 + 180) / 12",
+          "from": null,
+          "to": null,
+          "verdict": "no rewrite",
+          "attempt": 1,
+          "diff_size": 0
+        },
+        {
+          "state": "(48 + 180) / 12",
+          "from": null,
+          "to": null,
+          "verdict": "no rewrite",
+          "attempt": 2,
+          "diff_size": 0
+        }
+      ]
+    },
+    {
+      "expr": "(24 - 40 * 9) / 3",
+      "truth": -112,
+      "whole": -18,
+      "first_value": null,
+      "checked_value": null,
+      "split_value": null,
+      "trace": [
+        {
+          "state": "(24 - 40 * 9) / 3",
+          "from": "40 * 9",
+          "to": "3240",
+          "verdict": "changes the value",
+          "attempt": 0,
+          "diff_size": 10,
+          "op": "*",
+          "max_operand": 40.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": true
+        },
+        {
+          "state": "(24 - 40 * 9) / 3",
+          "from": "40 * 9",
+          "to": "360",
+          "verdict": "ok",
+          "attempt": 1,
+          "diff_size": 9,
+          "op": "*",
+          "max_operand": 40.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": true
+        },
+        {
+          "state": "(24 - 360) / 3",
+          "from": null,
+          "to": null,
+          "verdict": "no rewrite",
+          "attempt": 0,
+          "diff_size": 0
+        },
+        {
+          "state": "(24 - 360) / 3",
+          "from": "36",
+          "to": "12",
+          "verdict": "changes the value",
+          "attempt": 1,
+          "diff_size": 4,
+          "op": "?",
+          "max_operand": 36.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(24 - 360) / 3",
+          "from": "36",
+          "to": "12",
+          "verdict": "changes the value",
+          "attempt": 2,
+          "diff_size": 4,
+          "op": "?",
+          "max_operand": 36.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(24 - 120) / 3",
+          "from": null,
+          "to": null,
+          "verdict": "no rewrite",
+          "attempt": 0,
+          "diff_size": 0
+        },
+        {
+          "state": "(24 - 120) / 3",
+          "from": null,
+          "to": null,
+          "verdict": "no rewrite",
+          "attempt": 1,
+          "diff_size": 0
+        },
+        {
+          "state": "(24 - 120) / 3",
+          "from": null,
+          "to": null,
+          "verdict": "no rewrite",
+          "attempt": 2,
+          "diff_size": 0
+        }
+      ]
+    },
+    {
+      "expr": "(19 + 32 * 12) / 13",
+      "truth": 31,
+      "whole": 5,
+      "first_value": null,
+      "checked_value": null,
+      "split_value": null,
+      "trace": [
+        {
+          "state": "(19 + 32 * 12) / 13",
+          "from": "19 + 32 * 12) / 13",
+          "to": "25 + 10 * 9) / 17",
+          "verdict": "changes the value",
+          "attempt": 0,
+          "diff_size": 35,
+          "op": "/",
+          "max_operand": 32.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(19 + 32 * 12) / 13",
+          "from": "2 * 12",
+          "to": "84",
+          "verdict": "ok",
+          "attempt": 1,
+          "diff_size": 8,
+          "op": "*",
+          "max_operand": 12.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(19 + 384) / 13",
+          "from": null,
+          "to": null,
+          "verdict": "no rewrite",
+          "attempt": 0,
+          "diff_size": 0
+        },
+        {
+          "state": "(19 + 384) / 13",
+          "from": null,
+          "to": null,
+          "verdict": "no rewrite",
+          "attempt": 1,
+          "diff_size": 0
+        },
+        {
+          "state": "(19 + 384) / 13",
+          "from": null,
+          "to": null,
+          "verdict": "no rewrite",
+          "attempt": 2,
+          "diff_size": 0
+        }
+      ]
+    },
+    {
+      "expr": "(58 - 24 + 2) / 3",
+      "truth": 12,
+      "whole": 8,
+      "first_value": null,
+      "checked_value": -3.3333333333333335,
+      "split_value": -3.3333333333333335,
+      "trace": [
+        {
+          "state": "(58 - 24 + 2) / 3",
+          "from": "58",
+          "to": "34",
+          "verdict": "changes the value",
+          "attempt": 0,
+          "diff_size": 4,
+          "op": "?",
+          "max_operand": 58.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(58 - 24 + 2) / 3",
+          "from": "58",
+          "to": "34",
+          "verdict": "changes the value",
+          "attempt": 1,
+          "diff_size": 4,
+          "op": "?",
+          "max_operand": 58.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(58 - 24 + 2) / 3",
+          "from": "58",
+          "to": "34",
+          "verdict": "changes the value",
+          "attempt": 2,
+          "diff_size": 4,
+          "op": "?",
+          "max_operand": 58.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(34 - 24 + 2) / 3",
+          "from": null,
+          "to": null,
+          "verdict": "no rewrite",
+          "attempt": 0,
+          "diff_size": 0
+        },
+        {
+          "state": "(34 - 24 + 2) / 3",
+          "from": "34",
+          "to": "10",
+          "verdict": "changes the value",
+          "attempt": 1,
+          "diff_size": 4,
+          "op": "?",
+          "max_operand": 34.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(34 - 24 + 2) / 3",
+          "from": "(34 - 24 + 2) / 3",
+          "to": "-3.3333333333333335",
+          "verdict": "changes the value",
+          "attempt": 2,
+          "diff_size": 36,
+          "op": "/",
+          "max_operand": 34.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        }
+      ]
+    },
+    {
+      "expr": "(41 + 9 * 9) / 2",
+      "truth": 61,
+      "whole": 22,
+      "first_value": null,
+      "checked_value": 61.0,
+      "split_value": 61.0,
+      "trace": [
+        {
+          "state": "(41 + 9 * 9) / 2",
+          "from": "41 + 9 * 9) / 2",
+          "to": "18 - 4 * 2) / 3",
+          "verdict": "changes the value",
+          "attempt": 0,
+          "diff_size": 30,
+          "op": "/",
+          "max_operand": 41.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(41 + 9 * 9) / 2",
+          "from": "9 * 9",
+          "to": "81",
+          "verdict": "ok",
+          "attempt": 1,
+          "diff_size": 7,
+          "op": "*",
+          "max_operand": 9.0,
+          "two_digit": false,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(41 + 81) / 2",
+          "from": "41 + 81) / 2",
+          "to": "112 / 2)",
+          "verdict": "changes the value",
+          "attempt": 0,
+          "diff_size": 20,
+          "op": "/",
+          "max_operand": 81.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(41 + 81) / 2",
+          "from": "41 + 81) / 2",
+          "to": "122 / 2)",
+          "verdict": "ok",
+          "attempt": 1,
+          "diff_size": 20,
+          "op": "/",
+          "max_operand": 81.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(122 / 2)",
+          "from": "(122 / 2)",
+          "to": "61",
+          "verdict": "ok",
+          "attempt": 0,
+          "diff_size": 11,
+          "op": "/",
+          "max_operand": 122.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        }
+      ]
+    },
+    {
+      "expr": "(12 - 30 * 8) / 6",
+      "truth": -38,
+      "whole": -6,
+      "first_value": null,
+      "checked_value": null,
+      "split_value": null,
+      "trace": [
+        {
+          "state": "(12 - 30 * 8) / 6",
+          "from": "30 * 8",
+          "to": "240",
+          "verdict": "ok",
+          "attempt": 0,
+          "diff_size": 9,
+          "op": "*",
+          "max_operand": 30.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": true
+        },
+        {
+          "state": "(12 - 240) / 6",
+          "from": null,
+          "to": null,
+          "verdict": "no rewrite",
+          "attempt": 0,
+          "diff_size": 0
+        },
+        {
+          "state": "(12 - 240) / 6",
+          "from": null,
+          "to": null,
+          "verdict": "no rewrite",
+          "attempt": 1,
+          "diff_size": 0
+        },
+        {
+          "state": "(12 - 240) / 6",
+          "from": null,
+          "to": null,
+          "verdict": "no rewrite",
+          "attempt": 2,
+          "diff_size": 0
+        }
+      ]
+    },
+    {
+      "expr": "(58 + 26 * 5) / 2",
+      "truth": 94,
+      "whole": 20,
+      "first_value": null,
+      "checked_value": 109.0,
+      "split_value": 109.0,
+      "trace": [
+        {
+          "state": "(58 + 26 * 5) / 2",
+          "from": "58 + 26 * 5) / 2",
+          "to": "49 + 15 * 2) / 4",
+          "verdict": "changes the value",
+          "attempt": 0,
+          "diff_size": 32,
+          "op": "/",
+          "max_operand": 58.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(58 + 26 * 5) / 2",
+          "from": "26 * 5",
+          "to": "130",
+          "verdict": "ok",
+          "attempt": 1,
+          "diff_size": 9,
+          "op": "*",
+          "max_operand": 26.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": true
+        },
+        {
+          "state": "(58 + 130) / 2",
+          "from": "5",
+          "to": "8",
+          "verdict": "changes the value",
+          "attempt": 0,
+          "diff_size": 2,
+          "op": "?",
+          "max_operand": 5.0,
+          "two_digit": false,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(58 + 130) / 2",
+          "from": "5",
+          "to": "8",
+          "verdict": "changes the value",
+          "attempt": 1,
+          "diff_size": 2,
+          "op": "?",
+          "max_operand": 5.0,
+          "two_digit": false,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(58 + 130) / 2",
+          "from": "5",
+          "to": "8",
+          "verdict": "changes the value",
+          "attempt": 2,
+          "diff_size": 2,
+          "op": "?",
+          "max_operand": 5.0,
+          "two_digit": false,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(88 + 130) / 2",
+          "from": "88 + 130) / 2",
+          "to": "218 / 2)",
+          "verdict": "ok",
+          "attempt": 0,
+          "diff_size": 21,
+          "op": "/",
+          "max_operand": 130.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(218 / 2)",
+          "from": "(218 / 2)",
+          "to": "109",
+          "verdict": "ok",
+          "attempt": 0,
+          "diff_size": 12,
+          "op": "/",
+          "max_operand": 218.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": true
+        }
+      ]
+    },
+    {
+      "expr": "(11 + 16 * 12) / 29",
+      "truth": 7,
+      "whole": 6,
+      "first_value": null,
+      "checked_value": null,
+      "split_value": null,
+      "trace": [
+        {
+          "state": "(11 + 16 * 12) / 29",
+          "from": "6 * 1",
+          "to": "9",
+          "verdict": "ok",
+          "attempt": 0,
+          "diff_size": 6,
+          "op": "*",
+          "max_operand": 6.0,
+          "two_digit": false,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(11 + 192) / 29",
+          "from": "1 + 192) / 29",
+          "to": "5 - 8) * 4 / 2",
+          "verdict": "changes the value",
+          "attempt": 0,
+          "diff_size": 27,
+          "op": "/",
+          "max_operand": 192.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(11 + 192) / 29",
+          "from": "92",
+          "to": "80",
+          "verdict": "changes the value",
+          "attempt": 1,
+          "diff_size": 4,
+          "op": "?",
+          "max_operand": 92.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(11 + 192) / 29",
+          "from": "92",
+          "to": "80",
+          "verdict": "changes the value",
+          "attempt": 2,
+          "diff_size": 4,
+          "op": "?",
+          "max_operand": 92.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(11 + 180) / 29",
+          "from": null,
+          "to": null,
+          "verdict": "no rewrite",
+          "attempt": 0,
+          "diff_size": 0
+        },
+        {
+          "state": "(11 + 180) / 29",
+          "from": null,
+          "to": null,
+          "verdict": "no rewrite",
+          "attempt": 1,
+          "diff_size": 0
+        },
+        {
+          "state": "(11 + 180) / 29",
+          "from": null,
+          "to": null,
+          "verdict": "no rewrite",
+          "attempt": 2,
+          "diff_size": 0
+        }
+      ]
+    },
+    {
+      "expr": "(55 - 39 + 4) / 2",
+      "truth": 10,
+      "whole": 8,
+      "first_value": 10.0,
+      "checked_value": 10.0,
+      "split_value": 10.0,
+      "trace": [
+        {
+          "state": "(55 - 39 + 4) / 2",
+          "from": "55 - 39",
+          "to": "16",
+          "verdict": "ok",
+          "attempt": 0,
+          "diff_size": 9,
+          "op": "-",
+          "max_operand": 55.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(16 + 4) / 2",
+          "from": "(16 + 4)",
+          "to": "20",
+          "verdict": "ok",
+          "attempt": 0,
+          "diff_size": 10,
+          "op": "+",
+          "max_operand": 16.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "20 / 2",
+          "from": "20 / 2",
+          "to": "10",
+          "verdict": "ok",
+          "attempt": 0,
+          "diff_size": 8,
+          "op": "/",
+          "max_operand": 20.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        }
+      ]
+    },
+    {
+      "expr": "(46 + 34 + 11) / 13",
+      "truth": 7,
+      "whole": 11,
+      "first_value": null,
+      "checked_value": null,
+      "split_value": null,
+      "trace": [
+        {
+          "state": "(46 + 34 + 11) / 13",
+          "from": "46 + 34",
+          "to": "80",
+          "verdict": "ok",
+          "attempt": 0,
+          "diff_size": 9,
+          "op": "+",
+          "max_operand": 46.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(80 + 11) / 13",
+          "from": "(80 + 11)",
+          "to": "91",
+          "verdict": "ok",
+          "attempt": 0,
+          "diff_size": 11,
+          "op": "+",
+          "max_operand": 80.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "91 / 13",
+          "from": null,
+          "to": null,
+          "verdict": "no rewrite",
+          "attempt": 0,
+          "diff_size": 0
+        },
+        {
+          "state": "91 / 13",
+          "from": null,
+          "to": null,
+          "verdict": "no rewrite",
+          "attempt": 1,
+          "diff_size": 0
+        },
+        {
+          "state": "91 / 13",
+          "from": null,
+          "to": null,
+          "verdict": "no rewrite",
+          "attempt": 2,
+          "diff_size": 0
+        }
+      ]
+    },
+    {
+      "expr": "(27 + 27 + 8) / 2",
+      "truth": 31,
+      "whole": 22,
+      "first_value": null,
+      "checked_value": null,
+      "split_value": null,
+      "trace": [
+        {
+          "state": "(27 + 27 + 8) / 2",
+          "from": null,
+          "to": null,
+          "verdict": "no rewrite",
+          "attempt": 0,
+          "diff_size": 0
+        },
+        {
+          "state": "(27 + 27 + 8) / 2",
+          "from": null,
+          "to": null,
+          "verdict": "no rewrite",
+          "attempt": 1,
+          "diff_size": 0
+        },
+        {
+          "state": "(27 + 27 + 8) / 2",
+          "from": null,
+          "to": null,
+          "verdict": "no rewrite",
+          "attempt": 2,
+          "diff_size": 0
+        }
+      ]
+    },
+    {
+      "expr": "(5 + 14 + 3) / 2",
+      "truth": 11,
+      "whole": 11,
+      "first_value": null,
+      "checked_value": null,
+      "split_value": null,
+      "trace": [
+        {
+          "state": "(5 + 14 + 3) / 2",
+          "from": "5 + 14 + 3) / 2",
+          "to": "10 + 6 * 3) / 4",
+          "verdict": "changes the value",
+          "attempt": 0,
+          "diff_size": 30,
+          "op": "/",
+          "max_operand": 14.0,
+          "two_digit": true,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(5 + 14 + 3) / 2",
+          "from": "4 +",
+          "to": "",
+          "verdict": "changes the value",
+          "attempt": 1,
+          "diff_size": 3,
+          "op": "+",
+          "max_operand": 4.0,
+          "two_digit": false,
+          "negative_result": false,
+          "result_over_100": false
+        },
+        {
+          "state": "(5 + 14 + 3) / 2",
+          "from": null,
+          "to": null,
+          "verdict": "no rewrite",
+          "attempt": 2,
+          "diff_size": 0
+        }
+      ]
+    }
+  ]
+}

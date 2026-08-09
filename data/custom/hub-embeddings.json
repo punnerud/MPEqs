@@ -1,0 +1,13 @@
+{
+  "n": 3893,
+  "hubs": 128,
+  "k": 16,
+  "squarings": 0,
+  "resident_bytes": 688416,
+  "rows_sampled": 325,
+  "exact_cell_pct": 1.3354415368803858,
+  "residual_ratio": 0.7130667533948956,
+  "recall_at_k": 0.1076923076923077,
+  "violations": 0,
+  "max_violation": 0
+}

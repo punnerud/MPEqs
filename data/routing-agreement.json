@@ -1,0 +1,105 @@
+{
+  "layout": "chain",
+  "n_layers": 16,
+  "first_moe_layer_rank_match_pct": 100.0,
+  "overall_set_match_pct": 99.664306640625,
+  "overall_rank_match_pct": 98.5626220703125,
+  "per_layer": [
+    {
+      "layer": 0,
+      "n_tokens": 4096,
+      "set_match_pct": 100.0,
+      "rank_match_pct": 100.0
+    },
+    {
+      "layer": 1,
+      "n_tokens": 4096,
+      "set_match_pct": 99.9755859375,
+      "rank_match_pct": 99.9267578125
+    },
+    {
+      "layer": 2,
+      "n_tokens": 4096,
+      "set_match_pct": 99.9755859375,
+      "rank_match_pct": 99.8779296875
+    },
+    {
+      "layer": 3,
+      "n_tokens": 4096,
+      "set_match_pct": 99.9267578125,
+      "rank_match_pct": 99.5361328125
+    },
+    {
+      "layer": 4,
+      "n_tokens": 4096,
+      "set_match_pct": 99.8046875,
+      "rank_match_pct": 99.267578125
+    },
+    {
+      "layer": 5,
+      "n_tokens": 4096,
+      "set_match_pct": 99.755859375,
+      "rank_match_pct": 98.9501953125
+    },
+    {
+      "layer": 6,
+      "n_tokens": 4096,
+      "set_match_pct": 99.7802734375,
+      "rank_match_pct": 99.0234375
+    },
+    {
+      "layer": 7,
+      "n_tokens": 4096,
+      "set_match_pct": 99.7314453125,
+      "rank_match_pct": 98.9501953125
+    },
+    {
+      "layer": 8,
+      "n_tokens": 4096,
+      "set_match_pct": 99.7802734375,
+      "rank_match_pct": 98.4130859375
+    },
+    {
+      "layer": 9,
+      "n_tokens": 4096,
+      "set_match_pct": 99.7802734375,
+      "rank_match_pct": 98.2421875
+    },
+    {
+      "layer": 10,
+      "n_tokens": 4096,
+      "set_match_pct": 99.6826171875,
+      "rank_match_pct": 98.1201171875
+    },
+    {
+      "layer": 11,
+      "n_tokens": 4096,
+      "set_match_pct": 99.4384765625,
+      "rank_match_pct": 97.8759765625
+    },
+    {
+      "layer": 12,
+      "n_tokens": 4096,
+      "set_match_pct": 99.4140625,
+      "rank_match_pct": 97.94921875
+    },
+    {
+      "layer": 13,
+      "n_tokens": 4096,
+      "set_match_pct": 99.1455078125,
+      "rank_match_pct": 97.3876953125
+    },
+    {
+      "layer": 14,
+      "n_tokens": 4096,
+      "set_match_pct": 99.21875,
+      "rank_match_pct": 96.8994140625
+    },
+    {
+      "layer": 15,
+      "n_tokens": 4096,
+      "set_match_pct": 99.21875,
+      "rank_match_pct": 96.58203125
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "equations": 20,
+  "roads_agree": 20,
+  "clear_first_residue": 216,
+  "divide_early_residue": 1061,
+  "plain_residue": 468,
+  "clear_first_steps": 80,
+  "divide_early_steps": 79,
+  "plain_steps": 58,
+  "pingpong_met": 20,
+  "pingpong_states": 298,
+  "forward_only_states": 238
+}

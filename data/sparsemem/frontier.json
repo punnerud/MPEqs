@@ -1,0 +1,263 @@
+{
+  "task": "embeddings",
+  "slots": 16384,
+  "val_dim": 1024,
+  "top_k": 32,
+  "steps": 1500,
+  "balance_weight": 0.01,
+  "concentration_weight": 0.001,
+  "regimes": {
+    "plain": {
+      "train_seconds": 39.2,
+      "accuracy_by_k": {
+        "1": 0.9944,
+        "2": 0.9944,
+        "4": 0.9963,
+        "8": 0.9963,
+        "16": 0.9963,
+        "32": 0.9963
+      },
+      "gini_at_full_k": 0.9953,
+      "slots_touched_pct": 1.59,
+      "top1pct_share": 0.9938,
+      "cache": {
+        "layer_mib": 64.0,
+        "slot_bytes": 4096,
+        "budgets": [
+          {
+            "budget_mib": 1,
+            "resident_pct": 1.56,
+            "hit_rate_pct": 99.99,
+            "bytes_from_disk_per_retrieval": 0.6
+          },
+          {
+            "budget_mib": 2,
+            "resident_pct": 3.12,
+            "hit_rate_pct": 100.0,
+            "bytes_from_disk_per_retrieval": 0.0
+          },
+          {
+            "budget_mib": 4,
+            "resident_pct": 6.25,
+            "hit_rate_pct": 100.0,
+            "bytes_from_disk_per_retrieval": 0.0
+          },
+          {
+            "budget_mib": 8,
+            "resident_pct": 12.5,
+            "hit_rate_pct": 100.0,
+            "bytes_from_disk_per_retrieval": 0.0
+          },
+          {
+            "budget_mib": 16,
+            "resident_pct": 25.0,
+            "hit_rate_pct": 100.0,
+            "bytes_from_disk_per_retrieval": 0.0
+          },
+          {
+            "budget_mib": 32,
+            "resident_pct": 50.0,
+            "hit_rate_pct": 100.0,
+            "bytes_from_disk_per_retrieval": 0.0
+          },
+          {
+            "budget_mib": 64,
+            "resident_pct": 100.0,
+            "hit_rate_pct": 100.0,
+            "bytes_from_disk_per_retrieval": 0.0
+          }
+        ]
+      },
+      "runs_at_full_k": 32.0
+    },
+    "balanced": {
+      "train_seconds": 42.0,
+      "accuracy_by_k": {
+        "1": 0.9935,
+        "2": 0.9944,
+        "4": 0.9944,
+        "8": 0.9944,
+        "16": 0.9954,
+        "32": 0.9954
+      },
+      "gini_at_full_k": 0.9268,
+      "slots_touched_pct": 35.49,
+      "top1pct_share": 0.7338,
+      "cache": {
+        "layer_mib": 64.0,
+        "slot_bytes": 4096,
+        "budgets": [
+          {
+            "budget_mib": 1,
+            "resident_pct": 1.56,
+            "hit_rate_pct": 75.28,
+            "bytes_from_disk_per_retrieval": 1012.3
+          },
+          {
+            "budget_mib": 2,
+            "resident_pct": 3.12,
+            "hit_rate_pct": 78.64,
+            "bytes_from_disk_per_retrieval": 874.8
+          },
+          {
+            "budget_mib": 4,
+            "resident_pct": 6.25,
+            "hit_rate_pct": 83.03,
+            "bytes_from_disk_per_retrieval": 695.2
+          },
+          {
+            "budget_mib": 8,
+            "resident_pct": 12.5,
+            "hit_rate_pct": 88.98,
+            "bytes_from_disk_per_retrieval": 451.6
+          },
+          {
+            "budget_mib": 16,
+            "resident_pct": 25.0,
+            "hit_rate_pct": 95.01,
+            "bytes_from_disk_per_retrieval": 204.5
+          },
+          {
+            "budget_mib": 32,
+            "resident_pct": 50.0,
+            "hit_rate_pct": 100.0,
+            "bytes_from_disk_per_retrieval": 0.0
+          },
+          {
+            "budget_mib": 64,
+            "resident_pct": 100.0,
+            "hit_rate_pct": 100.0,
+            "bytes_from_disk_per_retrieval": 0.0
+          }
+        ]
+      },
+      "runs_at_full_k": 31.96
+    },
+    "concentrated": {
+      "train_seconds": 45.0,
+      "accuracy_by_k": {
+        "1": 0.9935,
+        "2": 0.9926,
+        "4": 0.9926,
+        "8": 0.9926,
+        "16": 0.9935,
+        "32": 0.9935
+      },
+      "gini_at_full_k": 0.9961,
+      "slots_touched_pct": 0.85,
+      "top1pct_share": 1.0,
+      "cache": {
+        "layer_mib": 64.0,
+        "slot_bytes": 4096,
+        "budgets": [
+          {
+            "budget_mib": 1,
+            "resident_pct": 1.56,
+            "hit_rate_pct": 100.0,
+            "bytes_from_disk_per_retrieval": 0.0
+          },
+          {
+            "budget_mib": 2,
+            "resident_pct": 3.12,
+            "hit_rate_pct": 100.0,
+            "bytes_from_disk_per_retrieval": 0.0
+          },
+          {
+            "budget_mib": 4,
+            "resident_pct": 6.25,
+            "hit_rate_pct": 100.0,
+            "bytes_from_disk_per_retrieval": 0.0
+          },
+          {
+            "budget_mib": 8,
+            "resident_pct": 12.5,
+            "hit_rate_pct": 100.0,
+            "bytes_from_disk_per_retrieval": 0.0
+          },
+          {
+            "budget_mib": 16,
+            "resident_pct": 25.0,
+            "hit_rate_pct": 100.0,
+            "bytes_from_disk_per_retrieval": 0.0
+          },
+          {
+            "budget_mib": 32,
+            "resident_pct": 50.0,
+            "hit_rate_pct": 100.0,
+            "bytes_from_disk_per_retrieval": 0.0
+          },
+          {
+            "budget_mib": 64,
+            "resident_pct": 100.0,
+            "hit_rate_pct": 100.0,
+            "bytes_from_disk_per_retrieval": 0.0
+          }
+        ]
+      },
+      "runs_at_full_k": 31.94
+    },
+    "grouped": {
+      "train_seconds": 48.4,
+      "accuracy_by_k": {
+        "1": 0.9926,
+        "2": 0.9926,
+        "4": 0.9926,
+        "8": 0.9926,
+        "16": 0.9926,
+        "32": 0.9926
+      },
+      "gini_at_full_k": 0.9933,
+      "slots_touched_pct": 2.14,
+      "top1pct_share": 0.98,
+      "cache": {
+        "layer_mib": 64.0,
+        "slot_bytes": 4096,
+        "budgets": [
+          {
+            "budget_mib": 1,
+            "resident_pct": 1.56,
+            "hit_rate_pct": 99.52,
+            "bytes_from_disk_per_retrieval": 19.6
+          },
+          {
+            "budget_mib": 2,
+            "resident_pct": 3.12,
+            "hit_rate_pct": 100.0,
+            "bytes_from_disk_per_retrieval": 0.0
+          },
+          {
+            "budget_mib": 4,
+            "resident_pct": 6.25,
+            "hit_rate_pct": 100.0,
+            "bytes_from_disk_per_retrieval": 0.0
+          },
+          {
+            "budget_mib": 8,
+            "resident_pct": 12.5,
+            "hit_rate_pct": 100.0,
+            "bytes_from_disk_per_retrieval": 0.0
+          },
+          {
+            "budget_mib": 16,
+            "resident_pct": 25.0,
+            "hit_rate_pct": 100.0,
+            "bytes_from_disk_per_retrieval": 0.0
+          },
+          {
+            "budget_mib": 32,
+            "resident_pct": 50.0,
+            "hit_rate_pct": 100.0,
+            "bytes_from_disk_per_retrieval": 0.0
+          },
+          {
+            "budget_mib": 64,
+            "resident_pct": 100.0,
+            "hit_rate_pct": 100.0,
+            "bytes_from_disk_per_retrieval": 0.0
+          }
+        ]
+      },
+      "runs_at_full_k": 31.47
+    }
+  }
+}

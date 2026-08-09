@@ -1,0 +1,124 @@
+{
+  "equations": 12,
+  "read_solved": 2,
+  "q_right": 26,
+  "q_total": 48,
+  "invalid": 0,
+  "parrot": 26,
+  "escalated": 10,
+  "esc_solved": 10,
+  "menu_solved": 1,
+  "menu_rounds": 67,
+  "menu_wasted": 49,
+  "menu_loops": 0,
+  "rows": [
+    {
+      "eq": "1/3x + 2/3 = 2/5x + 2",
+      "read": false,
+      "esc": true,
+      "menu": false,
+      "q_right": 3,
+      "rounds": 6,
+      "wasted": 4
+    },
+    {
+      "eq": "x + 5/6 = 3/2x + 9/5",
+      "read": false,
+      "esc": true,
+      "menu": false,
+      "q_right": 1,
+      "rounds": 6,
+      "wasted": 4
+    },
+    {
+      "eq": "7/4x + 1 = 3/2x + 19/6",
+      "read": false,
+      "esc": true,
+      "menu": false,
+      "q_right": 3,
+      "rounds": 6,
+      "wasted": 4
+    },
+    {
+      "eq": "5/2x + 7/2 = x + 13/2",
+      "read": false,
+      "esc": true,
+      "menu": false,
+      "q_right": 1,
+      "rounds": 6,
+      "wasted": 4
+    },
+    {
+      "eq": "3/5x + 1/2 = x + 13/5",
+      "read": false,
+      "esc": true,
+      "menu": false,
+      "q_right": 3,
+      "rounds": 6,
+      "wasted": 4
+    },
+    {
+      "eq": "x + 17/3 = 6/5x + 4/3",
+      "read": false,
+      "esc": true,
+      "menu": false,
+      "q_right": 1,
+      "rounds": 6,
+      "wasted": 4
+    },
+    {
+      "eq": "8x + 2 = 5x + 4",
+      "read": false,
+      "esc": true,
+      "menu": false,
+      "q_right": 2,
+      "rounds": 6,
+      "wasted": 5
+    },
+    {
+      "eq": "5x + 3 = 4x + 3",
+      "read": false,
+      "esc": true,
+      "menu": false,
+      "q_right": 3,
+      "rounds": 6,
+      "wasted": 5
+    },
+    {
+      "eq": "5x + 9 = 4x + 8",
+      "read": false,
+      "esc": true,
+      "menu": false,
+      "q_right": 2,
+      "rounds": 6,
+      "wasted": 5
+    },
+    {
+      "eq": "2/5x + 8/3 = 2/3",
+      "read": false,
+      "esc": true,
+      "menu": false,
+      "q_right": 0,
+      "rounds": 6,
+      "wasted": 5
+    },
+    {
+      "eq": "3/2x + 4 = 7/3",
+      "read": true,
+      "esc": null,
+      "menu": false,
+      "q_right": 4,
+      "rounds": 6,
+      "wasted": 5
+    },
+    {
+      "eq": "2x = x + 1/5",
+      "read": true,
+      "esc": null,
+      "menu": true,
+      "q_right": 3,
+      "rounds": 1,
+      "wasted": 0
+    }
+  ]
+}

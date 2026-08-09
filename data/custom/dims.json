@@ -1,0 +1,12 @@
+{
+  "fire_threshold": 1.5,
+  "separation": {
+    "cosine": 0.1176,
+    "shared extreme": 0.3107,
+    "shared extreme x idf": 0.0873
+  },
+  "pivot_dim": 218,
+  "pivot_dim_fires_on": 221,
+  "pivot_raw": 2.2213,
+  "pivot_idf": 0.7344
+}

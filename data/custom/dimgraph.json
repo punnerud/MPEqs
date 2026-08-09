@@ -1,0 +1,394 @@
+{
+  "olmoe-1b": {
+    "n": 20,
+    "base": 4,
+    "dim": 1,
+    "refusals_fired": 27,
+    "true_refusals": 20,
+    "false_refusals": 7,
+    "fixed_after_refusal": 1,
+    "rows": [
+      {
+        "model": "olmoe-1b",
+        "truth": "123",
+        "base": "8309141312498565/562949953421312",
+        "dim": "8309141312498565/562949953421312",
+        "refusals": []
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "30",
+        "base": "3752999689475413/562949953421312",
+        "dim": "None",
+        "refusals": [
+          "step C mixes units: seasonal +/- remaining"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "21",
+        "base": "21",
+        "dim": "None",
+        "refusals": [
+          "step C mixes units: cooky +/- those",
+          "step B mixes units: cooky +/- those"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "2",
+        "base": "182",
+        "dim": "182",
+        "refusals": []
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "20",
+        "base": "None",
+        "dim": "None",
+        "refusals": []
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "15",
+        "base": "85",
+        "dim": "None",
+        "refusals": [
+          "step B mixes units: sock +/- loose",
+          "step B mixes units: pair +/- loose",
+          "step B mixes units: pair +/- loose"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "100",
+        "base": "3350",
+        "dim": "None",
+        "refusals": [
+          "step A mixes units: advance +/- cozy*monthly",
+          "step E mixes units: cozy +/- cozy*monthly"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "20",
+        "base": "16",
+        "dim": "16",
+        "refusals": [
+          "step A mixes units: hous*bedroom*hous +/- window",
+          "step A mixes units: hous*bedroom*hous +/- window",
+          "step A mixes units: hous*bedroom*hous +/- window"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "60",
+        "base": "-5559834477477233/17592186044416",
+        "dim": "3",
+        "refusals": [
+          "step B mixes units: student +/- student*student",
+          "step B mixes units: student +/- student*student",
+          "step B mixes units: student +/- student*student"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "68",
+        "base": "None",
+        "dim": "None",
+        "refusals": []
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "25",
+        "base": "None",
+        "dim": "None",
+        "refusals": [
+          "step A mixes units: in +/- day",
+          "step A mixes units: in +/- day",
+          "step A mixes units: in +/- day"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "120",
+        "base": "None",
+        "dim": "None",
+        "refusals": []
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "44",
+        "base": "44",
+        "dim": "44",
+        "refusals": [
+          "the final step produces castle, but the question asks for unmanned",
+          "the final step produces castle, but the question asks for unmanned",
+          "the final step produces castle, but the question asks for unmanned"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "243",
+        "base": "243",
+        "dim": "None",
+        "refusals": [
+          "step C mixes units: pair*one +/- pair*and"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "10",
+        "base": "2",
+        "dim": "2",
+        "refusals": []
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "83",
+        "base": "None",
+        "dim": "None",
+        "refusals": [
+          "step C mixes units: unparseable"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "360",
+        "base": "655",
+        "dim": "None",
+        "refusals": [
+          "step D mixes units: hour*hour +/- peach"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "21",
+        "base": "None",
+        "dim": "None",
+        "refusals": []
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "82",
+        "base": "234",
+        "dim": "None",
+        "refusals": [
+          "step B mixes units: chicken*fish +/- fish",
+          "step B mixes units: chicken +/- fish",
+          "step B mixes units: chicken +/- fish"
+        ]
+      },
+      {
+        "model": "olmoe-1b",
+        "truth": "10",
+        "base": "10",
+        "dim": "None",
+        "refusals": [
+          "step C mixes units: for +/- color*how"
+        ]
+      }
+    ]
+  },
+  "qwen-35b": {
+    "n": 20,
+    "base": 16,
+    "dim": 16,
+    "refusals_fired": 36,
+    "true_refusals": 4,
+    "false_refusals": 32,
+    "fixed_after_refusal": 11,
+    "rows": [
+      {
+        "model": "qwen-35b",
+        "truth": "123",
+        "base": "123",
+        "dim": "123",
+        "refusals": [
+          "step D mixes units: boy +/- boy/nongendered",
+          "step C mixes units: boy +/- boy/nongendered",
+          "step C mixes units: boy +/- boy/nongendered"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "30",
+        "base": "30",
+        "dim": "30",
+        "refusals": [
+          "step C mixes units: seasonal +/- remaining",
+          "step C mixes units: seasonal +/- remaining",
+          "step C mixes units: seasonal +/- remaining"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "21",
+        "base": "21",
+        "dim": "21",
+        "refusals": [
+          "step B mixes units: cooky +/- those",
+          "step B mixes units: cooky +/- those",
+          "step B mixes units: cooky +/- those"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "2",
+        "base": "-2",
+        "dim": "-2",
+        "refusals": [
+          "step G mixes units: by*second +/- second",
+          "step G mixes units: second +/- second*by",
+          "step G mixes units: second*by +/- second"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "20",
+        "base": "24",
+        "dim": "12",
+        "refusals": [
+          "step B mixes units: hour*hour +/- show*hour"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "15",
+        "base": "15",
+        "dim": "15",
+        "refusals": [
+          "step B mixes units: pair +/- loose",
+          "step B mixes units: pair +/- loose",
+          "step B mixes units: pair +/- loose"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "100",
+        "base": "100",
+        "dim": "100",
+        "refusals": [
+          "step B mixes units: advance +/- monthly*cozy",
+          "step A mixes units: advance +/- monthly*cozy",
+          "step A mixes units: advance +/- monthly*cozy"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "20",
+        "base": "20",
+        "dim": "20",
+        "refusals": [
+          "step D mixes units: hous*bedroom*hous +/- hous*window",
+          "step D mixes units: hous*bedroom*hous +/- hous*window",
+          "step D mixes units: hous*bedroom*hous +/- hous*window"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "60",
+        "base": "60",
+        "dim": "60",
+        "refusals": []
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "68",
+        "base": "68",
+        "dim": "68",
+        "refusals": []
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "25",
+        "base": "25",
+        "dim": "25",
+        "refusals": [
+          "step A mixes units: how +/- in",
+          "step A mixes units: how +/- in",
+          "step A mixes units: how +/- in"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "120",
+        "base": "120",
+        "dim": "120",
+        "refusals": []
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "44",
+        "base": "44",
+        "dim": "44",
+        "refusals": [
+          "the final step produces castle, but the question asks for unmanned",
+          "the final step produces castle, but the question asks for unmanned",
+          "the final step produces castle, but the question asks for unmanned"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "243",
+        "base": "243",
+        "dim": "243",
+        "refusals": [
+          "step D mixes units: pair*one +/- pair*and",
+          "step D mixes units: pair*one +/- pair*and",
+          "step D mixes units: pair*one +/- pair*and"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "10",
+        "base": "10",
+        "dim": "10",
+        "refusals": []
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "83",
+        "base": "None",
+        "dim": "83",
+        "refusals": [
+          "step C mixes units: unparseable"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "360",
+        "base": "360",
+        "dim": "360",
+        "refusals": []
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "21",
+        "base": "33",
+        "dim": "33",
+        "refusals": []
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "82",
+        "base": "82",
+        "dim": "None",
+        "refusals": [
+          "step B mixes units: chicken +/- fish"
+        ]
+      },
+      {
+        "model": "qwen-35b",
+        "truth": "10",
+        "base": "10",
+        "dim": "10",
+        "refusals": [
+          "step B mixes units: for +/- color*how",
+          "step B mixes units: for +/- color*how",
+          "step B mixes units: for +/- color*how"
+        ]
+      }
+    ]
+  }
+}

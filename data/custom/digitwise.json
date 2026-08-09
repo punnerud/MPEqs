@@ -1,0 +1,118 @@
+{
+  "summary": {
+    "tasks": 12,
+    "whole_correct": 6,
+    "digitwise_correct": 11,
+    "oracle_correct": 12
+  },
+  "runs": [
+    {
+      "a": 859,
+      "b": 467,
+      "truth": 1326,
+      "whole": 1326,
+      "digitwise": 1326,
+      "oracle": 1326,
+      "calls": 3
+    },
+    {
+      "a": 914,
+      "b": 807,
+      "truth": 1721,
+      "whole": 821,
+      "digitwise": 1721,
+      "oracle": 1721,
+      "calls": 3
+    },
+    {
+      "a": 961,
+      "b": 857,
+      "truth": 1818,
+      "whole": 1818,
+      "digitwise": 1818,
+      "oracle": 1818,
+      "calls": 3
+    },
+    {
+      "a": 767,
+      "b": 642,
+      "truth": 1409,
+      "whole": 467,
+      "digitwise": 1409,
+      "oracle": 1409,
+      "calls": 3
+    },
+    {
+      "a": 576,
+      "b": 894,
+      "truth": 1470,
+      "whole": 1372,
+      "digitwise": 1470,
+      "oracle": 1470,
+      "calls": 3
+    },
+    {
+      "a": 355,
+      "b": 764,
+      "truth": 1119,
+      "whole": 1119,
+      "digitwise": 1119,
+      "oracle": 1119,
+      "calls": 3
+    },
+    {
+      "a": 580,
+      "b": 989,
+      "truth": 1569,
+      "whole": 1669,
+      "digitwise": 1570,
+      "oracle": 1569,
+      "calls": 3
+    },
+    {
+      "a": 352,
+      "b": 489,
+      "truth": 841,
+      "whole": 831,
+      "digitwise": 841,
+      "oracle": 841,
+      "calls": 3
+    },
+    {
+      "a": 687,
+      "b": 355,
+      "truth": 1042,
+      "whole": 1042,
+      "digitwise": 1042,
+      "oracle": 1042,
+      "calls": 3
+    },
+    {
+      "a": 386,
+      "b": 286,
+      "truth": 672,
+      "whole": 572,
+      "digitwise": 672,
+      "oracle": 672,
+      "calls": 3
+    },
+    {
+      "a": 988,
+      "b": 884,
+      "truth": 1872,
+      "whole": 1872,
+      "digitwise": 1872,
+      "oracle": 1872,
+      "calls": 3
+    },
+    {
+      "a": 498,
+      "b": 263,
+      "truth": 761,
+      "whole": 761,
+      "digitwise": 761,
+      "oracle": 761,
+      "calls": 3
+    }
+  ]
+}

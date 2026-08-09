@@ -1,0 +1,73 @@
+{
+  "families": 7,
+  "example_pass": 7,
+  "truth_pass": 7,
+  "bricks_before": 46,
+  "bricks_after": 60,
+  "reach_before": 112,
+  "reach_after": 164,
+  "roads_before": 3,
+  "roads_after": 3,
+  "demo": {
+    "ten_nmi_km": "463/25",
+    "exact": true
+  },
+  "rows": [
+    {
+      "family": "tax",
+      "truth": "5/4",
+      "stage": "mounted",
+      "factor": "5/4",
+      "attempt": 0,
+      "matches_truth": true
+    },
+    {
+      "family": "nmi",
+      "truth": "463/250",
+      "stage": "mounted",
+      "factor": "463/250",
+      "attempt": 0,
+      "matches_truth": true
+    },
+    {
+      "family": "stone",
+      "truth": "14",
+      "stage": "mounted",
+      "factor": "14",
+      "attempt": 0,
+      "matches_truth": true
+    },
+    {
+      "family": "pint",
+      "truth": "454609/800000",
+      "stage": "mounted",
+      "factor": "454609/800000",
+      "attempt": 0,
+      "matches_truth": true
+    },
+    {
+      "family": "sek",
+      "truth": "97/100",
+      "stage": "mounted",
+      "factor": "97/100",
+      "attempt": 0,
+      "matches_truth": true
+    },
+    {
+      "family": "dkk",
+      "truth": "38/25",
+      "stage": "mounted",
+      "factor": "38/25",
+      "attempt": 0,
+      "matches_truth": true
+    },
+    {
+      "family": "markup",
+      "truth": "7/5",
+      "stage": "mounted",
+      "factor": "7/5",
+      "attempt": 0,
+      "matches_truth": true
+    }
+  ]
+}

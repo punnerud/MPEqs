@@ -1,0 +1,357 @@
+{
+  "summary": {
+    "tasks": 20,
+    "whole_correct": 3,
+    "graph_correct": 11,
+    "parsed": 20,
+    "structurally_valid": 15,
+    "mean_steps": 3.0,
+    "max_fanin": 3,
+    "fanout_one_pct": 86.66666666666667
+  },
+  "runs": [
+    {
+      "expr": "(22 + 11 * 8) / 22",
+      "truth": 5,
+      "whole": 5,
+      "graph_value": 5,
+      "stage": "ok",
+      "graph": {
+        "A": "11 * 8",
+        "B": "22 + A",
+        "C": "B / 22"
+      },
+      "calls": 4,
+      "steps": 3,
+      "max_fanin": 2,
+      "max_fanout": 1,
+      "fanout_one": 2,
+      "inner": 2
+    },
+    {
+      "expr": "(37 + 29 * 2) / 5",
+      "truth": 19,
+      "whole": 10,
+      "graph_value": 19,
+      "stage": "ok",
+      "graph": {
+        "A": "29 * 2",
+        "B": "37 + A",
+        "C": "B / 5"
+      },
+      "calls": 4,
+      "steps": 3,
+      "max_fanin": 2,
+      "max_fanout": 1,
+      "fanout_one": 2,
+      "inner": 2
+    },
+    {
+      "expr": "(38 + 39 * 8) / 2",
+      "truth": 175,
+      "whole": 37,
+      "graph_value": 175,
+      "stage": "ok",
+      "graph": {
+        "A": "39 * 8",
+        "B": "38 + A",
+        "C": "B / 2"
+      },
+      "calls": 4,
+      "steps": 3,
+      "max_fanin": 2,
+      "max_fanout": 1,
+      "fanout_one": 2,
+      "inner": 2
+    },
+    {
+      "expr": "(38 + 21 * 10) / 8",
+      "truth": 31,
+      "whole": 8,
+      "graph_value": 31,
+      "stage": "ok",
+      "graph": {
+        "A": "21 * 10",
+        "B": "38 + ",
+        "C": "248 / 8"
+      },
+      "calls": 4,
+      "steps": 3,
+      "max_fanin": 2,
+      "max_fanout": 0,
+      "fanout_one": 0,
+      "inner": 2
+    },
+    {
+      "expr": "(38 + 14 * 7) / 2",
+      "truth": 68,
+      "whole": 22,
+      "graph_value": 68,
+      "stage": "ok",
+      "graph": {
+        "A": "14 * 7",
+        "B": "38 + A",
+        "C": "B / 2"
+      },
+      "calls": 4,
+      "steps": 3,
+      "max_fanin": 2,
+      "max_fanout": 1,
+      "fanout_one": 2,
+      "inner": 2
+    },
+    {
+      "expr": "(41 - 15 + 9) / 7",
+      "truth": 5,
+      "whole": 5,
+      "graph_value": 5,
+      "stage": "ok",
+      "graph": {
+        "A": "41 - 15",
+        "B": "A + 9",
+        "C": "B / 7"
+      },
+      "calls": 4,
+      "steps": 3,
+      "max_fanin": 2,
+      "max_fanout": 1,
+      "fanout_one": 2,
+      "inner": 2
+    },
+    {
+      "expr": "(39 - 31 * 7) / 2",
+      "truth": -89,
+      "whole": 8,
+      "graph_value": 1,
+      "stage": "ok",
+      "graph": {
+        "A": "31 * 7",
+        "B": "39 - (31 * 7)",
+        "C": "B / 2"
+      },
+      "calls": 4,
+      "steps": 3,
+      "max_fanin": 3,
+      "max_fanout": 1,
+      "fanout_one": 1,
+      "inner": 2
+    },
+    {
+      "expr": "(46 - 17 + 3) / 8",
+      "truth": 4,
+      "whole": 3,
+      "graph_value": 5,
+      "stage": "ok",
+      "graph": {
+        "A": "46 - 17",
+        "B": "A + 3",
+        "C": "B / 8"
+      },
+      "calls": 4,
+      "steps": 3,
+      "max_fanin": 2,
+      "max_fanout": 1,
+      "fanout_one": 2,
+      "inner": 2
+    },
+    {
+      "expr": "(48 + 30 * 6) / 12",
+      "truth": 19,
+      "whole": 12,
+      "graph_value": null,
+      "stage": "check",
+      "reason": "D takes 5 inputs",
+      "graph": {
+        "A": "30 * 6",
+        "B": "(30 * 6) * 30",
+        "C": "B / 12",
+        "D": "((30 * 6) * 30 + 48) / 12"
+      },
+      "calls": 1
+    },
+    {
+      "expr": "(24 - 40 * 9) / 3",
+      "truth": -112,
+      "whole": -18,
+      "graph_value": -72,
+      "stage": "ok",
+      "graph": {
+        "A": "40 * 9",
+        "B": "24 - (40 * 9)",
+        "C": "B / 3"
+      },
+      "calls": 4,
+      "steps": 3,
+      "max_fanin": 3,
+      "max_fanout": 1,
+      "fanout_one": 1,
+      "inner": 2
+    },
+    {
+      "expr": "(19 + 32 * 12) / 13",
+      "truth": 31,
+      "whole": 5,
+      "graph_value": 31,
+      "stage": "ok",
+      "graph": {
+        "A": "32 * 12",
+        "B": "19 + A",
+        "C": "B / 13"
+      },
+      "calls": 4,
+      "steps": 3,
+      "max_fanin": 2,
+      "max_fanout": 1,
+      "fanout_one": 2,
+      "inner": 2
+    },
+    {
+      "expr": "(58 - 24 + 2) / 3",
+      "truth": 12,
+      "whole": 8,
+      "graph_value": 12,
+      "stage": "ok",
+      "graph": {
+        "A": "58 - 24",
+        "B": "(A) + 2",
+        "C": "B / 3"
+      },
+      "calls": 4,
+      "steps": 3,
+      "max_fanin": 2,
+      "max_fanout": 1,
+      "fanout_one": 2,
+      "inner": 2
+    },
+    {
+      "expr": "(41 + 9 * 9) / 2",
+      "truth": 61,
+      "whole": 22,
+      "graph_value": null,
+      "stage": "check",
+      "reason": "inlines to a different value",
+      "graph": {
+        "A": "9 * 9",
+        "B": "81 * 9",
+        "C": "B / 2",
+        "D": "(C + A) / 2",
+        "E": "41 + D"
+      },
+      "calls": 1
+    },
+    {
+      "expr": "(12 - 30 * 8) / 6",
+      "truth": -38,
+      "whole": -6,
+      "graph_value": -38,
+      "stage": "ok",
+      "graph": {
+        "A": "30 * 8",
+        "B": "12 - A",
+        "C": "B / 6"
+      },
+      "calls": 4,
+      "steps": 3,
+      "max_fanin": 2,
+      "max_fanout": 1,
+      "fanout_one": 2,
+      "inner": 2
+    },
+    {
+      "expr": "(58 + 26 * 5) / 2",
+      "truth": 94,
+      "whole": 20,
+      "graph_value": 94,
+      "stage": "ok",
+      "graph": {
+        "A": "26 * 5",
+        "B": "58 + A",
+        "C": "B / 2"
+      },
+      "calls": 4,
+      "steps": 3,
+      "max_fanin": 2,
+      "max_fanout": 1,
+      "fanout_one": 2,
+      "inner": 2
+    },
+    {
+      "expr": "(11 + 16 * 12) / 29",
+      "truth": 7,
+      "whole": 6,
+      "graph_value": 6,
+      "stage": "ok",
+      "graph": {
+        "A": "16 * 12",
+        "B": "11 + A",
+        "C": "B / 29"
+      },
+      "calls": 4,
+      "steps": 3,
+      "max_fanin": 2,
+      "max_fanout": 1,
+      "fanout_one": 2,
+      "inner": 2
+    },
+    {
+      "expr": "(55 - 39 + 4) / 2",
+      "truth": 10,
+      "whole": 8,
+      "graph_value": 10,
+      "stage": "ok",
+      "graph": {
+        "A": "55 - 39",
+        "B": "A + 4",
+        "C": "B / 2"
+      },
+      "calls": 4,
+      "steps": 3,
+      "max_fanin": 2,
+      "max_fanout": 1,
+      "fanout_one": 2,
+      "inner": 2
+    },
+    {
+      "expr": "(46 + 34 + 11) / 13",
+      "truth": 7,
+      "whole": 11,
+      "graph_value": null,
+      "stage": "check",
+      "reason": "inlines to a different value",
+      "graph": {
+        "A": "46",
+        "B": "34 + 11",
+        "C": "B / 13"
+      },
+      "calls": 1
+    },
+    {
+      "expr": "(27 + 27 + 8) / 2",
+      "truth": 31,
+      "whole": 22,
+      "graph_value": null,
+      "stage": "check",
+      "reason": "inlines to a different value",
+      "graph": {
+        "A": "27 + 27",
+        "B": "8",
+        "C": "B / 2"
+      },
+      "calls": 1
+    },
+    {
+      "expr": "(5 + 14 + 3) / 2",
+      "truth": 11,
+      "whole": 11,
+      "graph_value": null,
+      "stage": "check",
+      "reason": "inlines to a different value",
+      "graph": {
+        "A": "14",
+        "B": "5 + A",
+        "C": "B / 2"
+      },
+      "calls": 1
+    }
+  ]
+}

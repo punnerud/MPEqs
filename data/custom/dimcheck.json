@@ -1,0 +1,483 @@
+{
+  "summary": {
+    "store": 1554,
+    "self_pass": 1112,
+    "tests": 60,
+    "top1_plain": 0,
+    "top1_filtered": 1,
+    "vote_filtered": 1,
+    "refused": 440
+  },
+  "rows": [
+    {
+      "q": "John's car breaks down.  The car weighs 1200 pounds and he h",
+      "candidates": 25,
+      "type_clean": 21,
+      "filtered": "-5625746534523645/281474976710656",
+      "vote": "54000",
+      "truth": "16"
+    },
+    {
+      "q": "The bakers at the Beverly Hills Bakery baked 200 loaves of b",
+      "candidates": 25,
+      "type_clean": 16,
+      "filtered": "8691947280825057/4503599627370496",
+      "vote": "620000",
+      "truth": "74"
+    },
+    {
+      "q": "Cindy's math and science books weigh 2 pounds each.  Her Fre",
+      "candidates": 25,
+      "type_clean": 22,
+      "filtered": "105/2",
+      "vote": "20",
+      "truth": "17"
+    },
+    {
+      "q": "A crocodile grows 8 inches long in 4 years. At this rate, ho",
+      "candidates": 25,
+      "type_clean": 12,
+      "filtered": "10",
+      "vote": "10",
+      "truth": "26"
+    },
+    {
+      "q": "A raspberry bush has 6 clusters of 20 fruit each and 67 indi",
+      "candidates": 25,
+      "type_clean": 13,
+      "filtered": "21",
+      "vote": "8040",
+      "truth": "187"
+    },
+    {
+      "stage": "none"
+    },
+    {
+      "q": "For a New Year's resolution, Andy wants to lose 30 lbs. by h",
+      "candidates": 25,
+      "type_clean": 15,
+      "filtered": "5674898724005161/70368744177664",
+      "vote": "25",
+      "truth": "525"
+    },
+    {
+      "q": "John has 3 boxes.  Each box is 5 inches by 6 inches by 4 inc",
+      "candidates": 3,
+      "type_clean": 2,
+      "filtered": "15/2",
+      "vote": "None",
+      "truth": "72"
+    },
+    {
+      "q": "A magazine costs half as much as a book. The book costs $4. ",
+      "candidates": 25,
+      "type_clean": 16,
+      "filtered": "-5",
+      "vote": "30",
+      "truth": "1"
+    },
+    {
+      "q": "Kylie and Robert enjoy going to the beach to collect shells.",
+      "candidates": 25,
+      "type_clean": 24,
+      "filtered": "27/2",
+      "vote": "200",
+      "truth": "50"
+    },
+    {
+      "q": "Two thirds of Jana's puppies are Pomeranians. One third of t",
+      "candidates": 25,
+      "type_clean": 2,
+      "filtered": "18",
+      "vote": "18",
+      "truth": "27"
+    },
+    {
+      "q": "A pirate crew is digging for buried treasure on the island m",
+      "candidates": 7,
+      "type_clean": 7,
+      "filtered": "36",
+      "vote": "20",
+      "truth": "11"
+    },
+    {
+      "q": "Suzie loves to chew fruit-flavored gum. She bought four pack",
+      "candidates": 25,
+      "type_clean": 6,
+      "filtered": "84",
+      "vote": "84",
+      "truth": "2"
+    },
+    {
+      "q": "The Llesis family drove and hiked 6 hours to their vacation ",
+      "candidates": 25,
+      "type_clean": 13,
+      "filtered": "25",
+      "vote": "25",
+      "truth": "255"
+    },
+    {
+      "q": "The temperature was 2 degrees Celsius. It dropped 8 degrees ",
+      "candidates": 25,
+      "type_clean": 23,
+      "filtered": "-60",
+      "vote": "48",
+      "truth": "-3"
+    },
+    {
+      "q": "Rose went to the store on Monday and bought 4 cakes. Tuesday",
+      "candidates": 25,
+      "type_clean": 25,
+      "filtered": "17",
+      "vote": "17",
+      "truth": "76"
+    },
+    {
+      "q": "In the first half of a soccer match, team A scores 4 goals w",
+      "candidates": 8,
+      "type_clean": 4,
+      "filtered": "-78",
+      "vote": "162",
+      "truth": "16"
+    },
+    {
+      "q": "Mishka bought 3 pairs of shorts, 3 pairs of pants, and 3 pai",
+      "candidates": 10,
+      "type_clean": 2,
+      "filtered": "-4550512123488939/281474976710656",
+      "vote": "135",
+      "truth": "243"
+    },
+    {
+      "q": "Jon runs a triathlon.  It takes him 40 minutes for the swim,",
+      "candidates": 3,
+      "type_clean": 2,
+      "filtered": "-1570",
+      "vote": "None",
+      "truth": "59"
+    },
+    {
+      "q": "If it takes 3 kangaroos traveling at the same speed a total ",
+      "candidates": 25,
+      "type_clean": 12,
+      "filtered": "8",
+      "vote": "8",
+      "truth": "48"
+    },
+    {
+      "q": "Ford owns a garden and he grows 40 roses every week. He supp",
+      "candidates": 25,
+      "type_clean": 23,
+      "filtered": "264",
+      "vote": "60",
+      "truth": "100"
+    },
+    {
+      "q": "Hallie had dance practice for 1 hour on Tuesdays and 2 hours",
+      "candidates": 25,
+      "type_clean": 19,
+      "filtered": "15",
+      "vote": "15",
+      "truth": "5"
+    },
+    {
+      "q": "Carrie is planning the caroling schedule. The choir plans to",
+      "candidates": 25,
+      "type_clean": 23,
+      "filtered": "960",
+      "vote": "960",
+      "truth": "540"
+    },
+    {
+      "q": "Some people got on a bus at the terminal. At the first bus s",
+      "candidates": 25,
+      "type_clean": 16,
+      "filtered": "-980",
+      "vote": "135",
+      "truth": "14"
+    },
+    {
+      "stage": "none"
+    },
+    {
+      "q": "Alani's family decided that the children should write storie",
+      "candidates": 25,
+      "type_clean": 25,
+      "filtered": "-4200",
+      "vote": "120",
+      "truth": "360"
+    },
+    {
+      "q": "Tim wanted to make lemonade for a pool party.  For a gallon ",
+      "candidates": 25,
+      "type_clean": 11,
+      "filtered": "-4",
+      "vote": "0",
+      "truth": "36"
+    },
+    {
+      "q": "Garrett is popping popcorn for a snack. As the pan of kernel",
+      "candidates": 15,
+      "type_clean": 7,
+      "filtered": "4",
+      "vote": "4",
+      "truth": "210"
+    },
+    {
+      "q": "Colby works for a manufacturing company in the packaging div",
+      "candidates": 25,
+      "type_clean": 22,
+      "filtered": "1",
+      "vote": "100",
+      "truth": "64"
+    },
+    {
+      "q": "Andrea has 8 more apples than Jamal and half as many bananas",
+      "candidates": 25,
+      "type_clean": 7,
+      "filtered": "-1",
+      "vote": "1664",
+      "truth": "168"
+    },
+    {
+      "q": "Mary buys 3 bags of M&Ms. The first bag has 300 M&Ms in it. ",
+      "candidates": 25,
+      "type_clean": 12,
+      "filtered": "7686143364045647/576460752303423488",
+      "vote": "10800",
+      "truth": "762"
+    },
+    {
+      "q": "James decides to run 3 sprints 3 times a week.  He runs 60 m",
+      "candidates": 25,
+      "type_clean": 19,
+      "filtered": "540",
+      "vote": "540",
+      "truth": "540"
+    },
+    {
+      "q": "A new program had 60 downloads in the first month. The numbe",
+      "candidates": 25,
+      "type_clean": 24,
+      "filtered": "405/2",
+      "vote": "120",
+      "truth": "366"
+    },
+    {
+      "q": "A food caterer was told to prepare gourmet hot dogs for 36 g",
+      "candidates": 25,
+      "type_clean": 23,
+      "filtered": "6004799503160661/562949953421312",
+      "vote": "1728",
+      "truth": "26"
+    },
+    {
+      "q": "Two sisters, Elizabeth and Margareth, bought beads. Elizabet",
+      "candidates": 11,
+      "type_clean": 2,
+      "filtered": "9",
+      "vote": "9",
+      "truth": "80"
+    },
+    {
+      "q": "Farmer Brown has 60 animals on his farm, all either chickens",
+      "candidates": 25,
+      "type_clean": 4,
+      "filtered": "112",
+      "vote": "112",
+      "truth": "160"
+    },
+    {
+      "q": "Josh decides to take up juggling to perform at the school ta",
+      "candidates": 25,
+      "type_clean": 15,
+      "filtered": "-5272378157511475/17592186044416",
+      "vote": "46",
+      "truth": "4"
+    },
+    {
+      "q": "Marilyn wants to buy a pair of boots online. On Amazon.com, ",
+      "candidates": 25,
+      "type_clean": 17,
+      "filtered": "5854679515581645/2251799813685248",
+      "vote": "117",
+      "truth": "1"
+    },
+    {
+      "q": "James buys a new wardrobe.  He buys 10 suits and 10 dress pa",
+      "candidates": 6,
+      "type_clean": 4,
+      "filtered": "1",
+      "vote": "1",
+      "truth": "10800"
+    },
+    {
+      "q": "Elliott is trying to walk 10,000 steps a day. He finished ha",
+      "candidates": 25,
+      "type_clean": 23,
+      "filtered": "40000000",
+      "vote": "20000000000",
+      "truth": "2000"
+    },
+    {
+      "q": "Caroline is three times older than Ben. Ben is two times old",
+      "candidates": 25,
+      "type_clean": 25,
+      "filtered": "6",
+      "vote": "6",
+      "truth": "24"
+    },
+    {
+      "q": "Dexter has five pigs. Each one eats 4 pounds of feed, twice ",
+      "candidates": 25,
+      "type_clean": 24,
+      "filtered": "600",
+      "vote": "600",
+      "truth": "20"
+    },
+    {
+      "q": "Stanley was standing on the side of the mountain, at an elev",
+      "candidates": 25,
+      "type_clean": 22,
+      "filtered": "11999958",
+      "vote": "11999958",
+      "truth": "3000"
+    },
+    {
+      "q": "Mel uses a 900-watt air conditioner for 8 hours a day. This ",
+      "candidates": 22,
+      "type_clean": 8,
+      "filtered": "-1376099886140985/562949953421312",
+      "vote": "204000",
+      "truth": "81"
+    },
+    {
+      "q": "Andy's car fuel efficiency is 10 MPG (miles per gallon). If ",
+      "candidates": 25,
+      "type_clean": 19,
+      "filtered": "150",
+      "vote": "150",
+      "truth": "15"
+    },
+    {
+      "q": "John decides to build a program capable of identifying cance",
+      "candidates": 25,
+      "type_clean": 13,
+      "filtered": "10920",
+      "vote": "10920",
+      "truth": "1450000"
+    },
+    {
+      "q": "Charlie wants to sell beeswax candles.  For every pound of b",
+      "candidates": 25,
+      "type_clean": 13,
+      "filtered": "-170",
+      "vote": "80",
+      "truth": "20"
+    },
+    {
+      "q": "Cecelia went to the milk store and found out that a gallon j",
+      "candidates": 25,
+      "type_clean": 15,
+      "filtered": "12",
+      "vote": "16",
+      "truth": "98"
+    },
+    {
+      "q": "A farmer has 900 eggs. He placed them on a tray, which holds",
+      "candidates": 25,
+      "type_clean": 21,
+      "filtered": "2001599834386887/288230376151711744",
+      "vote": "2325",
+      "truth": "75"
+    },
+    {
+      "q": "Carmen goes to an auction to win an antique desk. She accept",
+      "candidates": 25,
+      "type_clean": 16,
+      "filtered": "6158768721190421/72057594037927936",
+      "vote": "50",
+      "truth": "500"
+    },
+    {
+      "q": "$18 is shared among 3 boys. The eldest added $5 to his share",
+      "candidates": 15,
+      "type_clean": 3,
+      "filtered": "-2617717283409101/70368744177664",
+      "vote": "None",
+      "truth": "39"
+    },
+    {
+      "q": "On Monday, Walt walked 4 miles. Tuesday, he walked 6 times a",
+      "candidates": 25,
+      "type_clean": 23,
+      "filtered": "51/2",
+      "vote": "984",
+      "truth": "13"
+    },
+    {
+      "q": "If 6 potatoes makes 36 hash browns, how many hash browns can",
+      "candidates": 25,
+      "type_clean": 11,
+      "filtered": "16",
+      "vote": "16",
+      "truth": "576"
+    },
+    {
+      "q": "Prince is a butcher. He sells 15kg of meat every hour he wor",
+      "candidates": 25,
+      "type_clean": 13,
+      "filtered": "825",
+      "vote": "112500",
+      "truth": "5"
+    },
+    {
+      "q": "Michael is traveling on the interstate at an average speed o",
+      "candidates": 25,
+      "type_clean": 19,
+      "filtered": "5",
+      "vote": "900000",
+      "truth": "60"
+    },
+    {
+      "q": "Eight more than four times the number of coffee mugs in the ",
+      "candidates": 25,
+      "type_clean": 3,
+      "filtered": "10",
+      "vote": "10",
+      "truth": "8"
+    },
+    {
+      "q": "Toulouse has twice as many sheep as Charleston. Charleston h",
+      "candidates": 25,
+      "type_clean": 25,
+      "filtered": "11",
+      "vote": "76",
+      "truth": "260"
+    },
+    {
+      "q": "Ian has a board that is 40 feet long. He decides to make a c",
+      "candidates": 25,
+      "type_clean": 25,
+      "filtered": "6400",
+      "vote": "6400",
+      "truth": "32"
+    },
+    {
+      "q": "A certain company is in the business of selling fresh fruit.",
+      "candidates": 25,
+      "type_clean": 15,
+      "filtered": "24",
+      "vote": "24",
+      "truth": "32"
+    },
+    {
+      "q": "Brian's friend Bobby has 5 fewer than 3 times as many video ",
+      "candidates": 25,
+      "type_clean": 14,
+      "filtered": "75",
+      "vote": "3",
+      "truth": "40"
+    }
+  ]
+}

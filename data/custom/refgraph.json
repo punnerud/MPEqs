@@ -1,0 +1,243 @@
+{
+  "model": "qwen-35b",
+  "n": 20,
+  "solved": 1,
+  "ref_maps": 17,
+  "distinct_compounds": 24,
+  "not_reduce": 0,
+  "missing_numbers": 4,
+  "foreign_refusals": 30,
+  "calls": 111,
+  "rows": [
+    {
+      "truth": "123",
+      "answer": "None",
+      "ok": false,
+      "why": "problem numbers missing from the system: 1, 10",
+      "refs": {
+        "3": "girl_times_boy",
+        "1": null,
+        "10": null,
+        "30": "boy"
+      },
+      "defs": 1
+    },
+    {
+      "truth": "30",
+      "answer": "None",
+      "ok": false,
+      "why": "the asked node '' is never defined",
+      "refs": {
+        "60": "seasonal_worker",
+        "10": null
+      },
+      "defs": 0
+    },
+    {
+      "truth": "21",
+      "answer": "None",
+      "ok": false,
+      "why": "problem numbers missing from the system: 23, 42",
+      "refs": {
+        "23": "rachel_cooky",
+        "42": "rachel_cooky",
+        "44": "brother_cooky"
+      },
+      "defs": 1
+    },
+    {
+      "truth": "2",
+      "answer": "None",
+      "ok": false,
+      "why": "the asked node '' is never defined",
+      "refs": {
+        "4": "four",
+        "400": "meter",
+        "55": "second",
+        "60": "second",
+        "3": "second"
+      },
+      "defs": 0
+    },
+    {
+      "truth": "20",
+      "answer": "None",
+      "ok": false,
+      "why": "problem numbers missing from the system: 3, 30, 40, 6",
+      "refs": {
+        "6": "john_boating_hours",
+        "3": null,
+        "2": "show_hours",
+        "30": null,
+        "40": null
+      },
+      "defs": 1
+    },
+    {
+      "truth": "15",
+      "answer": "None",
+      "ok": false,
+      "why": "the asked node '' is never defined",
+      "refs": {
+        "50": "sock",
+        "10": "pair",
+        "15": "sock"
+      },
+      "defs": 0
+    },
+    {
+      "truth": "100",
+      "answer": "None",
+      "ok": false,
+      "why": "the asked node '' is never defined",
+      "refs": {
+        "1350": "advance_payment",
+        "6": "monthly_installment",
+        "350": "monthly_installment",
+        "1100": "advance_payment",
+        "9": "monthly_installment",
+        "250": "monthly_installment"
+      },
+      "defs": 0
+    },
+    {
+      "truth": "20",
+      "answer": "None",
+      "ok": false,
+      "why": "the asked node '' is never defined",
+      "refs": null,
+      "defs": 0
+    },
+    {
+      "truth": "60",
+      "answer": "None",
+      "ok": false,
+      "why": "the asked node '' is never defined",
+      "refs": {
+        "20": "percentage",
+        "25": "percentage"
+      },
+      "defs": 0
+    },
+    {
+      "truth": "68",
+      "answer": "None",
+      "ok": false,
+      "why": "the asked node '' is never defined",
+      "refs": null,
+      "defs": 0
+    },
+    {
+      "truth": "25",
+      "answer": "None",
+      "ok": false,
+      "why": "the asked node '' is never defined",
+      "refs": {
+        "50": "ha_in_bank_account",
+        "10": "ha_at_work",
+        "300": "a_bike_costs"
+      },
+      "defs": 0
+    },
+    {
+      "truth": "120",
+      "answer": "120",
+      "ok": true,
+      "why": null,
+      "refs": {
+        "20": "more_friend",
+        "50": "lily_friend"
+      },
+      "defs": 3
+    },
+    {
+      "truth": "44",
+      "answer": "None",
+      "ok": false,
+      "why": "the asked node '' is never defined",
+      "refs": {
+        "220": "castle_in_scotland",
+        "40": "percent_ruin"
+      },
+      "defs": 0
+    },
+    {
+      "truth": "243",
+      "answer": "None",
+      "ok": false,
+      "why": "the asked node '' is never defined",
+      "refs": {
+        "3": "pair_shoes",
+        "16.50": "dollar_shorts",
+        "22.50": "dollar_pants",
+        "42": "dollar_shoes"
+      },
+      "defs": 0
+    },
+    {
+      "truth": "10",
+      "answer": "None",
+      "ok": false,
+      "why": "the asked node '' is never defined",
+      "refs": {
+        "1": null,
+        "6": "liter_water",
+        "24": "liter_water"
+      },
+      "defs": 0
+    },
+    {
+      "truth": "83",
+      "answer": "None",
+      "ok": false,
+      "why": "the asked node '' is never defined",
+      "refs": null,
+      "defs": 0
+    },
+    {
+      "truth": "360",
+      "answer": "None",
+      "ok": false,
+      "why": "problem numbers missing from the system: 2, 3",
+      "refs": {
+        "3": "john_collect_hours",
+        "2": "john_collect_peach_minute"
+      },
+      "defs": 2
+    },
+    {
+      "truth": "21",
+      "answer": "None",
+      "ok": false,
+      "why": "the asked node '' is never defined",
+      "refs": {
+        "6": "more_candy",
+        "54": "candy_john"
+      },
+      "defs": 0
+    },
+    {
+      "truth": "82",
+      "answer": "None",
+      "ok": false,
+      "why": "the asked node '' is never defined",
+      "refs": {
+        "38": "chicken",
+        "6": "more"
+      },
+      "defs": 0
+    },
+    {
+      "truth": "10",
+      "answer": "None",
+      "ok": false,
+      "why": "the asked node '' is never defined",
+      "refs": {
+        "5": "colors",
+        "20": "purchase",
+        "2": "costs"
+      },
+      "defs": 0
+    }
+  ]
+}

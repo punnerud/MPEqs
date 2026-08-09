@@ -1,0 +1,241 @@
+load_backend: loaded BLAS backend from /opt/homebrew/Cellar/ggml/0.9.8/libexec/libggml-blas.so
+ggml_metal_device_init: tensor API disabled for pre-M5 and pre-A19 devices
+ggml_metal_library_init: using embedded metal library
+ggml_metal_library_init: loaded in 0.006 sec
+ggml_metal_rsets_init: creating a residency set collection (keep_alive = 180 s)
+ggml_metal_device_init: GPU name:   MTL0
+ggml_metal_device_init: GPU family: MTLGPUFamilyApple9  (1009)
+ggml_metal_device_init: GPU family: MTLGPUFamilyCommon3 (3003)
+ggml_metal_device_init: GPU family: MTLGPUFamilyMetal4  (5002)
+ggml_metal_device_init: simdgroup reduction   = true
+ggml_metal_device_init: simdgroup matrix mul. = true
+ggml_metal_device_init: has unified memory    = true
+ggml_metal_device_init: has bfloat            = true
+ggml_metal_device_init: has tensor            = false
+ggml_metal_device_init: use residency sets    = true
+ggml_metal_device_init: use shared buffers    = true
+ggml_metal_device_init: recommendedMaxWorkingSetSize  = 30150.67 MB
+load_backend: loaded MTL backend from /opt/homebrew/Cellar/ggml/0.9.8/libexec/libggml-metal.so
+load_backend: loaded CPU backend from /opt/homebrew/Cellar/ggml/0.9.8/libexec/libggml-cpu-apple_m2_m3.so
+build: 8500 (342d6125b) with AppleClang 17.0.0.17000604 for Darwin arm64
+common_init_result: fitting params to device memory, for bugs during this step try to reproduce them with -fit off, or provide --verbose logs if the bug only occurs with -fit on
+llama_params_fit_impl: projected to use 0 MiB of device memory vs. 28753 MiB of free device memory
+llama_params_fit_impl: will leave 28753 >= 1024 MiB of free device memory, no changes needed
+llama_params_fit: successfully fit params to free device memory
+llama_params_fit: fitting params to free memory took 0.04 seconds
+llama_model_load_from_file_impl: using device MTL0 (Apple M3 Pro) (unknown id) - 28753 MiB free
+llama_model_loader: loaded meta data with 28 key-value pairs and 195 tensors from models/OLMoE-1B-7B-0125-Instruct-Q4_K_M.gguf (version GGUF V3 (latest))
+llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+llama_model_loader: - kv   0:                       general.architecture str              = olmoe
+llama_model_loader: - kv   1:                               general.type str              = model
+llama_model_loader: - kv   2:                               general.name str              = Open_Instruct_Dev
+llama_model_loader: - kv   3:                       general.organization str              = Allenai
+llama_model_loader: - kv   4:                         general.size_label str              = 64x577M
+llama_model_loader: - kv   5:                          olmoe.block_count u32              = 16
+llama_model_loader: - kv   6:                       olmoe.context_length u32              = 4096
+llama_model_loader: - kv   7:                     olmoe.embedding_length u32              = 2048
+llama_model_loader: - kv   8:                  olmoe.feed_forward_length u32              = 1024
+llama_model_loader: - kv   9:                 olmoe.attention.head_count u32              = 16
+llama_model_loader: - kv  10:              olmoe.attention.head_count_kv u32              = 16
+llama_model_loader: - kv  11:                       olmoe.rope.freq_base f32              = 10000.000000
+llama_model_loader: - kv  12:     olmoe.attention.layer_norm_rms_epsilon f32              = 0.000010
+llama_model_loader: - kv  13:                    olmoe.expert_used_count u32              = 8
+llama_model_loader: - kv  14:                         olmoe.expert_count u32              = 64
+llama_model_loader: - kv  15:                       tokenizer.ggml.model str              = gpt2
+llama_model_loader: - kv  16:                         tokenizer.ggml.pre str              = olmo
+llama_model_loader: - kv  17:                      tokenizer.ggml.tokens arr[str,50304]   = ["<|endoftext|>", "<|padding|>", "!",...
+llama_model_loader: - kv  18:                  tokenizer.ggml.token_type arr[i32,50304]   = [3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+llama_model_loader: - kv  19:                      tokenizer.ggml.merges arr[str,50009]   = ["Ġ Ġ", "Ġ t", "Ġ a", "h e", "i n...
+llama_model_loader: - kv  20:                tokenizer.ggml.bos_token_id u32              = 50279
+llama_model_loader: - kv  21:                tokenizer.ggml.eos_token_id u32              = 50279
+llama_model_loader: - kv  22:            tokenizer.ggml.padding_token_id u32              = 50280
+llama_model_loader: - kv  23:               tokenizer.ggml.add_bos_token bool             = false
+llama_model_loader: - kv  24:               tokenizer.ggml.add_eos_token bool             = false
+llama_model_loader: - kv  25:                    tokenizer.chat_template str              = {{ bos_token }}{% for message in mess...
+llama_model_loader: - kv  26:               general.quantization_version u32              = 2
+llama_model_loader: - kv  27:                          general.file_type u32              = 15
+llama_model_loader: - type  f32:   81 tensors
+llama_model_loader: - type q4_K:   97 tensors
+llama_model_loader: - type q6_K:   17 tensors
+print_info: file format = GGUF V3 (latest)
+print_info: file type   = Q4_K - Medium
+print_info: file size   = 3.92 GiB (4.87 BPW) 
+validate_override: Using metadata override (  int) 'olmoe.expert_used_count' = 1
+load: 0 unused tokens
+load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect
+load: printing all EOG tokens:
+load:   - 0 ('<|endoftext|>')
+load:   - 50279 ('|||IP_ADDRESS|||')
+load: special tokens cache size = 29
+load: token to piece cache size = 0.2985 MB
+print_info: arch                  = olmoe
+print_info: vocab_only            = 0
+print_info: no_alloc              = 0
+print_info: n_ctx_train           = 4096
+print_info: n_embd                = 2048
+print_info: n_embd_inp            = 2048
+print_info: n_layer               = 16
+print_info: n_head                = 16
+print_info: n_head_kv             = 16
+print_info: n_rot                 = 128
+print_info: n_swa                 = 0
+print_info: is_swa_any            = 0
+print_info: n_embd_head_k         = 128
+print_info: n_embd_head_v         = 128
+print_info: n_gqa                 = 1
+print_info: n_embd_k_gqa          = 2048
+print_info: n_embd_v_gqa          = 2048
+print_info: f_norm_eps            = 0.0e+00
+print_info: f_norm_rms_eps        = 1.0e-05
+print_info: f_clamp_kqv           = 0.0e+00
+print_info: f_max_alibi_bias      = 0.0e+00
+print_info: f_logit_scale         = 0.0e+00
+print_info: f_attn_scale          = 0.0e+00
+print_info: n_ff                  = 1024
+print_info: n_expert              = 64
+print_info: n_expert_used         = 1
+print_info: n_expert_groups       = 0
+print_info: n_group_used          = 0
+print_info: causal attn           = 1
+print_info: pooling type          = 0
+print_info: rope type             = 2
+print_info: rope scaling          = linear
+print_info: freq_base_train       = 10000.0
+print_info: freq_scale_train      = 1
+print_info: n_ctx_orig_yarn       = 4096
+print_info: rope_yarn_log_mul     = 0.0000
+print_info: rope_finetuned        = unknown
+print_info: model type            = A1.7B
+print_info: model params          = 6.92 B
+print_info: general.name          = Open_Instruct_Dev
+print_info: vocab type            = BPE
+print_info: n_vocab               = 50304
+print_info: n_merges              = 50009
+print_info: BOS token             = 50279 '|||IP_ADDRESS|||'
+print_info: EOS token             = 50279 '|||IP_ADDRESS|||'
+print_info: EOT token             = 0 '<|endoftext|>'
+print_info: PAD token             = 50280 '<pad>'
+print_info: LF token              = 187 'Ċ'
+print_info: EOG token             = 0 '<|endoftext|>'
+print_info: EOG token             = 50279 '|||IP_ADDRESS|||'
+print_info: max token length      = 1024
+load_tensors: loading model tensors, this can take a while... (mmap = true, direct_io = false)
+load_tensors: offloading 0 repeating layers to GPU
+load_tensors: offloaded 0/17 layers to GPU
+load_tensors:   CPU_Mapped model buffer size =  3864.02 MiB
+load_tensors:   CPU_REPACK model buffer size =  3952.85 MiB
+...................................................
+common_init_result: added <|endoftext|> logit bias = -inf
+common_init_result: added |||IP_ADDRESS||| logit bias = -inf
+llama_context: constructing llama_context
+llama_context: n_seq_max     = 4
+llama_context: n_ctx         = 2048
+llama_context: n_ctx_seq     = 512
+llama_context: n_batch       = 2048
+llama_context: n_ubatch      = 512
+llama_context: causal_attn   = 1
+llama_context: flash_attn    = auto
+llama_context: kv_unified    = false
+llama_context: freq_base     = 10000.0
+llama_context: freq_scale    = 1
+llama_context: n_ctx_seq (512) < n_ctx_train (4096) -- the full capacity of the model will not be utilized
+ggml_metal_init: allocating
+ggml_metal_init: found device: Apple M3 Pro
+ggml_metal_init: picking default device: Apple M3 Pro
+ggml_metal_init: use fusion         = true
+ggml_metal_init: use concurrency    = true
+ggml_metal_init: use graph optimize = true
+llama_context:        CPU  output buffer size =     0.77 MiB
+llama_kv_cache:        CPU KV buffer size =   256.00 MiB
+llama_kv_cache: size =  256.00 MiB (   512 cells,  16 layers,  4/4 seqs), K (f16):  128.00 MiB, V (f16):  128.00 MiB
+sched_reserve: reserving ...
+sched_reserve: Flash Attention was auto, set to enabled
+sched_reserve: resolving fused Gated Delta Net support:
+sched_reserve: fused Gated Delta Net (autoregressive) enabled
+sched_reserve: fused Gated Delta Net (chunked) enabled
+sched_reserve:        CPU compute buffer size =   106.25 MiB
+sched_reserve: graph nodes  = 759
+sched_reserve: graph splits = 33 (with bs=512), 1 (with bs=1)
+sched_reserve: reserve took 1.21 ms, sched copies = 1
+common_init_from_params: warming up the model with an empty run - please wait ... (--no-warmup to disable)
+
+system_info: n_threads = 5 (n_threads_batch = 5) / 11 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | ACCELERATE = 1 | OPENMP = 1 | REPACK = 1 | 
+kl_divergence: computing over 24 chunks, n_ctx=512, batch_size=2048, n_seq=4
+kl_divergence: 5.62 seconds per pass - ETA 0.55 minutes
+
+chunk             PPL               ln(PPL(Q)/PPL(base))          KL Divergence              Δp RMS            Same top p
+   1    4374.4525 ± 1429.4044       6.15066 ±    0.32997       6.93203 ±    0.27744    60.437 ±  2.082 %    15.294 ±  2.258 %
+   2    1965.4259 ±  478.3589       5.00109 ±    0.22325       5.88772 ±    0.18889    55.279 ±  1.518 %    19.608 ±  1.760 %
+   3    1863.4013 ±  374.3679       5.15330 ±    0.18764       6.06430 ±    0.15716    55.527 ±  1.236 %    20.261 ±  1.454 %
+   4    1362.3943 ±  237.0610       5.04116 ±    0.16180       5.88179 ±    0.13772    57.467 ±  1.054 %    22.157 ±  1.301 %
+   5    1870.8798 ±  283.2971       5.52222 ±    0.14432       6.39382 ±    0.12517    61.908 ±  0.916 %    18.824 ±  1.095 %
+   6    1263.8696 ±  178.6895       5.21468 ±    0.13093       6.04906 ±    0.11558    60.657 ±  0.845 %    22.484 ±  1.068 %
+   7    1796.6182 ±  231.0599       5.41440 ±    0.12101       6.30424 ±    0.10412    60.203 ±  0.788 %    19.608 ±  0.940 %
+   8    2364.3859 ±  277.4654       5.58596 ±    0.11302       6.47257 ±    0.09515    59.988 ±  0.742 %    17.255 ±  0.837 %
+   9    2780.7879 ±  301.4231       5.68910 ±    0.10628       6.62811 ±    0.08898    59.806 ±  0.704 %    15.991 ±  0.765 %
+  10    2709.8118 ±  278.5692       5.58083 ±    0.10029       6.55568 ±    0.08327    58.879 ±  0.671 %    15.922 ±  0.725 %
+  11    2919.4668 ±  281.7990       5.58903 ±    0.09494       6.62379 ±    0.07797    58.530 ±  0.643 %    14.581 ±  0.666 %
+  12    2357.2154 ±  219.4982       5.43484 ±    0.09056       6.43434 ±    0.07519    58.404 ±  0.617 %    16.144 ±  0.665 %
+  13    1990.2159 ±  179.5621       5.31587 ±    0.08737       6.31464 ±    0.07296    58.369 ±  0.592 %    17.315 ±  0.657 %
+  14    1725.0559 ±  150.4582       5.23569 ±    0.08354       6.16847 ±    0.07045    58.026 ±  0.570 %    18.571 ±  0.651 %
+  15    2017.9295 ±  171.7003       5.35262 ±    0.08186       6.33333 ±    0.06884    58.016 ±  0.551 %    17.673 ±  0.617 %
+  16    1875.6913 ±  153.5378       5.25469 ±    0.07866       6.23015 ±    0.06605    57.935 ±  0.535 %    18.015 ±  0.602 %
+  17    2059.8188 ±  161.2609       5.28773 ±    0.07592       6.27790 ±    0.06334    57.756 ±  0.521 %    17.070 ±  0.572 %
+  18    2240.6725 ±  168.5106       5.32952 ±    0.07337       6.32095 ±    0.06078    57.405 ±  0.508 %    16.231 ±  0.544 %
+  19    2070.6426 ±  151.6570       5.23044 ±    0.07114       6.22065 ±    0.05901    56.721 ±  0.496 %    16.553 ±  0.534 %
+  20    2078.9744 ±  146.5718       5.24261 ±    0.06879       6.23877 ±    0.05686    56.805 ±  0.482 %    15.882 ±  0.512 %
+  21    1803.8686 ±  124.9667       5.14996 ±    0.06693       6.12227 ±    0.05582    56.897 ±  0.470 %    17.012 ±  0.514 %
+  22    1620.9069 ±  110.0155       5.08199 ±    0.06523       6.05210 ±    0.05474    56.868 ±  0.459 %    17.879 ±  0.512 %
+  23    1466.5562 ±   97.4305       5.01445 ±    0.06353       5.97828 ±    0.05346    56.769 ±  0.449 %    18.636 ±  0.509 %
+  24    1371.2886 ±   89.2875       4.96955 ±    0.06204       5.91539 ±    0.05223    56.831 ±  0.440 %    19.069 ±  0.502 %
+
+====== Perplexity statistics ======
+Mean PPL(Q)                   : 1371.288555 ±  89.287536
+Mean PPL(base)                :   9.525310 ±   0.386514
+Cor(ln(PPL(Q)), ln(PPL(base))):  38.55%
+Mean ln(PPL(Q)/PPL(base))     :   4.969554 ±   0.062042
+Mean PPL(Q)/PPL(base)         : 143.962620 ±   8.931667
+Mean PPL(Q)-PPL(base)         : 1361.763245 ±  89.139254
+
+====== KL divergence statistics ======
+Mean    KLD:   5.915389 ±   0.052229
+Maximum KLD:  25.188766
+99.9%   KLD:  20.745687
+99.0%   KLD:  16.521206
+95.0%   KLD:  13.245289
+90.0%   KLD:  11.540850
+Median  KLD:   5.506057
+10.0%   KLD:   0.506916
+ 5.0%   KLD:   0.078371
+ 1.0%   KLD:   0.001550
+ 0.1%   KLD:   0.000007
+Minimum KLD:   0.000000
+
+====== Token probability statistics ======
+Mean    Δp: -37.244 ± 0.549 %
+Maximum Δp: 99.473%
+99.9%   Δp: 93.657%
+99.0%   Δp: 54.705%
+95.0%   Δp:  6.452%
+90.0%   Δp:  0.207%
+75.0%   Δp: -0.267%
+Median  Δp: -20.293%
+25.0%   Δp: -83.945%
+10.0%   Δp: -98.805%
+ 5.0%   Δp: -99.780%
+ 1.0%   Δp: -99.986%
+ 0.1%   Δp: -99.999%
+Minimum Δp: -99.999%
+RMS Δp    : 56.831 ± 0.440 %
+Same top p: 19.069 ± 0.502 %
+
+llama_perf_context_print:        load time =    1946.52 ms
+llama_perf_context_print: prompt eval time =   28181.48 ms / 12288 tokens (    2.29 ms per token,   436.03 tokens per second)
+llama_perf_context_print:        eval time =       0.00 ms /     1 runs   (    0.00 ms per token,      inf tokens per second)
+llama_perf_context_print:       total time =   34404.38 ms / 12289 tokens
+llama_perf_context_print:    graphs reused =         12
+llama_memory_breakdown_print: | memory breakdown [MiB]  | total    free    self   model   context   compute    unaccounted |
+llama_memory_breakdown_print: |   - MTL0 (Apple M3 Pro) | 28753 = 28753 + (   0 =     0 +       0 +       0) +           0 |
+llama_memory_breakdown_print: |   - Host                |                  4226 =  3864 +     256 +     106                |
+llama_memory_breakdown_print: |   - CPU_REPACK          |                  3952 =  3952 +       0 +       0                |
+ggml_metal_free: deallocating

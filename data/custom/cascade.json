@@ -1,0 +1,495 @@
+{
+  "summary": {
+    "n": 60,
+    "escalated": 60,
+    "t2_right": 51,
+    "right": 51,
+    "formula_ran": 4,
+    "t1_seconds": 350.9,
+    "t2_seconds": 474.4,
+    "est_all35_seconds": 474.4,
+    "menu_coverage": 0.06692406692406692
+  },
+  "rows": [
+    {
+      "truth": "16",
+      "formula": "None",
+      "solo1": "15",
+      "tier": 2,
+      "final": "16",
+      "ok": true
+    },
+    {
+      "truth": "74",
+      "formula": "None",
+      "solo1": "74",
+      "tier": 2,
+      "final": "74",
+      "ok": true
+    },
+    {
+      "truth": "17",
+      "formula": "None",
+      "solo1": "17",
+      "tier": 2,
+      "final": "21",
+      "ok": false
+    },
+    {
+      "truth": "26",
+      "formula": "None",
+      "solo1": "13",
+      "tier": 2,
+      "final": "26",
+      "ok": true
+    },
+    {
+      "truth": "187",
+      "formula": "None",
+      "solo1": "187",
+      "tier": 2,
+      "final": "187",
+      "ok": true
+    },
+    {
+      "truth": "452",
+      "formula": "None",
+      "solo1": "452",
+      "tier": 2,
+      "final": "15",
+      "ok": false
+    },
+    {
+      "truth": "525",
+      "formula": "None",
+      "solo1": "19",
+      "tier": 2,
+      "final": "19",
+      "ok": false
+    },
+    {
+      "truth": "72",
+      "formula": "None",
+      "solo1": "72",
+      "tier": 2,
+      "final": "72",
+      "ok": true
+    },
+    {
+      "truth": "1",
+      "formula": "None",
+      "solo1": "1",
+      "tier": 2,
+      "final": "1",
+      "ok": true
+    },
+    {
+      "truth": "50",
+      "formula": "None",
+      "solo1": "50",
+      "tier": 2,
+      "final": "50",
+      "ok": true
+    },
+    {
+      "truth": "27",
+      "formula": "None",
+      "solo1": "27",
+      "tier": 2,
+      "final": "27",
+      "ok": true
+    },
+    {
+      "truth": "11",
+      "formula": "None",
+      "solo1": "40",
+      "tier": 2,
+      "final": "11",
+      "ok": true
+    },
+    {
+      "truth": "2",
+      "formula": "None",
+      "solo1": "2",
+      "tier": 2,
+      "final": "2",
+      "ok": true
+    },
+    {
+      "truth": "255",
+      "formula": "None",
+      "solo1": "255",
+      "tier": 2,
+      "final": "255",
+      "ok": true
+    },
+    {
+      "truth": "-3",
+      "formula": "None",
+      "solo1": "-3",
+      "tier": 2,
+      "final": "-3",
+      "ok": true
+    },
+    {
+      "truth": "76",
+      "formula": "None",
+      "solo1": "76",
+      "tier": 2,
+      "final": "76",
+      "ok": true
+    },
+    {
+      "truth": "16",
+      "formula": "None",
+      "solo1": "16",
+      "tier": 2,
+      "final": "16",
+      "ok": true
+    },
+    {
+      "truth": "243",
+      "formula": "None",
+      "solo1": "243",
+      "tier": 2,
+      "final": "243",
+      "ok": true
+    },
+    {
+      "truth": "59",
+      "formula": "None",
+      "solo1": "64",
+      "tier": 2,
+      "final": "59",
+      "ok": true
+    },
+    {
+      "truth": "48",
+      "formula": "None",
+      "solo1": "108",
+      "tier": 2,
+      "final": "36",
+      "ok": false
+    },
+    {
+      "truth": "100",
+      "formula": "1800",
+      "solo1": "100",
+      "tier": 2,
+      "final": "100",
+      "ok": true
+    },
+    {
+      "truth": "5",
+      "formula": "None",
+      "solo1": "5",
+      "tier": 2,
+      "final": "5",
+      "ok": true
+    },
+    {
+      "truth": "540",
+      "formula": "None",
+      "solo1": "390",
+      "tier": 2,
+      "final": "540",
+      "ok": true
+    },
+    {
+      "truth": "14",
+      "formula": "None",
+      "solo1": "14",
+      "tier": 2,
+      "final": "14",
+      "ok": true
+    },
+    {
+      "truth": "75",
+      "formula": "None",
+      "solo1": "0",
+      "tier": 2,
+      "final": "15",
+      "ok": false
+    },
+    {
+      "truth": "360",
+      "formula": "2400",
+      "solo1": "400",
+      "tier": 2,
+      "final": "240",
+      "ok": false
+    },
+    {
+      "truth": "36",
+      "formula": "None",
+      "solo1": "6",
+      "tier": 2,
+      "final": "36",
+      "ok": true
+    },
+    {
+      "truth": "210",
+      "formula": "3240",
+      "solo1": "450",
+      "tier": 2,
+      "final": "210",
+      "ok": true
+    },
+    {
+      "truth": "64",
+      "formula": "None",
+      "solo1": "64",
+      "tier": 2,
+      "final": "64",
+      "ok": true
+    },
+    {
+      "truth": "168",
+      "formula": "None",
+      "solo1": "160",
+      "tier": 2,
+      "final": "166",
+      "ok": false
+    },
+    {
+      "truth": "762",
+      "formula": "None",
+      "solo1": "762",
+      "tier": 2,
+      "final": "762",
+      "ok": true
+    },
+    {
+      "truth": "540",
+      "formula": "None",
+      "solo1": "540",
+      "tier": 2,
+      "final": "540",
+      "ok": true
+    },
+    {
+      "truth": "366",
+      "formula": "None",
+      "solo1": "366",
+      "tier": 2,
+      "final": "366",
+      "ok": true
+    },
+    {
+      "truth": "26",
+      "formula": "None",
+      "solo1": "18",
+      "tier": 2,
+      "final": "26",
+      "ok": true
+    },
+    {
+      "truth": "80",
+      "formula": "None",
+      "solo1": "80",
+      "tier": 2,
+      "final": "80",
+      "ok": true
+    },
+    {
+      "truth": "160",
+      "formula": "None",
+      "solo1": "240",
+      "tier": 2,
+      "final": "160",
+      "ok": true
+    },
+    {
+      "truth": "4",
+      "formula": "None",
+      "solo1": "3",
+      "tier": 2,
+      "final": "4",
+      "ok": true
+    },
+    {
+      "truth": "1",
+      "formula": "None",
+      "solo1": "1",
+      "tier": 2,
+      "final": "1",
+      "ok": true
+    },
+    {
+      "truth": "10800",
+      "formula": "None",
+      "solo1": "9000",
+      "tier": 2,
+      "final": "10800",
+      "ok": true
+    },
+    {
+      "truth": "2000",
+      "formula": "None",
+      "solo1": "4000",
+      "tier": 2,
+      "final": "2000",
+      "ok": true
+    },
+    {
+      "truth": "24",
+      "formula": "None",
+      "solo1": "24",
+      "tier": 2,
+      "final": "24",
+      "ok": true
+    },
+    {
+      "truth": "20",
+      "formula": "None",
+      "solo1": "20",
+      "tier": 2,
+      "final": "20",
+      "ok": true
+    },
+    {
+      "truth": "3000",
+      "formula": "None",
+      "solo1": "12000",
+      "tier": 2,
+      "final": "3000",
+      "ok": true
+    },
+    {
+      "truth": "81",
+      "formula": "27450",
+      "solo1": "81/1000",
+      "tier": 2,
+      "final": "135",
+      "ok": false
+    },
+    {
+      "truth": "15",
+      "formula": "None",
+      "solo1": "15",
+      "tier": 2,
+      "final": "15",
+      "ok": true
+    },
+    {
+      "truth": "1450000",
+      "formula": "None",
+      "solo1": "1600000",
+      "tier": 2,
+      "final": "1450000",
+      "ok": true
+    },
+    {
+      "truth": "20",
+      "formula": "None",
+      "solo1": "-180",
+      "tier": 2,
+      "final": "20",
+      "ok": true
+    },
+    {
+      "truth": "98",
+      "formula": "None",
+      "solo1": "98",
+      "tier": 2,
+      "final": "98",
+      "ok": true
+    },
+    {
+      "truth": "75",
+      "formula": "None",
+      "solo1": "75",
+      "tier": 2,
+      "final": "75",
+      "ok": true
+    },
+    {
+      "truth": "500",
+      "formula": "None",
+      "solo1": "400",
+      "tier": 2,
+      "final": "6",
+      "ok": false
+    },
+    {
+      "truth": "39",
+      "formula": "None",
+      "solo1": "39",
+      "tier": 2,
+      "final": "39",
+      "ok": true
+    },
+    {
+      "truth": "13",
+      "formula": "None",
+      "solo1": "13",
+      "tier": 2,
+      "final": "13",
+      "ok": true
+    },
+    {
+      "truth": "576",
+      "formula": "None",
+      "solo1": "576",
+      "tier": 2,
+      "final": "576",
+      "ok": true
+    },
+    {
+      "truth": "5",
+      "formula": "None",
+      "solo1": "5",
+      "tier": 2,
+      "final": "5",
+      "ok": true
+    },
+    {
+      "truth": "60",
+      "formula": "None",
+      "solo1": "60",
+      "tier": 2,
+      "final": "60",
+      "ok": true
+    },
+    {
+      "truth": "8",
+      "formula": "None",
+      "solo1": "8",
+      "tier": 2,
+      "final": "8",
+      "ok": true
+    },
+    {
+      "truth": "260",
+      "formula": "None",
+      "solo1": "260",
+      "tier": 2,
+      "final": "260",
+      "ok": true
+    },
+    {
+      "truth": "32",
+      "formula": "None",
+      "solo1": "32",
+      "tier": 2,
+      "final": "32",
+      "ok": true
+    },
+    {
+      "truth": "32",
+      "formula": "None",
+      "solo1": "32",
+      "tier": 2,
+      "final": "32",
+      "ok": true
+    },
+    {
+      "truth": "40",
+      "formula": "None",
+      "solo1": "55",
+      "tier": 2,
+      "final": "40",
+      "ok": true
+    }
+  ]
+}

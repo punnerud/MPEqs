@@ -1,0 +1,277 @@
+{
+  "summary": {
+    "facts": 24,
+    "blank_correct": 5,
+    "invop_correct": 13,
+    "asked_correct": 19,
+    "word_correct": 10,
+    "wrote_a_question": 24,
+    "wrote_a_word_problem": 23
+  },
+  "runs": [
+    {
+      "left": "1073 / ?",
+      "c": 37,
+      "want": 29.0,
+      "q_rewrite": "What is 37 divided by 1073?",
+      "q_word": "When divided by 37, 1073 equals 37 times some number. What is that number?",
+      "blank": 32.0,
+      "invop": 39310.0,
+      "asked": 0.0347,
+      "word": 30.0
+    },
+    {
+      "left": "544 / ?",
+      "c": 34,
+      "want": 16.0,
+      "q_rewrite": "What is 544 divided by 34?",
+      "q_word": "When 544 cookies are evenly divided among 34 jars, how many cookies are in each jar?",
+      "blank": 34.0,
+      "invop": 18496.0,
+      "asked": 16.0,
+      "word": 44.0
+    },
+    {
+      "left": "105 - ?",
+      "c": 38,
+      "want": 67,
+      "q_rewrite": "What is 105 - 38?",
+      "q_word": "The difference between 105 and an unknown number is 38. What is the unknown number?",
+      "blank": 1.0,
+      "invop": 143.0,
+      "asked": 67.0,
+      "word": 63.0
+    },
+    {
+      "left": "286 / ?",
+      "c": 13,
+      "want": 22.0,
+      "q_rewrite": "What is 286 divided by 13?",
+      "q_word": "Divide 286 cookies among 13 friends equally. How many cookies does each friend get?",
+      "blank": 287.0,
+      "invop": 3708.0,
+      "asked": 22.0,
+      "word": 22.0
+    },
+    {
+      "left": "239 + ?",
+      "c": 279,
+      "want": 40,
+      "q_rewrite": "What is 239 + ? equal to?",
+      "q_word": "The number 239 plus an unknown number equals 279. What is the unknown number?",
+      "blank": 240.0,
+      "invop": 40.0,
+      "asked": 379.0,
+      "word": 40.0
+    },
+    {
+      "left": "57 - ?",
+      "c": -13,
+      "want": 70,
+      "q_rewrite": "What is 57 + 13?",
+      "q_word": "Jake had 57 marbles. He lost 13 marbles. How many marbles does he have now?",
+      "blank": 57.0,
+      "invop": -44.0,
+      "asked": 70.0,
+      "word": 44.0
+    },
+    {
+      "left": "315 + ?",
+      "c": 367,
+      "want": 52,
+      "q_rewrite": "What is 367 - 315?",
+      "q_word": "The number 315 is added to an unknown number to get 367. What is the unknown number?",
+      "blank": 315.0,
+      "invop": 52.0,
+      "asked": 52.0,
+      "word": 2.0
+    },
+    {
+      "left": "264 / ?",
+      "c": 12,
+      "want": 22.0,
+      "q_rewrite": "What is 264 / 12?",
+      "q_word": "Divide 264 cookies equally among 12 plates. How many cookies will be on each plate?",
+      "blank": 12.0,
+      "invop": 3168.0,
+      "asked": 22.0,
+      "word": 22.0
+    },
+    {
+      "left": "281 + ?",
+      "c": 291,
+      "want": 10,
+      "q_rewrite": "What is 281 + 19?",
+      "q_word": "You start with 281 points and then gain 29 more points. How many points do you have now?",
+      "blank": 284.0,
+      "invop": 10.0,
+      "asked": 300.0,
+      "word": 310.0
+    },
+    {
+      "left": "29 + ?",
+      "c": 55,
+      "want": 26,
+      "q_rewrite": "What is 29 + ? equal to?",
+      "q_word": "Tim has 29 marbles and he buys another 55 marbles. How many marbles does Tim have in total?",
+      "blank": 26.0,
+      "invop": 26.0,
+      "asked": 58.0,
+      "word": 84.0
+    },
+    {
+      "left": "318 - ?",
+      "c": 313,
+      "want": 5,
+      "q_rewrite": "What is 318 - 313?",
+      "q_word": "The difference between 318 and an unknown number is 313. What is the unknown number?",
+      "blank": 5.0,
+      "invop": 631.0,
+      "asked": 5.0,
+      "word": 305.0
+    },
+    {
+      "left": "360 / ?",
+      "c": 30,
+      "want": 12.0,
+      "q_rewrite": "What is 360 / 30?",
+      "q_word": "Each batch of cookies requires 360 grams of flour, and the baker uses a total of 30 kilograms of flour. How many batches can the baker make?",
+      "blank": 120.0,
+      "invop": 10800.0,
+      "asked": 12.0,
+      "word": 1000.0
+    },
+    {
+      "left": "276 - ?",
+      "c": 245,
+      "want": 31,
+      "q_rewrite": "What is 276 - 245?",
+      "q_word": null,
+      "blank": 21.0,
+      "invop": 521.0,
+      "asked": 31.0,
+      "word": null
+    },
+    {
+      "left": "42 * ?",
+      "c": 84,
+      "want": 2,
+      "q_rewrite": "What is 84 / 42?",
+      "q_word": "Each bag holds 42 marbles and there are 84 marbles in total. How many bags are there?",
+      "blank": 21.0,
+      "invop": 2.0,
+      "asked": 2.0,
+      "word": 2.0
+    },
+    {
+      "left": "245 + ?",
+      "c": 330,
+      "want": 85,
+      "q_rewrite": "What is 330 - 245?",
+      "q_word": "The total amount of money in a savings account is $245. If the interest rate increases by 5% and the new balance becomes $330, what was the original amount in the account before the interest increase?",
+      "blank": 330.0,
+      "invop": 85.0,
+      "asked": 85.0,
+      "word": 200.0
+    },
+    {
+      "left": "37 * ?",
+      "c": 370,
+      "want": 10,
+      "q_rewrite": "What is 370 / 37?",
+      "q_word": "Each book costs $37 and the total cost for 370 books is $370. How many books are being purchased?",
+      "blank": 370.0,
+      "invop": 10.0,
+      "asked": 10.0,
+      "word": 370.0
+    },
+    {
+      "left": "373 + ?",
+      "c": 407,
+      "want": 34,
+      "q_rewrite": "What is 407 - 373?",
+      "q_word": "The number 373 plus an unknown number equals 407. What is the unknown number?",
+      "blank": 374.0,
+      "invop": 34.0,
+      "asked": 34.0,
+      "word": 34.0
+    },
+    {
+      "left": "25 * ?",
+      "c": 250,
+      "want": 10,
+      "q_rewrite": "What is 250 / 25?",
+      "q_word": "Each bag holds 25 marbles and there are 250 marbles in total. How many bags are there?",
+      "blank": 5.0,
+      "invop": 10.0,
+      "asked": 10.0,
+      "word": 10.0
+    },
+    {
+      "left": "12 * ?",
+      "c": 36,
+      "want": 3,
+      "q_rewrite": "What is 36 / 12?",
+      "q_word": "Each bag holds 12 oranges and there are 36 oranges in total. How many bags are there?",
+      "blank": 3.0,
+      "invop": 3.0,
+      "asked": 3.0,
+      "word": 3.0
+    },
+    {
+      "left": "216 + ?",
+      "c": 231,
+      "want": 15,
+      "q_rewrite": "What is 231 - 216?",
+      "q_word": "The total score in a game was 216 points. If the team scored 21 points more than their opponents, how many points did the team score?",
+      "blank": 15.0,
+      "invop": 15.0,
+      "asked": 15.0,
+      "word": 2.0
+    },
+    {
+      "left": "35 * ?",
+      "c": 105,
+      "want": 3,
+      "q_rewrite": "What is 105 / 35?",
+      "q_word": "Each bag holds 35 marbles and there are 105 marbles in total. How many bags are there?",
+      "blank": 3.0,
+      "invop": 3.0,
+      "asked": 3.0,
+      "word": 3.0
+    },
+    {
+      "left": "361 + ?",
+      "c": 363,
+      "want": 2,
+      "q_rewrite": "What is 361 - ? equal to?",
+      "q_word": "The number 361 plus an unknown number equals 363. What is the unknown number?",
+      "blank": 360.0,
+      "invop": 2.0,
+      "asked": 256.0,
+      "word": 2.0
+    },
+    {
+      "left": "118 - ?",
+      "c": 110,
+      "want": 8,
+      "q_rewrite": "What is 118 - 110?",
+      "q_word": "The difference between 118 and an unknown number is 110. What is the unknown number?",
+      "blank": 1.0,
+      "invop": 230.0,
+      "asked": 8.0,
+      "word": 8.0
+    },
+    {
+      "left": "378 / ?",
+      "c": 27,
+      "want": 14.0,
+      "q_rewrite": "What is 378 divided by 27?",
+      "q_word": "Divide 378 by an unknown number to get 27. What is the unknown number?",
+      "blank": 27.0,
+      "invop": 10296.0,
+      "asked": 14.0,
+      "word": 12.0
+    }
+  ]
+}

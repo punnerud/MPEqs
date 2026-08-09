@@ -1,0 +1,107 @@
+{
+  "summary": {
+    "tasks": 8,
+    "top_is_answer": 0,
+    "answer_in_top5": 0,
+    "mean_distinct_values": 17891.5,
+    "chance_of_picking_answer": 6.224708332888179e-05
+  },
+  "runs": [
+    {
+      "problem": "((47 + 38) * 3 - 12) / 9",
+      "answer": 27,
+      "routes": 200000,
+      "distinct_values": 19431,
+      "answer_support": 654,
+      "top_support": 2383,
+      "top_value": 9.0,
+      "answer_rank": 10,
+      "top_is_answer": false,
+      "answer_in_top5": false
+    },
+    {
+      "problem": "(120 / 4 + 15) * 2 - 30",
+      "answer": 60,
+      "routes": 200000,
+      "distinct_values": 13792,
+      "answer_support": 335,
+      "top_support": 1897,
+      "top_value": 30.0,
+      "answer_rank": 51,
+      "top_is_answer": false,
+      "answer_in_top5": false
+    },
+    {
+      "problem": "((9 * 7) + (8 * 6)) - 51",
+      "answer": 60,
+      "routes": 200000,
+      "distinct_values": 18032,
+      "answer_support": 25,
+      "top_support": 1638,
+      "top_value": 51.0,
+      "answer_rank": 1747,
+      "top_is_answer": false,
+      "answer_in_top5": false
+    },
+    {
+      "problem": "(200 - 45 * 3) / 5 + 12",
+      "answer": 25,
+      "routes": 200000,
+      "distinct_values": 21783,
+      "answer_support": 74,
+      "top_support": 618,
+      "top_value": -225.0,
+      "answer_rank": 183,
+      "top_is_answer": false,
+      "answer_in_top5": false
+    },
+    {
+      "problem": "((15 + 25) / 8) * 14 - 20",
+      "answer": 50,
+      "routes": 200000,
+      "distinct_values": 20060,
+      "answer_support": 37,
+      "top_support": 868,
+      "top_value": 2.0,
+      "answer_rank": 994,
+      "top_is_answer": false,
+      "answer_in_top5": false
+    },
+    {
+      "problem": "(6 * 6 + 4 * 4) / 13 + 7",
+      "answer": 11,
+      "routes": 200000,
+      "distinct_values": 7824,
+      "answer_support": 136,
+      "top_support": 2508,
+      "top_value": 0.0,
+      "answer_rank": 266,
+      "top_is_answer": false,
+      "answer_in_top5": false
+    },
+    {
+      "problem": "((100 - 28) / 6) * 5 - 30",
+      "answer": 30,
+      "routes": 200000,
+      "distinct_values": 20099,
+      "answer_support": 17,
+      "top_support": 960,
+      "top_value": 3.571429,
+      "answer_rank": 2348,
+      "top_is_answer": false,
+      "answer_in_top5": false
+    },
+    {
+      "problem": "(81 / 9 + 11) * 3 - 40",
+      "answer": 20,
+      "routes": 200000,
+      "distinct_values": 22111,
+      "answer_support": 8,
+      "top_support": 619,
+      "top_value": -36.0,
+      "answer_rank": 5313,
+      "top_is_answer": false,
+      "answer_in_top5": false
+    }
+  ]
+}

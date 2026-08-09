@@ -1,0 +1,50 @@
+{
+  "steps": 2500,
+  "rows": [
+    {
+      "lambda": 0.0,
+      "beta": 0.0,
+      "exact_accuracy": 1.0,
+      "blocks_per_problem": 3.343,
+      "experts_used": 16,
+      "separation": 0.494,
+      "max_pair_overlap": 0.545
+    },
+    {
+      "lambda": 1.0,
+      "beta": 0.0,
+      "exact_accuracy": 1.0,
+      "blocks_per_problem": 1.0,
+      "experts_used": 8,
+      "separation": 0.843,
+      "max_pair_overlap": 1.0
+    },
+    {
+      "lambda": 1.0,
+      "beta": 0.1,
+      "exact_accuracy": 1.0,
+      "blocks_per_problem": 1.11,
+      "experts_used": 8,
+      "separation": 0.98,
+      "max_pair_overlap": 0.938
+    },
+    {
+      "lambda": 1.0,
+      "beta": 0.3,
+      "exact_accuracy": 1.0,
+      "blocks_per_problem": 1.317,
+      "experts_used": 8,
+      "separation": 0.981,
+      "max_pair_overlap": 0.998
+    },
+    {
+      "lambda": 1.0,
+      "beta": 1.0,
+      "exact_accuracy": 1.0,
+      "blocks_per_problem": 2.217,
+      "experts_used": 15,
+      "separation": 1.0,
+      "max_pair_overlap": 0.32
+    }
+  ]
+}

@@ -1,0 +1,276 @@
+{
+  "summary": {
+    "facts": 24,
+    "whole_correct": 16,
+    "cols_correct": 10,
+    "again_correct": 3,
+    "decomposable": 8,
+    "rephrased": 21
+  },
+  "runs": [
+    {
+      "left": "1073 / ?",
+      "c": 37,
+      "want": 29.0,
+      "question": "What is 37 divided by 1073?",
+      "note": "not a column operation",
+      "again_stage": "parse: values must be expressions",
+      "whole": 0.0347,
+      "cols": 0.0347,
+      "again": null
+    },
+    {
+      "left": "544 / ?",
+      "c": 34,
+      "want": 16.0,
+      "question": "What is 544 divided by 34?",
+      "note": "not a column operation",
+      "again_stage": "check: inlines to a different value",
+      "whole": 16.0,
+      "cols": 16.0,
+      "again": null
+    },
+    {
+      "left": "105 - ?",
+      "c": 38,
+      "want": 67,
+      "question": "What is 105 - 38?",
+      "note": "105 - 38 by column",
+      "again_stage": "check: inlines to a different value",
+      "whole": 67.0,
+      "cols": 68,
+      "again": null
+    },
+    {
+      "left": "286 / ?",
+      "c": 13,
+      "want": 22.0,
+      "question": "What is 286 divided by 13?",
+      "note": "not a column operation",
+      "again_stage": "check: inlines to a different value",
+      "whole": 22.0,
+      "cols": 22.0,
+      "again": null
+    },
+    {
+      "left": "239 + ?",
+      "c": 279,
+      "want": 40,
+      "question": "What is 239 + ? equal to?",
+      "note": "not a column operation",
+      "again_stage": "no arithmetic found",
+      "whole": 379.0,
+      "cols": 379.0,
+      "again": null
+    },
+    {
+      "left": "57 - ?",
+      "c": -13,
+      "want": 70,
+      "question": "What is 57 + 13?",
+      "note": "57 + 13 by column",
+      "again_stage": "check: inlines to a different value",
+      "whole": 70.0,
+      "cols": 70,
+      "again": null
+    },
+    {
+      "left": "315 + ?",
+      "c": 367,
+      "want": 52,
+      "question": "What is 367 - 315?",
+      "note": "367 - 315 by column",
+      "again_stage": "check: inlines to a different value",
+      "whole": 52.0,
+      "cols": 252,
+      "again": null
+    },
+    {
+      "left": "264 / ?",
+      "c": 12,
+      "want": 22.0,
+      "question": "What is 264 / 12?",
+      "note": "not a column operation",
+      "again_stage": "check: inlines to a different value",
+      "whole": 22.0,
+      "cols": 22.0,
+      "again": null
+    },
+    {
+      "left": "281 + ?",
+      "c": 291,
+      "want": 10,
+      "question": "What is 281 + 19?",
+      "note": "281 + 19 by column",
+      "again_stage": "check: inlines to a different value",
+      "whole": 300.0,
+      "cols": 300,
+      "again": null
+    },
+    {
+      "left": "29 + ?",
+      "c": 55,
+      "want": 26,
+      "question": "What is 29 + ? equal to?",
+      "note": "not a column operation",
+      "again_stage": "no arithmetic found",
+      "whole": 58.0,
+      "cols": 58.0,
+      "again": null
+    },
+    {
+      "left": "318 - ?",
+      "c": 313,
+      "want": 5,
+      "question": "What is 318 - 313?",
+      "note": "318 - 313 by column",
+      "again_stage": "check: inlines to a different value",
+      "whole": 5.0,
+      "cols": 205,
+      "again": null
+    },
+    {
+      "left": "360 / ?",
+      "c": 30,
+      "want": 12.0,
+      "question": "What is 360 / 30?",
+      "note": "not a column operation",
+      "again_stage": "check: inlines to a different value",
+      "whole": 12.0,
+      "cols": 12.0,
+      "again": null
+    },
+    {
+      "left": "276 - ?",
+      "c": 245,
+      "want": 31,
+      "question": "What is 276 - 245?",
+      "note": "276 - 245 by column",
+      "again_stage": "ok",
+      "whole": 31.0,
+      "cols": 235,
+      "again": 31.0
+    },
+    {
+      "left": "42 * ?",
+      "c": 84,
+      "want": 2,
+      "question": "What is 84 / 42?",
+      "note": "not a column operation",
+      "again_stage": "ok",
+      "whole": 2.0,
+      "cols": 2.0,
+      "again": 2.0
+    },
+    {
+      "left": "245 + ?",
+      "c": 330,
+      "want": 85,
+      "question": "What is 330 - 245?",
+      "note": "330 - 245 by column",
+      "again_stage": "check: inlines to a different value",
+      "whole": 85.0,
+      "cols": 205,
+      "again": null
+    },
+    {
+      "left": "37 * ?",
+      "c": 370,
+      "want": 10,
+      "question": "What is 370 / 37?",
+      "note": "not a column operation",
+      "again_stage": "check: inlines to a different value",
+      "whole": 10.0,
+      "cols": 10.0,
+      "again": null
+    },
+    {
+      "left": "373 + ?",
+      "c": 407,
+      "want": 34,
+      "question": "What is 407 - 373?",
+      "note": "407 - 373 by column",
+      "again_stage": "check: inlines to a different value",
+      "whole": 34.0,
+      "cols": 234,
+      "again": null
+    },
+    {
+      "left": "25 * ?",
+      "c": 250,
+      "want": 10,
+      "question": "What is 250 / 25?",
+      "note": "not a column operation",
+      "again_stage": "check: inlines to a different value",
+      "whole": 10.0,
+      "cols": 10.0,
+      "again": null
+    },
+    {
+      "left": "12 * ?",
+      "c": 36,
+      "want": 3,
+      "question": "What is 36 / 12?",
+      "note": "not a column operation",
+      "again_stage": "ok",
+      "whole": 3.0,
+      "cols": 3.0,
+      "again": 3.0
+    },
+    {
+      "left": "216 + ?",
+      "c": 231,
+      "want": 15,
+      "question": null,
+      "note": "not a column operation",
+      "again_stage": "no arithmetic found",
+      "whole": null,
+      "cols": null,
+      "again": null
+    },
+    {
+      "left": "35 * ?",
+      "c": 105,
+      "want": 3,
+      "question": "What is 105 / 35?",
+      "note": "not a column operation",
+      "again_stage": "parse: no JSON object",
+      "whole": 3.0,
+      "cols": 3.0,
+      "again": null
+    },
+    {
+      "left": "361 + ?",
+      "c": 363,
+      "want": 2,
+      "question": "What is 361 - ? equal to?",
+      "note": "not a column operation",
+      "again_stage": "no arithmetic found",
+      "whole": 256.0,
+      "cols": 256.0,
+      "again": null
+    },
+    {
+      "left": "118 - ?",
+      "c": 110,
+      "want": 8,
+      "question": null,
+      "note": "not a column operation",
+      "again_stage": "no arithmetic found",
+      "whole": null,
+      "cols": null,
+      "again": null
+    },
+    {
+      "left": "378 / ?",
+      "c": 27,
+      "want": 14.0,
+      "question": null,
+      "note": "not a column operation",
+      "again_stage": "no arithmetic found",
+      "whole": null,
+      "cols": null,
+      "again": null
+    }
+  ]
+}

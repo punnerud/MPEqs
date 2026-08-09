@@ -1,0 +1,30 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/gguf",
+    "crates/coact",
+    "crates/fetchbench",
+    "crates/ggufperm",
+    "crates/moetrace",
+    "crates/ballast",
+    "crates/matstruct",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+
+[workspace.dependencies]
+gguf = { path = "crates/gguf" }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+anyhow = "1"
+clap = { version = "4", features = ["derive"] }
+sha2 = "0.10"
+libc = "0.2"
+coact = { path = "crates/coact" }
+
+[profile.release]
+opt-level = 3
+debug = 1

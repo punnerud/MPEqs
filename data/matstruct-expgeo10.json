@@ -1,0 +1,42 @@
+{
+  "matrix": "matrix-expgeo10.matx",
+  "n": 64,
+  "quantum": 0.003116118144923969,
+  "tol_units": 1,
+  "spread": {
+    "mean": 3.116118144923969,
+    "stddev": 1.2024804984827826,
+    "coefficient_of_variation": 0.3858905351331351,
+    "p01": 0.7794134020805359,
+    "p99": 5.436471462249756,
+    "dynamic_range": 6.975080807871471
+  },
+  "triangle": {
+    "triples": 190464,
+    "violations": 0,
+    "violation_pct": 0.0,
+    "max_violation": 0.0,
+    "max_relative": 0.0,
+    "mean_relative_violation": 0.0,
+    "is_metric": true
+  },
+  "clusters": {
+    "k": 8,
+    "intra_over_inter": 0.45741410426633256,
+    "mean_silhouette": 0.2232375051631209,
+    "smallest_cluster": 3,
+    "largest_cluster": 12
+  },
+  "rank1": {
+    "blocks": 56,
+    "mean_residual_ratio": 0.19373595760631218,
+    "cells_within_tol_pct": 40.99943214082907,
+    "blocks_fully_within_tol_pct": 0.0,
+    "varint_ratio": 0.3574673480976718,
+    "deflate_ratio": 0.2448892674616695,
+    "mean_only_residual_ratio": 0.24054317290260335,
+    "rank1_gain_over_mean_pct": 19.45896644310232
+  },
+  "predicted_ratio": 4.0834782608695654,
+  "verdict": "STOP — the rank-1 gateway base does not beat a per-block constant. Any compression here is generic entropy coding, not matcodec's mechanism."
+}

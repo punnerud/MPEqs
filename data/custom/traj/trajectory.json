@@ -1,0 +1,68 @@
+{
+  "add": {
+    "n": 8000,
+    "dim": 64,
+    "seed": 0,
+    "checkpoints": [
+      {
+        "steps": 0,
+        "accuracy": 0.0,
+        "file": "add-s0.f32"
+      },
+      {
+        "steps": 300,
+        "accuracy": 0.0141,
+        "file": "add-s300.f32"
+      },
+      {
+        "steps": 1200,
+        "accuracy": 0.1323,
+        "file": "add-s1200.f32"
+      },
+      {
+        "steps": 4800,
+        "accuracy": 0.5396,
+        "file": "add-s4800.f32"
+      },
+      {
+        "steps": 19200,
+        "accuracy": 0.9284,
+        "file": "add-s19200.f32"
+      }
+    ],
+    "seconds": 216.3
+  },
+  "mul": {
+    "n": 8000,
+    "dim": 64,
+    "seed": 0,
+    "checkpoints": [
+      {
+        "steps": 0,
+        "accuracy": 0.0,
+        "file": "mul-s0.f32"
+      },
+      {
+        "steps": 300,
+        "accuracy": 0.0079,
+        "file": "mul-s300.f32"
+      },
+      {
+        "steps": 1200,
+        "accuracy": 0.0195,
+        "file": "mul-s1200.f32"
+      },
+      {
+        "steps": 4800,
+        "accuracy": 0.0421,
+        "file": "mul-s4800.f32"
+      },
+      {
+        "steps": 19200,
+        "accuracy": 0.0848,
+        "file": "mul-s19200.f32"
+      }
+    ],
+    "seconds": 227.0
+  }
+}

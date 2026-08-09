@@ -1,0 +1,131 @@
+{
+  "summary": {
+    "tasks": 8,
+    "correct": 0,
+    "baseline_stepwise": 0,
+    "baseline_whole_expression": 6,
+    "total_unjustified": 58,
+    "total_steps": 22,
+    "fully_covered": 1
+  },
+  "runs": [
+    {
+      "problem": "((47 + 38) * 3 - 12) / 9",
+      "answer": 27,
+      "correct": false,
+      "steps": 2,
+      "unjustified": 8,
+      "unparsed": 0,
+      "covered": false,
+      "final": 88.0,
+      "pad": [
+        "v1 = 47 + 38 = 85",
+        "v2 = 85 + 3 = 88"
+      ]
+    },
+    {
+      "problem": "(120 / 4 + 15) * 2 - 30",
+      "answer": 60,
+      "correct": false,
+      "steps": 10,
+      "unjustified": 0,
+      "unparsed": 0,
+      "covered": false,
+      "final": 107.0,
+      "pad": [
+        "v1 = 120 / 4 = 30",
+        "v2 = 30 + 15 = 45",
+        "v3 = 45 + 2 = 47",
+        "v4 = 47 + 30 = 77",
+        "v5 = 77 + 30 = 107",
+        "v6 = 77 + 30 = 107",
+        "v7 = 77 + 30 = 107",
+        "v8 = 77 + 30 = 107",
+        "v9 = 77 + 30 = 107",
+        "v10 = 77 + 30 = 107"
+      ]
+    },
+    {
+      "problem": "((9 * 7) + (8 * 6)) - 51",
+      "answer": 60,
+      "correct": false,
+      "steps": 4,
+      "unjustified": 6,
+      "unparsed": 0,
+      "covered": true,
+      "final": 122.0,
+      "pad": [
+        "v1 = 9 * 7 = 63",
+        "v2 = 63 + 6 = 69",
+        "v3 = 63 + 8 = 71",
+        "v4 = 71 + 51 = 122"
+      ]
+    },
+    {
+      "problem": "(200 - 45 * 3) / 5 + 12",
+      "answer": 25,
+      "correct": false,
+      "steps": 1,
+      "unjustified": 9,
+      "unparsed": 0,
+      "covered": false,
+      "final": 155.0,
+      "pad": [
+        "v1 = 200 - 45 = 155"
+      ]
+    },
+    {
+      "problem": "((15 + 25) / 8) * 14 - 20",
+      "answer": 50,
+      "correct": false,
+      "steps": 1,
+      "unjustified": 9,
+      "unparsed": 0,
+      "covered": false,
+      "final": 40.0,
+      "pad": [
+        "v1 = 15 + 25 = 40"
+      ]
+    },
+    {
+      "problem": "(6 * 6 + 4 * 4) / 13 + 7",
+      "answer": 11,
+      "correct": false,
+      "steps": 1,
+      "unjustified": 9,
+      "unparsed": 0,
+      "covered": false,
+      "final": 36.0,
+      "pad": [
+        "v1 = 6 * 6 = 36"
+      ]
+    },
+    {
+      "problem": "((100 - 28) / 6) * 5 - 30",
+      "answer": 30,
+      "correct": false,
+      "steps": 2,
+      "unjustified": 8,
+      "unparsed": 0,
+      "covered": false,
+      "final": 78.0,
+      "pad": [
+        "v1 = 100 - 28 = 72",
+        "v2 = 72 + 6 = 78"
+      ]
+    },
+    {
+      "problem": "(81 / 9 + 11) * 3 - 40",
+      "answer": 20,
+      "correct": false,
+      "steps": 1,
+      "unjustified": 9,
+      "unparsed": 0,
+      "covered": false,
+      "final": 20.0,
+      "pad": [
+        "v1 = 9 + 11 = 20"
+      ]
+    }
+  ]
+}

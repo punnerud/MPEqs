@@ -1,0 +1,188 @@
+{
+  "n": 24,
+  "embed_top1": 19,
+  "embed_direct": 10,
+  "embed_indirect": 9,
+  "extract_ok": 24,
+  "fit_unique": 18,
+  "fit_multi": 6,
+  "fit_empty": 0,
+  "overrides": 4,
+  "override_right": 4,
+  "tiebreaks": 6,
+  "tiebreak_right": 5,
+  "delivered": 24,
+  "right": 23,
+  "wrong": 1,
+  "flagged": 0,
+  "rows": [
+    {
+      "story": "speed/direct",
+      "embed": "distance",
+      "chosen": "speed",
+      "verdict": "speed = 25/2",
+      "why": ""
+    },
+    {
+      "story": "speed/indirect",
+      "embed": "speed",
+      "chosen": "speed",
+      "verdict": "speed = 25/2",
+      "why": ""
+    },
+    {
+      "story": "distance/direct",
+      "embed": "distance",
+      "chosen": "distance",
+      "verdict": "distance = 350",
+      "why": ""
+    },
+    {
+      "story": "distance/indirect",
+      "embed": "speed",
+      "chosen": "distance",
+      "verdict": "distance = 350",
+      "why": ""
+    },
+    {
+      "story": "momentum/direct",
+      "embed": "momentum",
+      "chosen": "momentum",
+      "verdict": "momentum = 84",
+      "why": ""
+    },
+    {
+      "story": "momentum/indirect",
+      "embed": "momentum",
+      "chosen": "momentum",
+      "verdict": "momentum = 84",
+      "why": ""
+    },
+    {
+      "story": "kinetic/direct",
+      "embed": "kinetic",
+      "chosen": "kinetic",
+      "verdict": "kinetic = 588",
+      "why": ""
+    },
+    {
+      "story": "kinetic/indirect",
+      "embed": "kinetic",
+      "chosen": "kinetic",
+      "verdict": "kinetic = 588",
+      "why": ""
+    },
+    {
+      "story": "density/direct",
+      "embed": "density",
+      "chosen": "density",
+      "verdict": "density = 9/4",
+      "why": ""
+    },
+    {
+      "story": "density/indirect",
+      "embed": "density",
+      "chosen": "density",
+      "verdict": "density = 9/4",
+      "why": ""
+    },
+    {
+      "story": "mass_dv/direct",
+      "embed": "mass_dv",
+      "chosen": "mass_dv",
+      "verdict": "mass_dv = 21",
+      "why": ""
+    },
+    {
+      "story": "mass_dv/indirect",
+      "embed": "mass_dv",
+      "chosen": "mass_dv",
+      "verdict": "mass_dv = 21",
+      "why": ""
+    },
+    {
+      "story": "area/direct",
+      "embed": "area",
+      "chosen": "area",
+      "verdict": "area = 600",
+      "why": ""
+    },
+    {
+      "story": "area/indirect",
+      "embed": "area",
+      "chosen": "area",
+      "verdict": "area = 600",
+      "why": ""
+    },
+    {
+      "story": "perimeter/direct",
+      "embed": "perimeter",
+      "chosen": "perimeter",
+      "verdict": "perimeter = 100",
+      "why": ""
+    },
+    {
+      "story": "perimeter/indirect",
+      "embed": "perimeter",
+      "chosen": "perimeter",
+      "verdict": "perimeter = 100",
+      "why": ""
+    },
+    {
+      "story": "gap/direct",
+      "embed": "gap",
+      "chosen": "gap",
+      "verdict": "gap = 10",
+      "why": ""
+    },
+    {
+      "story": "gap/indirect",
+      "embed": "perimeter",
+      "chosen": "perimeter",
+      "verdict": "perimeter = 100 (WRONG)",
+      "why": ""
+    },
+    {
+      "story": "mean_side/direct",
+      "embed": "mean_side",
+      "chosen": "mean_side",
+      "verdict": "mean_side = 25",
+      "why": ""
+    },
+    {
+      "story": "mean_side/indirect",
+      "embed": "mean_side",
+      "chosen": "mean_side",
+      "verdict": "mean_side = 25",
+      "why": ""
+    },
+    {
+      "story": "price/direct",
+      "embed": "unitprice",
+      "chosen": "price",
+      "verdict": "price = 120",
+      "why": ""
+    },
+    {
+      "story": "price/indirect",
+      "embed": "unitprice",
+      "chosen": "price",
+      "verdict": "price = 120",
+      "why": ""
+    },
+    {
+      "story": "unitprice/direct",
+      "embed": "unitprice",
+      "chosen": "unitprice",
+      "verdict": "unitprice = 15",
+      "why": ""
+    },
+    {
+      "story": "unitprice/indirect",
+      "embed": "unitprice",
+      "chosen": "unitprice",
+      "verdict": "unitprice = 15",
+      "why": ""
+    }
+  ]
+}

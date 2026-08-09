@@ -1,0 +1,402 @@
+{
+  "tasks": 16,
+  "many_correct": 11,
+  "binary_correct": 11,
+  "runs": [
+    {
+      "task": "pour a glass of soda",
+      "actions": 5,
+      "depth": 4,
+      "widest_join": 2,
+      "many_ok": true,
+      "binary_ok": true,
+      "many_chain": [
+        "open fridge",
+        "take out bottle",
+        "unscrew cap",
+        "fetch glass",
+        "pour"
+      ],
+      "binary_chain": [
+        "open fridge",
+        "take out bottle",
+        "unscrew cap",
+        "fetch glass",
+        "pour"
+      ],
+      "many_refused": 6,
+      "binary_refused": 6
+    },
+    {
+      "task": "build a table",
+      "actions": 5,
+      "depth": 4,
+      "widest_join": 2,
+      "many_ok": true,
+      "binary_ok": true,
+      "many_chain": [
+        "cut four legs",
+        "cut the top",
+        "sand the parts",
+        "attach legs to top",
+        "stand it up"
+      ],
+      "binary_chain": [
+        "cut four legs",
+        "cut the top",
+        "sand the parts",
+        "attach legs to top",
+        "stand it up"
+      ],
+      "many_refused": 7,
+      "binary_refused": 7
+    },
+    {
+      "task": "make tea",
+      "actions": 5,
+      "depth": 4,
+      "widest_join": 2,
+      "many_ok": true,
+      "binary_ok": true,
+      "many_chain": [
+        "put teabag in cup",
+        "fill kettle",
+        "boil water",
+        "pour water into cup",
+        "remove teabag"
+      ],
+      "binary_chain": [
+        "put teabag in cup",
+        "fill kettle",
+        "boil water",
+        "pour water into cup",
+        "remove teabag"
+      ],
+      "many_refused": 8,
+      "binary_refused": 8
+    },
+    {
+      "task": "hang a picture",
+      "actions": 11,
+      "depth": 8,
+      "widest_join": 2,
+      "many_ok": false,
+      "binary_ok": false,
+      "many_chain": [],
+      "binary_chain": [],
+      "many_refused": 44,
+      "binary_refused": 44
+    },
+    {
+      "task": "make a sandwich",
+      "actions": 9,
+      "depth": 5,
+      "widest_join": 3,
+      "many_ok": false,
+      "binary_ok": false,
+      "many_chain": [],
+      "binary_chain": [],
+      "many_refused": 36,
+      "binary_refused": 36
+    },
+    {
+      "task": "bake a cake",
+      "actions": 11,
+      "depth": 6,
+      "widest_join": 4,
+      "many_ok": false,
+      "binary_ok": false,
+      "many_chain": [
+        "weigh the flour",
+        "mix the batter",
+        "pour the batter into the tin",
+        "heat the oven",
+        "put it in the oven",
+        "take it out after an hour",
+        "let it cool on a rack"
+      ],
+      "binary_chain": [
+        "mix the batter",
+        "pour the batter into the tin",
+        "heat the oven",
+        "put it in the oven",
+        "take it out after an hour",
+        "let it cool on a rack"
+      ],
+      "many_refused": 37,
+      "binary_refused": 38
+    },
+    {
+      "task": "make a salad",
+      "actions": 8,
+      "depth": 5,
+      "widest_join": 3,
+      "many_ok": false,
+      "binary_ok": false,
+      "many_chain": [],
+      "binary_chain": [],
+      "many_refused": 32,
+      "binary_refused": 32
+    },
+    {
+      "task": "lay a fire",
+      "actions": 8,
+      "depth": 4,
+      "widest_join": 4,
+      "many_ok": true,
+      "binary_ok": true,
+      "many_chain": [
+        "split the kindling",
+        "crumple some newspaper",
+        "fetch a dry log",
+        "clear out the old ash",
+        "build the stack",
+        "open the flue",
+        "light the paper",
+        "let it draw"
+      ],
+      "binary_chain": [
+        "split the kindling",
+        "crumple some newspaper",
+        "fetch a dry log",
+        "clear out the old ash",
+        "build the stack",
+        "open the flue",
+        "light the paper",
+        "let it draw"
+      ],
+      "many_refused": 10,
+      "binary_refused": 10
+    },
+    {
+      "task": "pack for a trip",
+      "actions": 8,
+      "depth": 5,
+      "widest_join": 4,
+      "many_ok": true,
+      "binary_ok": true,
+      "many_chain": [
+        "check the weather",
+        "choose the clothes",
+        "find the passport",
+        "print the tickets",
+        "charge the phone",
+        "put it all in the bag",
+        "weigh the bag",
+        "leave it by the door"
+      ],
+      "binary_chain": [
+        "charge the phone",
+        "check the weather",
+        "print the tickets",
+        "choose the clothes",
+        "find the passport",
+        "put it all in the bag",
+        "weigh the bag",
+        "leave it by the door"
+      ],
+      "many_refused": 13,
+      "binary_refused": 12
+    },
+    {
+      "task": "do the laundry",
+      "actions": 8,
+      "depth": 8,
+      "widest_join": 1,
+      "many_ok": true,
+      "binary_ok": true,
+      "many_chain": [
+        "sort the clothes",
+        "load the drum",
+        "add detergent",
+        "close the door",
+        "choose the programme",
+        "start the machine",
+        "wait for the cycle",
+        "hang the clothes up"
+      ],
+      "binary_chain": [
+        "sort the clothes",
+        "load the drum",
+        "add detergent",
+        "close the door",
+        "choose the programme",
+        "start the machine",
+        "wait for the cycle",
+        "hang the clothes up"
+      ],
+      "many_refused": 15,
+      "binary_refused": 15
+    },
+    {
+      "task": "change a bicycle tyre",
+      "actions": 10,
+      "depth": 10,
+      "widest_join": 1,
+      "many_ok": false,
+      "binary_ok": false,
+      "many_chain": [
+        "put the wheel back"
+      ],
+      "binary_chain": [
+        "put the wheel back"
+      ],
+      "many_refused": 39,
+      "binary_refused": 39
+    },
+    {
+      "task": "plant a seed in a pot",
+      "actions": 8,
+      "depth": 7,
+      "widest_join": 2,
+      "many_ok": true,
+      "binary_ok": true,
+      "many_chain": [
+        "fetch the pot",
+        "put gravel in the bottom",
+        "fill with soil",
+        "take a seed from the packet",
+        "make a hole in the soil",
+        "drop the seed in",
+        "cover it over",
+        "water it"
+      ],
+      "binary_chain": [
+        "fetch the pot",
+        "put gravel in the bottom",
+        "fill with soil",
+        "take a seed from the packet",
+        "make a hole in the soil",
+        "drop the seed in",
+        "cover it over",
+        "water it"
+      ],
+      "many_refused": 18,
+      "binary_refused": 18
+    },
+    {
+      "task": "post a letter",
+      "actions": 8,
+      "depth": 7,
+      "widest_join": 2,
+      "many_ok": true,
+      "binary_ok": true,
+      "many_chain": [
+        "write the letter",
+        "fold it",
+        "fetch an envelope",
+        "put the letter in",
+        "seal the envelope",
+        "write the address",
+        "stick on a stamp",
+        "drop it in the postbox"
+      ],
+      "binary_chain": [
+        "write the letter",
+        "fold it",
+        "fetch an envelope",
+        "put the letter in",
+        "seal the envelope",
+        "write the address",
+        "stick on a stamp",
+        "drop it in the postbox"
+      ],
+      "many_refused": 13,
+      "binary_refused": 13
+    },
+    {
+      "task": "make french press coffee",
+      "actions": 8,
+      "depth": 7,
+      "widest_join": 2,
+      "many_ok": true,
+      "binary_ok": true,
+      "many_chain": [
+        "weigh the beans",
+        "grind the beans",
+        "put grounds in the press",
+        "boil the water",
+        "pour the water in",
+        "wait four minutes",
+        "push the plunger down",
+        "pour into a cup"
+      ],
+      "binary_chain": [
+        "weigh the beans",
+        "grind the beans",
+        "put grounds in the press",
+        "boil the water",
+        "pour the water in",
+        "wait four minutes",
+        "push the plunger down",
+        "pour into a cup"
+      ],
+      "many_refused": 24,
+      "binary_refused": 24
+    },
+    {
+      "task": "paint a wall",
+      "actions": 10,
+      "depth": 8,
+      "widest_join": 2,
+      "many_ok": true,
+      "binary_ok": true,
+      "many_chain": [
+        "move the furniture out",
+        "lay down dust sheets",
+        "tape the edges",
+        "fill the holes",
+        "sand it smooth",
+        "open the paint",
+        "stir the paint",
+        "roll on the first coat",
+        "let it dry",
+        "roll on the second coat"
+      ],
+      "binary_chain": [
+        "move the furniture out",
+        "lay down dust sheets",
+        "tape the edges",
+        "fill the holes",
+        "sand it smooth",
+        "open the paint",
+        "stir the paint",
+        "roll on the first coat",
+        "let it dry",
+        "roll on the second coat"
+      ],
+      "many_refused": 25,
+      "binary_refused": 25
+    },
+    {
+      "task": "boil an egg",
+      "actions": 8,
+      "depth": 7,
+      "widest_join": 2,
+      "many_ok": true,
+      "binary_ok": true,
+      "many_chain": [
+        "fill a pan with water",
+        "take an egg from the box",
+        "put it on the hob",
+        "bring it to the boil",
+        "lower the egg in",
+        "time seven minutes",
+        "lift it out",
+        "run it under cold water"
+      ],
+      "binary_chain": [
+        "fill a pan with water",
+        "take an egg from the box",
+        "put it on the hob",
+        "bring it to the boil",
+        "lower the egg in",
+        "time seven minutes",
+        "lift it out",
+        "run it under cold water"
+      ],
+      "many_refused": 14,
+      "binary_refused": 14
+    }
+  ]
+}

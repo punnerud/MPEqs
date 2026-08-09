@@ -1,0 +1,43 @@
+{
+  "matrix": "matrix-rfgeo8.matx",
+  "n": 64,
+  "quantum": 0.009839794302270527,
+  "tol_units": 1,
+  "spread": {
+    "mean": 9.839794302270526,
+    "stddev": 5.768154943831934,
+    "coefficient_of_variation": 0.5862068623224101,
+    "p01": 1.0084104537963867,
+    "p99": 25.894493103027344,
+    "dynamic_range": 25.678525054497136
+  },
+  "triangle": {
+    "triples": 76131,
+    "violations": 0,
+    "violation_pct": 0.0,
+    "max_violation": 0.0,
+    "max_relative": 0.0,
+    "mean_relative_violation": 0.0,
+    "is_metric": true
+  },
+  "clusters": {
+    "k": 8,
+    "intra_over_inter": 0.524922643744637,
+    "mean_silhouette": 0.14680606976700467,
+    "smallest_cluster": 1,
+    "largest_cluster": 32
+  },
+  "rank1": {
+    "blocks": 56,
+    "mean_residual_ratio": 0.09445802235463985,
+    "cells_within_tol_pct": 39.91537376586742,
+    "blocks_fully_within_tol_pct": 19.047619047619047,
+    "degenerate_blocks": 14,
+    "varint_ratio": 0.3688293370944993,
+    "deflate_ratio": 0.22725669957686884,
+    "mean_only_residual_ratio": 0.177409009171615,
+    "rank1_gain_over_mean_pct": 46.75691905631088
+  },
+  "predicted_ratio": 4.400310318076028,
+  "verdict": "GO — gateway structure is present and worth a codec."
+}

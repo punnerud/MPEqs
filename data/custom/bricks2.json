@@ -1,0 +1,49 @@
+{
+  "bricks": 46,
+  "exact": 6,
+  "tests": 6,
+  "affine_roundtrip_identity": 1,
+  "affine_lift_refused": true,
+  "roads_nok_eur": 3,
+  "unanimous_clean": true,
+  "disagree_poisoned": true,
+  "poison_localised": true,
+  "rows": [
+    {
+      "task": "37 C -> F",
+      "exact": true,
+      "got": "493/5",
+      "want": "493/5"
+    },
+    {
+      "task": "212 F -> C",
+      "exact": true,
+      "got": "100",
+      "want": "100"
+    },
+    {
+      "task": "100 C -> K",
+      "exact": true,
+      "got": "7463/20",
+      "want": "7463/20"
+    },
+    {
+      "task": "0 F -> K (two affine hops)",
+      "exact": true,
+      "got": "45967/180",
+      "want": "45967/180"
+    },
+    {
+      "task": "100 usd -> nok",
+      "exact": true,
+      "got": "1050",
+      "want": "1050"
+    },
+    {
+      "task": "nok/litre -> usd/gallon",
+      "exact": true,
+      "got": "22532213/6250000",
+      "want": "22532213/6250000"
+    }
+  ]
+}

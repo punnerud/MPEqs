@@ -1,0 +1,425 @@
+{
+  "summary": {
+    "words": 18,
+    "direct_correct": 9,
+    "ops_correct": 17,
+    "valid_pipelines": 18,
+    "undone": 18
+  },
+  "runs": [
+    {
+      "word": "antall",
+      "letter": "l",
+      "want": 2,
+      "direct": 2,
+      "ops": 2,
+      "pipeline": [
+        [
+          "split",
+          null
+        ],
+        [
+          "keep",
+          "l"
+        ],
+        [
+          "count",
+          null
+        ]
+      ],
+      "stage": "ok",
+      "undone": true
+    },
+    {
+      "word": "mississippi",
+      "letter": "s",
+      "want": 4,
+      "direct": 4,
+      "ops": 4,
+      "pipeline": [
+        [
+          "split",
+          null
+        ],
+        [
+          "keep",
+          "s"
+        ],
+        [
+          "count",
+          null
+        ]
+      ],
+      "stage": "ok",
+      "undone": true
+    },
+    {
+      "word": "strawberry",
+      "letter": "r",
+      "want": 3,
+      "direct": 3,
+      "ops": 3,
+      "pipeline": [
+        [
+          "split",
+          null
+        ],
+        [
+          "keep",
+          "r"
+        ],
+        [
+          "count",
+          null
+        ]
+      ],
+      "stage": "ok",
+      "undone": true
+    },
+    {
+      "word": "bookkeeper",
+      "letter": "e",
+      "want": 3,
+      "direct": 3,
+      "ops": 3,
+      "pipeline": [
+        [
+          "split",
+          null
+        ],
+        [
+          "keep",
+          "e"
+        ],
+        [
+          "count",
+          null
+        ]
+      ],
+      "stage": "ok",
+      "undone": true
+    },
+    {
+      "word": "parallel",
+      "letter": "l",
+      "want": 3,
+      "direct": 2,
+      "ops": 3,
+      "pipeline": [
+        [
+          "split",
+          null
+        ],
+        [
+          "keep",
+          "l"
+        ],
+        [
+          "count",
+          null
+        ]
+      ],
+      "stage": "ok",
+      "undone": true
+    },
+    {
+      "word": "committee",
+      "letter": "t",
+      "want": 2,
+      "direct": 2,
+      "ops": 2,
+      "pipeline": [
+        [
+          "split",
+          null
+        ],
+        [
+          "keep",
+          "t"
+        ],
+        [
+          "count",
+          null
+        ]
+      ],
+      "stage": "ok",
+      "undone": true
+    },
+    {
+      "word": "occurrence",
+      "letter": "c",
+      "want": 3,
+      "direct": 3,
+      "ops": 3,
+      "pipeline": [
+        [
+          "split",
+          null
+        ],
+        [
+          "keep",
+          "c"
+        ],
+        [
+          "count",
+          null
+        ]
+      ],
+      "stage": "ok",
+      "undone": true
+    },
+    {
+      "word": "assessment",
+      "letter": "s",
+      "want": 4,
+      "direct": 3,
+      "ops": 4,
+      "pipeline": [
+        [
+          "split",
+          null
+        ],
+        [
+          "keep",
+          "s"
+        ],
+        [
+          "count",
+          null
+        ]
+      ],
+      "stage": "ok",
+      "undone": true
+    },
+    {
+      "word": "beekeeper",
+      "letter": "e",
+      "want": 4,
+      "direct": 3,
+      "ops": 5,
+      "pipeline": [
+        [
+          "split",
+          null
+        ],
+        [
+          "keep",
+          "e"
+        ],
+        [
+          "count",
+          null
+        ]
+      ],
+      "stage": "ok",
+      "undone": true
+    },
+    {
+      "word": "aardvark",
+      "letter": "a",
+      "want": 3,
+      "direct": 2,
+      "ops": 3,
+      "pipeline": [
+        [
+          "split",
+          null
+        ],
+        [
+          "keep",
+          "a"
+        ],
+        [
+          "count",
+          null
+        ]
+      ],
+      "stage": "ok",
+      "undone": true
+    },
+    {
+      "word": "balloon",
+      "letter": "l",
+      "want": 2,
+      "direct": 2,
+      "ops": 2,
+      "pipeline": [
+        [
+          "split",
+          null
+        ],
+        [
+          "keep",
+          "l"
+        ],
+        [
+          "count",
+          null
+        ]
+      ],
+      "stage": "ok",
+      "undone": true
+    },
+    {
+      "word": "possession",
+      "letter": "s",
+      "want": 4,
+      "direct": 2,
+      "ops": 4,
+      "pipeline": [
+        [
+          "split",
+          null
+        ],
+        [
+          "keep",
+          "s"
+        ],
+        [
+          "count",
+          null
+        ]
+      ],
+      "stage": "ok",
+      "undone": true
+    },
+    {
+      "word": "necessary",
+      "letter": "s",
+      "want": 2,
+      "direct": 2,
+      "ops": 2,
+      "pipeline": [
+        [
+          "split",
+          null
+        ],
+        [
+          "keep",
+          "s"
+        ],
+        [
+          "count",
+          null
+        ]
+      ],
+      "stage": "ok",
+      "undone": true
+    },
+    {
+      "word": "embarrass",
+      "letter": "r",
+      "want": 2,
+      "direct": 3,
+      "ops": 2,
+      "pipeline": [
+        [
+          "split",
+          null
+        ],
+        [
+          "keep",
+          "r"
+        ],
+        [
+          "count",
+          null
+        ]
+      ],
+      "stage": "ok",
+      "undone": true
+    },
+    {
+      "word": "millennium",
+      "letter": "n",
+      "want": 2,
+      "direct": 3,
+      "ops": 2,
+      "pipeline": [
+        [
+          "split",
+          null
+        ],
+        [
+          "keep",
+          "n"
+        ],
+        [
+          "count",
+          null
+        ]
+      ],
+      "stage": "ok",
+      "undone": true
+    },
+    {
+      "word": "kallesnavn",
+      "letter": "n",
+      "want": 2,
+      "direct": 3,
+      "ops": 2,
+      "pipeline": [
+        [
+          "split",
+          null
+        ],
+        [
+          "keep",
+          "n"
+        ],
+        [
+          "count",
+          null
+        ]
+      ],
+      "stage": "ok",
+      "undone": true
+    },
+    {
+      "word": "skulle",
+      "letter": "l",
+      "want": 2,
+      "direct": 2,
+      "ops": 2,
+      "pipeline": [
+        [
+          "split",
+          null
+        ],
+        [
+          "keep",
+          "l"
+        ],
+        [
+          "count",
+          null
+        ]
+      ],
+      "stage": "ok",
+      "undone": true
+    },
+    {
+      "word": "innkalling",
+      "letter": "n",
+      "want": 3,
+      "direct": 2,
+      "ops": 3,
+      "pipeline": [
+        [
+          "split",
+          null
+        ],
+        [
+          "keep",
+          "n"
+        ],
+        [
+          "count",
+          null
+        ]
+      ],
+      "stage": "ok",
+      "undone": true
+    }
+  ]
+}

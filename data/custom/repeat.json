@@ -1,0 +1,375 @@
+{
+  "summary": {
+    "facts": 24,
+    "k": 5,
+    "single_correct": 13,
+    "vote_correct": 13,
+    "longer_correct": 9,
+    "unanimous": 22,
+    "unanimous_right": 13,
+    "precision_when_unanimous": 0.5909090909090909,
+    "base_rate": 0.5416666666666666
+  },
+  "runs": [
+    {
+      "expr": "37 * 1073",
+      "want": 29.0,
+      "single": false,
+      "vote": false,
+      "longer": false,
+      "samples": [
+        39010.0,
+        39010.0,
+        39310.0,
+        39110.0,
+        39310.0
+      ],
+      "agreement": 2
+    },
+    {
+      "expr": "34 * 544",
+      "want": 16.0,
+      "single": false,
+      "vote": false,
+      "longer": false,
+      "samples": [
+        18496.0,
+        18496.0,
+        18496.0,
+        18496.0,
+        18496.0
+      ],
+      "agreement": 5
+    },
+    {
+      "expr": "38 + 105",
+      "want": 67,
+      "single": false,
+      "vote": false,
+      "longer": false,
+      "samples": [
+        143.0,
+        143.0,
+        143.0,
+        143.0,
+        143.0
+      ],
+      "agreement": 5
+    },
+    {
+      "expr": "13 * 286",
+      "want": 22.0,
+      "single": false,
+      "vote": false,
+      "longer": false,
+      "samples": [
+        3708.0,
+        3708.0,
+        3708.0,
+        3708.0,
+        3708.0
+      ],
+      "agreement": 5
+    },
+    {
+      "expr": "279 - 239",
+      "want": 40,
+      "single": true,
+      "vote": true,
+      "longer": false,
+      "samples": [
+        40.0,
+        40.0,
+        40.0,
+        40.0,
+        40.0
+      ],
+      "agreement": 5
+    },
+    {
+      "expr": "-13 + 57",
+      "want": 70,
+      "single": false,
+      "vote": false,
+      "longer": false,
+      "samples": [
+        -44.0,
+        -44.0,
+        -44.0,
+        -44.0,
+        -44.0
+      ],
+      "agreement": 5
+    },
+    {
+      "expr": "367 - 315",
+      "want": 52,
+      "single": true,
+      "vote": true,
+      "longer": true,
+      "samples": [
+        52.0,
+        52.0,
+        52.0,
+        52.0,
+        52.0
+      ],
+      "agreement": 5
+    },
+    {
+      "expr": "12 * 264",
+      "want": 22.0,
+      "single": false,
+      "vote": false,
+      "longer": false,
+      "samples": [
+        3168.0,
+        3168.0,
+        3168.0,
+        3168.0,
+        3168.0
+      ],
+      "agreement": 5
+    },
+    {
+      "expr": "291 - 281",
+      "want": 10,
+      "single": true,
+      "vote": true,
+      "longer": true,
+      "samples": [
+        10.0,
+        10.0,
+        10.0,
+        10.0,
+        10.0
+      ],
+      "agreement": 5
+    },
+    {
+      "expr": "55 - 29",
+      "want": 26,
+      "single": true,
+      "vote": true,
+      "longer": true,
+      "samples": [
+        26.0,
+        26.0,
+        26.0,
+        26.0,
+        26.0
+      ],
+      "agreement": 5
+    },
+    {
+      "expr": "313 + 318",
+      "want": 5,
+      "single": false,
+      "vote": false,
+      "longer": false,
+      "samples": [
+        631.0,
+        631.0,
+        631.0,
+        631.0,
+        631.0
+      ],
+      "agreement": 5
+    },
+    {
+      "expr": "30 * 360",
+      "want": 12.0,
+      "single": false,
+      "vote": false,
+      "longer": false,
+      "samples": [
+        10800.0,
+        10800.0,
+        10800.0,
+        10800.0,
+        10800.0
+      ],
+      "agreement": 5
+    },
+    {
+      "expr": "245 + 276",
+      "want": 31,
+      "single": false,
+      "vote": false,
+      "longer": false,
+      "samples": [
+        521.0,
+        521.0,
+        521.0,
+        521.0,
+        521.0
+      ],
+      "agreement": 5
+    },
+    {
+      "expr": "84 / 42",
+      "want": 2,
+      "single": true,
+      "vote": true,
+      "longer": false,
+      "samples": [
+        2.0,
+        2.0,
+        2.0,
+        2.0,
+        2.0
+      ],
+      "agreement": 5
+    },
+    {
+      "expr": "330 - 245",
+      "want": 85,
+      "single": true,
+      "vote": true,
+      "longer": true,
+      "samples": [
+        85.0,
+        85.0,
+        85.0,
+        85.0,
+        85.0
+      ],
+      "agreement": 5
+    },
+    {
+      "expr": "370 / 37",
+      "want": 10,
+      "single": true,
+      "vote": true,
+      "longer": false,
+      "samples": [
+        10.0,
+        10.0,
+        10.0,
+        10.0,
+        10.0
+      ],
+      "agreement": 5
+    },
+    {
+      "expr": "407 - 373",
+      "want": 34,
+      "single": true,
+      "vote": true,
+      "longer": true,
+      "samples": [
+        34.0,
+        34.0,
+        34.0,
+        34.0,
+        34.0
+      ],
+      "agreement": 5
+    },
+    {
+      "expr": "250 / 25",
+      "want": 10,
+      "single": true,
+      "vote": true,
+      "longer": true,
+      "samples": [
+        10.0,
+        10.0,
+        10.0,
+        10.0,
+        10.0
+      ],
+      "agreement": 5
+    },
+    {
+      "expr": "36 / 12",
+      "want": 3,
+      "single": true,
+      "vote": true,
+      "longer": true,
+      "samples": [
+        3.0,
+        3.0,
+        3.0,
+        3.0,
+        3.0
+      ],
+      "agreement": 5
+    },
+    {
+      "expr": "231 - 216",
+      "want": 15,
+      "single": true,
+      "vote": true,
+      "longer": true,
+      "samples": [
+        15.0,
+        15.0,
+        15.0,
+        15.0,
+        15.0
+      ],
+      "agreement": 5
+    },
+    {
+      "expr": "105 / 35",
+      "want": 3,
+      "single": true,
+      "vote": true,
+      "longer": true,
+      "samples": [
+        3.0,
+        3.0,
+        3.0,
+        3.0,
+        3.0
+      ],
+      "agreement": 5
+    },
+    {
+      "expr": "363 - 361",
+      "want": 2,
+      "single": true,
+      "vote": true,
+      "longer": false,
+      "samples": [
+        2.0,
+        2.0,
+        2.0,
+        2.0,
+        2.0
+      ],
+      "agreement": 5
+    },
+    {
+      "expr": "110 + 118",
+      "want": 8,
+      "single": false,
+      "vote": false,
+      "longer": false,
+      "samples": [
+        230.0,
+        230.0,
+        230.0,
+        230.0,
+        230.0
+      ],
+      "agreement": 5
+    },
+    {
+      "expr": "27 * 378",
+      "want": 14.0,
+      "single": false,
+      "vote": false,
+      "longer": false,
+      "samples": [
+        10236.0,
+        10236.0,
+        10296.0,
+        10236.0,
+        10296.0
+      ],
+      "agreement": 3
+    }
+  ]
+}

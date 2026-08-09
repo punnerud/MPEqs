@@ -1,0 +1,129 @@
+{
+  "summary": {
+    "chars": 1288556,
+    "words": 241211,
+    "sentences": 8920,
+    "levels": 5,
+    "branch": 8,
+    "lossless": true,
+    "queries": 8,
+    "record_find": 8,
+    "olmoe-1b": {
+      "found": 0,
+      "calls": 9,
+      "per_level": [
+        "1/8",
+        "0/1"
+      ],
+      "mean_calls": 1.125
+    },
+    "qwen-35b": {
+      "found": 0,
+      "calls": 10,
+      "per_level": [
+        "1/8",
+        "1/1",
+        "0/1"
+      ],
+      "mean_calls": 1.25
+    }
+  },
+  "runs": [
+    {
+      "model": "olmoe-1b",
+      "target": "During the scripted rivalry , on SmackDown , Lesnar lifted B...",
+      "found": false,
+      "calls": 1
+    },
+    {
+      "model": "olmoe-1b",
+      "target": "Wanderone immediately adopted the Minnesota Fats nickname an...",
+      "found": false,
+      "calls": 2
+    },
+    {
+      "model": "olmoe-1b",
+      "target": "In 68 , the rebellion of Vindex in Gaul and later the acclam...",
+      "found": false,
+      "calls": 1
+    },
+    {
+      "model": "olmoe-1b",
+      "target": "Originally from England , he was a graduate of University of...",
+      "found": false,
+      "calls": 1
+    },
+    {
+      "model": "olmoe-1b",
+      "target": "Payne was quoted as saying : \" With the album , that 's the ...",
+      "found": false,
+      "calls": 1
+    },
+    {
+      "model": "olmoe-1b",
+      "target": "The Doctor reluctantly allows her to go and ascends a stairc...",
+      "found": false,
+      "calls": 1
+    },
+    {
+      "model": "olmoe-1b",
+      "target": "He was sent to its developmental territory , Ohio Valley Wre...",
+      "found": false,
+      "calls": 1
+    },
+    {
+      "model": "olmoe-1b",
+      "target": "However , intensification leveled off as Linfa executed a sm...",
+      "found": false,
+      "calls": 1
+    },
+    {
+      "model": "qwen-35b",
+      "target": "During the scripted rivalry , on SmackDown , Lesnar lifted B...",
+      "found": false,
+      "calls": 1
+    },
+    {
+      "model": "qwen-35b",
+      "target": "Wanderone immediately adopted the Minnesota Fats nickname an...",
+      "found": false,
+      "calls": 1
+    },
+    {
+      "model": "qwen-35b",
+      "target": "In 68 , the rebellion of Vindex in Gaul and later the acclam...",
+      "found": false,
+      "calls": 1
+    },
+    {
+      "model": "qwen-35b",
+      "target": "Originally from England , he was a graduate of University of...",
+      "found": false,
+      "calls": 1
+    },
+    {
+      "model": "qwen-35b",
+      "target": "Payne was quoted as saying : \" With the album , that 's the ...",
+      "found": false,
+      "calls": 3
+    },
+    {
+      "model": "qwen-35b",
+      "target": "The Doctor reluctantly allows her to go and ascends a stairc...",
+      "found": false,
+      "calls": 1
+    },
+    {
+      "model": "qwen-35b",
+      "target": "He was sent to its developmental territory , Ohio Valley Wre...",
+      "found": false,
+      "calls": 1
+    },
+    {
+      "model": "qwen-35b",
+      "target": "However , intensification leveled off as Linfa executed a sm...",
+      "found": false,
+      "calls": 1
+    }
+  ]
+}

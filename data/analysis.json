@@ -1,0 +1,182 @@
+{
+  "rank_contributions": [
+    {
+      "rank": 1,
+      "mean_gate_weight": 0.10814112643292617,
+      "mean_output_norm": 4.7700792950504365,
+      "contribution_pct": 28.55589240110422,
+      "cumulative_pct": 28.55589240110422
+    },
+    {
+      "rank": 2,
+      "mean_gate_weight": 0.07722306629218423,
+      "mean_output_norm": 4.533032875830827,
+      "contribution_pct": 18.915144823901592,
+      "cumulative_pct": 47.47103722500581
+    },
+    {
+      "rank": 3,
+      "mean_gate_weight": 0.06206612313879134,
+      "mean_output_norm": 4.306330308064673,
+      "contribution_pct": 14.5754038841139,
+      "cumulative_pct": 62.046441109119705
+    },
+    {
+      "rank": 4,
+      "mean_gate_weight": 0.051223021645139255,
+      "mean_output_norm": 4.127627362723786,
+      "contribution_pct": 11.63473478095115,
+      "cumulative_pct": 73.68117589007086
+    },
+    {
+      "rank": 5,
+      "mean_gate_weight": 0.04289430268950056,
+      "mean_output_norm": 3.889700715562583,
+      "contribution_pct": 9.178742726116567,
+      "cumulative_pct": 82.85991861618743
+    },
+    {
+      "rank": 6,
+      "mean_gate_weight": 0.03624350702574475,
+      "mean_output_norm": 3.663046107264165,
+      "contribution_pct": 7.162214406791488,
+      "cumulative_pct": 90.02213302297892
+    },
+    {
+      "rank": 7,
+      "mean_gate_weight": 0.031045677476839728,
+      "mean_output_norm": 3.454228848296907,
+      "contribution_pct": 5.579376518450726,
+      "cumulative_pct": 95.60150954142965
+    },
+    {
+      "rank": 8,
+      "mean_gate_weight": 0.027058128967761164,
+      "mean_output_norm": 3.2795505850137374,
+      "contribution_pct": 4.398490458570344,
+      "cumulative_pct": 100.0
+    }
+  ],
+  "cross_layer": [
+    {
+      "from_layer": 0,
+      "to_layer": 1,
+      "entropy_bits": 5.976076166228582,
+      "conditional_entropy_bits": 5.4647980818379605,
+      "mutual_information_bits": 0.5112780843906215,
+      "top1_predictability_pct": 6.689453125
+    },
+    {
+      "from_layer": 1,
+      "to_layer": 2,
+      "entropy_bits": 5.969590550737154,
+      "conditional_entropy_bits": 5.4094763454707095,
+      "mutual_information_bits": 0.5601142052664443,
+      "top1_predictability_pct": 7.470703125
+    },
+    {
+      "from_layer": 2,
+      "to_layer": 3,
+      "entropy_bits": 5.956514020277561,
+      "conditional_entropy_bits": 5.318688631436137,
+      "mutual_information_bits": 0.6378253888414243,
+      "top1_predictability_pct": 9.63134765625
+    },
+    {
+      "from_layer": 3,
+      "to_layer": 4,
+      "entropy_bits": 5.9697739213850145,
+      "conditional_entropy_bits": 5.351212839448301,
+      "mutual_information_bits": 0.6185610819367131,
+      "top1_predictability_pct": 8.04443359375
+    },
+    {
+      "from_layer": 4,
+      "to_layer": 5,
+      "entropy_bits": 5.963433427329023,
+      "conditional_entropy_bits": 5.333334274277724,
+      "mutual_information_bits": 0.6300991530512992,
+      "top1_predictability_pct": 8.59375
+    },
+    {
+      "from_layer": 5,
+      "to_layer": 6,
+      "entropy_bits": 5.951832140863007,
+      "conditional_entropy_bits": 5.307937748512177,
+      "mutual_information_bits": 0.6438943923508305,
+      "top1_predictability_pct": 8.77685546875
+    },
+    {
+      "from_layer": 6,
+      "to_layer": 7,
+      "entropy_bits": 5.953105661629428,
+      "conditional_entropy_bits": 5.285477068468943,
+      "mutual_information_bits": 0.6676285931604848,
+      "top1_predictability_pct": 9.38720703125
+    },
+    {
+      "from_layer": 7,
+      "to_layer": 8,
+      "entropy_bits": 5.96263337929452,
+      "conditional_entropy_bits": 5.275795125943391,
+      "mutual_information_bits": 0.6868382533511284,
+      "top1_predictability_pct": 8.94775390625
+    },
+    {
+      "from_layer": 8,
+      "to_layer": 9,
+      "entropy_bits": 5.955310568837458,
+      "conditional_entropy_bits": 5.236763771551081,
+      "mutual_information_bits": 0.7185467972863773,
+      "top1_predictability_pct": 9.1796875
+    },
+    {
+      "from_layer": 9,
+      "to_layer": 10,
+      "entropy_bits": 5.962005110622345,
+      "conditional_entropy_bits": 5.248816949341586,
+      "mutual_information_bits": 0.7131881612807582,
+      "top1_predictability_pct": 9.08203125
+    },
+    {
+      "from_layer": 10,
+      "to_layer": 11,
+      "entropy_bits": 5.954479939394871,
+      "conditional_entropy_bits": 5.243300565097207,
+      "mutual_information_bits": 0.7111793742976644,
+      "top1_predictability_pct": 9.41162109375
+    },
+    {
+      "from_layer": 11,
+      "to_layer": 12,
+      "entropy_bits": 5.96483910251436,
+      "conditional_entropy_bits": 5.26628337024277,
+      "mutual_information_bits": 0.6985557322715898,
+      "top1_predictability_pct": 9.2041015625
+    },
+    {
+      "from_layer": 12,
+      "to_layer": 13,
+      "entropy_bits": 5.957313890817692,
+      "conditional_entropy_bits": 5.260196718452458,
+      "mutual_information_bits": 0.6971171723652336,
+      "top1_predictability_pct": 9.1552734375
+    },
+    {
+      "from_layer": 13,
+      "to_layer": 14,
+      "entropy_bits": 5.965527561637049,
+      "conditional_entropy_bits": 5.232387314545371,
+      "mutual_information_bits": 0.7331402470916775,
+      "top1_predictability_pct": 9.9365234375
+    },
+    {
+      "from_layer": 14,
+      "to_layer": 15,
+      "entropy_bits": 5.959305761324478,
+      "conditional_entropy_bits": 5.236561728122229,
+      "mutual_information_bits": 0.7227440332022486,
+      "top1_predictability_pct": 9.7412109375
+    }
+  ]
+}

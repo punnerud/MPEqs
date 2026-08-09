@@ -1,0 +1,249 @@
+{
+  "layout": "chain",
+  "n_layers": 40,
+  "first_moe_layer_rank_match_pct": 100.0,
+  "overall_set_match_pct": 67.1240234375,
+  "overall_rank_match_pct": 49.156087239583336,
+  "per_layer": [
+    {
+      "layer": 0,
+      "n_tokens": 3072,
+      "set_match_pct": 100.0,
+      "rank_match_pct": 100.0
+    },
+    {
+      "layer": 1,
+      "n_tokens": 3072,
+      "set_match_pct": 99.86979166666667,
+      "rank_match_pct": 99.51171875
+    },
+    {
+      "layer": 2,
+      "n_tokens": 3072,
+      "set_match_pct": 98.95833333333333,
+      "rank_match_pct": 96.09375
+    },
+    {
+      "layer": 3,
+      "n_tokens": 3072,
+      "set_match_pct": 97.78645833333333,
+      "rank_match_pct": 91.40625
+    },
+    {
+      "layer": 4,
+      "n_tokens": 3072,
+      "set_match_pct": 97.59114583333333,
+      "rank_match_pct": 90.29947916666667
+    },
+    {
+      "layer": 5,
+      "n_tokens": 3072,
+      "set_match_pct": 97.16796875,
+      "rank_match_pct": 87.95572916666667
+    },
+    {
+      "layer": 6,
+      "n_tokens": 3072,
+      "set_match_pct": 92.31770833333333,
+      "rank_match_pct": 78.25520833333333
+    },
+    {
+      "layer": 7,
+      "n_tokens": 3072,
+      "set_match_pct": 90.69010416666667,
+      "rank_match_pct": 74.25130208333333
+    },
+    {
+      "layer": 8,
+      "n_tokens": 3072,
+      "set_match_pct": 84.24479166666667,
+      "rank_match_pct": 65.26692708333333
+    },
+    {
+      "layer": 9,
+      "n_tokens": 3072,
+      "set_match_pct": 84.765625,
+      "rank_match_pct": 63.248697916666664
+    },
+    {
+      "layer": 10,
+      "n_tokens": 3072,
+      "set_match_pct": 84.70052083333333,
+      "rank_match_pct": 62.044270833333336
+    },
+    {
+      "layer": 11,
+      "n_tokens": 3072,
+      "set_match_pct": 83.72395833333333,
+      "rank_match_pct": 59.114583333333336
+    },
+    {
+      "layer": 12,
+      "n_tokens": 3072,
+      "set_match_pct": 78.02734375,
+      "rank_match_pct": 55.045572916666664
+    },
+    {
+      "layer": 13,
+      "n_tokens": 3072,
+      "set_match_pct": 74.05598958333333,
+      "rank_match_pct": 50.09765625
+    },
+    {
+      "layer": 14,
+      "n_tokens": 3072,
+      "set_match_pct": 71.09375,
+      "rank_match_pct": 46.516927083333336
+    },
+    {
+      "layer": 15,
+      "n_tokens": 3072,
+      "set_match_pct": 71.54947916666667,
+      "rank_match_pct": 46.875
+    },
+    {
+      "layer": 16,
+      "n_tokens": 3072,
+      "set_match_pct": 67.54557291666667,
+      "rank_match_pct": 44.010416666666664
+    },
+    {
+      "layer": 17,
+      "n_tokens": 3072,
+      "set_match_pct": 63.76953125,
+      "rank_match_pct": 41.731770833333336
+    },
+    {
+      "layer": 18,
+      "n_tokens": 3072,
+      "set_match_pct": 63.020833333333336,
+      "rank_match_pct": 40.852864583333336
+    },
+    {
+      "layer": 19,
+      "n_tokens": 3072,
+      "set_match_pct": 64.29036458333333,
+      "rank_match_pct": 42.08984375
+    },
+    {
+      "layer": 20,
+      "n_tokens": 3072,
+      "set_match_pct": 60.123697916666664,
+      "rank_match_pct": 38.444010416666664
+    },
+    {
+      "layer": 21,
+      "n_tokens": 3072,
+      "set_match_pct": 59.895833333333336,
+      "rank_match_pct": 37.044270833333336
+    },
+    {
+      "layer": 22,
+      "n_tokens": 3072,
+      "set_match_pct": 57.389322916666664,
+      "rank_match_pct": 35.611979166666664
+    },
+    {
+      "layer": 23,
+      "n_tokens": 3072,
+      "set_match_pct": 58.138020833333336,
+      "rank_match_pct": 37.369791666666664
+    },
+    {
+      "layer": 24,
+      "n_tokens": 3072,
+      "set_match_pct": 55.143229166666664,
+      "rank_match_pct": 33.235677083333336
+    },
+    {
+      "layer": 25,
+      "n_tokens": 3072,
+      "set_match_pct": 52.24609375,
+      "rank_match_pct": 32.71484375
+    },
+    {
+      "layer": 26,
+      "n_tokens": 3072,
+      "set_match_pct": 51.236979166666664,
+      "rank_match_pct": 31.93359375
+    },
+    {
+      "layer": 27,
+      "n_tokens": 3072,
+      "set_match_pct": 50.846354166666664,
+      "rank_match_pct": 31.4453125
+    },
+    {
+      "layer": 28,
+      "n_tokens": 3072,
+      "set_match_pct": 52.1484375,
+      "rank_match_pct": 31.412760416666668
+    },
+    {
+      "layer": 29,
+      "n_tokens": 3072,
+      "set_match_pct": 49.51171875,
+      "rank_match_pct": 30.6640625
+    },
+    {
+      "layer": 30,
+      "n_tokens": 3072,
+      "set_match_pct": 48.274739583333336,
+      "rank_match_pct": 30.989583333333332
+    },
+    {
+      "layer": 31,
+      "n_tokens": 3072,
+      "set_match_pct": 47.8515625,
+      "rank_match_pct": 29.752604166666668
+    },
+    {
+      "layer": 32,
+      "n_tokens": 3072,
+      "set_match_pct": 48.2421875,
+      "rank_match_pct": 30.436197916666668
+    },
+    {
+      "layer": 33,
+      "n_tokens": 3072,
+      "set_match_pct": 48.046875,
+      "rank_match_pct": 28.90625
+    },
+    {
+      "layer": 34,
+      "n_tokens": 3072,
+      "set_match_pct": 48.404947916666664,
+      "rank_match_pct": 30.338541666666668
+    },
+    {
+      "layer": 35,
+      "n_tokens": 3072,
+      "set_match_pct": 45.735677083333336,
+      "rank_match_pct": 27.669270833333332
+    },
+    {
+      "layer": 36,
+      "n_tokens": 3072,
+      "set_match_pct": 46.907552083333336,
+      "rank_match_pct": 28.287760416666668
+    },
+    {
+      "layer": 37,
+      "n_tokens": 3072,
+      "set_match_pct": 47.688802083333336,
+      "rank_match_pct": 29.036458333333332
+    },
+    {
+      "layer": 38,
+      "n_tokens": 3072,
+      "set_match_pct": 46.2890625,
+      "rank_match_pct": 28.483072916666668
+    },
+    {
+      "layer": 39,
+      "n_tokens": 3072,
+      "set_match_pct": 45.670572916666664,
+      "rank_match_pct": 27.799479166666668
+    }
+  ]
+}

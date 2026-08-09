@@ -1,0 +1,42 @@
+{
+  "39-class": {
+    "n": 7493,
+    "concentration": 35.57,
+    "betweenness_cells_pct": 33.6,
+    "facility_cells_pct": 20.04,
+    "betweenness_recall": 0.051,
+    "facility_recall": 0.1085
+  },
+  "YOLO": {
+    "n": 3897,
+    "concentration": 20.5,
+    "betweenness_cells_pct": 25.7,
+    "facility_cells_pct": 17.73,
+    "betweenness_recall": 0.116,
+    "facility_recall": 0.1487
+  },
+  "domains": {
+    "n": 3200,
+    "concentration": 24.11,
+    "betweenness_cells_pct": 36.55,
+    "facility_cells_pct": 22.29,
+    "betweenness_recall": 0.0706,
+    "facility_recall": 0.1183
+  },
+  "layers-50k": {
+    "n": 12000,
+    "concentration": 15.85,
+    "betweenness_cells_pct": 11.61,
+    "facility_cells_pct": 6.14,
+    "betweenness_recall": 0.0387,
+    "facility_recall": 0.062
+  },
+  "50k": {
+    "n": 50000,
+    "concentration": 31.97,
+    "betweenness_cells_pct": 14.45,
+    "facility_cells_pct": 3.12,
+    "betweenness_recall": 0.001,
+    "facility_recall": 0.017
+  }
+}

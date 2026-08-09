@@ -1,0 +1,18 @@
+{
+  "scan": {
+    "measured_ms": 1.46,
+    "predicted_ms": 2.051,
+    "bytes": 6606848,
+    "fetches": 1,
+    "gb_per_s": 4.52
+  },
+  "walk": {
+    "measured_ms": 26.148,
+    "predicted_ms": 47.254,
+    "bytes": 1187840,
+    "fetches": 206,
+    "gb_per_s": 0.05
+  },
+  "walk_over_scan_measured": 17.91,
+  "walk_over_scan_predicted": 23.04
+}

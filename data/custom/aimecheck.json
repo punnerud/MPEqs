@@ -1,0 +1,84 @@
+{
+  "n": 10,
+  "answer_right": 6,
+  "check_parsed": 2,
+  "check_ran": 1,
+  "delivered": 1,
+  "delivered_right": 1,
+  "delivered_wrong": 0,
+  "flagged": 9,
+  "vacuous_killed": 0,
+  "circular_suspect": 0,
+  "rows": [
+    {
+      "truth": "12",
+      "answer": 12,
+      "verdict": "flagged",
+      "why": "forbidden: While",
+      "check": "def check(a):\n    # Verify that a satisfies the problem's CONDITIONS. Use only arithmetic,\n    # for-loops over range(...), and comparisons. No imports. Return True or False.\n    \n    # Calculate 13!\n    factorial_13 = 1\n    for i in range(1, 14):\n        factorial_13 *= i\n        \n    # Find all m such that factorial_13 / m is a perfect square\n    # m must be a divisor of 13!\n    # Let k = factor"
+    },
+    {
+      "truth": "4",
+      "answer": 4,
+      "verdict": "DELIVERED 4",
+      "why": "",
+      "check": "def check(a):\n    # Verify that a satisfies the problem's CONDITIONS. Use only arithmetic,\n    # for-loops over range(...), and comparisons. No imports. Return True or False.\n    \n    # Calculate the sum directly as defined in the problem\n    total_sum = 0\n    for n in range(3, 41):\n        # Calculate binom(n, 2)\n        binom_n_2 = (n * (n - 1)) // 2\n        # Calculate binom(binom_n_2, 2)\n     "
+    },
+    {
+      "truth": "81",
+      "answer": null,
+      "verdict": "flagged",
+      "why": "no answer",
+      "check": ""
+    },
+    {
+      "truth": "125",
+      "answer": 125,
+      "verdict": "flagged",
+      "why": "syntax: cannot assign to expression",
+      "check": "def check(a):\n    # Verify that a satisfies the problem's CONDITIONS. Use only arithmetic,\n    # for-loops over range(...), and comparisons. No imports. Return True or False.\n    \n    # The problem asks for p + q where the probability is p/q.\n    # We calculated p = 29, q = 96.\n    # p + q = 125.\n    \n    # Let's verify the probability calculation logic directly.\n    \n    # Probabilities\n    P_A_b"
+    },
+    {
+      "truth": "751",
+      "answer": null,
+      "verdict": "flagged",
+      "why": "no answer",
+      "check": ""
+    },
+    {
+      "truth": "738",
+      "answer": 18,
+      "verdict": "flagged",
+      "why": "call outside the whitelist",
+      "check": "def check(a):\n    # Verify that a satisfies the problem's CONDITIONS. Use only arithmetic,\n    # for-loops over range(...), and comparisons. No imports. Return True or False.\n    # The function check(a) is not sufficient to check the whole problem, \n    # but we can write a function to count the valid polynomials.\n    count = 0\n    for a in range(-20, 21):\n        for b in range(-20, 21):\n        "
+    },
+    {
+      "truth": "250",
+      "answer": 250,
+      "verdict": "flagged",
+      "why": "no check block",
+      "check": ""
+    },
+    {
+      "truth": "928",
+      "answer": 928,
+      "verdict": "flagged",
+      "why": "TypeError: 'int' object is not subscriptable",
+      "check": "def check(a):\n    # a is a list of 12 integers, 0 for Red, 1 for Blue\n    # Vertices are 0..11. Opposite pairs are (i, i+6) for i in 0..5.\n    \n    # Generate all rectangles\n    # A rectangle is formed by two distinct pairs of opposite vertices.\n    # Pairs are indexed 0 to 5. Pair i consists of vertices {i, i+6}.\n    \n    # We need to check if any rectangle is monochromatic.\n    # A rectangle for"
+    },
+    {
+      "truth": "51",
+      "answer": 51,
+      "verdict": "flagged",
+      "why": "no check block",
+      "check": ""
+    },
+    {
+      "truth": "75",
+      "answer": null,
+      "verdict": "flagged",
+      "why": "no answer",
+      "check": ""
+    }
+  ]
+}

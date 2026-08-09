@@ -1,0 +1,1157 @@
+Continues summary2-part1.txt (phases 0-25). Split at 2000 lines.
+
+Continues summary2-part1.txt, which holds phases 0-25. Split when this file passed 2000 lines.
+
+
+================================================================================
+PHASE 26 — the model names the operation and never performs it
+================================================================================
+
+Every result above points one way. The model is unreliable at producing results and
+reliable at choosing what to do: it wrote the correct inverse question for all 24
+inversions, its JSON graphs parsed 20 out of 20, and its decomposition choices were sound
+even when its arithmetic was not. So it names an operation, the record executes, and the
+record only owns operations it can undo. Then nothing irreversible can be emitted,
+because results are not emitted at all.
+
+The set is deliberately tiny, and every entry declares an inverse the record VERIFIES by
+running rather than trusting:
+
+    split(sep)     <-> join(sep)
+    reverse()      <-> reverse()
+    plural()       <-> singular()
+    lookup()       <-> unlookup()      one-to-one dictionary, fox -> cat
+    keep(x)         -> the dropped items are the residue
+    count()         -> a fold; the input is the residue
+
+`fox -> cat -> cats` composes two of them and inverts all the way back to `fox`.
+
+Counting a letter in a word, eighteen words, a failure mode that is about tokenisation
+and so cannot be reasoned around:
+
+    asked directly                    9/18
+    model names the operations       17/18
+    pipelines the record could run   18/18
+    runs that undo back to the input 18/18
+
+Every pipeline was executable and every one reversed. The model chose
+`split("") -> keep("l") -> count()` and the record did the rest.
+
+Three of my own bugs on the way to that number, all the same shape as the previous ten:
+left free, the model returned `{"split(\"\")": ["a","n","t","a","l"], "count()": 5}` —
+simulating the run and getting it wrong — so the prompt now ends at the opening bracket;
+its JSON escaping collapses, so calls are read by pattern rather than parsed; and
+`keep('e')` kept its quotes and matched nothing, scoring a correct pipeline as a wrong
+answer.
+
+WHAT THIS THREAD ESTABLISHED, in one line each:
+
+    the atom must be small enough that the model already knows it      6/12 -> 11/12
+    the interface must be one the model produces well                  3/20 -> 11/20
+    a residue is only safe if the record can put it back               refuses 4 of 5 bad graphs
+    reversibility is safety, not progress                              Y = 3 reverses perfectly
+    the model states its own inverse better than a table does          5/24 -> 19/24
+    repetition cannot fix a systematic error                           13/24 -> 13/24
+    and the model should name operations, not perform them             9/18 -> 17/18
+
+The open end is scale: this operation set is six entries and fits in a prompt. A useful
+one would not, and the model should not have to hold it. Retrieving the few relevant
+operations by embedding, and composing them by searching the operation graph for a path
+from what is held to what is wanted, is the same N x N machinery the earlier phases
+built — which is where this goes next.
+
+================================================================================
+PHASE 27 — cut(7, 10) and cut("river"): aiming is a separate skill from choosing
+================================================================================
+
+The operation set worked because the model named an operation and never touched the
+data. Editing should follow the same shape: `cut(7, 10)` takes characters 7 to 10, and
+the record returns BOTH halves — what it took and what is left — so a miss can be
+corrected without the model ever typing a character.
+
+Content is the better argument and the model said so unprompted. Asked for two numbers
+it replied `cut(river, end)`, naming what it wanted rather than counting to it. So
+`cut("word")` was added, with the record doing the finding, and with one rule the index
+form does not need: if the word occurs more than once that is a question, not an error.
+The record shows every match written out in place —
+
+    1. The [cat] saw the cat on the mat
+    2. The cat saw the [cat] on the mat
+
+— rather than reporting character positions, because positions are exactly what the
+model cannot use and it has no way to know a word repeats unless it is shown.
+
+Fourteen sentences, four of them with the target appearing twice:
+
+    cut(i, j), one attempt          0/14
+    cut(i, j), up to three          1/14   (1 corrected after seeing what it took)
+    cut("word"), record resolves    1/14
+    every cut reversible           14/14
+
+The blind index attempts land near the target and never on it: 'ld' for "old", 'bak' for
+"bakery", 'bel' for "bell". Being shown what it actually took corrected exactly one of
+fourteen. And naming the word — a copy from the instruction into a call — failed
+thirteen times, answering `cut(bridge)` when asked for "old".
+
+Five prompt forms were tried before accepting that: bare, with the reply forced to begin
+at `cut(`, as a JSON list of calls, with feedback rounds, and with the last call in the
+list taken rather than the first. The JSON form is the notation that carried phase 21 and
+phase 26, and it does not carry this. Aiming at a span is a different skill from choosing
+an operation, and this model has the second without the first.
+
+WHAT DOES HOLD IS THE PROPERTY THE DESIGN WAS FOR. Every one of fourteen cuts was
+reversible, across all arms, including every wrong one. The record performed each cut, so
+the piece removed plus the remainder always restore the original exactly. The model's
+aim was wrong in thirteen of fourteen cases and not one of those wrongs was destructive.
+
+That is the honest summary of the whole operation thread. Confining the model to naming
+reversible operations makes its errors harmless; it does not make them rare. Whether a
+given task gets solved still depends on whether the model can supply the argument, and
+that varies enormously — `keep("l")` on eighteen words, 17/18; `cut("old")` on fourteen
+sentences, 1/14.
+
+================================================================================
+A NOTE ON WHERE THE STATE LIVES
+================================================================================
+
+Every model call in this thread is an isolated process. `llama-cli` is invoked fresh per
+question with `-no-cnv` and a single prompt file, so nothing accumulates: no conversation
+history, no growing context, no residue of the previous task. Task nineteen sees exactly
+what task one saw.
+
+That is not incidental, it is the point of the record. When a later step needs something
+from an earlier one — the carry in a digit column, what the last cut actually took, which
+attempts have already been refused — it arrives as explicit data written into the prompt
+by the record, not as context the model is expected to still be holding. The `history`
+that appears in `ops.py` and `workpad.py` is the record's own, kept in Python; the model
+never sees a transcript.
+
+Two things this buys, and one it costs.
+
+It makes long work possible at all. A 1B model with an accumulating context degrades and
+then contradicts itself; a 1B model asked eighteen independent questions does not, and the
+eighteen answers compose because the record composed them.
+
+It makes the measurements clean. Phase 26's eighteen letter counts cannot leak into each
+other, so 17/18 is eighteen independent trials rather than one trial and seventeen
+echoes.
+
+What it costs is that anything the record does not write down is gone. That is why the
+explored set is versioned rather than cleared, why a refused step is remembered across a
+patch, and why the phase 18 residue has to name the column rather than merely say
+"wrong" — the model will not remember being told, so the record must be able to tell it
+again from scratch, every time.
+
+================================================================================
+PHASE 28 — a bigger model, and splitting before aiming
+================================================================================
+
+Phase 27 left two candidate explanations for cut failing on the 1B model. Either it was
+too small to aim, or aiming was the wrong thing to ask for. Both were tested on the same
+fourteen sentences, against OLMoE-1B-7B and Qwen3.6-35B-A3B.
+
+    model        by index   by name   split then choose
+    olmoe-1b       0/14      1/14           5/14
+    qwen-35b       2/14     14/14          14/14
+
+Both explanations were right, about different things.
+
+SIZE FIXES NAMING, COMPLETELY. `cut("old")` goes from 1/14 to 14/14. The larger model
+never once named the wrong word. Phase 27's conclusion — "aiming at a span is a
+different skill from choosing an operation, and this model has the second without the
+first" — was correct about the model and wrong to generalise: the skill is there at
+scale, and its absence at 1B is a capacity limit rather than a property of the interface.
+
+SIZE DOES NOT FIX COUNTING. `cut(7, 10)` goes from 0/14 to 2/14. Thirty-five billion
+parameters buys almost nothing, because character positions are not visible to a
+tokeniser and no amount of capacity makes them visible. This is the same failure as
+counting letters in a word, which needed an operation rather than a better model, and it
+is the sharpest line this project has drawn between the two kinds of limitation:
+
+    a capacity limit gets better with size          1/14 -> 14/14
+    a representation limit does not                 0/14 ->  2/14
+
+SPLITTING HELPS BOTH, AND IT IS WHAT SCALES. Handing the model a numbered list of the
+words and asking which one takes the 1B model from 1/14 to 5/14 and the large one to a
+clean 14/14. It works because a split is lossless, so nothing is risked by taking it, and
+because it converts aiming into choosing from a short list.
+
+Two levels of that narrow a document in two questions:
+
+    olmoe-1b   missed     2 calls over 15 sentences, join restores exactly
+    qwen-35b   found it   2 calls over 15 sentences, join restores exactly
+
+Choose the sentence, then choose the word. Two questions whatever the length, because
+each split narrows by a whole level rather than by a step, and both joins were checked
+rather than assumed — the document reassembles character for character. That is the
+property that carries this to two hundred pages: the cost is the depth of the split tree,
+not the size of the document, and every level of it is undoable.
+
+One harness note. Qwen is a thinking model and opens `<think>` unprompted; at a 32-token
+budget it never reaches the closing tag, so the first run scored an unterminated thought
+as a failure to answer on every single case. Prefilling an empty think block turns it off.
+Fourteenth bug of the family, and the same lesson: a clean zero is a reason to read the
+raw output, not to believe it.
+
+================================================================================
+PHASE 29 — the same splitting on 1.29 MB of real text
+================================================================================
+
+Fifteen sentences fit in a prompt, so phase 28 was not avoiding anything. This is
+`data/corpus/wikitext.txt`: 1,288,556 characters, 241,211 words, 8,920 sentences, 64
+articles. Around five hundred pages, and far outside either model's context.
+
+    split tree                    5 levels, branching 8, top level 3 nodes
+    every level rejoins exactly   TRUE, to the original bytes
+    record find()                 8/8 targets located, 0 model calls
+    olmoe-1b navigation           0/8   per level, top first: 1/8, 0/1
+    qwen-35b navigation           0/8   per level, top first: 1/8, 1/1, 0/1
+
+THE SPLIT SCALES AND THE STEERING DOES NOT. Both halves are worth stating separately
+because only one of them is about the models.
+
+The record's half holds completely. Five questions reach any sentence in five hundred
+pages, the cost is the depth of the tree rather than the length of the document, and the
+tree reassembles character for character at every level. Nothing about that degrades with
+size — a document ten times longer adds one level.
+
+The model's half fails at the first step, and the reason is visible in the numbers rather
+than inferred. The top level offers three nodes of roughly 430,000 characters each, and
+each is previewed by its first ninety characters. That preview says nothing whatever
+about whether a given sentence is somewhere inside, so the choice is a guess: 1/8 correct
+at the top for both models, which is worse than chance would give. Once the descent takes
+a wrong branch the target is no longer below it, so the run ends after one or two calls —
+which is why mean calls is 1.1 rather than 5.
+
+Two conclusions follow, and the second is the useful one.
+
+For a target that can be quoted, the model should not be asked at all. `find` is exact,
+takes no calls, and the record already owns it. Phase 26's rule applies to search as much
+as to arithmetic: if an operation can do it, the operation does it.
+
+For a target that can only be described, the preview is the whole problem. A chunk needs a
+REPRESENTATION, not a prefix — something that answers "could this be in here" for a
+430,000-character span. That is precisely what an embedding is, and it is where the N x N
+machinery from the earlier phases attaches to this one: index each node of the split tree,
+choose the branch by similarity rather than by reading the first line. The split tree is
+built and verified; what it lacks is a way to summarise a node, and that gap is now
+measured rather than assumed.
+
+================================================================================
+PHASE 30 — a placeholder the model knows, and the uniqueness it costs
+================================================================================
+
+"The A is big" uses a symbol the model has seen as an article, not as a variable. A
+category word it knows — "The animal is big" — should sit better. But the moment the
+placeholder carries meaning it stops being automatically unique, and two animals in one
+sentence cannot both be "animal" without the substitution ceasing to be reversible.
+
+Sixteen sentences, four of them holding two spans of the same category, with the record
+performing every substitution:
+
+    scheme      substituted  record reverses  model restores  refused
+    letter          15/16         15/16            13/16          1
+    category        12/16         12/16             9/16          4
+    numbered        16/16         16/16            13/16          0
+
+Per attempt: letter 13/15, numbered 13/16, category 9/12. The semantic placeholder does
+not help restoration — it is slightly worse. The hypothesis is not supported on the
+measure that was chosen for it.
+
+WHAT IS CONFIRMED IS THE UNIQUENESS CONSTRAINT, and the record enforces it rather than
+discovering it too late. The category scheme refused four sentences, every one of them a
+case where two spans shared a kind: "The fox chased the dog" would become "The animal
+chased the animal", and no rule recovers which was which. That is not an abbreviation, it
+is a deletion dressed as one, and refusing it is the correct outcome. Numbering the
+placeholders removes the collision and restores 16/16.
+
+The letter scheme has the same defect for a different reason: "A heavy parcel arrived for
+the neighbour" was refused because "A" already occurs in the sentence, so restoring would
+rewrite the article. Uniqueness is not a property of meaningful names versus opaque ones —
+it is a property the record has to check either way.
+
+THE ACTUAL LEVER IS WHO HOLDS THE PEN. Phase 25 asked the model to retype the sentence
+with the substitution made: 5 of 16 reversible, 8 of 16 restored. Here the record makes
+the substitution and the model only reads it: 16 of 16 reversible, 13 of 16 restored.
+Same task, same model, same placeholders. The difference is that the model was not asked
+to copy anything, which is the same finding as phase 26 arriving from a third direction.
+
+================================================================================
+PHASE 31 — vectors on the nodes, and the greedy-versus-beam gap again
+================================================================================
+
+Phase 29 could not steer the split tree because a node was described by its first ninety
+characters. This puts a vector on every node instead: each leaf sentence embedded once
+with MiniLM, each parent the normalised mean of its children. No language model is
+involved in the navigation at all.
+
+The same tree, the same document, 40 targets:
+
+    method                      exact    half    comparisons
+    prefix + LLM (phase 29)      0/8      -      1 model call per level
+    embedding, greedy           18/40    8/40         33
+    embedding, best-of-8        9/40     4/40        206
+    embedding, beam = 4         31/40   21/40        116
+    flat scan over every leaf   40/40   36/40      8,920
+
+Three things, in order of how much they change the picture.
+
+A VECTOR IS NOT ENOUGH ON ITS OWN. Greedy descent through mean-pooled nodes finds 18 of
+40 where a flat scan finds all 40. Averaging 1,115 sentences produces something pointing
+at the corpus centroid rather than at anything in it, and one bad average at the top
+discards everything beneath it with no way back.
+
+KEEPING A FEW REAL DESCENDANTS IS WORSE, NOT BETTER. Scoring a node by the best of eight
+evenly spaced descendants gives 9 of 40 — half what the mean gives, at six times the
+cost. Eight samples out of 1,115 contain the target 0.7% of the time, so the maximum is
+almost always over the wrong sentences. A summary that covers everything badly beats a
+sample that covers almost nothing well.
+
+THE FIX IS NOT A BETTER SUMMARY, IT IS NOT COMMITTING. Beam of 4 takes exact queries from
+18/40 to 31/40 and half queries from 8/40 to 21/40, at 116 comparisons against 8,920 —
+77x cheaper than scanning, on a tree that reassembles to the original bytes.
+
+That number is the same finding this project already recorded from a different direction.
+`data/traversal-cost.json` has pure greedy reaching its target 49% of the time and beam=4
+reaching it 99.5% on the kNN graph. Greedy descent through an approximate index fails for
+one reason wherever it appears: an early commitment cannot be undone, and the cheapest
+repair is to not commit rather than to approximate better. It is the same shape as the
+backtracking result in the work record — protection without a way back is paralysis — and
+the same shape as the residue rule, which exists so that a step taken can be unstepped.
+
+WHAT IS STILL MISSING is the gap between 31/40 and 40/40. Beam does not close it, so
+either the summaries have to improve or the beam has to widen, and which of those is
+cheaper is not measured here. Two harness notes: the embedder returns empty output with a
+zero exit status when given all 8,920 lines at once, so it is batched; and it segfaults on
+the batch containing the untokenisable long "sentences" that are really tables, so the
+text handed to the encoder is truncated at 1,200 characters. Only the vector is computed
+from a prefix — the leaf text in the tree is untouched and the split stays lossless.
+
+================================================================================
+PHASE 32 — how wide the beam has to be, and what the loud dimensions are worth
+================================================================================
+
+Beam sweep on the same tree, 40 queries, against a flat scan's 40/40 exact and 36/40 half:
+
+    beam    exact    half    comparisons
+       1    10/40    4/40         34
+       2    24/40   12/40         64
+       4    29/40   24/40        116
+       8    35/40   28/40        211
+      16    40/40   35/40        401
+      32    40/40   37/40        671
+      64    40/40   37/40      1,183
+     128    40/40   37/40      2,205
+
+THE GAP CLOSES AT BEAM 16, at 401 comparisons against 8,920 — 22x cheaper than scanning,
+on a tree that still reassembles to the original bytes. Everything past 32 is wasted:
+three more doublings buy nothing at all.
+
+Half-sentence queries plateau at 37/40 while the flat scan gets 36/40, so the tree
+overtakes brute force by one. That is not the tree being clever, it is the flat scan not
+being an oracle: for a half sentence the nearest leaf by cosine is sometimes a different
+sentence than the one it was cut from. Where the two disagree neither is wrong by
+construction, which is worth knowing before treating 40/40 as a ceiling.
+
+LOUD DIMENSIONS DO NOT TRANSFER. Scoring nodes on the dimensions the query fires hardest
+on is slightly worse than plain cosine (26/40 against 29/40 at beam 4) and much worse on
+half queries (13/40 against 24/40). Shared extreme — `max_d min(a[d], b[d])`, worth +0.311
+over cosine on cross-domain relatedness earlier in this project — collapses completely
+here: 0/40 at beam 4, 1/40 at beam 16.
+
+That is a sharp reversal and the reason is structural rather than a fluke. Shared extreme
+asks whether two things have a dimension they BOTH fire hard on, which is a good question
+for "are these related at all" across domains. Routing asks which of eight siblings is
+most specifically the right one, and a mean-pooled parent has no strong peaks left to
+share — the averaging that keeps its overall direction usable is exactly what destroys its
+extremes. A measure can be the best available for one question and the worst for another
+over the same vectors.
+
+ONE N x N HOP RESCUES REAL NEAR MISSES:
+
+    beam    kind    in the beam    after one hop
+       4   exact       29/40           34/40
+       4    half       25/40           32/40
+      16   exact       40/40           40/40
+      16    half       36/40           39/40
+
+At beam 4 a hop recovers five exact and seven half — the tree was landing next door, not
+in the wrong part of the document. But the cost has to be stated honestly: computing those
+neighbours on demand is 4 x 8,920 dot products, four times more expensive than the flat
+scan it was meant to beat. The hop only pays with the neighbour graph already built, which
+is exactly what the streaming kNN work exists for — `crates/matstruct/src/knn.rs` builds it
+once without materialising n^2, and against a stored graph the same rescue is 4 x 8
+lookups instead of 35,680.
+
+So the three fixes rank clearly, and not the way they were proposed. Widening the beam
+closes the gap outright and cheaply, up to 16 and no further. A hop closes most of it for
+free IF the graph already exists and is worse than useless if it does not. And rescoring
+on loud dimensions, the one with prior evidence behind it, is the only one that makes
+things worse.
+
+================================================================================
+PHASE 33 — never materialise it: the graph streamed once, or the cells bought once
+================================================================================
+
+The hop in phase 32 cost 4 x 8,920 dot products per query, four times a flat scan. That
+was not an argument against the hop; it was an argument against computing it by
+materialising a full similarity row per candidate and discarding it. Both remedies were
+already written down in this project and in mpedb's `DESIGN-MPEE-OPT.md` §1.1-1.2:
+stream under a memory bound with a bounded top-k, and buy a cell once.
+
+STREAMED ONCE. `matstruct knn` over the 8,920 leaf vectors:
+
+    13.4 seconds, k = 16
+    2.1 MiB of scratch against 303.5 MiB for a dense n x n
+    1.1 MiB on disk
+
+Against that stored graph the rescue is identical and the arithmetic disappears:
+
+    beam   kind   in the beam   after a stored hop   lookups   on-demand dots
+       4  exact      29/40            34/40             64          35,680
+       4   half      25/40            32/40             64          35,680
+      16  exact      40/40            40/40            256         142,720
+      16   half      36/40            39/40            256         142,720
+
+Same rescue as phase 32, at 64 integer lookups instead of 35,680 floating-point products
+— 558x per query, and the graph that makes it possible is smaller than the embeddings it
+came from.
+
+WHERE THE UP-FRONT PASS STARTS PAYING. The build is 39,778,740 pair evaluations; on-demand
+is 35,680 per query at beam 4. The prebuilt graph overtakes after 1,115 queries. Below
+that the pass is waste, which is worth saying plainly rather than treating "precompute the
+index" as free.
+
+BUYING ONCE NEEDS NO SUCH DECISION. The broker computes a neighbour row the first time it
+is asked for and keeps it. Over these 40 queries at two beam widths: 1,600 requests, 898
+distinct, 702 served from cache — 8,010,160 dot products against 14,272,000, a factor of
+1.8 with a cache that has barely warmed. It pays only for what is asked and converges on
+the prebuilt graph as the workload repeats, so it needs no estimate of how many queries
+are coming.
+
+The general shape, which is the same one the fetch work found: the expensive thing is not
+the computation, it is computing it more than once and holding more of it than the answer
+needs. 303.5 MiB becomes 2.1 MiB by never forming the matrix, and 35,680 becomes 64 by not
+recomputing what was already known.
+
+================================================================================
+PHASE 34 — cross-checking from several starts, and where clusters actually live
+================================================================================
+
+CROSS-CHECKING IS THE CONFIDENCE SIGNAL THIS PROJECT HAS BEEN LOOKING FOR. The same
+target approached from four different query variants — the whole sentence, its first half,
+its second half, its middle — and the descents compared:
+
+    starts agreeing    cases    top-1 right
+              1 / 4        9        1 / 9
+              2 / 4       14       12 / 14
+              3 / 4        8        7 / 8
+              4 / 4        9        9 / 9
+
+Unanimity is right every time; a single lone answer is right once in nine. Against a base
+rate of 29/40 that separates 11% from 100% with no grader involved.
+
+Three earlier attempts at the same thing failed, and the difference is instructive. Phase
+15 had no success rate to compare. Phase 23 needed the model to invert, which it cannot
+do. Phase 26 resampled the same question five times and gained five points over the base
+rate, because a resample is not a different starting point — the model is consistently
+wrong, so it agrees with itself while being wrong. Four different ENTRY POINTS into the
+same index disagree when the region is ambiguous, which is exactly when the answer is
+unreliable. Per start: whole 29/40, first half 24/40, second half 19/40, middle 15/40 —
+each individually mediocre, and their agreement worth more than any of them.
+
+CLUSTERS EXIST, BUT NOT AT THE k THAT IS GOOD FOR HOPPING. Mutual k-nearest neighbours,
+connected, scored against the 64 article boundaries the index was never told about:
+
+     k   components   largest   clusters 3+   covered   purity
+     2        5,026        12         1,010     4,040    0.953
+     3        3,247       118           773     5,983    0.893
+     4        1,946     3,716           310     7,034    0.455
+     6          819     7,807            49     8,049    0.081
+     8          451     8,374            15     8,431    0.061
+    16           72     8,843             1     8,843    0.056
+
+Baseline purity is 0.056. At k=2 the clusters are 17x that and almost perfectly clean; at
+k=16 there is one component containing 99% of the corpus and purity has fallen to the
+baseline exactly. The collapse happens between k=3 and k=6 and it is percolation, not a
+gradual decline: the giant component goes from 118 to 7,807 members across two steps.
+
+So the neighbour count is not a tuning parameter with a best value, it is a choice of what
+the graph is FOR. k=16 gives the recall that made the hop rescue work (34/40) and destroys
+every cluster; k=3 gives clusters at 0.893 purity covering two thirds of the corpus and
+would lose most of the hop's reach. The same embeddings support both and not at once.
+
+CROSS-ARTICLE LINKS. 6,406 of 39,493 mutual pairs join sentences from different articles,
+16.2%. They are not noise — "He had a guest starring role on the television series The
+Bill" links to "David Letterman had Stevens on his show for a guest appearance", an actor
+and a basketball coach connected by the shape of a television appearance. That is the
+cross-domain link the hop work was for, and it is only visible because the pair is mutual:
+one-way similarity would bury it among thousands of within-article neighbours.
+
+================================================================================
+PHASE 35 — compressing the graph with knowledge of its shape
+================================================================================
+
+The neighbour graph is 1.14 MB: 8,920 x 16 ids as u32 and as many distances as f32. A
+general-purpose compressor sees bytes; a codec that knows a row is neighbour ids in
+ascending distance sees something far more compressible. Same `base + residual` idea as
+matcodec, applied to a graph rather than a distance matrix.
+
+    method              bytes      ratio   bits/edge
+    raw             1,141,760       1.00        64.0
+    gzip              672,756       1.70        37.7
+    bzip2             636,194       1.79        35.7
+    lzma              543,692       2.10        30.5
+    base + residual   543,637       2.10        30.5
+    ... + gzip        467,604       2.44        26.2
+    ... + lzma        445,388       2.56        25.0
+    delta codec       451,311       2.53        25.3
+    ... + gzip        406,919       2.81        22.8
+    ... + lzma        376,972       3.03        21.1
+
+Both codecs were verified by decoding: every id and every quantised distance comes back
+exactly. The grid is 1e-4 radians, so the largest error introduced is 5.01e-05 rad, 0.0036%
+of the largest distance — stated before the sizes, because a lossy codec beating gzip on
+bytes alone is the shape of claim this project has already had to retract once.
+
+1.78x better than gzip and 1.44x better than the best general-purpose compressor here,
+which is real and is not the order of magnitude the framing suggested. Worth being precise
+about why. My first codec sorted each row's ids so their gaps would be small, then had to
+store an 8-bit permutation per edge to recover the distance order — eight of its thirty
+bits went on undoing its own sorting. Dropping that and delta-coding along the row as
+given, since `knn_blocked` already emits ascending distances, took 25.0 bits per edge to
+21.1.
+
+And matcodec's large wins are on n x n distance matrices, where a landmark base predicts
+most of every cell and the residual is nearly nothing. A kNN graph is the opposite: it is
+already the sparse, deliberately non-redundant selection that survived a top-k filter, so
+there is far less structure left to remove. The technique transfers; the ratio does not,
+and the reason is that the data has already been compressed once by being a graph at all.
+
+================================================================================
+PHASE 36 — the same codecs on the embeddings, judged by whether retrieval survives
+================================================================================
+
+The graph was 1.1 MB and shape-aware coding beat gzip by 1.78x. The embeddings are 13.7 MB
+— ten times larger — and here the picture is completely different.
+
+    method                       bytes   ratio  bits/dim  max err  beam-16
+    raw f32                 13,701,120    1.00     32.00   0.0000    40/40
+    gzip(f32)               12,647,962    1.08     29.54   0.0000    40/40
+    lzma(f32)               10,874,064    1.26     25.40   0.0000    40/40
+    scalar only              2,876,021    4.76      6.72   0.0010    40/40
+    centroid + residual      2,871,930    4.77      6.71   0.0010    40/40
+    rank-8 + residual        3,117,111    4.40      7.28   0.0010    40/40
+    rank-32 + residual       3,902,424    3.51      9.11   0.0009    40/40
+    graph-delta + residual   2,781,837    4.93      6.50   0.0089    40/40
+
+GENERAL-PURPOSE COMPRESSION IS USELESS ON FLOATS. gzip recovers 8% and lzma 26%, because
+an IEEE float's mantissa is close to random bytes and there is nothing for a dictionary
+coder to find. On the embeddings the shape-aware codec is 4.6x better than gzip — which is
+the "far better" the graph result did not show, on the data where it actually holds.
+
+EVERY CODEC KEEPS RETRIEVAL AT 40/40. That is the measure that matters and it is why it
+was chosen before the sizes: reconstruction error of 0.001 to 0.009 sounds like damage and
+costs nothing at all, because beam-16 descent only needs the ORDER of similarities to
+survive, not their values. Judging an embedding codec by its error norm would have
+condemned codecs that are in fact free.
+
+THE CLEVER BASES ARE NEARLY WORTHLESS HERE, AND RANK-k IS WORSE THAN NOTHING. Plain 8-bit
+scalar quantisation gets 4.76x. A centroid base adds 0.2%. Rank-8 LOSES 8% and rank-32
+loses 26%, because the base has to be stored: n x r coefficients is 285 KB at r=8, and
+removing the leading components barely narrows the quantisation range that sets the bit
+width. matcodec's rank-1 base pays on an n x m distance matrix because it costs n+m numbers
+to predict n*m cells; on n x d embeddings a rank-r base costs n*r to predict n*d, and with
+r=8 against d=384 the ratio is nothing like as favourable.
+
+GRAPH-DELTA WINS BY A HAIR AND CARRIES A RISK. Predicting each vector from an
+already-decoded neighbour — the graph from phase 33, free because it exists for hopping —
+gives 4.93x against 4.77x, a 3% gain. But error accumulates along the spanning forest: max
+error is 0.0089 against 0.0010, nine times worse, because a chain of deltas compounds. 29
+roots for 8,920 vectors means some chains are very long. Capping the depth would bound it,
+and at a 3% gain the honest recommendation is not to bother.
+
+The lever on embeddings is bits per dimension, not the predictor. 32 bits to 8 is the whole
+result, and everything layered on top is noise around it.
+
+================================================================================
+PHASE 37 — clustering: almost nothing for bytes, everything for search
+================================================================================
+
+Organising the data into clusters and predicting each vector from its own neighbourhood
+should beat one global base, which phase 36 measured as worthless. It does, barely, and
+the reason it does not do more is worth more than the gain.
+
+Bit width swept downward, each scheme asked how low it can go while beam-16 retrieval
+still answers 40/40:
+
+    scheme         bits       bytes    ratio   max err   beam-16
+    global            8   2,876,274     4.76    0.0010     40/40
+    global            5   1,952,016     7.02    0.0088     40/40
+    global            4   1,095,856    12.50    0.0189     40/40
+    global            3     730,016    18.77    0.0441     40/40
+    global            2      52,861   259.19    0.1323     15/40
+    cluster-64        3     703,240    19.48    0.0430     40/40
+    cluster-256       3   1,004,064    13.65    0.0452     40/40
+    cluster-1024      3   2,101,548     6.52    0.0389     40/40
+
+THE BIT WIDTH IS THE WHOLE STORY AND THERE IS A CLIFF. Three bits per dimension still
+retrieves perfectly at 18.8x; two bits collapses to 15/40. Everything between 8 and 3 bits
+is free — the reconstruction error rises 44-fold, from 0.0010 to 0.0441, and costs nothing,
+because the descent needs the ORDER of similarities and not their values.
+
+CLUSTERING ADDS 3.7% AND MORE CLUSTERS MAKE IT WORSE. cluster-64 beats global by 27 KB.
+cluster-256 is 37% larger and cluster-1024 is nearly three times larger, because the base
+has to be stored: 1,024 centroids of 384 floats is 1.57 MB, more than twice the entire
+cluster-64 encoding. The residual does shrink with more clusters, but never fast enough to
+pay for the centroids that shrank it. There is an optimum and it is low.
+
+FOR SEARCH THE SAME CLUSTERING IS TRANSFORMATIVE. Comparing the query against C centroids
+and then scanning only the chosen cluster:
+
+         C   probe   found   comparisons   cluster-level N x N   flat N x N
+        32       1   40/40           335                 1,024   79,566,400
+        94       1   40/40           201                 8,836   79,566,400
+       256       1   40/40           306                65,536   79,566,400
+      1024       1   40/40         1,037             1,048,576   79,566,400
+
+At C = 94, which is about the square root of 8,920, one probe finds every target in 201
+comparisons against 8,920 — 44x cheaper with nothing lost. And the N x N BETWEEN clusters
+is 8,836 pairs against 79,566,400 between sentences: 9,004 times smaller, which is the
+point about splitting into groups before doing anything pairwise. It also beats the split
+tree, which needed 401 comparisons at beam 16 for the same 40/40.
+
+So the two uses of a cluster pull in opposite directions on C. Compression wants few
+clusters because each one costs a stored centroid; search wants about sqrt(n) because that
+balances the probe against the scan. 64 and 94 happen to be close here, which is luck
+rather than a law.
+
+And the asymmetry is real and in the direction that matters: the k-means passes dominated
+the runtime of this experiment while every query costs 201 comparisons. Expensive once,
+cheap forever after — which is the right trade for something that is written once and read
+continually, and is the same trade the streamed neighbour graph made in phase 33.
+
+================================================================================
+PHASE 38 — analogy borrowing: it works, but only if the analogy is chosen
+================================================================================
+
+The transfer claim: a split found in one cluster should help split another, which is what
+would make the decomposition general rather than per-problem. A cluster's split is its
+leading direction once its own centroid is removed, and borrowing means using cluster A's
+direction on cluster B.
+
+64 clusters over 8,920 sentences, measured as the share of B's variance a direction
+captures:
+
+    direction                    variance captured    x random
+    its own                                 0.2451       95.79
+    borrowed, best other                    0.0943       36.88
+    universal (pooled residuals)            0.0499       19.51
+    borrowed, mean over all others          0.0167        6.51
+    random                                  0.0026        1.00
+
+ON THE FACE OF IT, NO. An average borrowed direction captures 0.0167, a THIRD of what the
+pooled universal direction captures. The universal control is why that reads as a negative
+rather than a success: 6.5x random looks like transfer until you notice that a direction
+carrying no information about any neighbourhood scores 19.5x, because embedding space is
+anisotropic and every cluster sits in it.
+
+BUT THE AVERAGE WAS HIDING THE RESULT. Across all 4,032 ordered cluster pairs, the
+correlation between how similar two centroids are and how much of one's variance the
+other's direction captures is +0.913. So the good donors are exactly the near ones, and
+they can be identified without knowing the answer:
+
+    borrow from the MOST SIMILAR cluster    0.0942
+    borrow from the best possible cluster   0.0943   (requires an oracle)
+    just use the universal direction        0.0499
+
+Picking the nearest cluster's direction matches the oracle to four decimal places and
+doubles the universal baseline. The analogy transfers; averaging over all possible analogies
+is what destroyed it, because most clusters are about unrelated things and their directions
+are noise. Choosing the analogy IS the mechanism, and the same embedding that formed the
+clusters selects it.
+
+What it does not do is replace having your own direction: 0.0942 against 0.2451 is 38%.
+Borrowing is worth roughly two thirds of the gap between knowing nothing and computing the
+split yourself — useful when computing it is expensive or when the cluster is too small to
+estimate one, which is exactly when a borrowed split is wanted.
+
+ONE THING IT DOES NOT CUT ALONG. Article purity of the two halves is 0.639 for a cluster's
+own direction, 0.651 for a borrowed one and 0.649 for a random one — indistinguishable. The
+leading direction of variation inside a cluster is not the direction that separates topics;
+it captures how members differ, not what they are about. So this transfers geometry, and
+the earlier finding still stands that a measure can be right for one question and useless
+for another over the same vectors.
+
+================================================================================
+PHASE 39 — the borrowed split does pay on small clusters, and still costs bytes
+================================================================================
+
+Phase 38 measured transfer on the same members the direction was fitted to, which is the
+one condition under which a cluster's own direction cannot lose. The case for borrowing is
+about small clusters, so this fits on half the members and scores on the other half, broken
+down by size. 512 clusters over 8,920 vectors, median size 14.
+
+    cluster size   clusters      own   borrowed   random   borrowed wins
+    4-7                  66   0.0224     0.0728   0.0025          57/66
+    8-15                193   0.0466     0.0839   0.0027         155/193
+    16-31               187   0.0819     0.0907   0.0025         122/187
+    32-63                48   0.1118     0.1054   0.0026          22/48
+    64+                   3   0.1408     0.0924   0.0028           0/3
+
+THE CROSSOVER IS AT ABOUT 32 MEMBERS AND IT IS SHARP. Below it a borrowed direction beats
+the cluster's own on held-out members — 3.3x better at 4-7 members, winning 57 of 66 — and
+above it the cluster's own wins. That is exactly the predicted shape: a direction fitted to
+three points is noise, and a direction borrowed from a similar cluster of hundreds is not.
+The claim that borrowing helps small clusters specifically is confirmed, with the size it
+stops helping at measured rather than assumed.
+
+AND IT STILL DOES NOT SHRINK THE FILE. Splitting each cluster in two along the chosen
+direction and coding from the sub-centroids, at 4 bits:
+
+    split direction          bytes   ratio   sub-centroids   beam-16
+    none (cluster only)  1,733,860    7.90             512     38/40
+    borrowed from nearest 1,907,272   7.18             642     38/40
+    own                   1,962,492   6.98             683     38/40
+
+Borrowing beats own by 55 KB, consistent with the variance result — and both are worse than
+not splitting at all. Every split introduces a sub-centroid that has to be stored, 384
+floats of it, and the residual it removes is worth less than that.
+
+That is the third time in this thread a base has cost more than it saved: rank-k on the
+embeddings in phase 36, more clusters in phase 37, and sub-splits here. The pattern is
+consistent enough to state as a rule for this data. A predictor pays only when it is shared
+by many items — one centroid over 140 vectors earns its 1.5 KB; one over 13 does not. The
+transfer result is real and the geometry is real; what fails is the accounting, every time,
+and in the same direction.
+
+So the honest use of a borrowed split is not compression. It is anywhere the direction is
+wanted for its own sake and the cluster is too small to estimate one — routing, ordering,
+choosing what to compare next — where nothing has to be stored per split.
+
+================================================================================
+PHASE 40 — throwing the embeddings away: the group carries the meaning, badly
+================================================================================
+
+The other end of the argument: keep no vector per item at all. Store the centroids, and
+describe each item by which cluster it is in and where it sits along that cluster's leading
+direction. The per-item payload becomes about fourteen bits against an f32 vector's 12,288.
+
+       C   variant           bytes   ratio   in cluster   beam-16
+     256   cluster only    362,828   37.76        40/40      0/40
+     256   cluster + rank  723,548   18.94        40/40      0/40
+   1,024   cluster only  1,447,176    9.47        40/40      3/40
+   1,024   cluster + rank 2,851,880   4.80        40/40      7/40
+   2,048   cluster only  2,883,280    4.75        40/40     10/40
+   2,048   cluster + rank 5,365,492   2.55        40/40     21/40
+   4,096   cluster only  5,734,684    2.39        40/40     17/40
+   4,096   cluster + rank 9,175,736    1.49        40/40     30/40
+
+THE ADDRESSING IS PERFECT AND THE RECONSTRUCTION IS NOT. The query lands in the correct
+cluster 40 times out of 40 at every C, which is phase 37's result restated: for ROUTING, a
+cluster address is all you need. But naming the right cluster is not naming the right item,
+and at C=256 with 35 members each, top-1 is 0/40.
+
+THE RANK COORDINATE GENUINELY WORKS. Adding a position along the cluster's own direction
+takes 3/40 to 7/40 at C=1024, 10/40 to 21/40 at C=2048 and 17/40 to 30/40 at C=4096. One
+integer per item roughly doubles the resolution, which is what the phase 38-39 direction
+work would predict.
+
+AND THE WHOLE THING LOSES ANYWAY, FOR A REASON THAT LOOKS LIKE A CONSERVATION LAW. The
+per-item cost really is fourteen bits — 15.6 KB for all 8,920 items. It is irrelevant. At
+C=4096 the centroids are 6.3 MB and the directions another 6.3 MB: 99.8% of the file. To
+distinguish items you need resolution, and resolution comes either from bits per item or
+from more centroids, and a centroid costs exactly what a vector costs. Pushing C up until
+retrieval works is pushing it towards n, at which point the centroids ARE the embeddings
+under a different name.
+
+The 3-bit global encoding from phase 37 remains the best thing measured: 730 KB, 18.8x, and
+40/40. It beats every configuration here, including ones twelve times larger.
+
+So the fourth instance of the same accounting failure, and now clear enough to state as the
+rule this thread found. rank-k bases, extra clusters, sub-splits, and now cluster addresses
+all lose for one reason: a shared structure only pays when it is shared by ENOUGH items to
+amortise storing it. What varies per item has to be paid per item, and the only lever that
+ever worked on that was making the per-item payment smaller — 32 bits to 3.
+
+================================================================================
+PHASE 41 — the original question: fast, correct, and small in memory
+================================================================================
+
+Not bytes on disk — bytes resident. The layout: the C centroids stay in memory and nothing
+else; each cluster's members sit contiguously on disk at 3 bits per dimension; a query
+scores the centroids, fetches one cluster, and scans inside it. Timed with the cost model
+calibrated on this machine against real uncached reads — C_fetch 227.8 us, C_byte 0.276
+ns/B, provenance measured.
+
+        C   probe   resident   fetches   read KB   us/query   correct
+       94       1     0.14 MB         1      15.4      232.0     40/40
+      256       1     0.39 MB         1       7.1      229.8     40/40
+    1,024       1     1.57 MB         1       1.9      228.3     40/40
+       94       2     0.14 MB         2      29.7      463.8     40/40
+       94       4     0.14 MB         4      58.7      927.4     40/40
+
+    everything resident at 3 bits    1.28 MB, 0 fetches, 40/40
+    the same block read from disk    1,284 KB, 582 us
+
+C=94 loses nothing at 0.14 MB resident and 232 us — 8.9x less memory than holding the
+whole 3-bit block, and 2.5x faster than reading that block cold. Against the raw f32
+embeddings it is 98x less memory for the same 40/40.
+
+THE SEEK IS EVERYTHING. At probe 1 the read is 15.4 KB and costs 4 us; the fetch costs
+228. Probing two clusters doubles the time while adding nothing to correctness, and probing
+four quadruples it. Every earlier phase optimised comparisons; on a cold cache the only
+number that matters is how many separate reads a query makes, and the answer has to be one.
+That is also why more clusters help here and hurt in phase 37: smaller clusters mean a
+smaller read, and the read was never the cost.
+
+AND IT SCALES THE RIGHT WAY, which was the actual worry. With C at about sqrt(n):
+
+             items   clusters   resident    on disk      ratio
+             8,920         94   141.0 KB     1.2 MB          9x
+         1,000,000      1,000     1.5 MB   137.3 MB         94x
+       100,000,000     10,000    14.6 MB    13.4 GB        938x
+    10,000,000,000    100,000   146.5 MB     1.3 TB      9,375x
+
+Resident memory grows as the square root of the corpus: a hundred times more data costs ten
+times more memory. 13.4 GB on disk needs 14.6 MB resident, and a terabyte needs 146 MB. The
+disk side can be as large as it likes; what must not happen — the index growing with the
+corpus — does not happen.
+
+This is where the thread started and it is answered. The rest of it is what had to be true
+first: that clusters route perfectly (phase 37), that 3 bits per dimension retrieves
+perfectly (phase 37), that the neighbour graph can be built without materialising n x n
+(phase 33), and that a split can be reassembled exactly (phase 29). None of those were
+assumptions by the end.
+
+================================================================================
+PHASE 42 — the working set is the centroids plus ONE block, and it has an optimum
+================================================================================
+
+Phase 41 counted the resident index. The real constraint is the working set: the centroids
+that stay in memory plus the single cluster block a query reads. Those two pull in opposite
+directions on C — more clusters means more centroids and a smaller block — so unlike
+everything else measured here, this has a genuine minimum.
+
+        C   bits   centroids   biggest block   working set   correct
+       16      3        25 KB          112 KB        137 KB     40/40
+       32      3        49 KB           84 KB        133 KB     40/40
+       64      3        98 KB           63 KB        161 KB     40/40
+       94      3       144 KB           29 KB        173 KB     40/40
+      256      3       393 KB           23 KB        416 KB     40/40
+    1,024      3     1,573 KB            6 KB      1,579 KB     40/40
+       32      2        49 KB           56 KB        105 KB     19/40
+
+THE MINIMUM IS 133 KB AT C=32 AND 3 BITS, still 40/40. That is 103x smaller than the raw
+embeddings and it is the smallest configuration measured anywhere in this thread that loses
+nothing. Both of the levers help and both stop helping: splitting shrinks the block until
+the centroids overtake it, and compression shrinks the block until 2 bits breaks retrieval
+everywhere it is tried — 18 to 22 out of 40 at every C, which is phase 37's cliff again and
+in the same place.
+
+AND THE OPTIMA DISAGREE, WHICH IS NOW A PATTERN. Search wants C near sqrt(n) = 94, because
+that balances the probe against the scan (phase 37: 201 comparisons). Memory wants C = 32,
+because the centroids are the bigger half above that. Compression wanted C = 64 (phase 37).
+Clustering wanted k = 2 or 3 for purity (phase 34) and k = 16 for hop recall (phase 33). The
+same data, the same embeddings, five different right answers depending on what is being
+asked — and nothing in the geometry picks one, only the question does.
+
+Which is where this ends. The working set for a 1.29 MB document, searched correctly, is
+133 KB — and the part of it that grows with the corpus is one cluster block, whose size is
+chosen rather than inherited.
+
+================================================================================
+PHASE 43 — letting the model invent the reversible transform
+================================================================================
+
+Phase 26 confined the model to naming operations from a fixed list. This asks it to invent
+them: look at a sample of the corpus, propose substitutions that would shrink it, and the
+record verifies each inverts exactly before it counts. The model proposes only the SOURCE
+strings — the record assigns each a replacement character verified absent from the file,
+because the model cannot know what 1.29 MB contains.
+
+    encoding                 rules        gzip        lzma   vs gzip   reversible
+    no transform                 0     444,810     367,724     1.000         True
+    hand-written rules          19     431,920     367,996     1.030         True
+    proposed by olmoe-1b         2     443,969     368,164     1.002         True
+    proposed by qwen-35b        29     432,778     367,336     1.028         True
+
+THE MODEL CAN DO IT. Qwen proposed 29 substitutions that all survived the reversibility
+check and round-tripped the whole file byte for byte — matching a hand-written set built by
+someone who had already studied the format. Given only a 2,000-character sample it found the
+same conventions: " @-@ ", " @,@ ", the spaced punctuation, the common function words. That
+is a real capability and the record verified it rather than taking its word.
+
+AND IT BUYS ALMOST NOTHING. 3% off gzip and 0.1% off lzma. The reason is that a dictionary
+substitution of " the " to one byte is exactly what LZ77 already does with a back-reference,
+so the transform and the compressor are exploiting the same redundancy twice and only one
+of them gets paid.
+
+WHICH SHARPENS WHERE A MODEL IS WORTH ASKING. On the embeddings, gzip recovered 8% and a
+shape-aware codec 4.9x, because float mantissas carry structure no dictionary coder can
+see. On text, gzip is already good and there is nothing left for a proposer to find. A
+model helps a codec exactly where the compressor is blind, and repeated text is not where
+it is blind.
+
+So the reversible-function discipline is worth keeping for what it is: it made the model's
+proposals safe to accept without reading them, which is what let this be measured at all
+rather than argued about. It is a correctness mechanism, and correctness mechanisms do not
+compress.
+
+================================================================================
+PHASE 44 — reuse from examples: it works, and the loop around it did not measure it
+================================================================================
+
+The question the whole thread is really about: can it break a problem down, keep what it
+verified, find that again when something similar arrives, and solve more because of it.
+
+REUSE ITSELF WORKS, AND SCALES WITH THE MODEL. Twenty expressions, two worked examples
+shown, the record checking every graph by inlining it:
+
+    model       copied   adapted   verified   correct
+    olmoe-1b      1/20     13/20      11/20     11/20
+    qwen-35b      1/20     19/20      20/20     20/20
+
+The 35B model adapts the shown structure to new numbers 19 times out of 20 and is right
+every single time — from two examples and no other help. The 1B model adapts 13 times and
+lands at 11/20, which is exactly its score without examples, so for it the examples add
+nothing while costing nothing.
+
+ONE LINE DECIDES WHETHER IT ADAPTS OR COPIES. Without "use the numbers from the expression
+you are given, not from the examples", the 1B model reproduces a worked example's graph
+verbatim — `{"A": "2 * 5", "B": "7 + A", "C": "B / 3"}` for an expression containing none of
+those numbers. With it, copying falls to 1 in 20. The record refuses every copy anyway,
+because a graph that inlines to a different value is disqualified without anything needing
+to know what copying is.
+
+THE LOOP AROUND IT WAS NOT MEASURED, AND THE HONEST REPORT IS THAT MY HARNESS MOVED MORE
+THAN THE VARIABLE DID. Three runs of a 60-problem learn-and-retrieve loop gave the
+no-memory arm 27/60, 27/60 and 13/60, entirely from prompt wording: the first version
+dropped the fixed worked example so the memory arm wrote prose and unquoted JSON; the second
+lacked the anti-copy line so its store never filled past one entry; the third added that
+line and it damaged the arm that has no examples to copy from. Arm scores that swing by 2x
+on wording cannot detect a memory effect, and I reported the first two as findings about
+memory before finding the defects. Fifteenth and sixteenth bugs of the same family.
+
+WHAT CAN BE SAID, AND IT IS NOT NOTHING. The band where a retrieved example helps is narrow
+by construction: the task must be hard enough that the model fails alone and easy enough
+that one example fixes it. On this task Qwen is at 20/20 unaided, so it has nothing to gain,
+and OLMoE is at 11/20 with or without examples, so it cannot use what it is given. Neither
+model is in the band, and a store cannot demonstrate its value against either.
+
+Also measured, and it is the cost of learning without a grader: of the solutions the
+record's check accepted into the store, 67% were actually right. The check verifies the
+DECOMPOSITION — that the graph reproduces the expression — and cannot verify the arithmetic
+inside it, so a third of what gets remembered is a correct structure with a wrong number in
+it. Provenance is kept for exactly that reason: knowing which stored example a failure came
+from is the precondition for repairing it, though repairing it was not attempted here.
+
+================================================================================
+PHASE 45 — generalised templates: the first memory that measurably helps
+================================================================================
+
+The plan's proposal: store solved examples GENERALISED — `(v1 + v2 * v3) / v4` with the
+graph in the same variables — and bind values per problem. Generalisation is the record's,
+mechanical, and admitted under the round-trip rule: re-instantiating with the original
+values must reproduce expression and graph character for character. Three of five
+generalisations on the small model's run were refused by exactly that rule; duplicate
+numbers make the variable assignment ambiguous, and a wrong greedy guess fails the trip.
+
+    olmoe-1b, 60 tasks:
+      solo 4/60    graph 5/60    TEMPLATE+RECORD 14/60    template+model 9/60
+      store: 2 templates covering 13 instances, 3 generalisations refused
+
+    qwen-35b, 20 tasks:
+      solo 6/20    graph 16/20   template+record 16/20    template+model 16/20
+      store: 4 templates covering 20 instances, 0 refused
+
+    solver on hits (no model calls, record instantiates, solver computes):
+      olmoe-1b 15/60    qwen-35b 18/20 — exact on every hit, both models
+
+THE WITHIN-RUN COMPARISON IS THE RESULT. The record-instantiated template arm falls back
+to the graph arm on a miss, so the two arms share results on all 49 misses and the entire
+9-point gap — 14 against 5 — comes from the 11 template hits. On those the small model
+went from mostly failing to mostly succeeding, because the decomposition arrived correct
+by construction and all it had to do was three small evaluations. That is the first time
+in fifteen attempts across this thread that a memory made the model solve more, and it is
+within one run, immune to the prompt-wording swings that invalidated phase 44's loop.
+
+WHO BINDS THE VALUES MATTERS, QUANTITATIVELY. Record-bound 14/60 against model-bound 9/60.
+The provenance counters localise the difference: the `(# - # + #) / #` template's fill
+failed 4 of its 7 uses on the small model, while `(# + # * #) / #` filled 0-for-4 clean.
+Phase 26's rule — the model proposes, the record executes — now has a 5-point measurement
+behind it, and the failing template is identified by name for repair.
+
+THE STORE COMPRESSES AND CANNOT ROT. Four templates cover twenty solved instances; two
+cover thirteen. A template carries no numbers, so the 67%-precision problem of phase 44 is
+structurally impossible — nothing wrong can be remembered, only refused. The trade is
+honest: what the store gains in safety it pays in reach, since only shapes seen and
+verified once are covered, and the misses still depend on the model decomposing something
+new.
+
+WITH A SOLVER, THE HITS BECOME FREE AND EXACT. On a hit the record instantiates and a
+solver evaluates: no model calls (33 and 48 saved), correct every time, and the model
+never sees a result it could copy — it is carried forward by the record. The composite
+arm's residual errors live entirely in the misses. The division of labour this thread converged
+on is now complete and measured at every joint: the model recognises and decomposes, once
+per shape; the record instantiates, solves, verifies and remembers, per instance.
+
+One honesty note: the 1B graph baseline swung 5/27/13 across this and earlier runs on
+prompt wording and Metal nondeterminism. The within-run gap is what this phase claims;
+the absolute numbers are not stable enough to quote alone.
+
+================================================================================
+PHASE 46 — repair via provenance: the common template covering old and new
+================================================================================
+
+The round-trip rule refuses generalisations it can see are wrong. Duplicate numbers can
+hide one: `(6 + 2 * 6) / 3` round-trips perfectly whichever six became which variable,
+because on the source the two assignments are indistinguishable. The defect is latent and
+surfaces on the first instance whose numbers differ — where the record's inline check
+catches it with no model and no truth: the instantiated graph reproduces a different value
+than the expression it was built for.
+
+80 expressions, every one carrying a forced duplicate, store seeded greedily exactly as
+phase 45 stored it:
+
+    templates stored              4, ALL of them ambiguous at storage time
+    template hits                76
+    instantiated correctly       76 (75 direct + 1 after repair)
+    latent defects detected       1
+    repaired via provenance     1/1
+        (12 - 4 * 5) / 4: 2 candidates consistent with the source,
+                          1 also fitting the new case -> stored, re-verified on all
+
+The repair is the proposal implemented literally. Enumerate every assignment consistent
+with each provenance example, intersect across examples, keep the one that also verifies on
+the failing case. The old examples are the repair material: with the source alone the
+ambiguity is unresolvable BY CONSTRUCTION, and each discriminating new instance eliminates
+candidates. The repaired template is re-verified against every old example and the new one,
+because covering both is the entire claim.
+
+One defect in 76 hits also says something useful: greedy guessing is usually lucky, because
+duplicate slots are often interchangeable in effect. The repair machinery is cheap insurance
+against the case where it is not, and the detection is free — the inline check was already
+being run.
+
+================================================================================
+PHASE 47 — filling the template as a Python call: precision up, yield down
+================================================================================
+
+The proposal: the model may prefer `solve(43, 12, 11, 5)` — call notation it has seen
+constantly — over rewriting a JSON graph. Thirty template hits, small model, store
+pre-seeded so every task is a hit and the interfaces compare on the same footing:
+
+    record binds positionally    30/30   (no model — the ceiling, again)
+    model rewrites the graph     17/30   (17 verified, all of them right)
+    model calls solve(...)       16/30   (18 parsed; 16 of those 18 right)
+
+The call form is EASIER TO GET RIGHT and HARDER TO GET AT ALL. When the model writes its
+own call, 89% of them are correct — the notation hypothesis holds that far. But 12 of 30
+replies consist entirely of an echo of the worked example and never reach their own call,
+even at a 160-token budget. The graph fill never has that failure because the JSON object
+is the whole reply.
+
+Harness note, seventeenth of the family: "take the last call" initially scored those echoes
+as answers, and seven of eight "wrong" calls were the example's own numbers. The example is
+mine, so its bytes are known and excludable; an echo now counts as unparsed, not wrong.
+
+Both interfaces lose to the record binding values itself, which is the third independent
+confirmation of the same rule: phase 26 (operations), phase 45 (graph fill, 14 vs 9), and
+now the call form. The model's job is to name the template; everything downstream of that
+naming is better done by machinery.
+
+================================================================================
+PHASE 48 — the LLM writes rRETL pairs, and mpedb's verifier holds the door
+================================================================================
+
+The user's rRETL — Reversible ETL — turned out to be implemented and tested locally in
+~/mpedb-rel (2026-07-28, three stages, not on GitHub): transforms register as
+forward/rex/inverse triples in the PySpell subset, compiled to IR, content-hashed into the
+database file, run by Rust under a fixed instruction budget with no imports, no clock, no
+randomness. The engine verifies the round trip against a probe corpus of edge values and
+refuses with a concrete counter-example. This is the contract every phase of this thread
+converged on, already built, with lineage and per-row residuals on top.
+
+HAND-VERIFIED FIRST, END TO END: an abs/sign pair registered with 216 probe values round-
+tripped; applied to a column; one transformed row edited; putback restored every untouched
+row exactly AND carried the edit through the inverse. The full promise, exercised.
+
+THEN THE MODEL WROTE THE PAIRS. Four transforms, Qwen 35B, up to three rounds, the engine's
+refusal text fed back as the exploration signal:
+
+    absval      registered FIRST TRY, 216 probes, edit carried through putback
+    tens        refused x3
+    evenhalf    refused x3
+    offset      refused x3
+
+The refusals are the engine's own famous traps, named exactly: forward(Float(0.0)) = Int(0)
+but the inverse returns Int(0), not Float(0.0); Float(1.0) and a subnormal both map to
+Float(0.0); -0.0 and +0.0 collide after an offset. The documentation says the verifier "has
+been right against its own authors every time" — it was right against the model too, every
+time, and against my two rounds of prompt hints: telling the model to refuse non-integers
+moved the failure to -0.0 (which PySpell comparisons CANNOT distinguish from 0.0 — the
+doc's own advice is to exclude zero from the domain), and advising that broke the round
+trip somewhere else. Three hint rounds, three different counter-examples, no convergence.
+
+WHAT THIS MEASURES, honestly separated:
+
+The infrastructure does exactly what this thread needed. Safety is by construction (an
+eight-line loop-bounded arithmetic function in a sandboxed IR cannot touch the host),
+verification is adversarial and names its counter-examples, registered pairs are content-
+hashed and reusable by every attached process, and the residual machinery carries edits
+through the reverse — phase 20's rule, phase 46's repair material, as a database feature.
+
+The model can produce a correct pair when the domain is friendly (absval, first try), and
+cannot clear the engine's bar on domains with float-edge traps within three rounds of
+generic feedback. That gap is not prompt-fixable from outside; what it needs is the engine's
+domain knowledge IN the loop — the documented traps as part of the task statement, or more
+rounds with the counter-examples accumulating in a record the way this thread's explored
+sets do. The verifier being unbeatable by trial and error is not the failure mode. It is
+the reason the whole arrangement is safe to hand to a model at all.
+
+================================================================================
+PHASE 49 — the ladder, the ceiling, and where the help actually has to live
+================================================================================
+
+The proposal: put the documented traps in the task text, and make the help graduated — the
+model climbs a rung only when it fails, so the rung it registers at measures how much engine
+knowledge the task needs, and a lesson paid for on one task is banked for the next. Nothing
+about the model changes; what changes is what the record can show it.
+
+    L0  bare task     L1  + the engine's counter-example
+    L2  + the documented traps, verbatim     L3  + all counter-examples banked so far
+
+    qwen-35b   absval at rung 0; tens, evenhalf, offset never (12 counter-examples banked)
+    olmoe-1b   nothing at any rung (compile errors and invalid functions)
+
+HELP AS TEXT DID NOT LIFT EITHER MODEL A SINGLE TASK. The traps were in context, named, with
+the exact fix spelled out, and the 35B model still failed to apply the guard identically
+across all three functions — reading discipline is not having it.
+
+THE CEILING SAYS THE TASKS WERE FAIR. Hand-written pairs using exactly the documented guards
+register tens (112 probes) and evenhalf (208). offset refuses even by hand — integral floats
+above 2^52 pass `x % 1 != 0` and then lose low bits in the arithmetic, caught by the engine
+at Float(1.34e17), the same failure class as its authors' celsius pair — and registers with
+a magnitude bound at 2^42. Ceiling: 4/4, but one of the four needs engine knowledge the
+documentation itself does not state.
+
+MOVING THE DISCIPLINE INTO THE RECORD RECOVERS NEARLY ALL OF IT. The model is told the domain
+is already clean — nonzero integers, |x| < 2^42, no checks needed — and writes only the
+arithmetic bodies; the record prepends the full guard to forward and rex (the inverse only
+ever sees the pair's own outputs) and the engine verifies as before:
+
+    docs in context (ladder)        1/4
+    record injects the guards       3/4
+    hand-written ceiling            4/4
+
+The one remaining failure is a genuine arithmetic error in the model's tens core, refused
+with forward(Int(1)) named — exactly what the verifier is for. (The apply-exercise on the
+wrapped pairs refuses, correctly: the injected guard excludes zero and the test table
+contains one; the registration and probe verification are the measurement here.)
+
+So the graduated principle holds, but the effective rung was never more text. The ladder's
+real top is the wrap: the record owning the mechanics is worth two tasks; the same knowledge
+as prose is worth none. Nineteen phases of this thread said that about arithmetic, cutting,
+filling and binding, and it is now measured for guard discipline too — against a verifier
+that no one, model or author, gets past on trust.

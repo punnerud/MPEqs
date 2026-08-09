@@ -1,0 +1,11 @@
+{
+  "spread": "question",
+  "toll": "question",
+  "poison": "alarm",
+  "collapsed_1000nok_usd": "20000/211",
+  "residue_restores_branches": true,
+  "classifications_correct": true,
+  "asym_edges": 4,
+  "spread_roads": 2,
+  "toll_roads": 2
+}

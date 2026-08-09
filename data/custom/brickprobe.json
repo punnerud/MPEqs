@@ -1,0 +1,46 @@
+{
+  "bricks": 8,
+  "inferred_exact": 7,
+  "nonlinear_refused": 1,
+  "pairs_flagged": [
+    "usd->nok/nok->usd",
+    "west->east/east->west"
+  ],
+  "symmetric_pairs_pass": 1,
+  "total_hits": 10,
+  "total_probes": 24,
+  "ledger": {
+    "km->m": {
+      "probes": 3,
+      "hits": 2
+    },
+    "c->f": {
+      "probes": 3,
+      "hits": 1
+    },
+    "f->c": {
+      "probes": 3,
+      "hits": 1
+    },
+    "usd->nok": {
+      "probes": 3,
+      "hits": 2
+    },
+    "nok->usd": {
+      "probes": 3,
+      "hits": 1
+    },
+    "west->east": {
+      "probes": 3,
+      "hits": 1
+    },
+    "east->west": {
+      "probes": 3,
+      "hits": 1
+    },
+    "sq": {
+      "probes": 3,
+      "hits": 1
+    }
+  }
+}

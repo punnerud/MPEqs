@@ -1,0 +1,15 @@
+{
+  "cosine_separation": 0.118,
+  "none (raw extreme)": {
+    "separation": 0.3239,
+    "bridge": 2.2213
+  },
+  "rarity (idf)": {
+    "separation": 0.0899,
+    "bridge": 0.7344
+  },
+  "coherence": {
+    "separation": 0.2747,
+    "bridge": 1.0223
+  }
+}

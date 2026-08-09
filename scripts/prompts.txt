@@ -1,0 +1,12 @@
+The capital of France is
+def quicksort(arr):
+Hovedstaden i Norge er
+static int parse_header(const char *buf, size_t len) {
+In 1969, Apollo 11 landed on
+Den norske grunnloven ble vedtatt i
+SELECT customer_id, SUM(total) FROM orders GROUP BY
+The mitochondrion is often called the
+Für die Berechnung der Wahrscheinlichkeit
+量子力学の基本原理は
+{"name": "test", "values": [1, 2, 3], "nested": {
+Theorem 3.1. Let X be a compact Hausdorff space

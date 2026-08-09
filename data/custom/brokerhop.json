@@ -1,0 +1,47 @@
+{
+  "leaves": 8920,
+  "k": 16,
+  "queries": 40,
+  "rows": [
+    {
+      "beam": 4,
+      "kind": "exact",
+      "in_beam": 29,
+      "after_hop": 34,
+      "lookups": 64.0,
+      "on_demand_dots": 35680
+    },
+    {
+      "beam": 4,
+      "kind": "half",
+      "in_beam": 25,
+      "after_hop": 32,
+      "lookups": 64.0,
+      "on_demand_dots": 35680
+    },
+    {
+      "beam": 16,
+      "kind": "exact",
+      "in_beam": 40,
+      "after_hop": 40,
+      "lookups": 256.0,
+      "on_demand_dots": 142720
+    },
+    {
+      "beam": 16,
+      "kind": "half",
+      "in_beam": 36,
+      "after_hop": 39,
+      "lookups": 256.0,
+      "on_demand_dots": 142720
+    }
+  ],
+  "broker_requests": 1600,
+  "broker_distinct": 898,
+  "broker_hits": 702,
+  "broker_dots": 8010160,
+  "naive_dots": 14272000,
+  "build_pair_evaluations": 39778740,
+  "breakeven_queries": 1114.875,
+  "graph_bytes": 1141776
+}

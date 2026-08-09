@@ -1,0 +1,340 @@
+{
+  "qwen-35b": {
+    "n": 20,
+    "solved": 16,
+    "translated": 16,
+    "structural_refusals": 14,
+    "fixed_after_refusal": 1,
+    "rows": [
+      {
+        "truth": "123",
+        "answer": "None",
+        "ok": false,
+        "refusals": [
+          "problem numbers missing from the system: 1",
+          "problem numbers missing from the system: 1",
+          "problem numbers missing from the system: 1"
+        ]
+      },
+      {
+        "truth": "30",
+        "answer": "30",
+        "ok": true,
+        "refusals": []
+      },
+      {
+        "truth": "21",
+        "answer": "21",
+        "ok": true,
+        "refusals": []
+      },
+      {
+        "truth": "2",
+        "answer": "None",
+        "ok": false,
+        "refusals": [
+          "problem numbers missing from the system: 400",
+          "problem numbers missing from the system: 400",
+          "problem numbers missing from the system: 400"
+        ]
+      },
+      {
+        "truth": "20",
+        "answer": "None",
+        "ok": false,
+        "refusals": [
+          "problem numbers missing from the system: 30, 40",
+          "problem numbers missing from the system: 30, 40",
+          "problem numbers missing from the system: 30, 40"
+        ]
+      },
+      {
+        "truth": "15",
+        "answer": "15",
+        "ok": true,
+        "refusals": []
+      },
+      {
+        "truth": "100",
+        "answer": "100",
+        "ok": true,
+        "refusals": []
+      },
+      {
+        "truth": "20",
+        "answer": "20",
+        "ok": true,
+        "refusals": []
+      },
+      {
+        "truth": "60",
+        "answer": "60",
+        "ok": true,
+        "refusals": []
+      },
+      {
+        "truth": "68",
+        "answer": "68",
+        "ok": true,
+        "refusals": []
+      },
+      {
+        "truth": "25",
+        "answer": "25",
+        "ok": true,
+        "refusals": []
+      },
+      {
+        "truth": "120",
+        "answer": "120",
+        "ok": true,
+        "refusals": []
+      },
+      {
+        "truth": "44",
+        "answer": "44",
+        "ok": true,
+        "refusals": []
+      },
+      {
+        "truth": "243",
+        "answer": "243",
+        "ok": true,
+        "refusals": []
+      },
+      {
+        "truth": "10",
+        "answer": "10",
+        "ok": true,
+        "refusals": []
+      },
+      {
+        "truth": "83",
+        "answer": "83",
+        "ok": true,
+        "refusals": [
+          "the asked node 'num_boxes' is never defined",
+          "a definition does not reduce to arithmetic"
+        ]
+      },
+      {
+        "truth": "360",
+        "answer": "360",
+        "ok": true,
+        "refusals": []
+      },
+      {
+        "truth": "21",
+        "answer": "None",
+        "ok": false,
+        "refusals": [
+          "a definition does not reduce to arithmetic",
+          "the asked node 'john_candies - james' is never defined",
+          "a definition does not reduce to arithmetic"
+        ]
+      },
+      {
+        "truth": "82",
+        "answer": "82",
+        "ok": true,
+        "refusals": []
+      },
+      {
+        "truth": "10",
+        "answer": "10",
+        "ok": true,
+        "refusals": []
+      }
+    ]
+  },
+  "olmoe-1b": {
+    "n": 20,
+    "solved": 3,
+    "translated": 6,
+    "structural_refusals": 22,
+    "fixed_after_refusal": 1,
+    "rows": [
+      {
+        "truth": "123",
+        "answer": "None",
+        "ok": false,
+        "refusals": [
+          "problem numbers missing from the system: 1, 30",
+          "malformed JSON",
+          "problem numbers missing from the system: 1, 30"
+        ]
+      },
+      {
+        "truth": "30",
+        "answer": "10",
+        "ok": false,
+        "refusals": []
+      },
+      {
+        "truth": "21",
+        "answer": "21",
+        "ok": true,
+        "refusals": [
+          "problem numbers missing from the system: 23, 42"
+        ]
+      },
+      {
+        "truth": "2",
+        "answer": "None",
+        "ok": false,
+        "refusals": [
+          "the asked node 'difference_in_time' is never defined",
+          "malformed JSON",
+          "malformed JSON"
+        ]
+      },
+      {
+        "truth": "20",
+        "answer": "None",
+        "ok": false,
+        "refusals": [
+          "problem numbers missing from the system: 40",
+          "malformed JSON",
+          "malformed JSON"
+        ]
+      },
+      {
+        "truth": "15",
+        "answer": "15",
+        "ok": true,
+        "refusals": []
+      },
+      {
+        "truth": "100",
+        "answer": "None",
+        "ok": false,
+        "refusals": [
+          "malformed JSON",
+          "malformed JSON",
+          "malformed JSON"
+        ]
+      },
+      {
+        "truth": "20",
+        "answer": "0",
+        "ok": false,
+        "refusals": []
+      },
+      {
+        "truth": "60",
+        "answer": "2000",
+        "ok": false,
+        "refusals": [
+          "problem numbers missing from the system: 25",
+          "malformed JSON"
+        ]
+      },
+      {
+        "truth": "68",
+        "answer": "None",
+        "ok": false,
+        "refusals": [
+          "the asked node 'sum_of_ages' is never defined",
+          "malformed JSON",
+          "malformed JSON"
+        ]
+      },
+      {
+        "truth": "25",
+        "answer": "None",
+        "ok": false,
+        "refusals": [
+          "the asked node 'total_clips_sold + days_needed_to_save' is never defined",
+          "the asked node 'total_clips_sold + days_needed_to_save' is never defined",
+          "the asked node 'total_clips_sold + days_needed_to_save' is never defined"
+        ]
+      },
+      {
+        "truth": "120",
+        "answer": "None",
+        "ok": false,
+        "refusals": [
+          "the asked node 'total_friends_together' is never defined",
+          "problem numbers missing from the system: 20, 50",
+          "malformed JSON"
+        ]
+      },
+      {
+        "truth": "44",
+        "answer": "None",
+        "ok": false,
+        "refusals": [
+          "malformed JSON",
+          "malformed JSON",
+          "malformed JSON"
+        ]
+      },
+      {
+        "truth": "243",
+        "answer": "None",
+        "ok": false,
+        "refusals": [
+          "malformed JSON",
+          "malformed JSON",
+          "malformed JSON"
+        ]
+      },
+      {
+        "truth": "10",
+        "answer": "None",
+        "ok": false,
+        "refusals": [
+          "a definition does not reduce to arithmetic",
+          "problem numbers missing from the system: 1",
+          "malformed JSON"
+        ]
+      },
+      {
+        "truth": "83",
+        "answer": "None",
+        "ok": false,
+        "refusals": [
+          "the asked node 'max_boxes' is never defined",
+          "defs must map names to expression strings",
+          "malformed JSON"
+        ]
+      },
+      {
+        "truth": "360",
+        "answer": "360",
+        "ok": true,
+        "refusals": []
+      },
+      {
+        "truth": "21",
+        "answer": "None",
+        "ok": false,
+        "refusals": [
+          "the asked node 'total_candies - james' is never defined",
+          "problem numbers missing from the system: 54",
+          "malformed JSON"
+        ]
+      },
+      {
+        "truth": "82",
+        "answer": "None",
+        "ok": false,
+        "refusals": [
+          "the asked node 'total_sausages' is never defined",
+          "the asked node 'total_sausages' is never defined",
+          "the asked node 'total_sausages' is never defined"
+        ]
+      },
+      {
+        "truth": "10",
+        "answer": "None",
+        "ok": false,
+        "refusals": [
+          "malformed JSON",
+          "problem numbers missing from the system: 5",
+          "problem numbers missing from the system: 5"
+        ]
+      }
+    ]
+  }
+}

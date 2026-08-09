@@ -1,0 +1,46 @@
+{
+  "model": "OLMoE-1B-7B-0125-Instruct-Q4_K_M.gguf",
+  "tokens": 16,
+  "batch": 1,
+  "reps": 3,
+  "cost_model": {
+    "c_fetch_ns": 6662.197230757513,
+    "c_byte_ns": 0.07812373100327522
+  },
+  "max_bridged_gap": 0,
+  "cache_contaminated": false,
+  "results": [
+    {
+      "method": "identity",
+      "n_fetches": 5535,
+      "bytes": 7801405440,
+      "median_ms": 1998.994916,
+      "all_ms": [
+        2013.8509999999999,
+        1997.756917,
+        1998.994916
+      ],
+      "ms_per_token": 124.93718225,
+      "fetches_per_token": 345.9375,
+      "mib_per_token": 465.0,
+      "effective_gb_s": 3.902663972558097,
+      "speedup_vs_reference": 1.0
+    },
+    {
+      "method": "chain",
+      "n_fetches": 4692,
+      "bytes": 7801405440,
+      "median_ms": 1989.01275,
+      "all_ms": [
+        1990.07175,
+        1988.16275,
+        1989.01275
+      ],
+      "ms_per_token": 124.313296875,
+      "fetches_per_token": 293.25,
+      "mib_per_token": 465.0,
+      "effective_gb_s": 3.9222500911570326,
+      "speedup_vs_reference": 1.0050186536008883
+    }
+  ]
+}

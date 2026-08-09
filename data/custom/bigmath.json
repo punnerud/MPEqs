@@ -1,0 +1,210 @@
+{
+  "n_expert": 64,
+  "block": 4,
+  "top_k": 4,
+  "hops": 2,
+  "steps": 2500,
+  "rows": [
+    {
+      "n_op": 1,
+      "ops": [
+        "+"
+      ],
+      "problems": 10000,
+      "lambda": 0.0,
+      "beta": 0.0,
+      "hops": 2,
+      "exact_accuracy": 1.0,
+      "experts_used": 8,
+      "blocks_per_problem": 5.538,
+      "worst_pair_overlap": 0.0,
+      "seconds": 43.5
+    },
+    {
+      "n_op": 1,
+      "ops": [
+        "+"
+      ],
+      "problems": 10000,
+      "lambda": 1.0,
+      "beta": 0.0,
+      "hops": 2,
+      "exact_accuracy": 1.0,
+      "experts_used": 5,
+      "blocks_per_problem": 1.0,
+      "worst_pair_overlap": 0.0,
+      "seconds": 43.8
+    },
+    {
+      "n_op": 1,
+      "ops": [
+        "+"
+      ],
+      "problems": 10000,
+      "lambda": 1.0,
+      "beta": 1.0,
+      "hops": 2,
+      "exact_accuracy": 1.0,
+      "experts_used": 5,
+      "blocks_per_problem": 1.0,
+      "worst_pair_overlap": 0.0,
+      "seconds": 51.5
+    },
+    {
+      "n_op": 2,
+      "ops": [
+        "+",
+        "-"
+      ],
+      "problems": 20000,
+      "lambda": 0.0,
+      "beta": 0.0,
+      "hops": 2,
+      "exact_accuracy": 1.0,
+      "experts_used": 17,
+      "blocks_per_problem": 4.991,
+      "worst_pair_overlap": 0.63,
+      "seconds": 43.8
+    },
+    {
+      "n_op": 2,
+      "ops": [
+        "+",
+        "-"
+      ],
+      "problems": 20000,
+      "lambda": 1.0,
+      "beta": 0.0,
+      "hops": 2,
+      "exact_accuracy": 1.0,
+      "experts_used": 20,
+      "blocks_per_problem": 1.0,
+      "worst_pair_overlap": 0.968,
+      "seconds": 43.9
+    },
+    {
+      "n_op": 2,
+      "ops": [
+        "+",
+        "-"
+      ],
+      "problems": 20000,
+      "lambda": 1.0,
+      "beta": 1.0,
+      "hops": 2,
+      "exact_accuracy": 0.9992,
+      "experts_used": 20,
+      "blocks_per_problem": 1.615,
+      "worst_pair_overlap": 0.776,
+      "seconds": 58.1
+    },
+    {
+      "n_op": 3,
+      "ops": [
+        "+",
+        "-",
+        "x"
+      ],
+      "problems": 30000,
+      "lambda": 0.0,
+      "beta": 0.0,
+      "hops": 2,
+      "exact_accuracy": 0.8155,
+      "experts_used": 58,
+      "blocks_per_problem": 6.079,
+      "worst_pair_overlap": 0.591,
+      "seconds": 43.9
+    },
+    {
+      "n_op": 3,
+      "ops": [
+        "+",
+        "-",
+        "x"
+      ],
+      "problems": 30000,
+      "lambda": 1.0,
+      "beta": 0.0,
+      "hops": 2,
+      "exact_accuracy": 0.7158,
+      "experts_used": 52,
+      "blocks_per_problem": 1.0,
+      "worst_pair_overlap": 0.989,
+      "seconds": 44.1
+    },
+    {
+      "n_op": 3,
+      "ops": [
+        "+",
+        "-",
+        "x"
+      ],
+      "problems": 30000,
+      "lambda": 1.0,
+      "beta": 1.0,
+      "hops": 2,
+      "exact_accuracy": 0.7202,
+      "experts_used": 44,
+      "blocks_per_problem": 1.702,
+      "worst_pair_overlap": 0.893,
+      "seconds": 63.1
+    },
+    {
+      "n_op": 5,
+      "ops": [
+        "+",
+        "-",
+        "x",
+        "//",
+        "%"
+      ],
+      "problems": 49800,
+      "lambda": 0.0,
+      "beta": 0.0,
+      "hops": 2,
+      "exact_accuracy": 0.8216,
+      "experts_used": 57,
+      "blocks_per_problem": 5.4,
+      "worst_pair_overlap": 0.736,
+      "seconds": 44.2
+    },
+    {
+      "n_op": 5,
+      "ops": [
+        "+",
+        "-",
+        "x",
+        "//",
+        "%"
+      ],
+      "problems": 49800,
+      "lambda": 1.0,
+      "beta": 0.0,
+      "hops": 2,
+      "exact_accuracy": 0.738,
+      "experts_used": 41,
+      "blocks_per_problem": 1.004,
+      "worst_pair_overlap": 0.994,
+      "seconds": 44.4
+    },
+    {
+      "n_op": 5,
+      "ops": [
+        "+",
+        "-",
+        "x",
+        "//",
+        "%"
+      ],
+      "problems": 49800,
+      "lambda": 1.0,
+      "beta": 1.0,
+      "hops": 2,
+      "exact_accuracy": 0.7212,
+      "experts_used": 63,
+      "blocks_per_problem": 2.461,
+      "worst_pair_overlap": 0.881,
+      "seconds": 71.2
+    }
+  ]
+}

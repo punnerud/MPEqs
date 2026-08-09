@@ -1,0 +1,65 @@
+{
+  "bricks_attempted": 3,
+  "bricks_mounted": 2,
+  "route_exact": true,
+  "solver_passed": 0,
+  "solver_samples": 6,
+  "solver_closes": false,
+  "rows": [
+    {
+      "brick": "dbl",
+      "truth": [
+        "2",
+        "0"
+      ],
+      "stage": "mounted",
+      "engine_probes": 12,
+      "inferred": [
+        "2",
+        "0"
+      ],
+      "third_ok": true
+    },
+    {
+      "brick": "tax",
+      "truth": [
+        "5/4",
+        "0"
+      ],
+      "stage": "engine refused: unsupported: proc(py) compile error at line 2, column 11: conditional expression (use an i"
+    },
+    {
+      "brick": "ore",
+      "truth": [
+        "100",
+        "0"
+      ],
+      "stage": "mounted",
+      "engine_probes": 12,
+      "inferred": [
+        "100",
+        "0"
+      ],
+      "third_ok": true
+    }
+  ],
+  "solver": {
+    "attempt": 1,
+    "body": "return p / (p / e * 2)",
+    "fails": [
+      [
+        3000,
+        225000,
+        "112500",
+        150
+      ],
+      [
+        40,
+        200,
+        "100",
+        10
+      ]
+    ],
+    "passed": 0
+  }
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "arm": "baseline",
+    "pool": 0,
+    "holdout_accuracy": 0.4101,
+    "hard_accuracy": 0.3835,
+    "steps": 5000
+  },
+  {
+    "arm": "probing",
+    "pool": 0,
+    "holdout_accuracy": 0.1482,
+    "hard_accuracy": 0.1493,
+    "steps": 5000
+  },
+  {
+    "arm": "baseline",
+    "pool": 0,
+    "holdout_accuracy": 0.7635,
+    "hard_accuracy": 0.7609,
+    "steps": 9600
+  },
+  {
+    "arm": "probing",
+    "pool": 0,
+    "holdout_accuracy": 0.4038,
+    "hard_accuracy": 0.3897,
+    "steps": 9600
+  },
+  {
+    "arm": "baseline",
+    "pool": 0,
+    "holdout_accuracy": 0.9154,
+    "hard_accuracy": 0.9102,
+    "steps": 16000
+  },
+  {
+    "arm": "probing",
+    "pool": 0,
+    "holdout_accuracy": 0.6242,
+    "hard_accuracy": 0.6283,
+    "steps": 16000
+  }
+]

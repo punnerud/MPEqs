@@ -1,0 +1,702 @@
+{
+  "summary": {
+    "cases": 14,
+    "index": 0,
+    "feedback": 1,
+    "by_name": 1,
+    "corrected": 1,
+    "ambiguous": 0,
+    "ambiguous_correct": 0,
+    "reversible": 14
+  },
+  "runs": [
+    {
+      "sentence": "The old bridge crosses the river",
+      "target": "old",
+      "blind": [
+        {
+          "i": 0,
+          "j": 4,
+          "took": "The ",
+          "rest": "<>old bridge crosses the river",
+          "ok": false,
+          "reversible": true
+        }
+      ],
+      "feedback": [
+        {
+          "i": 0,
+          "j": 4,
+          "took": "The ",
+          "rest": "<>old bridge crosses the river",
+          "ok": false,
+          "reversible": true
+        },
+        {
+          "i": 3,
+          "j": 5,
+          "took": " o",
+          "rest": "The<>ld bridge crosses the river",
+          "ok": false,
+          "reversible": true
+        },
+        {
+          "i": 3,
+          "j": 4,
+          "took": " ",
+          "rest": "The<>old bridge crosses the river",
+          "ok": false,
+          "reversible": true
+        }
+      ],
+      "by_name": {
+        "ok": true,
+        "stage": "ok",
+        "word": "old",
+        "took": "old",
+        "rest": "The <> bridge crosses the river",
+        "reversible": true,
+        "matches": 1,
+        "ambiguous": false,
+        "chose": 1
+      }
+    },
+    {
+      "sentence": "She left her umbrella on the train",
+      "target": "umbrella",
+      "blind": [
+        {
+          "i": 0,
+          "j": 4,
+          "took": "She ",
+          "rest": "<>left her umbrella on the train",
+          "ok": false,
+          "reversible": true
+        }
+      ],
+      "feedback": [
+        {
+          "i": 0,
+          "j": 4,
+          "took": "She ",
+          "rest": "<>left her umbrella on the train",
+          "ok": false,
+          "reversible": true
+        },
+        {
+          "i": 0,
+          "j": 4,
+          "took": "She ",
+          "rest": "<>left her umbrella on the train",
+          "ok": false,
+          "reversible": true
+        },
+        {
+          "i": 0,
+          "j": 4,
+          "took": "She ",
+          "rest": "<>left her umbrella on the train",
+          "ok": false,
+          "reversible": true
+        }
+      ],
+      "by_name": {
+        "ok": false,
+        "stage": "ok",
+        "word": "train",
+        "took": "train",
+        "rest": "She left her umbrella on the <>",
+        "reversible": true,
+        "matches": 1,
+        "ambiguous": false,
+        "chose": 1
+      }
+    },
+    {
+      "sentence": "The kettle boiled while he read",
+      "target": "kettle",
+      "blind": [
+        {
+          "i": 0,
+          "j": 4,
+          "took": "The ",
+          "rest": "<>kettle boiled while he read",
+          "ok": false,
+          "reversible": true
+        }
+      ],
+      "feedback": [
+        {
+          "i": 0,
+          "j": 4,
+          "took": "The ",
+          "rest": "<>kettle boiled while he read",
+          "ok": false,
+          "reversible": true
+        },
+        {
+          "i": 0,
+          "j": 4,
+          "took": "The ",
+          "rest": "<>kettle boiled while he read",
+          "ok": false,
+          "reversible": true
+        },
+        {
+          "i": 0,
+          "j": 4,
+          "took": "The ",
+          "rest": "<>kettle boiled while he read",
+          "ok": false,
+          "reversible": true
+        }
+      ],
+      "by_name": {
+        "ok": false,
+        "stage": "ok",
+        "word": "he",
+        "took": "he",
+        "rest": "The kettle boiled while <> read",
+        "reversible": true,
+        "matches": 1,
+        "ambiguous": false,
+        "chose": 1
+      }
+    },
+    {
+      "sentence": "A heavy parcel arrived today",
+      "target": "heavy",
+      "blind": [
+        {
+          "i": 0,
+          "j": 4,
+          "took": "A he",
+          "rest": "<>avy parcel arrived today",
+          "ok": false,
+          "reversible": true
+        }
+      ],
+      "feedback": [
+        {
+          "i": 0,
+          "j": 4,
+          "took": "A he",
+          "rest": "<>avy parcel arrived today",
+          "ok": false,
+          "reversible": true
+        },
+        {
+          "i": 3,
+          "j": 4,
+          "took": "e",
+          "rest": "A h<>avy parcel arrived today",
+          "ok": false,
+          "reversible": true
+        },
+        {
+          "i": 2,
+          "j": 3,
+          "took": "h",
+          "rest": "A <>eavy parcel arrived today",
+          "ok": false,
+          "reversible": true
+        }
+      ],
+      "by_name": {
+        "ok": false,
+        "stage": "ok",
+        "word": "today",
+        "took": "today",
+        "rest": "A heavy parcel arrived <>",
+        "reversible": true,
+        "matches": 1,
+        "ambiguous": false,
+        "chose": 1
+      }
+    },
+    {
+      "sentence": "The dog barked at the postman",
+      "target": "postman",
+      "blind": [
+        {
+          "i": 0,
+          "j": 4,
+          "took": "The ",
+          "rest": "<>dog barked at the postman",
+          "ok": false,
+          "reversible": true
+        }
+      ],
+      "feedback": [
+        {
+          "i": 0,
+          "j": 4,
+          "took": "The ",
+          "rest": "<>dog barked at the postman",
+          "ok": false,
+          "reversible": true
+        },
+        {
+          "i": 3,
+          "j": 4,
+          "took": " ",
+          "rest": "The<>dog barked at the postman",
+          "ok": false,
+          "reversible": true
+        },
+        {
+          "i": 3,
+          "j": 4,
+          "took": " ",
+          "rest": "The<>dog barked at the postman",
+          "ok": false,
+          "reversible": true
+        }
+      ],
+      "by_name": {
+        "ok": false,
+        "stage": "ok",
+        "word": "at",
+        "took": "at",
+        "rest": "The dog barked <> the postman",
+        "reversible": true,
+        "matches": 1,
+        "ambiguous": false,
+        "chose": 1
+      }
+    },
+    {
+      "sentence": "They painted the garden fence",
+      "target": "garden",
+      "blind": [
+        {
+          "i": 0,
+          "j": 4,
+          "took": "They",
+          "rest": "<> painted the garden fence",
+          "ok": false,
+          "reversible": true
+        }
+      ],
+      "feedback": [
+        {
+          "i": 0,
+          "j": 4,
+          "took": "They",
+          "rest": "<> painted the garden fence",
+          "ok": false,
+          "reversible": true
+        },
+        {
+          "i": 3,
+          "j": 5,
+          "took": "y ",
+          "rest": "The<>painted the garden fence",
+          "ok": false,
+          "reversible": true
+        },
+        {
+          "i": 3,
+          "j": 4,
+          "took": "y",
+          "rest": "The<> painted the garden fence",
+          "ok": false,
+          "reversible": true
+        }
+      ],
+      "by_name": {
+        "ok": false,
+        "stage": "'mat' does not occur",
+        "word": "mat"
+      }
+    },
+    {
+      "sentence": "The engine stalled on the hill",
+      "target": "engine",
+      "blind": [
+        {
+          "i": 0,
+          "j": 4,
+          "took": "The ",
+          "rest": "<>engine stalled on the hill",
+          "ok": false,
+          "reversible": true
+        }
+      ],
+      "feedback": [
+        {
+          "i": 0,
+          "j": 4,
+          "took": "The ",
+          "rest": "<>engine stalled on the hill",
+          "ok": false,
+          "reversible": true
+        },
+        {
+          "i": 0,
+          "j": 3,
+          "took": "The",
+          "rest": "<> engine stalled on the hill",
+          "ok": false,
+          "reversible": true
+        },
+        {
+          "i": 3,
+          "j": 5,
+          "took": " e",
+          "rest": "The<>ngine stalled on the hill",
+          "ok": false,
+          "reversible": true
+        }
+      ],
+      "by_name": {
+        "ok": false,
+        "stage": "ok",
+        "word": "hill",
+        "took": "hill",
+        "rest": "The engine stalled on the <>",
+        "reversible": true,
+        "matches": 1,
+        "ambiguous": false,
+        "chose": 1
+      }
+    },
+    {
+      "sentence": "My sister borrowed the bicycle",
+      "target": "sister",
+      "blind": [
+        {
+          "i": 9,
+          "j": 13,
+          "took": " bor",
+          "rest": "My sister<>rowed the bicycle",
+          "ok": false,
+          "reversible": true
+        }
+      ],
+      "feedback": [
+        {
+          "i": 9,
+          "j": 13,
+          "took": " bor",
+          "rest": "My sister<>rowed the bicycle",
+          "ok": false,
+          "reversible": true
+        },
+        {
+          "i": 5,
+          "j": 9,
+          "took": "ster",
+          "rest": "My si<> borrowed the bicycle",
+          "ok": false,
+          "reversible": true
+        },
+        {
+          "i": 4,
+          "j": 8,
+          "took": "iste",
+          "rest": "My s<>r borrowed the bicycle",
+          "ok": false,
+          "reversible": true
+        }
+      ],
+      "by_name": {
+        "ok": false,
+        "stage": "ok",
+        "word": "the bicycle",
+        "took": "the bicycle",
+        "rest": "My sister borrowed <>",
+        "reversible": true,
+        "matches": 1,
+        "ambiguous": false,
+        "chose": 1
+      }
+    },
+    {
+      "sentence": "The bakery opens before dawn",
+      "target": "bakery",
+      "blind": [
+        {
+          "i": 0,
+          "j": 4,
+          "took": "The ",
+          "rest": "<>bakery opens before dawn",
+          "ok": false,
+          "reversible": true
+        }
+      ],
+      "feedback": [
+        {
+          "i": 0,
+          "j": 4,
+          "took": "The ",
+          "rest": "<>bakery opens before dawn",
+          "ok": false,
+          "reversible": true
+        },
+        {
+          "i": 4,
+          "j": 9,
+          "took": "baker",
+          "rest": "The <>y opens before dawn",
+          "ok": false,
+          "reversible": true
+        },
+        {
+          "i": 4,
+          "j": 9,
+          "took": "baker",
+          "rest": "The <>y opens before dawn",
+          "ok": false,
+          "reversible": true
+        }
+      ],
+      "by_name": {
+        "ok": false,
+        "stage": "'mat' does not occur",
+        "word": "mat"
+      }
+    },
+    {
+      "sentence": "He forgot the tickets at home",
+      "target": "tickets",
+      "blind": [
+        {
+          "i": 0,
+          "j": 4,
+          "took": "He f",
+          "rest": "<>orgot the tickets at home",
+          "ok": false,
+          "reversible": true
+        }
+      ],
+      "feedback": [
+        {
+          "i": 0,
+          "j": 4,
+          "took": "He f",
+          "rest": "<>orgot the tickets at home",
+          "ok": false,
+          "reversible": true
+        },
+        {
+          "i": 4,
+          "j": 5,
+          "took": "o",
+          "rest": "He f<>rgot the tickets at home",
+          "ok": false,
+          "reversible": true
+        },
+        {
+          "i": 3,
+          "j": 4,
+          "took": "f",
+          "rest": "He <>orgot the tickets at home",
+          "ok": false,
+          "reversible": true
+        }
+      ],
+      "by_name": {
+        "ok": false,
+        "stage": "ok",
+        "word": "home",
+        "took": "home",
+        "rest": "He forgot the tickets at <>",
+        "reversible": true,
+        "matches": 1,
+        "ambiguous": false,
+        "chose": 1
+      }
+    },
+    {
+      "sentence": "The cat saw the cat on the mat",
+      "target": "cat",
+      "blind": [
+        {
+          "i": 0,
+          "j": 4,
+          "took": "The ",
+          "rest": "<>cat saw the cat on the mat",
+          "ok": false,
+          "reversible": true
+        }
+      ],
+      "feedback": [
+        {
+          "i": 0,
+          "j": 4,
+          "took": "The ",
+          "rest": "<>cat saw the cat on the mat",
+          "ok": false,
+          "reversible": true
+        },
+        {
+          "i": 3,
+          "j": 4,
+          "took": " ",
+          "rest": "The<>cat saw the cat on the mat",
+          "ok": false,
+          "reversible": true
+        },
+        {
+          "i": 3,
+          "j": 4,
+          "took": " ",
+          "rest": "The<>cat saw the cat on the mat",
+          "ok": false,
+          "reversible": true
+        }
+      ],
+      "by_name": {
+        "ok": false,
+        "stage": "ok",
+        "word": "mat",
+        "took": "mat",
+        "rest": "The cat saw the cat on the <>",
+        "reversible": true,
+        "matches": 1,
+        "ambiguous": false,
+        "chose": 1
+      }
+    },
+    {
+      "sentence": "A train met a train on the bridge",
+      "target": "train",
+      "blind": [
+        {
+          "i": 9,
+          "j": 13,
+          "took": "et a",
+          "rest": "A train m<> train on the bridge",
+          "ok": false,
+          "reversible": true
+        }
+      ],
+      "feedback": [
+        {
+          "i": 9,
+          "j": 13,
+          "took": "et a",
+          "rest": "A train m<> train on the bridge",
+          "ok": false,
+          "reversible": true
+        },
+        {
+          "i": 5,
+          "j": 9,
+          "took": "in m",
+          "rest": "A tra<>et a train on the bridge",
+          "ok": false,
+          "reversible": true
+        },
+        {
+          "i": 4,
+          "j": 8,
+          "took": "ain ",
+          "rest": "A tr<>met a train on the bridge",
+          "ok": false,
+          "reversible": true
+        }
+      ],
+      "by_name": {
+        "ok": false,
+        "stage": "ok",
+        "word": "bridge",
+        "took": "bridge",
+        "rest": "A train met a train on the <>",
+        "reversible": true,
+        "matches": 1,
+        "ambiguous": false,
+        "chose": 1
+      }
+    },
+    {
+      "sentence": "The bell rang and the bell rang again",
+      "target": "bell",
+      "blind": [
+        {
+          "i": 0,
+          "j": 4,
+          "took": "The ",
+          "rest": "<>bell rang and the bell rang again",
+          "ok": false,
+          "reversible": true
+        }
+      ],
+      "feedback": [
+        {
+          "i": 0,
+          "j": 4,
+          "took": "The ",
+          "rest": "<>bell rang and the bell rang again",
+          "ok": false,
+          "reversible": true
+        },
+        {
+          "i": 4,
+          "j": 8,
+          "took": "bell",
+          "rest": "The <> rang and the bell rang again",
+          "ok": true,
+          "reversible": true
+        }
+      ],
+      "by_name": {
+        "ok": false,
+        "stage": "\"cut('The ', 'the')\" does not occur",
+        "word": "cut('The ', 'the')"
+      }
+    },
+    {
+      "sentence": "One box beside another box",
+      "target": "box",
+      "blind": [
+        {
+          "i": 6,
+          "j": 9,
+          "took": "x b",
+          "rest": "One bo<>eside another box",
+          "ok": false,
+          "reversible": true
+        }
+      ],
+      "feedback": [
+        {
+          "i": 6,
+          "j": 9,
+          "took": "x b",
+          "rest": "One bo<>eside another box",
+          "ok": false,
+          "reversible": true
+        },
+        {
+          "i": 5,
+          "j": 9,
+          "took": "ox b",
+          "rest": "One b<>eside another box",
+          "ok": false,
+          "reversible": true
+        },
+        {
+          "i": 4,
+          "j": 8,
+          "took": "box ",
+          "rest": "One <>beside another box",
+          "ok": false,
+          "reversible": true
+        }
+      ],
+      "by_name": {
+        "ok": false,
+        "stage": "ok",
+        "word": "another",
+        "took": "another",
+        "rest": "One box beside <> box",
+        "reversible": true,
+        "matches": 1,
+        "ambiguous": false,
+        "chose": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+/target
+/models
+/data/*.bin
+/data/logits-*
+/data/corpus
+*.gguf
+/data/*.matx
+/data/*.bak
+/data/headers
+data/custom/**/*.f32
+data/custom/*.f32
+.DS_Store
+__pycache__/
+*.pyc

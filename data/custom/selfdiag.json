@@ -1,0 +1,53 @@
+{
+  "model": "qwen-35b",
+  "items": [
+    {
+      "rank": 1,
+      "text": "1. Fix the high rate of routing ambiguity (40 cases) in the modelunits system, as this prevents reliable instruction following for the majority of tasks.",
+      "matches_gap": "compound_units"
+    },
+    {
+      "rank": 2,
+      "text": "2. Address the 86 span misses in the stagedabs module, which indicates a critical failure in extracting or processing the necessary data spans for problem solving.",
+      "matches_gap": "staged_coherence"
+    },
+    {
+      "rank": 3,
+      "text": "3. Resolve the 106 store execution failures in mapstore, as these direct failures prevent the system from successfully completing basic bookkeeping operations.",
+      "matches_gap": "role_binding"
+    },
+    {
+      "rank": 4,
+      "text": "4. Improve the model's ability to generalize templates, evidenced by the 3 refusals to generalize in the olmoe-1b model and the low generalization rate (2/11 hits) for that model.",
+      "matches_gap": "compound_units"
+    },
+    {
+      "rank": 5,
+      "text": "5. Fix the 4 unclosed graphs in the aimethink module, as this structural error likely contributes to the low success rate of running graph-based reasoning steps.",
+      "matches_gap": "compound_units"
+    }
+  ],
+  "hits": 5,
+  "gaps_covered": [
+    "compound_units",
+    "role_binding",
+    "staged_coherence"
+  ],
+  "record_gaps": {
+    "role_binding": "retrieved plans fail because numbers are bound by position, not role (0/60, 1/60, 1/60 across three lookup arms)",
+    "compound_units": "the unit reader gives one noun per number; wages are dollars PER HOUR (18 of 23 remaining refusals false)",
+    "staged_coherence": "span-at-a-time absorption fragments cross-sentence relations (9/20 against 16/20 one-shot)",
+    "thinking_budget": "AIME thoughts truncate at 1,600 tokens (4 of 6 never closed)",
+    "template_fill": "one template's model-fill failed 4 of 7 uses, named by provenance"
+  },
+  "raw_reply": "1. Fix the high rate of routing ambiguity (40 cases) in the modelunits system, as this prevents reliable instruction following for the majority of tasks.\n2. Address the 86 span misses in the stagedabs module, which indicates a critical failure in extracting or processing the necessary data spans for problem solving.\n3. Resolve the 106 store execution failures in mapstore, as these direct failures prevent the system from successfully completing basic bookkeeping operations.\n4. Improve the model's ability to generalize templates, evidenced by the 3 refusals to generalize in the olmoe-1b model and the low generalization rate (2/11 hits) for that model.\n5. Fix the 4 unclosed graphs in the aimethink module, as this structural error likely contributes to the low success rate of running graph-based reasoning steps.",
+  "hand_audit": {
+    "grounded": 5,
+    "fabricated": 0,
+    "substance_hits": [
+      "thinking_budget"
+    ],
+    "biggest_gap_missed": "mapstore solved 0/60 \u2014 read the same file, cited 106 instead",
+    "verdict": "grounds in data, ranks by salience not leverage"
+  }
+}

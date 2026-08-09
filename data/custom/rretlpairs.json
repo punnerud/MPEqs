@@ -1,0 +1,85 @@
+{
+  "model": "qwen-35b",
+  "tasks": 4,
+  "registered": 1,
+  "first_try": 1,
+  "edits_carried": 0,
+  "rows": [
+    {
+      "task": "absval",
+      "model": "qwen-35b",
+      "rounds": [
+        {
+          "attempt": 0,
+          "stage": "registered",
+          "probes": 207,
+          "applied": false,
+          "why": "unsupported: `absval_v0` refuses row Int(2) of `t_absval0.v` (value Int(0): division by zero); the run is aborted \u2014 a pa"
+        }
+      ]
+    },
+    {
+      "task": "tens",
+      "model": "qwen-35b",
+      "rounds": [
+        {
+          "attempt": 0,
+          "stage": "refused",
+          "error": "unsupported: `tens_v0` was declared residual but no round trip: forward(Int(1)) = (Int(0), residual Int(1)), but the inverse refuses that pair"
+        },
+        {
+          "attempt": 1,
+          "stage": "refused",
+          "error": "unsupported: `tens_v1` was declared residual but no round trip: forward(Int(1)) = (Int(0), residual Int(1)), but the inverse refuses that pair"
+        },
+        {
+          "attempt": 2,
+          "stage": "refused",
+          "error": "unsupported: `tens_v2` was declared residual but no round trip: forward(Int(1)) = (Int(0), residual Int(1)), but the inverse refuses that pair"
+        }
+      ]
+    },
+    {
+      "task": "evenhalf",
+      "model": "qwen-35b",
+      "rounds": [
+        {
+          "attempt": 0,
+          "stage": "refused",
+          "error": "unsupported: `evenhalf_v0` was declared residual but no round trip: forward(Int(1)) = (Int(0), residual Int(1)), but the inverse refuses that pair"
+        },
+        {
+          "attempt": 1,
+          "stage": "refused",
+          "error": "unsupported: `evenhalf_v1` was declared residual but no round trip: forward(Int(1)) = (Int(0), residual Int(2)), but the inverse refuses that pair"
+        },
+        {
+          "attempt": 2,
+          "stage": "refused",
+          "error": "unsupported: `evenhalf_v2` was declared residual but no round trip: forward(Int(1)) = (Int(0), residual Int(2)), but the inverse refuses that pair"
+        }
+      ]
+    },
+    {
+      "task": "offset",
+      "model": "qwen-35b",
+      "rounds": [
+        {
+          "attempt": 0,
+          "stage": "refused",
+          "error": "unsupported: `offset_v0` was declared residual but not bijective: forward(Float(1.3354325845006427e17)) = Float(1.3354325845006326e17), but inverse of that is Float(1.3354325845006426e17), not Float(1"
+        },
+        {
+          "attempt": 1,
+          "stage": "refused",
+          "error": "unsupported: `offset_v1` was declared residual but not bijective: forward(Float(1.3354325845006427e17)) = Float(1.3354325845006326e17), but inverse of that is Float(1.3354325845006426e17), not Float(1"
+        },
+        {
+          "attempt": 2,
+          "stage": "refused",
+          "error": "unsupported: `offset_v2` was declared residual but not bijective: forward(Float(1.3354325845006427e17)) = Float(1.3354325845006326e17), but inverse of that is Float(1.3354325845006426e17), not Float(1"
+        }
+      ]
+    }
+  ]
+}

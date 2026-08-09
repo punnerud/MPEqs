@@ -1,0 +1,103 @@
+{
+  "n": 8920,
+  "dim": 384,
+  "bits": 3,
+  "queries": 40,
+  "flat_resident_bytes": 1284480,
+  "flat_correct": 40,
+  "full_scan_us": 582.2604342417886,
+  "c_fetch_ns": 227798.19228250135,
+  "c_byte_ns": 0.27595777432057117,
+  "rows": [
+    {
+      "C": 94,
+      "probe": 1,
+      "resident_bytes": 144384,
+      "fetches": 1.0,
+      "read_bytes": 15361.2,
+      "us_per_query": 232.0372348453945,
+      "correct": 40
+    },
+    {
+      "C": 94,
+      "probe": 2,
+      "resident_bytes": 144384,
+      "fetches": 2.0,
+      "read_bytes": 29728.8,
+      "us_per_query": 463.8002780462241,
+      "correct": 40
+    },
+    {
+      "C": 94,
+      "probe": 4,
+      "resident_bytes": 144384,
+      "fetches": 4.0,
+      "read_bytes": 58719.6,
+      "us_per_query": 927.3968992549995,
+      "correct": 40
+    },
+    {
+      "C": 256,
+      "probe": 1,
+      "resident_bytes": 393216,
+      "fetches": 1.0,
+      "read_bytes": 7146.0,
+      "us_per_query": 229.77018653779615,
+      "correct": 40
+    },
+    {
+      "C": 256,
+      "probe": 2,
+      "resident_bytes": 393216,
+      "fetches": 2.0,
+      "read_bytes": 13741.2,
+      "us_per_query": 459.38837553349657,
+      "correct": 40
+    },
+    {
+      "C": 256,
+      "probe": 4,
+      "resident_bytes": 393216,
+      "fetches": 4.0,
+      "read_bytes": 25398.0,
+      "us_per_query": 918.2015446821993,
+      "correct": 40
+    },
+    {
+      "C": 1024,
+      "probe": 1,
+      "resident_bytes": 1572864,
+      "fetches": 1.0,
+      "read_bytes": 1879.2,
+      "us_per_query": 228.31677213200456,
+      "correct": 40
+    },
+    {
+      "C": 1024,
+      "probe": 2,
+      "resident_bytes": 1572864,
+      "fetches": 2.0,
+      "read_bytes": 3657.6,
+      "us_per_query": 456.6057277203576,
+      "correct": 40
+    },
+    {
+      "C": 1024,
+      "probe": 4,
+      "resident_bytes": 1572864,
+      "fetches": 4.0,
+      "read_bytes": 7315.2,
+      "us_per_query": 913.2114554407152,
+      "correct": 40
+    }
+  ],
+  "best": {
+    "C": 94,
+    "probe": 1,
+    "resident_bytes": 144384,
+    "fetches": 1.0,
+    "read_bytes": 15361.2,
+    "us_per_query": 232.0372348453945,
+    "correct": 40
+  }
+}

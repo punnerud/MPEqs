@@ -1,0 +1,55 @@
+{
+  "alignment_ratio": 0.4767360435620248,
+  "orthogonal_reference": 0.35355339059327373,
+  "n_records": 8192,
+  "per_rank": [
+    {
+      "rank": 1,
+      "cosine_with_total": 0.639979093690339,
+      "mean_pairwise_cosine": 0.04178050310561097,
+      "projection_share_pct": 38.4027230158897
+    },
+    {
+      "rank": 2,
+      "cosine_with_total": 0.49241375835872486,
+      "mean_pairwise_cosine": 0.043956444505705995,
+      "projection_share_pct": 21.6543061939019
+    },
+    {
+      "rank": 3,
+      "cosine_with_total": 0.4046535180419622,
+      "mean_pairwise_cosine": 0.043747578521211104,
+      "projection_share_pct": 14.24175328227412
+    },
+    {
+      "rank": 4,
+      "cosine_with_total": 0.33985689587021917,
+      "mean_pairwise_cosine": 0.04302961447702512,
+      "projection_share_pct": 9.741307218022607
+    },
+    {
+      "rank": 5,
+      "cosine_with_total": 0.2799330302222382,
+      "mean_pairwise_cosine": 0.04087432610923719,
+      "projection_share_pct": 6.405998305514905
+    },
+    {
+      "rank": 6,
+      "cosine_with_total": 0.23595149909163193,
+      "mean_pairwise_cosine": 0.03868433689117842,
+      "projection_share_pct": 4.389270719139954
+    },
+    {
+      "rank": 7,
+      "cosine_with_total": 0.19819480968121325,
+      "mean_pairwise_cosine": 0.035581900932836724,
+      "projection_share_pct": 2.985418711184351
+    },
+    {
+      "rank": 8,
+      "cosine_with_total": 0.1731452489262296,
+      "mean_pairwise_cosine": 0.033673259272817446,
+      "projection_share_pct": 2.179222554072511
+    }
+  ]
+}

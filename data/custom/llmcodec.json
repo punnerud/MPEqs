@@ -1,0 +1,42 @@
+{
+  "chars": 1288556,
+  "rows": [
+    {
+      "label": "no transform",
+      "rules_proposed": 0,
+      "rules_applied": 0,
+      "reversible": true,
+      "raw": 1290590,
+      "gzip": 444810,
+      "lzma": 367724
+    },
+    {
+      "label": "hand-written rules",
+      "rules_proposed": 19,
+      "rules_applied": 19,
+      "reversible": true,
+      "raw": 1097989,
+      "gzip": 431920,
+      "lzma": 367996
+    },
+    {
+      "label": "proposed by olmoe-1b",
+      "rules_proposed": 2,
+      "rules_applied": 2,
+      "reversible": true,
+      "raw": 1269624,
+      "gzip": 443969,
+      "lzma": 368164
+    },
+    {
+      "label": "proposed by qwen-35b",
+      "rules_proposed": 31,
+      "rules_applied": 29,
+      "reversible": true,
+      "raw": 1110376,
+      "gzip": 432778,
+      "lzma": 367336
+    }
+  ],
+  "best": "proposed by qwen-35b"
+}

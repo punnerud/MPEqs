@@ -1,0 +1,205 @@
+{
+  "problems": 10,
+  "a_right": 10,
+  "b_right": 8,
+  "agree": 10,
+  "agree_true": 10,
+  "agree_wrong": 0,
+  "retries": 2,
+  "flagged": 0,
+  "routed": 10,
+  "anchor_ok": 2,
+  "e2e": 10,
+  "rows": [
+    {
+      "story": "Per is 42 years old. Per runs 3 miles per second. How fast is that in kilometers per hour?",
+      "truth": [
+        "3",
+        "mile/second",
+        "km/hour"
+      ],
+      "a": [
+        "3",
+        "mile/second",
+        "km/hour"
+      ],
+      "b": [
+        "3",
+        "mile/second",
+        "km/hour"
+      ],
+      "status": "= 10863072/625 (17380.9152)"
+    },
+    {
+      "story": "The car cost 250000 kroner. It drives at 100 kilometers per hour. How fast is that in feet per second?",
+      "truth": [
+        "100",
+        "km/hour",
+        "foot/second"
+      ],
+      "a": [
+        "100",
+        "km/hour",
+        "foot/second"
+      ],
+      "b": [
+        "100",
+        "km/hour",
+        "foot/second"
+      ],
+      "status": "= 312500/3429 (91.1344)"
+    },
+    {
+      "story": "The garden has 12 trees. A snail crawls 5 yards per minute. How fast is that in millimeters per second?",
+      "truth": [
+        "5",
+        "yard/minute",
+        "mm/second"
+      ],
+      "a": [
+        "5",
+        "yard/minute",
+        "mm/second"
+      ],
+      "b": [
+        "5",
+        "yard/minute",
+        "mm/second"
+      ],
+      "status": "= 381/5 (76.2000)"
+    },
+    {
+      "story": "The lab is on floor 3. A syrup has a density of 2 grams per milliliter. What is that in pounds per gallon?",
+      "truth": [
+        "2",
+        "g/ml",
+        "pound/gallon"
+      ],
+      "a": [
+        "2",
+        "g/ml",
+        "pound/gallon"
+      ],
+      "b": [
+        "2",
+        "g/ml",
+        "pound/gallon"
+      ],
+      "status": "= 49161192/2945405 (16.6908)"
+    },
+    {
+      "story": "Kari owns 2 bicycles. The trail is 7 kilometers long. How long is that in miles?",
+      "truth": [
+        "7",
+        "km",
+        "mile"
+      ],
+      "a": [
+        "7",
+        "km",
+        "mile"
+      ],
+      "b": [
+        "7",
+        "km",
+        "mile"
+      ],
+      "status": "= 109375/25146 (4.3496)"
+    },
+    {
+      "story": "The shop opens at 9. A screen is 12 inches wide. How wide is that in centimeters?",
+      "truth": [
+        "12",
+        "inch",
+        "cm"
+      ],
+      "a": [
+        "12",
+        "inch",
+        "cm"
+      ],
+      "b": [
+        "12",
+        "inch",
+        "cm"
+      ],
+      "status": "= 762/25 (30.4800)"
+    },
+    {
+      "story": "The cinema has 180 seats. The film lasts 90 minutes. How long is that in hours?",
+      "truth": [
+        "90",
+        "minute",
+        "hour"
+      ],
+      "a": [
+        "90",
+        "minute",
+        "hour"
+      ],
+      "b": [
+        "90",
+        "minute",
+        "hour"
+      ],
+      "status": "= 3/2 (1.5000)"
+    },
+    {
+      "story": "The kitchen has 6 chairs. A jug holds 4 litres. How much is that in milliliters?",
+      "truth": [
+        "4",
+        "litre",
+        "ml"
+      ],
+      "a": [
+        "4",
+        "litre",
+        "ml"
+      ],
+      "b": [
+        "4",
+        "litre",
+        "ml"
+      ],
+      "status": "= 4000 (4000.0000)"
+    },
+    {
+      "story": "The road has 4 lanes. The speed limit is 60 miles per hour. What is that in feet per second?",
+      "truth": [
+        "60",
+        "mile/hour",
+        "foot/second"
+      ],
+      "a": [
+        "60",
+        "mile/hour",
+        "foot/second"
+      ],
+      "b": [
+        "60",
+        "mile/hour",
+        "foot/second"
+      ],
+      "status": "= 88 (88.0000)"
+    },
+    {
+      "story": "The recipe serves 8 people. It needs 250 milliliters of milk. How much is that in gallons?",
+      "truth": [
+        "250",
+        "ml",
+        "gallon"
+      ],
+      "a": [
+        "250",
+        "ml",
+        "gallon"
+      ],
+      "b": [
+        "250",
+        "ml",
+        "gallon"
+      ],
+      "status": "= 31250000/473176473 (0.0660)"
+    }
+  ]
+}

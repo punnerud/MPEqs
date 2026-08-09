@@ -1,0 +1,43 @@
+{
+  "matrix": "matrix-experts.matx",
+  "n": 64,
+  "quantum": 0.0036165151394430607,
+  "tol_units": 1,
+  "spread": {
+    "mean": 3.616515139443061,
+    "stddev": 1.9436092979323374,
+    "coefficient_of_variation": 0.5374260090147586,
+    "p01": 0.7664580345153809,
+    "p99": 9.399847984313965,
+    "dynamic_range": 12.264008674992022
+  },
+  "triangle": {
+    "triples": 953567,
+    "violations": 79236,
+    "violation_pct": 8.30943184904679,
+    "max_violation": 6.708626389503479,
+    "max_relative": 0.7136952002520176,
+    "mean_relative_violation": 0.1889350844487061,
+    "is_metric": false
+  },
+  "clusters": {
+    "k": 8,
+    "intra_over_inter": 0.43230222176751315,
+    "mean_silhouette": 0.21161106329898033,
+    "smallest_cluster": 3,
+    "largest_cluster": 12
+  },
+  "rank1": {
+    "blocks": 56,
+    "mean_residual_ratio": 0.36374857405804434,
+    "cells_within_tol_pct": 24.64346833998859,
+    "blocks_fully_within_tol_pct": 0.0,
+    "degenerate_blocks": 0,
+    "varint_ratio": 0.4097261836851112,
+    "deflate_ratio": 0.3330718767826583,
+    "mean_only_residual_ratio": 0.2916534233835964,
+    "rank1_gain_over_mean_pct": -24.719459774564335
+  },
+  "predicted_ratio": 3.0023549561121814,
+  "verdict": "STOP — not a metric. matcodec's bounds machinery cannot be used here at all."
+}

@@ -1,0 +1,43 @@
+{
+  "matrix": "matrix-rfgeo0.matx",
+  "n": 64,
+  "quantum": 0.0034792546482668037,
+  "tol_units": 1,
+  "spread": {
+    "mean": 3.479254648266804,
+    "stddev": 1.3539158744559612,
+    "coefficient_of_variation": 0.3891396322860175,
+    "p01": 0.7794135808944702,
+    "p99": 6.071040153503418,
+    "dynamic_range": 7.789240914350215
+  },
+  "triangle": {
+    "triples": 76131,
+    "violations": 0,
+    "violation_pct": 0.0,
+    "max_violation": 0.0,
+    "max_relative": 0.0,
+    "mean_relative_violation": 0.0,
+    "is_metric": true
+  },
+  "clusters": {
+    "k": 8,
+    "intra_over_inter": 0.42683509882004383,
+    "mean_silhouette": 0.27807757079143774,
+    "smallest_cluster": 4,
+    "largest_cluster": 12
+  },
+  "rank1": {
+    "blocks": 56,
+    "mean_residual_ratio": 0.1817065444492898,
+    "cells_within_tol_pct": 46.2457337883959,
+    "blocks_fully_within_tol_pct": 0.0,
+    "degenerate_blocks": 0,
+    "varint_ratio": 0.350967007963595,
+    "deflate_ratio": 0.22056313993174062,
+    "mean_only_residual_ratio": 0.23715187075650318,
+    "rank1_gain_over_mean_pct": 23.379670643265616
+  },
+  "predicted_ratio": 4.53384912959381,
+  "verdict": "MARGINAL — the base fits, but almost no block is exact, so nothing can be read without decoding."
+}

@@ -1,0 +1,34 @@
+{
+  "act1_miss": 1,
+  "act1_hard": 0,
+  "act1_soft": 0,
+  "act1_windows": [
+    1,
+    0,
+    0
+  ],
+  "act1_exact": 60,
+  "transfer_miss": 0,
+  "transfer_hard": 0,
+  "transfer_exact": 20,
+  "act2_overpriced_serves": 2,
+  "act2_soft": 1,
+  "act2_mints": 1,
+  "act2_hard": 0,
+  "act2_miss": 1,
+  "act2_near_tie": 0,
+  "act2_windows": [
+    2,
+    0
+  ],
+  "act2_exact": 40,
+  "minted": [
+    "lead_one"
+  ],
+  "store_keys": 3,
+  "depths": [
+    4,
+    5,
+    5
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "n": 8920,
+  "dim": 384,
+  "raw_bytes": 13701120,
+  "queries": 40,
+  "rows": [
+    {
+      "C": 256,
+      "variant": "cluster only",
+      "bytes": 362828,
+      "bits_per_item": 325.40627802690585,
+      "in_cluster": 40,
+      "retrieval": 0,
+      "id_bits": 8,
+      "rank_bits": 8
+    },
+    {
+      "C": 256,
+      "variant": "cluster + rank",
+      "bytes": 723548,
+      "bits_per_item": 648.9219730941704,
+      "in_cluster": 40,
+      "retrieval": 0,
+      "id_bits": 8,
+      "rank_bits": 8
+    },
+    {
+      "C": 1024,
+      "variant": "cluster only",
+      "bytes": 1447176,
+      "bits_per_item": 1297.9156950672646,
+      "in_cluster": 40,
+      "retrieval": 3,
+      "id_bits": 10,
+      "rank_bits": 6
+    },
+    {
+      "C": 1024,
+      "variant": "cluster + rank",
+      "bytes": 2851880,
+      "bits_per_item": 2557.7399103139014,
+      "in_cluster": 40,
+      "retrieval": 7,
+      "id_bits": 10,
+      "rank_bits": 6
+    },
+    {
+      "C": 2048,
+      "variant": "cluster only",
+      "bytes": 2883280,
+      "bits_per_item": 2585.9013452914796,
+      "in_cluster": 40,
+      "retrieval": 10,
+      "id_bits": 11,
+      "rank_bits": 5
+    },
+    {
+      "C": 2048,
+      "variant": "cluster + rank",
+      "bytes": 5365492,
+      "bits_per_item": 4812.100448430493,
+      "in_cluster": 40,
+      "retrieval": 21,
+      "id_bits": 11,
+      "rank_bits": 5
+    },
+    {
+      "C": 4096,
+      "variant": "cluster only",
+      "bytes": 5734684,
+      "bits_per_item": 5143.214349775785,
+      "in_cluster": 40,
+      "retrieval": 17,
+      "id_bits": 12,
+      "rank_bits": 4
+    },
+    {
+      "C": 4096,
+      "variant": "cluster + rank",
+      "bytes": 9175736,
+      "bits_per_item": 8229.359641255605,
+      "in_cluster": 40,
+      "retrieval": 30,
+      "id_bits": 12,
+      "rank_bits": 4
+    }
+  ],
+  "best": {
+    "C": 4096,
+    "variant": "cluster + rank",
+    "bytes": 9175736,
+    "bits_per_item": 8229.359641255605,
+    "in_cluster": 40,
+    "retrieval": 30,
+    "id_bits": 12,
+    "rank_bits": 4
+  }
+}

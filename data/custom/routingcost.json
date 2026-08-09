@@ -1,0 +1,43 @@
+{
+  "n": 4000,
+  "steps": 9600,
+  "rows": [
+    {
+      "cost": "embedding",
+      "purity": 0.356,
+      "majority": 0.3548,
+      "carry_lift": 1.004,
+      "gateway_concentration": 10.47
+    },
+    {
+      "cost": "routing",
+      "purity": 0.359,
+      "majority": 0.3548,
+      "carry_lift": 1.012,
+      "gateway_concentration": 31.73
+    },
+    {
+      "cost": "selection",
+      "purity": 0.3548,
+      "majority": 0.3548,
+      "carry_lift": 1.0,
+      "gateway_concentration_INVALID": 100.0,
+      "invalid_reason": "only 4 distinct expert selections among 4000 examples, so the concentration measures a 4-point space, not structure",
+      "distinct_signatures": 4
+    }
+  ],
+  "diagnostics": {
+    "embedding": {
+      "mean_hops": 4.52,
+      "nodes_on_routes": 2926
+    },
+    "routing": {
+      "mean_hops": 10.68,
+      "nodes_on_routes": 1923
+    },
+    "selection": {
+      "mean_hops": 2.02,
+      "nodes_on_routes": 4
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "equations": 8,
+  "scramble_depth": 10,
+  "cap": 100000,
+  "pingpong_met": 8,
+  "pingpong_states": 106461,
+  "road_valid": 8,
+  "road_unwinds": 8,
+  "mean_road_len": 8.1,
+  "forward_found": 2,
+  "forward_states": 736492,
+  "forward_deepest": 6,
+  "ratio": 6.9
+}

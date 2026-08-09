@@ -1,0 +1,38 @@
+{
+  "block": 4,
+  "n_block": 8,
+  "steps": 1500,
+  "lambda": 0.3,
+  "rows": [
+    {
+      "regime": "plain",
+      "accuracy": 1.0,
+      "blocks_per_token": 3.515,
+      "max_fetches": 8,
+      "experts_used": 32,
+      "max_lift": 7.87,
+      "pairs_ge_2x_pct": 13.1,
+      "fetch_reduction_vs_plain_pct": 0.0
+    },
+    {
+      "regime": "balanced",
+      "accuracy": 1.0,
+      "blocks_per_token": 3.467,
+      "max_fetches": 8,
+      "experts_used": 32,
+      "max_lift": 2.45,
+      "pairs_ge_2x_pct": 0.6,
+      "fetch_reduction_vs_plain_pct": 1.37
+    },
+    {
+      "regime": "compressed",
+      "accuracy": 1.0,
+      "blocks_per_token": 2.852,
+      "max_fetches": 8,
+      "experts_used": 31,
+      "max_lift": 13.33,
+      "pairs_ge_2x_pct": 12.04,
+      "fetch_reduction_vs_plain_pct": 18.86
+    }
+  ]
+}

@@ -1,0 +1,1285 @@
+================================================================================
+SUMMARY 2 — Two-sided hub labels and streaming kNN
+Started 2026-08-08 23:30. Plan: ~/.claude/plans/drifting-juggling-kahan.md
+================================================================================
+
+PHASE 0 — STREAMING kNN                                              [COMPLETE]
+--------------------------------------------------------------------------------
+New: crates/matstruct/src/knn.rs. Blocked exact kNN, bounded top-k per row,
+never forms the n x n similarity matrix.
+
+  n = 3 893   peak scratch  1.5 MiB   against    57.8 MiB dense
+  n = 50 000  peak scratch 10.1 MiB   against  9 536.7 MiB dense  (max RSS 50 MB)
+
+VERIFIED: all 3 893 neighbour lists identical to the dense path
+(`matstruct knn --verify` cross-checks against geodesic.rs::build_knn).
+This unlocks the scale every graph result so far was blocked on — the 39.08 %
+exact-cell finding had only ever been measured on a 4 000-point subsample.
+
+Two bugs found and fixed while building it, both of the same kind:
+
+1. ANGLE FROM DOT PRODUCT IS CATASTROPHIC CANCELLATION.
+   The first implementation valued distances as 2*atan2(sqrt(2-2*dot), ...).
+   That is acos's conditioning problem relocated, not solved: measured slack at
+   the self-distance was 0.69 quantisation units, and anything above 0.5 rounds
+   to 1. Since every criterion downstream is integer equality of a residual,
+   this would have corrupted exactly the quantity being measured.
+   FIX: rank by the dot product (monotone, blocked, cheap), then value the k
+   survivors per row with componentwise differences. n*k accurate angles instead
+   of n^2. This is what the module comment claimed and the code did not do.
+
+2. pick_landmarks ALLOCATED NEARLY n^2.
+   cand_cap = 0 meant "every point", making the endpoint x candidate table
+   min(n, 8192) x n = 1.6 GB at n = 50 000 — in a function whose doc comment
+   said it never touches n^2.
+   FIX: default to MTZU's own rule, (n/4).clamp(256, 1024), bounding it at 33 MB.
+
+   The cap COSTS QUALITY and that is now a test, not a footnote:
+   `capping_candidates_costs_quality` asserts uncapped > capped on the gateway
+   world. MPEE records the same direction (London tol-5s block share 6 % at 192
+   candidates vs 32 % at 1024). The gateway validation now passes an explicit
+   uncapped cap so it still validates against MPEE's measured behaviour.
+
+Tests: 23 pass, clippy -D warnings clean.
+
+PHASE 1 — TWO-SIDED HUB LABELS (MTZU PORT)                           [COMPLETE]
+--------------------------------------------------------------------------------
+New: crates/matstruct/src/hublabel.rs. Each point keeps its own k hubs for
+leaving and its own k for arriving, plus a dense H x H table:
+
+    base(i,j) = min over a in out(i), b in in(j) of  out_d(i,a) + dhh(a,b) + in_d(b,j)
+
+Five validation tests, all passing:
+  - reach factorisation (k*H + n*k) equals the naive n*k^2 cell, exactly
+  - the base never undercuts a true metric distance
+  - squaring only tightens, never loosens
+  - PATH MINING beats nearest-hub labels at identical memory (the core claim)
+  - TWO-SIDED LOSES TO ONE-RELAY on MPEE's synthetic gateway world
+
+That last one is the important validation: it is counterintuitive, MPEE measures
+it (11.2x against 17.6x), and a port that "improved" on it would have diverged
+from the original. It reproduces.
+
+PHASE 2 — SEARCH METRIC ON REAL DATA                                 [COMPLETE]
+--------------------------------------------------------------------------------
+Scored for search (recall against brute force), not for compression.
+H=128, k=16 against L=32 one-relay, angular metric:
+
+  dataset          2-hop cells%  recall@10  resid   KiB | 1-relay cells%  resid
+  39-class text            0.42      0.058  0.675  1235 |           0.51  0.615
+  YOLO images              0.83      0.101  0.503   673 |           0.82  0.465
+  4 domains                1.09      0.129  0.525   564 |           3.83  0.446
+  corpus                   1.34      0.108  0.713   672 |           0.82  0.636
+
+NEGATIVE. recall@10 is 0.058-0.129 — the base finds 6-13 % of the true ten
+nearest. Two-sided beats one-relay on one dataset of four, loses badly on
+4-domains (1.09 vs 3.83), and costs twice the resident memory. The machinery
+worth 2.3x on real road data is worth nothing here.
+
+PHASE 3 — MORE HOPS: PREDICTION FALSIFIED                            [COMPLETE]
+--------------------------------------------------------------------------------
+The plan predicted, in writing: "3-hop helps on the angular metric and not on
+the geodesic." Min-plus squarings of the hub table:
+
+  configuration          cells%  recall@10  resid
+  angular,   sq=0/1/2      0.89      0.097  0.714   (identical at every squaring)
+  geodesic,  sq=0          27.92      0.283  0.078
+  geodesic,  sq=1/2        27.90      0.283  0.078
+
+WRONG, and the reasoning was wrong in an instructive way. I argued that because
+the chord "does not route through anything", a chain of hubs might beat the
+direct hub-to-hub entry. But the triangle inequality guarantees the direct chord
+is already <= any detour, and the angular metric IS a metric. Min-plus closure is
+idempotent on ANY metric, not merely on shortest-path metrics.
+
+So MPEE's argument for stopping at two hubs is more general than they state it.
+It is not "dhh is already a shortest path"; it is "dhh is already a metric
+distance". Multi-hop can only pay when the hub table is an APPROXIMATION of the
+true distance, and here it is exact by construction.
+
+WHERE THE TWO-SIDED MODEL LANDS
+--------------------------------------------------------------------------------
+  angular, two-sided, H=128 k=16                    0.89 % cells exact
+  geodesic, two-sided, H=128 k=16                  27.92 %
+  geodesic, ONE-RELAY with betweenness landmarks   39.08 %   <- still the best
+
+The one-relay model with betweenness-chosen landmarks beats the two-sided model
+with facility-location hubs by 39.08 against 27.92. Across this whole thread the
+lever has never been the label structure — it is which points are chosen as hubs,
+and the geodesic metric that makes a hub mean anything.
+
+PHASE 4 — THE SYNTHESIS: BETWEENNESS HUBS ON THE GEODESIC            [COMPLETE]
+--------------------------------------------------------------------------------
+New: crates/matstruct/src/graph.rs. Shortest-path distances over the streaming
+kNN graph (Dijkstra per row, never n^2) plus betweenness scoring, so hub
+selection and the geodesic metric finally run on the same streamed pipeline.
+
+`matstruct geohub` runs both selections on the SAME graph metric and the SAME
+memory, so only the choice of hubs differs:
+
+  dataset          n    conc   bw cells%  fl cells%   gain   bw rec  fl rec
+  39-class      7493    35.6       33.60      20.04  1.68x    0.051   0.108
+  YOLO          3897    20.5       25.70      17.73  1.45x    0.116   0.149
+  4 domains     3200    24.1       36.55      22.29  1.64x    0.071   0.118
+  layers        12000   15.8       11.61       6.14  1.89x    0.039   0.062
+
+BETWEENNESS BEATS FACILITY LOCATION BY 1.45x-1.89x on every dataset, from hub
+choice alone. This is the same lever that took one-relay from 0.91 % to 39.08 %,
+now isolated: identical labels, identical metric, identical memory.
+
+AND IT LOSES ON RECALL, EVERY TIME — 0.039-0.116 against 0.062-0.149. That is
+not noise, it reproduces on four datasets, and it is structural: a junction that
+every path routes through is by definition not *near* anything in particular.
+The junctions describe the metric well and search it badly. Those are different
+jobs and this thread has been conflating them.
+
+A STRUCTURAL FINDING CLIPPY FOUND, NOT ME
+--------------------------------------------------------------------------------
+"this `if` has identical blocks" in the path miner. The out- and in-direction
+scored `d(i,a) + d(p,a)` and `d(p,a) + d(i,a)` — the same expression.
+
+MPEE keeps the two sides separate because road networks are DIRECTED: with
+one-way streets a point's best on-ramp is not its best off-ramp. Every metric
+here is symmetric, so the two credit histograms are identical and mining twice
+produces two copies of one answer.
+
+So on a symmetric metric the two-sided model DEGENERATES TO ONE-SIDED while
+still costing twice the resident memory. That is a large part of why it loses to
+landmark.rs here and wins on MPEE's directed matrices, and it was sitting in a
+lint I had been treating as a style note.
+
+================================================================================
+WHERE THE THREAD ENDS
+================================================================================
+  angular, one relay, facility location          0.91 % cells exact
+  angular, two-sided, path-mined                 0.89 %
+  geodesic, two-sided, facility location        20.04 %
+  geodesic, two-sided, betweenness              33.60 %
+  geodesic, ONE RELAY, betweenness              39.08 %   <- best
+
+Ranked by what actually moved the number:
+  1. the metric        angular -> geodesic        ~30x
+  2. hub selection     facility loc -> betweenness  1.7x
+  3. label structure   one relay -> two-sided       0.85x  (worse)
+  4. hop count         2 -> 3 -> 5                  1.00x  (nothing)
+
+The two things this session set out to add — more hops and two-sided labels —
+are the two that did nothing and slightly hurt. What carried was already in hand
+before the session started, and the session's contribution is that it now runs
+streamed, at 50 000 points instead of 4 000, with the trade measured rather than
+assumed.
+
+Prediction made in the plan and falsified: "3-hop helps on the angular metric".
+It helps on neither, because min-plus closure is idempotent on any metric, and
+angular distance is one.
+
+PHASE 5 — SCALE                                                      [COMPLETE]
+--------------------------------------------------------------------------------
+50 000 points, dim 64, the full pipeline streamed end to end:
+
+  wall clock                49 s
+  peak RSS                 308 MB      (a dense n x n would be 9 536 MB)
+  graph                   100.0 % reachable, gateway concentration 32.0x
+  betweenness hubs         14.45 % cells exact
+  facility-location hubs    3.12 %
+  gain                      4.63x      <- the largest of the four datasets
+  recall@10                 0.001 vs 0.017
+
+The hub-selection effect GROWS with scale — 1.68x at n=7 493, 4.63x at n=50 000 —
+which is what a gateway structure should do: more points, more traffic funnelled
+through the same junctions.
+
+RECALL COLLAPSES WITH SCALE, and that is the finding that matters most for the
+stated purpose. At 50 000 points the base finds one in a thousand of the true ten
+nearest. Whatever the label index is good for, nearest-neighbour search is not it,
+and no choice of hubs rescues that.
+
+400 000 was the original target and is NOT run. At 49 s and 308 MB for 50 000 it
+would fit — the streaming holds — but phase 2 said the index does not answer the
+search question at 7 493 points and phase 5 says it answers it worse at 50 000.
+Running it larger would measure the same negative more expensively.
+
+================================================================================
+WHAT WAS BUILT, AND WHAT IT SETTLED
+================================================================================
+Three new modules, 30 tests, clippy clean, 143 guarded numbers, make all green.
+
+  knn.rs       blocked exact kNN, verified identical to the dense path
+  hublabel.rs  MTZU's two-sided path-mined labels, validated against MPEE's own
+               counterintuitive signature
+  graph.rs     geodesic distances and betweenness over the streamed graph
+
+Settled:
+  - streaming removes the n^2 wall: 50 000 points at 308 MB, verified exact
+  - hub SELECTION is the lever, worth 1.45x-4.63x, growing with n
+  - label STRUCTURE is not: two-sided ties or loses to one relay here
+  - hop COUNT is not: min-plus closure is idempotent on any metric
+  - the junctions describe the metric and cannot search it — 0.001 recall at 50k
+
+Three mistakes of mine, all caught by something rather than by me:
+  1. valuing distances from the dot product (0.69 units of slack) — caught by a
+     test asserting a property instead of a number
+  2. pick_landmarks allocating 1.6 GB in a function documented as never n^2 —
+     caught by writing down the scale it would run at
+  3. the two-sided model degenerating on symmetric metrics — caught by clippy,
+     which I had been reading as a style linter
+
+================================================================================
+PHASE 6 — THE ALGEBRA WAS WRONG: CHAINS OF STRONG LINKS
+================================================================================
+Objection raised, and it is correct: everything above minimised a SUM of
+distances. Under (min, +) the triangle inequality guarantees the direct edge
+beats any detour, so of course extra hops did nothing — that result answers the
+wrong question. What matters is a chain where EVERY STEP is strong, which is not
+capped by any triangle inequality because similarities multiply.
+
+New: experiments/hops/chains.py. Algebra (max, x) over similarity in [0,1]:
+
+    strength(chain) = product of link similarities  x  damping^(hops-1)
+    S_k(i,j)        = max over chains of at most k hops
+
+Two design points came from the objection and both changed the result:
+  - RELATIVE, not absolute. Each node's links are divided by its own strongest,
+    and only links within 10 % of it are kept. Absolute cutoffs keep everything
+    in dense regions and nothing in sparse ones, so every chain found would be a
+    chain through the dense part.
+  - DON'T SEARCH AMONG WEAK LINKS. That floor is what stops kNN from admitting
+    neighbours that are only nearest by default.
+
+THE PREDICTED CORRELATION PATTERN HOLDS EXACTLY
+--------------------------------------------------------------------------------
+  hops   reachable   new vs prev   corr to prev   corr to 1 hop
+     1       0.36%             -          1.000           1.000
+     2       1.81%         1.45%          0.901           0.900
+     3       4.48%         2.67%          0.842           0.765
+     4       9.67%         5.19%          0.742           0.576
+     5      20.02%        10.35%          0.602          -0.348
+     6      35.95%        15.93%          0.613          -0.147
+
+"Bad from 1 to 5, but strong from 1 to 2, 2 to 3" — measured. Step-to-step
+correlation stays 0.60-0.90 while end-to-end collapses and goes NEGATIVE at five
+hops. The chain degrades gradually rather than jumping to noise, exactly as
+predicted.
+
+THE GROUND TRUTH I CHOSE FIRST WAS THE WRONG ONE
+--------------------------------------------------------------------------------
+I scored chains on whether they link SAME-CLASS pairs, and reported 0.86x falling
+to 0.11x as failure. That is backwards. A link between two items already known to
+be alike carries no information — it is redundant by construction, and high
+same-class purity is what a USELESS discovery looks like. Fetching knowledge
+across domains looks like an error to that metric and is the whole point.
+
+Rescored as: does the link help SOLVE something. One-step label propagation,
+direct links against direct + chain:
+
+  hops  accuracy  rescued  broken    net   cross%  cross-only acc
+     1     0.947        -       -      -        -               -
+     2     0.908       25     142   -117    24.1%           0.718
+     3     0.835       39     376   -337    58.2%           0.413
+     6     0.458       33    1500  -1467    90.6%           0.013
+
+The chains DO rescue items the direct graph gets wrong, and the count is stable
+at 33-39 all the way out to six hops. That is real transfer, not zero. It is also
+swamped: 4x to 45x more items are broken than rescued.
+
+ADMITTING ONLY THE STRONGEST CHAINS — AND IT STILL DOES NOT PAY
+--------------------------------------------------------------------------------
+  hops  keep top   links  cross%   rescued  broken   net
+     2     50.0%   65454   17.9%        34      78   -44
+     2     10.0%   13092   12.6%        21      27    -6
+     2      1.0%    2428   11.0%         5       5    +0
+     3     10.0%   24010   34.1%        28      87   -59
+     3      1.0%    2402   27.0%        10      15    -5
+
+Net converges to zero FROM BELOW and never turns positive. At the tightest
+threshold rescued equals broken exactly. So the negative is not an artefact of
+searching among weak links — the sweep covers 50 % down to 0.1 % — and not an
+artefact of demanding same-class, since the score rewards cross-domain rescue.
+
+WHAT THIS DOES AND DOES NOT SETTLE
+--------------------------------------------------------------------------------
+Settled: on these embeddings, chains of strong links carry no NET transferable
+information. Every strength threshold trades one rescue for at least one break.
+
+NOT settled, and the limitation is real: direct label propagation already scores
+0.947, so only 5.3 % of items are available to rescue while 94.7 % are available
+to break. The measurement is dominated by breakage of what already works. A task
+with genuine headroom — where the direct graph is wrong often — would be a fairer
+test of transfer, and this one cannot distinguish "chains carry nothing" from
+"chains carry something that this task has no room to show".
+
+
+================================================================================
+PHASE 7 — THE CHAINS THEMSELVES, AND WHAT QWEN SAYS ABOUT THEM
+================================================================================
+The aggregate could count that chains break more than they rescue. It could not
+say why. Printing the paths does, and the two examples invert the expected order.
+
+MATCHING (arithmetic -> physics), chain strength 0.4910
+  721 + 935  ->  945 + 690  ->  910 + 351  ->  277 + 351
+             ->  P = 277 J / 6 s  ->  P = 292 J / 24 s  ->  P = 293 J / 15 s
+  link strengths: 1.000, 0.982, 1.000, 0.941, 1.000, 0.999
+
+NOT MATCHING (arithmetic -> prose), chain strength 0.5256
+  -694 - 435  ->  -694 - 262  ->  213 - 262
+              ->  "number 22 is to honor Clark"  ->  cemeteries at Le Treport
+              ->  the depiction of Pentecost  ->  secret observation posts
+  link strengths: 1.000, 0.996, 0.994, 0.999, 1.000, 1.000
+
+THE UNRELATED CHAIN IS THE STRONGER OF THE TWO — 0.5256 against 0.4910. Chain
+strength is anti-correlated with meaning here, which is the aggregate's negative
+result made visible in one pair.
+
+The mechanism is legible in the path. Both chains cross domains on a LEXICAL
+coincidence: `277 + 351` reaches `P = 277 J / 6 s` because the numeral 277 is in
+both, and `213 - 262` reaches "number 22 is to honor Clark" through digits and
+the word "number". And once a chain enters prose every onward link is ~1.000,
+because prose chunks all resemble each other relative to their own best — the
+relative floor cannot discriminate inside a homogeneous domain, so the chain
+wanders freely at no cost. That is the mechanism behind "breaks more than it
+rescues", and it took the paths to see it.
+
+QWEN'S VERDICT (Qwen3.6-35B-A3B, IQ1_M)
+--------------------------------------------------------------------------------
+  matching chain     "NO. The first item is simple arithmetic addition, while the
+                      last involves physics power calculations; they share no
+                      transferable knowledge."
+  not-matching chain "NO. The last item concerns secret observation posts, while
+                      the first is an arithmetic calculation."
+  the pivot itself   "It is a surface coincidence. The numbers match, but the
+   277+351 <->        mathematical operations and physical meanings differ
+   P = 277 J / 6 s    fundamentally."
+
+Asked only whether the pair was meaningfully similar, Qwen named the exact
+mechanism unprompted: the bridge is the shared numeral.
+
+CAVEAT ON THIS EVIDENCE. IQ1_M is aggressive 1-bit quantisation and an LLM
+judgement is not a measurement. It is reported because it agrees independently
+with two things established without it — the net transfer of 0 at every strength
+threshold, and the shared-token bridge visible in the printed path. Three signals
+of different kinds pointing the same way is worth more than any one of them.
+
+WHAT WOULD CHANGE THE ANSWER
+--------------------------------------------------------------------------------
+The failure is not that chains are a bad idea; it is that these embeddings put
+`277 + 351` next to `P = 277 J / 6 s`. A representation that encoded what a
+problem IS rather than which tokens it contains would give chains something real
+to walk along. That is the same conclusion the domain measurements reached from
+the other side — embeddings resolve category at 0.974 purity and within-category
+structure at 1.15x — and it is why the chain crosses domains only where the
+surface accidentally agrees.
+
+================================================================================
+PHASE 8 — TWO OBJECTIONS THAT BOTH LANDED
+================================================================================
+
+OBJECTION 1: "links of 1.000 and 0.982 — isn't that a very strong connection?"
+--------------------------------------------------------------------------------
+No, and the question exposed a design fault. Those were RELATIVE values — each
+link divided by its own node's strongest — so 1.000 means "my best neighbour"
+whatever the absolute distance. Checked against the absolute similarity:
+
+  chain          hop  relative  ABSOLUTE  angle
+  matching       1-6   0.94-1.00  0.725-0.837  0.51-0.86 rad
+  not matching   3     0.994      0.603        1.248 rad   <- crossing into prose
+  not matching   4-6   ~1.000     0.606-0.643  ~1.2 rad
+
+The chain crossed into prose on a link 1.248 radians wide — near-orthogonal, out
+of a maximum of pi/2 = 1.571 — and scored it 0.994 because a prose chunk's best
+neighbour is barely closer than random. Relative normalisation made regions
+comparable, as intended, and destroyed the absolute information along with it.
+
+And the fix reverses the earlier result: on ABSOLUTE strength the matching chain's
+weakest link is 0.725 and the unrelated one's is 0.603, so the ordering comes out
+RIGHT. The inversion reported in phase 7 was an artefact of my own normalisation.
+
+OBJECTION 2: "you cannot multiply them, cf. exploding gradients"
+--------------------------------------------------------------------------------
+Correct. A product of similarities compounds — it decays exponentially with real
+values, and normalising them towards 1 removes the decay along with the signal.
+Replaced with (max, min): a chain is exactly as strong as its weakest link, with
+a per-hop cost SUBTRACTED and clipped at zero, so nothing compounds and nothing
+exceeds 1.
+
+Net transfer at the tighter thresholds went from negative to zero:
+  2 hops, keep top 10 %:  -6  ->  +0
+  2 hops, keep top  1 %:  -6  ->  +0
+  3 hops, keep top 10 %: -59  -> -22
+Still never positive, but no longer harmful, and correlation to the first hop
+degrades gracefully (0.898, 0.765, 0.576, 0.325) instead of collapsing to -0.348.
+
+================================================================================
+PHASE 9 — "ARE SOME OF THE NUMBERS STRONG? SOMETHING THAT FIRES UNUSUALLY MUCH?"
+================================================================================
+Yes, and it is the most useful similarity found in this whole thread.
+
+  per-value |z|: median 0.68, p99 2.57, MAX 25.27
+  top  16 of 384 dims carry 24.7 % of the squared norm (uniform: 4.2 %)
+  specific dims mark domains: 48 -> arithmetic, 105/270/130/182 -> physics
+
+Similarity as "do these two fire unusually on the SAME dimension",
+max_d min(z_i[d], z_j[d]), against cosine:
+
+  measure                within   cross   separation   vs cosine
+  cosine                  0.642   0.525       +0.118        1.0x
+  shared extreme          1.901   1.591       +0.311        2.6x
+
+2.6x better domain separation than cosine, and unlike cosine it says WHICH
+dimension did it. The numeral bridge is dim 218: z = 2.22 in `277 + 351` and
+z = 3.44 in `P = 277 J / 6 s`.
+
+WEIGHTING BY HOW OFTEN A DIMENSION FIRES — the proposal, and the trade it hits
+--------------------------------------------------------------------------------
+"One that always fires gets damped, few times gets stronger" is inverse document
+frequency on dimensions. It does exactly what was asked of it and costs more than
+it saves:
+
+  weighting                separation   vs cosine   numeral bridge
+  none (raw extreme)           +0.311        2.6x            2.221
+  rarity (idf)                 +0.087        0.7x            0.734  <- damped 67 %
+  peakedness (kurtosis)        +0.000        0.0x            0.040
+  concentration (gini)         +0.309        2.6x            2.050
+
+IDF damps the spurious bridge by 67 %, exactly as intended — dim 218 fires on 221
+of 3200 items, so it is discounted. But domain separation collapses to below
+cosine, because a dimension that MARKS a domain fires on that whole domain, and
+frequency cannot tell "fires on everything" from "fires on one whole domain".
+Concentration measures (gini, kurtosis) do not rescue it: gini keeps separation
+but does not damp the bridge, kurtosis destroys both.
+
+THE TRADE IS REAL AND IT IS NOT A TUNING PROBLEM. What makes a dimension useful
+for separating domains is the same property that makes it available for a
+spurious bridge: it fires strongly across a broad class. The numeral dimension is
+not a bug to filter out — it is a domain marker being used correctly, on two items
+that genuinely share the property it marks. The problem is that "contains 277" is
+a real shared property and a useless one, and no reweighting of the embedding can
+know the difference, because the embedding never encoded it.
+
+================================================================================
+PHASE 10 — "RELATIVE TO EVERYTHING, BECAUSE IT FIRES ON EVERYTHING WHEN CORRECT"
+================================================================================
+That is the resolution IDF could not reach. A dimension marking one domain fires
+on that whole domain, and firing on all of it is CORRECT behaviour, so frequency
+must not be the penalty. What distinguishes a marker from a stopword is whether
+the set it fires on is itself coherent.
+
+COHERENCE, label-free: of the items where a dimension fires, how similar are they
+to each other, above the population mean?
+
+  weighting                separation   vs cosine   numeral bridge
+  cosine                       +0.118        1.0x                -
+  none (raw extreme)           +0.324        2.7x            2.221
+  rarity (idf)                 +0.090        0.8x            0.734
+  COHERENCE                    +0.275        2.3x            1.022
+
+Coherence keeps 2.3x of cosine's separation AND damps the spurious bridge by
+54 %. IDF could only do the second, and paid by falling below cosine.
+
+The numbers show exactly why frequency cannot do this job:
+
+  dim 218 (the numeral bridge)  fires on 221   coherence 0.16
+  dim 130 (a physics marker)    fires on 332   coherence 1.00
+  dim 239                       fires on 207   coherence 0.86
+  dim 105 (a physics marker)    fires on 201   coherence 0.82
+
+Same frequency band, opposite usefulness. IDF sees 221 against 201 and treats
+them alike; coherence sees 0.16 against 0.82 and does not.
+
+================================================================================
+CLOSING: WHAT THE OBJECTIONS CHANGED
+================================================================================
+Five objections were raised during this work and four of them overturned a result
+I had already written down:
+
+1. "why are we talking about SHORTER?"        -> min-plus was the wrong algebra;
+                                                 the whole "more hops does nothing"
+                                                 result answered the wrong question
+2. "don't search among weak links, adjust
+    relatively"                                -> gave the relative floor, which then
+                                                 caused failure 3
+3. "links of 1.000 — isn't that very strong?" -> no: relative scoring rated a
+                                                 1.248-radian link at 0.994, and
+                                                 fixing it REVERSED phase 7's finding
+4. "you cannot multiply them"                 -> product replaced by bottleneck;
+                                                 net transfer went from negative to 0
+5. "are some of the numbers strong?"          -> shared extreme dimensions separate
+                                                 domains 2.7x better than cosine, the
+                                                 best similarity found in this work
+6. "relative to everything, because it fires
+    on everything when correct"                -> coherence weighting, which is the
+                                                 only one that keeps separation and
+                                                 damps the spurious bridge together
+
+The pattern is worth naming. Every one of my errors was the same kind: I picked a
+normalisation or an aggregator for a good local reason and did not check what it
+destroyed. Relative scoring made regions comparable and erased absolute strength.
+Products expressed "every step matters" and compounded. IDF damped stopwords and
+silenced domain markers. In each case the fix was not a better parameter but a
+different quantity, and in each case the measurement that would have caught it
+early was available and not taken.
+
+================================================================================
+PHASE 11 — "STILL USEFUL FOR FINDING OTHER RELATED THINGS, AS HOPS ONWARD"
+================================================================================
+Fair, and I had been measuring the wrong use. Every transfer number above came
+from ADDING all chain-found links to the graph and checking whether prediction
+improved — automatic substitution. Nobody proposed that. The proposal was to use
+chains to FIND things worth looking at, which is a candidate generator, and a
+candidate generator is scored on coverage and ranking, not on blind inclusion.
+
+Rescored that way, on 3 000 points where direct label propagation is wrong on 156:
+
+              2 hops   3 hops
+  wrong items reached by chains      153/156    155/156
+  precision over all candidates        0.015      0.017
+  precision in the top 50 by strength  0.000      0.000
+  total candidates                   130 906    240 052
+
+COVERAGE IS ESSENTIALLY COMPLETE. Chains reach 153 of the 156 items the direct
+graph gets wrong, and 155 of 156 at three hops. Whatever is wrong with the
+mechanism, failing to find things is not it.
+
+RANKING IS WHAT IS MISSING. Precision is 1.5 %, and sorting by bottleneck strength
+does not concentrate the useful ones — the top 50 contains none. That is precisely
+why blind inclusion hurt: 130 906 links admitted to obtain 1 942 useful ones.
+
+So the honest statement is not "chains do not work". It is:
+
+    The mechanism has the COVERAGE a discovery tool needs and lacks the RANKING.
+
+Those are different failures with different fixes. Missing coverage would mean the
+graph cannot reach the answer and the approach is dead. Missing ranking means the
+answer is in the list and the list is too long, which is a scoring problem — and
+phase 10 produced a scoring signal that chain strength is not: coherence-weighted
+shared-extreme dimensions, which separate domains 2.3x better than cosine and halve
+the spurious bridges. Whether that ranks these candidates is the obvious next
+measurement and has not been made.
+
+WHAT THIS THREAD ACTUALLY DELIVERS
+--------------------------------------------------------------------------------
+Positive, measured, and reproducible:
+  - streaming kNN: 50 000 points at 308 MB and 49 s, verified identical to dense
+  - betweenness hubs beat facility location 1.45x-4.63x, growing with n
+  - shared-extreme dimensions beat cosine 2.7x at domain separation, and say WHICH
+    dimension made the link — cosine cannot
+  - coherence weighting keeps 2.3x of that while halving spurious bridges
+  - chains reach 155 of 156 items a direct graph gets wrong
+
+Negative, and equally measured:
+  - two-sided labels tie or lose to one relay on symmetric metrics, at 2x memory
+  - more hops does nothing under min-plus, and the reason is general
+  - chain strength does not rank candidates: top-50 precision is zero
+  - net transfer from blind inclusion is 0 at best, at every threshold tried
+
+================================================================================
+PHASE 12 — THE APPLICATION: A SMALL MODEL WORKING WITHOUT LOOPING
+================================================================================
+The proposal: keep the strongest links as a graph, give a small distilled model
+external working memory, and let it grind through many steps — physics, maths,
+parsing a document — without looping and without destroying what it has done.
+
+Measured the premise before building it. OLMoE 1B-7B, 8 multi-step arithmetic
+problems with checkable answers, its own output fed back, up to 6 steps.
+
+THREE HARNESS BUGS ON THE WAY, EACH ONE NEARLY A FINDING
+--------------------------------------------------------------------------------
+1. The first run reported 28 repeats across 7 of 8 tasks — a 58 % loop rate, which
+   would have justified the whole design. Every one was my line extractor taking
+   ```python as the "step" and then seeing it again. With fences stripped: 2
+   repeats across 2 of 8.
+2. The enforced `name = expression = number` store rejected 48 of 48 lines. Not
+   the model refusing the format — my extractor returning the stray token "1".
+3. Only after printing completely unprocessed output did the real behaviour show.
+
+WHAT THE MODEL ACTUALLY DOES
+--------------------------------------------------------------------------------
+Asked for one step at a time, it does not decompose at all. It writes a Python
+block for the WHOLE expression, then fabricates an `output` block, then states
+DONE with the fabricated number:
+
+    result = (120 / 4 + 15) * 2 - 30      <- correct
+    ```output
+    90.0                                   <- invented; true value 60
+    DONE: 90
+
+So the failure is neither of the two the memory was aimed at:
+
+  loops                      2 of 41 steps
+  operations with no result  20 of 41 steps  (real, but downstream of the above)
+  refuses to decompose       8 of 8 tasks
+  fabricates evaluation      every task that reached an answer
+
+THE MISSING COMPONENT IS AN EVALUATOR, NOT A MEMORY
+--------------------------------------------------------------------------------
+The model CAN express the computation and CANNOT evaluate it. Executing the
+expression it writes, instead of trusting the output it claims:
+
+  stepwise, free-form history          0/8
+  stepwise, enforced value store       0/8
+  expression written and EVALUATED     6/8      <- expression written for 7/8
+
+Zero to six, from running the arithmetic rather than believing it. The two
+failures are both transcription, not arithmetic: on `(120/4 + 15) * 2 - 30` it
+wrote `120 / 4 + 15 * 2 - 30`, losing the parentheses, and one problem produced no
+parseable expression at all.
+
+WHAT THIS MEANS FOR THE GRAPH MEMORY
+--------------------------------------------------------------------------------
+It is aimed at a failure this model does not have, on this class of task. A loop
+detector would have caught 2 steps in 41. The state store had nothing to store
+because the model never emits intermediate results. What it is short of is a way
+to check its own arithmetic, and that is a tool call, not a memory.
+
+That is a statement about THIS task, and the honest limit of it is that
+single-expression arithmetic can be one-shotted, so it never needs memory. Parsing
+a long document cannot: the state does not fit in context, revisiting is real, and
+"what have I already extracted" is a genuine question. The graph memory should be
+tested there, where the premise is not satisfiable by a one-line expression — and
+the premise itself should be measured first, as it was here, because on this task
+the answer was that the premise did not hold.
+
+================================================================================
+PHASE 13 — PEN AND PAPER: ONE TINY OPERATION, WITH THE GRAPH CHECKING
+================================================================================
+Corrected design: the evaluator runs SMALL PIECES, not generated Python. The model
+proposes one binary operation on two values already written down; we evaluate that
+one operation; the result AND the transition are kept; the graph checks that every
+step derives from the pad and that every number in the problem gets consumed.
+
+Built as specified: append-only pad, derivation check, coverage check, refusals
+fed back so the model can rationalise rather than repeat.
+
+A FIFTH HARNESS BUG, AND IT EXPLAINED ALL FOUR EARLIER ONES
+--------------------------------------------------------------------------------
+Every strange output in this experiment — markdown fences, a stray "1", a bare
+operator, empty completions — had one cause: OLMoE is an INSTRUCT model and I was
+running it as raw completion with `-no-cnv`, outside the chat template it was
+trained in. With `<|user|>` / `<|assistant|>` applied it immediately produced
+structured steps.
+
+A model asked outside its format does not fail gracefully. It fails
+unrecognisably, and each failure looks like a different finding about the model.
+Four separate "results" in this experiment were that one mistake wearing costumes.
+
+WHAT THE GRAPH CATCHES — AND IT IS EXACTLY THE NAMED FAILURE
+--------------------------------------------------------------------------------
+Watched proposal by proposal on `((15 + 25) / 8) * 14 - 20`:
+
+    available: 15, 25, 8, 14, 20
+    proposal 1: 15 + 25   -> accepted, v1 = 40
+    proposal 2: 15 + 25   -> REFUSED, 15 is no longer available
+    proposal 3: 15 + 25   -> REFUSED
+    proposal 4: 15 + 25   -> REFUSED
+
+The model takes the first step correctly and then proposes it forever, while the
+pad plainly shows `v1 = 15 + 25 = 40` and the available values are `40, 8, 14, 20`.
+This is "suddenly thinking anew without rationalising it" and its opposite at once
+— it is not thinking anew at all, it is stuck — and THE GRAPH DETECTS IT EVERY
+TIME. 58 underivable steps refused across 8 problems.
+
+RESULTS, AGAINST THE SAME MODEL AND PROBLEMS
+--------------------------------------------------------------------------------
+  free-form stepwise history                    0/8
+  enforced named value store                    0/8
+  scratchpad + derivation graph                 0/8   (58 refusals, 1/8 covered)
+  scratchpad + graph + refusals fed back        0/8   (no change)
+  ONE whole expression, externally evaluated    6/8
+
+The architecture works and the model cannot drive it. Detection is not the
+bottleneck: the graph caught every repeat and every underivable step. Choosing the
+NEXT step is the bottleneck, and feeding the refusals back did not move it — at
+1B active parameters the model has one good move in it and no second.
+
+The sharpest form of the result: this model can plan the whole computation in one
+shot (7/8 expressions written correctly, 6/8 evaluating correctly) and cannot
+perform the same computation incrementally (0/8). Incremental is precisely the mode
+external memory exists to support, and it is the mode this model cannot enter.
+
+WHAT THAT DOES AND DOES NOT SAY ABOUT THE DESIGN
+--------------------------------------------------------------------------------
+It does not say the design is wrong. The pad, the derivation check and the
+coverage check all did their jobs, and they are the parts that would matter on a
+task too large to one-shot — parsing a long document, where the state does not fit
+in context and "what have I already extracted" is a real question.
+
+It says the design needs a model that can take a second step. Every failure here
+was upstream of the memory: the model could not choose, so the memory had nothing
+to be useful about. Testing the same harness with a larger model is the measurement
+that separates "the architecture does not help" from "this model cannot use it",
+and those are very different conclusions.
+
+================================================================================
+PHASE 14 — THE WORK RECORD: READ A ROW, PATCH WITHOUT REWRITING, NEVER RETRY BLIND
+================================================================================
+Built to the spec: read row by row so only the current step and the next need holding,
+append derived rows, patch a row in place without touching anything before it, and
+keep a memory of what has been explored OUTSIDE the model.
+
+`experiments/loopmem/workpad.py`, 25 tests, all passing. Verified against a SCRIPTED
+agent that makes deliberate mistakes, not against a model — phase 13 showed store
+bugs and model limits are different failures, and mixing them makes each look like
+the other.
+
+What it enforces:
+  DERIVATION    an operand must exist, be live, and not already be consumed
+  PROPAGATION   patching row 5 marks rows 6, 9, 14 stale transitively; nothing
+                derived from a corrected value is left quietly standing
+  APPEND-ONLY   nothing before the patched row is touched, and a superseded row
+                stays readable with its transition intact
+  MEMORY        every attempt and its outcome is recorded and never deleted
+
+TWO DESIGN ERRORS, THE SECOND ONE CAUGHT BY THE OBJECTION
+--------------------------------------------------------------------------------
+First: I keyed the explored set on row ids alone. The end-to-end demo then did this:
+
+    step 1 (wrong): row 5 = 120 - 4 = 116
+    step 2:         row 6 = [5] + [2] = 131        built on the error
+    patch row 5 to '/'  ->  30, row 6 marked STALE
+    retry [5] + [2]     ->  REFUSED, "already tried"
+
+That refusal is wrong. `[5] + [2]` after the patch computes 30 + 15, not 116 + 15 —
+a different computation on a corrected premise. Blocking it makes the fix useless,
+which is exactly "new knowledge can open up trying what was wrong with a different
+approach".
+
+Fixed by versioning: every row carries a version, patching bumps it and the versions
+of all its descendants, and the explored key includes operand versions. So
+  - an exact repeat on the same premise is still refused
+  - the same step on a CORRECTED premise is allowed
+  - the old attempt is not deleted; `history()` still answers "this was tried before,
+    on a different premise"
+
+That last part is the difference between a memory and a blocklist.
+
+Second: two tests then failed, and they were asserting the OLD behaviour — that a
+patched step could never be retried. They were rewritten to assert the corrected
+behaviour, with a note in the file saying the reversal was deliberate. A test that
+encodes a bug will defend the bug.
+
+WHERE THIS LEAVES THE WHOLE THREAD
+--------------------------------------------------------------------------------
+The store is built and verified. It does everything the design asks: sequential
+reading, bounded working set, non-destructive patching, transitive invalidation,
+and a persistent record of what has been explored that a fresh context cannot lose.
+
+It has not been shown to help a model, and on the evidence from phase 13 the 1B
+model cannot drive it — it solved 0/8 with the scratchpad and 6/8 by writing one
+whole expression we executed. The store's value has to be demonstrated on a task
+that cannot be one-shotted, with a model that can take a second step, and both of
+those are measurements not yet made.
+
+What can be said now: the mechanism is correct, its failure modes are the ones it
+was designed to catch, and the two bugs found in building it were both cases of a
+rule that was right in general being wrong after a correction.
+
+================================================================================
+PHASE 15 — "A MODEL SHOULD BE ABLE TO ITERATE LONG WITHOUT DESTROYING THE ANSWER"
+================================================================================
+The central claim of the design, and it is a claim about the RECORD rather than the
+driver — so it can be tested with a scripted proposer instead of waiting for a
+better model. That was the right instinct and the experiment still failed to test
+it, for a reason worth writing down.
+
+WHAT THE ATTEMPT FOUND, INCLUDING ABOUT ITSELF
+--------------------------------------------------------------------------------
+Two real bugs in the driver, both instances of the same design point:
+
+1. A record arm scored exactly 0.000 at EVERY budget. Cause: the driver could only
+   append. Four appends consume all five givens, the answer is wrong, and the loop
+   stops — so the budget was never spent and "iterating longer" never happened.
+   Protection without a way back is not protection, it is paralysis. `undo()` was
+   added to the record for this, and it is now part of the tested interface.
+
+2. Reaching a dead end still ended the run rather than triggering a step back. A
+   dead end is not an ending; it is the one moment backtracking exists for.
+
+And one flaw in the comparison itself. The naive arm ends by naming its most recent
+value, so it always asserts an answer and is right by coincidence about a fifth of
+the time. The record asserts only when a complete derivation exists. Reporting
+0.219 against 0.019 would have compared "did the target number appear anywhere" to
+"was a valid derivation built", which are not the same question.
+
+WHY THE EXPERIMENT HAS NO POWER
+--------------------------------------------------------------------------------
+Rebuilt to compare claim rate against precision, all three arms sit at ~0.00
+precision at every budget from 10 to 400. A random proposer essentially never
+solves a five-given problem: order matters, four operators, and only a handful of
+the orderings are right. With a base rate of zero there is no difference to detect,
+and monotonicity over a flat line of zeros means nothing.
+
+So the claim is NOT tested. A random driver is too weak a stand-in for "thinks a
+lot", and the honest statement is that this experiment lacked the power to measure
+what it was built to measure.
+
+WHAT IS ESTABLISHED, AND WHAT WOULD ESTABLISH THE REST
+--------------------------------------------------------------------------------
+Verified, by 25 tests against a scripted agent making deliberate mistakes:
+
+  - a correction never touches anything before it
+  - everything derived from a corrected value is marked stale, transitively
+  - a repeat on the same premise is refused and remembered
+  - a correction REOPENS what it invalidated, while the old attempt stays on record
+  - a dead end can be stepped back from without losing the memory of what failed
+
+Those are structural guarantees: the record cannot silently destroy an established
+result, because there is no operation that overwrites one. That is the part of the
+claim that can be settled by construction, and it is settled.
+
+The part that cannot: whether a driver iterating longer actually gets better. That
+needs a driver with a success rate above zero, which means a model that can choose
+a second step — and phase 13 measured that this 1B model cannot, scoring 0/8
+stepwise against 6/8 writing one whole expression. Two measurements would settle
+it, neither yet made: the same harness with a larger model, and a task that cannot
+be one-shotted so that iteration is forced rather than optional.
+
+================================================================================
+PHASE 16 — CONFIDENCE FROM THE GRAPH: DOES MULTI-PATH SUPPORT MEAN ANYTHING?
+================================================================================
+The proposal that closes the loop between the two threads: use the N x N structure
+as a SAFETY measure rather than as a retrieval index — score each step and check
+whether its values are actually strongly supported, instead of accepting whatever
+the driver proposes. If support ranks good steps first, a weak driver is protected
+by the record and phase 15's missing base rate appears.
+
+The signal available without a model is multi-path support: enumerate the
+derivations a set of givens admits and count how many independent routes reach each
+value. Exhaustive, 200 000 routes per problem.
+
+  problem                     distinct values   answer support   top support   rank
+  (120 / 4 + 15) * 2 - 30              13 792              335         1 897     51
+  ((9 * 7) + (8 * 6)) - 51             18 032               25         1 638  1 747
+  (200 - 45 * 3) / 5 + 12              21 783               74           618    183
+  ((15 + 25) / 8) * 14 - 20            20 060               37           868    994
+  (6 * 6 + 4 * 4) / 13 + 7              7 824              136         2 508    266
+  ((100 - 28) / 6) * 5 - 30            20 099               17           960  2 348
+  (81 / 9 + 11) * 3 - 40               22 111                8           619  5 313
+
+  best-supported value IS the answer:  0/8
+  answer among the five best supported: 0/8
+
+FLATLY NEGATIVE, and the reason generalises. In free arithmetic over a set of
+numbers every value is reachable many ways, and the best-supported ones are those
+easiest to hit by accident — small integers, round numbers — not the correct ones.
+SUPPORT MEASURES REACHABILITY, NOT TRUTH.
+
+Multi-path agreement is a confidence signal only when the competing paths are
+constrained to be derivations of the SAME claim. Here they are derivations of
+different claims, and counting them measures how easy a number is to make. The
+answer to `(81/9 + 11) * 3 - 40` has 8 routes; the most-reachable value has 619.
+
+================================================================================
+CLOSING: WHAT THE GRAPH GIVES AND WHAT IT DOES NOT
+================================================================================
+Across sixteen phases the same shape recurred. The graph machinery reliably gives
+COVERAGE and DETECTION and never once gave RANKING or TRUTH:
+
+  coverage    chains reach 155 of 156 items a direct graph gets wrong
+  detection   58 underivable steps refused; every repeat caught; transitive
+              invalidation verified by 25 tests
+  structure   shared-extreme dimensions separate domains 2.7x better than cosine,
+              and say WHICH dimension did it
+  ranking     chain strength: top-50 precision 0.000
+  truth       multi-path support: answer ranks 51st to 5313th, 0/8 first
+
+Every attempt to turn the structure into a judgement failed, and each failed for a
+different and specific reason: chain strength ranks by reachability, IDF cannot
+tell a domain marker from a stopword, support counts how easy a value is to reach.
+The structure is real — 31x gateway concentration, 39 % of distances exact from
+0.8 % of points, 155/156 coverage — and it says where things are, never whether
+they are right.
+
+That is a coherent place to stop. A discovery tool that finds nearly everything and
+ranks nothing is useful with a judge attached and misleading without one. What this
+work has built is the finding half, verified; what it has repeatedly failed to
+build, by six different routes, is the judging half.
+
+================================================================================
+PHASE 17 — even 13 + 8 is too big a step
+================================================================================
+
+The scratchpad used one binary operation on two multi-digit numbers as its atom and a
+1B model solved 0 of 8. The suggestion was that the atom was still too coarse: 13 + 8
+is not one operation, it is 3 + 8 = 11, write 1, carry 1, then 1 + 1 = 2. The carry is
+the join, and the carry is exactly where this project had already measured arithmetic
+to stop being decomposable — held-out accuracy fell 0.647 to 0.437 as carries went 0
+to 3, and grouping training data by carry count was worth +0.157 to +0.226, the
+largest verified effect in the whole project.
+
+Twelve carry-heavy three-digit additions, OLMoE 1B-7B, three arms:
+
+    whole number in one go   6/12
+    one column at a time    11/12
+    columns done correctly  12/12   (the record's own contribution)
+
+Cutting the step to one column nearly doubles it. The model never performs multi-digit
+arithmetic at all — only single-digit sums it has memorised — and the record carries
+the carry. The oracle arm separates the two possible failures: at 12/12 the
+decomposition itself is sound, so the one digitwise miss is a single-digit sum the
+model got wrong, not a flaw in the split.
+
+An eighth harness bug of the same family produced 0/12 on the first run. `-n 12` cut
+the model off mid-restatement — "The total of the three digits 9, 7, and" — and the
+extractor took the FIRST number, returning 9. Every digitwise answer came back as the
+first operand, which looked exactly like a model that cannot add and was a token budget
+of twelve. Fixed to n=48 and the last number.
+
+================================================================================
+PHASE 18 — two-way, held together by a residue
+================================================================================
+
+Generalising past arithmetic needs the atom and the state named for an arbitrary
+procedure, and the examples that prompt it are not arithmetic: how do you build a
+table, how do you open a bottle in the fridge and pour a glass. Those have a digit
+column's shape — an action consumes conditions that must hold and produces conditions
+that then hold — so the substitution is operands -> preconditions, values -> facts, and
+nothing else in the record changes.
+
+Forward-only made it worse, not better:
+
+    whole plan in one go   2/3
+    one action at a time   0/3     28 steps refused
+
+Going forward greedily it picks "cut four legs" or "put teabag in cup" — locally legal,
+globally stuck — because nothing forward-facing knows what the goal still needs. One
+direction is not enough.
+
+So run both, and let the record hold the difference. This is the codec contract:
+base + residual == d, where the base is the approximation and the residual is the exact
+correction that makes it lossless. The forward chain is the base — what is true so far;
+the backward chain states what the goal requires; and
+
+    residue = required - established
+
+is the residual. Two-way stops being a heuristic under this rule, because the loop may
+not terminate while the residue is non-zero and every accepted step must shrink it. The
+model writes the reverse direction itself: it is never shown the dependency table, only
+what is missing, and is asked what produces it.
+
+NUMERIC. The model runs its own sum backwards by subtraction; the record subtracts
+column by column. A known error is injected into one column first, because the
+digitwise arm is already 11/12 and natural errors are too rare to measure the mechanism.
+
+    error detected by the residue      12/12
+    residue named the right column     11/12
+    repaired by patching that column   11/12
+    no error injected -> residue zero  11/12   (false-alarm control)
+
+The residue does not merely say something is broken. It says where, which is what makes
+a patch possible instead of a rewrite — the property the work record was built for and
+had never been demonstrated on real model output.
+
+PROCEDURAL. Backward regression from the goal, residue = preconditions still unmet:
+
+    task                    free   forward-only   two-way + residue
+    pour a glass of soda      .          .              ok
+    build a table            ok          .               .
+    make tea                 ok          .              ok
+
+2/3, with both plans valid on forward replay, and it solves the one free planning
+misses. They fail on different tasks, so the directions are not redundant.
+
+The first procedural run reported 0/3 and it was mine, not the model's: on refusal the
+loop reissued an identical prompt at temperature zero, so it received an identical
+answer ten times and counted ten failures. Withdrawing a refused action from the menu is
+what makes the retry a different question. Ninth bug of the family, and a pointed one —
+the record's memory of what was tried is the thing that fixes it, and it had not been
+wired into this arm.
+
+What is established: the split that took addition from 6/12 to 11/12 is not arithmetic
+machinery. It transfers to ordinary procedures under one substitution, and the residue
+that makes a codec lossless is the same object that makes a two-way plan checkable.
+What is not: build a table still fails, backward and forward, and three tasks is three
+tasks.
+
+================================================================================
+PHASE 19 — step arity is not the lever, and the table was a matcher bug
+================================================================================
+
+Two questions, one run: fix the task the two-way arm could not plan, and test the claim
+that a step should always be split two-into-one rather than many-into-one.
+
+THE TABLE. Not a planning failure. Asked what makes the table stand, the model replied
+"Attach legs to the top." — the menu says "attach legs to top", one article apart — and
+the exact-substring matcher returned None, so it was counted as a refusal without the
+record ever checking whether the action pointed the right way. Every run of that task
+failed on an article. Matching on content words, with articles and prepositions
+discarded, fixes it and the task now plans in every arm. Tenth harness bug of the same
+family, and the same lesson each time: check the raw output before believing a zero.
+
+ARITY, NUMERIC. A column of long addition is x + y + carry, three into one. Split into
+two pairwise sums — (x + y), then (+ carry) — over 24 carry-heavy problems:
+
+    three digits per step   23/24    72 calls
+    two digits per step     22/24   108 calls
+
+Splitting does not help. It costs 50% more calls and introduces two new errors
+(355 + 764 -> 1219, 269 + 249 -> 528), because the extra intermediate is one more place
+to misread. The phase 17 gain came from cutting multi-digit to single-digit, not from
+cutting three inputs to two.
+
+ARITY, PROCEDURAL. Sixteen everyday procedures, four of them built with three- and
+four-way joins because the first twelve turned out to join at most two — the first run
+of this comparison returned identical refusal counts on every task, which was not a
+result but proof that both arms had run the same experiment. With real wide joins and a
+step budget proportional to the graph:
+
+    all open subgoals shown   11/16
+    at most two shown         11/16
+    identical outcome on      16/16 tasks
+
+`lay a fire` and `pack for a trip` both join four preconditions and both plan correctly
+under either arm. The arity claim is not supported in either domain.
+
+WHAT DOES PREDICT FAILURE is size, not join width:
+
+    tasks with >= 9 actions    1/5 solved
+    tasks with <= 8 actions   10/11 solved
+    widest join >= 3           2/5 solved
+    widest join <= 2           9/11 solved
+
+The join-width split is the weaker of the two and is confounded — the wide-join tasks
+are also the big ones. `change a bicycle tyre` joins at most one precondition anywhere,
+is ten actions deep, and fails; `pack for a trip` joins four and succeeds.
+
+So the two levers this project has verified are the size of the atom and the residue
+that checks it. How many things a single step combines is not one of them.
+
+================================================================================
+PHASE 20 — compress into a node, keep the residue, accept it only if it reverses
+================================================================================
+
+The rule under test: a substitution is a residue exactly as long as our formula can put
+it back, because then the model may work on the compressed form and the reduction is
+still safe. `X = (3726 + 52 * 4) / 526` becomes `X = Y / 526`, and neither half is an
+approximation because the original is recoverable.
+
+The record's check has two halves, and getting it wrong cost a whole run:
+
+    text   reduced.replace(sym, part) == original      exact recovery
+    value  eval(reduced with (part) put back) == eval(original)   precedence safety
+
+The second half is not decoration. `37 + 29` is a perfectly good substring of
+`37 + 29 * 2` and a ruinous residue, because `(37 + 29) * 2` is 132 and not 95. My first
+version checked only the bracketed form against the original characters — and
+`(37 + (29 * 2)) / 5` is not character-identical to `(37 + 29 * 2) / 5` — so it refused
+every correct answer the model gave and the arm silently degraded into evaluating the
+whole expression. Both arms returned identical answers on all twenty problems, which is
+what gave it away. Two harness bugs before that: the extractor took the model's whole
+sentence instead of the quoted subexpression, and a wait condition matched the previous
+run's output file so I read stale results.
+
+Twenty parenthesised four-term expressions, OLMoE 1B-7B:
+
+    whole expression in one go        3/20
+    compressed to nodes, residue back 2/20
+    substitutions accepted            9/20 problems
+    widest form the model ever held   8.3 tokens, down from 9.0
+
+The mechanism works and does not pay. The reason is visible in the accepted nodes:
+alongside `11 * 8` and `32 * 12` the record accepted `Y = 3` and `Y = 48`. Substituting
+a bare number is perfectly reversible and completely useless, and the record has no
+grounds to refuse it, because the rule it is enforcing is safety and not progress.
+
+    Reversibility is necessary and not sufficient. It makes a substitution SAFE.
+    It does not make it USEFUL.
+
+That is the sharpened form of the rule, and 9.0 -> 8.3 tokens is its measurement: the
+widest thing the model had to hold barely moved. What phase 17 had that this does not is
+a compression that shrinks the dimension the model actually fails in — there, the atom
+became a single-digit sum the model reliably knows. Here, deferring `38 + 39 * 8` out of
+`(38 + 39 * 8) / 2` leaves a node that is still a precedence problem, which is the exact
+thing the model was already failing. Making the compression recursive, so every node is
+reduced to one operation, changed nothing, because the nodes the model proposed were
+already small — its choices, not the recursion, were the limit.
+
+The 3/20 baseline is also the honest caveat: this model cannot evaluate a four-term
+expression at all, so there was very little for any decomposition to recover.
+
+PLACEHOLDER. The same rule stated over preconditions instead of characters. "Provide
+something to hang it on" is a legal step because it expands back; whether it turns out
+to be a nail, a plug and hook, or an adhesive strip is a subproblem that need not be
+settled to get the rest of the plan right. An expansion reverses when it consumes no
+more than the abstract step consumed and delivers everything it promised:
+
+    3/3 expansions restore the abstract step's contract
+
+So the plan built around the placeholder stays valid whichever expansion is chosen
+later. That is the procedural form of the residue rule, and unlike the numeric arm it is
+a property of the graph rather than of the model, which is why it holds exactly.
+
+================================================================================
+PHASE 21 — the model writes only the links, as JSON, and the record owns the rules
+================================================================================
+
+Phase 20 failed on its interface, not on its idea. Naming a substring to defer is not
+something these models are good at, and the substitutions it chose proved it: `Y = 3`,
+perfectly reversible and compressing nothing. Emitting JSON is something they are good
+at. So the model writes a graph and nothing else — `38 + 39 * 8` is A, and A can be
+written in the next step — while every rule that makes it safe lives in the record:
+
+    single assignment   a key is written once, never rewritten
+    defined before use  a key must exist before it is referenced, no cycles
+    at most three in    a step combines at most three numbers or earlier keys
+    reversible          inline every key back and the value must equal the original
+
+Same twenty expressions, same seed as phase 20, so all three arms compare directly:
+
+    whole expression in one go             3/20
+    substring substitution (phase 20)      2/20
+    model writes the links as JSON        11/20
+
+    parsed as a single-assignment object  20/20
+    passed every rule including reversal  15/20
+    mean 3.0 steps, widest step 3 inputs, 87% of inner keys used once onward
+
+Nearly a fourfold gain from changing the interface alone. The model's arithmetic did not
+improve and neither did the decomposition principle; what changed is that it was asked
+for structure in a notation it can actually produce. 20/20 parsed — not one malformed
+object, not one key written twice.
+
+The two halves of the result are worth separating, because they are different claims.
+
+WHAT THE MODEL CONTRIBUTES is the graph, and the shape it produces unprompted is the
+shape that was wanted: three inputs at the widest, one result onward, 87% of inner keys
+consumed exactly once. It was told "at most three" and never asked for fan-out of one,
+and it wrote fan-out of one anyway.
+
+WHAT THE RECORD CONTRIBUTES is five refusals out of twenty, and they are not
+conservatism. Four inline to a different value — `{"A": "46", "B": "34 + 11",
+"C": "B / 13"}` for `(46 + 34 + 11) / 13` silently drops the 46 — and one violates the
+arity rule. A graph that inlines to the wrong value cannot produce the right answer, so
+none of those refusals costs a correct result. The check is free in that direction.
+
+Of the fifteen the record accepted, eleven are right. So the arm that only answers when
+its decomposition verifies has 73% precision at a 75% claim rate, against a whole-
+expression arm that always claims and is right 15% of the time. That is the comparison
+phase 15 wanted and could not run: iterating does not destroy the answer here, because
+what survives to be answered has been checked structurally first.
+
+The remaining four failures are model arithmetic inside a structurally valid graph —
+`(39 - 31 * 7) / 2` decomposes correctly and then the model evaluates a step wrong. That
+is the floor the record cannot lift, and it is the same floor phase 17 hit: the fix for
+it is a smaller atom, not a better graph.
+
+================================================================================
+PHASE 22 — the diff as the step, and the diff as an objective
+================================================================================
+
+Dropping the keys: the model rewrites the expression with one part replaced by its
+value, and the record diffs consecutive states. No symbol table, no naming, and the new
+number is itself the pointer back to the part it replaced. Single assignment comes free
+because a state is never edited, only succeeded.
+
+The legality rule became the residue rule stated over a transition — the new state must
+evaluate to the same value, and be strictly shorter — after requiring one contiguous
+replacement turned out to reject correct work: the model writes `(38 + 312) / 2` as
+`(350 / 2)`, moving a bracket while it substitutes, which is a fine step.
+
+    whole expression in one go   3/20
+    first rewrite accepted       1/20
+    record verifies and re-asks  5/20
+    and breaks a stuck step down 5/20
+
+Worse than the JSON graph's 11/20, so the interface still matters more than the loop.
+But the failures are now attributable, which the JSON arm could not do:
+
+     operator   wrong   right   error rate
+            *       1      13         0.07
+            -       0       2         0.00
+            +       4       4         0.50
+            /      15      11         0.58
+
+Multiplication is nearly free and division is where it breaks, with both operands
+two-digit at 0.58. Caveat: 32 rejected steps got no operator attributed because the diff
+could not isolate one, so that part measures the extractor as much as the model.
+
+DIFF SIZE AS A SIGNAL — RETRACTED. On four hand-picked cases it looked decisive: 9 and
+19 characters when right against 32 and 30 when wrong. Over all 82 steps it is 10.4 when
+right and 11.2 when wrong, and only 31% of wrong steps exceed the average right one. It
+was a four-point impression, not a signal, and it was reported as one before the full run
+existed.
+
+================================================================================
+PHASE 23 — the model cannot go backwards, unless it writes the question itself
+================================================================================
+
+The round trip needs the model to consume the residual it produced: hand it the answer,
+not the problem, and have it invert each step. Agreement would then be a correctness
+check needing no grader. It rests on an assumption, so the assumption was measured on
+its own — the same 24 arithmetic facts asked in both directions.
+
+    forward, plain                22/24
+    forward, JSON                 17/24
+    backward, blank-filling        5/24
+    backward, blank-filling as JSON 5/24
+    backward, posed as arithmetic  13/24
+
+Backward is not the same task for this model. Blank-filling is a quarter of forward, and
+JSON does not help it at all — while it actively hurts forward, which is worth noting
+against the phase 21 result: JSON is not a magic notation, it helped there because
+structure was what was being asked for.
+
+Rephrasing the inversion as ordinary arithmetic recovers half the gap. That rewrite was
+mine, though, and a table of inverse operators does not generalise. Handing the residual
+to the model and asking it for a form it prefers does:
+
+    answer the blank directly         5/24
+    our rewrite into arithmetic      13/24
+    THE MODEL WRITES THE QUESTION    19/24   (24/24 produced a valid question)
+    as a word problem                10/24
+
+Nearly four times the floor, and nothing in the code knows what an inverse is. It wrote
+`What is 228 - 110?` and `What is 10206 / 27?` unaided. The word-problem framing is worse,
+so the win is not "natural language" — it is that the model states the inverse better
+than a lookup table does.
+
+REPETITION DOES NOT HELP. At temperature zero a repeat is not a repeat, so five samples
+were drawn at 0.8:
+
+    one sample          13/24
+    majority of five    13/24
+    room to think       9/24
+
+All five agreed on 22 of 24, and 59% of those were right against a 54% base rate. The
+errors are systematic, not stochastic — the model is consistently wrong, not
+occasionally wrong — so neither voting nor unanimity gives anything to act on, and
+thinking longer makes it worse.
+
+================================================================================
+PHASE 24 — the floor, and why deepening cannot reach it
+================================================================================
+
+`228 - 110` is still three digits wide, and phase 17 measured that atom as too large. So
+the rephrased question was broken down again, three ways:
+
+    the model's own question, answered whole   16/24
+    split into digit columns by the record     10/24   (8 of 24 had columns)
+    the model splits it again as JSON           3/24
+
+Deepening does not help, and the reason is the floor itself: asked to subtract two single
+digits, the model answered `2 - 1` with 2. `8 - 0`, `5 - 0` and `9 - 3` are all correct,
+so it is not the prompt. There is no smaller atom to break a single-digit subtraction
+into, and no record can supply one.
+
+A measurement caveat that applies to every number in this file: the same prompt at
+temperature zero gave 19/24 in phase 23 and 16/24 here. Metal reductions are not
+deterministic, so single runs carry roughly +/-3 of run-to-run variation and only the
+larger gaps mean anything.
+
+================================================================================
+PHASE 25 — free-text editing is not a reversible operation
+================================================================================
+
+Arithmetic keeps hitting a floor nothing can lift, but the residue rule never needed
+arithmetic — it needs an operation that undoes. Cutting a span of text out and naming it
+looked ideal: "The fox is big" becomes "The A is big" with A = "fox", and pasting back
+must give the original characters.
+
+    produced a substitution        16/16
+    and it pastes back exactly      5/16
+    restored the original itself    8/16
+
+It always answers and it usually corrupts. "The old bridge crosses the river" came back
+as "The Aa crosses the Riva"; "She left her umbrella on the train" as "She Aave her
+Ambrella on the Aain". Copying is not free for a 1B model, so an operation defined as
+"emit the edited text" cannot be made reversible by checking it — it just fails the check.

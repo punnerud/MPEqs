@@ -1,0 +1,22 @@
+{
+  "prose": {
+    "norwegian": 61.7,
+    "python": 42.6,
+    "c": 39.8
+  },
+  "norwegian": {
+    "python": 48.8,
+    "c": 50.6
+  },
+  "python": {
+    "c": 83.2
+  },
+  "gini": {
+    "prose": 0.318,
+    "norwegian": 0.55,
+    "python": 0.586,
+    "c": 0.59
+  },
+  "chance_overlap_pct": 50.0,
+  "note": "corrected moetrace; the artefact trace gave 93.8 % everywhere and gini 0.000"
+}

@@ -1,0 +1,136 @@
+arch=olmoe  top-k=8  chunks=24  ctx=512
+== reference logits from the unmodified model ==
+wrote data/kl-base.dat (592M)
+== k=1 ==
+Mean PPL(Q)                   : 1371.288555 ±  89.287536
+Mean PPL(Q)/PPL(base)         : 143.962620 ±   8.931667
+Mean    KLD:   5.915389 ±   0.052229
+Median  KLD:   5.506057
+== k=2 ==
+Mean PPL(Q)                   :  41.852141 ±   2.191082
+Mean PPL(Q)/PPL(base)         :   4.393783 ±   0.160868
+Mean    KLD:   2.051274 ±   0.029291
+Median  KLD:   1.366074
+== k=3 ==
+Mean PPL(Q)                   :  18.499968 ±   0.871552
+Mean PPL(Q)/PPL(base)         :   1.942191 ±   0.047331
+Mean    KLD:   1.007673 ±   0.017653
+Median  KLD:   0.500711
+== k=4 ==
+Mean PPL(Q)                   :  13.568199 ±   0.608109
+Mean PPL(Q)/PPL(base)         :   1.424437 ±   0.025193
+Mean    KLD:   0.549360 ±   0.010992
+Median  KLD:   0.221354
+== k=5 ==
+Mean PPL(Q)                   :  11.346717 ±   0.490196
+Mean PPL(Q)/PPL(base)         :   1.191218 ±   0.015105
+Mean    KLD:   0.278986 ±   0.006547
+Median  KLD:   0.101230
+== k=6 ==
+Mean PPL(Q)                   :  10.322418 ±   0.433809
+Mean PPL(Q)/PPL(base)         :   1.083683 ±   0.009913
+Mean    KLD:   0.138548 ±   0.004663
+Median  KLD:   0.045468
+== k=7 ==
+Mean PPL(Q)                   :   9.857927 ±   0.408490
+Mean PPL(Q)/PPL(base)         :   1.034919 ±   0.006136
+Mean    KLD:   0.057084 ±   0.001616
+Median  KLD:   0.017634
+== k=8 ==
+Mean PPL(Q)                   :   9.573138 ±   0.391539
+Mean PPL(Q)/PPL(base)         :   1.005021 ±   0.001913
+Mean    KLD:  -0.000000 ±   0.000000
+Median  KLD:  -0.000000
+//   k   fetches       PPL   PPL ratio   mean KLD  median KLD   p99 KLD  same top
+//   1       12%  1371.289    143.9626     5.9154     5.50606    16.521    19.07%
+//   2       25%    41.852      4.3938     2.0513     1.36607     9.844    50.10%
+//   3       38%    18.500      1.9422     1.0077     0.50071     6.230    63.99%
+//   4       50%    13.568      1.4244     0.5494     0.22135     3.827    72.27%
+//   5       62%    11.347      1.1912     0.2790     0.10123     2.144    79.95%
+//   6       75%    10.322      1.0837     0.1385     0.04547     1.184    84.74%
+//   7       88%     9.858      1.0349     0.0571     0.01763     0.558    90.18%
+//   8      100%     9.573      1.0050    -0.0000    -0.00000     0.000   100.00%
+
+[
+  {
+    "k": 1,
+    "fetch_reduction_pct": 87.5,
+    "mean_kld": 5.915389,
+    "median_kld": 5.506057,
+    "p99_kld": 16.521206,
+    "ppl_ratio": 143.96262,
+    "ppl": 1371.288555,
+    "same_top_pct": 19.069
+  },
+  {
+    "k": 2,
+    "fetch_reduction_pct": 75.0,
+    "mean_kld": 2.051274,
+    "median_kld": 1.366074,
+    "p99_kld": 9.843987,
+    "ppl_ratio": 4.393783,
+    "ppl": 41.852141,
+    "same_top_pct": 50.098
+  },
+  {
+    "k": 3,
+    "fetch_reduction_pct": 62.5,
+    "mean_kld": 1.007673,
+    "median_kld": 0.500711,
+    "p99_kld": 6.229786,
+    "ppl_ratio": 1.942191,
+    "ppl": 18.499968,
+    "same_top_pct": 63.987
+  },
+  {
+    "k": 4,
+    "fetch_reduction_pct": 50.0,
+    "mean_kld": 0.54936,
+    "median_kld": 0.221354,
+    "p99_kld": 3.826715,
+    "ppl_ratio": 1.424437,
+    "ppl": 13.568199,
+    "same_top_pct": 72.271
+  },
+  {
+    "k": 5,
+    "fetch_reduction_pct": 37.5,
+    "mean_kld": 0.278986,
+    "median_kld": 0.10123,
+    "p99_kld": 2.143574,
+    "ppl_ratio": 1.191218,
+    "ppl": 11.346717,
+    "same_top_pct": 79.951
+  },
+  {
+    "k": 6,
+    "fetch_reduction_pct": 25.0,
+    "mean_kld": 0.138548,
+    "median_kld": 0.045468,
+    "p99_kld": 1.183701,
+    "ppl_ratio": 1.083683,
+    "ppl": 10.322418,
+    "same_top_pct": 84.739
+  },
+  {
+    "k": 7,
+    "fetch_reduction_pct": 12.5,
+    "mean_kld": 0.057084,
+    "median_kld": 0.017634,
+    "p99_kld": 0.558084,
+    "ppl_ratio": 1.034919,
+    "ppl": 9.857927,
+    "same_top_pct": 90.18
+  },
+  {
+    "k": 8,
+    "fetch_reduction_pct": 0.0,
+    "mean_kld": -0.0,
+    "median_kld": -0.0,
+    "p99_kld": 3.7e-05,
+    "ppl_ratio": 1.005021,
+    "ppl": 9.573138,
+    "same_top_pct": 100.0
+  }
+]
+wrote data/kfrontier.json
