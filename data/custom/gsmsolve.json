@@ -1,0 +1,547 @@
+{
+  "n": 30,
+  "solo": 28,
+  "m35_parsed": 29,
+  "m35_ran": 26,
+  "m35_exact": 21,
+  "m35_wrong": 5,
+  "m1b_parsed": 16,
+  "m1b_ran": 3,
+  "m1b_exact": 1,
+  "m1b_wrong": 2,
+  "m35_echo_clean": 16,
+  "m35_gated_right": 15,
+  "m35_gated_wrong": 1,
+  "m35_gated_flag": 10,
+  "agree_solo_mpeqs": 22,
+  "agree_and_right": 21,
+  "shape_repairs": 3,
+  "repairs": [
+    [
+      "search",
+      "arith"
+    ],
+    [
+      "linear_system",
+      "arith"
+    ],
+    [
+      "search",
+      "arith"
+    ]
+  ],
+  "rows": [
+    {
+      "truth": "27",
+      "solo": "27",
+      "solo_ok": true,
+      "m35": "27",
+      "m35_spec": {
+        "solver": "arith",
+        "let": {
+          "morisette_apples": 5,
+          "morisette_oranges": 8,
+          "kael_apples": "morisette_apples * 2",
+          "kael_oranges": "morisette_oranges / 2",
+          "total_fruits": "morisette_apples + morisette_oranges + kael_apples + kael_oranges"
+        },
+        "answer": "total_fruits"
+      },
+      "m1b": "19 != 27",
+      "m1b_spec": {
+        "solver": "search",
+        "let": {
+          "total_apples": "5 + (2 * 5)",
+          "total_oranges": "8 / 2"
+        },
+        "answer": "total_apples + total_oranges"
+      }
+    },
+    {
+      "truth": "1300",
+      "solo": "1300",
+      "solo_ok": true,
+      "m35": "1300",
+      "m35_spec": {
+        "solver": "arith",
+        "let": {
+          "current_year_sales": 45,
+          "first_year_sales": "2 * current_year_sales",
+          "total_books": 250,
+          "unsold_books": 50,
+          "total_sold": "total_books - unsold_books",
+          "second_year_sales": "total_sold - first_year_sales - current_year_sales",
+          "price_per_book": 20,
+          "second_year_earnings": "second_year_sales * price_per_book"
+        },
+        "answer": "second_year_earnings"
+      },
+      "m1b": "no spec"
+    },
+    {
+      "truth": "40",
+      "solo": "40",
+      "solo_ok": true,
+      "m35": "40",
+      "m35_spec": {
+        "solver": "arith",
+        "let": {
+          "current_sum": "20"
+        },
+        "answer": "current_sum + 10 * 2"
+      },
+      "m1b": "refused: error: KeyError: 'domain'"
+    },
+    {
+      "truth": "48",
+      "solo": "48",
+      "solo_ok": true,
+      "m35": "48",
+      "m35_spec": {
+        "solver": "arith",
+        "let": {
+          "teams_per_school": 2,
+          "players_per_team": 5,
+          "coaches_per_team": 1,
+          "people_per_team": "players_per_team + coaches_per_team",
+          "people_per_school": "teams_per_school * people_per_team",
+          "total_people": "4 * people_per_school"
+        },
+        "answer": "total_people"
+      },
+      "m1b": "no spec"
+    },
+    {
+      "truth": "34",
+      "solo": "34",
+      "solo_ok": true,
+      "m35": "34",
+      "m35_spec": {
+        "solver": "arith",
+        "let": {
+          "tickets_cost": 20.25,
+          "food_cost": "tickets_cost - 4.50",
+          "rides_cost": "2 * 33",
+          "total_cost": "tickets_cost + food_cost + rides_cost"
+        },
+        "answer": "total_cost / 3"
+      },
+      "m1b": "34",
+      "m1b_spec": {
+        "solver": "linear_system",
+        "let": {
+          "total_tickets_cost": "20.25",
+          "total_food_cost": "total_tickets_cost - 4.50",
+          "num_rides": 2,
+          "cost_per_ride": "33",
+          "total_cost": "total_tickets_cost + total_food_cost + (num_rides * cost_per_ride)"
+        },
+        "answer": "total_cost / 3"
+      }
+    },
+    {
+      "truth": "8",
+      "solo": "8",
+      "solo_ok": true,
+      "m35": "8",
+      "m35_spec": {
+        "solver": "arith",
+        "let": {
+          "extra_arms": "15 / 3",
+          "extra_legs": "15 / 5",
+          "total_limbs": "extra_arms + extra_legs"
+        },
+        "answer": "total_limbs"
+      },
+      "m1b": "refused: error: KeyError: 'domain'"
+    },
+    {
+      "truth": "3",
+      "solo": "3",
+      "solo_ok": true,
+      "m35": "3",
+      "m35_spec": {
+        "solver": "arith",
+        "let": {
+          "remaining_pens": "5 - 2",
+          "letters_per_week": "remaining_pens * 2",
+          "total_pages": "letters_per_week * 5",
+          "minutes_spent": "total_pages * 6",
+          "hours_spent": "minutes_spent / 60"
+        },
+        "answer": "hours_spent"
+      },
+      "m1b": "refused: error: KeyError: 'domain'"
+    },
+    {
+      "truth": "8",
+      "solo": "8",
+      "solo_ok": true,
+      "m35": "7 != 8",
+      "m35_spec": {
+        "solver": "arith",
+        "let": {
+          "total_initial": "25 + 15",
+          "people_left": "total_initial / 4",
+          "men_left": "22",
+          "men_initial": "25",
+          "men_left_calc": "men_initial - men_left",
+          "women_left_calc": "people_left - men_left_calc"
+        },
+        "answer": "women_left_calc"
+      },
+      "m1b": "no spec"
+    },
+    {
+      "truth": "55",
+      "solo": "55",
+      "solo_ok": true,
+      "m35": "55",
+      "m35_spec": {
+        "solver": "arith",
+        "let": {
+          "weekend_sold": 20,
+          "tuesday_sold": 15,
+          "wednesday_sold": 12,
+          "thursday_sold": 18,
+          "total_sold": "weekend_sold + tuesday_sold + wednesday_sold + thursday_sold",
+          "target": 120,
+          "off": "target - total_sold"
+        },
+        "answer": "off"
+      },
+      "m1b": "no spec"
+    },
+    {
+      "truth": "70",
+      "solo": "70",
+      "solo_ok": true,
+      "m35": "['70', '40'] != 70",
+      "m35_spec": {
+        "solver": "linear_system",
+        "rows": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            -1
+          ]
+        ],
+        "rhs": [
+          110,
+          30
+        ]
+      },
+      "m1b": "refused: error: KeyError: 'domain'"
+    },
+    {
+      "truth": "2050",
+      "solo": "2050",
+      "solo_ok": true,
+      "m35": "2050",
+      "m35_spec": {
+        "solver": "arith",
+        "let": {
+          "suit_cost": "100",
+          "total_suits": "6 * suit_cost",
+          "total_suitcases": "3 * 50",
+          "ticket_cost": "5 * suit_cost + 700",
+          "total_expenses": "total_suits + total_suitcases + ticket_cost",
+          "remaining_budget": "6000 - 2000",
+          "gifts_budget": "remaining_budget - total_expenses"
+        },
+        "answer": "gifts_budget"
+      },
+      "m1b": "no spec"
+    },
+    {
+      "truth": "260",
+      "solo": "260",
+      "solo_ok": true,
+      "m35": "refused: refused: unknown variable 'charsto",
+      "m1b": "no spec"
+    },
+    {
+      "truth": "21",
+      "solo": "21",
+      "solo_ok": true,
+      "m35": "21",
+      "m35_spec": {
+        "solver": "arith",
+        "let": {
+          "john": 54,
+          "robert": "john / 2",
+          "james": "robert + 6"
+        },
+        "answer": "john - james"
+      },
+      "m1b": "refused: error: KeyError: 'domain'"
+    },
+    {
+      "truth": "60",
+      "solo": "60",
+      "solo_ok": true,
+      "m35": "60",
+      "m35_spec": {
+        "solver": "arith",
+        "let": {
+          "pam_coaster": 2,
+          "fred_coaster": 4,
+          "pam_luge": 2,
+          "fred_luge": 2,
+          "total_rides": "pam_coaster + fred_coaster + pam_luge + fred_luge",
+          "cost_per_ride": 6
+        },
+        "answer": "total_rides * cost_per_ride"
+      },
+      "m1b": "no spec"
+    },
+    {
+      "truth": "195",
+      "solo": "195",
+      "solo_ok": true,
+      "m35": "195",
+      "m35_spec": {
+        "solver": "arith",
+        "let": {
+          "total_people": "12 + 3 + 12 * 2",
+          "pizzas_needed": "total_people / 3"
+        },
+        "answer": "pizzas_needed * 15"
+      },
+      "m1b": "no spec"
+    },
+    {
+      "truth": "95200",
+      "solo": "30769",
+      "solo_ok": false,
+      "m35": "6808514310459077/68719476736 != 95200",
+      "m35_spec": {
+        "solver": "arith",
+        "let": {
+          "adrien_old": 40000,
+          "lylah_old": "adrien_old / 1.3",
+          "adrien_new": "adrien_old * 1.4",
+          "lylah_new": "lylah_old * 1.4"
+        },
+        "answer": "adrien_new + lylah_new"
+      },
+      "m1b": "refused: error: KeyError: 'domain'"
+    },
+    {
+      "truth": "5",
+      "solo": "5",
+      "solo_ok": true,
+      "m35": "5",
+      "m35_spec": {
+        "solver": "arith",
+        "let": {
+          "total_cars": 30,
+          "exit_cars": 5,
+          "jam_cars": "total_cars - exit_cars",
+          "second_half": 20
+        },
+        "answer": "jam_cars - second_half"
+      },
+      "m1b": "no spec"
+    },
+    {
+      "truth": "19",
+      "solo": "19",
+      "solo_ok": true,
+      "m35": "19",
+      "m35_spec": {
+        "solver": "arith",
+        "let": {
+          "mask_refusers": 3,
+          "shoplifters": "4 * mask_refusers - 5",
+          "violence": "3 * shoplifters"
+        },
+        "answer": "50 - mask_refusers - shoplifters - violence"
+      },
+      "m1b": "refused: error: KeyError: 'domain'"
+    },
+    {
+      "truth": "9",
+      "solo": "9",
+      "solo_ok": true,
+      "m35": "refused: refused: bad step name 'A_cards'",
+      "m1b": "refused: error: KeyError: 'domain'"
+    },
+    {
+      "truth": "2450",
+      "solo": "2450",
+      "solo_ok": true,
+      "m35": "2450",
+      "m35_spec": {
+        "solver": "arith",
+        "let": {
+          "mamba_spots": "70 / 2",
+          "total_spots": "40 * 70 + 60 * mamba_spots"
+        },
+        "answer": "total_spots / 2"
+      },
+      "m1b": "105 != 2450",
+      "m1b_spec": {
+        "solver": "search",
+        "let": {
+          "cobra_spots": "2 * 70",
+          "mamba_spots": 70,
+          "total_spots": "cobra_spots + mamba_spots",
+          "half_total_spots": "total_spots / 2",
+          "combined_snakes": "40 + 60"
+        },
+        "answer": "half_total_spots"
+      }
+    },
+    {
+      "truth": "250",
+      "solo": "250",
+      "solo_ok": true,
+      "m35": "250",
+      "m35_spec": {
+        "solver": "arith",
+        "let": {
+          "total_minutes": 1000,
+          "boss_calls": "15 * 30",
+          "other_calls": 300
+        },
+        "answer": "total_minutes - boss_calls - other_calls"
+      },
+      "m1b": "refused: error: KeyError: 'domain'"
+    },
+    {
+      "truth": "31",
+      "solo": "31",
+      "solo_ok": true,
+      "m35": "31",
+      "m35_spec": {
+        "solver": "arith",
+        "let": {
+          "sandwich_slices": "2 * 7",
+          "omelet_slices": "(2 + 1) * 3",
+          "macaroni_slices": "8"
+        },
+        "answer": "sandwich_slices + omelet_slices + macaroni_slices"
+      },
+      "m1b": "no spec"
+    },
+    {
+      "truth": "31",
+      "solo": "31",
+      "solo_ok": true,
+      "m35": "31",
+      "m35_spec": {
+        "solver": "arith",
+        "let": {
+          "initial": 24,
+          "after_first_eat": "initial - 2",
+          "given_away": 14,
+          "after_giving": "after_first_eat - given_away",
+          "bought": "given_away * 2",
+          "after_buying": "after_giving + bought",
+          "after_night_eat": "after_buying - 3",
+          "after_morning_eat": "after_night_eat - 2"
+        },
+        "answer": "after_morning_eat"
+      },
+      "m1b": "refused: error: KeyError: 'domain'"
+    },
+    {
+      "truth": "100",
+      "solo": "100",
+      "solo_ok": true,
+      "m35": "100",
+      "m35_spec": {
+        "solver": "arith",
+        "let": {
+          "sarah": 400,
+          "raymond": "sarah / 2",
+          "david": "sarah / 4"
+        },
+        "answer": "raymond - david"
+      },
+      "m1b": "refused: error: KeyError: 'domain'"
+    },
+    {
+      "truth": "4",
+      "solo": "4",
+      "solo_ok": true,
+      "m35": "4",
+      "m35_spec": {
+        "solver": "arith",
+        "let": {
+          "initial_vehicles": "2 * 5"
+        },
+        "answer": "(30 - initial_vehicles) / 5"
+      },
+      "m1b": "refused: error: KeyError: 'domain'"
+    },
+    {
+      "truth": "224000",
+      "solo": "224000",
+      "solo_ok": true,
+      "m35": "31525197391593471875/140737488355328 != 224000",
+      "m35_spec": {
+        "solver": "arith",
+        "let": {
+          "total_employees": 100,
+          "junior_fraction": "2/5",
+          "junior_count": "total_employees * junior_fraction",
+          "junior_salary": 2000,
+          "senior_salary": "junior_salary + 400",
+          "senior_count": "total_employees - junior_count"
+        },
+        "answer": "junior_count * junior_salary + senior_count * senior_salary"
+      },
+      "m1b": "no spec"
+    },
+    {
+      "truth": "91",
+      "solo": "51",
+      "solo_ok": false,
+      "m35": "51 != 91",
+      "m35_spec": {
+        "solver": "arith",
+        "let": {
+          "warm_up_time": 20,
+          "additional_time": "warm_up_time * 0.4",
+          "total_warm_up": "warm_up_time + additional_time",
+          "cook_time": "total_warm_up - 5"
+        },
+        "answer": "total_warm_up + cook_time"
+      },
+      "m1b": "no spec"
+    },
+    {
+      "truth": "7500",
+      "solo": "7500",
+      "solo_ok": true,
+      "m35": "refused: refused: bad step name 'sentences_",
+      "m1b": "refused: error: KeyError: 'domain'"
+    },
+    {
+      "truth": "21",
+      "solo": "21",
+      "solo_ok": true,
+      "m35": "21",
+      "m35_spec": {
+        "solver": "arith",
+        "let": {
+          "total": "23 + 42"
+        },
+        "answer": "total - 44"
+      },
+      "m1b": "no spec"
+    },
+    {
+      "truth": "160",
+      "solo": "160",
+      "solo_ok": true,
+      "m35": "no spec",
+      "m1b": "no spec"
+    }
+  ]
+}

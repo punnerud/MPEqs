@@ -1,10 +1,11 @@
 {
-  "cases": 15,
-  "passed": 15,
+  "shape_repairs": 1,
+  "cases": 18,
+  "passed": 18,
   "failed": 0,
-  "refusals": 6,
-  "refusals_named": 6,
-  "solvers_total": 19,
+  "refusals": 8,
+  "refusals_named": 8,
+  "solvers_total": 20,
   "expr_funcs": 14,
   "rows": [
     {
@@ -104,6 +105,27 @@
       "got": "4",
       "truth": "4",
       "why": "ok"
+    },
+    {
+      "solver": "arith",
+      "ok": true,
+      "got": "31/2",
+      "truth": "31/2",
+      "why": "ok"
+    },
+    {
+      "solver": "arith",
+      "ok": true,
+      "got": "75",
+      "truth": "75",
+      "why": "ok"
+    },
+    {
+      "solver": "search",
+      "ok": true,
+      "got": "19",
+      "truth": "19",
+      "why": "ok (shape repaired 'search' -> 'arith')"
     },
     {
       "solver": "crt",

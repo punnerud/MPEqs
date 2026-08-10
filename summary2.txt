@@ -1496,3 +1496,51 @@ Four findings, all uncomfortable in the useful way:
 
 Also measured, no model calls: 29 of 30 PLANTED mis-mappings caught (right numbers,
 wrong machine), 12 of them by echo alone.
+
+================================================================================
+PHASE 98 — MPEqs on GSM8K: the arith solver, shape over name, and an honest loss
+================================================================================
+
+Two additions first, both forced by evidence rather than taste:
+
+  ARITH. Word problems are a handful of quantities combined in a few steps, and the
+  library had no machine for that — phase 45's plan graph, reborn as a library member:
+  named steps, each an expression over the problem's numbers and earlier steps, all
+  evaluated exactly in Fractions inside the same AST sandbox that guards multisearch.
+  Library now 20 solvers; 18/18 self-tests exact, 8/8 refusals named.
+
+  SHAPE DISPOSES OVER NAME. The 1B immediately wrote a perfect arith body under the
+  name "search". Phase 91's law one level up: when the NAMED solver fails, the SLOTS
+  are allowed to say which machine this is, the repair is attempted, and every repair
+  is COUNTED rather than performed silently. Fired 3 times in the run below, all
+  ('search'|'linear_system') -> 'arith'.
+
+THIRTY GSM8K PROBLEMS, THREE ARMS:
+
+    SOLO-35B    28/30 — the model simply answers
+    MPEqs-35B   spec parsed 29, ran 26 -> 21 exact, 5 wrong
+    MPEqs-1B    spec parsed 16, ran 3 -> 1 exact
+
+ROUTING THROUGH EXACT MACHINERY LOSES HERE, 21 AGAINST 28, AND THAT IS THE RESULT.
+Grade-school arithmetic is something a 35B already does well; forcing it through a spec
+adds mapping errors without removing any error that was there. The machinery pays where
+the model is weak — exact fractions, unit routing, long searches, reversibility,
+memory — and this is the measurement that says where that is NOT.
+
+THE 1B RESULT IS THE SAME LAW AS PHASE 84. It produces JSON-shaped text (16 of 30
+parsed) that is almost never a valid spec (3 ran). Making the task mechanical does not
+help a model that cannot follow the mechanism; the floor is instruction-following, not
+arithmetic.
+
+WHAT DOES HELP IS CROSS-KIND AGREEMENT. Solo answering and spec-and-execute are two
+DIFFERENT KINDS of work, not two phrasings, and gating on their agreement behaves
+accordingly:
+
+    echo alone            delivered 16, right 15, WRONG 1   precision 0.94
+    agrees with solo      delivered 22, right 21, WRONG 1   precision 0.95
+    both                  delivered 15, right 15, WRONG 0   precision 1.00
+
+Against phase 89, where two PHRASINGS of the same kind of work agreed on the same
+wrong number twice in three deliveries. The rule this study keeps re-deriving: what
+makes agreement worth anything is that the two roads are different KINDS, and the
+cheapest mechanical check is worth more than another opinion.

@@ -25,6 +25,7 @@ Four additions, each self-tested against truths written first:
 import ast
 import json
 import math
+import re
 import sys
 from fractions import Fraction as F
 from itertools import combinations
@@ -287,7 +288,43 @@ def solve_modular(spec):
     raise Refusal(f"unknown modular kind {kind!r}")
 
 
+def solve_arith(spec):
+    """Named arithmetic steps over the problem's numbers — phase 45's plan graph, now a
+    library member with the expression sandbox around it.
+
+    Word problems are mostly this: a handful of quantities combined in a few steps. The
+    model writes the steps, never their results; the record evaluates each one exactly
+    in Fractions, in order, with every earlier step available as a variable, and the
+    same AST whitelist that guards multisearch guards these.
+    """
+    lets = spec.get("let", {})
+    if not isinstance(lets, dict):
+        raise Refusal("let must be an object of name -> expression")
+    if len(lets) > 30:
+        raise Refusal("too many steps")
+    env, order = {}, []
+    for name, src in lets.items():
+        if not re.fullmatch(r"[a-z_][a-z0-9_]*", str(name)):
+            raise Refusal(f"bad step name {name!r}")
+        code, _ = compile_expr(str(src), set(env))     # only EARLIER steps may be used
+        try:
+            env[name] = F(eval_expr(code, dict(env)))
+        except ZeroDivisionError:
+            raise Refusal(f"step {name} divides by zero") from None
+        order.append(name)
+    ans_src = spec.get("answer")
+    if ans_src is None:
+        if not order:
+            raise Refusal("no steps and no answer expression")
+        value = env[order[-1]]
+    else:
+        code, _ = compile_expr(str(ans_src), set(env))
+        value = F(eval_expr(code, dict(env)))
+    return {"value": str(value), "steps": {k: str(v) for k, v in env.items()}}
+
+
 SOLVERS2 = {
+    "arith": solve_arith,
     "multisearch": solve_multisearch,
     "polynomial": solve_polynomial,
     "geometry": solve_geometry,
@@ -295,6 +332,8 @@ SOLVERS2 = {
 }
 
 WORDINGS2 = {
+    "arith": ["work out the total step by step", "combine the given amounts",
+              "how much is left after the costs"],
     "multisearch": ["how many pairs of integers satisfy the equation",
                     "count the ordered triples with a given property",
                     "find all pairs a and b with a condition relating them"],
@@ -309,20 +348,69 @@ WORDINGS2 = {
 }
 
 
-def run2(spec):
-    """Dispatch across BOTH libraries — phase 92's and this one's."""
-    from solvers import run as run1
-    name = spec.get("solver")
-    if name in SOLVERS2:
-        try:
-            return SOLVERS2[name](spec), "ok"
-        except Refusal as e:
-            return None, f"refused: {e}"
-        except RecursionError:
-            return None, "refused: recursion too deep"
-        except Exception as e:  # noqa: BLE001
-            return None, f"error: {type(e).__name__}: {str(e)[:70]}"
-    return run1(spec)
+# Which slots identify which machine. Phase 91 measured that a typed shape should
+# dispose over a lexical choice; a spec is the same situation one level up, and the
+# 1B demonstrated it immediately by writing a perfect arith body under the name
+# "search". Shape dispatch is tried ONLY after the named solver fails, and every
+# repair is counted rather than performed silently.
+SHAPE_KEYS = [
+    ({"let"}, "arith"), ({"answer"}, "arith"),
+    ({"variables"}, "multisearch"),
+    ({"residues"}, "crt"), ({"moduli"}, "crt"),
+    ({"rows"}, "linear_system"), ({"rhs"}, "linear_system"),
+    ({"coefficients", "initial"}, "recurrence"),
+    ({"coefficients"}, "polynomial"),
+    ({"times"}, "rate_work"),
+    ({"total", "ratio"}, "ratio_split"),
+    ({"quantities", "concentrations"}, "mixture"),
+    ({"principal"}, "interest"),
+    ({"base"}, "base_convert"),
+    ({"points"}, "geometry"), ({"line1"}, "geometry"),
+    ({"domain"}, "search"),
+    ({"values"}, "gcd_lcm"),
+    ({"modulus"}, "modular"),
+    ({"a", "b", "c"}, "quadratic"),
+]
+REPAIRS = {"count": 0, "by": []}
+
+
+def dispatch_by_shape(spec):
+    keys = set(spec) - {"solver"}
+    for need, name in SHAPE_KEYS:
+        if need <= keys and name != spec.get("solver"):
+            return name
+    return None
+
+
+def _call(name, spec):
+    from solvers import SOLVERS as SOLVERS1
+    fn = SOLVERS2.get(name) or SOLVERS1.get(name)
+    if fn is None:
+        return None, f"unknown solver {name!r}"
+    try:
+        return fn(spec), "ok"
+    except Refusal as e:
+        return None, f"refused: {e}"
+    except RecursionError:
+        return None, "refused: recursion too deep"
+    except Exception as e:  # noqa: BLE001
+        return None, f"error: {type(e).__name__}: {str(e)[:70]}"
+
+
+def run2(spec, repair=True):
+    """Dispatch across BOTH libraries; if the NAME fails, let the SHAPE speak."""
+    res, why = _call(spec.get("solver"), spec)
+    if res is not None or not repair:
+        return res, why
+    alt = dispatch_by_shape(spec)
+    if alt is None:
+        return res, why
+    res2, why2 = _call(alt, spec)
+    if res2 is None:
+        return res, why
+    REPAIRS["count"] += 1
+    REPAIRS["by"].append((spec.get("solver"), alt))
+    return res2, f"ok (shape repaired {spec.get('solver')!r} -> {alt!r})"
 
 
 # ---------------------------------------------------------------- self-tests
@@ -367,6 +455,14 @@ CASES = [
     ({"solver": "modular", "kind": "order", "a": 2, "modulus": 7}, 3),
     ({"solver": "modular", "kind": "totient", "n": 36}, 12),
     ({"solver": "modular", "kind": "inverse", "a": 3, "modulus": 11}, 4),
+    # arith: 3 crates of 12 minus 5 broken, split between 2 shops -> (36-5)/2 = 31/2
+    ({"solver": "arith", "let": {"total": "3*12", "left": "total - 5"},
+      "answer": "left / 2"}, "31/2"),
+    ({"solver": "arith", "let": {"a": "15 + 27", "b": "a * 2", "c": "b - 9"}},
+     "75"),
+    # The 1B's actual failure mode: a perfect arith body under the name "search".
+    ({"solver": "search", "let": {"a": "5 + (2 * 5)", "b": "8 / 2"},
+      "answer": "a + b"}, "19"),
     # And the old library must still answer through the joint dispatcher.
     ({"solver": "crt", "residues": [2, 3, 2], "moduli": [3, 5, 7]}, 23),
 ]
@@ -385,6 +481,8 @@ REFUSALS = [
       "conditions": ["a ** a == 4"]}, "exponent must be a literal"),
     ({"solver": "geometry", "kind": "circle_through",
       "points": [[0, 0], [1, 1], [2, 2]]}, "collinear"),
+    ({"solver": "arith", "let": {"a": "1", "b": "c + 1"}}, "unknown variable"),
+    ({"solver": "arith", "let": {"a": "5 / 0"}}, "divides by zero"),
 ]
 
 
@@ -415,6 +513,8 @@ def main(out="data/custom/solvers2.json"):
         print(f"{spec['solver']:<13} {'refused' if good else 'MISSED '} [{why[:56]}]")
 
     total_solvers = len(SOLVERS2) + 15
+    print(f"\nshape repaired a mis-named spec {REPAIRS['count']} times: "
+          f"{REPAIRS['by']}")
     print(f"\n{passed}/{len(CASES)} cases exact, {ref_ok}/{len(REFUSALS)} refusals "
           f"named (three of them attempted escapes from the expression sandbox)")
     print(f"library now {total_solvers} solvers; expressions admit "
@@ -423,7 +523,8 @@ def main(out="data/custom/solvers2.json"):
     print("list can only meet problems someone foresaw, while a vetted arithmetic")
     print("string meets the ones nobody did — and the same AST discipline that made")
     print("model-written checks safe makes model-written constraints safe.")
-    summary = {"cases": len(CASES), "passed": passed, "failed": failed,
+    summary = {"shape_repairs": REPAIRS["count"],
+               "cases": len(CASES), "passed": passed, "failed": failed,
                "refusals": len(REFUSALS), "refusals_named": ref_ok,
                "solvers_total": total_solvers, "expr_funcs": len(EXPR_FUNCS),
                "rows": rows}
