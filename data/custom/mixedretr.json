@@ -1,0 +1,298 @@
+{
+  "n": 27,
+  "solver_lines": 25,
+  "solo": 7,
+  "mpeqs": 25,
+  "parsed": 26,
+  "ran": 25,
+  "wrong": 0,
+  "retrieval_hit": 26,
+  "byfam": {
+    "fractions": [
+      3,
+      0,
+      2
+    ],
+    "big": [
+      3,
+      0,
+      2
+    ],
+    "count": [
+      3,
+      0,
+      3
+    ],
+    "divisors": [
+      3,
+      0,
+      3
+    ],
+    "probability": [
+      3,
+      1,
+      3
+    ],
+    "convert": [
+      3,
+      0,
+      3
+    ],
+    "statistics": [
+      3,
+      3,
+      3
+    ],
+    "datetime": [
+      3,
+      1,
+      3
+    ],
+    "finance": [
+      3,
+      2,
+      3
+    ]
+  },
+  "mixed_baseline": 20,
+  "focused": {
+    "fractions": 4,
+    "big": 4,
+    "count": 4,
+    "divisors": 5,
+    "probability": 9,
+    "convert": 8,
+    "statistics": 6,
+    "datetime": 6,
+    "finance": 6
+  },
+  "focused_n": {
+    "fractions": 5,
+    "big": 5,
+    "count": 5,
+    "divisors": 5,
+    "probability": 10,
+    "convert": 10,
+    "statistics": 6,
+    "datetime": 6,
+    "finance": 6
+  },
+  "rows": [
+    {
+      "family": "fractions",
+      "truth": "3750/7",
+      "solo_ok": false,
+      "mpeqs": "3750/7",
+      "mpeqs_ok": true,
+      "solver": "iterate"
+    },
+    {
+      "family": "fractions",
+      "truth": "359318563/204073344",
+      "solo_ok": false,
+      "mpeqs": "359318563/204073344",
+      "mpeqs_ok": true,
+      "solver": "iterate"
+    },
+    {
+      "family": "fractions",
+      "truth": "41517947/97389600",
+      "solo_ok": false,
+      "mpeqs": "error: ValueError: Invalid literal f",
+      "mpeqs_ok": false,
+      "solver": "series"
+    },
+    {
+      "family": "big",
+      "truth": "493827157172839511",
+      "solo_ok": false,
+      "mpeqs": "493827157172839511",
+      "mpeqs_ok": true,
+      "solver": "arith"
+    },
+    {
+      "family": "big",
+      "truth": "134085083",
+      "solo_ok": false,
+      "mpeqs": "134085083",
+      "mpeqs_ok": true,
+      "solver": "modular"
+    },
+    {
+      "family": "big",
+      "truth": "369988485035127055642762037754464131327342307386008330396395495389638874",
+      "solo_ok": false,
+      "mpeqs": "None",
+      "mpeqs_ok": false,
+      "solver": null
+    },
+    {
+      "family": "count",
+      "truth": "2673",
+      "solo_ok": false,
+      "mpeqs": "2673",
+      "mpeqs_ok": true,
+      "solver": "search"
+    },
+    {
+      "family": "count",
+      "truth": "6995",
+      "solo_ok": false,
+      "mpeqs": "6995",
+      "mpeqs_ok": true,
+      "solver": "search"
+    },
+    {
+      "family": "count",
+      "truth": "27360342",
+      "solo_ok": false,
+      "mpeqs": "27360342",
+      "mpeqs_ok": true,
+      "solver": "search"
+    },
+    {
+      "family": "divisors",
+      "truth": "14688",
+      "solo_ok": false,
+      "mpeqs": "14688",
+      "mpeqs_ok": true,
+      "solver": "factor"
+    },
+    {
+      "family": "divisors",
+      "truth": "7864320",
+      "solo_ok": false,
+      "mpeqs": "7864320",
+      "mpeqs_ok": true,
+      "solver": "factor"
+    },
+    {
+      "family": "divisors",
+      "truth": "40",
+      "solo_ok": false,
+      "mpeqs": "40",
+      "mpeqs_ok": true,
+      "solver": "factor"
+    },
+    {
+      "family": "probability",
+      "truth": "1/9",
+      "solo_ok": true,
+      "mpeqs": "1/9",
+      "mpeqs_ok": true,
+      "solver": "probability"
+    },
+    {
+      "family": "probability",
+      "truth": "1/8",
+      "solo_ok": false,
+      "mpeqs": "1/8",
+      "mpeqs_ok": true,
+      "solver": "probability"
+    },
+    {
+      "family": "probability",
+      "truth": "91/144",
+      "solo_ok": false,
+      "mpeqs": "91/144",
+      "mpeqs_ok": true,
+      "solver": "probability"
+    },
+    {
+      "family": "convert",
+      "truth": "10863072/625",
+      "solo_ok": false,
+      "mpeqs": "10863072/625",
+      "mpeqs_ok": true,
+      "solver": "convert"
+    },
+    {
+      "family": "convert",
+      "truth": "312500/3429",
+      "solo_ok": false,
+      "mpeqs": "312500/3429",
+      "mpeqs_ok": true,
+      "solver": "convert"
+    },
+    {
+      "family": "convert",
+      "truth": "3312235311/125000000",
+      "solo_ok": false,
+      "mpeqs": "3312235311/125000000",
+      "mpeqs_ok": true,
+      "solver": "convert"
+    },
+    {
+      "family": "statistics",
+      "truth": "4",
+      "solo_ok": true,
+      "mpeqs": "4",
+      "mpeqs_ok": true,
+      "solver": "statistics"
+    },
+    {
+      "family": "statistics",
+      "truth": "11",
+      "solo_ok": true,
+      "mpeqs": "11",
+      "mpeqs_ok": true,
+      "solver": "statistics"
+    },
+    {
+      "family": "statistics",
+      "truth": "169/8",
+      "solo_ok": true,
+      "mpeqs": "169/8",
+      "mpeqs_ok": true,
+      "solver": "statistics"
+    },
+    {
+      "family": "datetime",
+      "truth": "61",
+      "solo_ok": true,
+      "mpeqs": "61",
+      "mpeqs_ok": true,
+      "solver": "datetime"
+    },
+    {
+      "family": "datetime",
+      "truth": "20675",
+      "solo_ok": false,
+      "mpeqs": "20675",
+      "mpeqs_ok": true,
+      "solver": "datetime"
+    },
+    {
+      "family": "datetime",
+      "truth": "367",
+      "solo_ok": false,
+      "mpeqs": "367",
+      "mpeqs_ok": true,
+      "solver": "datetime"
+    },
+    {
+      "family": "finance",
+      "truth": "96",
+      "solo_ok": true,
+      "mpeqs": "96",
+      "mpeqs_ok": true,
+      "solver": "finance"
+    },
+    {
+      "family": "finance",
+      "truth": "16767/8",
+      "solo_ok": true,
+      "mpeqs": "16767/8",
+      "mpeqs_ok": true,
+      "solver": "finance"
+    },
+    {
+      "family": "finance",
+      "truth": "1874048/3125",
+      "solo_ok": false,
+      "mpeqs": "1874048/3125",
+      "mpeqs_ok": true,
+      "solver": "finance"
+    }
+  ]
+}

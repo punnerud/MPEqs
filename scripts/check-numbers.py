@@ -1594,6 +1594,17 @@ CHECKS = [
      6.0, 0.001, "and through the record: all six"),
     ("data/custom/solvers2.json", lambda d: float(d["solvers_total"]),
      26.0, 0.001, "solvers in MPEqs after statistics, datetime and finance"),
+    # Catalogue scaling, and retrieval closing the gap.
+    ("data/custom/mixedband.json", lambda d: float(d["mpeqs"]),
+     20.0, 0.001, "mixed-class problems solved with generic examples"),
+    ("data/custom/mixedband.json", lambda d: float(d["byfam"]["fractions"][2]),
+     0.0, 0.001, "fractions with no fold example shown: the class vanished"),
+    ("data/custom/mixedretr.json", lambda d: float(d["mpeqs"]),
+     25.0, 0.001, "the same problems with retrieved exemplars"),
+    ("data/custom/mixedretr.json", lambda d: float(d["wrong"]),
+     0.0, 0.001, "wrong deliveries under retrieval: none"),
+    ("data/custom/mixedretr.json", lambda d: float(d["solo"]),
+     7.0, 0.001, "what the model alone got of the same twenty-seven"),
     # Two-sided labels on the chord metric: no better than one relay, twice the memory.
     ("data/custom/hub-corpus.json", lambda d: d["exact_cell_pct"],
      1.34, 0.7, "two-sided hub labels on the angular metric"),

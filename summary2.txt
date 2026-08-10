@@ -563,3 +563,71 @@ rate above one as a percentage, and the family went 5/6 to 6/6.
 That is a design rule with three measurements behind it: a slot must name its unit and
 lead with its distinction, because the model reads the schema literally and has nothing
 else to go on.
+
+================================================================================
+PHASE 107 — does the catalogue scale? Twenty-seven problems, nine classes
+================================================================================
+
+Every class so far was measured in its own run, with its own worked example and a
+catalogue that happened to hold the machine it needed. The deployment question is
+harder: with twenty-six solvers in the prompt and three GENERIC examples matching no
+class, can the model still pick the right machine?
+
+    twenty-seven problems, three from each of nine classes, truths pre-computed
+
+    SOLO-35B   7/27
+    MPEqs     20/27   (parsed 25, ran 23, wrong 3)
+
+    class          n  solo  mixed   focused
+    big            3     0      2       4/5
+    convert        3     0      2      8/10
+    count          3     0      3       4/5
+    datetime       3     1      3       6/6
+    divisors       3     0      3       5/5
+    finance        3     2      3       6/6
+    fractions      3     0      0       4/5
+    probability    3     1      1      9/10
+    statistics     3     3      3       6/6
+
+SIX CLASSES HOLD AT FULL RATE; TWO COLLAPSE — and they are exactly the two whose worked
+example vanished. Fractions went 4/5 to 0/3 without the fold example and probability
+9/10 to 1/3 without the probability one: the model stopped reaching for iterate and
+probability at all, though both were in the catalogue with their slots spelled out.
+
+A CATALOGUE LINE IS NOT ENOUGH FOR A MACHINE THE MODEL HAS NEVER SEEN USED. The
+schema-literacy rule of phase 106 has a companion: a schema says what the slots are, an
+example says that the machine EXISTS as a thing to reach for. The confound is declared —
+a drop here mixes catalogue size with the loss of class-matched examples — which is
+exactly why the next phase separates them.
+
+================================================================================
+PHASE 108 — retrieval closes the scaling gap: 25 of 27, and nothing wrong
+================================================================================
+
+The confound from phase 107 is removed the way phase 101 pointed to: one invented
+exemplar per class in a bank, embedded with numbers masked, the two nearest retrieved
+per problem, and everything else identical — same twenty-seven problems, same
+twenty-six-solver catalogue, same generic instruction, same model.
+
+    MIXED, generic examples      20/27   (3 wrong)
+    MIXED, retrieved exemplars   25/27   (parsed 26, ran 25, WRONG 0)
+    SOLO-35B                      7/27
+
+    the two collapsed classes recover: fractions 0/3 -> 2/3, probability 1/3 -> 3/3,
+    convert 2/3 -> 3/3, and no class loses anything
+
+Ninety-three percent, no wrong deliveries, on nine different kinds of problem the model
+alone answers correctly seven times in twenty-seven. And the recipe is now stated as
+three parts, each of which was measured separately before being combined:
+
+    A MACHINE that is exact and refuses by name              (phases 92, 95, 102, 105-6)
+    A SCHEMA LINE that names its units and leads with its
+      distinction, because the model reads it literally       (phase 106's rule)
+    AN EXEMPLAR that is RETRIEVED, not fixed, because a
+      catalogue cannot grow inside a prompt                   (phases 101, 107, 108)
+
+That is what "gradually swapping the set" turned out to mean. A library scales when
+every machine carries its own way of being addressed — and the thing that finally made
+twenty-six solvers behave like twenty-six solvers, rather than like the three the prompt
+happened to illustrate, was a 384-dimensional nearest-neighbour lookup that costs no
+model call at all.
