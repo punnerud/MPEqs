@@ -1256,3 +1256,22 @@ pipeline rather than in the weather.
 One caveat kept honest: this measures the SPEC-WRITING path, where output is short and
 structured. The long free-form arms (the solo baselines, the AIME working) are not shown
 to be as stable by this, only the mapping the whole apparatus depends on.
+
+================================================================================
+PHASE 129 — one command
+================================================================================
+
+Everything measured across thirty-eight phases, wired together in the order it was
+measured in and given a command line:
+
+    solve.py "How many days are there from 1 January 1970 to 10 August 2026?"   20675
+    solve.py "Hvor mange positive divisorer har 22 fakultet?"                   96000
+    solve.py "Solve 7/3x - 5 = 1/2x + 4 for x."                                 54/11
+
+Retrieve two exemplars, show the catalogue, one spec from the model, exact execution by
+the record, and the model's own answer only where the record refused. Exit code 2 on a
+refusal nothing rescued, so it composes with other tools; --explain prints the spec, the
+retrieved shapes and the machine's working.
+
+A study is a pile of numbers until someone can run it. This is the smallest thing that
+makes the numbers usable, and it fits on a line.

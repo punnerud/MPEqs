@@ -145,6 +145,27 @@ twenty and gets none right, never once abstaining, while mapping them onto exact
 gets seventeen. The top row is the honest counterweight: where a model can already do the
 sums, routing through machinery only adds a place to slip.
 
+### Using it
+
+```sh
+python3 experiments/loopmem/solve.py "How many days are there from 1 January 1970 to 10 August 2026?"
+20675
+
+python3 experiments/loopmem/solve.py "Hvor mange positive divisorer har 22 fakultet?"
+96000
+
+python3 experiments/loopmem/solve.py "Solve 7/3x - 5 = 1/2x + 4 for x."
+54/11
+
+python3 experiments/loopmem/solve.py --explain "..."   # the spec, the exemplars, the working
+python3 experiments/loopmem/solve.py --model olmoe-1b "..."
+```
+
+One command runs the measured policy: retrieve two exemplars for this problem, show the
+catalogue, let the model write **one spec**, execute it exactly, and fall back to the
+model's own answer only where the record **refused** — never where it answered. Exit code
+2 on a refusal nothing rescued, so it composes.
+
 ### How it works
 
 1. **Solvers** (`solvers.py`, `solvers2.py`) — 41 parameterised exact machines across 21 classes: a generic
@@ -156,7 +177,8 @@ sums, routing through machinery only adds a place to slip.
 2. **Mapping** (`solvemap.py`, `mapmemory.py`) — the model emits a typed spec, never code.
    Embeddings propose the solver from a bank of exemplar mappings; the typed shape
    disposes; the slots may overrule a wrong solver name.
-3. **Gates** (`specgate.py`, `gateablate.py`) — value echo (every literal must appear in
+3. **One command** (`solve.py`) — the policy wired together end to end.
+4. **Gates** (`specgate.py`, `gateablate.py`) — value echo (every literal must appear in
    the problem) and two-machine agreement. Measured on both sides: they make delivery
    lie-free where the risk is mapping, and they do not transfer to the arithmetic band.
 
