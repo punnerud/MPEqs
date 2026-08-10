@@ -1,0 +1,546 @@
+{
+  "n": 18,
+  "parsed": 18,
+  "roles": 72,
+  "spans_valid": 72,
+  "q": 49,
+  "q_valid": 49,
+  "nums": 58,
+  "nums_recovered": 48,
+  "reversible": 18,
+  "rows": [
+    {
+      "lang": "no",
+      "tokens": 21,
+      "story": "Hvor mange heltall fra 1 til 300000 er delelige med 19 og gi",
+      "parsed": true,
+      "roles": 4,
+      "spans_valid": 4,
+      "quantities": [
+        {
+          "role": "lower_bound",
+          "value": "1",
+          "index": 4
+        },
+        {
+          "role": "upper_bound",
+          "value": "300000",
+          "index": 6
+        },
+        {
+          "role": "divisor",
+          "value": "19",
+          "index": 10
+        },
+        {
+          "role": "remainder",
+          "value": "4",
+          "index": 14
+        }
+      ],
+      "quantities_valid": 4,
+      "numbers_in_text": 5,
+      "numbers_recovered": 4,
+      "coverage": 0.71,
+      "reversible": true,
+      "residue_tokens": 6
+    },
+    {
+      "lang": "no",
+      "tokens": 20,
+      "story": "Hva er summen av alle heltall fra 1 til 90000 som er delelig",
+      "parsed": true,
+      "roles": 4,
+      "spans_valid": 4,
+      "quantities": [
+        {
+          "role": "lower_bound",
+          "value": "1",
+          "index": 7
+        },
+        {
+          "role": "upper_bound",
+          "value": "90000",
+          "index": 9
+        },
+        {
+          "role": "modulus",
+          "value": "12",
+          "index": 14
+        },
+        {
+          "role": "target_digit_sum",
+          "value": "15",
+          "index": 18
+        }
+      ],
+      "quantities_valid": 4,
+      "numbers_in_text": 4,
+      "numbers_recovered": 4,
+      "coverage": 0.5,
+      "reversible": true,
+      "residue_tokens": 10
+    },
+    {
+      "lang": "no",
+      "tokens": 10,
+      "story": "Hvor mange heltall fra 1 til 250000 er kvadrattall?",
+      "parsed": true,
+      "roles": 3,
+      "spans_valid": 3,
+      "quantities": [
+        {
+          "role": "lower_bound",
+          "value": "1",
+          "index": 4
+        },
+        {
+          "role": "upper_bound",
+          "value": "250000",
+          "index": 6
+        }
+      ],
+      "quantities_valid": 2,
+      "numbers_in_text": 2,
+      "numbers_recovered": 2,
+      "coverage": 0.9,
+      "reversible": true,
+      "residue_tokens": 1
+    },
+    {
+      "lang": "no",
+      "tokens": 8,
+      "story": "Hvor mange positive divisorer har 22 fakultet?",
+      "parsed": true,
+      "roles": 3,
+      "spans_valid": 3,
+      "quantities": [
+        {
+          "role": "modulus",
+          "value": "22",
+          "index": 5
+        }
+      ],
+      "quantities_valid": 1,
+      "numbers_in_text": 1,
+      "numbers_recovered": 1,
+      "coverage": 0.88,
+      "reversible": true,
+      "residue_tokens": 1
+    },
+    {
+      "lang": "no",
+      "tokens": 10,
+      "story": "Hva er summen av alle positive divisorer av 277200?",
+      "parsed": true,
+      "roles": 3,
+      "spans_valid": 3,
+      "quantities": [
+        {
+          "role": "modulus",
+          "value": "277200",
+          "index": 8
+        }
+      ],
+      "quantities_valid": 1,
+      "numbers_in_text": 1,
+      "numbers_recovered": 1,
+      "coverage": 0.7,
+      "reversible": true,
+      "residue_tokens": 3
+    },
+    {
+      "lang": "no",
+      "tokens": 7,
+      "story": "Hvor mange positive divisorer har 15120?",
+      "parsed": true,
+      "roles": 3,
+      "spans_valid": 3,
+      "quantities": [
+        {
+          "role": "modulus",
+          "value": "15120",
+          "index": 5
+        }
+      ],
+      "quantities_valid": 1,
+      "numbers_in_text": 1,
+      "numbers_recovered": 1,
+      "coverage": 0.86,
+      "reversible": true,
+      "residue_tokens": 1
+    },
+    {
+      "lang": "no",
+      "tokens": 21,
+      "story": "To rettferdige terninger kastes. Hva er den eksakte sannsynl",
+      "parsed": true,
+      "roles": 3,
+      "spans_valid": 3,
+      "quantities": [
+        {
+          "role": "target_sum",
+          "value": "8",
+          "index": 14
+        }
+      ],
+      "quantities_valid": 1,
+      "numbers_in_text": 1,
+      "numbers_recovered": 1,
+      "coverage": 0.76,
+      "reversible": true,
+      "residue_tokens": 5
+    },
+    {
+      "lang": "no",
+      "tokens": 28,
+      "story": "To tall trekkes uavhengig og tilfeldig fra 1 til 10. Hva er ",
+      "parsed": true,
+      "roles": 4,
+      "spans_valid": 4,
+      "quantities": [
+        {
+          "role": "lower_bound",
+          "value": "1",
+          "index": 7
+        },
+        {
+          "role": "upper_bound",
+          "value": "10",
+          "index": 9
+        }
+      ],
+      "quantities_valid": 2,
+      "numbers_in_text": 2,
+      "numbers_recovered": 2,
+      "coverage": 0.61,
+      "reversible": true,
+      "residue_tokens": 11
+    },
+    {
+      "lang": "no",
+      "tokens": 27,
+      "story": "Tre tall trekkes uavhengig og tilfeldig fra 1 til 3. Hva er ",
+      "parsed": true,
+      "roles": 3,
+      "spans_valid": 3,
+      "quantities": [
+        {
+          "role": "lower_bound",
+          "value": "1",
+          "index": 7
+        },
+        {
+          "role": "upper_bound",
+          "value": "3",
+          "index": 9
+        },
+        {
+          "role": "target_value",
+          "value": "6",
+          "index": 20
+        }
+      ],
+      "quantities_valid": 3,
+      "numbers_in_text": 3,
+      "numbers_recovered": 3,
+      "coverage": 0.59,
+      "reversible": true,
+      "residue_tokens": 11
+    },
+    {
+      "lang": "en",
+      "tokens": 47,
+      "story": "A balance starts at 500. In step k, for k = 1 to 11, it is m",
+      "parsed": true,
+      "roles": 8,
+      "spans_valid": 8,
+      "quantities": [
+        {
+          "role": "initial_value",
+          "value": "500",
+          "index": 4
+        },
+        {
+          "role": "start_index",
+          "value": "1",
+          "index": 13
+        },
+        {
+          "role": "end_index",
+          "value": "11",
+          "index": 15
+        }
+      ],
+      "quantities_valid": 3,
+      "numbers_in_text": 6,
+      "numbers_recovered": 3,
+      "coverage": 0.87,
+      "reversible": true,
+      "residue_tokens": 6
+    },
+    {
+      "lang": "en",
+      "tokens": 32,
+      "story": "Start with 2/9. Eleven times in a row, multiply by 5/6 and t",
+      "parsed": true,
+      "roles": 3,
+      "spans_valid": 3,
+      "quantities": [
+        {
+          "role": "count",
+          "value": "2",
+          "index": 2
+        },
+        {
+          "role": "multiplier",
+          "value": "5",
+          "index": 14
+        },
+        {
+          "role": "divisor",
+          "value": "6",
+          "index": 16
+        },
+        {
+          "role": "addend",
+          "value": "1",
+          "index": 20
+        },
+        {
+          "role": "divisor",
+          "value": "3",
+          "index": 22
+        }
+      ],
+      "quantities_valid": 5,
+      "numbers_in_text": 6,
+      "numbers_recovered": 5,
+      "coverage": 0.97,
+      "reversible": true,
+      "residue_tokens": 1
+    },
+    {
+      "lang": "en",
+      "tokens": 29,
+      "story": "Add up 1/(k(k+5)) for every integer k from 1 to 30. Give the",
+      "parsed": true,
+      "roles": 4,
+      "spans_valid": 4,
+      "quantities": [
+        {
+          "role": "start",
+          "value": "1",
+          "index": 17
+        },
+        {
+          "role": "end",
+          "value": "30",
+          "index": 19
+        }
+      ],
+      "quantities_valid": 2,
+      "numbers_in_text": 4,
+      "numbers_recovered": 2,
+      "coverage": 0.79,
+      "reversible": true,
+      "residue_tokens": 6
+    },
+    {
+      "lang": "en",
+      "tokens": 26,
+      "story": "Take 7/13 squared, multiply by 169/49, then subtract 4/11. G",
+      "parsed": true,
+      "roles": 5,
+      "spans_valid": 5,
+      "quantities": [
+        {
+          "role": "numerator",
+          "value": "7",
+          "index": 1
+        },
+        {
+          "role": "denominator",
+          "value": "13",
+          "index": 3
+        },
+        {
+          "role": "multiplier",
+          "value": "169",
+          "index": 8
+        },
+        {
+          "role": "denominator",
+          "value": "49",
+          "index": 10
+        },
+        {
+          "role": "subtrahend",
+          "value": "4",
+          "index": 14
+        },
+        {
+          "role": "denominator",
+          "value": "11",
+          "index": 16
+        }
+      ],
+      "quantities_valid": 6,
+      "numbers_in_text": 6,
+      "numbers_recovered": 6,
+      "coverage": 0.42,
+      "reversible": true,
+      "residue_tokens": 15
+    },
+    {
+      "lang": "en",
+      "tokens": 29,
+      "story": "Multiply (k^2 - 1)/k^2 for every integer k from 3 to 20. Giv",
+      "parsed": true,
+      "roles": 5,
+      "spans_valid": 5,
+      "quantities": [
+        {
+          "role": "exponent",
+          "value": "2",
+          "index": 4
+        },
+        {
+          "role": "exponent",
+          "value": "2",
+          "index": 11
+        },
+        {
+          "role": "lower_bound",
+          "value": "3",
+          "index": 17
+        },
+        {
+          "role": "upper_bound",
+          "value": "20",
+          "index": 19
+        }
+      ],
+      "quantities_valid": 4,
+      "numbers_in_text": 5,
+      "numbers_recovered": 3,
+      "coverage": 0.55,
+      "reversible": true,
+      "residue_tokens": 13
+    },
+    {
+      "lang": "en",
+      "tokens": 6,
+      "story": "What is 555555553 times 888888887?",
+      "parsed": true,
+      "roles": 4,
+      "spans_valid": 4,
+      "quantities": [
+        {
+          "role": "base",
+          "value": "555555553",
+          "index": 2
+        },
+        {
+          "role": "exponent",
+          "value": "888888887",
+          "index": 4
+        }
+      ],
+      "quantities_valid": 2,
+      "numbers_in_text": 2,
+      "numbers_recovered": 2,
+      "coverage": 1.0,
+      "reversible": true,
+      "residue_tokens": 0
+    },
+    {
+      "lang": "en",
+      "tokens": 15,
+      "story": "What is the remainder when 11 to the power 777 is divided by",
+      "parsed": true,
+      "roles": 5,
+      "spans_valid": 5,
+      "quantities": [
+        {
+          "role": "exponent",
+          "value": "777",
+          "index": 9
+        },
+        {
+          "role": "modulus",
+          "value": "1000000009",
+          "index": 13
+        }
+      ],
+      "quantities_valid": 2,
+      "numbers_in_text": 3,
+      "numbers_recovered": 2,
+      "coverage": 1.0,
+      "reversible": true,
+      "residue_tokens": 0
+    },
+    {
+      "lang": "en",
+      "tokens": 14,
+      "story": "What is 3 to the power 150 plus 5 to the power 80?",
+      "parsed": true,
+      "roles": 4,
+      "spans_valid": 4,
+      "quantities": [
+        {
+          "role": "base",
+          "value": "3",
+          "index": 2
+        },
+        {
+          "role": "exponent",
+          "value": "150",
+          "index": 6
+        },
+        {
+          "role": "base",
+          "value": "5",
+          "index": 8
+        },
+        {
+          "role": "exponent",
+          "value": "80",
+          "index": 12
+        }
+      ],
+      "quantities_valid": 4,
+      "numbers_in_text": 4,
+      "numbers_recovered": 4,
+      "coverage": 1.0,
+      "reversible": true,
+      "residue_tokens": 0
+    },
+    {
+      "lang": "en",
+      "tokens": 11,
+      "story": "What is the least common multiple of 111111111111 and 222222",
+      "parsed": true,
+      "roles": 4,
+      "spans_valid": 4,
+      "quantities": [
+        {
+          "role": "number_1",
+          "value": "111111111111",
+          "index": 7
+        },
+        {
+          "role": "number_2",
+          "value": "222222222",
+          "index": 9
+        }
+      ],
+      "quantities_valid": 2,
+      "numbers_in_text": 2,
+      "numbers_recovered": 2,
+      "coverage": 1.0,
+      "reversible": true,
+      "residue_tokens": 0
+    }
+  ]
+}

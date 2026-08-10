@@ -1746,6 +1746,15 @@ CHECKS = [
      26.0, 0.001, "role key on English, where words separate what roles blur"),
     ("data/custom/rolehybrid.json", lambda d: float(d["total"]["hybrid"]),
      51.0, 0.001, "both keys together, against 41 text and 45 role"),
+    # Grounded roles: spans that point back, and a value echo on indices.
+    ("data/custom/grounded.json", lambda d: float(d["spans_valid"]),
+     72.0, 0.001, "role spans that index real tokens, of 72"),
+    ("data/custom/grounded.json", lambda d: float(d["parsed"]),
+     18.0, 0.001, "grounded signatures parsed across Norwegian and English"),
+    ("data/custom/grounded.json", lambda d: float(d["q_valid"]),
+     49.0, 0.001, "quantity claims landing on a real number token"),
+    ("data/custom/grounded.json", lambda d: float(d["nums_recovered"]),
+     48.0, 0.001, "numbers the record pulled out by index"),
     # Two-sided labels on the chord metric: no better than one relay, twice the memory.
     ("data/custom/hub-corpus.json", lambda d: d["exact_cell_pct"],
      1.34, 0.7, "two-sided hub labels on the angular metric"),

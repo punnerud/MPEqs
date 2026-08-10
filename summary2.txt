@@ -1361,3 +1361,46 @@ The correction was right and the measurement is sharper than the correction: map
 should be against roles because roles are what survives translation and rewording — and
 the words should be kept anyway, because when they ARE reliable they separate structures
 that share a verb.
+
+================================================================================
+PHASE 132 — grounded roles: the abstraction indexes instead of paraphrasing
+================================================================================
+
+Phase 131's signature threw the sentence away, which breaks the oldest rule here: every
+step reversible, the residue kept. A role that cannot say WHICH WORDS produced it cannot
+be checked, cannot be mapped back, and cannot hand the record anything to fill a slot
+with.
+
+So the problem is tokenised with punctuation as its own indexed tokens, and every part of
+the signature carries the span it was read from:
+
+    "Hvor mange heltall fra 1 til 300000 er delelige med 19 og gir rest 4 når de
+     deles på 8?"        21 tokens
+
+    action    count        [0,2]   "Hvor mange heltall"
+    object    integer      [3,6]   "fra 1 til 300000"
+    relation  divisibility [7,10]  "er delelige med 19"
+    relation  remainder    [11,14] "og gir rest 4"
+    quantities  lower_bound=1, upper_bound=300000, divisor=19, remainder=4
+                — pulled from the text BY INDEX, not re-read
+
+Eighteen problems, nine Norwegian and nine English:
+
+    signatures parsed                        18/18
+    spans that index real tokens             72/72
+    quantity claims landing on a number      49/49
+    numbers recovered of those present       48/58
+    coverage of the sentence by roles        0.71 to 1.00
+
+AND THE VALUE ECHO FIRED IMMEDIATELY, on the very first problem: the model claimed a
+number at index 18, which is the word "på"; the number 8 is at 19. The record dropped the
+claim because a quantity must land on a token that IS a number, and nothing about that
+check needs a second opinion. Off-by-one is the characteristic error of index-writing,
+and it is now the characteristic error of something mechanical rather than of an answer.
+
+What this buys, beyond checkability: the record can fill a spec's slots from the spans
+itself — the bounds, the divisor, the remainder are all sitting at known indices with the
+roles the model attached to them — which is phase 120's lever (move the adaptation into
+the record) applied to parameters rather than to schemas. The model says WHERE, the
+record reads WHAT, and the sentence is never lost because the abstraction points at it
+instead of replacing it.
