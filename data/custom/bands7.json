@@ -1,0 +1,175 @@
+{
+  "n": 12,
+  "solo": 7,
+  "mpeqs": 12,
+  "parsed": 12,
+  "ran": 12,
+  "wrong": 0,
+  "byfam": {
+    "kinematics": [
+      4,
+      3,
+      4
+    ],
+    "roman": [
+      4,
+      3,
+      4
+    ],
+    "checksum": [
+      4,
+      1,
+      4
+    ]
+  },
+  "rows": [
+    {
+      "family": "kinematics",
+      "truth": "573/8",
+      "solo_ok": true,
+      "mpeqs": "573/8",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "kinematics",
+        "u": "7/3",
+        "a": "5/4",
+        "t": 9,
+        "find": "s"
+      }
+    },
+    {
+      "family": "kinematics",
+      "truth": "3341/30",
+      "solo_ok": false,
+      "mpeqs": "3341/30",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "kinematics",
+        "u": "-11/6",
+        "a": "8/5",
+        "t": 13,
+        "find": "s"
+      }
+    },
+    {
+      "family": "kinematics",
+      "truth": "6/5",
+      "solo_ok": true,
+      "mpeqs": "6/5",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "kinematics",
+        "u": "9/2",
+        "v": "27/4",
+        "t": "15/8",
+        "find": "a"
+      }
+    },
+    {
+      "family": "kinematics",
+      "truth": "81/16",
+      "solo_ok": true,
+      "mpeqs": "81/16",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "kinematics",
+        "u": 0,
+        "v": 45,
+        "s": 200,
+        "find": "a"
+      }
+    },
+    {
+      "family": "roman",
+      "truth": "MMMDCCCLXXXVIII",
+      "solo_ok": false,
+      "mpeqs": "MMMDCCCLXXXVIII",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "roman",
+        "number": 3888
+      }
+    },
+    {
+      "family": "roman",
+      "truth": "MCDLXXVI",
+      "solo_ok": true,
+      "mpeqs": "MCDLXXVI",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "roman",
+        "number": 1476
+      }
+    },
+    {
+      "family": "roman",
+      "truth": "MMCMXLVII",
+      "solo_ok": true,
+      "mpeqs": "MMCMXLVII",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "roman",
+        "number": 2947
+      }
+    },
+    {
+      "family": "roman",
+      "truth": "1994",
+      "solo_ok": true,
+      "mpeqs": "1994",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "roman",
+        "roman": "MCMXCIV"
+      }
+    },
+    {
+      "family": "checksum",
+      "truth": "6",
+      "solo_ok": true,
+      "mpeqs": "6",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "checksum",
+        "kind": "isbn13",
+        "code": "978147674137"
+      }
+    },
+    {
+      "family": "checksum",
+      "truth": "7",
+      "solo_ok": false,
+      "mpeqs": "7",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "checksum",
+        "kind": "isbn13",
+        "code": "978052156781"
+      }
+    },
+    {
+      "family": "checksum",
+      "truth": "2",
+      "solo_ok": false,
+      "mpeqs": "2",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "checksum",
+        "kind": "isbn10",
+        "code": "030640615"
+      }
+    },
+    {
+      "family": "checksum",
+      "truth": "True",
+      "solo_ok": false,
+      "mpeqs": "True",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "checksum",
+        "kind": "luhn",
+        "code": "4539578763621486"
+      }
+    }
+  ]
+}

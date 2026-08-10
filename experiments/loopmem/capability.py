@@ -46,6 +46,8 @@ ROWS = [
      "retrieval 8/18 -> 17/18"),
     ("Equations with fractional coefficients", "bands6.json", "solo", "mpeqs", 12,
      "symbolic and worded, addressable since phase 125"),
+    ("Acceleration, romans, check digits", "bands7.json", "solo", "mpeqs", 12,
+     "check digits split 1 against 4"),
     ("Fresh 24, the full policy live", "pipeline.json", "solo", "pipeline", 24,
      "23 right, zero wrong, one refusal"),
     ("AIME, model-mapped", "aimefewshot.json", None, "exact", 15,

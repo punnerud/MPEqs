@@ -719,8 +719,124 @@ def solve_equation(spec):
             "checked": True}
 
 
+def solve_kinematics(spec):
+    """Constant acceleration: give any three of u, v, a, s, t and get the rest, exactly.
+
+    The five SUVAT relations are one small algebra a model reliably fumbles under
+    fractions, and the record can close them all from any three knowns. Solutions are
+    reported only when they are rational; a quadratic with an irrational root is named
+    rather than rounded.
+    """
+    g = {k: F(str(v)) for k, v in spec.items()
+         if k in ("u", "v", "a", "s", "t") and v is not None}
+    want = str(spec.get("find", "")).lower()
+    if want not in ("u", "v", "a", "s", "t"):
+        raise Refusal("find must be one of u, v, a, s, t")
+    if want in g:
+        raise Refusal(f"{want} was given, not asked")
+    if len(g) < 3:
+        raise Refusal("constant acceleration needs three of u, v, a, s, t")
+    u, v, a, s, t = (g.get(k) for k in ("u", "v", "a", "s", "t"))
+    for _ in range(4):                       # propagate until the wanted one appears
+        if v is None and None not in (u, a, t):
+            v = u + a * t
+        if s is None and None not in (u, a, t):
+            s = u * t + a * t * t / 2
+        if s is None and None not in (u, v, t):
+            s = (u + v) * t / 2
+        if a is None and None not in (u, v, t) and t != 0:
+            a = (v - u) / t
+        if t is None and None not in (u, v, a) and a != 0:
+            t = (v - u) / a
+        if u is None and None not in (v, a, t):
+            u = v - a * t
+        if u is None and None not in (s, v, t) and t != 0:
+            u = 2 * s / t - v
+        if a is None and None not in (u, v, s) and s != 0:
+            a = (v * v - u * u) / (2 * s)
+        if v is None and None not in (u, a, s):
+            disc = u * u + 2 * a * s
+            if disc < 0:
+                raise Refusal("no real final speed")
+            num, den = disc.numerator, disc.denominator
+            if is_square(num) and is_square(den):
+                v = F(math.isqrt(num), math.isqrt(den))
+            else:
+                raise Refusal("the final speed is irrational; not reported as a decimal")
+        got = {"u": u, "v": v, "a": a, "s": s, "t": t}[want]
+        if got is not None:
+            return {"value": str(got),
+                    "known": {k: str(x) for k, x in
+                              zip("uvast", (u, v, a, s, t)) if x is not None}}
+    raise Refusal(f"cannot reach {want} from what was given")
+
+
+ROMAN = [(1000, "M"), (900, "CM"), (500, "D"), (400, "CD"), (100, "C"), (90, "XC"),
+         (50, "L"), (40, "XL"), (10, "X"), (9, "IX"), (5, "V"), (4, "IV"), (1, "I")]
+
+
+def solve_roman(spec):
+    """Roman numerals both ways — mechanical, and reliably fumbled past a few hundred."""
+    if "number" in spec:
+        n = int(spec["number"])
+        if not 1 <= n <= 3999:
+            raise Refusal("roman numerals run from 1 to 3999")
+        out = []
+        for val, sym in ROMAN:
+            while n >= val:
+                out.append(sym)
+                n -= val
+        return {"value": "".join(out)}
+    text = str(spec.get("roman", "")).upper().strip()
+    if not text or any(c not in "IVXLCDM" for c in text):
+        raise Refusal("not a roman numeral")
+    vals = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
+    total, prev = 0, 0
+    for c in reversed(text):
+        v = vals[c]
+        total += -v if v < prev else v
+        prev = max(prev, v)
+    return {"value": total}
+
+
+def solve_checksum(spec):
+    """Luhn, ISBN-10 and ISBN-13: validate a code or produce its check digit."""
+    kind = str(spec.get("kind", "luhn")).lower()
+    digits_ = [int(c) for c in str(spec.get("code", "")) if c.isdigit()]
+    tail = str(spec.get("code", "")).strip().upper()[-1:]
+    if not digits_ and tail != "X":
+        raise Refusal("no digits in the code")
+    if kind == "luhn":
+        total, parity = 0, len(digits_) % 2
+        for i, d in enumerate(digits_):
+            if i % 2 == parity:
+                d *= 2
+                if d > 9:
+                    d -= 9
+            total += d
+        return {"value": total % 10 == 0, "sum": total,
+                "check_digit": (10 - (total * 10 % 10)) % 10}
+    if kind == "isbn10":
+        body = [int(c) for c in str(spec["code"]) if c.isdigit()][:9]
+        if len(body) != 9:
+            raise Refusal("isbn10 needs nine leading digits")
+        total = sum((10 - i) * d for i, d in enumerate(body))
+        check = (11 - total % 11) % 11
+        return {"value": "X" if check == 10 else str(check)}
+    if kind == "isbn13":
+        body = digits_[:12]
+        if len(body) != 12:
+            raise Refusal("isbn13 needs twelve leading digits")
+        total = sum(d * (3 if i % 2 else 1) for i, d in enumerate(body))
+        return {"value": str((10 - total % 10) % 10)}
+    raise Refusal(f"unknown checksum kind {kind!r}")
+
+
 SOLVERS3 = {
     "equation": solve_equation,
+    "kinematics": solve_kinematics,
+    "roman": solve_roman,
+    "checksum": solve_checksum,
     "probability": solve_probability,
     "convert": solve_convert,
     "statistics": solve_statistics,

@@ -1091,8 +1091,8 @@ WHAT MPEqs IS, AFTER PHASES 92-123 — the whole arc in one place
 
 THE MEASUREMENT, assembled from the JSON each run wrote (see capability.py):
 
-    comparable totals across every two-armed battery    111 model     304 MPEqs
-                                                        of 357 problems
+    comparable totals across every two-armed battery    118 model     316 MPEqs
+                                                        of 369 problems
 
     where the machinery loses: grade-school word problems (28 against 21) and easy
     instances of any class (15 against 15) — both because the arithmetic was never hard
@@ -1210,3 +1210,24 @@ phase 45, in its smallest possible form. The record does the algebra it has been
 do since phase 80 and could not be asked for until yesterday.
 
 Library: 38 solvers, 54 self-tests exact, 16 named refusals, across 18 classes.
+
+================================================================================
+PHASE 127 — three last classes: acceleration, roman numerals, check digits
+================================================================================
+
+    KINEMATICS  the five constant-acceleration relations, closed from any three knowns,
+                exact — and refusing to report an irrational final speed as a decimal
+    ROMAN       both directions, mechanical, and reliably fumbled past a few hundred
+    CHECKSUM    Luhn, ISBN-10 and ISBN-13: weighted sums nobody carries in their head
+
+    twelve problems, truths computed before any model call
+
+    SOLO-35B     7/12   checksum 1/4, kinematics 3/4, roman 3/4
+    MPEqs       12/12   nothing wrong
+
+Check digits are the clean split, 1 against 4: "the ISBN-13 check digit for
+978147674137" is a fixed alternating sum and a model that gets it right is guessing well
+rather than computing.
+
+Library: 41 solvers, 59 self-tests exact, 16 named refusals, across 21 classes — grown
+from 15 machines in one night, every addition demanded by a measured failure.

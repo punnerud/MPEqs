@@ -113,6 +113,13 @@
       "note": "symbolic and worded, addressable since phase 125"
     },
     {
+      "band": "Acceleration, romans, check digits",
+      "solo": 7,
+      "mpeqs": 12,
+      "n": 12,
+      "note": "check digits split 1 against 4"
+    },
+    {
       "band": "Fresh 24, the full policy live",
       "solo": 3,
       "mpeqs": 23,
@@ -134,8 +141,8 @@
       "note": "what the vocabulary reaches"
     }
   ],
-  "total_solo": 111,
-  "total_mpeqs": 304,
-  "total_n": 357,
-  "solvers": 38
+  "total_solo": 118,
+  "total_mpeqs": 316,
+  "total_n": 369,
+  "solvers": 41
 }

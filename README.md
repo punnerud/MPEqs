@@ -135,8 +135,9 @@ every delivery mechanically.
 | Eighteen problems in **Norwegian** (n=18) | 6/18 | **15/18** |
 | the same, with the exemplar bank translated | 6/18 | **16/18** (retrieval 8→17) |
 | Equations with fractional coefficients (n=12) | 4/12 | **12/12** |
+| Acceleration, romans, check digits (n=12) | 7/12 | **12/12** |
 | Fresh 24, full policy live (n=24) | 3/24 | **23/24**, zero wrong |
-| **Every two-armed battery together** | **111/357** | **304/357** |
+| **Every two-armed battery together** | **118/369** | **316/369** |
 
 The middle row is the point: twelve-step exact fraction folds, big-integer powers, counts
 over hundreds of thousands, divisor structure of large factorials — the model answers all
@@ -146,7 +147,7 @@ sums, routing through machinery only adds a place to slip.
 
 ### How it works
 
-1. **Solvers** (`solvers.py`, `solvers2.py`) — 38 parameterised exact machines across 18 classes: a generic
+1. **Solvers** (`solvers.py`, `solvers2.py`) — 41 parameterised exact machines across 21 classes: a generic
    search over ranges/divisors/factorial-divisors with 22 predicates, multi-variable
    search whose conditions are AST-vetted arithmetic expressions, a fold, exact linear
    systems, polynomials, CRT, modular arithmetic, coordinate geometry, series,

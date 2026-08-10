@@ -1527,7 +1527,7 @@ CHECKS = [
     ("data/custom/gsmgate.json", lambda d: float(d["both"][2]),
      0.0, 0.001, "wrong deliveries under echo plus cross-kind agreement"),
     ("data/custom/solvers2.json", lambda d: float(d["passed"]),
-     54.0, 0.001, "grown-library self-tests, through the phase 125 equation solver"),
+     59.0, 0.001, "grown-library self-tests, through phase 127"),
     # The ceiling: what the vocabulary reaches when a human does the mapping.
     ("data/custom/aimeceiling.json", lambda d: float(d["hand_exact"]),
      5.0, 0.001, "AIME problems hand-mapped onto the library and exact"),
@@ -1621,11 +1621,11 @@ CHECKS = [
      14.0, 0.001, "and through the machinery: the band appears with the difficulty"),
     # The capability sheet, assembled from the runs.
     ("data/custom/capability.json", lambda d: float(d["total_mpeqs"]),
-     304.0, 0.001, "problems solved through MPEqs across every two-armed battery"),
+     316.0, 0.001, "problems solved through MPEqs across every two-armed battery"),
     ("data/custom/capability.json", lambda d: float(d["total_solo"]),
-     111.0, 0.001, "solved by the same model answering alone"),
+     118.0, 0.001, "solved by the same model answering alone"),
     ("data/custom/capability.json", lambda d: float(d["total_n"]),
-     357.0, 0.001, "problems in those batteries"),
+     369.0, 0.001, "problems in those batteries"),
     # Routing: the a priori rule loses to not routing, and refusal is the signal.
     ("data/custom/router.json", lambda d: float(d["always_mpeqs"]),
      113.0, 0.001, "always sending to the machinery"),
@@ -1659,7 +1659,7 @@ CHECKS = [
     ("data/custom/bands5.json", lambda d: float(d["byfam"]["approx"][1]),
      0.0, 0.001, "rational approximations the model found alone: none"),
     ("data/custom/solvers2.json", lambda d: float(d["solvers_total"]),
-     38.0, 0.001, "solvers in MPEqs after the equation solver was addressed"),
+     41.0, 0.001, "solvers in MPEqs at the end of the night"),
     # The scaling law re-measured at thirty-seven machines.
     ("data/custom/grandmix.json", lambda d: float(d["mpeqs"]),
      33.0, 0.001, "problems solved across seventeen classes at 37 solvers"),
@@ -1718,6 +1718,11 @@ CHECKS = [
      12.0, 0.001, "equations solved through the newly addressable solver"),
     ("data/custom/bands6.json", lambda d: float(d["solo"]),
      4.0, 0.001, "and what the model managed alone"),
+    # Acceleration, roman numerals, check digits.
+    ("data/custom/bands7.json", lambda d: float(d["mpeqs"]),
+     12.0, 0.001, "the last three classes, complete"),
+    ("data/custom/bands7.json", lambda d: float(d["byfam"]["checksum"][1]),
+     1.0, 0.001, "check digits the model got alone: one of four"),
     # Two-sided labels on the chord metric: no better than one relay, twice the memory.
     ("data/custom/hub-corpus.json", lambda d: d["exact_cell_pct"],
      1.34, 0.7, "two-sided hub labels on the angular metric"),

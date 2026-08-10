@@ -813,6 +813,12 @@ CASES = [
     # the equation solver, addressable at last: 3/2x + 7 = 5x - 2 gives x = 18/7
     ({"solver": "equation", "equation": "3/2x + 7 = 5x - 2"}, "18/7"),
     ({"solver": "equation", "equation": "4y - 9 = 2y + 15", "variable": "y"}, "12"),
+    # kinematics: u=3, a=2, t=7 -> v = 17, s = 3*7 + 49 = 70
+    ({"solver": "kinematics", "u": 3, "a": 2, "t": 7, "find": "s"}, "70"),
+    ({"solver": "kinematics", "u": 0, "v": 30, "s": 45, "find": "a"}, "10"),
+    ({"solver": "roman", "number": 1987}, "MCMLXXXVII"),
+    ({"solver": "roman", "roman": "MMXXVI"}, 2026),
+    ({"solver": "checksum", "kind": "isbn13", "code": "978014300723"}, "4"),
     # And the old library must still answer through the joint dispatcher.
     ({"solver": "crt", "residues": [2, 3, 2], "moduli": [3, 5, 7]}, 23),
 ]
