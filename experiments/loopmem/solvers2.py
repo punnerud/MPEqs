@@ -494,7 +494,16 @@ def solve_iterate(spec):
     if hi - lo + 1 > 200_000:
         raise Refusal("too many iterations")
     init_code, _ = compile_expr(str(spec.get("init", "0")), set())
-    step_code, _ = compile_expr(str(spec["step"]), {"acc", "k"})
+    # Named slots as an alternative to a free-form step. Phase 119 measured a small
+    # model unable to write the fold's step expression, because that expression IS the
+    # problem; "multiply" and "add" are slots it can fill by copying two numbers.
+    if "step" not in spec and ("multiply" in spec or "add" in spec):
+        mul = str(spec.get("multiply", 1))
+        add = str(spec.get("add", 0))
+        step_src = f"(acc) * ({mul}) + ({add})"
+    else:
+        step_src = str(spec["step"])
+    step_code, _ = compile_expr(step_src, {"acc", "k"})
     acc = F(eval_expr(init_code, {}))
     for k in range(lo, hi + 1):
         acc = F(eval_expr(step_code, {"acc": acc, "k": k}))
@@ -722,6 +731,9 @@ CASES = [
     # iterate: 3/7 then nine rounds of (+2/5)*3/4 — a fold, and exact in Fractions.
     ({"solver": "iterate", "init": "3/7", "step": "(acc + 2/5) * 3/4",
       "from": 1, "to": 9}, "10478607/9175040"),
+    # the same fold through named slots: start at 5, times 2/3 plus 1/4, twelve times
+    ({"solver": "iterate", "init": "5", "multiply": "2/3", "add": "1/4",
+      "from": 1, "to": 12}, "1663955/2125764"),
     # alternating signs: a variable exponent on a bounded base
     ({"solver": "iterate", "init": "1000", "step": "acc * (1 + (-1)^k / (k+2))",
       "from": 1, "to": 12}, "5000/7"),

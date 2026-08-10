@@ -12,6 +12,7 @@ of naming what a machine will not do. solvers2 imports this at the bottom, so ru
 dispatches across the whole library and every caller keeps working unchanged.
 """
 import math
+import re
 import sys
 from fractions import Fraction as F
 from pathlib import Path
@@ -60,8 +61,50 @@ def solve_probability(spec):
         out["percent"] = str(prob * 100)
     return out
 
+# Written-out unit names, so a spec can be filled by COPYING the problem's words.
+# Phase 119 measured the 1B failing every conversion because the exemplar's units are
+# never the question's units and copying gets you "mile/second" where the text says
+# kilometres per hour. A slot that accepts the words removes the adaptation entirely.
+WORD_UNITS = {
+    "metre": "m", "meter": "m", "metres": "m", "meters": "m",
+    "kilometre": "km", "kilometer": "km", "kilometres": "km", "kilometers": "km",
+    "centimetre": "cm", "centimeter": "cm", "centimetres": "cm", "centimeters": "cm",
+    "millimetre": "mm", "millimeter": "mm", "millimetres": "mm", "millimeters": "mm",
+    "inch": "inch", "inches": "inch", "foot": "foot", "feet": "foot",
+    "yard": "yard", "yards": "yard", "mile": "mile", "miles": "mile",
+    "second": "second", "seconds": "second", "minute": "minute", "minutes": "minute",
+    "hour": "hour", "hours": "hour", "day": "day", "days": "day",
+    "week": "week", "weeks": "week",
+    "gram": "g", "grams": "g", "gramme": "g", "grammes": "g",
+    "kilogram": "kg", "kilograms": "kg", "kilo": "kg", "kilos": "kg",
+    "pound": "pound", "pounds": "pound", "ounce": "ounce", "ounces": "ounce",
+    "litre": "litre", "liter": "litre", "litres": "litre", "liters": "litre",
+    "millilitre": "ml", "milliliter": "ml", "millilitres": "ml", "milliliters": "ml",
+    "gallon": "gallon", "gallons": "gallon",
+}
+
+
+def normalise_units(text):
+    """Turn 'kilometres per hour' or 'metres per second squared' into the token form."""
+    t = str(text).strip().lower()
+    t = t.replace(" squared", "^2").replace(" cubed", "^3")
+    t = re.sub(r"\s+per\s+", "/", t)
+    parts = re.split(r"([/*])", t)
+    out = []
+    for part in parts:
+        if part in ("/", "*"):
+            out.append(part)
+            continue
+        token, _, power = part.strip().partition("^")
+        token = token.strip()
+        token = WORD_UNITS.get(token, token)
+        out.append(token + ("^" + power if power else ""))
+    return "".join(out)
+
+
 def parse_units(text):
-    """'km/hour', 'm/second^2', 'kg*m/second' -> the exponent map the router wants."""
+    """'km/hour', 'm/second^2', 'kg*m/second' or the written-out words."""
+    text = normalise_units(text)
     dims = {}
     num, _, den = str(text).replace(" ", "").partition("/")
     for part, sign in ((num, 1), (den, -1)):

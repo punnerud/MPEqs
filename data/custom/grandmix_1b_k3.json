@@ -1,0 +1,546 @@
+{
+  "n": 34,
+  "model": "olmoe-1b",
+  "qwen_reference": 33,
+  "baseline_1b": 18,
+  "template_1b": 23,
+  "bank": 33,
+  "catalogue_lines": 36,
+  "solo": 2,
+  "mpeqs": 19,
+  "parsed": 29,
+  "ran": 25,
+  "wrong": 6,
+  "retrieval_hit": 32,
+  "byfam": {
+    "approx": [
+      2,
+      0,
+      0
+    ],
+    "basearith": [
+      2,
+      0,
+      1
+    ],
+    "big": [
+      2,
+      0,
+      0
+    ],
+    "convert": [
+      2,
+      0,
+      1
+    ],
+    "count": [
+      2,
+      0,
+      1
+    ],
+    "datetime": [
+      2,
+      0,
+      2
+    ],
+    "divisors": [
+      2,
+      0,
+      0
+    ],
+    "finance": [
+      2,
+      1,
+      0
+    ],
+    "fractions": [
+      2,
+      0,
+      0
+    ],
+    "logexp": [
+      2,
+      1,
+      1
+    ],
+    "matrix": [
+      2,
+      0,
+      2
+    ],
+    "partition": [
+      2,
+      0,
+      1
+    ],
+    "primes": [
+      2,
+      0,
+      2
+    ],
+    "probability": [
+      2,
+      0,
+      2
+    ],
+    "sequence": [
+      2,
+      0,
+      2
+    ],
+    "statistics": [
+      2,
+      0,
+      2
+    ],
+    "strcount": [
+      2,
+      0,
+      2
+    ]
+  },
+  "rows": [
+    {
+      "family": "approx",
+      "truth": "355/113",
+      "solo_ok": false,
+      "mpeqs": "229692141002991878682734189398289484782231185085713836075577016280515735110317180963279780741321405902782392724923900673504567396863280634859884455009376693923136236260622169114996066301792859496792468232296998461364213126392118962423112956689859532138544458961623499293996116030499377891125033458418324624125913316127138382863928198817114612118977331362719040035074822063893120963901004810817673163670222612069421649921189934019039274723082896190654533834794721961356486463458976402510036873108884748061650214659971126786828013405246092734220811103888018522712809248068876329115834157989815746994325571947/73039798577326773310556639659823605159953047162772756486756997421201362808066251366678072757464309937749207402805158909986349778853353822734482357186710338429088309101618501318930777685240347789864150067928359452446794865589377707967350489678493639361884622615916272856528439121111590415059242962896243565164734944457416663682390678278342627389431947714853613255160490514947439228170013705265036732344070213673209516303729968327210113664516660422630739553740184868659201826562195205997388371484089401708684499064116148315611906669738587733536512308122525431727865667663746052085116389207541942596435546875",
+      "mpeqs_ok": false,
+      "solver": "iterate",
+      "shown": [
+        "approx",
+        "fractions",
+        "primes"
+      ]
+    },
+    {
+      "family": "approx",
+      "truth": "106/39",
+      "solo_ok": false,
+      "mpeqs": "250067957/250000000",
+      "mpeqs_ok": false,
+      "solver": "iterate",
+      "shown": [
+        "approx",
+        "fractions",
+        "primes"
+      ]
+    },
+    {
+      "family": "basearith",
+      "truth": "104432",
+      "solo_ok": false,
+      "mpeqs": "104432",
+      "mpeqs_ok": true,
+      "solver": "basearith",
+      "shown": [
+        "basearith",
+        "logexp",
+        "logexp"
+      ]
+    },
+    {
+      "family": "basearith",
+      "truth": "1100100000",
+      "solo_ok": false,
+      "mpeqs": "{'gcd': 3, 'lcm': 3710747510804037}",
+      "mpeqs_ok": false,
+      "solver": "binary_arithmetic",
+      "shown": [
+        "basearith",
+        "big",
+        "big"
+      ]
+    },
+    {
+      "family": "big",
+      "truth": "493827157172839511",
+      "solo_ok": false,
+      "mpeqs": "None",
+      "mpeqs_ok": false,
+      "solver": null,
+      "shown": [
+        "big",
+        "big",
+        "matrix"
+      ]
+    },
+    {
+      "family": "big",
+      "truth": "134085083",
+      "solo_ok": false,
+      "mpeqs": "refused: unknown predicate 'power'",
+      "mpeqs_ok": false,
+      "solver": "search",
+      "shown": [
+        "count",
+        "logexp",
+        "logexp"
+      ]
+    },
+    {
+      "family": "convert",
+      "truth": "10863072/625",
+      "solo_ok": false,
+      "mpeqs": "10863072/625",
+      "mpeqs_ok": true,
+      "solver": "convert",
+      "shown": [
+        "convert",
+        "convert",
+        "formula"
+      ]
+    },
+    {
+      "family": "convert",
+      "truth": "312500/3429",
+      "solo_ok": false,
+      "mpeqs": "None",
+      "mpeqs_ok": false,
+      "solver": null,
+      "shown": [
+        "convert",
+        "convert",
+        "formula"
+      ]
+    },
+    {
+      "family": "count",
+      "truth": "2673",
+      "solo_ok": false,
+      "mpeqs": "2673",
+      "mpeqs_ok": true,
+      "solver": "search",
+      "shown": [
+        "count",
+        "partition",
+        "partition"
+      ]
+    },
+    {
+      "family": "count",
+      "truth": "6995",
+      "solo_ok": false,
+      "mpeqs": "None",
+      "mpeqs_ok": false,
+      "solver": null,
+      "shown": [
+        "logexp",
+        "logexp",
+        "count"
+      ]
+    },
+    {
+      "family": "datetime",
+      "truth": "61",
+      "solo_ok": false,
+      "mpeqs": "61",
+      "mpeqs_ok": true,
+      "solver": "datetime",
+      "shown": [
+        "datetime",
+        "partition",
+        "partition"
+      ]
+    },
+    {
+      "family": "datetime",
+      "truth": "20675",
+      "solo_ok": false,
+      "mpeqs": "20675",
+      "mpeqs_ok": true,
+      "solver": "datetime",
+      "shown": [
+        "datetime",
+        "big",
+        "big"
+      ]
+    },
+    {
+      "family": "divisors",
+      "truth": "14688",
+      "solo_ok": false,
+      "mpeqs": "340032",
+      "mpeqs_ok": false,
+      "solver": "factor",
+      "shown": [
+        "divisors",
+        "divisors",
+        "count"
+      ]
+    },
+    {
+      "family": "divisors",
+      "truth": "7864320",
+      "solo_ok": false,
+      "mpeqs": "340032",
+      "mpeqs_ok": false,
+      "solver": "factor",
+      "shown": [
+        "divisors",
+        "divisors",
+        "count"
+      ]
+    },
+    {
+      "family": "finance",
+      "truth": "96",
+      "solo_ok": true,
+      "mpeqs": "None",
+      "mpeqs_ok": false,
+      "solver": null,
+      "shown": [
+        "finance",
+        "big",
+        "big"
+      ]
+    },
+    {
+      "family": "finance",
+      "truth": "16767/8",
+      "solo_ok": false,
+      "mpeqs": "unknown solver 'iterative'",
+      "mpeqs_ok": false,
+      "solver": "iterative",
+      "shown": [
+        "finance",
+        "basearith",
+        "fractions"
+      ]
+    },
+    {
+      "family": "fractions",
+      "truth": "3750/7",
+      "solo_ok": false,
+      "mpeqs": "unknown solver 'iterative'",
+      "mpeqs_ok": false,
+      "solver": "iterative",
+      "shown": [
+        "fractions",
+        "fractions",
+        "fractions"
+      ]
+    },
+    {
+      "family": "fractions",
+      "truth": "359318563/204073344",
+      "solo_ok": false,
+      "mpeqs": "refused: let must be an object of ",
+      "mpeqs_ok": false,
+      "solver": "arith",
+      "shown": [
+        "fractions",
+        "fractions",
+        "big"
+      ]
+    },
+    {
+      "family": "logexp",
+      "truth": "1043",
+      "solo_ok": false,
+      "mpeqs": "1043",
+      "mpeqs_ok": true,
+      "solver": "logexp",
+      "shown": [
+        "logexp",
+        "logexp",
+        "big"
+      ]
+    },
+    {
+      "family": "logexp",
+      "truth": "505",
+      "solo_ok": true,
+      "mpeqs": "340032",
+      "mpeqs_ok": false,
+      "solver": "factor",
+      "shown": [
+        "divisors",
+        "divisors",
+        "logexp"
+      ]
+    },
+    {
+      "family": "matrix",
+      "truth": "-217",
+      "solo_ok": false,
+      "mpeqs": "-217",
+      "mpeqs_ok": true,
+      "solver": "matrix",
+      "shown": [
+        "matrix",
+        "matrix",
+        "big"
+      ]
+    },
+    {
+      "family": "matrix",
+      "truth": "318076",
+      "solo_ok": false,
+      "mpeqs": "318076",
+      "mpeqs_ok": true,
+      "solver": "matrix",
+      "shown": [
+        "matrix",
+        "matrix",
+        "big"
+      ]
+    },
+    {
+      "family": "partition",
+      "truth": "2930",
+      "solo_ok": false,
+      "mpeqs": "None",
+      "mpeqs_ok": false,
+      "solver": null,
+      "shown": [
+        "partition",
+        "partition",
+        "big"
+      ]
+    },
+    {
+      "family": "partition",
+      "truth": "53798080",
+      "solo_ok": false,
+      "mpeqs": "53798080",
+      "mpeqs_ok": true,
+      "solver": "partition",
+      "shown": [
+        "partition",
+        "partition",
+        "big"
+      ]
+    },
+    {
+      "family": "primes",
+      "truth": "17984",
+      "solo_ok": false,
+      "mpeqs": "17984",
+      "mpeqs_ok": true,
+      "solver": "primes",
+      "shown": [
+        "primes",
+        "count",
+        "divisors"
+      ]
+    },
+    {
+      "family": "primes",
+      "truth": "21171191",
+      "solo_ok": false,
+      "mpeqs": "21171191",
+      "mpeqs_ok": true,
+      "solver": "primes",
+      "shown": [
+        "primes",
+        "fractions",
+        "divisors"
+      ]
+    },
+    {
+      "family": "probability",
+      "truth": "1/9",
+      "solo_ok": false,
+      "mpeqs": "1/9",
+      "mpeqs_ok": true,
+      "solver": "probability",
+      "shown": [
+        "probability",
+        "fractions",
+        "statistics"
+      ]
+    },
+    {
+      "family": "probability",
+      "truth": "1/8",
+      "solo_ok": false,
+      "mpeqs": "1/8",
+      "mpeqs_ok": true,
+      "solver": "probability",
+      "shown": [
+        "probability",
+        "fractions",
+        "partition"
+      ]
+    },
+    {
+      "family": "sequence",
+      "truth": "1930",
+      "solo_ok": false,
+      "mpeqs": "1930",
+      "mpeqs_ok": true,
+      "solver": "sequence",
+      "shown": [
+        "sequence",
+        "sequence",
+        "fractions"
+      ]
+    },
+    {
+      "family": "sequence",
+      "truth": "1449",
+      "solo_ok": false,
+      "mpeqs": "1449",
+      "mpeqs_ok": true,
+      "solver": "sequence",
+      "shown": [
+        "sequence",
+        "sequence",
+        "fractions"
+      ]
+    },
+    {
+      "family": "statistics",
+      "truth": "4",
+      "solo_ok": false,
+      "mpeqs": "4",
+      "mpeqs_ok": true,
+      "solver": "statistics",
+      "shown": [
+        "statistics",
+        "approx",
+        "fractions"
+      ]
+    },
+    {
+      "family": "statistics",
+      "truth": "11",
+      "solo_ok": false,
+      "mpeqs": "11",
+      "mpeqs_ok": true,
+      "solver": "statistics",
+      "shown": [
+        "approx",
+        "matrix",
+        "matrix"
+      ]
+    },
+    {
+      "family": "strcount",
+      "truth": "83160",
+      "solo_ok": false,
+      "mpeqs": "83160",
+      "mpeqs_ok": true,
+      "solver": "strcount",
+      "shown": [
+        "strcount",
+        "strcount",
+        "partition"
+      ]
+    },
+    {
+      "family": "strcount",
+      "truth": "778377600",
+      "solo_ok": false,
+      "mpeqs": "778377600",
+      "mpeqs_ok": true,
+      "solver": "strcount",
+      "shown": [
+        "strcount",
+        "strcount",
+        "partition"
+      ]
+    }
+  ]
+}

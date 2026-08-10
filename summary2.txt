@@ -964,3 +964,38 @@ are never the problem's units — copying gets you "mile/second" where the quest
 kilometres per hour — and fraction folds stay at zero because the fold's step expression
 is the whole problem and cannot be lifted from an example at all. Those two are genuine
 adaptation, and adaptation is where a 1B stops.
+
+================================================================================
+PHASE 120 — moving adaptation into the schema, and the bank's crowding cost
+================================================================================
+
+Phase 119's two resisting classes needed genuine ADAPTATION, which is the same defect
+seen from the schema side — a slot that must be COMPOSED rather than FILLED. So both
+slots changed, and the change is the study's oldest move applied to its own interface:
+
+    convert now accepts the question's own words ("kilometres per hour"), normalised
+      by the record, so the model copies instead of translating
+    iterate now accepts "multiply" and "add" as named slots, so a fold is two numbers
+      rather than an expression the model must compose
+
+    OLMoE-1B, template exemplars, k=2          23/34   convert 0/2, approx 2/2
+    OLMoE-1B, slot exemplars, k=2              23/34   convert 2/2, approx 0/2
+    OLMoE-1B, slot exemplars, k=3              19/34
+
+THE SLOT CHANGE DID EXACTLY WHAT IT PREDICTED AND THE BANK TOOK IT BACK. Conversions went
+from zero of two to two of two — the model copied "kilometres per hour" straight out of
+the question, which is all the new slot asks — and the approximation class fell from two
+to zero, because two more bank entries pushed its exemplar out of the top two. Retrieval
+hits fell 32 to 30 and the total stayed flat at 23. A bank has a crowding cost, and it is
+paid by whichever class was nearest the margin.
+
+THE OBVIOUS FIX MADE IT WORSE. Raising k to three restored the retrieval hits (30 back to
+32) and dropped the score to 19: shown three examples the 1B copies the wrong one, taking
+"iterate" for approximation problems because a fold was in view. A small model's exemplar
+budget is small in both directions — too few and the class is unreachable, too many and
+the nearest wrong one gets copied.
+
+So the deployment note for small models is narrower than the recipe: retrieve exactly
+two, and spend the bank's scarce room on slots that can be FILLED rather than on more
+examples of composition. Folds stayed at zero throughout, and the honest reading is that
+naming two slots was not enough for a step that varies in more than two ways.

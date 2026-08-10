@@ -1681,6 +1681,14 @@ CHECKS = [
      23.0, 0.001, "1B with near-template exemplars, up from eighteen"),
     ("data/custom/grandmix_1b_tpl.json", lambda d: float(d["ran"]),
      28.0, 0.001, "1B specs that executed, up from twenty-two"),
+    # Named slots fix conversions; the bank crowds; three exemplars are worse than two.
+    ("data/custom/grandmix_1b_slots.json", lambda d: float(d["mpeqs"]),
+     23.0, 0.001, "1B with word-unit and named-fold slots, at two exemplars"),
+    ("data/custom/grandmix_1b_slots.json",
+     lambda d: float(d["byfam"]["convert"][2]),
+     2.0, 0.001, "conversions the 1B got once the slot took the question's words"),
+    ("data/custom/grandmix_1b_k3.json", lambda d: float(d["mpeqs"]),
+     19.0, 0.001, "the same with three exemplars: interference, not help"),
     # Two-sided labels on the chord metric: no better than one relay, twice the memory.
     ("data/custom/hub-corpus.json", lambda d: d["exact_cell_pct"],
      1.34, 0.7, "two-sided hub labels on the angular metric"),

@@ -1,7 +1,7 @@
 {
   "shape_repairs": 1,
-  "cases": 51,
-  "passed": 51,
+  "cases": 52,
+  "passed": 52,
   "failed": 0,
   "refusals": 14,
   "refusals_named": 14,
@@ -132,6 +132,13 @@
       "ok": true,
       "got": "10478607/9175040",
       "truth": "10478607/9175040",
+      "why": "ok"
+    },
+    {
+      "solver": "iterate",
+      "ok": true,
+      "got": "1663955/2125764",
+      "truth": "1663955/2125764",
       "why": "ok"
     },
     {
