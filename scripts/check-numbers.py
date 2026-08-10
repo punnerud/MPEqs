@@ -1527,7 +1527,7 @@ CHECKS = [
     ("data/custom/gsmgate.json", lambda d: float(d["both"][2]),
      0.0, 0.001, "wrong deliveries under echo plus cross-kind agreement"),
     ("data/custom/solvers2.json", lambda d: float(d["passed"]),
-     28.0, 0.001, "grown-library self-tests after the phase 105 additions"),
+     33.0, 0.001, "grown-library self-tests after the phase 106 additions"),
     # The ceiling: what the vocabulary reaches when a human does the mapping.
     ("data/custom/aimeceiling.json", lambda d: float(d["hand_exact"]),
      5.0, 0.001, "AIME problems hand-mapped onto the library and exact"),
@@ -1583,8 +1583,17 @@ CHECKS = [
      1.0, 0.001, "solved by the model alone across both new classes"),
     ("data/custom/newbands.json", lambda d: float(d["byfam"]["probability"][2]),
      9.0, 0.001, "exact probabilities delivered as fractions, of ten"),
+    # Three more classes, and the schema-literacy rule with its third measurement.
+    ("data/custom/bands2.json", lambda d: float(d["mpeqs"]),
+     18.0, 0.001, "statistics, datetime and finance problems solved through MPEqs"),
+    ("data/custom/bands2.json", lambda d: float(d["solo"]),
+     8.0, 0.001, "solved by the model alone across the same eighteen"),
+    ("data/custom/bands2.json", lambda d: float(d["byfam"]["datetime"][1]),
+     1.0, 0.001, "calendar problems the model got alone: one of six"),
+    ("data/custom/bands2.json", lambda d: float(d["byfam"]["datetime"][2]),
+     6.0, 0.001, "and through the record: all six"),
     ("data/custom/solvers2.json", lambda d: float(d["solvers_total"]),
-     23.0, 0.001, "solvers in MPEqs after probability and convert"),
+     26.0, 0.001, "solvers in MPEqs after statistics, datetime and finance"),
     # Two-sided labels on the chord metric: no better than one relay, twice the memory.
     ("data/custom/hub-corpus.json", lambda d: d["exact_cell_pct"],
      1.34, 0.7, "two-sided hub labels on the angular metric"),

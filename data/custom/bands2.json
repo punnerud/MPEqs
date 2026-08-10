@@ -1,0 +1,364 @@
+{
+  "n": 18,
+  "solo": 8,
+  "mpeqs": 18,
+  "parsed": 18,
+  "ran": 18,
+  "wrong": 0,
+  "byfam": {
+    "statistics": [
+      6,
+      4,
+      6
+    ],
+    "datetime": [
+      6,
+      1,
+      6
+    ],
+    "finance": [
+      6,
+      3,
+      6
+    ]
+  },
+  "rows": [
+    {
+      "family": "statistics",
+      "story": "What is the exact population variance of 2, 4, 4, 4, 5, 5, 7 and 9? Gi",
+      "truth": "4",
+      "solo": "4",
+      "solo_ok": true,
+      "mpeqs": "4",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "statistics",
+        "values": [
+          2,
+          4,
+          4,
+          4,
+          5,
+          5,
+          7,
+          9
+        ],
+        "report": "population_variance"
+      }
+    },
+    {
+      "family": "statistics",
+      "story": "What is the median of 13, 7, 21, 4, 19, 8 and 11?",
+      "truth": "11",
+      "solo": "11",
+      "solo_ok": true,
+      "mpeqs": "11",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "statistics",
+        "values": [
+          13,
+          7,
+          21,
+          4,
+          19,
+          8,
+          11
+        ],
+        "report": "median"
+      }
+    },
+    {
+      "family": "statistics",
+      "story": "What is the exact mean of 17, 23, 31, 5, 12, 44, 9 and 28? Give the an",
+      "truth": "169/8",
+      "solo": "169",
+      "solo_ok": true,
+      "mpeqs": "169/8",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "statistics",
+        "values": [
+          17,
+          23,
+          31,
+          5,
+          12,
+          44,
+          9,
+          28
+        ],
+        "report": "mean"
+      }
+    },
+    {
+      "family": "statistics",
+      "story": "What is the exact sample variance of 3, 8, 15, 2, 11 and 6? Give the a",
+      "truth": "243/10",
+      "solo": "1",
+      "solo_ok": false,
+      "mpeqs": "243/10",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "statistics",
+        "values": [
+          3,
+          8,
+          15,
+          2,
+          11,
+          6
+        ],
+        "report": "sample_variance"
+      }
+    },
+    {
+      "family": "statistics",
+      "story": "What is the exact mean of 101, 87, 93, 78, 115 and 99? Give the answer",
+      "truth": "191/2",
+      "solo": "191",
+      "solo_ok": true,
+      "mpeqs": "191/2",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "statistics",
+        "values": [
+          101,
+          87,
+          93,
+          78,
+          115,
+          99
+        ],
+        "report": "mean"
+      }
+    },
+    {
+      "family": "statistics",
+      "story": "What is the exact population variance of 5, 9, 14, 2, 27, 3, 18, 6 and",
+      "truth": "620/9",
+      "solo": "3",
+      "solo_ok": false,
+      "mpeqs": "620/9",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "statistics",
+        "values": [
+          5,
+          9,
+          14,
+          2,
+          27,
+          3,
+          18,
+          6,
+          21
+        ],
+        "report": "population_variance"
+      }
+    },
+    {
+      "family": "datetime",
+      "story": "How many days are there from 31 December 1999 to 1 March 2000?",
+      "truth": "61",
+      "solo": "61",
+      "solo_ok": true,
+      "mpeqs": "61",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "datetime",
+        "kind": "days_between",
+        "from": "1999-12-31",
+        "to": "2000-03-01"
+      }
+    },
+    {
+      "family": "datetime",
+      "story": "How many days are there from 1 January 1970 to 10 August 2026?",
+      "truth": "20675",
+      "solo": "30",
+      "solo_ok": false,
+      "mpeqs": "20675",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "datetime",
+        "kind": "days_between",
+        "from": "1970-01-01",
+        "to": "2026-08-10"
+      }
+    },
+    {
+      "family": "datetime",
+      "story": "How many days are there from 28 February 2024 to 1 March 2025?",
+      "truth": "367",
+      "solo": "2024",
+      "solo_ok": false,
+      "mpeqs": "367",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "datetime",
+        "kind": "days_between",
+        "from": "2024-02-28",
+        "to": "2025-03-01"
+      }
+    },
+    {
+      "family": "datetime",
+      "story": "What day of the week was 15 March 1848?",
+      "truth": "Wednesday",
+      "solo": "184",
+      "solo_ok": false,
+      "mpeqs": "Wednesday",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "datetime",
+        "kind": "weekday",
+        "date": "1848-03-15"
+      }
+    },
+    {
+      "family": "datetime",
+      "story": "What is the date 1000 days after 2 February 2020? Give it as YYYY-MM-D",
+      "truth": "2022-10-29",
+      "solo": "59",
+      "solo_ok": false,
+      "mpeqs": "2022-10-29",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "datetime",
+        "kind": "add_days",
+        "date": "2020-02-02",
+        "days": 1000
+      }
+    },
+    {
+      "family": "datetime",
+      "story": "How many leap years are there from 1896 to 2104 inclusive?",
+      "truth": "51",
+      "solo": "400",
+      "solo_ok": false,
+      "mpeqs": "51",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "datetime",
+        "kind": "leap_years",
+        "from_year": 1896,
+        "to_year": 2104
+      }
+    },
+    {
+      "family": "finance",
+      "story": "A price of 100 rises 20 percent and then falls 20 percent. What is it ",
+      "truth": "96",
+      "solo": "96",
+      "solo_ok": true,
+      "mpeqs": "96",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "finance",
+        "kind": "percent_chain",
+        "start": 100,
+        "changes": [
+          20,
+          -20
+        ]
+      }
+    },
+    {
+      "family": "finance",
+      "story": "A holding of 2500 changes by +15 percent, then -10 percent, then +8 pe",
+      "truth": "16767/8",
+      "solo": "16767",
+      "solo_ok": true,
+      "mpeqs": "16767/8",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "finance",
+        "kind": "percent_chain",
+        "start": 2500,
+        "changes": [
+          15,
+          -10,
+          8,
+          -25
+        ]
+      }
+    },
+    {
+      "family": "finance",
+      "story": "An 880 kr item is discounted 12 percent three times in a row. What is ",
+      "truth": "1874048/3125",
+      "solo": "3",
+      "solo_ok": false,
+      "mpeqs": "1874048/3125",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "finance",
+        "kind": "percent_chain",
+        "start": 880,
+        "changes": [
+          -12,
+          -12,
+          -12
+        ]
+      }
+    },
+    {
+      "family": "finance",
+      "story": "A value of 1 grows 7 percent per year for 10 years. What is the exact ",
+      "truth": "196715135728956532249/100000000000000000000",
+      "solo": "20",
+      "solo_ok": false,
+      "mpeqs": "196715135728956532249/100000000000000000000",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "finance",
+        "kind": "percent_chain",
+        "start": 1,
+        "changes": [
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7
+        ]
+      }
+    },
+    {
+      "family": "finance",
+      "story": "A loan of 200000 at 1 percent per period over 120 periods has what exa",
+      "truth": "6600773789147330095753928436881038326973712153457077701020552660938444606688753132816204709390761971686404064162815777547047134510655619078810518394717488535808188652968679016171956397361215067607680371579377290295125438562988123955822824002000/2300386894573665047876964218440519163486856076728538850510276330469222303344376566408102354695380985843202032081407888773523567255327809539405259197358744267904094326484339508085978198680607533803840185789688645147562719281494061977911412001",
+      "solo": "120",
+      "solo_ok": false,
+      "mpeqs": "6600773789147330095753928436881038326973712153457077701020552660938444606688753132816204709390761971686404064162815777547047134510655619078810518394717488535808188652968679016171956397361215067607680371579377290295125438562988123955822824002000/2300386894573665047876964218440519163486856076728538850510276330469222303344376566408102354695380985843202032081407888773523567255327809539405259197358744267904094326484339508085978198680607533803840185789688645147562719281494061977911412001",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "finance",
+        "kind": "annuity",
+        "principal": 200000,
+        "rate": 0.01,
+        "periods": 120
+      }
+    },
+    {
+      "family": "finance",
+      "story": "A net price of 4800 carries 25 percent tax. What is the exact gross pr",
+      "truth": "6000",
+      "solo": "6000",
+      "solo_ok": true,
+      "mpeqs": "6000",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "finance",
+        "kind": "vat",
+        "net": 4800,
+        "percent": 25
+      }
+    }
+  ]
+}

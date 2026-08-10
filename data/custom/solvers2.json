@@ -1,11 +1,11 @@
 {
   "shape_repairs": 1,
-  "cases": 28,
-  "passed": 28,
+  "cases": 33,
+  "passed": 33,
   "failed": 0,
   "refusals": 11,
   "refusals_named": 11,
-  "solvers_total": 23,
+  "solvers_total": 26,
   "expr_funcs": 16,
   "rows": [
     {
@@ -195,6 +195,41 @@
       "ok": true,
       "got": "312500/3429",
       "truth": "312500/3429",
+      "why": "ok"
+    },
+    {
+      "solver": "statistics",
+      "ok": true,
+      "got": "4",
+      "truth": "None",
+      "why": "ok"
+    },
+    {
+      "solver": "datetime",
+      "ok": true,
+      "got": "61",
+      "truth": "61",
+      "why": "ok"
+    },
+    {
+      "solver": "datetime",
+      "ok": true,
+      "got": "Monday",
+      "truth": "Monday",
+      "why": "ok"
+    },
+    {
+      "solver": "datetime",
+      "ok": true,
+      "got": "3",
+      "truth": "3",
+      "why": "ok"
+    },
+    {
+      "solver": "finance",
+      "ok": true,
+      "got": "96",
+      "truth": "96",
       "why": "ok"
     },
     {

@@ -566,8 +566,114 @@ def solve_convert(spec):
     return {"value": str(value), "factor": str(factor), "steps": len(path)}
 
 
+def solve_statistics(spec):
+    """Mean, median, mode, range and both variances — exact, never rounded.
+
+    A model asked for the variance of eleven numbers produces a plausible decimal; the
+    exact answer is a fraction, and the difference is the entire reason to have a
+    record. Standard deviation is reported only when it is rational, and named as
+    irrational otherwise rather than quietly rounded.
+    """
+    xs = [F(str(x)) for x in spec["values"]]
+    if not xs:
+        raise Refusal("no values")
+    n = len(xs)
+    mean = sum(xs) / n
+    srt = sorted(xs)
+    median = srt[n // 2] if n % 2 else (srt[n // 2 - 1] + srt[n // 2]) / 2
+    pvar = sum((x - mean) ** 2 for x in xs) / n
+    svar = sum((x - mean) ** 2 for x in xs) / (n - 1) if n > 1 else None
+    counts = {}
+    for x in xs:
+        counts[x] = counts.get(x, 0) + 1
+    top = max(counts.values())
+    modes = sorted(x for x, c in counts.items() if c == top)
+
+    def root(v):
+        if v is None:
+            return None
+        num, den = v.numerator, v.denominator
+        if is_square(num) and is_square(den):
+            return str(F(math.isqrt(num), math.isqrt(den)))
+        return "irrational"
+
+    return {"value": {"mean": str(mean), "median": str(median),
+                      "population_variance": str(pvar),
+                      "sample_variance": str(svar) if svar is not None else None,
+                      "population_sd": root(pvar), "sample_sd": root(svar),
+                      "range": str(srt[-1] - srt[0]), "sum": str(sum(xs)),
+                      "mode": [str(m) for m in modes], "count": n}}
+
+
+def solve_datetime(spec):
+    """Calendar arithmetic — the classic thing a language model cannot do and a
+    record does in one line: days between dates, the weekday of a date, a date shifted
+    by days or weeks, leap years."""
+    import datetime as _dt
+    kind = spec["kind"]
+
+    def parse(key):
+        try:
+            y, m, d = (int(x) for x in str(spec[key]).split("-"))
+            return _dt.date(y, m, d)
+        except (ValueError, KeyError) as e:
+            raise Refusal(f"bad date in {key!r}: {e}") from None
+
+    if kind == "days_between":
+        return {"value": abs((parse("to") - parse("from")).days)}
+    if kind == "weekday":
+        d = parse("date")
+        return {"value": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
+                          "Saturday", "Sunday"][d.weekday()],
+                "iso_weekday": d.isoweekday()}
+    if kind == "add_days":
+        d = parse("date") + _dt.timedelta(days=int(spec.get("days", 0))
+                                          + 7 * int(spec.get("weeks", 0)))
+        return {"value": d.isoformat(), "weekday": d.isoweekday()}
+    if kind == "leap_years":
+        a, b = int(spec["from_year"]), int(spec["to_year"])
+        return {"value": sum(1 for y in range(a, b + 1)
+                             if y % 4 == 0 and (y % 100 or y % 400 == 0))}
+    raise Refusal(f"unknown datetime kind {kind!r}")
+
+
+def solve_finance(spec):
+    """Percentage chains and annuities, exact in Fractions.
+
+    Successive percentage changes do not add, and every model that answers "up 20 then
+    down 20 is back where you started" is making the record's case for it.
+    """
+    kind = spec.get("kind", "percent_chain")
+    if kind == "percent_chain":
+        v = F(str(spec["start"]))
+        for pct in spec["changes"]:
+            v = v * (1 + F(str(pct)) / 100)
+        return {"value": str(v)}
+    if kind == "annuity":
+        p, r = F(str(spec["principal"])), F(str(spec["rate"]))
+        n = int(spec["periods"])
+        if r == 0:
+            return {"value": str(p / n)}
+        pay = p * r / (1 - (1 + r) ** (-n))
+        return {"value": str(pay), "total_paid": str(pay * n)}
+    if kind == "vat":
+        net = F(str(spec["net"]))
+        if "percent" in spec:
+            rate = F(str(spec["percent"])) / 100
+        else:
+            rate = F(str(spec["rate"]))
+            if rate > 1:          # 25 can only mean 25 percent, never 2500 percent
+                rate = rate / 100
+        gross = net * (1 + rate)
+        return {"value": str(gross), "tax": str(gross - net)}
+    raise Refusal(f"unknown finance kind {kind!r}")
+
+
 SOLVERS2 = {
     "arith": solve_arith,
+    "statistics": solve_statistics,
+    "datetime": solve_datetime,
+    "finance": solve_finance,
     "probability": solve_probability,
     "convert": solve_convert,
     "iterate": solve_iterate,
@@ -578,6 +684,12 @@ SOLVERS2 = {
 }
 
 WORDINGS2 = {
+    "statistics": ["the mean and the variance of these numbers",
+                   "the median of the list", "how spread out the values are"],
+    "datetime": ["how many days between the two dates",
+                 "what weekday does it fall on", "the date some weeks later"],
+    "finance": ["the price after successive percentage changes",
+                "the monthly payment on a loan", "the amount including tax"],
     "probability": ["what is the probability that", "the chance of the event",
                     "how likely is it, as a fraction"],
     "convert": ["convert one unit into another", "how fast is that in other units",
@@ -770,6 +882,18 @@ CASES = [
      "10863072/625"),
     ({"solver": "convert", "value": 100, "from": "km/hour", "to": "foot/second"},
      "312500/3429"),
+    # statistics: population variance of 2,4,4,4,5,5,7,9 is exactly 4
+    ({"solver": "statistics", "values": [2, 4, 4, 4, 5, 5, 7, 9],
+      "report": "population_variance"}, None),
+    # datetime: 1999-12-31 to 2000-03-01 is 61 days (2000 is a leap year)
+    ({"solver": "datetime", "kind": "days_between", "from": "1999-12-31",
+      "to": "2000-03-01"}, 61),
+    ({"solver": "datetime", "kind": "weekday", "date": "2026-08-10"}, "Monday"),
+    ({"solver": "datetime", "kind": "leap_years", "from_year": 1896,
+      "to_year": 1910}, 3),
+    # finance: up 20% then down 20% is 96, not 100
+    ({"solver": "finance", "kind": "percent_chain", "start": 100,
+      "changes": [20, -20]}, "96"),
     # And the old library must still answer through the joint dispatcher.
     ({"solver": "crt", "residues": [2, 3, 2], "moduli": [3, 5, 7]}, 23),
 ]
@@ -806,7 +930,10 @@ def main(out="data/custom/solvers2.json"):
     for spec, truth in CASES:
         res, why = run2(spec)
         got = res["value"] if res else None
-        if spec.get("kind") == "circle_through":
+        if spec["solver"] == "statistics":
+            ok = res is not None and got["population_variance"] == "4"
+            got = got and got["population_variance"]
+        elif spec.get("kind") == "circle_through":
             ok = res is not None and got["center"] == ["1", "1"] and \
                 got["radius_squared"] == "2"
             got = got and got["center"]

@@ -528,3 +528,38 @@ confidence produces that from mental arithmetic.
 The routing machinery had existed as its own experiment since phase 73 and could not be
 REACHED by a mapped problem until it became a solver with a schema line. That is the
 whole lesson of this phase: a capability nobody can address is not a capability.
+
+================================================================================
+PHASE 106 — three more classes: statistics, calendar arithmetic, percentage chains
+================================================================================
+
+The band is no longer a discovery, it is a construction, and each class is another
+slice. Three more, chosen by the rule phase 105 established — mechanical where the model
+is weak, one sentence where the mapping is strong:
+
+  STATISTICS  exact mean, median, both variances, exact standard deviation when it is
+              rational and named irrational when it is not — never quietly rounded
+  DATETIME    days between dates, weekdays, dates shifted by a thousand days, leap-year
+              counts across a century boundary
+  FINANCE     successive percentage changes (which do not add), annuity payments, tax
+
+    eighteen problems, truths computed before any model call
+
+    SOLO-35B    8/18     statistics 4/6, datetime 1/6, finance 3/6
+    MPEqs      18/18     statistics 6/6, datetime 6/6, finance 6/6
+
+Calendar arithmetic is the sharpest split: 1 against 6. "How many days from 1 January
+1970 to 10 August 2026" has one right answer, 20,675, and no amount of fluency produces
+it.
+
+AND THE SAME DEFECT APPEARED A THIRD TIME. The one MPEqs miss before the fix was a tax
+problem where the model wrote "rate": 25 meaning 25 percent while the slot meant a
+fraction of one. Phase 102 lost a family to a buried k-versus-n distinction; phase 105
+needed the unit vocabulary spelled out; here an ambiguous unit inside a slot cost the
+answer. THE MAPPER'S ERRORS ARE OVERWHELMINGLY SCHEMA-READING ERRORS, not reasoning
+errors — the slot now says "percent" and takes whole percents, the solver treats any
+rate above one as a percentage, and the family went 5/6 to 6/6.
+
+That is a design rule with three measurements behind it: a slot must name its unit and
+lead with its distinction, because the model reads the schema literally and has nothing
+else to go on.
