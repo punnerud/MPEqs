@@ -106,6 +106,13 @@
       "note": "retrieval 8/18 -> 17/18"
     },
     {
+      "band": "Equations with fractional coefficients",
+      "solo": 4,
+      "mpeqs": 12,
+      "n": 12,
+      "note": "symbolic and worded, addressable since phase 125"
+    },
+    {
       "band": "Fresh 24, the full policy live",
       "solo": 3,
       "mpeqs": 23,
@@ -127,8 +134,8 @@
       "note": "what the vocabulary reaches"
     }
   ],
-  "total_solo": 107,
-  "total_mpeqs": 292,
-  "total_n": 345,
-  "solvers": 37
+  "total_solo": 111,
+  "total_mpeqs": 304,
+  "total_n": 357,
+  "solvers": 38
 }

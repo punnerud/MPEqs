@@ -1091,8 +1091,8 @@ WHAT MPEqs IS, AFTER PHASES 92-123 — the whole arc in one place
 
 THE MEASUREMENT, assembled from the JSON each run wrote (see capability.py):
 
-    comparable totals across every two-armed battery    107 model     292 MPEqs
-                                                        of 345 problems
+    comparable totals across every two-armed battery    111 model     304 MPEqs
+                                                        of 357 problems
 
     where the machinery loses: grade-school word problems (28 against 21) and easy
     instances of any class (15 against 15) — both because the arithmetic was never hard
@@ -1190,3 +1190,23 @@ library, a unit router and an equation solver, each built carefully, each measur
 thoroughly, each answering nothing at all until someone wrote the sentence that says how
 to ask for it. That is the study's most repeatable finding and the one least likely to be
 noticed while building: THE ADDRESS IS PART OF THE CAPABILITY.
+
+================================================================================
+PHASE 126 — the equation class, measured live: 12 of 12
+================================================================================
+
+A capability that has never been asked for by a model is still only half-built, so the
+newly addressable equation solver was measured like every other class: twelve problems
+with fractional coefficients — six written as equations and six as the sentences that
+describe them — truths computed before any model call.
+
+    SOLO-35B     4/12
+    MPEqs       12/12   (12 parsed, 12 ran, nothing wrong)
+
+Both halves came through: the model copies "7/3x - 5 = 1/2x + 4" straight out of the
+symbolic problems, and for the worded ones it writes the equation the sentence describes
+and hands that over — which is the division of labour this study has been circling since
+phase 45, in its smallest possible form. The record does the algebra it has been able to
+do since phase 80 and could not be asked for until yesterday.
+
+Library: 38 solvers, 54 self-tests exact, 16 named refusals, across 18 classes.

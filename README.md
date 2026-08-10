@@ -134,8 +134,9 @@ every delivery mechanically.
 | Seventeen classes at 37 solvers (n=34) | 10/34 | **33/34** |
 | Eighteen problems in **Norwegian** (n=18) | 6/18 | **15/18** |
 | the same, with the exemplar bank translated | 6/18 | **16/18** (retrieval 8→17) |
+| Equations with fractional coefficients (n=12) | 4/12 | **12/12** |
 | Fresh 24, full policy live (n=24) | 3/24 | **23/24**, zero wrong |
-| **Every two-armed battery together** | **107/345** | **292/345** |
+| **Every two-armed battery together** | **111/357** | **304/357** |
 
 The middle row is the point: twelve-step exact fraction folds, big-integer powers, counts
 over hundreds of thousands, divisor structure of large factorials — the model answers all

@@ -1621,11 +1621,11 @@ CHECKS = [
      14.0, 0.001, "and through the machinery: the band appears with the difficulty"),
     # The capability sheet, assembled from the runs.
     ("data/custom/capability.json", lambda d: float(d["total_mpeqs"]),
-     292.0, 0.001, "problems solved through MPEqs across every two-armed battery"),
+     304.0, 0.001, "problems solved through MPEqs across every two-armed battery"),
     ("data/custom/capability.json", lambda d: float(d["total_solo"]),
-     107.0, 0.001, "solved by the same model answering alone"),
+     111.0, 0.001, "solved by the same model answering alone"),
     ("data/custom/capability.json", lambda d: float(d["total_n"]),
-     345.0, 0.001, "problems in those batteries"),
+     357.0, 0.001, "problems in those batteries"),
     # Routing: the a priori rule loses to not routing, and refusal is the signal.
     ("data/custom/router.json", lambda d: float(d["always_mpeqs"]),
      113.0, 0.001, "always sending to the machinery"),
@@ -1713,6 +1713,11 @@ CHECKS = [
      2.0, 0.001, "reachable AIME problems mapped right with 37 machines"),
     ("data/custom/aimefinal.json", lambda d: float(d.get("retrieval_hit", 0)),
      5.0, 0.001, "and retrieval still perfect on all five"),
+    # The equation class, live.
+    ("data/custom/bands6.json", lambda d: float(d["mpeqs"]),
+     12.0, 0.001, "equations solved through the newly addressable solver"),
+    ("data/custom/bands6.json", lambda d: float(d["solo"]),
+     4.0, 0.001, "and what the model managed alone"),
     # Two-sided labels on the chord metric: no better than one relay, twice the memory.
     ("data/custom/hub-corpus.json", lambda d: d["exact_cell_pct"],
      1.34, 0.7, "two-sided hub labels on the angular metric"),

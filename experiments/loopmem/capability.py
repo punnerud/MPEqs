@@ -44,6 +44,8 @@ ROWS = [
      "English catalogue, retrieval half-collapsed"),
     ("The same, exemplars translated", "norsk_bank.json", "solo", "mpeqs", 18,
      "retrieval 8/18 -> 17/18"),
+    ("Equations with fractional coefficients", "bands6.json", "solo", "mpeqs", 12,
+     "symbolic and worded, addressable since phase 125"),
     ("Fresh 24, the full policy live", "pipeline.json", "solo", "pipeline", 24,
      "23 right, zero wrong, one refusal"),
     ("AIME, model-mapped", "aimefewshot.json", None, "exact", 15,
