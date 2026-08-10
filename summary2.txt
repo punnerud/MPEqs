@@ -1622,3 +1622,53 @@ What that says about the bigger idea: a full dictionary-sized table is not a dif
 kind of thing from what the model already carries, it is the same table made readable. The
 saving is not in intelligence, it is in not paying a forward pass to look up something
 that was always a lookup.
+
+================================================================================
+PHASE 139 — does the WORD predict its experts? The other prefetch axis, measured
+================================================================================
+
+If the word-to-vector step is a table rather than a forward pass, every token of a prompt
+is in hand at time zero, in parallel, before a single layer runs — and the obvious systems
+prize is the one this repository's other half exists for: start fetching experts from disk
+earlier. The README's headline table tested prefetch ONE way, layer L predicting layer
+L+1 (0.66 of 5.96 bits, dead). It never asked whether the TOKEN predicts the experts,
+which is the only predictor available at lookup time.
+
+Measured on the corrected contribution trace — 16 layers, 64 experts, top-8, 8,192
+positions aligned against the same corpus through the same tokeniser, table built on the
+first half and tested on the second:
+
+    prefetch budget 16 of 64 experts (25% residency)
+    token-conditioned    49.5%
+    frequency only       52.7%
+    difference           -3.1 points
+
+KNOWING THE WORD MAKES IT WORSE. A per-token table is a noisy estimate of the global
+frequency it is trying to beat, and 25,184 of 65,536 test records held a token the first
+half never saw at all.
+
+The diagnostic behind the number is the part worth keeping. For tokens repeating at least
+five times, how much do their expert sets overlap with THEMSELVES, against two random
+selections at the same layer?
+
+    layer  0    same token 0.18     random pair 0.16
+    layer  1    same token 0.19     random pair 0.17
+    layer  8    same token 0.26     random pair 0.22
+    layer 15    same token 0.31     random pair 0.26
+
+THE SAME WORD, AT THE SAME LAYER, ROUTES ALMOST WHEREVER IT LIKES. Two points of overlap
+above chance is all the word's identity is worth, and it stays that small at layer 0 —
+because the MoE sits after attention, so even the first block's router is reading a
+residual that already carries the sentence. There is no layer at which a word has its own
+activation.
+
+Which settles the extension too: an index of higher-layer activations PER WORD cannot be
+built, not because it is expensive but because the thing being indexed does not exist. The
+input embedding is a table and is precomputable and invertible — that part is real, and
+phase 138 spent it — but one block up the activation is a function of the word AND its
+neighbours, and the measurement above is how far apart the same word's two occurrences
+already are.
+
+Both prefetch axes are now measured and both are dead: the layer before tells you 0.66 of
+5.96 bits, and the word itself tells you three points less than counting. What survives is
+what already survived — static frequency pinning, which needs no prediction at all.

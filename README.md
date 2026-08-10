@@ -65,7 +65,8 @@ targets. `make all` is the quality gate: `cargo fmt --check`, `clippy -D warning
 
 | lever | what it needs | measured | outcome |
 |---|---|---|---|
-| Prefetch | layer L predicts L+1 | 0.66 of 5.96 bits | dead |
+| Prefetch (across layers) | layer L predicts L+1 | 0.66 of 5.96 bits | dead |
+| Prefetch (from the token) | the word predicts its experts | 49.5 % vs 52.7 % for frequency | dead |
 | Caching with LRU | recency predicts reuse | 4.5 % hit at 54 % residency | actively harmful |
 | **Static expert pinning** | any frequency skew | 55.4 % hit at 54 % residency | **2.24×** |
 | Truncation | some experts contribute little | rank 8 = 4.4 % | costly |

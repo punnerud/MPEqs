@@ -1806,6 +1806,16 @@ CHECKS = [
      9.0, 0.001, "Norwegian by table, where the vocabulary is half as covered"),
     ("data/custom/lexroles.json", lambda d: float(d["ambiguous_words"]),
      17.0, 0.001, "words carrying more than one role, as senses require"),
+    # The other prefetch axis: what the word itself predicts about its experts.
+    ("data/custom/tokenprefetch.json", lambda d: float(d["token_coverage"]),
+     0.495, 0.005, "expert coverage from a per-token prefetch table at 25% residency"),
+    ("data/custom/tokenprefetch.json", lambda d: float(d["frequency_coverage"]),
+     0.527, 0.005, "and from frequency alone, which beats it"),
+    ("data/custom/tokenprefetch.json", lambda d: float(d["delta"]),
+     -0.031, 0.005, "what knowing the word is worth: less than nothing"),
+    ("data/custom/tokenprefetch.json",
+     lambda d: d["same_token_overlap"]["layer0"] - d["random_pair_overlap"]["layer0"],
+     0.02, 0.005, "a word's expert overlap with itself above chance, at layer zero"),
     # Two-sided labels on the chord metric: no better than one relay, twice the memory.
     ("data/custom/hub-corpus.json", lambda d: d["exact_cell_pct"],
      1.34, 0.7, "two-sided hub labels on the angular metric"),
