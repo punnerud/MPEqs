@@ -1489,7 +1489,7 @@ CHECKS = [
     # Was 6 at phase 95; arith added two refusal cases in phase 98 (unknown variable,
     # division by zero in a step). The library grew, so the guard grew with it.
     ("data/custom/solvers2.json", lambda d: float(d["refusals_named"]),
-     13.0, 0.001, "refusals named, three of them expression-sandbox escapes"),
+     14.0, 0.001, "refusals named, three of them expression-sandbox escapes"),
     # AIME coverage: willingness to map is not reach.
     ("data/custom/aimecover.json", lambda d: float(d.get("claimed", 0)),
      22.0, 0.001, "AIME problems the model claimed it could map"),
@@ -1527,7 +1527,7 @@ CHECKS = [
     ("data/custom/gsmgate.json", lambda d: float(d["both"][2]),
      0.0, 0.001, "wrong deliveries under echo plus cross-kind agreement"),
     ("data/custom/solvers2.json", lambda d: float(d["passed"]),
-     45.0, 0.001, "grown-library self-tests after the phase 114 additions"),
+     51.0, 0.001, "grown-library self-tests after the phase 115 additions"),
     # The ceiling: what the vocabulary reaches when a human does the mapping.
     ("data/custom/aimeceiling.json", lambda d: float(d["hand_exact"]),
      5.0, 0.001, "AIME problems hand-mapped onto the library and exact"),
@@ -1621,11 +1621,11 @@ CHECKS = [
      14.0, 0.001, "and through the machinery: the band appears with the difficulty"),
     # The capability sheet, assembled from the runs.
     ("data/custom/capability.json", lambda d: float(d["total_mpeqs"]),
-     212.0, 0.001, "problems solved through MPEqs across every two-armed battery"),
+     228.0, 0.001, "problems solved through MPEqs across every two-armed battery"),
     ("data/custom/capability.json", lambda d: float(d["total_solo"]),
-     80.0, 0.001, "solved by the same model answering alone"),
+     85.0, 0.001, "solved by the same model answering alone"),
     ("data/custom/capability.json", lambda d: float(d["total_n"]),
-     259.0, 0.001, "problems in those batteries"),
+     275.0, 0.001, "problems in those batteries"),
     # Routing: the a priori rule loses to not routing, and refusal is the signal.
     ("data/custom/router.json", lambda d: float(d["always_mpeqs"]),
      113.0, 0.001, "always sending to the machinery"),
@@ -1651,8 +1651,15 @@ CHECKS = [
      3.0, 0.001, "and what the model managed alone"),
     ("data/custom/bands4.json", lambda d: float(d["byfam"]["partition"][1]),
      0.0, 0.001, "partition problems the model got alone: a shutout"),
+    # Base arithmetic, approximation, word counting, primes.
+    ("data/custom/bands5.json", lambda d: float(d["mpeqs"]),
+     16.0, 0.001, "a complete sweep of the newest four classes"),
+    ("data/custom/bands5.json", lambda d: float(d["solo"]),
+     5.0, 0.001, "and what the model managed alone"),
+    ("data/custom/bands5.json", lambda d: float(d["byfam"]["approx"][1]),
+     0.0, 0.001, "rational approximations the model found alone: none"),
     ("data/custom/solvers2.json", lambda d: float(d["solvers_total"]),
-     33.0, 0.001, "solvers in MPEqs after the phase 114 additions"),
+     37.0, 0.001, "solvers in MPEqs after the phase 115 additions"),
     # Two-sided labels on the chord metric: no better than one relay, twice the memory.
     ("data/custom/hub-corpus.json", lambda d: d["exact_cell_pct"],
      1.34, 0.7, "two-sided hub labels on the angular metric"),

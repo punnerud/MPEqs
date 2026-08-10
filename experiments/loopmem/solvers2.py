@@ -966,8 +966,168 @@ def solve_logexp(spec):
     raise Refusal(f"unknown logexp kind {kind!r}")
 
 
+DIGITS36 = "0123456789abcdefghijklmnopqrstuvwxyz"
+
+
+def solve_basearith(spec):
+    """Arithmetic performed IN a base, and conversions between two bases.
+
+    Adding 4213 and 3654 in base 7 is a mechanical carry chain a model does by
+    translating to decimal in its head and back, which is where it slips. The record
+    converts exactly, computes exactly and renders exactly.
+    """
+    def to_int(text, base):
+        t = str(text).strip().lower()
+        neg = t.startswith("-")
+        t = t.lstrip("-")
+        if not t or any(c not in DIGITS36[:base] for c in t):
+            raise Refusal(f"{text!r} is not a base-{base} numeral")
+        v = 0
+        for c in t:
+            v = v * base + DIGITS36.index(c)
+        return -v if neg else v
+
+    def render(v, base):
+        if v == 0:
+            return "0"
+        neg, v, out = v < 0, abs(v), []
+        while v:
+            out.append(DIGITS36[v % base])
+            v //= base
+        return ("-" if neg else "") + "".join(reversed(out))
+
+    frm = int(spec.get("from_base", 10))
+    to = int(spec.get("to_base", 10))
+    if not (2 <= frm <= 36 and 2 <= to <= 36):
+        raise Refusal("bases must be between 2 and 36")
+    op = spec.get("op", "convert")
+    vals = [to_int(v, frm) for v in (spec.get("values") or [spec.get("value")])]
+    if op == "convert":
+        if len(vals) != 1:
+            raise Refusal("convert takes one value")
+        result = vals[0]
+    elif op == "add":
+        result = sum(vals)
+    elif op == "subtract":
+        result = vals[0] - sum(vals[1:])
+    elif op == "multiply":
+        result = math.prod(vals)
+    else:
+        raise Refusal(f"unknown base operation {op!r}")
+    return {"value": render(result, to), "decimal": result}
+
+
+def solve_approx(spec):
+    """Continued fractions and the best rational approximation under a denominator cap.
+
+    "The closest fraction to 355/113 with denominator under 50" has one answer and no
+    intuition finds it; the Stern-Brocot walk does, exactly, in a few dozen steps.
+    """
+    kind = spec.get("kind", "best_rational")
+    if kind == "continued_fraction":
+        x = F(str(spec["value"]))
+        terms, limit = [], int(spec.get("terms", 12))
+        for _ in range(limit):
+            a = x.numerator // x.denominator
+            terms.append(a)
+            x -= a
+            if x == 0:
+                break
+            x = 1 / x
+        return {"value": terms}
+    if kind == "best_rational":
+        x = F(str(spec["value"]))
+        cap = int(spec["max_denominator"])
+        if cap < 1:
+            raise Refusal("max_denominator must be at least 1")
+        best = x.limit_denominator(cap)
+        return {"value": str(best), "error": str(abs(best - x))}
+    if kind == "convergents":
+        x = F(str(spec["value"]))
+        out, h1, h2, k1, k2 = [], 1, 0, 0, 1
+        for _ in range(int(spec.get("terms", 8))):
+            a = x.numerator // x.denominator
+            h1, h2 = a * h1 + h2, h1
+            k1, k2 = a * k1 + k2, k1
+            out.append(f"{h1}/{k1}")
+            x -= a
+            if x == 0:
+                break
+            x = 1 / x
+        return {"value": out}
+    raise Refusal(f"unknown approximation kind {kind!r}")
+
+
+def solve_strcount(spec):
+    """Counting over a written word: letters, distinct arrangements, palindromes.
+
+    Distinct arrangements of MISSISSIPPI is 34650 and a model will confidently say
+    something else; it is a factorial over repeated-letter factorials, which is exactly
+    the kind of thing to hand to a record.
+    """
+    word = str(spec.get("word", "")).strip()
+    if not word or len(word) > 200:
+        raise Refusal("word must be between 1 and 200 characters")
+    letters = [c for c in word.lower() if c.isalnum()]
+    counts = {}
+    for c in letters:
+        counts[c] = counts.get(c, 0) + 1
+    kind = spec.get("kind", "arrangements")
+    if kind == "arrangements":
+        total = math.factorial(len(letters))
+        for c in counts.values():
+            total //= math.factorial(c)
+        return {"value": total, "letters": len(letters),
+                "repeats": {k: v for k, v in sorted(counts.items()) if v > 1}}
+    if kind == "letter_count":
+        which = str(spec.get("letter", "")).lower()
+        return {"value": counts.get(which, 0)}
+    if kind == "distinct_letters":
+        return {"value": len(counts)}
+    if kind == "is_palindrome":
+        return {"value": letters == letters[::-1]}
+    raise Refusal(f"unknown string kind {kind!r}")
+
+
+def solve_primes(spec):
+    """Prime counting, the nth prime, the next prime, and sums over a range."""
+    kind = spec.get("kind", "count")
+    if kind == "nth":
+        n = int(spec["n"])
+        if not 1 <= n <= 200_000:
+            raise Refusal("n between 1 and 200000")
+        found, cand = 0, 1
+        while found < n:
+            cand += 1
+            if is_prime(cand):
+                found += 1
+        return {"value": cand}
+    lo = int(spec.get("from", 1))
+    hi = int(spec.get("to", 0))
+    if kind in ("count", "sum"):
+        if hi - lo > 5_000_000:
+            raise Refusal("range too wide")
+        sieve = bytearray([1]) * (hi + 1)
+        sieve[0:2] = b"\x00\x00"
+        for i in range(2, int(hi ** 0.5) + 1):
+            if sieve[i]:
+                sieve[i * i::i] = bytearray(len(sieve[i * i::i]))
+        vals = [i for i in range(max(lo, 2), hi + 1) if sieve[i]]
+        return {"value": len(vals) if kind == "count" else sum(vals)}
+    if kind == "next":
+        v = int(spec["value"]) + 1
+        while not is_prime(v):
+            v += 1
+        return {"value": v}
+    raise Refusal(f"unknown prime kind {kind!r}")
+
+
 SOLVERS2 = {
     "arith": solve_arith,
+    "basearith": solve_basearith,
+    "approx": solve_approx,
+    "strcount": solve_strcount,
+    "primes": solve_primes,
     "sequence": solve_sequence,
     "matrix": solve_matrix,
     "partition": solve_partition,
@@ -988,6 +1148,14 @@ SOLVERS2 = {
 }
 
 WORDINGS2 = {
+    "basearith": ["add the two numbers in base seven", "convert between bases",
+                  "arithmetic written in another base"],
+    "approx": ["the closest fraction with a small denominator",
+               "the continued fraction expansion", "approximate the ratio"],
+    "strcount": ["how many distinct arrangements of the letters",
+                 "how many times does the letter appear", "anagrams of the word"],
+    "primes": ["how many primes are there below", "the nth prime number",
+               "the next prime after"],
     "sequence": ["what is the next term in the sequence",
                  "the nth term of this pattern", "continue the series"],
     "matrix": ["the determinant of the matrix", "multiply the two matrices",
@@ -1242,6 +1410,17 @@ CASES = [
     ({"solver": "logexp", "kind": "digits_of_power", "base": 2, "exponent": 1000},
      302),
     ({"solver": "logexp", "kind": "trailing_zeros_factorial", "n": 1000}, 249),
+    # base arithmetic: 4213 + 3654 in base 7 is 11200 (decimal 1483 + 1362 = 2845)
+    ({"solver": "basearith", "op": "add", "values": ["4213", "3654"],
+      "from_base": 7, "to_base": 7}, "11200"),
+    ({"solver": "basearith", "op": "convert", "value": "beef", "from_base": 16,
+      "to_base": 2}, "1011111011101111"),
+    # MISSISSIPPI: 11! / (4! 4! 2!) = 34650
+    ({"solver": "strcount", "word": "MISSISSIPPI", "kind": "arrangements"}, 34650),
+    ({"solver": "approx", "kind": "best_rational", "value": "355/113",
+      "max_denominator": 50}, "22/7"),
+    ({"solver": "primes", "kind": "count", "from": 1, "to": 100}, 25),
+    ({"solver": "primes", "kind": "nth", "n": 1000}, 7919),
     # And the old library must still answer through the joint dispatcher.
     ({"solver": "crt", "residues": [2, 3, 2], "moduli": [3, 5, 7]}, 23),
 ]
@@ -1268,6 +1447,8 @@ REFUSALS = [
     ({"solver": "sequence", "terms": [1, 2, 4, 8, 17], "n": 9}, "no arithmetic"),
     ({"solver": "matrix", "kind": "inverse", "matrix": [[1, 2], [2, 4]]},
      "singular"),
+    ({"solver": "basearith", "op": "convert", "value": "19", "from_base": 8,
+      "to_base": 10}, "not a base-8 numeral"),
     ({"solver": "arith", "let": {"a": "1", "b": "c + 1"}}, "unknown variable"),
     ({"solver": "iterate", "init": "1", "step": "acc * m", "from": 1, "to": 3},
      "unknown variable"),

@@ -78,6 +78,13 @@
       "note": "partitions and sequences are shutouts"
     },
     {
+      "band": "Bases, approximation, words, primes",
+      "solo": 5,
+      "mpeqs": 16,
+      "n": 16,
+      "note": "a complete sweep"
+    },
+    {
       "band": "Fresh 24, the full policy live",
       "solo": 3,
       "mpeqs": 23,
@@ -99,8 +106,8 @@
       "note": "what the vocabulary reaches"
     }
   ],
-  "total_solo": 80,
-  "total_mpeqs": 212,
-  "total_n": 259,
-  "solvers": 33
+  "total_solo": 85,
+  "total_mpeqs": 228,
+  "total_n": 275,
+  "solvers": 37
 }

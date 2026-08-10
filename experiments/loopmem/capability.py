@@ -36,6 +36,8 @@ ROWS = [
      "27 of 27 specs valid, arithmetic never its job"),
     ("Sequences, matrices, partitions, logs", "bands4.json", "solo", "mpeqs", 16,
      "partitions and sequences are shutouts"),
+    ("Bases, approximation, words, primes", "bands5.json", "solo", "mpeqs", 16,
+     "a complete sweep"),
     ("Fresh 24, the full policy live", "pipeline.json", "solo", "pipeline", 24,
      "23 right, zero wrong, one refusal"),
     ("AIME, model-mapped", "aimefewshot.json", None, "exact", 15,

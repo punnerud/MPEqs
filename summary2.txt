@@ -835,3 +835,25 @@ caught by the machinery it was meant to check — which is the argument for writ
 truth first stated as a score rather than as a principle.
 
 Library: 33 solvers, 45 self-tests exact, 13 refusals named.
+
+================================================================================
+PHASE 115 — four more: base arithmetic, approximation, word counting, primes
+================================================================================
+
+    BASEARITH  adding in base seven is a carry chain a model does by translating to
+               decimal in its head and back, which is where it slips
+    APPROX     the closest fraction under a denominator cap, and continued fractions
+    STRCOUNT   distinct arrangements of a word with repeated letters
+    PRIMES     counting primes below a bound, the nth prime, the next prime
+
+    sixteen problems, truths computed before any model call
+
+    SOLO-35B    5/16    approx 0/4, basearith 1/4, primes 1/4, strcount 3/4
+    MPEqs      16/16    every class complete, nothing wrong
+
+Sixteen of sixteen. The approximation class is the cleanest illustration of the band's
+definition: "the closest fraction to 3126535/995207 with denominator at most 200" is
+355/113, and there is no version of fluency that produces it — a Stern-Brocot walk does,
+in a few dozen exact steps, and the model's only job was to notice which machine that is.
+
+Library: 37 solvers, 51 self-tests exact, 14 refusals named.

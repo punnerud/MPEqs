@@ -1,0 +1,249 @@
+{
+  "n": 16,
+  "solo": 5,
+  "mpeqs": 16,
+  "parsed": 16,
+  "ran": 16,
+  "wrong": 0,
+  "byfam": {
+    "basearith": [
+      4,
+      1,
+      4
+    ],
+    "approx": [
+      4,
+      0,
+      4
+    ],
+    "strcount": [
+      4,
+      3,
+      4
+    ],
+    "primes": [
+      4,
+      1,
+      4
+    ]
+  },
+  "rows": [
+    {
+      "family": "basearith",
+      "truth": "104432",
+      "solo_ok": true,
+      "mpeqs": "104432",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "basearith",
+        "op": "add",
+        "values": [
+          "46135",
+          "25264"
+        ],
+        "from_base": 7,
+        "to_base": 7
+      }
+    },
+    {
+      "family": "basearith",
+      "truth": "1100100000",
+      "solo_ok": false,
+      "mpeqs": "1100100000",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "basearith",
+        "op": "add",
+        "values": [
+          "110110101",
+          "101101011"
+        ],
+        "from_base": 2,
+        "to_base": 2
+      }
+    },
+    {
+      "family": "basearith",
+      "truth": "775234",
+      "solo_ok": false,
+      "mpeqs": "775234",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "basearith",
+        "op": "convert",
+        "values": [
+          "3fa9c"
+        ],
+        "from_base": 16,
+        "to_base": 8
+      }
+    },
+    {
+      "family": "basearith",
+      "truth": "3131062",
+      "solo_ok": false,
+      "mpeqs": "3131062",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "basearith",
+        "op": "multiply",
+        "values": [
+          "8172",
+          "341"
+        ],
+        "from_base": 9,
+        "to_base": 9
+      }
+    },
+    {
+      "family": "approx",
+      "truth": "355/113",
+      "solo_ok": false,
+      "mpeqs": "355/113",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "approx",
+        "kind": "best_rational",
+        "value": "3126535/995207",
+        "max_denominator": 200
+      }
+    },
+    {
+      "family": "approx",
+      "truth": "106/39",
+      "solo_ok": false,
+      "mpeqs": "106/39",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "approx",
+        "kind": "best_rational",
+        "value": "271828/100000",
+        "max_denominator": 60
+      }
+    },
+    {
+      "family": "approx",
+      "truth": "140/99",
+      "solo_ok": false,
+      "mpeqs": "140/99",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "approx",
+        "kind": "best_rational",
+        "value": "1414213/1000000",
+        "max_denominator": 99
+      }
+    },
+    {
+      "family": "approx",
+      "truth": "233/144",
+      "solo_ok": false,
+      "mpeqs": "233/144",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "approx",
+        "kind": "best_rational",
+        "value": "16180339/10000000",
+        "max_denominator": 150
+      }
+    },
+    {
+      "family": "strcount",
+      "truth": "83160",
+      "solo_ok": true,
+      "mpeqs": "83160",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "strcount",
+        "word": "ABRACADABRA",
+        "kind": "arrangements"
+      }
+    },
+    {
+      "family": "strcount",
+      "truth": "778377600",
+      "solo_ok": true,
+      "mpeqs": "778377600",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "strcount",
+        "word": "COMBINATORICS",
+        "kind": "arrangements"
+      }
+    },
+    {
+      "family": "strcount",
+      "truth": "86486400",
+      "solo_ok": false,
+      "mpeqs": "86486400",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "strcount",
+        "word": "PARALLELOGRAM",
+        "kind": "arrangements"
+      }
+    },
+    {
+      "family": "strcount",
+      "truth": "119750400",
+      "solo_ok": true,
+      "mpeqs": "119750400",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "strcount",
+        "word": "MITOCHONDRIA",
+        "kind": "arrangements"
+      }
+    },
+    {
+      "family": "primes",
+      "truth": "17984",
+      "solo_ok": true,
+      "mpeqs": "17984",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "primes",
+        "kind": "count",
+        "from": 1,
+        "to": 199999
+      }
+    },
+    {
+      "family": "primes",
+      "truth": "21171191",
+      "solo_ok": false,
+      "mpeqs": "21171191",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "primes",
+        "kind": "sum",
+        "from": 1,
+        "to": 19999
+      }
+    },
+    {
+      "family": "primes",
+      "truth": "48611",
+      "solo_ok": false,
+      "mpeqs": "48611",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "primes",
+        "kind": "nth",
+        "n": 5000
+      }
+    },
+    {
+      "family": "primes",
+      "truth": "1000003",
+      "solo_ok": false,
+      "mpeqs": "1000003",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "primes",
+        "kind": "next",
+        "value": 999983
+      }
+    }
+  ]
+}
