@@ -1,0 +1,191 @@
+{
+  "n": 18,
+  "bank_language": "en",
+  "model": "olmoe-1b",
+  "english_bank_hits": 8,
+  "english_bank_score": 15,
+  "solo": 0,
+  "mpeqs": 0,
+  "parsed": 15,
+  "ran": 7,
+  "wrong": 7,
+  "retrieval_hit": 8,
+  "byfam": {
+    "count": [
+      3,
+      0,
+      0
+    ],
+    "divisors": [
+      3,
+      0,
+      0
+    ],
+    "probability": [
+      3,
+      0,
+      0
+    ],
+    "statistics": [
+      3,
+      0,
+      0
+    ],
+    "datetime": [
+      3,
+      0,
+      0
+    ],
+    "finance": [
+      3,
+      0,
+      0
+    ]
+  },
+  "rows": [
+    {
+      "family": "count",
+      "truth": "1974",
+      "solo_ok": false,
+      "mpeqs": "error: KeyError: 'values'",
+      "mpeqs_ok": false,
+      "solver": "statistics"
+    },
+    {
+      "family": "count",
+      "truth": "28353984",
+      "solo_ok": false,
+      "mpeqs": "None",
+      "mpeqs_ok": false,
+      "solver": null
+    },
+    {
+      "family": "count",
+      "truth": "500",
+      "solo_ok": false,
+      "mpeqs": "31250125000",
+      "mpeqs_ok": false,
+      "solver": "arith"
+    },
+    {
+      "family": "divisors",
+      "truth": "96000",
+      "solo_ok": false,
+      "mpeqs": "340032",
+      "mpeqs_ok": false,
+      "solver": "factor"
+    },
+    {
+      "family": "divisors",
+      "truth": "1199328",
+      "solo_ok": false,
+      "mpeqs": "93383273455325195473152000",
+      "mpeqs_ok": false,
+      "solver": "factor"
+    },
+    {
+      "family": "divisors",
+      "truth": "80",
+      "solo_ok": false,
+      "mpeqs": "340032",
+      "mpeqs_ok": false,
+      "solver": "factor"
+    },
+    {
+      "family": "probability",
+      "truth": "5/36",
+      "solo_ok": false,
+      "mpeqs": "error: KeyError: 'values'",
+      "mpeqs_ok": false,
+      "solver": "statistics"
+    },
+    {
+      "family": "probability",
+      "truth": "63/100",
+      "solo_ok": false,
+      "mpeqs": "error: KeyError: 'values'",
+      "mpeqs_ok": false,
+      "solver": "statistics"
+    },
+    {
+      "family": "probability",
+      "truth": "7/27",
+      "solo_ok": false,
+      "mpeqs": "None",
+      "mpeqs_ok": false,
+      "solver": null
+    },
+    {
+      "family": "statistics",
+      "truth": "36",
+      "solo_ok": false,
+      "mpeqs": "error: KeyError: 'values'",
+      "mpeqs_ok": false,
+      "solver": "statistics"
+    },
+    {
+      "family": "statistics",
+      "truth": "5345/36",
+      "solo_ok": false,
+      "mpeqs": "error: KeyError: 'values'",
+      "mpeqs_ok": false,
+      "solver": "statistics"
+    },
+    {
+      "family": "statistics",
+      "truth": "35",
+      "solo_ok": false,
+      "mpeqs": "error: KeyError: 'values'",
+      "mpeqs_ok": false,
+      "solver": "statistics"
+    },
+    {
+      "family": "datetime",
+      "truth": "77432",
+      "solo_ok": false,
+      "mpeqs": "refused: expression syntax: invali",
+      "mpeqs_ok": false,
+      "solver": "arith"
+    },
+    {
+      "family": "datetime",
+      "truth": "Tuesday",
+      "solo_ok": false,
+      "mpeqs": "10",
+      "mpeqs_ok": false,
+      "solver": "datetime"
+    },
+    {
+      "family": "datetime",
+      "truth": "2024-02-09",
+      "solo_ok": false,
+      "mpeqs": "error: KeyError: 'kind'",
+      "mpeqs_ok": false,
+      "solver": "datetime"
+    },
+    {
+      "family": "finance",
+      "truth": "10589733/2500",
+      "solo_ok": false,
+      "mpeqs": "None",
+      "mpeqs_ok": false,
+      "solver": null
+    },
+    {
+      "family": "finance",
+      "truth": "35131/50",
+      "solo_ok": false,
+      "mpeqs": "{'mean': '16069/50', 'median': '14', 'population_variance': '247016961/1250', 'sample_variance': '741050883/2500', 'population_sd': 'irrational', 'sample_sd': 'irrational', 'range': '47493/50', 'sum': '48207/50', 'mode': ['7/50', '14', '950'], 'count': 3}",
+      "mpeqs_ok": false,
+      "solver": "statistics"
+    },
+    {
+      "family": "finance",
+      "truth": "2252191588960823337718801/10000000000000000000000",
+      "solo_ok": false,
+      "mpeqs": "11907/400",
+      "mpeqs_ok": false,
+      "solver": "statistics"
+    }
+  ]
+}

@@ -1701,6 +1701,13 @@ CHECKS = [
      17.0, 0.001, "retrieval hits with a Norwegian bank, against 8 with English"),
     ("data/custom/norsk_bank.json", lambda d: float(d["mpeqs"]),
      16.0, 0.001, "Norwegian problems solved with a Norwegian bank"),
+    # The small model in Norwegian: nine translated sentences are all it has.
+    ("data/custom/norsk_1b_en.json", lambda d: float(d["mpeqs"]),
+     0.0, 0.001, "1B on Norwegian with an English bank: nothing"),
+    ("data/custom/norsk_1b.json", lambda d: float(d["mpeqs"]),
+     4.0, 0.001, "and with the bank translated"),
+    ("data/custom/norsk_1b.json", lambda d: float(d["retrieval_hit"]),
+     17.0, 0.001, "its retrieval hits once the exemplars speak the language"),
     # Two-sided labels on the chord metric: no better than one relay, twice the memory.
     ("data/custom/hub-corpus.json", lambda d: d["exact_cell_pct"],
      1.34, 0.7, "two-sided hub labels on the angular metric"),

@@ -1,0 +1,191 @@
+{
+  "n": 18,
+  "bank_language": "no",
+  "model": "olmoe-1b",
+  "english_bank_hits": 8,
+  "english_bank_score": 15,
+  "solo": 0,
+  "mpeqs": 4,
+  "parsed": 15,
+  "ran": 13,
+  "wrong": 9,
+  "retrieval_hit": 17,
+  "byfam": {
+    "count": [
+      3,
+      0,
+      1
+    ],
+    "divisors": [
+      3,
+      0,
+      0
+    ],
+    "probability": [
+      3,
+      0,
+      0
+    ],
+    "statistics": [
+      3,
+      0,
+      2
+    ],
+    "datetime": [
+      3,
+      0,
+      1
+    ],
+    "finance": [
+      3,
+      0,
+      0
+    ]
+  },
+  "rows": [
+    {
+      "family": "count",
+      "truth": "1974",
+      "solo_ok": false,
+      "mpeqs": "1974",
+      "mpeqs_ok": true,
+      "solver": "search"
+    },
+    {
+      "family": "count",
+      "truth": "28353984",
+      "solo_ok": false,
+      "mpeqs": "refused: unknown predicate 'and'",
+      "mpeqs_ok": false,
+      "solver": "search"
+    },
+    {
+      "family": "count",
+      "truth": "500",
+      "solo_ok": false,
+      "mpeqs": "None",
+      "mpeqs_ok": false,
+      "solver": null
+    },
+    {
+      "family": "divisors",
+      "truth": "96000",
+      "solo_ok": false,
+      "mpeqs": "340032",
+      "mpeqs_ok": false,
+      "solver": "factor"
+    },
+    {
+      "family": "divisors",
+      "truth": "1199328",
+      "solo_ok": false,
+      "mpeqs": "93383273455325195473152000",
+      "mpeqs_ok": false,
+      "solver": "factor"
+    },
+    {
+      "family": "divisors",
+      "truth": "80",
+      "solo_ok": false,
+      "mpeqs": "2859842169976297361023075937133066323321733071364227956970045487755439336070181726450314699085667589764045705821518608009584066752563958562699772898720076545030114581267169929015013970323824608614255295864142156373393303394413843773884729080912879913435865380150069159133166651828702346486502331571894471253309948582787256501470629238194365902472906371745163935153294978260036644630306002962887899362403596946855207465666826403141751614549884361399947122664748178988573793420162763829791447548875309927922579175683703337975927346297804948046533949418138026546783925060612656709949848037697616186250551122130504098075493753356313401011770345127624182707340895810249770851549838491906699886492975506109854186325589566946524008490572714763986142084860291771380940851373499896313178274461540705857950597211008770895730529696050225762237458014639234117729577000756401540796623765068962002529706098431464623308800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "mpeqs_ok": false,
+      "solver": "factor"
+    },
+    {
+      "family": "probability",
+      "truth": "5/36",
+      "solo_ok": false,
+      "mpeqs": "7/64",
+      "mpeqs_ok": false,
+      "solver": "probability"
+    },
+    {
+      "family": "probability",
+      "truth": "63/100",
+      "solo_ok": false,
+      "mpeqs": "10",
+      "mpeqs_ok": false,
+      "solver": "probability"
+    },
+    {
+      "family": "probability",
+      "truth": "7/27",
+      "solo_ok": false,
+      "mpeqs": "9",
+      "mpeqs_ok": false,
+      "solver": "statistics"
+    },
+    {
+      "family": "statistics",
+      "truth": "36",
+      "solo_ok": false,
+      "mpeqs": "36",
+      "mpeqs_ok": true,
+      "solver": "statistics"
+    },
+    {
+      "family": "statistics",
+      "truth": "5345/36",
+      "solo_ok": false,
+      "mpeqs": "1069/6",
+      "mpeqs_ok": false,
+      "solver": "statistics"
+    },
+    {
+      "family": "statistics",
+      "truth": "35",
+      "solo_ok": false,
+      "mpeqs": "35",
+      "mpeqs_ok": true,
+      "solver": "statistics"
+    },
+    {
+      "family": "datetime",
+      "truth": "77432",
+      "solo_ok": false,
+      "mpeqs": "77432",
+      "mpeqs_ok": true,
+      "solver": "datetime"
+    },
+    {
+      "family": "datetime",
+      "truth": "Tuesday",
+      "solo_ok": false,
+      "mpeqs": "error: ValueError: Invalid literal",
+      "mpeqs_ok": false,
+      "solver": "statistics"
+    },
+    {
+      "family": "datetime",
+      "truth": "2024-02-09",
+      "solo_ok": false,
+      "mpeqs": "14",
+      "mpeqs_ok": false,
+      "solver": "datetime"
+    },
+    {
+      "family": "finance",
+      "truth": "10589733/2500",
+      "solo_ok": false,
+      "mpeqs": "None",
+      "mpeqs_ok": false,
+      "solver": null
+    },
+    {
+      "family": "finance",
+      "truth": "35131/50",
+      "solo_ok": false,
+      "mpeqs": "817",
+      "mpeqs_ok": false,
+      "solver": "finance"
+    },
+    {
+      "family": "finance",
+      "truth": "2252191588960823337718801/10000000000000000000000",
+      "solo_ok": false,
+      "mpeqs": "None",
+      "mpeqs_ok": false,
+      "solver": null
+    }
+  ]
+}

@@ -1055,3 +1055,32 @@ can be copied, and an example it never sees cannot be copied at all.
 The two layers, finally stated as a rule: SCHEMAS are structure and travel; EXEMPLARS are
 surface and must be written in the language of the person asking. Both are cheap, and
 neither needs a different model.
+
+================================================================================
+PHASE 123 — the same test on the small model: 0 to 4, where the big one moved 15 to 16
+================================================================================
+
+Phase 122's explanation was a claim about the SMALL model — the 35B had been compensating
+for broken retrieval by reading the catalogue directly, and a 1B cannot — so it was tested
+on the small model. Same eighteen Norwegian problems, English bank and then Norwegian.
+
+                                 retrieval   solved
+    OLMoE-1B, English bank          8/18      0/18
+    OLMoE-1B, Norwegian bank       17/18      4/18
+    Qwen-35B, English bank          8/18     15/18
+    Qwen-35B, Norwegian bank       17/18     16/18
+    either model answering alone       -      6/18 and 0/18
+
+NINE TRANSLATED SENTENCES ARE THE DIFFERENCE BETWEEN NOTHING AND SOMETHING for the small
+model, and the difference between fifteen and sixteen for the large one. The compensation
+story is exactly right: a model that can read a thirty-six-line catalogue does not need
+the example, and a model that copies needs nothing else.
+
+The 1B's Norwegian score is still far below its English one (4 of 18 against 23 of 34),
+so a translated bank recovers the retrieval layer without recovering the model — copying
+an example whose sentence is in one language into a problem written in another is itself
+an adaptation, and adaptation is the boundary phase 119 drew and phase 120 could not move.
+
+Which closes the language question in the shape everything else in this study has taken:
+the mechanical part travels, the part that needs judgement does not, and the whole art is
+moving as much as possible from the second into the first.
