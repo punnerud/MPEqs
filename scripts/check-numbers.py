@@ -1852,6 +1852,17 @@ CHECKS = [
      0.679, 0.005, "native and transferred combined at 4096: the best measured"),
     ("data/custom/transfer.json", lambda d: float(d["predictability_r"]),
      0.22, 0.03, "how weakly the models agree on which words are predictable"),
+    # Layer correspondence, domain transfer, and the matrix's size.
+    ("data/custom/transfer2.json", lambda d: float(d["layer_best"]["10"]),
+     32.0, 0.001, "the teacher layer the student's layer 10 actually reads"),
+    ("data/custom/transfer2.json", lambda d: float(d["cross_transfer"]),
+     0.475, 0.005, "cross-domain coverage through the correspondence"),
+    ("data/custom/transfer2.json", lambda d: float(d["cross_native"]),
+     0.383, 0.005, "and from the student's own tables on unfamiliar text"),
+    ("data/custom/transfer2.json", lambda d: float(d["cross_wins"]),
+     11.0, 0.001, "cross-domain cells where transfer beats native, of twelve"),
+    ("data/custom/transfer2.json", lambda d: float(d["matrix_entries"]),
+     108004.0, 1.0, "entries in the correspondence, 422 KB before pruning"),
     # Two-sided labels on the chord metric: no better than one relay, twice the memory.
     ("data/custom/hub-corpus.json", lambda d: d["exact_cell_pct"],
      1.34, 0.7, "two-sided hub labels on the angular metric"),

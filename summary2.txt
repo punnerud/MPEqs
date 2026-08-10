@@ -1834,3 +1834,45 @@ and they do.
 So the answer to "can the small tables transfer from a big model to a small one" is:
 the numbers no, the knowledge yes — through a correspondence that costs a few hundred
 student positions and is worth more than those positions spent any other way.
+
+================================================================================
+PHASE 144 — where the student's layers live, whether transfer crosses domains,
+            and what the correspondence costs
+================================================================================
+
+Phase 143's transfer rested on three unexamined things: an assumed layer mapping, a test
+set from the same interleaved corpus, and a matrix nobody had counted.
+
+WHICH LAYER. Measured by building the correspondence against each candidate teacher layer
+and scoring it, rather than assuming proportionality:
+
+    student layer  0 -> teacher  0     (proportional guess agreed)
+    student layers 2-12 -> teacher 32  (proportional guess said 5, 8, ... 31)
+    student layers 13-14 -> teacher 36
+    student layer 15 -> teacher 32
+
+THE STUDENT'S WHOLE MIDDLE READS THE TEACHER'S LAYER 32. Eleven of sixteen student layers
+pick the same teacher layer, four fifths of the way up a network two and a half times
+deeper, and the proportional mapping I assumed was badly wrong in the middle — at student
+layer 10 it scored 44.5% where layer 32 scores 72.1%, twenty-eight points left on the
+table. A small model does not compress a big one uniformly; its interior corresponds to a
+specific late region of the teacher, and everything below layer 2 corresponds to the
+teacher's input end.
+
+WHICH DOMAIN. The corpus interleaves English prose, Python, C and Norwegian; the
+correspondence was fitted on one register and tested on all four.
+
+    in-domain     native 61.3%   transfer 68.7%
+    cross-domain  native 38.3%   transfer 47.5%   +9.2 points
+    transfer beats native in 11 of 12 cross-domain cells
+
+TRANSFER SURVIVES THE DOMAIN CHANGE AND HELPS MORE THERE THAN AT HOME, in relative terms:
+where the student's own tables fall from 61% to 38% on unfamiliar text, the teacher's
+knowledge still arrives. The one cell it loses is C tested on Norwegian, which is the
+furthest pair in the set. That is the deployment case — a device reads text nobody fitted
+anything on — and it is the case where the correspondence earns most.
+
+HOW BIG. 3,168 rows, 108,004 entries, 422 KB at four bytes each — and it prunes hard:
+keeping the top four student experts per teacher expert is 12% of the entries. The
+teacher's own word tables stay offline; what ships is this matrix and a byte-offset
+lookup.
