@@ -857,3 +857,26 @@ definition: "the closest fraction to 3126535/995207 with denominator at most 200
 in a few dozen exact steps, and the model's only job was to notice which machine that is.
 
 Library: 37 solvers, 51 self-tests exact, 14 refusals named.
+
+================================================================================
+PHASE 116 — the library splits: engine and domains
+================================================================================
+
+At 1,509 lines solvers2.py was approaching the point where a file stops being readable,
+so it split along the seam it already had:
+
+    solvers2.py  (886 lines)  THE ENGINE — the expression sandbox and its AST whitelist,
+                              the pruned tuple search with its linear solve, the fold,
+                              the named-step arithmetic, and the dispatcher that lets a
+                              shape overrule a name
+    solvers3.py  (640 lines)  THE DOMAINS — probability, unit conversion, statistics,
+                              calendars, finance, shapes, set counting, the formula
+                              library, sequences, matrices, partitions, logarithms,
+                              base arithmetic, rational approximation, word counting,
+                              primes
+
+The split is mechanical and invisible from outside: solvers2 imports the domain registry
+lazily inside its dispatcher, so run2 still reaches all 37 machines and not one of the
+fifteen calling files changed except two that imported a unit parser by its old address.
+51/51 self-tests exact and 14/14 refusals named after the move, and every domain
+re-verified through the unchanged entry point.

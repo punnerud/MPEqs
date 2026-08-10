@@ -32,7 +32,8 @@ from cutbig import ask  # noqa: E402
 from gsmsolve import ARITH_SCHEMA, ask_spec_model, equal  # noqa: E402
 from olympiad import SOLO, last_number  # noqa: E402
 from solvemap import PREDICATE_HELP, SCHEMAS, answer_of, parse_spec  # noqa: E402
-from solvers2 import parse_units, run2  # noqa: E402
+from solvers2 import run2  # noqa: E402
+from solvers3 import parse_units  # noqa: E402
 
 SCHEMA_NEW = {
     "probability": '{"solver":"probability","variables":[{"name":"a","from":<int>,'

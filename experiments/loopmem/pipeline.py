@@ -33,7 +33,8 @@ from mixedretr import BANK  # noqa: E402
 from newbands import SCHEMA_NEW  # noqa: E402
 from olympiad import SOLO, last_number  # noqa: E402
 from solvemap import PREDICATE_HELP, SCHEMAS, answer_of, parse_spec  # noqa: E402
-from solvers2 import parse_units, run2  # noqa: E402
+from solvers2 import run2  # noqa: E402
+from solvers3 import parse_units  # noqa: E402
 
 PROMPT = """Map the problem onto ONE solver and fill its slots. Do NOT compute the
 answer — an exact executor computes it from your spec.
