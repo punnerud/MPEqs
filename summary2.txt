@@ -695,3 +695,42 @@ thing that works. Every earlier band result reads the same way in hindsight — 
 because grade-school sums are easy, not because word problems are the wrong shape — and
 the deployment rule that follows is not "route by topic" but "route by whether the
 arithmetic will fit in the model's head".
+
+================================================================================
+PHASE 111 — the capability sheet: 174 against 74, assembled from the runs
+================================================================================
+
+Every band result lives in the JSON its own run wrote, so the summary is assembled from
+the measurements rather than from memory — a stale claim shows up as a missing file
+rather than as prose nobody rechecked.
+
+    band                                   model  MPEqs    n
+    Grade-school word problems                28     21   30
+    Hard exact arithmetic (tuned)              0     15   20
+    Hard exact arithmetic (held out)           0     17   20
+    Probability and unit conversion            1     17   20
+    Statistics, calendars, percentages         8     18   18
+    Shape, sets, formulas (easy)              15     15   15
+    Shape, sets, formulas (hard)               7     14   15
+    Nine classes mixed, generic examples       7     20   27
+    Nine classes mixed, retrieved              7     25   27
+    The same 27, driven by a 1B                1     12   27
+    AIME, model-mapped                         -      1   15
+    AIME, hand-mapped ceiling                  -      5   15
+
+    comparable totals                         74    174  219
+
+Across every battery measured on both arms, the model answering alone gets 74 of 219 and
+the same model mapping onto exact machines gets 174 — and the two rows where it loses are
+the two where the arithmetic was never hard. The library is 29 solvers with 38 self-tests
+exact and 11 named refusals, grown from 15 in eleven phases, every addition demanded by a
+failure rather than chosen by taste.
+
+The recipe, each part measured before being combined:
+
+    a MACHINE that is exact and refuses by name
+    a SCHEMA LINE that states its units and leads with its distinction, because the
+      model reads it literally and has nothing else to go on
+    an EXEMPLAR that is RETRIEVED, because a catalogue cannot grow inside a prompt
+    a ROUTER that asks whether the arithmetic will fit in the model's head, since that
+      and not the topic is what decides who should do the work

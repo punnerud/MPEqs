@@ -1,0 +1,92 @@
+{
+  "rows": [
+    {
+      "band": "Grade-school word problems",
+      "solo": 28,
+      "mpeqs": 21,
+      "n": 30,
+      "note": "the model already does these sums"
+    },
+    {
+      "band": "Hard exact arithmetic (tuned)",
+      "solo": 0,
+      "mpeqs": 15,
+      "n": 20,
+      "note": "folds, big integers, wide counts, factorial divisors"
+    },
+    {
+      "band": "Hard exact arithmetic (held out)",
+      "solo": 0,
+      "mpeqs": 17,
+      "n": 20,
+      "note": "same families, new numbers, no further tuning"
+    },
+    {
+      "band": "Probability and unit conversion",
+      "solo": 1,
+      "mpeqs": 17,
+      "n": 20,
+      "note": "exact ratios the model cannot hold"
+    },
+    {
+      "band": "Statistics, calendars, percentages",
+      "solo": 8,
+      "mpeqs": 18,
+      "n": 18,
+      "note": "calendar arithmetic is the sharpest split"
+    },
+    {
+      "band": "Shape, sets, formulas (easy)",
+      "solo": 15,
+      "mpeqs": 15,
+      "n": 15,
+      "note": "a tie: no band without difficulty"
+    },
+    {
+      "band": "Shape, sets, formulas (hard)",
+      "solo": 7,
+      "mpeqs": 14,
+      "n": 15,
+      "note": "same classes, awkward numbers"
+    },
+    {
+      "band": "Nine classes mixed, generic examples",
+      "solo": 7,
+      "mpeqs": 20,
+      "n": 27,
+      "note": "two classes vanish without their exemplar"
+    },
+    {
+      "band": "Nine classes mixed, retrieved",
+      "solo": 7,
+      "mpeqs": 25,
+      "n": 27,
+      "note": "retrieval closes the gap, nothing wrong"
+    },
+    {
+      "band": "The same 27, driven by a 1B",
+      "solo": 1,
+      "mpeqs": 12,
+      "n": 27,
+      "note": "27 of 27 specs valid, arithmetic never its job"
+    },
+    {
+      "band": "AIME, model-mapped",
+      "solo": null,
+      "mpeqs": 1,
+      "n": 15,
+      "note": "the mapper is the bottleneck"
+    },
+    {
+      "band": "AIME, hand-mapped ceiling",
+      "solo": null,
+      "mpeqs": 5,
+      "n": 15,
+      "note": "what the vocabulary reaches"
+    }
+  ],
+  "total_solo": 74,
+  "total_mpeqs": 174,
+  "total_n": 219,
+  "solvers": 29
+}

@@ -1621,6 +1621,13 @@ CHECKS = [
      14.0, 0.001, "and through the machinery: the band appears with the difficulty"),
     ("data/custom/solvers2.json", lambda d: float(d["solvers_total"]),
      29.0, 0.001, "solvers in MPEqs after shape, inclusion and formula"),
+    # The capability sheet, assembled from the runs.
+    ("data/custom/capability.json", lambda d: float(d["total_mpeqs"]),
+     174.0, 0.001, "problems solved through MPEqs across every two-armed battery"),
+    ("data/custom/capability.json", lambda d: float(d["total_solo"]),
+     74.0, 0.001, "solved by the same model answering alone"),
+    ("data/custom/capability.json", lambda d: float(d["total_n"]),
+     219.0, 0.001, "problems in those batteries"),
     # Two-sided labels on the chord metric: no better than one relay, twice the memory.
     ("data/custom/hub-corpus.json", lambda d: d["exact_cell_pct"],
      1.34, 0.7, "two-sided hub labels on the angular metric"),
