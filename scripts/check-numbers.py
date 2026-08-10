@@ -1723,6 +1723,11 @@ CHECKS = [
      12.0, 0.001, "the last three classes, complete"),
     ("data/custom/bands7.json", lambda d: float(d["byfam"]["checksum"][1]),
      1.0, 0.001, "check digits the model got alone: one of four"),
+    # The error bar: two identical runs, compared row by row.
+    ("data/custom/variance.json", lambda d: float(d["differing_rows"]),
+     0.0, 0.001, "rows that changed outcome or solver between two identical runs"),
+    ("data/custom/variance.json", lambda d: float(d["run1"] - d["run2"]),
+     0.0, 0.001, "the difference between the two totals"),
     # Two-sided labels on the chord metric: no better than one relay, twice the memory.
     ("data/custom/hub-corpus.json", lambda d: d["exact_cell_pct"],
      1.34, 0.7, "two-sided hub labels on the angular metric"),

@@ -1231,3 +1231,28 @@ rather than computing.
 
 Library: 41 solvers, 59 self-tests exact, 16 named refusals, across 21 classes — grown
 from 15 machines in one night, every addition demanded by a measured failure.
+
+================================================================================
+PHASE 128 — the error bar: two runs of the same battery, row for row
+================================================================================
+
+Every number in this study comes from a single run, which is a methodological debt this
+phase pays. The thirty-four-problem mixed battery was run a second time with nothing
+changed — same seed, same prompts, same temperature zero, same model — and compared row
+by row rather than only on the total, since two runs can agree on a score while disagreeing
+on which problems they got.
+
+    run 1        MPEqs 33/34, solo 10/34
+    run 2        MPEqs 33/34, solo 10/34
+    rows differing in outcome OR in which solver was chosen:   0
+
+Not one row moved. The Metal nondeterminism noted early in this study (±3 on logit
+comparisons) does not reach the level anything here is measured at: a spec is a short
+structured object at temperature zero, and either the model writes the same one or it
+does not. So the batteries can be read as exact counts rather than as samples, and the
+comparisons between phases — 8 to 12 to 15, 18 to 23, 20 to 25 — are differences in the
+pipeline rather than in the weather.
+
+One caveat kept honest: this measures the SPEC-WRITING path, where output is short and
+structured. The long free-form arms (the solo baselines, the AIME working) are not shown
+to be as stable by this, only the mapping the whole apparatus depends on.
