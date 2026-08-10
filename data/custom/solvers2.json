@@ -1,11 +1,11 @@
 {
   "shape_repairs": 1,
-  "cases": 33,
-  "passed": 33,
+  "cases": 38,
+  "passed": 38,
   "failed": 0,
   "refusals": 11,
   "refusals_named": 11,
-  "solvers_total": 26,
+  "solvers_total": 29,
   "expr_funcs": 16,
   "rows": [
     {
@@ -230,6 +230,41 @@
       "ok": true,
       "got": "96",
       "truth": "96",
+      "why": "ok"
+    },
+    {
+      "solver": "shape",
+      "ok": true,
+      "got": "25*pi",
+      "truth": "25*pi",
+      "why": "ok"
+    },
+    {
+      "solver": "shape",
+      "ok": true,
+      "got": "36*pi",
+      "truth": "36*pi",
+      "why": "ok"
+    },
+    {
+      "solver": "shape",
+      "ok": true,
+      "got": "94",
+      "truth": "94",
+      "why": "ok"
+    },
+    {
+      "solver": "inclusion_exclusion",
+      "ok": true,
+      "got": "7",
+      "truth": "7",
+      "why": "ok"
+    },
+    {
+      "solver": "formula",
+      "ok": true,
+      "got": "84",
+      "truth": "84",
       "why": "ok"
     },
     {

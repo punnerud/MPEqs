@@ -669,8 +669,125 @@ def solve_finance(spec):
     raise Refusal(f"unknown finance kind {kind!r}")
 
 
+SHAPES = {
+    # name: (slots, area/volume as (rational, pi_power), perimeter/surface likewise)
+    "circle": ("radius",),
+    "rectangle": ("length", "width"),
+    "triangle": ("base", "height"),
+    "trapezium": ("a", "b", "height"),
+    "cylinder": ("radius", "height"),
+    "sphere": ("radius",),
+    "cone": ("radius", "height"),
+    "cube": ("side",),
+    "box": ("length", "width", "height"),
+}
+
+
+def solve_shape(spec):
+    """Standard shapes, exact, with pi kept SYMBOLIC.
+
+    The area of a circle of radius 5 is 25*pi, and 78.54 is a different answer to a
+    different question. Results carry the rational coefficient and the power of pi, so
+    nothing is ever silently decimalised, and "report" chooses area, perimeter, volume
+    or surface.
+    """
+    name = str(spec.get("shape", "")).lower()
+    if name not in SHAPES:
+        raise Refusal(f"unknown shape {name!r}")
+    g = {k: F(str(spec[k])) for k in SHAPES[name] if k in spec}
+    missing = [k for k in SHAPES[name] if k not in g]
+    if missing:
+        raise Refusal(f"{name} needs {missing}")
+    out = {}
+    if name == "circle":
+        r = g["radius"]
+        out = {"area": (r * r, 1), "perimeter": (2 * r, 1)}
+    elif name == "rectangle":
+        a, b = g["length"], g["width"]
+        out = {"area": (a * b, 0), "perimeter": (2 * (a + b), 0)}
+    elif name == "triangle":
+        out = {"area": (g["base"] * g["height"] / 2, 0)}
+    elif name == "trapezium":
+        out = {"area": ((g["a"] + g["b"]) * g["height"] / 2, 0)}
+    elif name == "cylinder":
+        r, h = g["radius"], g["height"]
+        out = {"volume": (r * r * h, 1), "surface": (2 * r * (r + h), 1)}
+    elif name == "sphere":
+        r = g["radius"]
+        out = {"volume": (F(4, 3) * r ** 3, 1), "surface": (4 * r * r, 1)}
+    elif name == "cone":
+        r, h = g["radius"], g["height"]
+        out = {"volume": (F(1, 3) * r * r * h, 1)}
+    elif name == "cube":
+        a = g["side"]
+        out = {"volume": (a ** 3, 0), "surface": (6 * a * a, 0)}
+    else:
+        a, b, c = g["length"], g["width"], g["height"]
+        out = {"volume": (a * b * c, 0),
+               "surface": (2 * (a * b + b * c + a * c), 0)}
+    want = spec.get("report") or next(iter(out))
+    if want not in out:
+        raise Refusal(f"{name} has no {want!r}; it has {sorted(out)}")
+    coef, ppow = out[want]
+    text = str(coef) + ("" if ppow == 0 else ("*pi" if ppow == 1 else f"*pi^{ppow}"))
+    return {"value": text, "coefficient": str(coef), "pi_power": ppow,
+            "available": sorted(out)}
+
+
+def solve_inclusion(spec):
+    """Inclusion-exclusion over named set sizes — the survey word problem, exactly.
+
+    Sizes are given by set name and by intersection name ("a&b"), and the union, the
+    exactly-one count and the neither count all follow from the same signed sum.
+    """
+    sizes = {k.replace(" ", ""): F(str(v)) for k, v in spec["sizes"].items()}
+    names = sorted({n for k in sizes for n in k.split("&")})
+    if len(names) > 4:
+        raise Refusal("inclusion-exclusion supports up to four sets")
+    from itertools import combinations as _c
+    union = F(0)
+    for r in range(1, len(names) + 1):
+        for combo in _c(names, r):
+            key = "&".join(combo)
+            if key not in sizes:
+                raise Refusal(f"missing size for {key!r}")
+            union += (-1) ** (r + 1) * sizes[key]
+    total = F(str(spec["total"])) if "total" in spec else None
+    out = {"union": str(union)}
+    if total is not None:
+        out["neither"] = str(total - union)
+    want = spec.get("report", "union")
+    if want not in out:
+        raise Refusal(f"no {want!r}; available {sorted(out)}")
+    return {"value": out[want], **out}
+
+
+def solve_formula(spec):
+    """Phase 91's formula library, addressable at last.
+
+    Twelve named relations with typed slots — speed, momentum, kinetic energy, density,
+    area, price and the rest — where the record checks that the given units type-match
+    the formula before any number moves. The library existed for fifteen phases and
+    could not be REACHED by a mapped problem; the same lesson as the unit router.
+    """
+    from formgraph import FORMULAS
+    name = str(spec.get("name", "")).lower()
+    entry = next((f for f in FORMULAS if f[0] == name), None)
+    if entry is None:
+        raise Refusal(f"unknown formula {name!r}; have "
+                      f"{sorted(f[0] for f in FORMULAS)}")
+    _n, ins, _out, fn, _w = entry
+    args = spec.get("args") or spec.get("values")
+    if not isinstance(args, list) or len(args) != len(ins):
+        raise Refusal(f"{name} takes {len(ins)} arguments in order")
+    return {"value": str(fn(*[F(str(a)) for a in args]))}
+
+
 SOLVERS2 = {
     "arith": solve_arith,
+    "shape": solve_shape,
+    "inclusion_exclusion": solve_inclusion,
+    "formula": solve_formula,
     "statistics": solve_statistics,
     "datetime": solve_datetime,
     "finance": solve_finance,
@@ -684,6 +801,12 @@ SOLVERS2 = {
 }
 
 WORDINGS2 = {
+    "shape": ["the area of the circle", "the volume of the cylinder",
+              "how much surface does the box have"],
+    "inclusion_exclusion": ["how many take at least one of the subjects",
+                            "how many like neither", "the union of the groups"],
+    "formula": ["apply the standard formula", "the momentum from mass and velocity",
+                "the density from mass and volume"],
     "statistics": ["the mean and the variance of these numbers",
                    "the median of the list", "how spread out the values are"],
     "datetime": ["how many days between the two dates",
@@ -894,6 +1017,17 @@ CASES = [
     # finance: up 20% then down 20% is 96, not 100
     ({"solver": "finance", "kind": "percent_chain", "start": 100,
       "changes": [20, -20]}, "96"),
+    # shape: a circle of radius 5 has area 25*pi, not 78.54
+    ({"solver": "shape", "shape": "circle", "radius": 5, "report": "area"}, "25*pi"),
+    ({"solver": "shape", "shape": "sphere", "radius": 3, "report": "volume"},
+     "36*pi"),
+    ({"solver": "shape", "shape": "box", "length": 3, "width": 4, "height": 5,
+      "report": "surface"}, "94"),
+    # inclusion-exclusion: 30 + 25 - 12 = 43 of 50, so 7 take neither
+    ({"solver": "inclusion_exclusion", "sizes": {"a": 30, "b": 25, "a&b": 12},
+      "total": 50, "report": "neither"}, "7"),
+    # formula: momentum of 6 kg at 14 m/s
+    ({"solver": "formula", "name": "momentum", "args": [6, 14]}, "84"),
     # And the old library must still answer through the joint dispatcher.
     ({"solver": "crt", "residues": [2, 3, 2], "moduli": [3, 5, 7]}, 23),
 ]

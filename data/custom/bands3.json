@@ -1,0 +1,263 @@
+{
+  "n": 15,
+  "solo": 15,
+  "mpeqs": 15,
+  "parsed": 15,
+  "ran": 15,
+  "wrong": 0,
+  "byfam": {
+    "shape": [
+      5,
+      5,
+      5
+    ],
+    "inclusion": [
+      5,
+      5,
+      5
+    ],
+    "formula": [
+      5,
+      5,
+      5
+    ]
+  },
+  "rows": [
+    {
+      "family": "shape",
+      "truth": "49*pi",
+      "solo_ok": true,
+      "mpeqs": "49*pi",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "shape",
+        "shape": "circle",
+        "radius": 7,
+        "report": "area"
+      }
+    },
+    {
+      "family": "shape",
+      "truth": "288*pi",
+      "solo_ok": true,
+      "mpeqs": "288*pi",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "shape",
+        "shape": "sphere",
+        "radius": 6,
+        "report": "volume"
+      }
+    },
+    {
+      "family": "shape",
+      "truth": "622",
+      "solo_ok": true,
+      "mpeqs": "622",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "shape",
+        "shape": "box",
+        "length": 7,
+        "width": 11,
+        "height": 13,
+        "report": "surface"
+      }
+    },
+    {
+      "family": "shape",
+      "truth": "378*pi",
+      "solo_ok": true,
+      "mpeqs": "378*pi",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "shape",
+        "shape": "cone",
+        "radius": 9,
+        "height": 14,
+        "report": "volume"
+      }
+    },
+    {
+      "family": "shape",
+      "truth": "153",
+      "solo_ok": true,
+      "mpeqs": "153",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "shape",
+        "shape": "trapezium",
+        "a": 13,
+        "b": 21,
+        "height": 9,
+        "report": "area"
+      }
+    },
+    {
+      "family": "inclusion",
+      "truth": "35",
+      "solo_ok": true,
+      "mpeqs": "35",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "inclusion_exclusion",
+        "sizes": {
+          "a": 118,
+          "b": 94,
+          "a&b": 47
+        },
+        "total": 200,
+        "report": "neither"
+      }
+    },
+    {
+      "family": "inclusion",
+      "truth": "49",
+      "solo_ok": true,
+      "mpeqs": "49",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "inclusion_exclusion",
+        "sizes": {
+          "a": 35,
+          "b": 28,
+          "a&b": 14
+        },
+        "total": 60,
+        "report": "union"
+      }
+    },
+    {
+      "family": "inclusion",
+      "truth": "264",
+      "solo_ok": true,
+      "mpeqs": "264",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "inclusion_exclusion",
+        "sizes": {
+          "a": 180,
+          "b": 145,
+          "c": 97,
+          "a&b": 88,
+          "a&c": 55,
+          "b&c": 42,
+          "a&b&c": 27
+        },
+        "report": "union"
+      }
+    },
+    {
+      "family": "inclusion",
+      "truth": "135",
+      "solo_ok": true,
+      "mpeqs": "135",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "inclusion_exclusion",
+        "sizes": {
+          "a": 260,
+          "b": 190,
+          "a&b": 85
+        },
+        "total": 500,
+        "report": "neither"
+      }
+    },
+    {
+      "family": "inclusion",
+      "truth": "100",
+      "solo_ok": true,
+      "mpeqs": "100",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "inclusion_exclusion",
+        "sizes": {
+          "a": 66,
+          "b": 51,
+          "c": 40,
+          "a&b": 29,
+          "a&c": 21,
+          "b&c": 18,
+          "a&b&c": 11
+        },
+        "report": "union"
+      }
+    },
+    {
+      "family": "formula",
+      "truth": "84",
+      "solo_ok": true,
+      "mpeqs": "84",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "formula",
+        "name": "momentum",
+        "args": [
+          12,
+          7
+        ]
+      }
+    },
+    {
+      "family": "formula",
+      "truth": "294",
+      "solo_ok": true,
+      "mpeqs": "294",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "formula",
+        "name": "kinetic",
+        "args": [
+          12,
+          7
+        ]
+      }
+    },
+    {
+      "family": "formula",
+      "truth": "17/4",
+      "solo_ok": true,
+      "mpeqs": "17/4",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "formula",
+        "name": "density",
+        "args": [
+          17,
+          4
+        ]
+      }
+    },
+    {
+      "family": "formula",
+      "truth": "215/6",
+      "solo_ok": true,
+      "mpeqs": "215/6",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "formula",
+        "name": "speed",
+        "args": [
+          430,
+          12
+        ]
+      }
+    },
+    {
+      "family": "formula",
+      "truth": "17",
+      "solo_ok": true,
+      "mpeqs": "17",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "formula",
+        "name": "unitprice",
+        "args": [
+          391,
+          23
+        ]
+      }
+    }
+  ]
+}

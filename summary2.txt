@@ -664,3 +664,34 @@ So the answer to a question asked many phases ago — make it simple enough for 
 apply — is a measured yes with a stated shape: the 1B can drive twenty-six exact
 machines at forty-four percent on nine classes where it manages four percent by itself,
 provided the arithmetic is not its job and the example is fetched, not remembered.
+
+================================================================================
+PHASE 110 — the band is about difficulty, not about class
+================================================================================
+
+Three more machines went in the way the recipe says — shape (standard figures with pi
+kept SYMBOLIC, because the area of a circle of radius 5 is 25*pi and 78.54 is a
+different answer), inclusion-exclusion (the survey problem, up to four sets), and phase
+91's FORMULA LIBRARY, which had existed for fifteen phases and answered nothing until
+today because nothing could address it. Each with a bank exemplar from the first minute.
+
+Then the battery came back tied:
+
+    easy instances (n = 15)     SOLO-35B 15/15      MPEqs 15/15
+
+Which is the phase 105 rule from its negative side: a machine does not widen the band
+unless the class is actually beyond the model. A circle of radius 7, three sets of a few
+hundred, momentum of 12 kg at 7 m/s — the model does all of that unaided.
+
+So the same three classes were regenerated with awkward fractions and large numbers,
+changing NOTHING about the classes, the schemas or the bank:
+
+    hard instances (n = 15)     SOLO-35B 7/15       MPEqs 14/15
+    by class: shape 2 -> 5, inclusion 3 -> 5, formula 2 -> 4; MPEqs wrong 0
+
+THE BAND IS DEFINED BY ARITHMETIC DIFFICULTY, NOT BY SUBJECT. The same machine, the same
+mapping, the same prompt: at radius 7 it is redundant and at radius 47/6 it is the only
+thing that works. Every earlier band result reads the same way in hindsight — GSM8K lost
+because grade-school sums are easy, not because word problems are the wrong shape — and
+the deployment rule that follows is not "route by topic" but "route by whether the
+arithmetic will fit in the model's head".

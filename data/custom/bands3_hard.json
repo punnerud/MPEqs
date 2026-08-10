@@ -1,0 +1,266 @@
+{
+  "n": 15,
+  "solo": 7,
+  "mpeqs": 14,
+  "parsed": 15,
+  "ran": 14,
+  "wrong": 0,
+  "byfam": {
+    "shape": [
+      5,
+      2,
+      5
+    ],
+    "inclusion": [
+      5,
+      3,
+      5
+    ],
+    "formula": [
+      5,
+      2,
+      4
+    ]
+  },
+  "rows": [
+    {
+      "family": "shape",
+      "truth": "2209/36*pi",
+      "solo_ok": true,
+      "mpeqs": "2209/36*pi",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "shape",
+        "shape": "circle",
+        "radius": "47/6",
+        "report": "area"
+      }
+    },
+    {
+      "family": "shape",
+      "truth": "48668/1029*pi",
+      "solo_ok": false,
+      "mpeqs": "48668/1029*pi",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "shape",
+        "shape": "sphere",
+        "radius": "23/7",
+        "report": "volume"
+      }
+    },
+    {
+      "family": "shape",
+      "truth": "309862",
+      "solo_ok": true,
+      "mpeqs": "309862",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "shape",
+        "shape": "box",
+        "length": 137,
+        "width": 249,
+        "height": 313,
+        "report": "surface"
+      }
+    },
+    {
+      "family": "shape",
+      "truth": "27869/216*pi",
+      "solo_ok": false,
+      "mpeqs": "27869/216*pi",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "shape",
+        "shape": "cone",
+        "radius": "31/4",
+        "height": "58/9",
+        "report": "volume"
+      }
+    },
+    {
+      "family": "shape",
+      "truth": "80507/288",
+      "solo_ok": false,
+      "mpeqs": "80507/288",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "shape",
+        "shape": "trapezium",
+        "a": "227/8",
+        "b": "419/12",
+        "height": "53/6",
+        "report": "area"
+      }
+    },
+    {
+      "family": "inclusion",
+      "truth": "8800",
+      "solo_ok": true,
+      "mpeqs": "8800",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "inclusion_exclusion",
+        "sizes": {
+          "a": 24518,
+          "b": 19764,
+          "a&b": 11209
+        },
+        "total": 41873,
+        "report": "neither"
+      }
+    },
+    {
+      "family": "inclusion",
+      "truth": "69717",
+      "solo_ok": false,
+      "mpeqs": "69717",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "inclusion_exclusion",
+        "sizes": {
+          "a": 45312,
+          "b": 38907,
+          "c": 29184,
+          "a&b": 21445,
+          "a&c": 17332,
+          "b&c": 14027,
+          "a&b&c": 9118
+        },
+        "total": 98765,
+        "report": "union"
+      }
+    },
+    {
+      "family": "inclusion",
+      "truth": "74875",
+      "solo_ok": true,
+      "mpeqs": "74875",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "inclusion_exclusion",
+        "sizes": {
+          "a": 133891,
+          "b": 118447,
+          "a&b": 77213
+        },
+        "total": 250000,
+        "report": "neither"
+      }
+    },
+    {
+      "family": "inclusion",
+      "truth": "48303",
+      "solo_ok": false,
+      "mpeqs": "48303",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "inclusion_exclusion",
+        "sizes": {
+          "a": 31118,
+          "b": 27409,
+          "c": 19822,
+          "a&b": 15003,
+          "a&c": 11276,
+          "b&c": 9884,
+          "a&b&c": 6117
+        },
+        "report": "union"
+      }
+    },
+    {
+      "family": "inclusion",
+      "truth": "1234",
+      "solo_ok": true,
+      "mpeqs": "1234",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "inclusion_exclusion",
+        "sizes": {
+          "a": 4321,
+          "b": 3456,
+          "a&b": 1234
+        },
+        "total": 7777,
+        "report": "neither"
+      }
+    },
+    {
+      "family": "formula",
+      "truth": "10573117",
+      "solo_ok": false,
+      "mpeqs": "10573117",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "formula",
+        "name": "momentum",
+        "args": [
+          3719,
+          2843
+        ]
+      }
+    },
+    {
+      "family": "formula",
+      "truth": "24863/300",
+      "solo_ok": true,
+      "mpeqs": "refused: kinetic takes 2 arguments i",
+      "mpeqs_ok": false,
+      "spec": {
+        "solver": "formula",
+        "name": "kinetic",
+        "args": [
+          47,
+          6,
+          23,
+          5
+        ]
+      }
+    },
+    {
+      "family": "formula",
+      "truth": "8641/2397",
+      "solo_ok": true,
+      "mpeqs": "8641/2397",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "formula",
+        "name": "density",
+        "args": [
+          8641,
+          2397
+        ]
+      }
+    },
+    {
+      "family": "formula",
+      "truth": "41983/1277",
+      "solo_ok": false,
+      "mpeqs": "41983/1277",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "formula",
+        "name": "speed",
+        "args": [
+          41983,
+          1277
+        ]
+      }
+    },
+    {
+      "family": "formula",
+      "truth": "918456/3187",
+      "solo_ok": false,
+      "mpeqs": "918456/3187",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "formula",
+        "name": "unitprice",
+        "args": [
+          918456,
+          3187
+        ]
+      }
+    }
+  ]
+}

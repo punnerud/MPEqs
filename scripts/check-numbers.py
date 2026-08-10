@@ -1527,7 +1527,7 @@ CHECKS = [
     ("data/custom/gsmgate.json", lambda d: float(d["both"][2]),
      0.0, 0.001, "wrong deliveries under echo plus cross-kind agreement"),
     ("data/custom/solvers2.json", lambda d: float(d["passed"]),
-     33.0, 0.001, "grown-library self-tests after the phase 106 additions"),
+     38.0, 0.001, "grown-library self-tests after the phase 110 additions"),
     # The ceiling: what the vocabulary reaches when a human does the mapping.
     ("data/custom/aimeceiling.json", lambda d: float(d["hand_exact"]),
      5.0, 0.001, "AIME problems hand-mapped onto the library and exact"),
@@ -1592,8 +1592,6 @@ CHECKS = [
      1.0, 0.001, "calendar problems the model got alone: one of six"),
     ("data/custom/bands2.json", lambda d: float(d["byfam"]["datetime"][2]),
      6.0, 0.001, "and through the record: all six"),
-    ("data/custom/solvers2.json", lambda d: float(d["solvers_total"]),
-     26.0, 0.001, "solvers in MPEqs after statistics, datetime and finance"),
     # Catalogue scaling, and retrieval closing the gap.
     ("data/custom/mixedband.json", lambda d: float(d["mpeqs"]),
      20.0, 0.001, "mixed-class problems solved with generic examples"),
@@ -1612,6 +1610,17 @@ CHECKS = [
      1.0, 0.001, "and what it managed alone on the same twenty-seven"),
     ("data/custom/mixedretr_1b.json", lambda d: float(d["parsed"]),
      27.0, 0.001, "1B specs that parsed, against sixteen of thirty in phase 98"),
+    # Difficulty, not class, defines the band.
+    ("data/custom/bands3.json", lambda d: float(d["solo"]),
+     15.0, 0.001, "easy shape/inclusion/formula problems the model got alone"),
+    ("data/custom/bands3.json", lambda d: float(d["mpeqs"]),
+     15.0, 0.001, "and through the machinery: a tie, so no band"),
+    ("data/custom/bands3_hard.json", lambda d: float(d["solo"]),
+     7.0, 0.001, "the same classes with awkward numbers, model alone"),
+    ("data/custom/bands3_hard.json", lambda d: float(d["mpeqs"]),
+     14.0, 0.001, "and through the machinery: the band appears with the difficulty"),
+    ("data/custom/solvers2.json", lambda d: float(d["solvers_total"]),
+     29.0, 0.001, "solvers in MPEqs after shape, inclusion and formula"),
     # Two-sided labels on the chord metric: no better than one relay, twice the memory.
     ("data/custom/hub-corpus.json", lambda d: d["exact_cell_pct"],
      1.34, 0.7, "two-sided hub labels on the angular metric"),
