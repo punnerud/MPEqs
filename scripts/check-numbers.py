@@ -1755,6 +1755,15 @@ CHECKS = [
      49.0, 0.001, "quantity claims landing on a real number token"),
     ("data/custom/grounded.json", lambda d: float(d["nums_recovered"]),
      48.0, 0.001, "numbers the record pulled out by index"),
+    # A node per word, compared against span labelling on identical problems.
+    ("data/custom/wordgraph.json", lambda d: float(d["role_right"]),
+     13.0, 0.001, "quantity roles read off the graph shape alone"),
+    ("data/custom/graphvsspan.json", lambda d: float(d["span_right"]),
+     14.0, 0.001, "the same roles by span labelling: a tie inside the noise"),
+    ("data/custom/wordgraph.json", lambda d: float(d["cyclic"]),
+     11.0, 0.001, "cycles the record found — a failure mode spans cannot have"),
+    ("data/custom/wordgraph.json", lambda d: float(d["malformed"]),
+     0.0, 0.001, "edges pointing at tokens that do not exist"),
     # Two-sided labels on the chord metric: no better than one relay, twice the memory.
     ("data/custom/hub-corpus.json", lambda d: d["exact_cell_pct"],
      1.34, 0.7, "two-sided hub labels on the angular metric"),

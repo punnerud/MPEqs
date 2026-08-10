@@ -1404,3 +1404,43 @@ roles the model attached to them — which is phase 120's lever (move the adapta
 the record) applied to parameters rather than to schemas. The model says WHERE, the
 record reads WHAT, and the sentence is never lost because the abstraction points at it
 instead of replacing it.
+
+================================================================================
+PHASE 133 — a node per word: does the graph carry anything the labels did not?
+================================================================================
+
+Phase 132 grounds each role in a SPAN, which is honest labelling of chunks and not a
+graph: "[0,2] -> action" has no nodes, no edges, and nothing that says what points at
+what. So the same problems were given a node per token and an edge per attachment —
+every content token names its head and the label of that attachment, from a closed
+vocabulary — and the record then tried to DERIVE the quantity roles from graph position
+alone, with the model never naming them.
+
+    graphs parsed                          6/6
+    malformed edges                        0
+    graphs with exactly one root           6/6
+    CYCLES                                 11, all in one graph
+    numbers placed by graph position       16/21
+    roles read off the shape, vs truth     13/21
+
+    the same six problems by span labelling, same truth:   14/21
+
+SO THE GRAPH IS REAL BUT IT IS NOT YET BETTER. Thirteen roles against fourteen is a tie
+inside the noise of six problems, and the honest reading is that a per-word graph
+recovers about as much as naming the chunks does — while costing a longer prompt, a
+larger output and a structural failure mode the span version cannot have. Eleven cycles
+in one graph is a thing that simply cannot happen when the model only labels spans.
+
+What the graph DOES buy, and the span version cannot: the failure is VISIBLE. A cycle is
+a mechanical fact about the structure, checkable with no truth to compare against, and it
+localises to the tokens involved. Span labelling has no equivalent — a mislabelled chunk
+looks exactly like a correct one until an answer comes out wrong. That is the same trade
+this study measured at phase 96 between social and mechanical gates, one level further
+down.
+
+The question was whether we build a graph per word or map long sentences to an action.
+The answer was that we mapped chunks, and now both exist and have been compared on the
+same problems: chunks are cheaper and currently tie on accuracy; the graph is auditable.
+Neither is finished, and the useful direction is the one the numbers point at — keep the
+spans for retrieval and slot-filling, keep the graph for checking, and stop pretending
+the first was ever a graph.

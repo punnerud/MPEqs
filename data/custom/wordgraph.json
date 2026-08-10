@@ -1,0 +1,145 @@
+{
+  "n": 6,
+  "parsed": 6,
+  "malformed": 0,
+  "cyclic": 11,
+  "multi_root": 0,
+  "placed": 16,
+  "numbers": 21,
+  "role_right": 13,
+  "role_scored": 21,
+  "rows": [
+    {
+      "lang": "no",
+      "story": "Hvor mange heltall fra 1 til 300000 er delelige med 19 o",
+      "truth": {
+        "1": "bound",
+        "300000": "bound",
+        "19": "divisor",
+        "4": "quantity",
+        "8": "modulus"
+      },
+      "parsed": true,
+      "nodes": 21,
+      "tokens": 21,
+      "malformed_edges": 0,
+      "roots": 1,
+      "cyclic": 0,
+      "numbers": 5,
+      "derived": {
+        "1": "bound",
+        "4": "quantity of rest",
+        "8": "modulus"
+      },
+      "numbers_placed": 3
+    },
+    {
+      "lang": "no",
+      "story": "Hva er summen av alle heltall fra 1 til 90000 som er del",
+      "truth": {
+        "1": "bound",
+        "90000": "bound",
+        "12": "divisor",
+        "15": "quantity"
+      },
+      "parsed": true,
+      "nodes": 20,
+      "tokens": 20,
+      "malformed_edges": 0,
+      "roots": 1,
+      "cyclic": 0,
+      "numbers": 4,
+      "derived": {
+        "1": "bound",
+        "12": "modulus",
+        "15": "quantity of tverrsum"
+      },
+      "numbers_placed": 3
+    },
+    {
+      "lang": "no",
+      "story": "Hvor mange positive divisorer har 22 fakultet?",
+      "truth": {
+        "22": "quantity"
+      },
+      "parsed": true,
+      "nodes": 7,
+      "tokens": 8,
+      "malformed_edges": 0,
+      "roots": 1,
+      "cyclic": 0,
+      "numbers": 1,
+      "derived": {},
+      "numbers_placed": 0
+    },
+    {
+      "lang": "en",
+      "story": "How many integers from 1 to 400000 are divisible by 13 a",
+      "truth": {
+        "1": "bound",
+        "400000": "bound",
+        "13": "divisor",
+        "4": "quantity",
+        "9": "modulus"
+      },
+      "parsed": true,
+      "nodes": 20,
+      "tokens": 20,
+      "malformed_edges": 0,
+      "roots": 1,
+      "cyclic": 11,
+      "numbers": 5,
+      "derived": {
+        "1": "bound",
+        "400000": "bound",
+        "13": "divisor",
+        "4": "quantity of remainder",
+        "9": "divisor"
+      },
+      "numbers_placed": 5
+    },
+    {
+      "lang": "en",
+      "story": "What is the sum of all integers from 1 to 100000 that ar",
+      "truth": {
+        "1": "bound",
+        "100000": "bound",
+        "7": "divisor",
+        "3": "quantity",
+        "11": "modulus"
+      },
+      "parsed": true,
+      "nodes": 25,
+      "tokens": 25,
+      "malformed_edges": 0,
+      "roots": 1,
+      "cyclic": 0,
+      "numbers": 5,
+      "derived": {
+        "1": "bound",
+        "7": "divisor",
+        "3": "quantity of remainder",
+        "11": "divisor"
+      },
+      "numbers_placed": 4
+    },
+    {
+      "lang": "en",
+      "story": "How many six-digit palindromes are divisible by 7?",
+      "truth": {
+        "7": "divisor"
+      },
+      "parsed": true,
+      "nodes": 11,
+      "tokens": 11,
+      "malformed_edges": 0,
+      "roots": 1,
+      "cyclic": 0,
+      "numbers": 1,
+      "derived": {
+        "7": "divisor"
+      },
+      "numbers_placed": 1
+    }
+  ]
+}

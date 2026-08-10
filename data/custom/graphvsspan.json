@@ -1,0 +1,91 @@
+{
+ "span_right": 14,
+ "span_scored": 21,
+ "graph_right": 13,
+ "graph_scored": 21,
+ "rows": [
+  {
+   "lang": "no",
+   "named": {
+    "1": "bound",
+    "300000": "bound",
+    "19": "divisor",
+    "4": "quantity"
+   },
+   "truth": {
+    "1": "bound",
+    "300000": "bound",
+    "19": "divisor",
+    "4": "quantity",
+    "8": "modulus"
+   }
+  },
+  {
+   "lang": "no",
+   "named": {
+    "1": "bound",
+    "90000": "bound",
+    "12": "modulus",
+    "15": "quantity"
+   },
+   "truth": {
+    "1": "bound",
+    "90000": "bound",
+    "12": "divisor",
+    "15": "quantity"
+   }
+  },
+  {
+   "lang": "no",
+   "named": {
+    "22": "modulus"
+   },
+   "truth": {
+    "22": "quantity"
+   }
+  },
+  {
+   "lang": "en",
+   "named": {
+    "1": "bound",
+    "400000": "bound",
+    "13": "divisor",
+    "4": "quantity",
+    "9": "divisor"
+   },
+   "truth": {
+    "1": "bound",
+    "400000": "bound",
+    "13": "divisor",
+    "4": "quantity",
+    "9": "modulus"
+   }
+  },
+  {
+   "lang": "en",
+   "named": {
+    "1": "bound",
+    "100000": "bound",
+    "7": "modulus",
+    "3": "quantity",
+    "11": "divisor"
+   },
+   "truth": {
+    "1": "bound",
+    "100000": "bound",
+    "7": "divisor",
+    "3": "quantity",
+    "11": "modulus"
+   }
+  },
+  {
+   "lang": "en",
+   "named": {
+    "7": "modulus"
+   },
+   "truth": {
+    "7": "divisor"
+   }
+  }
+ ]
+}
