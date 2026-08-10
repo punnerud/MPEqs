@@ -1472,3 +1472,47 @@ token and a named rule, and it has so far never meant stop wrongly; a missing fl
 only that this particular check had nothing to say. The three flag kinds that did fire —
 relation against edge, quantity against position, and pure structure — are each localised
 to a token, so a flagged problem hands back where to look rather than a shrug.
+
+================================================================================
+PHASE 135 — islands and roads: a machine may now be an edge
+================================================================================
+
+For forty phases the pipeline mapped every problem onto exactly ONE machine, and phase 92's
+hand-built search-into-factor chain sat there as proof that chaining works and nothing
+could find it. Two halves close that, and both are mostly other people's work:
+
+  EXECUTION. relgraph's topological resolver already ran a system of named definitions
+  exactly, refusing cycles, undefined references and translations that drop a number, all
+  with perfect ground truth. What it could not do is let a MACHINE be an edge. A definition
+  may now be `@solver{slot=value, ...} report`, resolved in the same order and executed by
+  run2, so phase 92's chain is three lines the record runs by itself:
+
+      n   = 13
+      s   = @search{domain={divisors_of_factorial, k=n}, quotient_is_square} sum
+      ans = @factor{n=s} exponent_sum                                     -> 12
+
+  DISCOVERY. When nobody supplies the chain, a bidirectional frontier over island TYPES
+  finds one — forward from what the problem holds, backward from what it asks. The road
+  matrix is generated a cell at a time as a rim asks for it and never stored: 246 cells
+  computed across five routes against the 1,681 that were never built. That is the MPEE
+  discipline as a number rather than an intention.
+
+    4/4 graphs exact, 5/5 refusals named, 5/5 routes found
+    41 machines typed as roads (consumes -> produces), no solver rewritten
+
+FOUR BUGS, ALL MINE, ALL CAUGHT BY THE SELF-TEST BEFORE ANY MODEL SAW IT:
+
+  Arithmetic edges divided in floats, so 20675 / 7 came back as the binary expansion of a
+  rounded double — fixed by routing the expression through the phase 102 sandbox that
+  already rationalises literals.
+  An undefined reference fell through to "not arithmetic" instead of naming the missing
+  name; the message that replaced it is strictly better and the test moved to match it.
+  Type widening ran in both directions, so wanting an integer counted as wanting a count,
+  the two rims met on their starting types and the router reported a route with an empty
+  road. Widening is forward only: a count IS an integer, an integer is not a count.
+  And substitution ignored word boundaries — a reference named "n" rewrote the middle of
+  "exponent_sum", and the AIME chain came out at 480.
+
+That last one is the phase's real lesson repeated at the level of the plumbing: an index,
+a boundary and a name are the three things this study keeps getting wrong, and the only
+reason none of them shipped is that the truth was written before the code ran.

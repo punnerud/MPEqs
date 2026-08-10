@@ -1771,6 +1771,18 @@ CHECKS = [
      2.0, 0.001, "wrong span roles the graph caught, of six"),
     ("data/custom/spanaudit.json", lambda d: float(d["flags"]),
      9.0, 0.001, "flags raised across six problems, each naming a token and a rule"),
+    # Islands and roads: machines as edges, routes without a matrix.
+    ("data/custom/islands.json", lambda d: float(d["passed"]),
+     4.0, 0.001, "graphs the record executed exactly, including phase 92's chain"),
+    ("data/custom/islands.json", lambda d: float(d["refusals_named"]),
+     5.0, 0.001, "structural refusals raised with the right reason"),
+    ("data/custom/islands.json", lambda d: float(d["routes_found"]),
+     5.0, 0.001, "routes found by the bidirectional type frontier"),
+    ("data/custom/islands.json",
+     lambda d: d["matrix_never_built"] / d["cells_generated"],
+     6.83, 0.05, "road-matrix cells never built per cell actually generated"),
+    ("data/custom/islands.json", lambda d: float(d["solvers_typed"]),
+     41.0, 0.001, "machines given a consumes/produces type, none rewritten"),
     # Two-sided labels on the chord metric: no better than one relay, twice the memory.
     ("data/custom/hub-corpus.json", lambda d: d["exact_cell_pct"],
      1.34, 0.7, "two-sided hub labels on the angular metric"),

@@ -1,0 +1,108 @@
+{
+  "cases": 4,
+  "passed": 4,
+  "refusals": 5,
+  "refusals_named": 5,
+  "routes": [
+    {
+      "have": [
+        "range"
+      ],
+      "want": "count",
+      "found": true,
+      "meet": "count",
+      "road": [
+        "search"
+      ],
+      "cells_generated": 41,
+      "matrix_never_built": 1681
+    },
+    {
+      "have": [
+        "integer"
+      ],
+      "want": "digit_string",
+      "found": true,
+      "meet": "integer",
+      "road": [
+        "roman"
+      ],
+      "cells_generated": 41,
+      "matrix_never_built": 1681
+    },
+    {
+      "have": [
+        "date"
+      ],
+      "want": "amount",
+      "found": true,
+      "meet": "amount",
+      "road": [
+        "datetime"
+      ],
+      "cells_generated": 41,
+      "matrix_never_built": 1681
+    },
+    {
+      "have": [
+        "word"
+      ],
+      "want": "count",
+      "found": true,
+      "meet": "count",
+      "road": [
+        "strcount"
+      ],
+      "cells_generated": 41,
+      "matrix_never_built": 1681
+    },
+    {
+      "have": [
+        "matrix"
+      ],
+      "want": "fraction",
+      "found": true,
+      "meet": "amount",
+      "road": [
+        "matrix",
+        "iterate"
+      ],
+      "cells_generated": 82,
+      "matrix_never_built": 1681
+    }
+  ],
+  "routes_found": 5,
+  "cells_generated": 246,
+  "matrix_never_built": 1681,
+  "solvers_typed": 41,
+  "rows": [
+    {
+      "asked": "ans",
+      "got": "12",
+      "want": "12",
+      "why": "ok",
+      "steps": 3
+    },
+    {
+      "asked": "weeks",
+      "got": "20675/7",
+      "want": "20675/7",
+      "why": "ok",
+      "steps": 2
+    },
+    {
+      "asked": "root",
+      "got": "36",
+      "want": "36",
+      "why": "ok",
+      "steps": 2
+    },
+    {
+      "asked": "t",
+      "got": "72",
+      "want": "72",
+      "why": "ok",
+      "steps": 3
+    }
+  ]
+}
