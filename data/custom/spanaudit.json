@@ -1,0 +1,302 @@
+{
+  "problems": 6,
+  "flagged": 5,
+  "quantities": 20,
+  "span_wrong": 6,
+  "span_wrong_flagged": 2,
+  "span_right": 14,
+  "span_right_flagged": 0,
+  "flags": 9,
+  "catch": 2,
+  "catch_of": 6,
+  "false_flags": 0,
+  "false_of": 14,
+  "rows": [
+    {
+      "lang": "no",
+      "story": "Hvor mange heltall fra 1 til 300000 er delelige med 19 o",
+      "flags": [
+        {
+          "rule": "relation vs edge",
+          "relation": "divisibility",
+          "span": [
+            7,
+            10
+          ],
+          "graph_says": [
+            "connector",
+            "predicate",
+            "root"
+          ],
+          "expected": [
+            "divisor"
+          ]
+        },
+        {
+          "rule": "relation vs edge",
+          "relation": "remainder",
+          "span": [
+            11,
+            14
+          ],
+          "graph_says": [
+            "connector",
+            "object",
+            "quantity"
+          ],
+          "expected": [
+            "divisor",
+            "modulus"
+          ]
+        }
+      ],
+      "graph_roles": {
+        "1": "bound",
+        "4": "quantity of rest",
+        "8": "modulus"
+      },
+      "span_quantities": [
+        {
+          "role": "lower_bound",
+          "value": "1",
+          "index": 4
+        },
+        {
+          "role": "upper_bound",
+          "value": "300000",
+          "index": 6
+        },
+        {
+          "role": "divisor",
+          "value": "19",
+          "index": 10
+        },
+        {
+          "role": "remainder",
+          "value": "4",
+          "index": 14
+        }
+      ]
+    },
+    {
+      "lang": "no",
+      "story": "Hva er summen av alle heltall fra 1 til 90000 som er del",
+      "flags": [
+        {
+          "rule": "relation vs edge",
+          "relation": "divisibility",
+          "span": [
+            12,
+            14
+          ],
+          "graph_says": [
+            "connector",
+            "modulus",
+            "object"
+          ],
+          "expected": [
+            "divisor"
+          ]
+        }
+      ],
+      "graph_roles": {
+        "1": "bound",
+        "12": "modulus",
+        "15": "quantity of tverrsum"
+      },
+      "span_quantities": [
+        {
+          "role": "lower_bound",
+          "value": "1",
+          "index": 7
+        },
+        {
+          "role": "upper_bound",
+          "value": "90000",
+          "index": 9
+        },
+        {
+          "role": "modulus",
+          "value": "12",
+          "index": 14
+        },
+        {
+          "role": "target_digit_sum",
+          "value": "15",
+          "index": 18
+        }
+      ]
+    },
+    {
+      "lang": "no",
+      "story": "Hvor mange positive divisorer har 22 fakultet?",
+      "flags": [],
+      "graph_roles": {},
+      "span_quantities": [
+        {
+          "role": "modulus",
+          "value": "22",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "lang": "en",
+      "story": "How many integers from 1 to 400000 are divisible by 13 a",
+      "flags": [
+        {
+          "rule": "relation vs edge",
+          "relation": "remainder",
+          "span": [
+            12,
+            14
+          ],
+          "graph_says": [
+            "object",
+            "predicate",
+            "quantity"
+          ],
+          "expected": [
+            "divisor",
+            "modulus"
+          ]
+        },
+        {
+          "rule": "structure",
+          "why": "11 cyclic tokens"
+        }
+      ],
+      "graph_roles": {
+        "1": "bound",
+        "400000": "bound",
+        "13": "divisor",
+        "4": "quantity of remainder",
+        "9": "divisor"
+      },
+      "span_quantities": [
+        {
+          "role": "lower_bound",
+          "value": "1",
+          "index": 4
+        },
+        {
+          "role": "upper_bound",
+          "value": "400000",
+          "index": 6
+        },
+        {
+          "role": "divisor",
+          "value": "13",
+          "index": 10
+        },
+        {
+          "role": "remainder",
+          "value": "4",
+          "index": 14
+        },
+        {
+          "role": "divisor",
+          "value": "9",
+          "index": 18
+        }
+      ]
+    },
+    {
+      "lang": "en",
+      "story": "What is the sum of all integers from 1 to 100000 that ar",
+      "flags": [
+        {
+          "rule": "relation vs edge",
+          "relation": "remainder",
+          "span": [
+            17,
+            19
+          ],
+          "graph_says": [
+            "object",
+            "predicate",
+            "quantity"
+          ],
+          "expected": [
+            "divisor",
+            "modulus"
+          ]
+        },
+        {
+          "rule": "quantity vs position",
+          "number": "7",
+          "span_role": "modulus",
+          "graph_role": "divisor",
+          "index": 15
+        }
+      ],
+      "graph_roles": {
+        "1": "bound",
+        "7": "divisor",
+        "3": "quantity of remainder",
+        "11": "divisor"
+      },
+      "span_quantities": [
+        {
+          "role": "lower_bound",
+          "value": "1",
+          "index": 8
+        },
+        {
+          "role": "upper_bound",
+          "value": "100000",
+          "index": 10
+        },
+        {
+          "role": "modulus",
+          "value": "7",
+          "index": 15
+        },
+        {
+          "role": "remainder_value",
+          "value": "3",
+          "index": 19
+        },
+        {
+          "role": "divisor",
+          "value": "11",
+          "index": 23
+        }
+      ]
+    },
+    {
+      "lang": "en",
+      "story": "How many six-digit palindromes are divisible by 7?",
+      "flags": [
+        {
+          "rule": "quantity vs position",
+          "number": "7",
+          "span_role": "modulus",
+          "graph_role": "divisor",
+          "index": 9
+        },
+        {
+          "rule": "action vs root",
+          "span": [
+            0,
+            1
+          ],
+          "graph_says": [
+            "modifier",
+            "quantity"
+          ]
+        }
+      ],
+      "graph_roles": {
+        "7": "divisor"
+      },
+      "span_quantities": [
+        {
+          "role": "modulus",
+          "value": "7",
+          "index": 9
+        }
+      ]
+    }
+  ]
+}

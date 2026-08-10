@@ -1444,3 +1444,31 @@ same problems: chunks are cheaper and currently tie on accuracy; the graph is au
 Neither is finished, and the useful direction is the one the numbers point at — keep the
 spans for retrieval and slot-filling, keep the graph for checking, and stop pretending
 the first was ever a graph.
+
+================================================================================
+PHASE 134 — the graph audits the spans: precise, not eager
+================================================================================
+
+Phase 133 left both readings on the table with a tie between them and one asymmetry: the
+graph can expose itself, spans cannot. So the graph became the auditor, with four
+mechanical cross-checks that need no answer key at run time — a relation span must contain
+the edge it implies (divisibility against divisor, remainder against modulus), a number's
+span-role must match its graph position, the action span must reach the root or a target,
+and the structure must have one root, no cycles and no edges off the token list.
+
+    problems audited                     6, five carried a flag (9 flags in total)
+    span quantity roles scored           20 (6 genuinely wrong, 14 right)
+    CATCH   wrong roles flagged          2/6
+    COST    right roles flagged          0/14
+
+ZERO FALSE FLAGS. The auditor never once objected to a reading that was correct, which is
+the property phase 96 said to measure first and the one that decides whether a second
+opinion is a gate or a nuisance. What it costs is sensitivity: four of six real errors
+went through, because the rules only fire where the two vocabularies overlap — a relation
+that implies no particular edge makes no claim, and silence is not agreement.
+
+That trade is the right way round for this pipeline. A flag here means STOP with a named
+token and a named rule, and it has so far never meant stop wrongly; a missing flag means
+only that this particular check had nothing to say. The three flag kinds that did fire —
+relation against edge, quantity against position, and pure structure — are each localised
+to a token, so a flagged problem hands back where to look rather than a shrug.

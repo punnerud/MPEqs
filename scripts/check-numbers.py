@@ -1764,6 +1764,13 @@ CHECKS = [
      11.0, 0.001, "cycles the record found — a failure mode spans cannot have"),
     ("data/custom/wordgraph.json", lambda d: float(d["malformed"]),
      0.0, 0.001, "edges pointing at tokens that do not exist"),
+    # The graph auditing the spans: precision first.
+    ("data/custom/spanaudit.json", lambda d: float(d["false_flags"]),
+     0.0, 0.001, "correct span readings the graph objected to: none"),
+    ("data/custom/spanaudit.json", lambda d: float(d["catch"]),
+     2.0, 0.001, "wrong span roles the graph caught, of six"),
+    ("data/custom/spanaudit.json", lambda d: float(d["flags"]),
+     9.0, 0.001, "flags raised across six problems, each naming a token and a rule"),
     # Two-sided labels on the chord metric: no better than one relay, twice the memory.
     ("data/custom/hub-corpus.json", lambda d: d["exact_cell_pct"],
      1.34, 0.7, "two-sided hub labels on the angular metric"),
