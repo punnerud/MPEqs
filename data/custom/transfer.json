@@ -1,0 +1,35 @@
+{
+  "student": {
+    "layers": 16,
+    "experts": 64,
+    "top_k": 8
+  },
+  "teacher": {
+    "layers": 40,
+    "experts": 256,
+    "top_k": 8
+  },
+  "aligned": 9105,
+  "sweep": {
+    "256": {
+      "freq": 0.2374,
+      "native": 0.288,
+      "transfer": 0.3981,
+      "both": 0.3437
+    },
+    "1024": {
+      "freq": 0.2838,
+      "native": 0.3774,
+      "transfer": 0.5431,
+      "both": 0.4851
+    },
+    "4096": {
+      "freq": 0.5345,
+      "native": 0.6441,
+      "transfer": 0.6711,
+      "both": 0.6791
+    }
+  },
+  "predictability_r": 0.221,
+  "word_pairs": 732
+}

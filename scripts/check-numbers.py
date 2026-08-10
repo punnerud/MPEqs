@@ -1843,6 +1843,15 @@ CHECKS = [
     ("data/custom/scaleprefetch.json",
      lambda d: float(d["small"]["coverage"]["freq"]),
      0.534, 0.005, "the frequency floor on the fixed test set"),
+    # Transfer from teacher to student: the correspondence crosses, the numbers do not.
+    ("data/custom/transfer.json", lambda d: float(d["sweep"]["1024"]["transfer"]),
+     0.543, 0.005, "transferred coverage at 1024 student positions"),
+    ("data/custom/transfer.json", lambda d: float(d["sweep"]["1024"]["native"]),
+     0.377, 0.005, "the student's own tables from the same 1024"),
+    ("data/custom/transfer.json", lambda d: float(d["sweep"]["4096"]["both"]),
+     0.679, 0.005, "native and transferred combined at 4096: the best measured"),
+    ("data/custom/transfer.json", lambda d: float(d["predictability_r"]),
+     0.22, 0.03, "how weakly the models agree on which words are predictable"),
     # Two-sided labels on the chord metric: no better than one relay, twice the memory.
     ("data/custom/hub-corpus.json", lambda d: d["exact_cell_pct"],
      1.34, 0.7, "two-sided hub labels on the angular metric"),

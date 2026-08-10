@@ -1797,3 +1797,40 @@ fifteen points, available at time zero, in parallel, from tables that stop impro
 almost immediately (so they are also SMALL). The best variant measured is the composed
 contributions of phase 141 on the small table: 67.8%. More data is not the lever;
 attention keeps the rest.
+
+================================================================================
+PHASE 143 — the tables transfer: a correspondence, not the numbers
+================================================================================
+
+The tables themselves cannot cross: expert 17 of Qwen-35B and expert 17 of OLMoE-1B are
+unrelated machines, the models disagree on layer count (40 against 16), expert count (256
+against 64) and on what a word IS (different tokenisers, aligned here by BYTE offset into
+the same corpus — byte-level BPE means pieces can be invalid UTF-8 alone, parsed
+accordingly). What crosses is a learned correspondence M: which student experts fire when
+a given teacher expert does, trained on the few positions where both models read the same
+text, shared across ALL words.
+
+Teacher tables built offline from the teacher's own 8k trace; student test set fixed as
+in phase 142; only the student training budget N varies. Native = the student's own word
+tables from N positions; transfer = teacher table for the word, composed through M(N).
+
+    N student positions     freq    native    TRANSFER    both
+           256              23.7%    28.8%      39.8%     34.4%
+         1,024              28.4%    37.7%      54.3%     48.5%
+         4,096              53.4%    64.4%      67.1%     67.9%
+
+AT 1,024 POSITIONS THE TEACHER'S KNOWLEDGE IS WORTH 16.6 POINTS over the student's own
+tables — the correspondence is one matrix per layer shared by every word, so it learns
+from every training pair at once while per-word tables starve one word at a time. By
+4,096 the native tables catch up and the two combine to 67.9%, the best number measured
+on this problem. Nothing here runs the teacher at inference: its tables are offline, M is
+small, and the runtime cost is a byte-offset lookup into the prompt.
+
+The structural aside: the models only weakly agree on WHICH words are predictable
+(r = 0.22 over 732 word pairs). Transfer works anyway, because it does not need the
+models to agree about words — it needs teacher experts to have student counterparts,
+and they do.
+
+So the answer to "can the small tables transfer from a big model to a small one" is:
+the numbers no, the knowledge yes — through a correspondence that costs a few hundred
+student positions and is worth more than those positions spent any other way.
