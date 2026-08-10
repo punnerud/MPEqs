@@ -1,0 +1,1313 @@
+Continues summary2-part2.txt (phases 26-49) and summary2-part1.txt (phases 0-25).
+
+
+================================================================================
+PHASE 50 — the guard injection as a reusable module, and where it must not live
+================================================================================
+
+The wrap from phase 49 is now `experiments/loopmem/rretl_guard.py`: wrap_int_guard for the
+text transform, define_guarded_function for one function, create_guarded_residual_lens for
+the whole recipe — guard the forward and rex, define the inverse bare, register, return the
+engine's probe count. Six tests pin it, including the motivating case end to end against a
+real database: the offset pair refused unguarded (the Float(1.3e17) precision trap) and
+registered guarded. The guardwrap experiment rewired through the module reproduces 3/4
+exactly, and the module test joined `make all`, skipping honestly when the mpedb build is
+absent rather than passing vacuously.
+
+It was first written INTO mpedb — a guard.rs in mpedb-spell, a facade method, unit tests —
+and then pulled back out on the owner's instruction to keep mpedb's core untouched, with all
+custom machinery living in LLMdb. That boundary is worth the paragraph, because it is the
+same boundary every phase of this thread has drawn. mpedb is the verifier, and a verifier
+that carries convenience helpers for the things it judges is a verifier whose independence
+has started to erode. The guard is OUR discipline for OUR authors; the engine's job is to
+refuse what is wrong regardless of who wrote it or what wrapped it. The wrap changes who
+writes the guard. It must never change who checks it.
+
+The subset itself needed no extension for this — the guard is expressible in what PySpell
+already has, and the reversibility core (residuals stored per row, verified round trips)
+is untouched throughout.
+
+================================================================================
+PHASE 51 — plan choice as retrieval: the store built free, and where lookup stops
+================================================================================
+
+The reframing under test: a plan is not something to think up but something to look up.
+Read the problem, strip its numbers, map the residue against embeddings of generalised
+solved types, bind the values, execute exactly. Thinking as plan search versus the store as
+plan search.
+
+THE STORE COSTS NOTHING TO BUILD AND VERIFIES ITSELF. GSM8K training solutions carry
+calculator annotations — <<48/2=24>> — from which the record extracts plans mechanically,
+chains steps by value flow, executes each plan and keeps it only if it reproduces the
+training answer, then generalises under the phase 45 round-trip rule. From 2,000 training
+solutions: 1,554 verified generalised plans, collapsing to 599 distinct plan shapes, largest
+type 64 members. Compression into groups, with zero model calls.
+
+PURE LOOKUP FAILS, AND THE AUTOPSY IS WORTH MORE THAN A WIN. Sixty test problems, mask,
+embed, retrieve nearest compatible template, bind positionally, execute:
+
+    compatible template found     56/60
+    solved by top-1 lookup         0/60
+    solved by vote over top-25     1/60
+
+Two separate defects, either fatal alone. RETRIEVAL FETCHES TOPIC, NOT TYPE: baking matched
+baking and fruit matched fruit at cosine 0.6-0.7, while the plan shapes had nothing in
+common — a bakery inventory problem bound into a flour-budget plan returns
+-5.6e15/2.8e14. And BINDING IS SEMANTIC, NOT POSITIONAL: even a right-type neighbour lists
+its numbers in a different order, so v1-to-first-number scrambles the roles. The margin
+profile confirms both: 33 of 55 votes tied at margin 0, and the single case with margin >= 5
+was also the single correct answer — agreement stays a truthful confidence signal even
+while the answers themselves are wrong.
+
+THE MISSING INGREDIENT IS THE MODEL'S ONE IRREPLACEABLE JOB. Phase 44 measured exactly this
+mapping — numbers into a shown plan, by role — at 19/20 for the 35B model. So the division
+stands, sharpened: the store generalises and verifies, the embedding aims, the solver
+computes, and the model does the two things nothing else can — write a new plan, and bind
+roles into a retrieved one. (The retrieval-aimed ADAPT arm runs when the GPU frees.)
+
+AND THE 20-MINUTE AIME ANSWER, from the same sitting: with thinking on at 1,600 tokens,
+4 of 6 thoughts never closed — think-solo 0/6 measures the budget, not the reasoning — and
+the three graph plans that ran computed the wrong quantity entirely (42, 91, 34,460 against
+12, 751, 738). On olympiad problems the plan is the hard part, there is no inline check
+against a text to refuse a wrong plan with, and an executor cannot rescue what a planner
+got wrong. Graph+solver helps where the errors live in arithmetic; on AIME they live in
+the reasoning, which is the boundary of the whole method stated by measurement.
+
+================================================================================
+PHASE 52 — units as a routed graph: sixteen facts, 7,652 conversions, all exact
+================================================================================
+
+Units are nodes, each stored conversion an exact rational edge, and converting is ROUTING:
+find the path, multiply the factors. A compound unit is two routes at once — "3 miles per
+second in km/h" is the mile-to-km path over the second-to-hour path, second -> minute ->
+hour, giving 10863072/625 = 17,380.9152 km/h exactly, as a fraction, no model anywhere.
+
+    stored edges                          16, over 20 units in 4 dimensions
+    simple conversions routed             94 ordered pairs (5.9x the edges)
+    speed units                           40 distinct, 1,560 conversions among them
+    all two-dimension rates            7,652 conversions (478x the edges)
+    reverse route exactly reciprocal   94/94, verified pair by pair
+    rate spot-checks against hand      4/4 exact
+
+THE COMPOSITION CLAIM, MEASURED. Every edge composes with every other, so coverage is
+quadratic per dimension and multiplicative across compounds: 16 written-down facts route
+7,652 rate conversions, each exact and each reversible by construction — the reverse route
+IS the reciprocal, which is the residue rule holding with an empty residual. This is the
+generalisation-compounds-exponentially argument in its cleanest measurable form.
+
+DIMENSIONS AS THE CONTROL. Quantities carry dimension vectors; addition demands identical
+ones, multiplication adds them. Rate x time = distance accepted, distance/time = rate
+accepted, miles + hours refused BEFORE any arithmetic, 2/2 and 2/2. It cannot say a plan is
+right; it refuses a class of wrong ones for free — the same asymmetry as every verifier in
+this thread, and precisely the check phase 51's word-problem plans lacked.
+
+The model's only role left in this subsystem is reading which units a sentence mentions.
+Everything after that is the graph's.
+
+================================================================================
+PHASE 53 — the machinery on real problems: where it wins, and where solo does
+================================================================================
+
+The full no-thinking comparison, 20 GSM8K and 15 AIME problems:
+
+                          solo    graph+solver    majority-of-3
+    olmoe-1b  gsm8k      16/20        4/20            15/20
+    qwen-35b  gsm8k      19/20       16/20            19/20
+    qwen-35b  aime        0/15        0/15             0/15
+
+ON REAL WORD PROBLEMS, SOLO BEATS THE GRAPH ARM — the reversal of phase 45, and the honest
+boundary of the whole method. On synthetic expressions the plan was trivial and the
+arithmetic was the failure mode, so removing arithmetic from the model tripled the small
+model's score. On word problems the PLAN is the failure mode: the graph arm must commit to
+a full plan blind, never seeing an intermediate value, while solo's brief working lets the
+model see 3 * 12 = 36 before deciding what to do with it. Planning needs the feedback that
+executing denies it, and there is no inline check against a text to refuse a wrong plan.
+The record's division of labour helps exactly where errors live in arithmetic — measured
+three times now (phases 45, 51, here) from three directions.
+
+THE AGREEMENT SIGNAL IS THE PIECE THAT SURVIVES EVERYTHING. Three differently-phrased
+attempts, across both models and both datasets:
+
+    all three agree      18 cases, 18 right    (16/16 qwen gsm8k, 2/2 olmoe gsm8k)
+    they disagree        37 cases, 16 right
+
+Unanimity was right 18 of 18 times on real mathematics, and on AIME it NEVER fired — the
+signal correctly withholds confidence everywhere the answers are garbage. Combined with
+phase 34 (9/9 against 1/9), agreement-across-entries is now the most robust finding in the
+project: a grader-free acceptance gate at 100% observed precision, whose claim rate falls
+to zero exactly where claiming would be wrong.
+
+That is also the escalation policy stated as measurement: accept when the attempts agree,
+spend more only when they do not — help only on failure, from the cheapest rung up. And a
+caveat for the tally: the 1B model's 16/20 solo is higher than its published range, on a
+20-problem sample with a generous last-number extraction; the ordering of the arms is the
+finding, not the absolute percentages.
+
+================================================================================
+PHASE 54 — the dimension control wired into lookup: it refuses, and refusal was
+not the bottleneck
+================================================================================
+
+Phase 52's control, between retrieval and execution: units read mechanically from the text
+beside each number, every candidate plan bound with dimensioned quantities, refused if any
+step adds distinct known units or the result unit is not the asked one.
+
+    tagger noise floor      1,112/1,554 store templates pass on their own source (72%)
+    candidates refused      440 of 1,300 as ill-typed (34%)
+    top-1 unfiltered        0/60
+    top-1 type-clean        1/60
+    vote among type-clean   1/60
+
+THE CHECK WORKS AS A REFUSER. A third of all retrieved candidates are provably ill-typed
+for the problem's numbers — adding loaves to dollars — and are removed before any
+arithmetic, for free, no model involved. The mixed-addition rule and the asked-unit rule
+both fire exactly as built.
+
+THE TAGGER'S NOISE FLOOR IS 28%, AND IT IS INFORMATIVE. GSM8K units are ad-hoc nouns, and
+the noun beside a number is not always what the number counts: "sold clips to 48 of her
+friends" tags 48 as friends when it counts clips. A dimension control is only as good as
+its unit reader, and on informal text the unit reader is a language problem — which is to
+say, the model's problem, one more item on its short list alongside plan writing and role
+binding.
+
+AND ACCURACY BARELY MOVES, 0/60 to 1/60, BECAUSE FILTERING IS NOT BINDING. Remove every
+ill-typed candidate and the survivors are still positionally bound, and a same-unit
+scramble types perfectly. The control eliminates a class of garbage; it cannot order what
+remains or map roles. The three-way division from phase 51 stands with sharper edges:
+the store generalises, the embedding aims, the control REFUSES — and the two jobs left,
+binding roles and reading units off informal text, are both the model's.
+
+Where the control belongs next is not retrieval but the graph arm of phase 53: a
+model-WRITTEN plan whose steps mix units is wrong before execution, and that is a
+refusal-with-a-reason the plan writer can be shown — the same shape as mpedb's
+counter-examples.
+
+================================================================================
+PHASE 55 — the refusal gate on model plans: only as good as its ground truth
+================================================================================
+
+Phase 54 ended by pointing the dimension control at the graph arm: refuse a model-written
+plan whose steps mix units, name the step and the units, let the model retry — mpedb's
+counter-example shape, on word problems. Built and measured, with every refused plan ALSO
+executed post hoc so each refusal is classified true (the plan was in fact wrong) or false
+(the control shot down a right plan):
+
+    olmoe-1b   graph 4/20 -> graph+dim 1/20    27 refusals: 20 true, 7 false, 1 fixed
+    qwen-35b   graph 16/20 -> graph+dim 16/20  36 refusals:  4 true, 32 false, 11 fixed
+
+THE GATE DOES NOT PAY HERE, AND THE REASON IS THE GROUND TRUTH, NOT THE SHAPE. For the
+strong model 32 of 36 refusals were FALSE — the tagger's 28% noise floor firing on plans
+that were right — and eleven retries only clawed back what the gate had wrongly taken. For
+the weak model the refusals were mostly true (20 of 27) but it could not use them: one fix
+in twenty-seven reasons shown, and the false refusals cost it three of its four correct
+answers. Net: the small model got worse, the large one broke even.
+
+Against phase 48-49 the contrast is exact. mpedb's verifier refused with PERFECT ground
+truth — every counter-example real — and there the loop was safe for everyone and the only
+question was who writes the guard. Here the verifier itself is 72% reliable, and a noisy
+refusal gate is worse than none for a model that cannot recover and pure friction for one
+that did not need it. The counter-example shape transfers; its value does not survive a
+noisy judge. A refusal gate inherits the reliability of whatever it trusts, and unit
+reading on informal text is a language problem — the model's problem — sitting underneath
+a control that was supposed to check the model.
+
+================================================================================
+PHASE 56 — combining formulas as routing, and the consumption rule, again
+================================================================================
+
+The proposal: formulas compose, so input-to-solution is ROUTING in dimension space. A
+problem's quantities carry units, the question names a target unit, and the plan is a path
+built by combining quantities under the type rules — searched streaming, the frontier
+deduplicated by dimension signature, never materialising the expression tree.
+
+FIRST RUN: 40 of 40 dimension-rich problems "ambiguous". The extra candidates were all
+self-combinations — a derived value recombined with itself, x - x = 0, x + x = 2x — which
+is EXACTLY the rule the workpad enforced in phase 13: each given is consumed once. Source
+masks on every state, disjoint-only combination, and:
+
+    dimension-rich problems (speed, price, density, rate x time, with distractors):
+        unique route 40/40, correct 40/40, distractors self-excluded, zero model calls
+
+    GSM8K:
+        untaggable 26, no route 13, ambiguous 12 (truth present 1), unique 9 (right 2)
+
+IN ITS DOMAIN THE LEVER IS TOTAL. Speed = distance/time is not retrieved or asked for — it
+is DERIVED from the units, the only dimensionally-legal combination of what the problem
+provides, and the distractor quantities exclude themselves by failing to route. That is
+"kombinere formler for å komme frem til svar" as a theorem-shaped mechanism: given clean
+units, composition plus uniqueness IS the plan.
+
+OUTSIDE ITS DOMAIN IT IS NEARLY MUTE, for the reason predicted before the run: count-heavy
+problems carry three numbers of the same unit, dimensions cannot distinguish them, and the
+28% tagger noise poisons what little grip remains. The same triage that solves 40/40
+synthetic rate problems solves 2/60 GSM8K.
+
+The consumption rule surfacing a third time (workpad phase 13, template round trips phase
+45, dimension routing here) marks it as one of the project's few universals: every
+fabricated candidate in every domain came from using the same thing twice.
+
+================================================================================
+PHASE 57 — the model reads the units, and the abstraction question splits in two
+================================================================================
+
+Phase 55 ended on: unit reading is a language problem sitting under the control. So the
+language model reads — one call per problem abstracts the story into quantities-with-units
+plus the asked unit — and every downstream mechanism reruns unchanged. Every delta is the
+reader's.
+
+    GATE (20 problems, 35B plans):
+        heuristic judge   16/20 -> 16/20,  36 refusals, 32 FALSE
+        model-read judge  16/20 -> 17/20,  23 refusals, 18 false, 5 true, 7 fixed, 0 unreadable
+
+    ROUTING (60 problems):
+        heuristic   26 untaggable, unique 9 right 2
+        model-read   0 untaggable, unique 9 right 3, ambiguous 40 (truth present 5)
+
+    PLANS FROM THE ABSTRACT FORM ALONE:  2/20, against 16/20 from the story
+
+THE READER FIXES WHAT READING CAN FIX. "Sold clips to 48 of her friends" now tags 48 as
+clips, the implicit 2 in "half" arrives as a unitless factor the regex never even saw, and
+zero problems are unreadable. False refusals nearly halve (32 to 18) and the gate turns net
+positive for the first time (+1 with 7 fixed-after-refusal). What remains false is mostly
+COMPOUND units — a wage is dollars per hour, not dollars, and a one-noun-per-number reading
+cannot say so. The next rung is reading rates as rates, and it is a reading problem again,
+not a control problem.
+
+THE ABSTRACTION HALF SPLITS CLEANLY. As input to the JUDGE, abstraction is pure gain — that
+is the whole phase. As input to the PLANNER it is catastrophic: 2/20 from quantities-and-
+units alone against 16/20 from the story. The story is not detail-noise around a problem;
+it IS the problem — who did what to what carries the plan, and stripping it leaves numbers
+with no relations. In residue terms: the narrative is the residual of this compression, and
+it was load-bearing. Abstract for checking, never for planning.
+
+Routing after perfect reading still solves almost nothing on GSM8K (3/60), which closes the
+question cleanly: reading was the blocker for TAGGING, and count-heavy structure is the
+blocker for ROUTING, and no reader fixes the second — three numbers of clips give
+dimensions nothing to grip whoever reads them.
+
+================================================================================
+CORRECTION to phases 20 and 26 — "Y = 3 reverses perfectly and contributes null"
+================================================================================
+
+The judgement was made under one objective and stated as if under all. Under phase 20's
+own measure — the widest expression the model must hold — substituting Y for a bare
+number changed nothing (9.0 -> 8.3 tokens, 2/20 against 3/20), and that half stands:
+reversibility alone cannot tell a compressing substitution from a null one, for THAT
+objective.
+
+But "contributes nothing" was wrong as a general claim, and the project's own later
+measurements are the correction. Putting a value into a variable is the generalisation
+move itself: applied to every literal it is exactly the template form (v1 + v2 * v3) / v4
+— which took the 1B model from 5/60 to 14/60 on hits (phase 45, the first memory that
+measurably helped), collapsed 1,554 solved instances into 599 reusable shapes (phase 51),
+made repair-by-provenance possible at all (phase 46, wrong bindings detectable and
+correctable because names exist to rebind), and made the store rot-proof, since a graph
+of variables carries no wrong arithmetic to remember.
+
+The reconciliation, one line: a substitution is judged against an objective, and Y = 3 is
+null for compressing an instance and foundational for generalising across instances. Same
+operation, two ledgers. The phase 26 one-liner "reversibility is safety, not progress"
+survives only with "toward the stated objective" appended — variable introduction was
+progress all along, on the ledger the thread ended up caring most about.
+
+================================================================================
+PHASE 58 — absorb, don't strip: the full translation costs nothing
+================================================================================
+
+Phase 57 measured abstraction-as-deletion at 2/20 and the correction was the proposal
+itself: absorb EVERYTHING — every quantity a named node, every relation a definition, the
+question a distinguished node — until the residual of the translation is empty. One model
+call per problem; the record solves the system topologically with Fraction arithmetic and
+verifies it structurally, with perfect ground truth: every problem number present, the
+asked node defined, no cycles, everything reducing to arithmetic.
+
+    qwen-35b   relation graph 16/20   — exactly the story-plan baseline (16/20)
+    olmoe-1b   relation graph  3/20   — its baseline is 4/20, within run noise
+    (quantities-only, the deletion:    2/20)
+
+THE ABSORPTION IS FREE. The full translation loses nothing against planning from the
+story, and unlike the story it yields an object the record can check exactly and solve
+exactly. Structural refusals with named reasons ran through the same retry shape as
+everything else, and this judge — unlike the unit tagger — cannot fire falsely.
+
+================================================================================
+PHASE 59 — the staged version: reversibility total, solving costlier, repair real
+================================================================================
+
+The same absorption in ORDER, each step reversible with its residue kept: the model
+quotes one span and the definition it becomes; the record cuts the span (exact match or
+refusal), stores (span, position, its numbers) as the step's residue, adds the definition
+to the graph. Three runs, each fixing one mechanical defect, the trajectory itself the
+record:
+
+    run 1   0/20   the ASKED call: ten echoes of the example name "total", eight
+                   unparseable — the example-echo trap declared in the plan and then
+                   repeated in that one prompt
+    run 2   7/20   the record reads the asked node off the graph's own shape instead:
+                   the SINK, the one node no other definition references — deterministic,
+                   no model call
+    run 3   9/20   sink fallback when the model's fallback name is not in the graph, and
+                   missing-number refusals repaired by one absorption step aimed at the
+                   RESIDUAL text, where an unabsorbed number by definition still sits
+
+Final: 9/20 solved, 10 structural refusals, 4 localised via provenance, 2 repaired in
+place without touching the rest of the graph.
+
+WHAT IS TOTAL: the reversibility. 109 of 109 steps restored the previous text byte for
+byte when their span was put back; all 20 full chains unwound LIFO to the original
+exactly; 97% of the problems' numbers were absorbed; and 86 span misses were refused by
+the record without one corrupt cut reaching the text. The rRETL contract held on text
+with zero exceptions — the residues ARE the story, kept, and the graph and the residues
+can each reproduce the other.
+
+WHAT IT COSTS: solving. 9/20 staged against 16/20 one-shot, and the gap is coherence —
+each staged step sees only the remaining text and the graph so far, and relations that
+span sentences are exactly what a span-at-a-time reader fragments. One call sees the
+whole story; five calls each see a fifth of it.
+
+So the two forms divide by purpose, like everything else in this thread divided. One-shot
+absorption for solving. Staged absorption for when the trail matters more than the score:
+every step undoable, every node owning the sentence it came from, every structural
+refusal traceable — and two of the four traced refusals actually repaired in place, the
+first in-place text-provenance repairs in the project. The order was the price of the
+audit trail, and both numbers are now known rather than argued.
+
+================================================================================
+PHASE 60 — the ADAPT arm: role binding works, and the examples aim it wrong
+================================================================================
+
+The missing mapstore arm: retrieval fetches the two nearest solved problems, shown whole
+as worked examples, and the model binds the new problem's numbers into the roles. Three
+arms per model on the same 60 problems, within one run:
+
+                 solo    graph cold    ADAPT (retrieved examples)
+    qwen-35b    51/60       45/60            41/60
+    olmoe-1b    37/60       15/60             4/60
+
+RETRIEVED EXAMPLES HURT, BOTH MODELS, AND THE SMALL ONE CATASTROPHICALLY. The phase 51
+diagnosis holds with the model in the loop: retrieval finds TOPIC, not type, and a model
+shown a wrong-type plan follows it — binding roles into the wrong plan is worse than no
+plan. Phase 44's 19/20 adaptation was to same-shape templates; these neighbours are
+often the wrong shape, and the 1B model rides them down (15 to 4).
+
+What survives: ADAPT sits far above every record-only path through the same store (0/60,
+1/60, 1/60), so the binding CAPABILITY is real — it was the aiming that poisoned it. The
+store has now failed to earn its keep on word problems in five separate arms, which is
+the honest verdict on text-similarity retrieval of plans: until retrieval is by TYPE,
+showing what it fetches makes things worse, not better.
+
+Also banked: solo at 60-problem scale confirms phase 53's reversal in both models
+(51 vs 45, 37 vs 15) — on word problems the model's own working beats the blind plan.
+
+================================================================================
+PHASE 61 — the model diagnoses itself: grounded, and ranked by salience
+================================================================================
+
+The goal stated: the model improves through new tasks, so someone must decide what the
+next task is. The record's gap list was written down BEFORE asking (role binding,
+compound units, staged coherence, thinking budget, the named fill-failing template), the
+model got six raw result files, and wrote its top five.
+
+    keyword first pass:  5/5 items matched gaps — FLATTERING, the matcher credited
+                         filenames ("modelunits") as substance
+    hand audit:          5/5 items cite REAL numbers, zero fabrication
+                         1/5 hits a record gap in substance (the truncated thoughts)
+                         the biggest number in its own data — mapstore solved 0/60 —
+                         was overlooked in favour of 106 extraction failures from the
+                         SAME FILE (106 of 2,000, near-zero leverage)
+
+The failure mode being tested for — inventing plausible gaps the data does not show —
+DID NOT OCCUR. What occurred instead is subtler and decides the loop's design: the model
+ranks by how conspicuous a counter is, not by how much fixing it would gain. 86 span
+misses (refused safely, cost calls not correctness) outranked a 0/60. Salience is not
+leverage.
+
+So the improvement loop closes with the division this whole thread kept finding: the
+model DRAFTS the diagnosis — grounded, honest, useful as a reading of the data — and the
+record's counters RANK it, because ranking requires knowing what a number costs, and
+cost lives in the ledger, not in the prose. The next task comes from the top of the
+record's list with the model's reading attached, not the other way round.
+
+================================================================================
+PHASE 62 — the cascade: the right gate with no deliverable to gate
+================================================================================
+
+The proposal: at 1B scale the model never solves — it picks a formula shape and fills the
+values, the record executes, agreement between two 1B paths accepts, disagreement
+escalates to 35B. On the 60 problems:
+
+    tier 1 accepted             0/60   (formula arm produced an answer 4/60)
+    shape menu coverage         104/1,554 store plans (7%)
+    escalated                   60/60, right 51 — identical to 35B everywhere
+    time                        825s against 474s for 35B alone: 0.57x, SLOWER
+
+Two structural causes, both previously measured. GSM8K's diversity means eight commonest
+shapes cover 7% of the store (599 shapes over 1,554 plans — phase 51's number recast), so
+perfect picking could not have fit most problems. And the 1B production-yield bottleneck
+(phase 47's 18/30) put the formula arm at 4/60 answers; without a second deliverable there
+is no agreement, without agreement no acceptance, and tier 1 becomes pure cost. The gate's
+FORM is right — phase 53 measured unanimity at 100% precision — but a gate needs two
+arriving deliverables, and on word problems the 1B has one (solo, 37/60).
+
+================================================================================
+PHASE 63 — paraphrase fan-out: errors multiply across the legs
+================================================================================
+
+One problem in, two or three self-contained subquestions out, a combining formula, the 1B
+answering every leg, the record combining exactly:
+
+    1B decomposes,  1B answers    12/60      (1B solo: 37/60)
+    35B decomposes, 1B answers    28/60      (35B solo: 51/60)
+
+EVEN THE STRONG DECOMPOSER LANDS THE CHAIN BELOW THE SMALL MODEL ALONE. Three legs plus a
+combine is four chances to fail where solo has one; at roughly 85% per leg and 75% split
+quality the product is about 0.46, which is where 28/60 sits. Model-authored subquestions
+are paraphrases, and phase 57 already measured what paraphrase costs — "self-contained" is
+an instruction, not a property. The one-expensive-decomposer-many-cheap-solvers shape does
+not pay when the legs are prose.
+
+================================================================================
+PHASE 64 — rRETL fan-out: the split is perfect and the residual is in the names
+================================================================================
+
+The reversible form: the RECORD cuts at sentence boundaries — 20/20 splits rejoin
+byte-exact, mean fan-out 3.4, residual empty by construction — and each part translates to
+definitions given the graph so far. Calls drop from ~10 per problem (staged, with 86 span
+misses) to exactly the sentence count. And:
+
+    qwen-35b   2/20      olmoe-1b   0/20      (one-shot: 16/20, model-cut staged: 9/20)
+
+The autopsy names the killer precisely, and it is the proposed HIDDEN RESIDUAL in a form
+the byte check cannot see: 7 of 20 failures are "a definition does not reduce to
+arithmetic" — part 2 references `april` where part 1 named the node `april_clips`. The
+split is lossless on the text and lossy on the NAMESPACE. Four more failures are numbers
+whose part translated to nothing on the single pass, and the 8 structurally-"ok" runs
+mostly picked the wrong sink once question-sentence noise entered the graph.
+
+================================================================================
+PHASE 65 — fan-out, compress, fan out again: iteration does not pay this residual
+================================================================================
+
+The cycle as proposed: every part translates given the compressed graph, rounds repeat
+until a fixpoint, forward references resolvable in round 2 because compression made the
+context global. Measured:
+
+    solved after round 1        0/20
+    solved at fixpoint          1/20
+    late-arriving definitions   6 of 77  — the hidden residual, counted
+    mean rounds 2.2, 148 calls  — against ONE call and 16/20 for one-shot
+
+Iteration pays almost nothing here, and the reason closes the loop on the diagnosis: the
+residual is not missing VALUES (only 6 definitions arrived late) but mismatched NAMES, and
+re-asking does not rename. A record-side compression step that merges aliases between
+rounds — mechanical, round-trip-checked — is the untested remedy, and it is the record's
+job by every rule this thread has established.
+
+WHAT THE WHOLE FAN-OUT FAMILY SAYS, one line per member: join arity was never the lever
+(19); paraphrase legs multiply errors (63); a perfect reversible split still loses the
+namespace (64); and iteration cannot pay a residual that is referential rather than
+material (65). Fan-out PAID exactly twice in this project — digit columns (17) and
+document navigation (29-42) — and both times the residual between parts was tiny and
+mechanically carriable: a carry digit, a byte offset. That is the law the family obeys:
+fan out when the coupling between parts fits in the record's hand, and see the whole
+problem at once when it does not.
+
+================================================================================
+PHASE 66 — the lexicon, with its noise floor declared before use
+================================================================================
+
+WordNet 3.1's index and exception files parsed into a record-consultable lexicon: 147,478
+lemmas, 4,446 irregular forms, suffix-rule lemmatisation. Quality measured on UD
+English-EWT dev BEFORE anything was built on it, per the phase 55 rule:
+
+    coverage 0.726
+    first tie policy (noun wins):    noun P 0.474 / R 0.988   — half the graph's nodes
+                                     would have been fabrications
+    recalibrated (bare tie is not a noun, one iteration, on the calibration set only):
+                                     noun P 0.606 / R 0.799,  verb P 0.511 / R 0.948
+
+The declared floor everything downstream inherits: a dictionary is not a tagger, and the
+one calibration bought precision with recall — clean nodes over all nodes, holes over
+fabrications.
+
+================================================================================
+PHASE 67 — the dictionary-walk unit tagger does not beat next-word
+================================================================================
+
+`units_of` v2 — walk from the number to the nearest lexicon-confirmed noun — on exactly
+the phase 54 metric, same 1,554 templates:
+
+    A  v1 tagger, v1 asked    1,112  (72%, the anchor, reproduced exactly)
+    B  v2 tagger, v1 asked    1,097  (71%)
+    C  v2 tagger, v2 asked    1,109  (71%)
+
+Negative, and cleanly attributed: the lexicon walk trades one noise for another. GSM8K's
+ad-hoc unit nouns are common words next-word already caught, and 0.606-precision noun
+judgements sometimes skip the RIGHT unit word for a later wrong one. The model reader
+(phase 57: 0 unreadable, gate net positive) keeps the unit-reading job.
+
+================================================================================
+PHASE 68 — the record issues the names: the namespace residual dies, and cascades
+================================================================================
+
+The load-bearing experiment. Same 20 problems and split as phases 64-65, but the record —
+which reads the WHOLE problem even when the model reads parts — extracts every noun lemma
+and issues ONE shared name list; definitions using any other name are refused structurally
+(perfect ground truth), reason named, one retry.
+
+    'does not reduce' failures   0/20    (was 7/20 — THE NAMESPACE RESIDUAL IS DEAD)
+    solved                       2/20    (single-pass anchor 2/20, one-shot 16/20)
+    missing-number failures      8/20    (was 4/20)
+    foreign-name refusals        69 fired, 11 recovered
+
+Consistency by construction worked exactly as designed — not one cross-part name mismatch
+survived. And solving did not move, because the residual CASCADED into the next level
+down: values whose reference is not a listed noun fell out entirely (missing numbers
+doubled). "Half as many clips" refers to clips elliptically; a pronoun refers across a
+sentence; a noun list names entities but not REFERENCE — hva som peker på hva. The split's
+hidden residual is layered: values (paid by rounds, phase 65), names (paid by issuing,
+here), and now reference structure — which is precisely the level that is invariant across
+languages with different word orders, and precisely what neither a lexicon nor adjacency
+edges capture. Each payment exposes the next layer, and the layers rank by linguistic
+depth.
+
+================================================================================
+PHASE 69 — graph-signature retrieval: better than topic, and the shape space is
+starved
+================================================================================
+
+Signatures of the record's text graph (noun-verb-noun triples weighted high, bare lemmas
+damped, number-unit attachments, the asked lemma), leave-one-out top-1 over the store,
+scored on same-plan-shape with the topic anchor computed FIRST from existing vectors:
+
+    X, topic embedding    29/1,554  (1.9%)
+    Y, graph signature    38/1,554  (2.4%)
+    chance                          (0.9%)
+
+Y beats X by 31% relative and both are absolutely mute, and the store's own fasit says
+why: 599 shapes over 1,554 plans, largest family 64 — most shapes are near-singletons, so
+there is almost nothing to retrieve. This closes the retrieval question from the other
+side: five arms did not die of a bad similarity function; they died because GSM8K's plan
+space barely repeats. Phase 45's templates worked exactly because synthetic space had four
+shapes covering everything. Type-retrieval pays where types RECUR, and whether they recur
+is a property of the corpus, not of the retriever.
+
+Where the graph level goes next, per the standing observation: the invariant worth
+extracting is reference structure — what points at what — which survives word-order
+differences between languages and is the one layer of the residual chain still unpaid.
+That is a reading job, and reading is the model's; the record's part, as always, is to
+verify the graph it is handed against the text it kept.
+
+================================================================================
+PHASE 70 — the reference layer: reading pays its bill, and the bottom layer shows
+================================================================================
+
+The model reads what every number points at — compound names built only from record-issued
+atoms, `clip_april` against `clip_may`, verified componentwise with perfect ground truth
+(every key a problem number, every component an issued lemma, full coverage of the real
+numbers required, commentary keys ignored rather than punished). Then the phase 68 fan-out,
+with the map in context and the compounds in the vocabulary.
+
+    reference maps accepted     17/20, 24 compound names coined
+    missing-number failures     4/20    (was 8/20 — THE REFERENCE BILL, PAID BY HALF)
+    'does not reduce'           0/20    (names stay dead)
+    solved                      1/20    (68-anchor 2/20, one-shot 16/20)
+
+THE LAYERED RESIDUAL IS NOW MEASURED END TO END, one payment per layer:
+
+    values       paid by rounds       (65: only 6 of 77 definitions arrived late)
+    names        paid by issuing      (68: 7/20 mismatches -> 0)
+    references   paid by reading      (70: 8/20 missing -> 4/20)
+    RELATIONS    unpaid — and load-bearing
+
+Every layer above the bottom was paid, individually and verifiably, and solving never
+moved: 2/20, 2/20, 1/20 against one-shot's 16/20. What remains is the relations'
+arithmetic — HOW clip_may derives from clip_april, the "half as many" that connects two
+quantities across a cut. That is not a name, not a reference, not a value: it is the
+meaning that only a reader holding both sides of the cut at once assembles, and it is
+what the one-shot arm gets for free by never cutting.
+
+So the fan-out arc closes where phase 65's law pointed, now with the full ledger: text
+fan-out pays exactly when the coupling between parts fits in the record's hand — a carry
+digit, a byte offset, a name list, a reference map — and the relations of a story do not
+fit in anyone's hand but the reader's. Split for the audit trail, absorb whole for the
+answer, and the residual chain is the proof rather than the hope: three layers paid, the
+fourth named, each with its number.
+
+================================================================================
+PHASE 71 — where the relations live: in the structure, not in the values
+================================================================================
+
+The chain's last question, put directly: mask every number in the problem — <N1>, <N2> —
+and ask for the relation skeleton over v1..vk; the record binds the real numbers
+mechanically. If the skeleton solves, the relations never needed the values.
+
+    A  whole reading, 35B       15/20    (phase 58's 16/20, within run noise)
+    B  structure only, 35B      14/20    (2 refused, 4 wrong — nearly nothing lost)
+    C  structure only, 1B        0/20    (18 structurally refused, 2 wrong)
+
+RELATIONS ARE STRUCTURAL. Hiding every value costs the strong reader one problem in
+twenty. "Half as many" is a relation between places in a story, not between magnitudes,
+and a reader that never saw 48 writes {"april": "v1", "may": "april / 2"} just the same.
+That settles the economics question the chain ended on: the relation layer CAN be carried
+cheaper than whole reading — not by a smaller reader, but by AMORTISATION. A skeleton is
+keyed by its masked text; pay one whole reading the first time a shape is seen, bind
+values mechanically every time after, zero model calls per repeat. The relation layer
+moves into the store beside the templates, which is where phase 45 put the arithmetic
+layer — same economy, one level up. The standing caveat transfers with it: GSM8K's shapes
+barely recur (599 over 1,554), so the amortisation pays exactly where the corpus repeats
+itself, and whether it repeats is the corpus's property, not the method's.
+
+AND THE SMALL READER IS RULED OUT CLEANLY. The 1B writes a perfect masked skeleton for a
+one-number story and structurally fails 18 of 20 real ones: reading structure at real
+complexity sits in the planning class it already failed (15/60), not the filling class it
+owns (16/18). The division of labour keeps its final form: the strong model reads
+structure once per shape; the record binds, executes, verifies and remembers per instance;
+the small model fills, chooses and votes — and nobody's arithmetic touches the answer.
+
+The residual chain, complete: values paid by rounds, names by issuing, references by
+reading, relations by amortised structure — every layer with its price, its carrier and
+its number, and the bottom of the stack turned out to be a template after all.
+
+================================================================================
+PHASE 72 — under the floor: routing is innocent, and the failure has a law
+================================================================================
+
+The project's own instrument turned inward: moetrace reads the router's expert choices per
+token per layer, and the sharpest behavioural failure — `2 - 1 = 2` — got a falsifiable
+internals hypothesis: the wrong cases are routed like COPYING. All 55 single-digit
+subtractions traced, plus ten "Repeat this number" echo controls as the copy signature.
+
+    ROUTING IS INNOCENT.
+    within-right similarity     0.960
+    right-versus-wrong          0.961      — indistinguishable
+    echo proximity, right       0.891
+    echo proximity, wrong       0.889      — excess -0.003
+
+The router sends failing and succeeding subtractions down the same path, and neither is
+meaningfully closer to the copy pathway. The hypothesis is refuted cleanly: the failure
+lives in the computation the experts perform, below what routing can see — so there is no
+expert to steer or mask, and the internals lever closes as honestly as it opened.
+
+    THE BEHAVIOUR HAS A LAW INSTEAD.
+    failure rate by difference:   a-b = 1:  8/9     a-b = 0:  4/10
+                                  a-b = 2:  1/8     a-b >= 3: 2/32
+
+THE MODEL CANNOT SUBTRACT NEIGHBOURS. Eight of nine adjacent pairs fail, and the wrong
+answers are echoes and near-misses (2-1 -> 2, 4-3 -> 3, 5-3 -> 4): the signature of
+approximate magnitude arithmetic that snaps to a nearby number, failing exactly where the
+true answer sits within snapping distance of the operands. Large differences are safe
+(2/32); the number line's neighbourhoods are not.
+
+Two consequences, both actionable at the record level — where every lever in this project
+has ended up:
+
+The record now owns a MEASURED safety map of its smallest atom: subtraction with
+|a - b| <= 1 is unsafe (12/19), everything else safe (2/36). A micro-cascade rule follows
+directly — only neighbour-subtractions need a solver or a bigger model, at near-zero cost
+since the record sees the operands before asking anyone.
+
+And phase 17-24 rereads sharper in its light: column arithmetic with borrows GENERATES
+neighbour subtractions (a borrow turns 4-3 into repeated near-neighbour work), so the digit
+decomposition was steering the model into precisely its weakest cells. The floor was never
+"single-digit arithmetic" — it was a two-cell-wide strip of the subtraction table, and now
+it has coordinates.
+
+================================================================================
+PHASE 73 — the lego synthesis: bricks, type routing, and fan-out's lawful home
+================================================================================
+
+The architecture stated as machinery, every claim a checked equality. Computations live in
+BRICKS — typed reversible functions; sixteen written-down facts become thirty-two bricks,
+and each brick is LIFTED into compound types on demand (km->m serves km/h -> m/h and
+1/km -> 1/m with the factor flipped), so nothing compound is ever tabulated. Coordination
+is routing in TYPE SPACE: types are nodes, lifted bricks are edges, and the frontier
+streams — compound types are unbounded, so the type-by-type matrix cannot exist, only the
+explored rim of it. The N x N discipline one level up from values.
+
+    km/hour -> foot/second      chain of 6, exact    (34 types explored)
+    mile/gallon -> km/litre     chain of 2, exact
+    g/ml -> pound/gallon        chain of 4, exact
+    yard/minute -> mm/second    chain of 5, exact
+    mile/hour^2 -> m/second^2   chain of 6, exact    (57 types explored)
+
+    reverse chains exactly reciprocal   5/5
+    fan-out (split the rate, convert the parts, recombine through the split's
+    residual) matches the direct route  EXACTLY
+
+    100 km/h = 312500/3429 ft/s = 91.1344 — as a fraction, through six bricks no
+    one of which knows feet from hours.
+
+Counts map by construction (a brick's arity is its type), the split's residual is the
+pairing that recombines what fan-out separated — mechanical cargo, record-held — and this
+is precisely the domain phase 65's law licenses fan-out in: coupling that fits in the
+record's hand. The story-problem fan-out failed because its residual was referential;
+this one succeeds because its residual is a division sign.
+
+One anchor correction en route, in the session's standing tradition: the km/h -> ft/s
+task first printed WRONG because the HAND-COMPUTED anchor had dropped a factor of 100 in
+cm -> inch — the chain's 91.1344 was the textbook value all along. The machinery outlived
+its own test's mistake, which is what exact arithmetic is for.
+
+================================================================================
+PHASE 74 — affine and currency bricks: many roads become the verifier
+================================================================================
+
+Two brick families that break the pure product on purpose. TEMPERATURE IS AFFINE — the
+brick generalises to (scale, offset) with exact composition and inverse, and the classic
+trap ships as a refusal: an offset is only valid for absolute values, so lifting a
+temperature brick into a compound (celsius per hour) is REFUSED rather than silently
+wrong — the same pair mpedb's verifier caught its own authors on, now caught by type.
+CURRENCY carries example rates, consistent by construction, and its point is
+multiplicity: NOK to EUR directly, through USD, through GBP.
+
+    37 C -> F, 212 F -> C, 100 C -> K, 0 F -> K (two affine hops)   all exact
+    100 usd -> nok, nok/litre -> usd/gallon (currency x volume)     exact
+    affine round trip exactly identity                              yes
+    celsius/hour -> fahrenheit/hour                                 refused
+
+    nok -> eur, three independent roads:      UNANIMOUS on the clean table
+    poison nok->eur by 2%:                    the roads DISAGREE, and every
+                                              divergent road crosses the
+                                              poisoned edge — the alarm carries
+                                              the address
+
+MANY ROADS ARE THE VERIFIER. Phase 34 measured agreement-between-entries as the project's
+strongest confidence signal (18/18 on model votes); here the same law runs on exact
+arithmetic: unanimity between independent brick paths is confidence, divergence is an
+arbitrage alarm that localises the bad brick by intersection of the divergent roads. What
+redundancy costs in storage it repays as the only judge that needs no ground truth at all.
+
+Two test bugs en route, both the test's own and both the session's standing families: the
+"copy" of the registry shared the brick objects, and the poison went on the edge no road
+in the measured direction uses — unanimity survived correctly, and the first DISAGREE-miss
+was the harness, not the mechanism.
+
+================================================================================
+PHASE 75 — divergence as a question, and the probe that finds the metadata
+================================================================================
+
+LEGITIMATE DIVERGENCE. Different roads sometimes SHOULD give different answers — a quote
+has a buy and a sell side, a toll gate charges one direction. Divergence now has three
+mechanically-distinguished readings: one road is an ANSWER; divergent roads separated by a
+DECLARED two-sided edge are a QUESTION, the answer a set of conditional branches with the
+open direction attached as residue; divergence with no declared asymmetry stays the ALARM.
+
+    nok -> usd     2 roads: 94.79 or 95.24 per 1000 -> QUESTION ("which side applies?")
+    west -> east   toll 25 direct, ferry 40         -> QUESTION
+    the phase 74 poison                             -> ALARM, still
+    answering "selling nok" collapses to 20000/211 exactly, and the residue keeps the
+    question, the taken road and every other branch — the conditional form recoverable.
+
+The discriminator's first draft inferred asymmetry from product != 1 and misread the
+poison as a question, which taught the real lesson: A SPREAD AND A BUG ARE ARITHMETICALLY
+IDENTICAL. Two-sidedness is knowledge about the edge, declared, never deduced.
+
+PROBE-ON-FIRST-TOUCH finds that knowledge by calculating. When a route first hits a brick,
+run it twice with different values — two probes determine (scale, offset) exactly, one
+never can — and a third value verifies; if it disagrees, the thing is not affine and is
+refused outright (the hidden x*x impostor died there). Probed once, cached forever, every
+use ledgered:
+
+    transforms inferred exactly        7/7 (scales and affines alike)
+    nonlinear impostor refused         by the third probe
+    pairs auto-flagged as two-sided    the spread and the toll — exactly the declared
+                                       set of the classifier, discovered instead of told
+    c->f / f->c                        closes to identity: symmetric, correctly unflagged
+    ledger                             10 hits, 24 probes, repeat hits free
+
+The circle this closes: the classifier needs declarations, the probe generates them, and
+both run on exact arithmetic with no model and no trust anywhere in the loop. Calculate
+twice, verify once, write it down — the proposal, verbatim, as machinery.
+
+================================================================================
+PHASE 76 — assume, ledger, solve: the pending questions become a solver's input
+================================================================================
+
+ASSUME AND LEDGER. Open questions must not block calculation: at a two-sided edge the
+LOWER branch is taken (conservative, declared), the assumption is ledgered with its
+address and its counterfactual carried to FINAL form, and the result runs flagged
+PENDING. An answer reruns exactly the ledger's dependents — 3 of 5 computations touched,
+2 skipped, counterfactuals reproduced to the digit, the toll question still pending as it
+should be. Laziness keeps the streaming (alternatives exist only at edges actually hit);
+provenance does the scheduling.
+
+MANY AT ONCE IS A BINARY SOLVER. k distinct open questions make the pending space 2^k
+assignments — and one observed outcome SOLVES it: a path crossing the quote twice and the
+toll once has two distinct questions (an edge crossed twice is ONE question, learned the
+usual way — the first enumeration gave each hit its own slot and a both-flipped combo
+partially cancelled into a phantom survivor), four assignments, and exactly one reproduces
+the observation: the ground-truth directions, all questions answered at once.
+
+COUPLED UNKNOWNS ARE AN ACTUAL SOLVER. Speed against weight: p = m*v and E = m*v*v/2 with
+m, v unknown is no assignment enumeration — it is equations. The dimension machinery
+types the derivation FIRST (E/p must be a velocity before any number moves), then exact:
+v = 150 m/s, m = 20 kg, both equations verified. Tier entered only when questions share
+variables.
+
+AND THE BRICKS COME FROM THE FACTORY. A PySpell pair — the form the model authors at 3/4
+with the guard injected (phase 49) — registered through mpedb's probe corpus (12 corpus
+probes), then read as a BLACK BOX by phase 75's probe through SQL calls alone: two calls
+infer (1, -1000), the third confirms, the offset brick is recognised and mounted. Model
+writes, engine verifies, probe calibrates, N x N routes, ledger schedules, solvers close:
+every stage measured separately across thirty phases, and joined here into one loop. The
+stated end state — the LLM writing rRETL-as-PySpell that SOLVES questions — has every
+link measured; what remains open is only scale, not mechanism.
+
+================================================================================
+PHASE 77 — stage A: the model's pen at both ends, judged by arithmetic alone
+================================================================================
+
+Three bricks authored by the model (cores only, guards injected), through the engine's
+corpus, read back by the black-box probe, judged against truths written before any call:
+
+    dbl   engine ok, probe (2, 0)   MOUNTED
+    ore   engine ok, probe (100, 0) MOUNTED
+    tax   engine refused: conditional EXPRESSION — the statement form is in the subset,
+          the expression form is not, and the engine named the column
+
+    route eur -> nok -> ore: 1000 eur = 1,144,500 ore, EXACT — the first route in the
+    project to cross a model-written brick.
+
+THE SOLVER WAS REFUSED, WHICH IS THE CHECK WORKING. v_from_pe came back as p/(p*2/e) —
+algebra for e/2, not 2e/p — and the constraint judge (samples where p = m*v and
+E = m*v*v/2 must return v exactly) refused it 0/6, showed the counter-example, and the
+retry produced the same wrong algebra rearranged. No wrong solver was mounted. The
+confound is declared: thinking is off (phase 53's setting), and deriving v = 2E/p is
+precisely the kind of step thinking buys; the pipeline's judgement side needed no
+thinking at all.
+
+================================================================================
+PHASE 78 — stage B: eight families at once, and the integer line
+================================================================================
+
+    authored 8/8   engine accepted 2   probe-exact and mounted 2 (fortnight x14, dozen x12)
+    registry 46 -> 50 bricks, units 27 -> 30, routable ordered pairs 112 -> 124
+    roads nok -> eur: 3 -> 3 (the new families do not touch the currency block — counted,
+    not assumed)
+
+THE LINE IS INTEGER VERSUS FRACTIONAL, NOT MODEL VERSUS ENGINE. Across both stages every
+integer-factor brick the model authored mounted — dbl x2, ore x100, fortnight x14, dozen
+x12, four of four — and every fractional-factor family died at the engine: nmi (x1.852),
+sek (x0.97), dkk (x1.52) on compile errors — the model reached for a function outside the
+subset — while stone, pint and markup all fell to ONE trap, the first one phase 48 ever
+hit: `/` yields Float, so forward(Int(1)) round-trips to Float(1.0), which is not Int(1),
+and the corpus refuses. The two that mounted used integer arithmetic throughout.
+
+So the factory's division of labour sharpens by measurement: f64 PySpell bricks are for
+integer scales, where they mount four for four; fractional factors belong in the
+Fraction-side registry where the routing already lives, authored as rationals, not as
+floats. Two judges, separately reported, drew that line — the engine refusing what f64
+cannot promise, the truth table refusing what the engine cannot see — and the growth the
+two mounted families bought is on the ledger: twelve more routable ordered pairs.
+
+================================================================================
+PHASE 79 — the fractional families, authored as fractions: seven for seven
+================================================================================
+
+Phase 78's line said fractional factors do not belong in f64 PySpell; this moves the
+authoring, not the ambition. A scale brick IS its rational factor, so the model NAMES the
+fraction — {"num": 1852, "den": 1000} — and the record builds the brick in the Fraction
+registry where the routing lives. The judge with perfect ground truth sits in each task's
+own text: "forward(2) = 3.704" is a verification sample, checked exactly as fractions.
+
+    mounted through the example judge   7/7 (tax 5/4, nmi 463/250, stone 14,
+                                        pint 454609/800000, sek 97/100, dkk 38/25,
+                                        markup 7/5)
+    agree with the corrected truth      7/7
+    registry                            46 -> 60 bricks
+    routable ordered pairs              112 -> 164 (+52)
+    10 nmi = 463/25 km                  exact through the model-named fraction
+
+TWO HAND-ANCHOR ERRORS, CAUGHT BY THE MACHINERY ITSELF, in the session's standing
+tradition — and this time with a moral sharper than usual. My truth table held the nmi
+factor as 1852/500 = 3.704, which is the EXAMPLE'S OUTPUT, not the factor; and my demo
+anchor said 10 nmi = 1852/50 km, which is twenty of them. The model was right both times,
+the task-embedded example-judge (mechanical, written by nobody tonight) was right both
+times, and the hand-written meta-judge was the only party that erred. Across phases 73
+and 79 that is four hand-anchor mistakes against zero errors in the exact machinery: the
+strongest argument this project has produced for judges that are DERIVED from the task
+rather than authored beside it.
+
+The factory now covers both sides of phase 78's line: integer transforms as PySpell
+through mpedb (four for four), fractional transforms as named rationals through the
+example judge (seven for seven) — eleven model-authored bricks mounted, every one behind
+an exact, mechanical gate, and 52 more ordered pairs routable than when the evening's
+scale question was asked.
+
+================================================================================
+PHASE 80 — first steps in algebra: the residue prices the road, exactly
+================================================================================
+
+An equation is a state — p*x + q = r*x + s, four exact coefficients — and school
+algebra's first steps are its bricks: add to both sides, multiply both sides, gather the
+x-terms, gather the constants. Every brick reversible, every road unwindable, and every
+road must land the same x: the many-roads verifier, now over algebra, 20/20.
+
+THE FIRST STEP DECIDES THE RESIDUE, measured as the largest denominator alive after each
+step, summed along the road:
+
+    clear denominators first (multiply both sides)     216
+    plain school order                                 468
+    divide early (normalise the lead at once)        1,061
+
+Multiplying both sides first — the proposal verbatim — is 4.9x cheaper in carried residue
+than dividing early, for the identical exact answer. "Unngå mye residue" is not a
+preference; it is a factor of five, and it prices WHICH first step to take when several
+roads reach the goal.
+
+PING-PONG MEETS, AND PAYS ONLY AT DEPTH. With the goal known, forward and backward rims
+alternate and met in the middle on 20 of 20 — but explored 298 states against 238 for
+forward-only, because these equations solve in three or four moves and two rims cost more
+than one short road. The bidirectional saving is b^(d/2) against b^d; at d = 3 there is
+nothing to halve. The same law fan-out obeys (phase 65): the machinery pays where the
+problem is deep, and an honest harness says so when it is not.
+
+================================================================================
+PHASE 81 — depth: the scramble, and where ping-pong starts to pay
+================================================================================
+
+Phase 80 said honestly that at three moves there is nothing to halve. This phase built
+the depth: ten ATOMIC both-sides bricks (multiply/divide both sides by 2, 3, 5; add or
+subtract 1; add or subtract one x — each with empty residual, each invertible move for
+move), and the task built the way the proposal frames it: we HAVE the solution, and the
+equation is a ten-brick SCRAMBLE away from it, like a cube turned away from solved.
+
+Eight equations, budget 100,000 states each:
+
+    ping-pong (two rims, smaller expands)   met 8/8, ~13k states each,
+                                            roads 6-10 bricks (mean 8.1)
+    every stitched road valid forward       8/8 — lands the solved form exactly
+    every stitched road unwinds             8/8 — inverse bricks recover the scramble
+    forward-only, same budget               2/8 reached the goal; the rest were cut
+                                            off at level 6 of ~10
+
+State ratio at least 6.9x — a FLOOR, since six of eight forward rims died at the budget
+with the goal still four levels out. The boundary measured in phase 80 flipped exactly
+as the arithmetic said it would: b^(d/2) against b^d is nothing at depth three and
+everything at depth ten. Streaming is the discipline that makes the win real: only the
+two rims ever exist, the move tree never does.
+
+================================================================================
+PHASE 82 — the model picks the first step; the residue price judges the pick
+================================================================================
+
+"Multiply both sides first" is both phase 80's measured law AND a textbook slogan — and
+a slogan is what a model can hold without reading. The battery splits them: six
+fractional equations where clearing denominators first is strictly cheapest, six integer
+equations where the multiply option wears the same textbook surface ("multiply both
+sides by 2") but is pure waste — subtract the x-term, two steps, done. Membership is
+mechanical: an equation enters only if its three roads have a unique priced argmin.
+Letters shuffled per equation; Qwen-35B picks; the record walks all three roads.
+
+    model picked the priced-cheapest first step   11/12
+    baselines: coin 4/12, always-multiply parrot 6/12
+    the six integer traps                          6/6 — the slogan refused every time
+    multiply chosen 5/12 (6 of 12 warrant it)
+    all 36 roads land the identical exact x        36/36
+
+The one miss is a near-tie, not a blunder: on 7/2x + 2 = 3/2x + 5/2 the model subtracted
+3/2x (7/2 - 3/2 = 2, clean) at bill 8 where clearing cost 7 — one denominator-unit
+apart. The plan is now a PRICED object: the record walks every road the model could have
+chosen, and the residue bill separates reading from reciting. Nothink confound declared,
+as always; the discrimination stands regardless — a parrot cannot score 11.
+
+================================================================================
+PHASE 83 — solved roads become memory; pushback refines the vocabulary
+================================================================================
+
+The session's stated loop — learn and store, then search what was done before — closed
+over the equation world, in two acts because the first produced a zero that had to be
+autopsied.
+
+ACT ONE. Solved roads stored as templates of macro ops (clear, gather x, gather
+constants, normalise) keyed by prefixes of a four-bit shape signature. The ops read
+their parameters off whatever state they meet and SKIP themselves when inapplicable —
+and that was the whole story: ONE search, then 59 straight equations served from the
+single universal key (windows 1, 0, 0), 60/60 exact, and transfer to denominators 7-50
+(store built on 2-6) ran 20/20 exact with ZERO new searches. The template that cleared
+sixths clears fiftieths, because the parameters live in the ops, not the keys. The
+refinement machinery never fired — the autopsied zero: self-parameterising ops made
+every class one class.
+
+ACT TWO attacked it: a class where gathering x first is strictly cheaper than clearing
+(lead difference exactly 1, halves everywhere) and whose four base bits are IDENTICAL to
+the clear-first class. Two audit lessons, both measured:
+
+  THE STRIDED AUDIT SAMPLED ONE CLASS ONLY. Every-4th-serve auditing on an alternating
+  stream landed always on the fairly-priced half: twenty overpayments served, zero
+  caught. A stride sharing a factor with the world's pattern is blind; the audit was
+  made RANDOM (rate 1/4) and caught the overpayment after two serves.
+
+  THE VOCABULARY RAN OUT, SO THE MEMORY MINTED. The split machinery exhausted all four
+  base bits (identical signatures) and coined a new one from the predicate library —
+  lead_one, the first predicate separating the two exemplar states — appended it to its
+  own signature, and split there. After the mint: zero further overpayments, store at 3
+  keys, depths 4-5-5, deepened ONLY where the world pushed back. 40/40 exact throughout;
+  hard failures 0; the one miss refilled a hole mechanically.
+
+Learning measured twice over: the search bill collapsing toward the audit floor, and
+the memory coining the word for a distinction it could not previously say. Exactness
+never moved: 120/120 across both acts and transfer.
+
+================================================================================
+PHASE 84 — the 1B protocol: the floor of simplicity, and who can stand on it
+================================================================================
+
+The target: make each step so simple a 1B can run the solve without thinking. The
+machinery already put the floor as low as it goes — the template holds the road, the
+record executes every brick exactly, the goal test is mechanical, and the model's whole
+job is ONE BIT per step: confirm or deny a reading of the current state. One bit is the
+floor of simplicity. The phase measured whether OLMoE-1B can stand on it.
+
+THE FORMAT LADDER, piloted with raw-reply inspection at every rung (the session's
+standing rule, and it earned its keep six times over):
+
+    free yes/no          answers No to everything (an equation full of fractions)
+    two-letter choice    answers A to everything — echoes the first option line
+    completion           0/12
+    executable code      2/12 lenient-parsed, 8 unparseable — one inspected reply
+                         was RIGHT and my strict parser had eaten it; refloated, it
+                         still drowned at scale
+    cloze true/false     1/12
+    copy-the-term        0/12 verifiable — hijacked into LaTeX solution-mode no
+                         matter the instruction
+
+THE BATTERY, counterbalanced so a letter parrot scores chance: reading accuracy 26/48 —
+and the computed always-A counterfactual is 26/48 EXACTLY. Zero bits contributed. The
+READ arm solved 2/12 (self-skipping ops rescuing parrot luck), the MENU arm — the 1B
+planning its own next step — 1/12 with 49 of 67 picks wasted on inapplicable ops. The
+bottleneck at 1B is not thinking and not arithmetic (both were already removed): it is
+instruction-following itself.
+
+THE LADDER HELD: every unsolved equation went up unchanged — same questions, 35B — and
+all 10 escalations solved. System total 12/12, and no wrong answer can be delivered
+because the goal test gates delivery, not the model.
+
+The constructive answer to "can the 1B run the solution": for machine-readable states
+it should not even be asked — the template with self-parameterising ops runs BLIND
+(phase 83: 80/80 exact, zero model calls). The model is needed only where the state is
+not mechanically readable, and there the measured minimum for even a one-bit read is
+35B. Optimising for the smallest model means moving reads into the record until none
+remain — and the record, unlike the 1B, never answers A because A came first.
+
+================================================================================
+PHASE 85 — word problems: language is the model's only step, agreement its gate
+================================================================================
+
+Phase 84 drew the line: the model earns its place only where the state is written in
+language. Twelve word problems were GENERATED from twelve truth tuples (truths first,
+stories rendered mechanically in three skins — a number, Ada's age, a ticket price),
+and the model's single job was translation, done through TWO different entry points:
+coefficient JSON, and a written equation the record parses. Delivery only on identical
+exact state; then the phase 83 universal road walks it blind, and the goal test gates.
+
+CLEAN SKIN: 12/12 everywhere. Both arms perfect first attempt, gate delivered 12/12,
+agreed-on-wrong 0/12, end-to-end exact 12/12. A perfect score must be attacked, so:
+
+HARD SKIN — same twelve tuples, clause order FLIPPED (the prose speaks the right side
+first; equality is symmetric, so both orientations are declared faithful) and a numeric
+DISTRACTOR opening every story (3 cats, 14 tickets, 6 diary pages — numbers chosen to
+collide with plausible coefficients):
+
+    JSON arm 11/12, equation arm 10/12 — errors now exist
+    agreement gate: 11/12 delivered, 3 retries, 2 fixed by naming the split,
+                    1 FLAGGED rather than guessed
+    agreed on a WRONG state: 0/11 — the risk number held at zero
+    end-to-end exact: 11/11; distractor leaks into delivered states: none
+
+The flagged one, dissected: "19 is the same as twice the number plus 13" — the equation
+arm read it perfectly, the JSON arm put a phantom x on the constant side (r = 1 for 0).
+One character wrong in one arm, and the gate refused delivery — which is the design:
+without ground truth nobody knows WHICH arm erred, and the only honest verdict is a
+flag. Across both skins: 23 of 24 delivered, all 23 the truth, 0 wrong deliveries, and
+the one miss a named, localised disagreement.
+
+The pipeline now runs its full stated shape: language -> state (model, twice,
+agreement-gated) -> road (memory template, blind) -> bricks (record, exact) -> goal
+test (mechanical). The model touches nothing but the reading, and the reading is the
+only place an error can enter — where it meets a gate that has, so far, never let one
+through.
+
+================================================================================
+PHASE 86 — units join the text pipeline: the founding example runs whole
+================================================================================
+
+"Per kjører i tre miles per sekund, hva blir det i km/t" — the example the unit
+machinery was asked for in the first place — now runs as the full stated shape. Ten
+conversion questions generated from ten truth triplets (value, from, to), every story
+opening with a numeric-and-unit distractor (the phase 85 lesson: hard skin from the
+start). The model reads the language into a typed query twice — coefficient JSON and a
+bare arrow line ("3 mile/second -> km/hour") — and the gate delivers only on identical
+exact triplets. After the gate, phase 73's router: sixteen facts lifted through
+compound type space, chains exact.
+
+    JSON arm 10/10, arrow arm 8/10 first try — the arrow's two misses named at
+    retry and both converged; 10/10 delivered, 0 flagged
+    agreed on a WRONG triplet: 0/10 — the risk number, still zero
+    routing after the gate: 10/10 chains; end-to-end exact 10/10
+    hand anchors, derived in comments before the run: 2/2 —
+        3 mile/second = 10863072/625 km/hour = 17380.9152 exactly
+        100 km/hour = 312500/3429 foot/second (the textbook 91.1344)
+    and the classic fell out on its own: 60 mph = 88 ft/s, exact
+
+One harness lesson en route, caught at inspection before it cost anything: the arrow
+arm dropped the value ("mile/second -> km/hour", no 3) until the prompt said the line
+must START with the number — the phase 84 law again, format is capability, this time
+at 35B. Distractor leaks into delivered answers: none.
+
+================================================================================
+PHASE 87 — two unknowns behind the same gate, and substitution for free
+================================================================================
+
+Phase 76's coupled solver (momentum against energy, dimension-checked) joined to the
+language gate, plus the verifier systems grant for free: SUBSTITUTION. Eight stories
+from eight truth pairs, two families — p = m*v with E = m*v*v/2, and sum-with-ratio
+(x + y = S, x = k*y) — distractor sentences included, truths written first, constants
+derived from them. The model translates twice (constant JSON; the equations WRITTEN
+OUT and record-parsed); the record solves the coupling exactly; then the solution is
+substituted back into both equations and delivered only on exact identity.
+
+    both arms 8/8, gate 8/8 with 0 retries, agreed WRONG 0/8
+    substitution gate: 8/8 exact identities
+    end-to-end against the written truth pairs: 8/8 — including the phase 76
+    question itself, now closed from STORY to (m, v) = (20, 150)
+
+A wrong delivery now needs both gates wrong at once: the arms must agree on the same
+wrong constants AND those constants must yield a solution that substitutes exactly.
+The sweep is consistent with phase 85's hard-skin arm accuracy; the risk number's zero
+now spans four batteries — 42 deliveries, 0 wrong, 1 flagged-not-guessed.
+
+================================================================================
+PHASE 88 — translation memory: the agreement toll is paid once per template
+================================================================================
+
+Phase 83 stored solving roads; this phase stores TRANSLATIONS. A story's surface with
+every number masked is a template, and a template met once — dual-arm translated,
+agreement-gated — teaches the record its slot mapping: which masked number feeds q,
+which feeds s, what the phrase constants are, which slots are distractor noise
+(ambiguous slot values refuse to teach, full price next time; hard-skin orientation is
+judged on x, where flipping cannot hide). From then on the record translates instances
+of that template alone, and the model drops to a sampled audit at rate 1/4, phase 83's
+discipline transplanted.
+
+Thirty stories over five templates (three clean skins, two hard), store born empty:
+
+    model calls: 16 against the 60-call dual-arm baseline — 3.8x cheaper
+    first encounters 5 (all learned at first crossing), record-served 25
+    audits 6, mismatches 0; ambiguous skips 0; flagged 0
+    exact deliveries 30/30
+
+The declared boundary: digit-masked templates cannot be fooled by a surface-identical
+story with different semantics, because any wording change IS a different template —
+the trap this design excludes by construction rather than by vigilance. The bill falls
+3.8x while exactness stands still, and the audit that would catch drift is the same
+one that caught the stride blindness of phase 83 — random, because the world
+alternates.
+
+================================================================================
+PHASE 89 — AIME at a working budget, and the gate's measured breaking point
+================================================================================
+
+THE OLD STORY WAS WRONG, AND THE BISECT REWROTE IT. The earlier run's "four of six
+think blocks unclosed at n=1600" was not budget starvation: this llama.cpp build at
+temp 0 in raw mode EOSes INSTANTLY on long problem texts (short text generates, full
+text dies at the prompt — bisected at inspection). Prefilling the <think> tag itself
+is the fix: the model then closes the block at once and writes its working IN THE
+OPEN. Zero of twenty replies died in this run. What n=6000 buys is long visible
+working, not hidden thinking — declared, and now the measured setting.
+
+TEN PROBLEMS, THREE ARMS, against floors of 0/15 (nothink) and 0/6 (starved):
+
+    A  visible working, standard phrasing     2/10
+    B  visible working, re-read phrasing      1/10
+    G  working then JSON arithmetic plan,     0/10 — only 2 plans even parsed;
+       record-executed                        olympiad solutions are not DAGs of
+                                              + - * /, and the format says so
+    three-arm vote 2/10; all three agreed: never
+
+THE PHASE'S REAL DELIVERABLE — the agreement gate where its guarantee can break:
+
+    delivered 3/10:  right 1, WRONG 2, flagged 7
+
+Both wrong deliveries are the same signature: two phrasings landing the IDENTICAL
+wrong number (0 == 0 against truth 751; 2 == 2 against truth 738) — two attempts
+walking the same wrong road for the same tempting reason, exactly the failure mode
+reads cannot produce. Against 0 agreed-wrong in 72 deliveries across phases 85-88,
+the law is now measured, not suspected: AGREEMENT REPLACES THE GRADER ONLY WHERE THE
+TASK IS READING. Where the task is solving, agreement is correlated failure, and the
+gate must hand over to mechanical verification — substitution, record execution — or
+flag. The honest state of the ladder on olympiad ground: no arm delivers safely yet,
+and the machinery's contribution is knowing that, with numbers.
+
+================================================================================
+PHASE 90 — answer plus record-executable check: the mechanical gate holds its zero
+================================================================================
+
+The replacement phase 89's law demanded: instead of two attempts agreeing (correlated
+failure on solves), the model delivers an ANSWER and a CHECK — a tiny function in a
+whitelisted subset (arithmetic, for-over-range, comparisons; no imports, no while, no
+attributes) that the record executes. And because the model authors the check, the
+record audits the auditor with DECOYS: deliver only if the check accepts the answer
+AND rejects all six decoys (answer±1, ±7, two seeded randoms). Vacuity dies
+mechanically; circularity is counted by suspicion marker and priced in the open.
+
+Same ten problems as phase 89. Two findings, the first unplanned:
+
+  DEMANDING THE VERIFIER LIFTED THE SOLVING. Answers right outright: 6/10 — against
+  2/10 and 1/10 for the same model on the same problems under solve-only phrasings.
+  Formalising the conditions disciplines the solve. (Confound declared: one prompt,
+  so verifier-demand and prompt-variation cannot be fully separated; the gap is 3x.)
+
+  THE MECHANICAL GATE HELD ITS ZERO. Delivered 1, right 1, WRONG 0, flagged 9 —
+  against the agreement gate's delivered 3, right 1, WRONG 2. No vacuous check
+  reached delivery; no circular suspect among deliveries. The bottleneck flipped to
+  check-AUTHORING: five RIGHT answers were flagged because their checks broke the
+  subset (a While, a syntax slip, a whitelist call, a type error, a missing block).
+  Conservative exactly where conservatism is the point: at this table, the gate
+  starves before it lies.
+
+The ladder's retry rung (the record names its refusal, the model rewrites only the
+check — phase 49 verbatim) is built in aimecheck2.py; its run was stopped externally
+before producing output, and reruns on demand. The no-answer cases are not retried
+on principle: temp 0, unchanged prompt, unchanged reply is this session's measured
+law, and a retry there would be theatre.
+
+================================================================================
+PHASE 91 — the formula library as typed graph with embeddings attached
+================================================================================
+
+The steer: not retries — mapping, wording, graph, and embeddings COUPLED to the
+graph. The library now holds both faces of every formula: three WORDINGS (embedded —
+the lexical face) and a typed SHAPE (dimension signatures — the graph face). Twelve
+formulas with deliberate twins: momentum and kinetic energy share every word but not
+their result type; perimeter, difference and average of two lengths are all m,m -> m,
+so types genuinely cannot separate them. Twenty-four stories (each formula asked
+directly and indirectly), distractor quantities in every one, truths first.
+
+Authority flows one way, and both directions were measured:
+
+    embedding alone (mask, embed, nearest wording)   19/24  (direct 10/12,
+                                                     indirect 9/12 — wording costs)
+    the model's quantity graph, value-echo verified  24/24  (no hallucinated given
+                                                     survived; distractors carried
+                                                     harmlessly by sub-multiset)
+    unification: 18 unique fits, 6 multi, 0 empty
+    GRAPH OVERRODE EMBEDDING 4 times — right 4/4     (speed<->distance both ways,
+                                                     price twice: every lexical
+                                                     confusion fixed where types
+                                                     could speak)
+    EMBEDDING TIEBROKE 6 multi-fits — right 5/6      (the m,m->m triplet; the one
+                                                     miss is gap/indirect, embedded
+                                                     closer to the fence wording)
+
+    delivered 24/24: right 23, WRONG 1, flagged 0 — against 19/24 for the lexical
+    face alone. The composition beats both faces, and the single wrong delivery
+    lives exactly where authority had to fall back to cosine because the types were
+    silent. That residual is the honest price of dimension-twins, and its fix is
+    richer wording libraries or a second lexical entry — not retries.
+
+Every delivered number computed exactly by the record from the model's verified
+graph; the founding division holds: the model reads, embeddings propose, the typed
+graph disposes, arithmetic never leaves the record's hands.
+
