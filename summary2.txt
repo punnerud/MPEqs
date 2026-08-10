@@ -1719,3 +1719,43 @@ hypothesis.
 So the headline table's prefetch row was right about one axis and wrong about the other:
 layer L still tells you 0.66 of 5.96 bits about layer L+1, and the WORD tells you nearly
 ten points of coverage — for free, in parallel, before the forward pass exists.
+
+================================================================================
+PHASE 141 — word contributions, composed: the additive part of routing, measured
+================================================================================
+
+The flip proposed: instead of exact context keys that starve (0.9% of four-grams ever
+seen), store what each WORD contributes from each relative position and score a new
+sentence by ADDING its words' contributions. Tables grow linearly, never as a product;
+a sentence nobody wrote is the sum of words everybody wrote; the lookup is parallel and
+free at time zero.
+
+Built and measured on the same trace, weights picked on a validation slice, never on
+test. All numbers below share one training set, so they are internally comparable; the
+phase 140 backoff figure used a larger one and is a reference, not a row.
+
+    frequency                    50.7%
+    unigram (self only)          56.8%
+    COMPOSED (steep decay)       57.5%      +0.7 over unigram
+    exact backoff, ph. 140 ref   62.8%
+
+    split by whether the exact bigram was ever seen in training:
+      seen     (12,368 positions)   73.8%
+      starved  (53,168 positions)   53.7%
+
+TWO RESULTS IN ONE TABLE. Composition does generalise — 57.5 against 56.8 with linear
+memory — but the gain is under a point. And the seen/starved split says why: where the
+exact combination was known, coverage jumps to 73.8%; where only the ingredients were
+known, it falls to 53.7%. THE CONTEXT SIGNAL IS REAL AND IT IS MOSTLY NOT ADDITIVE. The
+sum of a sentence's words does not carry what the combination carries, and the twenty-
+point gap between those rows is a measurement of what attention adds that addition
+cannot.
+
+The instructive contrast is phase 138, where exactly this architecture — per-word
+contributions, summed — TIED a model call on role signatures. Roles compose additively;
+routing does not. Same table design, two levels, opposite verdicts, which is the
+difference between a property of the method and a property of the thing being predicted.
+
+Declared confound: the validation slice sits in a different register of the multi-corpus
+than the test half (its absolute coverage differs), but it only chose among weight
+schemes that were within 0.8 points of each other.

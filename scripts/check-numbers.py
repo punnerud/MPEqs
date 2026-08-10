@@ -1821,6 +1821,15 @@ CHECKS = [
      0.72, 0.02, "and with four tokens of context: the curve the correction predicted"),
     ("data/custom/ctxprefetch.json", lambda d: float(d["coverage"]["2"]),
      0.628, 0.005, "coverage at bigram keys, where the n-gram tables start to starve"),
+    # Word contributions composed: the additive part of routing.
+    ("data/custom/contribprefetch.json", lambda d: float(d["composed"]),
+     0.575, 0.005, "coverage from summed per-word contributions, linear memory"),
+    ("data/custom/contribprefetch.json", lambda d: float(d["unigram"]),
+     0.568, 0.005, "the word alone on the same training set"),
+    ("data/custom/contribprefetch.json", lambda d: float(d["seen_composed"]),
+     0.738, 0.005, "where the exact bigram was known"),
+    ("data/custom/contribprefetch.json", lambda d: float(d["starved_composed"]),
+     0.537, 0.005, "where only the ingredients were known: the non-additive gap"),
     # Two-sided labels on the chord metric: no better than one relay, twice the memory.
     ("data/custom/hub-corpus.json", lambda d: d["exact_cell_pct"],
      1.34, 0.7, "two-sided hub labels on the angular metric"),
