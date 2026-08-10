@@ -1530,6 +1530,13 @@ CHECKS = [
      0.0, 0.001, "wrong deliveries under echo plus cross-kind agreement"),
     ("data/custom/solvers2.json", lambda d: float(d["passed"]),
      18.0, 0.001, "grown-library self-tests after arith and shape dispatch"),
+    # The ceiling: what the vocabulary reaches when a human does the mapping.
+    ("data/custom/aimeceiling.json", lambda d: float(d["hand_exact"]),
+     5.0, 0.001, "AIME problems hand-mapped onto the library and exact"),
+    ("data/custom/aimeceiling.json", lambda d: float(d["model_exact"]),
+     0.0, 0.001, "the same problems the model mapped and got right"),
+    ("data/custom/aimeceiling.json", lambda d: float(d["out_of_reach"]),
+     10.0, 0.001, "problems genuinely outside the vocabulary, with reasons"),
     # Two-sided labels on the chord metric: no better than one relay, twice the memory.
     ("data/custom/hub-corpus.json", lambda d: d["exact_cell_pct"],
      1.34, 0.7, "two-sided hub labels on the angular metric"),

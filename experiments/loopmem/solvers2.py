@@ -57,7 +57,16 @@ EXPR_FUNCS = {
     "is_prime": lambda x: is_prime(int(x)),
     "num_divisors": _num_divisors,
     "int": int, "len": len, "sum": sum,
+    # Added in the ceiling phase, both driven by a specific unreachable problem:
+    # a(n) = the least multiple of 23 congruent to 1 mod 2^n needs a modular inverse
+    # and a variable power of two, and the literal-exponent rule blocks 2**n on purpose.
+    "pow2": lambda k: 2 ** int(k) if 0 <= int(k) <= 4000 else _too_big(),
+    "inv_mod": lambda a, m: pow(int(a), -1, int(m)),
 }
+
+
+def _too_big():
+    raise Refusal("pow2 argument out of range")
 
 
 def compile_expr(src, allowed_vars):
@@ -169,6 +178,11 @@ def solve_multisearch(spec):
             value = value % int(post["arg"])
         elif post["op"] == "digit_sum":
             value = sum(digits(int(value)))
+        elif post["op"] == "exponent_sum":
+            # AIME asks this constantly: express the answer as a product of prime
+            # powers and add the exponents. Without it phase 92's 13! problem needs
+            # two specs chained; with it, one.
+            value = sum(factorise(int(value)).values())
         else:
             raise Refusal(f"unknown post-op {post['op']!r}")
     return {"value": value, "hits": len(hits), "work": work}

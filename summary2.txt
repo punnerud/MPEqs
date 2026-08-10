@@ -1544,3 +1544,40 @@ Against phase 89, where two PHRASINGS of the same kind of work agreed on the sam
 wrong number twice in three deliveries. The rule this study keeps re-deriving: what
 makes agreement worth anything is that the two roads are different KINDS, and the
 cheapest mechanical check is worth more than another opinion.
+
+================================================================================
+PHASE 99 — the vocabulary's ceiling on AIME: mapping failure, not reach failure
+================================================================================
+
+Phase 94's zero was compatible with two opposite diagnoses — the library cannot express
+these problems, or it can and the mapper missed — and those call for opposite work. So
+the same fifteen problems were mapped BY HAND, no model in the loop, and executed:
+
+    hand-written specs, exact against the published answers   5/15
+    the model's mapping on the same problems (phase 94)       0/19 that ran
+
+    [ 0] sum of m with 13!/m square, then add the exponents          12  EXACT
+    [ 1] sum of C(C(n,2),2) for n = 3..40, mod 1000                   4  EXACT
+    [ 7] 2-colourings of a 12-gon with no monochromatic rectangle   928  EXACT
+    [12] adults 5/12 of a crowd, 11/25 after 50 arrive, minimised   154  EXACT
+    [13] least multiple of 23 that is 1 mod 2^n, counting fixed n   363  EXACT
+
+A THIRD OF THESE AIME PROBLEMS IS EXPRESSIBLE IN TWENTY SOLVERS AND AN ARITHMETIC
+SANDBOX, AND THE MAPPER FOUND NONE OF THEM. The bottleneck is named: not the machines,
+not the vocabulary — the mapping. Problem 7 is the sharpest case: a rectangle in a
+regular 12-gon is two diameters whose four vertices share a colour, so the whole thing
+is fifteen mechanical conditions over the 4096 bit-patterns of one variable, and the
+answer falls out exactly. Nothing about that is beyond a 35B to write; it simply did
+not.
+
+Two additions were forced by problems in this set, declared as such rather than
+motivated by taste: pow2 and inv_mod inside the expression sandbox (problem 13 needs a
+modular inverse at a variable power of two, which the literal-exponent guard blocks on
+purpose), and an exponent_sum post-op (AIME asks for the exponents of a prime
+factorisation to be added constantly; without it problem 0 needs two chained specs).
+Library: 20 solvers, 16 expression functions, 18/18 self-tests, 8/8 refusals.
+
+THE TEN OUT OF REACH NAME THE SAME THREE THINGS EVERY TIME: plane and solid geometry
+(five of them), quantifiers over structures rather than integers — families of subsets,
+uniqueness of roots (three), and expectation under an adaptive strategy (two). That is a
+build list, not a mystery.

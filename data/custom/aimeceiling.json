@@ -1,0 +1,62 @@
+{
+  "n": 15,
+  "hand_exact": 5,
+  "hand_ran": 5,
+  "model_exact": 0,
+  "model_ran": 19,
+  "out_of_reach": 10,
+  "rows": [
+    {
+      "i": 0,
+      "truth": "12",
+      "got": "12",
+      "exact": true,
+      "what": "sum of m with 13!/m square, then add the exponents",
+      "solver": "search"
+    },
+    {
+      "i": 1,
+      "truth": "4",
+      "got": "4",
+      "exact": true,
+      "what": "sum of C(C(n,2),2) for n = 3..40, mod 1000",
+      "solver": "multisearch"
+    },
+    {
+      "i": 7,
+      "truth": "928",
+      "got": "928",
+      "exact": true,
+      "what": "2-colourings of a 12-gon with no monochromatic rectangle",
+      "solver": "multisearch"
+    },
+    {
+      "i": 12,
+      "truth": "154",
+      "got": "154",
+      "exact": true,
+      "what": "adults 5/12 of the crowd, 11/25 after 50 arrive, minimise the total",
+      "solver": "multisearch"
+    },
+    {
+      "i": 13,
+      "truth": "363",
+      "got": "363",
+      "exact": true,
+      "what": "least multiple of 23 that is 1 mod 2^n, counting n with a(n) = a(n+1)",
+      "solver": "multisearch"
+    }
+  ],
+  "reasons": {
+    "2": "collections of subsets: the search space is over families of sets, not integers",
+    "3": "probability with an optimal-play tree; needs expectation over branches",
+    "4": "three-dimensional geometry with a plane section",
+    "5": "counting polynomials by a UNIQUENESS quantifier over integer roots",
+    "6": "plane geometry with angle equalities",
+    "8": "expected value under an optimal adaptive strategy; needs dynamic programming",
+    "9": "plane geometry and trigonometry",
+    "10": "three-dimensional geometry of tangent spheres",
+    "11": "combinatorial geometry over intersecting segments",
+    "14": "a sum over ordered pairs of equal-sized subsets; needs symbolic simplification"
+  }
+}

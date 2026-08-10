@@ -199,6 +199,8 @@ def solve_search(spec):
             value = value + int(post["arg"])
         elif post["op"] == "divide_by":
             value = F(value, int(post["arg"]))
+        elif post["op"] == "exponent_sum":
+            value = sum(factorise(int(value)).values())
         else:
             raise Refusal(f"unknown post-op {post['op']!r}")
     return {"value": value, "hits": len(hits), "work": work}

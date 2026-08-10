@@ -6,7 +6,7 @@
   "refusals": 8,
   "refusals_named": 8,
   "solvers_total": 20,
-  "expr_funcs": 14,
+  "expr_funcs": 16,
   "rows": [
     {
       "solver": "multisearch",
