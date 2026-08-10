@@ -71,6 +71,13 @@
       "note": "27 of 27 specs valid, arithmetic never its job"
     },
     {
+      "band": "Fresh 24, the full policy live",
+      "solo": 3,
+      "mpeqs": 23,
+      "n": 24,
+      "note": "23 right, zero wrong, one refusal"
+    },
+    {
       "band": "AIME, model-mapped",
       "solo": null,
       "mpeqs": 1,
@@ -85,8 +92,8 @@
       "note": "what the vocabulary reaches"
     }
   ],
-  "total_solo": 74,
-  "total_mpeqs": 174,
-  "total_n": 219,
+  "total_solo": 77,
+  "total_mpeqs": 197,
+  "total_n": 243,
   "solvers": 29
 }

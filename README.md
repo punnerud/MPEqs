@@ -127,7 +127,8 @@ every delivery mechanically.
 | The same 27 driven by a **1B** model | 1/27 | **12/27** (27/27 specs valid) |
 | Shape, sets, formulas — easy / hard (n=15 each) | 15/15 / 7/15 | 15/15 / **14/15** |
 | Competition mathematics (AIME, n=15) | 2/10 solo | 1/15 mapped (5/15 hand-mapped) |
-| **Every two-armed battery together** | **74/219** | **174/219** |
+| Fresh 24, full policy live (n=24) | 3/24 | **23/24**, zero wrong |
+| **Every two-armed battery together** | **77/243** | **197/243** |
 
 The middle row is the point: twelve-step exact fraction folds, big-integer powers, counts
 over hundreds of thousands, divisor structure of large factorials — the model answers all

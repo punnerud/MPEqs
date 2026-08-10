@@ -1623,11 +1623,11 @@ CHECKS = [
      29.0, 0.001, "solvers in MPEqs after shape, inclusion and formula"),
     # The capability sheet, assembled from the runs.
     ("data/custom/capability.json", lambda d: float(d["total_mpeqs"]),
-     174.0, 0.001, "problems solved through MPEqs across every two-armed battery"),
+     197.0, 0.001, "problems solved through MPEqs across every two-armed battery"),
     ("data/custom/capability.json", lambda d: float(d["total_solo"]),
-     74.0, 0.001, "solved by the same model answering alone"),
+     77.0, 0.001, "solved by the same model answering alone"),
     ("data/custom/capability.json", lambda d: float(d["total_n"]),
-     219.0, 0.001, "problems in those batteries"),
+     243.0, 0.001, "problems in those batteries"),
     # Routing: the a priori rule loses to not routing, and refusal is the signal.
     ("data/custom/router.json", lambda d: float(d["always_mpeqs"]),
      113.0, 0.001, "always sending to the machinery"),
@@ -1637,6 +1637,15 @@ CHECKS = [
      117.0, 0.001, "machinery with the model on refusal, three short of the oracle"),
     ("data/custom/router.json", lambda d: float(d["oracle"]),
      120.0, 0.001, "the oracle over 135 problems both arms answered"),
+    # The policy run live on fresh problems.
+    ("data/custom/pipeline.json", lambda d: float(d["pipeline"]),
+     23.0, 0.001, "fresh problems the full policy answered correctly"),
+    ("data/custom/pipeline.json", lambda d: float(d["solo"]),
+     3.0, 0.001, "what the model alone managed on the same twenty-four"),
+    ("data/custom/pipeline.json", lambda d: float(d["wrong_kept"]),
+     0.0, 0.001, "machine answers kept and wrong: none"),
+    ("data/custom/pipeline.json", lambda d: float(d["refused"]),
+     1.0, 0.001, "refusals, the only miss"),
     # Two-sided labels on the chord metric: no better than one relay, twice the memory.
     ("data/custom/hub-corpus.json", lambda d: d["exact_cell_pct"],
      1.34, 0.7, "two-sided hub labels on the angular metric"),

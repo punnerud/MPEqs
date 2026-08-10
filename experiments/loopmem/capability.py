@@ -34,6 +34,8 @@ ROWS = [
      "retrieval closes the gap, nothing wrong"),
     ("The same 27, driven by a 1B", "mixedretr_1b.json", "solo", "mpeqs", 27,
      "27 of 27 specs valid, arithmetic never its job"),
+    ("Fresh 24, the full policy live", "pipeline.json", "solo", "pipeline", 24,
+     "23 right, zero wrong, one refusal"),
     ("AIME, model-mapped", "aimefewshot.json", None, "exact", 15,
      "the mapper is the bottleneck"),
     ("AIME, hand-mapped ceiling", "aimeceiling.json", None, "hand_exact", 15,

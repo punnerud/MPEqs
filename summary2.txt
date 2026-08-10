@@ -719,6 +719,7 @@ rather than as prose nobody rechecked.
     AIME, hand-mapped ceiling                  -      5   15
 
     comparable totals                         74    174  219
+    (with phase 113's fresh battery added)    77    197  243
 
 Across every battery measured on both arms, the model answering alone gets 74 of 219 and
 the same model mapping onto exact machines gets 174 — and the two rows where it loses are
@@ -772,3 +773,34 @@ from phase 92.
 So the deployment rule at the end of all this is one sentence, and it is not the one I
 wrote at the start of the phase: map everything, execute what validates, and let the
 model answer exactly what the record declined.
+
+================================================================================
+PHASE 113 — the policy, run live: 23 of 24, and not one wrong answer
+================================================================================
+
+Phase 112's rule was derived from a table, which makes it a hypothesis. This runs it as
+a pipeline on twenty-four problems written after the rule was — eight classes, no reuse,
+truths computed before any model call — with the whole recipe in place: retrieval picks
+two exemplars, the model writes one spec, the record validates and executes, and the
+model answers only what the record REFUSED.
+
+    the model alone                    3/24
+    the machinery alone               23/24
+    the policy (model on refusal)     23/24
+
+    record refused 1, the model rescued 0 of it; machine answers kept but wrong: 0
+
+TWENTY-THREE OF TWENTY-FOUR, AND NOT ONE WRONG ANSWER. The single miss is a refusal —
+the record declining rather than guessing — which is the failure mode this study has
+been trying to buy since phase 89, and it cost one problem out of twenty-four to have.
+The model answering the same questions alone gets three.
+
+The fallback earned nothing here, and that is worth stating plainly rather than hiding:
+with one refusal in twenty-four there was almost nothing to rescue, so the policy and
+the bare machinery scored the same. The fallback is insurance, and this run did not
+need it — the honest reading is that its value scales with the refusal rate, which the
+band's own maturity has driven near zero.
+
+What twelve phases of growth bought, end to end and on unseen problems: 3/24 becomes
+23/24, with the wrong-answer count at zero and every number the record produced derived
+by exact arithmetic from a spec a small model wrote.

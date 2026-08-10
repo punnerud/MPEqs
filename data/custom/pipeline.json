@@ -1,0 +1,227 @@
+{
+  "n": 24,
+  "solo": 3,
+  "machine": 23,
+  "pipeline": 23,
+  "refused": 1,
+  "rescued": 0,
+  "wrong_kept": 0,
+  "rows": [
+    {
+      "family": "fold",
+      "truth": "9249894422/17795940687",
+      "machine": "9249894422/17795940687",
+      "machine_ok": true,
+      "refused": false,
+      "solo_ok": false,
+      "pipeline_ok": true
+    },
+    {
+      "family": "fold",
+      "truth": "100000/57",
+      "machine": "100000/57",
+      "machine_ok": true,
+      "refused": false,
+      "solo_ok": false,
+      "pipeline_ok": true
+    },
+    {
+      "family": "big",
+      "truth": "213320366946973449",
+      "machine": "213320366946973449",
+      "machine_ok": true,
+      "refused": false,
+      "solo_ok": false,
+      "pipeline_ok": true
+    },
+    {
+      "family": "big",
+      "truth": "597960258",
+      "machine": "597960258",
+      "machine_ok": true,
+      "refused": false,
+      "solo_ok": false,
+      "pipeline_ok": true
+    },
+    {
+      "family": "big",
+      "truth": "1",
+      "machine": "1",
+      "machine_ok": true,
+      "refused": false,
+      "solo_ok": false,
+      "pipeline_ok": true
+    },
+    {
+      "family": "count",
+      "truth": "2341",
+      "machine": "2341",
+      "machine_ok": true,
+      "refused": false,
+      "solo_ok": false,
+      "pipeline_ok": true
+    },
+    {
+      "family": "count",
+      "truth": "24837085",
+      "machine": "24837085",
+      "machine_ok": true,
+      "refused": false,
+      "solo_ok": false,
+      "pipeline_ok": true
+    },
+    {
+      "family": "count",
+      "truth": "422",
+      "machine": "422",
+      "machine_ok": true,
+      "refused": false,
+      "solo_ok": false,
+      "pipeline_ok": true
+    },
+    {
+      "family": "divisors",
+      "truth": "677376",
+      "machine": "677376",
+      "machine_ok": true,
+      "refused": false,
+      "solo_ok": false,
+      "pipeline_ok": true
+    },
+    {
+      "family": "divisors",
+      "truth": "71",
+      "machine": "71",
+      "machine_ok": true,
+      "refused": false,
+      "solo_ok": false,
+      "pipeline_ok": true
+    },
+    {
+      "family": "divisors",
+      "truth": "3690240",
+      "machine": "3690240",
+      "machine_ok": true,
+      "refused": false,
+      "solo_ok": false,
+      "pipeline_ok": true
+    },
+    {
+      "family": "probability",
+      "truth": "8/81",
+      "machine": "8/81",
+      "machine_ok": true,
+      "refused": false,
+      "solo_ok": false,
+      "pipeline_ok": true
+    },
+    {
+      "family": "probability",
+      "truth": "3/16",
+      "machine": "3/16",
+      "machine_ok": true,
+      "refused": false,
+      "solo_ok": false,
+      "pipeline_ok": true
+    },
+    {
+      "family": "probability",
+      "truth": "5/28",
+      "machine": "5/28",
+      "machine_ok": true,
+      "refused": false,
+      "solo_ok": false,
+      "pipeline_ok": true
+    },
+    {
+      "family": "convert",
+      "truth": "94996/125",
+      "machine": "94996/125",
+      "machine_ok": true,
+      "refused": false,
+      "solo_ok": true,
+      "pipeline_ok": true
+    },
+    {
+      "family": "convert",
+      "truth": "2875000000/473176473",
+      "machine": "2875000000/473176473",
+      "machine_ok": true,
+      "refused": false,
+      "solo_ok": false,
+      "pipeline_ok": true
+    },
+    {
+      "family": "convert",
+      "truth": "1573158144/2945405",
+      "machine": "None",
+      "machine_ok": false,
+      "refused": true,
+      "solo_ok": false,
+      "pipeline_ok": false
+    },
+    {
+      "family": "statistics",
+      "truth": "1631/12",
+      "machine": "1631/12",
+      "machine_ok": true,
+      "refused": false,
+      "solo_ok": false,
+      "pipeline_ok": true
+    },
+    {
+      "family": "statistics",
+      "truth": "398/5",
+      "machine": "398/5",
+      "machine_ok": true,
+      "refused": false,
+      "solo_ok": true,
+      "pipeline_ok": true
+    },
+    {
+      "family": "datetime",
+      "truth": "73166",
+      "machine": "73166",
+      "machine_ok": true,
+      "refused": false,
+      "solo_ok": false,
+      "pipeline_ok": true
+    },
+    {
+      "family": "datetime",
+      "truth": "Sunday",
+      "machine": "Sunday",
+      "machine_ok": true,
+      "refused": false,
+      "solo_ok": true,
+      "pipeline_ok": true
+    },
+    {
+      "family": "datetime",
+      "truth": "2018-04-09",
+      "machine": "2018-04-09",
+      "machine_ok": true,
+      "refused": false,
+      "solo_ok": false,
+      "pipeline_ok": true
+    },
+    {
+      "family": "finance",
+      "truth": "3762312561/2500000",
+      "machine": "3762312561/2500000",
+      "machine_ok": true,
+      "refused": false,
+      "solo_ok": false,
+      "pipeline_ok": true
+    },
+    {
+      "family": "finance",
+      "truth": "567869252041/1562500000",
+      "machine": "567869252041/1562500000",
+      "machine_ok": true,
+      "refused": false,
+      "solo_ok": false,
+      "pipeline_ok": true
+    }
+  ]
+}
