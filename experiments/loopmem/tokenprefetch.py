@@ -35,7 +35,11 @@ from pathlib import Path
 
 TRACE = Path("data/trace-contrib.bin")
 CORPUS = Path("data/corpus/corpus.txt")
-MODEL = Path("models/Qwen3.6-35B-A3B-UD-IQ1_M.gguf")
+# The trace was produced with the Makefile's default model, and its header says so:
+# 16 layers, 64 experts, top-8 is OLMoE-1B, not Qwen-35B. The first run of this file
+# tokenised with the WRONG tokeniser, which is why a repeated word looked like it routed
+# at chance — the positions were being aligned against somebody else's vocabulary.
+MODEL = Path("models/OLMoE-1B-7B-0125-Instruct-Q4_K_M.gguf")
 
 
 def read_trace(path):

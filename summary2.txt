@@ -1672,3 +1672,50 @@ already are.
 Both prefetch axes are now measured and both are dead: the layer before tells you 0.66 of
 5.96 bits, and the word itself tells you three points less than counting. What survives is
 what already survived — static frequency pinning, which needs no prediction at all.
+
+================================================================================
+PHASE 140 — CORRECTION to phase 139: the word predicts its experts after all
+================================================================================
+
+Phase 139 reported that token-conditioned prefetch scores 49.5% against frequency's 52.7%
+and concluded the axis was dead. THAT NUMBER WAS MY BUG. The trace was produced with the
+Makefile's default model — its header says 16 layers, 64 experts, top-8, which is
+OLMoE-1B — and I tokenised the corpus with Qwen-35B's tokeniser. Every position was being
+aligned against somebody else's vocabulary, so a repeated word looked like it routed at
+chance because it was not the same word.
+
+With the tokeniser that produced the trace, on the same corrected trace, the same split
+and the same budget:
+
+    prefetch budget 16 of 64 experts (25% residency)
+    frequency only        52.7%
+    token-conditioned     62.4%        +9.7 points
+
+    a word's expert overlap WITH ITSELF   0.58        random pair   0.22
+
+THE WORD PREDICTS ITS EXPERTS, and by a wide margin: two occurrences of the same token
+share 58% of their eight experts where two random selections share 22%. The prefetch this
+buys is available at time zero, in parallel across the whole prompt, before a single layer
+has run — which is exactly the claim, and it survives measurement once the measurement is
+done right.
+
+AND CONTEXT MAKES IT STRONGER, WHICH WAS THE OTHER HALF OF THE CORRECTION. A token does
+not mean anything alone; keyed on the last n tokens instead, the same diagnostic climbs
+monotonically:
+
+    context length   same-key overlap   random pair   recurring keys
+        1                 0.58             0.22            579
+        2                 0.67             0.22            460
+        3                 0.68             0.21            315
+        4                 0.72             0.23            193
+
+From 0.58 to 0.72 as the key grows from one token to four, against a floor that does not
+move. Coverage stops improving past length one (62.4% to 62.8%) for a reason the table
+states rather than hides: only 8.6% of test positions had even their unigram key seen in
+the first half, and 0.9% their four-gram. The n-gram tables are starved at 4,096 training
+positions, so the coverage column measures the corpus and the overlap column measures the
+hypothesis.
+
+So the headline table's prefetch row was right about one axis and wrong about the other:
+layer L still tells you 0.66 of 5.96 bits about layer L+1, and the WORD tells you nearly
+ten points of coverage — for free, in parallel, before the forward pass exists.
