@@ -413,6 +413,7 @@ def solve_factor(spec):
     ndiv = math.prod(e + 1 for e in f.values())
     return {"value": {"factorisation": {str(p): e for p, e in sorted(f.items())},
                       "divisor_count": ndiv,
+                      "exponent_sum": sum(f.values()),
                       "divisor_sum": math.prod(
                           (p ** (e + 1) - 1) // (p - 1) for p, e in f.items())}}
 

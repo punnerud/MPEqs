@@ -1489,9 +1489,9 @@ CHECKS = [
     # Was 6 at phase 95; arith added two refusal cases in phase 98 (unknown variable,
     # division by zero in a step). The library grew, so the guard grew with it.
     ("data/custom/solvers2.json", lambda d: float(d["refusals_named"]),
-     8.0, 0.001, "refusals named, three of them expression-sandbox escapes"),
+     9.0, 0.001, "refusals named, three of them expression-sandbox escapes"),
     ("data/custom/solvers2.json", lambda d: float(d["solvers_total"]),
-     20.0, 0.001, "solvers in MPEqs after phase 98 added arith"),
+     21.0, 0.001, "solvers in MPEqs after phase 102 added iterate"),
     # AIME coverage: willingness to map is not reach.
     ("data/custom/aimecover.json", lambda d: float(d.get("claimed", 0)),
      22.0, 0.001, "AIME problems the model claimed it could map"),
@@ -1529,7 +1529,7 @@ CHECKS = [
     ("data/custom/gsmgate.json", lambda d: float(d["both"][2]),
      0.0, 0.001, "wrong deliveries under echo plus cross-kind agreement"),
     ("data/custom/solvers2.json", lambda d: float(d["passed"]),
-     18.0, 0.001, "grown-library self-tests after arith and shape dispatch"),
+     23.0, 0.001, "grown-library self-tests after the phase 102 additions"),
     # The ceiling: what the vocabulary reaches when a human does the mapping.
     ("data/custom/aimeceiling.json", lambda d: float(d["hand_exact"]),
      5.0, 0.001, "AIME problems hand-mapped onto the library and exact"),
@@ -1551,6 +1551,15 @@ CHECKS = [
      5.0, 0.001, "reachable problems shown the exemplar shape they needed"),
     ("data/custom/mapmemory.json", lambda d: float(d.get("exact_reachable", 0)),
      1.0, 0.001, "of those, mapped correctly — the bottleneck, isolated"),
+    # The band where MPEqs wins, and growth driven by the failures.
+    ("data/custom/hardarith.json", lambda d: float(d["solo"]),
+     0.0, 0.001, "hard-arithmetic problems the 35B solved alone: none of twenty"),
+    ("data/custom/hardarith.json", lambda d: float(d["mpeqs"]),
+     12.0, 0.001, "solved through MPEqs after the growth, up from eight"),
+    ("data/custom/hardarith.json", lambda d: float(d["byfam"]["fractions"][2]),
+     4.0, 0.001, "exact-fraction folds solved once the iterate machine existed"),
+    ("data/custom/hardarith.json", lambda d: float(d["ran"]),
+     18.0, 0.001, "specs that executed of nineteen parsed"),
     # Two-sided labels on the chord metric: no better than one relay, twice the memory.
     ("data/custom/hub-corpus.json", lambda d: d["exact_cell_pct"],
      1.34, 0.7, "two-sided hub labels on the angular metric"),

@@ -69,8 +69,29 @@ def _too_big():
     raise Refusal("pow2 argument out of range")
 
 
+class _Rationalise(ast.NodeTransformer):
+    """Wrap integer literals as Fractions so `/` is exact.
+
+    The hard-arithmetic battery caught this as a correctness bug, not a preference:
+    "5/11 * 5/11 * 5/11" evaluated in floats and the record returned
+    2774945224945457/225179981 — the exact binary expansion of a rounded double —
+    where the truth is 125/1331. Only applied when the expression actually divides,
+    so integer searches keep integer speed.
+    """
+
+    def visit_Constant(self, node):  # noqa: N802 - ast API
+        if isinstance(node.value, int) and not isinstance(node.value, bool):
+            return ast.Call(func=ast.Name(id="Frac", ctx=ast.Load()),
+                            args=[node], keywords=[])
+        return node
+
+
 def compile_expr(src, allowed_vars):
     """Parse and vet an expression string; return (code, variables it mentions)."""
+    # A spec language for mathematics: '^' is a power, not a bitwise xor. The model
+    # wrote (-1)^1 and Python read BitXor; accommodating the notation costs nothing
+    # because xor is not in the whitelist anyway.
+    src = re.sub(r"\^", "**", str(src))
     try:
         tree = ast.parse(src, mode="eval")
     except SyntaxError as e:
@@ -94,14 +115,28 @@ def compile_expr(src, allowed_vars):
     for node in ast.walk(tree):       # exponents must be small literals
         if isinstance(node, ast.BinOp) and isinstance(node.op, ast.Pow):
             e = node.right
-            if not (isinstance(e, ast.Constant) and isinstance(e.value, int)
-                    and abs(e.value) <= 64):
+            if isinstance(e, ast.UnaryOp) and isinstance(e.op, ast.USub):
+                e = e.operand
+            # A variable exponent is safe when the base cannot grow: (-1)^k is the
+            # alternating sign every second competition problem needs, and 1^k and
+            # 0^k are bounded for the same reason. Anything else stays literal.
+            b = node.left
+            if isinstance(b, ast.UnaryOp) and isinstance(b.op, ast.USub):
+                b = b.operand
+            bounded_base = (isinstance(b, ast.Constant)
+                            and isinstance(b.value, int) and abs(b.value) <= 1)
+            if not bounded_base and not (isinstance(e, ast.Constant)
+                                         and isinstance(e.value, int)
+                                         and abs(e.value) <= 64):
                 raise Refusal("exponent must be a literal at most 64")
+    if any(isinstance(n, ast.Div) for n in ast.walk(tree)):
+        tree = ast.fix_missing_locations(_Rationalise().visit(tree))
     return compile(tree, "<expr>", "eval"), used
 
 
 def eval_expr(code, env):
-    return eval(code, {"__builtins__": {}, **EXPR_FUNCS}, env)  # noqa: S307 - vetted AST
+    return eval(code, {"__builtins__": {}, "Frac": F, **EXPR_FUNCS},  # noqa: S307
+                env)
 
 
 def is_linear_in(node, var):
@@ -165,8 +200,8 @@ def equality_residual(src, allowed_vars):
 def solve_multisearch(spec):
     """Tuples of integers under expression constraints, pruned as variables bind."""
     vars_ = spec.get("variables")
-    if not vars_ or len(vars_) > 4:
-        raise Refusal("multisearch needs 1 to 4 variables")
+    if not vars_ or len(vars_) > 6:
+        raise Refusal("multisearch needs 1 to 6 variables")
     names = [v["name"] for v in vars_]
     if len(set(names)) != len(names):
         raise Refusal("duplicate variable names")
@@ -270,6 +305,11 @@ def solve_multisearch(spec):
         value = len(hits)
     elif agg == "sum":
         value = sum(hits) if obj else sum(sum(t) for t in hits)
+    elif agg == "product":
+        value = F(1)
+        for h in hits:
+            value *= F(h) if not isinstance(h, tuple) else F(math.prod(h))
+        value = str(value)
     elif agg == "min":
         value = min(hits) if hits else None
     elif agg == "max":
@@ -443,8 +483,31 @@ def solve_arith(spec):
     return {"value": str(value), "steps": {k: str(v) for k, v in env.items()}}
 
 
+def solve_iterate(spec):
+    """acc = init; for k = from..to: acc = step(acc, k) — exact, budgeted.
+
+    Five of the hard-arithmetic problems are folds ("nine times in a row, add 2/5 then
+    multiply by 3/4"), which arith cannot express (no loop) and multisearch cannot
+    either (a map-reduce is not a fold). The battery named the missing machine.
+    """
+    lo, hi = int(spec.get("from", 1)), int(spec.get("to", 1))
+    if hi - lo + 1 > 200_000:
+        raise Refusal("too many iterations")
+    init_code, _ = compile_expr(str(spec.get("init", "0")), set())
+    step_code, _ = compile_expr(str(spec["step"]), {"acc", "k"})
+    acc = F(eval_expr(init_code, {}))
+    for k in range(lo, hi + 1):
+        acc = F(eval_expr(step_code, {"acc": acc, "k": k}))
+    fin = spec.get("final")
+    if fin:
+        code, _ = compile_expr(str(fin), {"acc"})
+        acc = F(eval_expr(code, {"acc": acc}))
+    return {"value": str(acc), "iterations": hi - lo + 1}
+
+
 SOLVERS2 = {
     "arith": solve_arith,
+    "iterate": solve_iterate,
     "multisearch": solve_multisearch,
     "polynomial": solve_polynomial,
     "geometry": solve_geometry,
@@ -452,6 +515,9 @@ SOLVERS2 = {
 }
 
 WORDINGS2 = {
+    "iterate": ["repeat the same operation many times over",
+                "each round changes the amount by the same rule",
+                "compound the value step after step"],
     "arith": ["work out the total step by step", "combine the given amounts",
               "how much is left after the costs"],
     "multisearch": ["how many pairs of integers satisfy the equation",
@@ -583,6 +649,19 @@ CASES = [
     # The 1B's actual failure mode: a perfect arith body under the name "search".
     ({"solver": "search", "let": {"a": "5 + (2 * 5)", "b": "8 / 2"},
       "answer": "a + b"}, "19"),
+    # iterate: 3/7 then nine rounds of (+2/5)*3/4 — a fold, and exact in Fractions.
+    ({"solver": "iterate", "init": "3/7", "step": "(acc + 2/5) * 3/4",
+      "from": 1, "to": 9}, "10478607/9175040"),
+    # alternating signs: a variable exponent on a bounded base
+    ({"solver": "iterate", "init": "1000", "step": "acc * (1 + (-1)^k / (k+2))",
+      "from": 1, "to": 12}, "5000/7"),
+    ({"solver": "multisearch", "variables": [{"name": "k", "from": 2, "to": 15}],
+      "objective": "k*k/(k*k-1)", "aggregate": "product"}, "15/8"),
+    # exact rationals: the float bug the battery caught
+    ({"solver": "arith", "let": {"a": "5/11 * 5/11 * 5/11", "b": "a * 121/25"},
+      "answer": "b + 7/9"}, "122/99"),
+    # '^' means power in a mathematics spec language
+    ({"solver": "arith", "let": {"a": "(-1)^3 * 8"}, "answer": "a + 10"}, "2"),
     # And the old library must still answer through the joint dispatcher.
     ({"solver": "crt", "residues": [2, 3, 2], "moduli": [3, 5, 7]}, 23),
 ]
@@ -605,6 +684,8 @@ REFUSALS = [
     ({"solver": "geometry", "kind": "circle_through",
       "points": [[0, 0], [1, 1], [2, 2]]}, "collinear"),
     ({"solver": "arith", "let": {"a": "1", "b": "c + 1"}}, "unknown variable"),
+    ({"solver": "iterate", "init": "1", "step": "acc * m", "from": 1, "to": 3},
+     "unknown variable"),
     ({"solver": "arith", "let": {"a": "5 / 0"}}, "divides by zero"),
 ]
 

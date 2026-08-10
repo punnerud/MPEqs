@@ -1,0 +1,432 @@
+{
+  "n": 20,
+  "solo": 0,
+  "mpeqs": 12,
+  "parsed": 19,
+  "ran": 18,
+  "wrong": 6,
+  "solo_none": 0,
+  "byfam": {
+    "fractions": [
+      5,
+      0,
+      4
+    ],
+    "big": [
+      5,
+      0,
+      3
+    ],
+    "count": [
+      5,
+      0,
+      2
+    ],
+    "divisors": [
+      5,
+      0,
+      3
+    ]
+  },
+  "rows": [
+    {
+      "family": "fractions",
+      "story": "A balance starts at 1000. In step k, for k = 1 to 12, it is multiplied",
+      "truth": "5000/7",
+      "solo": "10",
+      "solo_ok": false,
+      "mpeqs": "5000/7",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "iterate",
+        "init": "1000",
+        "step": "acc * (1 + (-1)^k / (k+2))",
+        "from": 1,
+        "to": 12
+      }
+    },
+    {
+      "family": "fractions",
+      "story": "Start with 3/7. Nine times in a row, add 2/5 and then multiply by 3/4.",
+      "truth": "10478607/9175040",
+      "solo": "10",
+      "solo_ok": false,
+      "mpeqs": "10478607/9175040",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "iterate",
+        "init": "3/7",
+        "step": "(acc + 2/5) * 3/4",
+        "from": 1,
+        "to": 9
+      }
+    },
+    {
+      "family": "fractions",
+      "story": "Add up 1/(k(k+3)) for every integer k from 1 to 40. Give the exact sum",
+      "truth": "65230/111069",
+      "solo": "4",
+      "solo_ok": false,
+      "mpeqs": "820",
+      "mpeqs_ok": false,
+      "spec": {
+        "solver": "series",
+        "kind": "arithmetic",
+        "first": 1,
+        "step": 1,
+        "terms": 40
+      }
+    },
+    {
+      "family": "fractions",
+      "story": "Take 5/11 cubed, multiply by 121/25, then add 7/9. Give the exact valu",
+      "truth": "122/99",
+      "solo": "122",
+      "solo_ok": false,
+      "mpeqs": "122/99",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "arith",
+        "let": {
+          "step1": "5/11 * 5/11 * 5/11",
+          "step2": "step1 * 121/25"
+        },
+        "answer": "step2 + 7/9"
+      }
+    },
+    {
+      "family": "fractions",
+      "story": "Multiply k^2/(k^2 - 1) for every integer k from 2 to 15. Give the exac",
+      "truth": "15/8",
+      "solo": "1",
+      "solo_ok": false,
+      "mpeqs": "15/8",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "iterate",
+        "init": "1",
+        "step": "acc * k^2 / (k^2 - 1)",
+        "from": 2,
+        "to": 15
+      }
+    },
+    {
+      "family": "big",
+      "story": "What is 987654321 times 123456789?",
+      "truth": "121932631112635269",
+      "solo": "121932632483967841",
+      "solo_ok": false,
+      "mpeqs": "121932631112635269",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "arith",
+        "let": {
+          "result": "987654321 * 123456789"
+        },
+        "answer": "result"
+      }
+    },
+    {
+      "family": "big",
+      "story": "What is the remainder when 7 to the power 1000 is divided by 100000000",
+      "truth": "224787023",
+      "solo": "3",
+      "solo_ok": false,
+      "mpeqs": "224787023",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "modular",
+        "kind": "power",
+        "base": 7,
+        "exponent": 1000,
+        "modulus": 1000000007
+      }
+    },
+    {
+      "family": "big",
+      "story": "What is 2 to the power 200 minus 3 to the power 100?",
+      "truth": "1606938044258474898021230081010126141392437372510090727779375",
+      "solo": "100",
+      "solo_ok": false,
+      "mpeqs": "None",
+      "mpeqs_ok": false,
+      "spec": null
+    },
+    {
+      "family": "big",
+      "story": "What is the greatest common divisor of 987654321987654321 and 12345678",
+      "truth": "9000000009",
+      "solo": "9",
+      "solo_ok": false,
+      "mpeqs": "{'gcd': 9000000009, 'lcm': 13548070137174211123626141}",
+      "mpeqs_ok": false,
+      "spec": {
+        "solver": "gcd_lcm",
+        "values": [
+          987654321987654321,
+          123456789123456789
+        ]
+      }
+    },
+    {
+      "family": "big",
+      "story": "What is the sum of all integers from 1 to 3141592?",
+      "truth": "4934801718028",
+      "solo": "4934738294408",
+      "solo_ok": false,
+      "mpeqs": "4934801718028",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "series",
+        "kind": "arithmetic",
+        "first": 1,
+        "step": 1,
+        "terms": 3141592
+      }
+    },
+    {
+      "family": "count",
+      "story": "How many integers from 1 to 400000 are divisible by 13 and leave remai",
+      "truth": "3419",
+      "solo": "117",
+      "solo_ok": false,
+      "mpeqs": "3419",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "search",
+        "domain": {
+          "kind": "range",
+          "from": 1,
+          "to": 400000
+        },
+        "conditions": [
+          {
+            "op": "divisible_by",
+            "arg": 13
+          },
+          {
+            "op": "mod_eq",
+            "arg": [
+              9,
+              4
+            ]
+          }
+        ],
+        "aggregate": "count"
+      }
+    },
+    {
+      "family": "count",
+      "story": "How many integers from 1 to 200000 have digits adding to exactly 20?",
+      "truth": "10911",
+      "solo": "9",
+      "solo_ok": false,
+      "mpeqs": "12",
+      "mpeqs_ok": false,
+      "spec": {
+        "solver": "multisearch",
+        "variables": [
+          {
+            "name": "a",
+            "from": 0,
+            "to": 9
+          },
+          {
+            "name": "b",
+            "from": 0,
+            "to": 9
+          },
+          {
+            "name": "c",
+            "from": 0,
+            "to": 9
+          },
+          {
+            "name": "d",
+            "from": 0,
+            "to": 9
+          }
+        ],
+        "ordering": "strict_increasing",
+        "conditions": [
+          "a + b + c + d == 20",
+          "a > 0"
+        ],
+        "objective": "a * 1000 + b * 100 + c * 10 + d",
+        "aggregate": "count"
+      }
+    },
+    {
+      "family": "count",
+      "story": "What is the sum of all integers from 1 to 100000 that are divisible by",
+      "truth": "64933113",
+      "solo": "14",
+      "solo_ok": false,
+      "mpeqs": "64933113",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "search",
+        "domain": {
+          "kind": "range",
+          "from": 1,
+          "to": 100000
+        },
+        "conditions": [
+          {
+            "op": "divisible_by",
+            "arg": 7
+          },
+          {
+            "op": "mod_eq",
+            "arg": [
+              11,
+              3
+            ]
+          }
+        ],
+        "aggregate": "sum"
+      }
+    },
+    {
+      "family": "count",
+      "story": "How many integers from 1 to 300000 are perfect squares or perfect cube",
+      "truth": "605",
+      "solo": "6",
+      "solo_ok": false,
+      "mpeqs": "8",
+      "mpeqs_ok": false,
+      "spec": {
+        "solver": "multisearch",
+        "variables": [
+          {
+            "name": "a",
+            "from": 1,
+            "to": 547
+          },
+          {
+            "name": "b",
+            "from": 1,
+            "to": 66
+          }
+        ],
+        "conditions": [
+          "a*a <= 300000",
+          "b*b*b <= 300000",
+          "a*a == b*b*b"
+        ],
+        "objective": "a*a",
+        "aggregate": "count"
+      }
+    },
+    {
+      "family": "count",
+      "story": "How many six-digit palindromes are divisible by 7?",
+      "truth": "140",
+      "solo": "14",
+      "solo_ok": false,
+      "mpeqs": "refused: expression syntax: invalid synt",
+      "mpeqs_ok": false,
+      "spec": {
+        "solver": "multisearch",
+        "variables": [
+          {
+            "name": "a",
+            "from": 1,
+            "to": 9
+          },
+          {
+            "name": "b",
+            "from": 0,
+            "to": 9
+          },
+          {
+            "name": "c",
+            "from": 0,
+            "to": 9
+          }
+        ],
+        "conditions": [
+          "100001*a + 10010*b + 1001*c == 0 mod 7"
+        ],
+        "objective": "1",
+        "aggregate": "count"
+      }
+    },
+    {
+      "family": "divisors",
+      "story": "How many positive divisors does 25 factorial have?",
+      "truth": "340032",
+      "solo": "11",
+      "solo_ok": false,
+      "mpeqs": "340032",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "factor",
+        "k": 25
+      }
+    },
+    {
+      "family": "divisors",
+      "story": "How many positive divisors does 40 factorial have?",
+      "truth": "102435840",
+      "solo": "5",
+      "solo_ok": false,
+      "mpeqs": "102435840",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "factor",
+        "k": 40
+      }
+    },
+    {
+      "family": "divisors",
+      "story": "What is the sum of the exponents in the prime factorisation of 30 fact",
+      "truth": "59",
+      "solo": "11",
+      "solo_ok": false,
+      "mpeqs": "2332800",
+      "mpeqs_ok": false,
+      "spec": {
+        "solver": "factor",
+        "k": 30
+      }
+    },
+    {
+      "family": "divisors",
+      "story": "How many positive divisors of 5040 are perfect squares?",
+      "truth": "6",
+      "solo": "1",
+      "solo_ok": false,
+      "mpeqs": "6",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "search",
+        "domain": {
+          "kind": "divisors_of",
+          "n": 5040
+        },
+        "conditions": [
+          {
+            "op": "is_square",
+            "arg": null
+          }
+        ],
+        "aggregate": "count"
+      }
+    },
+    {
+      "family": "divisors",
+      "story": "What is the sum of all positive divisors of 720720?",
+      "truth": "3249792",
+      "solo": "1",
+      "solo_ok": false,
+      "mpeqs": "18",
+      "mpeqs_ok": false,
+      "spec": {
+        "solver": "digit_ops",
+        "n": 720720,
+        "op": "sum_of_divisors"
+      }
+    }
+  ]
+}

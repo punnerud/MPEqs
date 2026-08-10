@@ -1664,3 +1664,47 @@ tokenises past the 512-token window and llama-embedding silently emits an extra 
 which shifts every later vector onto the wrong problem. Stripping the markup before
 embedding fixed it and improved the key, since the shape lives in the words, not the
 typesetting.
+
+================================================================================
+PHASE 102 — where MPEqs wins: the band between easy sums and real mathematics
+================================================================================
+
+Phase 98 measured an honest loss (GSM8K: solo 28/30, machinery 21/30) and phase 94 a
+collapse (AIME: mapping 0). Between them is the band this apparatus exists for: problems
+whose MAPPING is one sentence and whose ARITHMETIC is out of reach. Twenty of them,
+truths computed before any model call, in four families — twelve-step exact fraction
+folds, big-integer products and powers, counts over hundreds of thousands, divisor
+structure of large factorials.
+
+    SOLO-35B    0/20      not one, and never for want of trying: it answers every time
+    MPEqs       8/20      first run, specs parsed 19, ran 14
+
+THEN THE FAILURES NAMED FIVE MISSING MACHINES, and every one was a real gap:
+
+  EXACT RATIONALS — a correctness BUG, not a preference: "5/11 * 5/11 * 5/11" evaluated
+  in floats and the record returned 2774945224945457/225179981, the exact binary
+  expansion of a rounded double, where the truth is 125/1331. Integer literals are now
+  wrapped as Fractions whenever an expression divides, so `/` is exact; integer searches
+  keep integer speed (a 200,000-wide digit search still runs in 0.2 s).
+
+  ^ MEANS POWER. The model wrote (-1)^1 and Python read a bitwise xor. In a mathematics
+  spec language the caret is a power, and xor was never in the whitelist anyway.
+
+  A FOLD MACHINE. "Nine times in a row, add 2/5 and then multiply by 3/4" is neither an
+  arith chain (no loop) nor a multisearch (a map-reduce is not a fold). The new iterate
+  solver carries an accumulator across k, exactly.
+
+  VARIABLE EXPONENTS ON A BOUNDED BASE. (-1)^k is the alternating sign half these
+  problems need; the literal-exponent guard exists to stop unbounded growth, and a base
+  of absolute value at most one cannot grow.
+
+  PRODUCT AS AN AGGREGATE, and six variables instead of four.
+
+    MPEqs after the growth   12/20     (specs parsed 19, ran 18)
+    by family: fractions 4/5 (was 0), big 3/5, count 2/5, divisors 3/5
+    SOLO-35B, unchanged      0/20
+
+Twelve against zero. The same machinery that LOSES to the model on grade-school sums
+beats it twelve to nothing where the arithmetic is real — and the library grew by what
+the problems asked for, four extra solves bought by five fixes that the failures wrote
+themselves. Library: 21 solvers, 23/23 self-tests exact, 9/9 refusals named.
