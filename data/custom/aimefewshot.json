@@ -1,0 +1,295 @@
+{
+  "n": 15,
+  "no_reply": 2,
+  "claimed": 10,
+  "ran": 3,
+  "exact": 1,
+  "exact_reachable": 1,
+  "refused": 7,
+  "wrong": 2,
+  "declined": 3,
+  "declined_correctly": 3,
+  "reachable": [
+    0,
+    1,
+    7,
+    12,
+    13
+  ],
+  "rows": [
+    {
+      "i": 0,
+      "truth": "12",
+      "reachable": true,
+      "outcome": "unparseable"
+    },
+    {
+      "i": 1,
+      "truth": "4",
+      "reachable": true,
+      "outcome": "4 EXACT",
+      "solver": "multisearch",
+      "spec": {
+        "solver": "multisearch",
+        "variables": [
+          {
+            "name": "k",
+            "from": 3,
+            "to": 40
+          }
+        ],
+        "conditions": [],
+        "objective": "(k*(k-1)//2)*(k*(k-1)//2 - 1)//2",
+        "aggregate": "sum",
+        "post": {
+          "op": "mod",
+          "arg": 1000
+        }
+      }
+    },
+    {
+      "i": 2,
+      "truth": "81",
+      "reachable": false,
+      "outcome": "refused: refused: expression calls something outside the wh",
+      "solver": "multisearch",
+      "spec": {
+        "solver": "multisearch",
+        "variables": [
+          {
+            "name": "c",
+            "from": 0,
+            "to": 63
+          }
+        ],
+        "conditions": [
+          "digit_count_eq(c, 16)",
+          "not (any_pair_intersection_empty(c))"
+        ],
+        "aggregate": "count"
+      }
+    },
+    {
+      "i": 3,
+      "truth": "125",
+      "reachable": false,
+      "outcome": "1 != 125",
+      "solver": "multisearch",
+      "spec": {
+        "solver": "multisearch",
+        "variables": [
+          {
+            "name": "pairing",
+            "from": 0,
+            "to": 3
+          }
+        ],
+        "conditions": [
+          "pairing == 0",
+          "not ((pairing == 1) or (pairing == 2) or (pairing == 3))"
+        ],
+        "objective": "0",
+        "aggregate": "count"
+      }
+    },
+    {
+      "i": 4,
+      "truth": "751",
+      "reachable": false,
+      "outcome": "0 != 751",
+      "solver": "geometry",
+      "spec": {
+        "solver": "geometry",
+        "kind": "polygon_area",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            8
+          ],
+          [
+            0,
+            10
+          ]
+        ]
+      }
+    },
+    {
+      "i": 5,
+      "truth": "738",
+      "reachable": false,
+      "outcome": "refused: refused: expression syntax: invalid syntax",
+      "solver": "multisearch",
+      "spec": {
+        "solver": "multisearch",
+        "variables": [
+          {
+            "name": "a",
+            "from": -20,
+            "to": 20
+          },
+          {
+            "name": "b",
+            "from": -20,
+            "to": 20
+          },
+          {
+            "name": "c",
+            "from": -20,
+            "to": 20
+          }
+        ],
+        "conditions": [
+          "eq(digit_count(polynomial(coefficients=[1, a, b, c], at=m) - polynomial(coefficients=[1, a, b, c], at=2)), 0) for m in range(-100, 100) if m != 2",
+          "eq(sum(1 for m in range(-100, 100) if m != 2 and polynomial(coefficients=[1, a, b, c], at=m) == polynomial(coefficients=[1, a, b, c], at=2)), 1)"
+        ],
+        "aggregate": "count"
+      }
+    },
+    {
+      "i": 6,
+      "truth": "250",
+      "reachable": false,
+      "outcome": "declined: geometric constraints with angle equalities and point locati"
+    },
+    {
+      "i": 7,
+      "truth": "928",
+      "reachable": true,
+      "outcome": "unparseable"
+    },
+    {
+      "i": 8,
+      "truth": "51",
+      "reachable": false,
+      "outcome": "declined: expected value computation"
+    },
+    {
+      "i": 9,
+      "truth": "75",
+      "reachable": false,
+      "outcome": "refused: unknown solver 'none'",
+      "solver": "none",
+      "spec": {
+        "solver": "none",
+        "missing": "The problem requires finding a point P inside a triangle such that three specific angles are equal, and then computing the square of the tangent of that angle. This involves geometric locus intersection (finding P as the intersection of angle bisectors or specific loci) and trigonometric calculation. The available solvers do not include a general geometric solver capable of handling angle constraints and finding specific points defined by angle equality conditions, nor a solver for general trigonometric optimization or geometric locus problems."
+      }
+    },
+    {
+      "i": 10,
+      "truth": "756",
+      "reachable": false,
+      "outcome": "declined: geometry"
+    },
+    {
+      "i": 11,
+      "truth": "244",
+      "reachable": false,
+      "outcome": "refused: refused: unknown aggregate 'eval'",
+      "solver": "multisearch",
+      "spec": {
+        "solver": "multisearch",
+        "variables": [
+          {
+            "name": "m",
+            "from": 7,
+            "to": 7
+          },
+          {
+            "name": "n",
+            "from": 5,
+            "to": 5
+          }
+        ],
+        "conditions": [
+          "m > 0",
+          "n > 0"
+        ],
+        "objective": "(m - 1) * (n - 1) + 1",
+        "aggregate": "eval"
+      }
+    },
+    {
+      "i": 12,
+      "truth": "154",
+      "reachable": true,
+      "outcome": "refused: refused: tuple space 100000000 exceeds the budget ",
+      "solver": "multisearch",
+      "spec": {
+        "solver": "multisearch",
+        "variables": [
+          {
+            "name": "A",
+            "from": 1,
+            "to": 10000
+          },
+          {
+            "name": "B",
+            "from": 1,
+            "to": 10000
+          }
+        ],
+        "conditions": [
+          "A * 12 == B * 5",
+          "(A + 50) * 25 == (B + 50) * 11"
+        ],
+        "objective": "A + 50",
+        "aggregate": "min"
+      }
+    },
+    {
+      "i": 13,
+      "truth": "363",
+      "reachable": true,
+      "outcome": "refused: refused: expression syntax: invalid syntax",
+      "solver": "multisearch",
+      "spec": {
+        "solver": "multisearch",
+        "variables": [
+          {
+            "name": "n",
+            "from": 1,
+            "to": 1000
+          }
+        ],
+        "conditions": [
+          "a_n == a_{n+1}"
+        ],
+        "aggregate": "count"
+      }
+    },
+    {
+      "i": 14,
+      "truth": "245",
+      "reachable": false,
+      "outcome": "refused: error: TypeError: unsupported operand type(s) for ",
+      "solver": "multisearch",
+      "spec": {
+        "solver": "multisearch",
+        "variables": [
+          {
+            "name": "n",
+            "from": 1,
+            "to": 2022
+          }
+        ],
+        "conditions": [
+          "True"
+        ],
+        "objective": "sum",
+        "aggregate": "sum",
+        "post": {
+          "op": "mod",
+          "arg": 1000
+        }
+      }
+    }
+  ]
+}

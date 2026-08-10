@@ -104,6 +104,64 @@ def eval_expr(code, env):
     return eval(code, {"__builtins__": {}, **EXPR_FUNCS}, env)  # noqa: S307 - vetted AST
 
 
+def is_linear_in(node, var):
+    """Is this expression structurally degree-1 in var (or free of it)?
+
+    The probe version of this test was UNSOUND and the self-tests caught it: sampling
+    digit_sum(n) - 10 at n = 0, 1, 2 gives -10, -9, -8, which is a perfect straight
+    line, so the solver skipped the scan and lost every hit. Three samples cannot
+    certify linearity; the syntax can. A call containing the variable is never linear,
+    a power of it never is, and a product is linear only when one side is free of it.
+    """
+    def free(n):
+        return all(not (isinstance(x, ast.Name) and x.id == var) for x in ast.walk(n))
+
+    if free(node):
+        return True
+    if isinstance(node, ast.Name):
+        return node.id == var
+    if isinstance(node, ast.UnaryOp) and isinstance(node.op, (ast.USub, ast.UAdd)):
+        return is_linear_in(node.operand, var)
+    if isinstance(node, ast.BinOp):
+        if isinstance(node.op, (ast.Add, ast.Sub)):
+            return is_linear_in(node.left, var) and is_linear_in(node.right, var)
+        if isinstance(node.op, ast.Mult):
+            return ((free(node.left) and is_linear_in(node.right, var))
+                    or (free(node.right) and is_linear_in(node.left, var)))
+        if isinstance(node.op, ast.Div):
+            return free(node.right) and is_linear_in(node.left, var)
+        return False                       # FloorDiv, Mod, Pow: not linear
+    return False                           # calls, comparisons, anything else
+
+
+def equality_residual(src, allowed_vars):
+    """If the condition is a top-level equality, compile LHS - RHS as its residual.
+
+    A residual that is AFFINE in the innermost variable can be SOLVED instead of
+    scanned, which is phase 75's probe trick moved inside the search: two probes fix
+    the line, a third refuses impostors, and a 10^8 scan becomes one candidate. The
+    model's own formulation of an AIME problem died on the budget where this rescues
+    it, so the growth is evidence-driven and the fallback (scan) is always available.
+    """
+    try:
+        tree = ast.parse(src, mode="eval")
+    except SyntaxError:
+        return None
+    node = tree.body
+    if not (isinstance(node, ast.Compare) and len(node.ops) == 1
+            and isinstance(node.ops[0], ast.Eq)):
+        return None
+    diff = ast.BinOp(left=node.left, op=ast.Sub(), right=node.comparators[0])
+    expr = ast.Expression(body=diff)
+    ast.fix_missing_locations(expr)
+    try:
+        code, used = compile_expr(ast.unparse(expr), allowed_vars)
+    except Refusal:
+        return None
+    linear = {v for v in used if is_linear_in(diff, v)}
+    return code, used, linear
+
+
 def solve_multisearch(spec):
     """Tuples of integers under expression constraints, pruned as variables bind."""
     vars_ = spec.get("variables")
@@ -120,18 +178,29 @@ def solve_multisearch(spec):
             raise Refusal(f"empty range for {v['name']}")
         ranges.append((lo, hi))
         space *= hi - lo + 1
-    if space > TUPLE_BUDGET:
-        raise Refusal(f"tuple space {space} exceeds the budget {TUPLE_BUDGET}")
 
     conds = []
     for c in spec.get("conditions", []):
         code, used = compile_expr(c, set(names))
-        conds.append((code, used, c))
+        res = equality_residual(c, set(names))
+        conds.append((code, used, c, res))
     ordering = spec.get("ordering")      # "increasing" | "strict_increasing" | None
     obj_src = spec.get("objective")
     obj = compile_expr(obj_src, set(names))[0] if obj_src else None
 
-    hits, work = [], 0
+    # The budget is checked against what will actually be WALKED, which the affine
+    # solve can shrink by the size of the innermost range.
+    solved_dim = 1
+    if len(names) > 1 and any(r and names[-1] in r[2] for *_x, r in conds):
+        solved_dim = ranges[-1][1] - ranges[-1][0] + 1
+    if space // max(solved_dim, 1) > TUPLE_BUDGET:
+        raise Refusal(f"tuple space {space} exceeds the budget {TUPLE_BUDGET}")
+
+    hits, work, solved = [], 0, 0
+
+    def nonlocal_solved():
+        nonlocal solved
+        solved += 1
 
     def rec(i, env):
         nonlocal work
@@ -144,8 +213,41 @@ def solve_multisearch(spec):
             prev = env[names[i - 1]]
             lo = max(lo, prev + (1 if ordering == "strict_increasing" else 0))
         bound = set(names[:i + 1])
-        ready = [(code, src) for code, used, src in conds
+        ready = [(code, src) for code, used, src, _r in conds
                  if used <= bound and not used <= set(names[:i])]
+
+        # Innermost variable with an affine equality: solve, do not scan.
+        if i == len(names) - 1:
+            for code, used, src, resid in conds:
+                # Only a STRUCTURALLY linear residual may be solved instead of scanned.
+                if not resid or names[i] not in resid[2] or not used <= bound:
+                    continue
+                rcode = resid[0]
+                try:
+                    probe = []
+                    for v in (0, 1, 2):
+                        env[names[i]] = v
+                        probe.append(F(eval_expr(rcode, env)))
+                except (ZeroDivisionError, TypeError, ValueError):
+                    continue
+                slope = probe[1] - probe[0]
+                if slope == 0 or probe[2] - probe[1] != slope:
+                    continue                       # not affine: the third probe says so
+                root = -probe[0] / slope
+                nonlocal_solved()
+                cand = int(root) if root.denominator == 1 else None
+                env.pop(names[i], None)
+                if cand is None or not lo <= cand <= hi:
+                    return
+                env[names[i]] = cand
+                try:
+                    if all(eval_expr(c2, env) for c2, _s in ready):
+                        rec(i + 1, env)
+                except ZeroDivisionError:
+                    pass
+                env.pop(names[i], None)
+                return
+
         for val in range(lo, hi + 1):
             work += 1
             if work > TUPLE_BUDGET:
@@ -160,6 +262,10 @@ def solve_multisearch(spec):
 
     rec(0, {})
     agg = spec.get("aggregate", "count")
+    if agg in ("eval", "only", "value"):
+        if len(hits) != 1:
+            raise Refusal(f"aggregate {agg!r} needs exactly one hit, found {len(hits)}")
+        agg = "min"
     if agg == "count":
         value = len(hits)
     elif agg == "sum":
@@ -185,7 +291,7 @@ def solve_multisearch(spec):
             value = sum(factorise(int(value)).values())
         else:
             raise Refusal(f"unknown post-op {post['op']!r}")
-    return {"value": value, "hits": len(hits), "work": work}
+    return {"value": value, "hits": len(hits), "work": work, "solved": solved}
 
 
 def solve_polynomial(spec):
@@ -482,9 +588,12 @@ CASES = [
 ]
 
 REFUSALS = [
+    # Nonlinear on purpose: with a linear condition the affine solve now makes this
+    # space feasible, and the refusal correctly stops firing. The budget guard is for
+    # what must still be WALKED.
     ({"solver": "multisearch",
       "variables": [{"name": "a", "from": 1, "to": 3000}, {"name": "b", "from": 1,
-                     "to": 3000}], "conditions": ["a == b"]}, "budget"),
+                     "to": 3000}], "conditions": ["a*a == b*b*b"]}, "budget"),
     ({"solver": "multisearch", "variables": [{"name": "a", "from": 1, "to": 5}],
       "conditions": ["__import__('os').system('ls')"]}, "outside the whitelist"),
     ({"solver": "multisearch", "variables": [{"name": "a", "from": 1, "to": 5}],

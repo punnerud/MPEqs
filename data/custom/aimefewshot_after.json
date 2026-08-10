@@ -1,0 +1,27 @@
+{
+ "before": {
+  "ran": 3,
+  "exact": 1,
+  "refused": 7
+ },
+ "after": {
+  "ran": 5,
+  "exact": 1,
+  "wrong": 4,
+  "refused": 5
+ },
+ "converted": [
+  [
+   "11",
+   "25",
+   "244",
+   "False"
+  ],
+  [
+   "12",
+   "550",
+   "154",
+   "False"
+  ]
+ ]
+}

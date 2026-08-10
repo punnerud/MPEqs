@@ -1537,6 +1537,15 @@ CHECKS = [
      0.0, 0.001, "the same problems the model mapped and got right"),
     ("data/custom/aimeceiling.json", lambda d: float(d["out_of_reach"]),
      10.0, 0.001, "problems genuinely outside the vocabulary, with reasons"),
+    # Teaching the mapping, and the machine growth its refusals demanded.
+    ("data/custom/aimefewshot.json", lambda d: float(d.get("exact", 0)),
+     1.0, 0.001, "AIME solved after three worked mappings, against zero without"),
+    ("data/custom/aimefewshot.json", lambda d: float(d.get("claimed", 0)),
+     10.0, 0.001, "problems the few-shot prompt claimed it could map"),
+    ("data/custom/aimefewshot_after.json", lambda d: float(d["after"]["ran"]),
+     5.0, 0.001, "specs that run after the linear-solve growth, up from three"),
+    ("data/custom/aimefewshot_after.json", lambda d: float(d["after"]["exact"]),
+     1.0, 0.001, "still exact: growing the machine did not fix the mapping"),
     # Two-sided labels on the chord metric: no better than one relay, twice the memory.
     ("data/custom/hub-corpus.json", lambda d: d["exact_cell_pct"],
      1.34, 0.7, "two-sided hub labels on the angular metric"),

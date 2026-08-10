@@ -1581,3 +1581,49 @@ THE TEN OUT OF REACH NAME THE SAME THREE THINGS EVERY TIME: plane and solid geom
 (five of them), quantifiers over structures rather than integers — families of subsets,
 uniqueness of roots (three), and expectation under an adaptive strategy (two). That is a
 build list, not a mystery.
+
+================================================================================
+PHASE 100 — teaching the mapping, and what the refusals demanded next
+================================================================================
+
+Phase 99 left one lever: the model had been told the VOCABULARY but never shown the
+SHAPE of the work. So three worked mappings went into the prompt — a bit-pattern
+enumeration, a two-variable Diophantine minimisation, an aggregated expression with a
+mod post-op — all invented for the purpose so nothing leaks from the test set. Same
+single call per problem; no retry, no feedback, no second look.
+
+    claimed 10/15, ran 3, EXACT 1 (wrong 2, refused 7, declined 3, unparseable 2)
+    of the 5 problems proved reachable: 1 solved
+    baselines: no examples 0 exact; hand-mapped ceiling 5
+
+One of five, from zero. Worked examples move the mapping, and they do not close it.
+
+THE SEVEN REFUSALS WERE THE REAL YIELD — a build list written by the failures:
+
+  A BUDGET DEATH THAT WAS THE MACHINE'S FAULT, NOT THE MODEL'S. The model wrote the
+  adults-at-a-concert problem as two variables to 10,000 with two linear equations —
+  10^8 tuples, refused — where my hand spec used tighter bounds. The fix is generic and
+  belongs in the machine: when the innermost variable appears in a LINEAR equality,
+  SOLVE for it instead of scanning it. The model's own rejected spec now runs in 10,001
+  steps instead of 10^8.
+
+  AND THE FIRST VERSION OF THAT FIX WAS UNSOUND, CAUGHT BY THE SELF-TESTS. I implemented
+  it as phase 75's probe trick — sample the residual at 0, 1, 2, and if the three points
+  are collinear, solve. digit_sum(n) - 10 sampled at 0, 1, 2 gives -10, -9, -8: a perfect
+  straight line, so the solver skipped the scan and returned 0 where the truth was 10.
+  THREE SAMPLES CANNOT CERTIFY LINEARITY; THE SYNTAX CAN. Replaced with a structural AST
+  check (a call containing the variable is never linear, a power never is, a product only
+  when one side is free of it), and the speedups survive exactly where they are sound:
+  a+b=20 walks 27 states instead of 361, digit_sum falls back to the full 1,010, the
+  hand-written AIME spec walks 2,004 instead of 102,051.
+
+  SMALLER ONES, ALSO GENERIC: an "eval"/"only" aggregate for degenerate one-hit searches
+  (the model asked for it by name), and a decline written as {"solver":"none"} which the
+  harness had been scoring as a refusal.
+
+RE-EXECUTING THE SAME SPECS AGAINST THE GROWN MACHINE, no new model calls: refusals fell
+7 -> 5 and two more specs ran — and BOTH are wrong (25 against 244, and 550 against 154,
+the latter because the model assumed all fifty new arrivals were adults). Growing the
+machine converts refusals into answers, not into correct answers. The mapping is still
+where the error lives, and every layer that could hide that has now been measured
+separately.
