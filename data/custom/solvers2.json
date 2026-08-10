@@ -1,10 +1,10 @@
 {
   "shape_repairs": 1,
-  "cases": 23,
-  "passed": 23,
+  "cases": 24,
+  "passed": 24,
   "failed": 0,
-  "refusals": 9,
-  "refusals_named": 9,
+  "refusals": 10,
+  "refusals_named": 10,
   "solvers_total": 21,
   "expr_funcs": 16,
   "rows": [
@@ -160,6 +160,13 @@
       "ok": true,
       "got": "2",
       "truth": "2",
+      "why": "ok"
+    },
+    {
+      "solver": "arith",
+      "ok": true,
+      "got": "16069380442584748980212300810101261413924373725100",
+      "truth": "16069380442584748980212300810101261413924373725100",
       "why": "ok"
     },
     {

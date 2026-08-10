@@ -41,7 +41,7 @@ SCHEMAS = {
                      '"rhs":[<number>,...]}',
     "quadratic": '{"solver":"quadratic","a":<number>,"b":<number>,"c":<number>}',
     "crt": '{"solver":"crt","residues":[<int>,...],"moduli":[<int>,...]}',
-    "gcd_lcm": '{"solver":"gcd_lcm","values":[<int>,...]}',
+    "gcd_lcm": '{"solver":"gcd_lcm","values":[<int>,...],"report":"gcd"|"lcm"}',
     "series": '{"solver":"series","kind":"arithmetic","first":<n>,"step":<n>,'
               '"terms":<int>} | {"solver":"series","kind":"geometric","first":<n>,'
               '"ratio":<n>,"terms":<int>|"inf"}',
@@ -57,7 +57,13 @@ SCHEMAS = {
                 '"kind":"compound"|"simple"}',
     "base_convert": '{"solver":"base_convert","n":<int>,"base":<int>}',
     "digit_ops": '{"solver":"digit_ops","n":<int>}',
-    "factor": '{"solver":"factor","n":<int>} | {"solver":"factor","k":<int>} (k means k!)',
+    # The k-versus-n distinction must lead, not trail: when "report" was appended to
+    # this line the model started writing {"n":25} for "25 factorial" and the divisor
+    # family regressed. A schema is read literally, and a buried distinction is lost.
+    "factor": 'FOR A FACTORIAL USE k: {"solver":"factor","k":25} means 25 factorial; '
+              'for a plain number use n: {"solver":"factor","n":720}. Add '
+              '"report":"divisor_count"|"divisor_sum"|"exponent_sum" to choose which '
+              'number you want back.',
 }
 
 PREDICATE_HELP = ("divisible_by, not_divisible_by, mod_eq [m,r], is_square, is_cube, "
@@ -152,9 +158,19 @@ Solver schema:
 Reply with ONLY the JSON spec."""
 
 
-def answer_of(res):
-    """The comparable payload of a result: value, or the flagged sub-field."""
+def answer_of(res, spec=None):
+    """The comparable payload of a result.
+
+    Several machines return a small record rather than one number — gcd AND lcm, the
+    divisor count AND the divisor sum — and nothing in the spec used to say which one
+    was being asked for, so a right answer inside a dict scored as wrong. A spec may
+    now carry "report" (or "op") naming the field; without one the historical default
+    stands, so older specs mean exactly what they meant before.
+    """
     v = res["value"]
+    want = (spec or {}).get("report") or (spec or {}).get("op")
+    if isinstance(v, dict) and want and want in v:
+        return str(v[want])
     if isinstance(v, dict) and "divisor_count" in v:
         return str(v["divisor_count"])
     if isinstance(v, dict) and "digit_sum" in v:

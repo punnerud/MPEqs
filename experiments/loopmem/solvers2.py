@@ -127,8 +127,8 @@ def compile_expr(src, allowed_vars):
                             and isinstance(b.value, int) and abs(b.value) <= 1)
             if not bounded_base and not (isinstance(e, ast.Constant)
                                          and isinstance(e.value, int)
-                                         and abs(e.value) <= 64):
-                raise Refusal("exponent must be a literal at most 64")
+                                         and abs(e.value) <= 1024):
+                raise Refusal("exponent must be a literal at most 1024")
     if any(isinstance(n, ast.Div) for n in ast.walk(tree)):
         tree = ast.fix_missing_locations(_Rationalise().visit(tree))
     return compile(tree, "<expr>", "eval"), used
@@ -560,7 +560,17 @@ SHAPE_KEYS = [
 REPAIRS = {"count": 0, "by": []}
 
 
+REPORT_HOME = {"gcd": "gcd_lcm", "lcm": "gcd_lcm",
+               "divisor_count": "factor", "divisor_sum": "factor",
+               "exponent_sum": "factor", "factorisation": "factor",
+               "digit_sum": "digit_ops", "digit_count": "digit_ops",
+               "reversed": "digit_ops", "is_palindrome": "digit_ops"}
+
+
 def dispatch_by_shape(spec):
+    want = spec.get("report") or spec.get("op")
+    if want in REPORT_HOME and REPORT_HOME[want] != spec.get("solver"):
+        return REPORT_HOME[want]
     keys = set(spec) - {"solver"}
     for need, name in SHAPE_KEYS:
         if need <= keys and name != spec.get("solver"):
@@ -584,8 +594,24 @@ def _call(name, spec):
 
 
 def run2(spec, repair=True):
-    """Dispatch across BOTH libraries; if the NAME fails, let the SHAPE speak."""
+    """Dispatch across BOTH libraries; if the NAME fails, let the SHAPE speak.
+
+    A named solver that RUNS can still be the wrong machine: asking digit_ops for a
+    divisor sum succeeds and answers a different question. So a spec that names a
+    report its result does not contain counts as a failure and gets the same repair.
+    """
     res, why = _call(spec.get("solver"), spec)
+    want = spec.get("report") or spec.get("op")
+    if res is not None and want and isinstance(res.get("value"), dict) \
+            and want not in res["value"] and repair:
+        alt = dispatch_by_shape(spec)
+        if alt:
+            res2, why2 = _call(alt, spec)
+            if res2 is not None and isinstance(res2.get("value"), dict) \
+                    and want in res2["value"]:
+                REPAIRS["count"] += 1
+                REPAIRS["by"].append((spec.get("solver"), alt))
+                return res2, f"ok (report repaired -> {alt!r})"
     if res is not None or not repair:
         return res, why
     alt = dispatch_by_shape(spec)
@@ -662,6 +688,8 @@ CASES = [
       "answer": "b + 7/9"}, "122/99"),
     # '^' means power in a mathematics spec language
     ({"solver": "arith", "let": {"a": "(-1)^3 * 8"}, "answer": "a + 10"}, "2"),
+    # 2^200 - 3^100: a large literal exponent is bounded, so the guard lets it pass.
+    ({"solver": "arith", "let": {"a": "2^200 - 3^100"}}, str(2 ** 200 - 3 ** 100)),
     # And the old library must still answer through the joint dispatcher.
     ({"solver": "crt", "residues": [2, 3, 2], "moduli": [3, 5, 7]}, 23),
 ]
@@ -681,6 +709,7 @@ REFUSALS = [
       "conditions": ["b == 1"]}, "unknown variable"),
     ({"solver": "multisearch", "variables": [{"name": "a", "from": 1, "to": 5}],
       "conditions": ["a ** a == 4"]}, "exponent must be a literal"),
+    ({"solver": "arith", "let": {"a": "2 ** 5000"}}, "exponent must be a literal"),
     ({"solver": "geometry", "kind": "circle_through",
       "points": [[0, 0], [1, 1], [2, 2]]}, "collinear"),
     ({"solver": "arith", "let": {"a": "1", "b": "c + 1"}}, "unknown variable"),

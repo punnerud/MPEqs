@@ -128,7 +128,7 @@ def main(n_problems=30, library=1, seed=5, out=None):
                 row["outcome"] = f"spec refused: {why[:60]}"
             else:
                 tally["ran"] += 1
-                got = answer_of(res)
+                got = answer_of(res, spec)
                 ok = got == str(truth)
                 tally["exact" if ok else "wrong"] += 1
                 row["outcome"] = f"{got}" + ("  EXACT" if ok else f" != {truth}")

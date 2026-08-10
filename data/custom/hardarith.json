@@ -1,10 +1,10 @@
 {
   "n": 20,
   "solo": 0,
-  "mpeqs": 12,
+  "mpeqs": 15,
   "parsed": 19,
-  "ran": 18,
-  "wrong": 6,
+  "ran": 17,
+  "wrong": 2,
   "solo_none": 0,
   "byfam": {
     "fractions": [
@@ -15,7 +15,7 @@
     "big": [
       5,
       0,
-      3
+      4
     ],
     "count": [
       5,
@@ -25,7 +25,7 @@
     "divisors": [
       5,
       0,
-      3
+      5
     ]
   },
   "rows": [
@@ -158,14 +158,15 @@
       "truth": "9000000009",
       "solo": "9",
       "solo_ok": false,
-      "mpeqs": "{'gcd': 9000000009, 'lcm': 13548070137174211123626141}",
-      "mpeqs_ok": false,
+      "mpeqs": "9000000009",
+      "mpeqs_ok": true,
       "spec": {
         "solver": "gcd_lcm",
         "values": [
           987654321987654321,
           123456789123456789
-        ]
+        ],
+        "report": "gcd"
       }
     },
     {
@@ -177,11 +178,12 @@
       "mpeqs": "4934801718028",
       "mpeqs_ok": true,
       "spec": {
-        "solver": "series",
-        "kind": "arithmetic",
-        "first": 1,
-        "step": 1,
-        "terms": 3141592
+        "solver": "arith",
+        "let": {
+          "n": "3141592",
+          "sum": "n * (n + 1) / 2"
+        },
+        "answer": "sum"
       }
     },
     {
@@ -250,7 +252,8 @@
         "ordering": "strict_increasing",
         "conditions": [
           "a + b + c + d == 20",
-          "a > 0"
+          "a > 0",
+          "a * 1000 + b * 100 + c * 10 + d <= 200000"
         ],
         "objective": "a * 1000 + b * 100 + c * 10 + d",
         "aggregate": "count"
@@ -293,28 +296,20 @@
       "truth": "605",
       "solo": "6",
       "solo_ok": false,
-      "mpeqs": "8",
+      "mpeqs": "refused: expression calls something outs",
       "mpeqs_ok": false,
       "spec": {
         "solver": "multisearch",
         "variables": [
           {
-            "name": "a",
+            "name": "x",
             "from": 1,
-            "to": 547
-          },
-          {
-            "name": "b",
-            "from": 1,
-            "to": 66
+            "to": 300000
           }
         ],
         "conditions": [
-          "a*a <= 300000",
-          "b*b*b <= 300000",
-          "a*a == b*b*b"
+          "is_square(x) or is_cube(x)"
         ],
-        "objective": "a*a",
         "aggregate": "count"
       }
     },
@@ -345,10 +340,11 @@
             "to": 9
           }
         ],
+        "ordering": "strict_increasing",
         "conditions": [
-          "100001*a + 10010*b + 1001*c == 0 mod 7"
+          "a * 100001 + b * 10010 + c * 110 == 0 mod 7"
         ],
-        "objective": "1",
+        "objective": "a * 100001 + b * 10010 + c * 110",
         "aggregate": "count"
       }
     },
@@ -362,7 +358,8 @@
       "mpeqs_ok": true,
       "spec": {
         "solver": "factor",
-        "k": 25
+        "k": 25,
+        "report": "divisor_count"
       }
     },
     {
@@ -375,7 +372,8 @@
       "mpeqs_ok": true,
       "spec": {
         "solver": "factor",
-        "k": 40
+        "k": 40,
+        "report": "divisor_count"
       }
     },
     {
@@ -384,11 +382,12 @@
       "truth": "59",
       "solo": "11",
       "solo_ok": false,
-      "mpeqs": "2332800",
-      "mpeqs_ok": false,
+      "mpeqs": "59",
+      "mpeqs_ok": true,
       "spec": {
         "solver": "factor",
-        "k": 30
+        "k": 30,
+        "report": "exponent_sum"
       }
     },
     {
@@ -420,12 +419,12 @@
       "truth": "3249792",
       "solo": "1",
       "solo_ok": false,
-      "mpeqs": "18",
-      "mpeqs_ok": false,
+      "mpeqs": "3249792",
+      "mpeqs_ok": true,
       "spec": {
-        "solver": "digit_ops",
+        "solver": "factor",
         "n": 720720,
-        "op": "sum_of_divisors"
+        "report": "divisor_sum"
       }
     }
   ]

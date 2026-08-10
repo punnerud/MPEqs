@@ -212,7 +212,7 @@ def main(n_inspect=0, out="data/custom/specgate.json"):
             t["flagged"] += 1
             row["verdict"] = "no second road" if sb is None else f"b refused: {wb[:30]}"
         else:
-            na, nb = norm(answer_of(ra)), norm(answer_of(rb))
+            na, nb = norm(answer_of(ra, sa)), norm(answer_of(rb, sb))
             if na != nb:
                 t["flagged"] += 1
                 row["verdict"] = f"roads disagree: {na} vs {nb}"
@@ -238,7 +238,7 @@ def main(n_inspect=0, out="data/custom/specgate.json"):
             t["planted_caught"] += 1
         elif caught_echo:
             t["planted_caught"] += 1
-        elif ra is not None and norm(answer_of(pres)) != norm(answer_of(ra)):
+        elif ra is not None and norm(answer_of(pres)) != norm(answer_of(ra, sa)):
             t["planted_caught"] += 1        # disagrees with the real road
         else:
             t["planted_slipped"] += 1
@@ -297,12 +297,12 @@ def main(n_inspect=0, out="data/custom/specgate.json"):
             a["refused"] += 1
             a["flagged"] += 1
             continue
-        if norm(answer_of(ra)) != norm(answer_of(rb)):
+        if norm(answer_of(ra, sa)) != norm(answer_of(rb, sb)):
             a["disagree"] += 1
             a["flagged"] += 1
             continue
         a["delivered"] += 1
-        ok = norm(answer_of(ra)) == norm(str(truth))
+        ok = norm(answer_of(ra, sa)) == norm(str(truth))
         a["right" if ok else "wrong"] += 1
     a["rows"] = arows
     print(f"\nAIME arm ({a['seen']} problems where phase 94 measured every mapping "

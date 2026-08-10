@@ -93,7 +93,7 @@ def main(out="data/custom/aimefewshot.json"):
                 t["refused"] += 1
                 row["outcome"] = f"refused: {why[:50]}"
             else:
-                got = answer_of(res)
+                got = answer_of(res, spec)
                 ok = str(got) == str(truth)
                 t["ran"] += 1
                 t["exact" if ok else "wrong"] += 1

@@ -121,7 +121,7 @@ def main(n_problems=30, seed=3, out="data/custom/gsmsolve.json"):
                 row[tag] = f"refused: {why[:34]}"
                 continue
             t[f"{tag}_ran"] += 1
-            got = answer_of(res)
+            got = answer_of(res, spec)
             ok = equal(got, truth)
             t[f"{tag}_exact" if ok else f"{tag}_wrong"] += 1
             row[tag] = f"{got}" + ("" if ok else f" != {truth}")

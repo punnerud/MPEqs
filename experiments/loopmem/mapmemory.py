@@ -171,10 +171,10 @@ def main(k=2, out="data/custom/mapmemory.json"):
                 row["outcome"] = f"refused: {why[:44]}"
             else:
                 t["ran"] += 1
-                ok = str(answer_of(res)) == str(truth)
+                ok = str(answer_of(res, spec)) == str(truth)
                 t["exact" if ok else "wrong"] += 1
                 t["exact_reachable"] += ok and i in HAND_SPECS
-                row["outcome"] = f"{answer_of(res)}" + (" EXACT" if ok else
+                row["outcome"] = f"{answer_of(res, spec)}" + (" EXACT" if ok else
                                                         f" != {truth}")
             row["spec"] = spec
         rows.append(row)

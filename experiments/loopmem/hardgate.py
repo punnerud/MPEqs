@@ -69,7 +69,7 @@ def main(out="data/custom/hardgate.json"):
         else:
             ra = run2(sa)[0]
             t["a_ran"] += ra is not None
-            if ra is not None and equal(answer_of(ra), truth):
+            if ra is not None and equal(answer_of(ra, sa), truth):
                 t["a_right_ungated"] += 1
             rb = run2(sb)[0] if isinstance(sb, dict) else None
             t["both_roads"] += isinstance(sb, dict)
@@ -84,15 +84,15 @@ def main(out="data/custom/hardgate.json"):
                 t["one_road"] += 1
                 t["flagged"] += 1
                 verdict = "only one road ran"
-            elif norm(answer_of(ra)) != norm(answer_of(rb)):
+            elif norm(answer_of(ra, sa)) != norm(answer_of(rb, sb)):
                 t["disagree"] += 1
                 t["flagged"] += 1
                 verdict = "roads disagree"
             else:
                 t["delivered"] += 1
-                ok = equal(answer_of(ra), truth)
+                ok = equal(answer_of(ra, sa), truth)
                 t["right" if ok else "wrong"] += 1
-                verdict = f"DELIVERED {str(answer_of(ra))[:18]}" + \
+                verdict = f"DELIVERED {str(answer_of(ra, sa))[:18]}" + \
                     ("" if ok else " WRONG")
         rows.append({"family": fam, "truth": truth, "verdict": verdict,
                      "story": story, "spec_a": sa, "spec_b": sb})

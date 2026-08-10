@@ -391,6 +391,26 @@ THEN THE FAILURES NAMED FIVE MISSING MACHINES, and every one was a real gap:
     by family: fractions 4/5 (was 0), big 3/5, count 2/5, divisors 3/5
     SOLO-35B, unchanged      0/20
 
+TWO MORE ROUNDS OF THE SAME LOOP, each driven by an autopsy rather than a hunch:
+
+  A REPORT VOCABULARY. Several machines return a record — gcd AND lcm, divisor count
+  AND divisor sum — and nothing in a spec said which number was being asked for, so a
+  right answer inside a dict scored wrong. A spec may now carry "report", the dispatcher
+  routes by it (asking digit_ops for a divisor sum now lands in factor), and the literal
+  exponent cap went from 64 to 1024 because 2^200 is bounded, not unbounded.
+
+  AND THAT ROUND REGRESSED THE DIVISOR FAMILY, 3 to 2, FOR A REASON WORTH KEEPING. When
+  "report" was appended to the factor schema line, the k-versus-n distinction — k means
+  k FACTORIAL — slid to the end of the sentence, and the model began writing {"n": 25}
+  for "25 factorial". A schema is read literally; a buried distinction is a lost one.
+  Rewriting that line to lead with the factorial case took the family from 2 to 5.
+
+    MPEqs, final     15/20   (fractions 4, big 4, count 2, divisors 5; wrong 2)
+    SOLO-35B         0/20    still not one, still never abstaining
+
+    the progression: 8 -> 12 -> 12 -> 15, and every step was a failure autopsied
+    into either a missing machine or a misread schema
+
 Twelve against zero. The same machinery that LOSES to the model on grade-school sums
 beats it twelve to nothing where the arithmetic is real — and the library grew by what
 the problems asked for, four extra solves bought by five fixes that the failures wrote

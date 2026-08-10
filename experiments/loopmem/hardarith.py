@@ -174,7 +174,7 @@ def main(out="data/custom/hardarith.json"):
             res, why = run2(spec)
             if res is not None:
                 t["ran"] += 1
-                got = answer_of(res)
+                got = answer_of(res, spec)
                 mp_ok = equal(got, truth)
                 t["mpeqs"] += mp_ok
                 t["wrong"] += not mp_ok
