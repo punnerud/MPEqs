@@ -1,0 +1,1274 @@
+{
+  "total_table": 35,
+  "total_model": 41,
+  "n": 52,
+  "vocabulary": 134,
+  "ambiguous_words": 17,
+  "norwegian": {
+    "n": 18,
+    "table_retrieval": 9,
+    "model_retrieval": 15,
+    "covered": 18,
+    "action_object_agreement": 22,
+    "rows": [
+      {
+        "family": "count",
+        "table": {
+          "action": "count",
+          "object": "integer",
+          "relations": [
+            "divisibility",
+            "remainder"
+          ],
+          "scope": "range"
+        },
+        "model": {
+          "action": "count",
+          "object": "integer",
+          "relations": [
+            "divisibility",
+            "remainder"
+          ],
+          "scope": "range"
+        },
+        "shown": [
+          "count",
+          "partition"
+        ],
+        "lexicon_hits": 7
+      },
+      {
+        "family": "count",
+        "table": {
+          "action": "find_value",
+          "object": "integer",
+          "relations": [
+            "digit_property",
+            "divisibility"
+          ],
+          "scope": "range"
+        },
+        "model": {
+          "action": "sum",
+          "object": "integer",
+          "relations": [
+            "digit_property",
+            "divisibility"
+          ],
+          "scope": "range"
+        },
+        "shown": [
+          "big",
+          "basearith"
+        ],
+        "lexicon_hits": 7
+      },
+      {
+        "family": "count",
+        "table": {
+          "action": "count",
+          "object": "integer",
+          "relations": [],
+          "scope": "range"
+        },
+        "model": {
+          "action": "count",
+          "object": "integer",
+          "relations": [
+            "inequality",
+            "power"
+          ],
+          "scope": "range"
+        },
+        "shown": [
+          "count",
+          "partition"
+        ],
+        "lexicon_hits": 5
+      },
+      {
+        "family": "divisors",
+        "table": {
+          "action": "count",
+          "object": "divisor",
+          "relations": [
+            "factorial"
+          ],
+          "scope": "none"
+        },
+        "model": {
+          "action": "count",
+          "object": "divisor",
+          "relations": [
+            "divisibility",
+            "factorial"
+          ],
+          "scope": "divisors"
+        },
+        "shown": [
+          "divisors",
+          "datetime"
+        ],
+        "lexicon_hits": 4
+      },
+      {
+        "family": "divisors",
+        "table": {
+          "action": "find_value",
+          "object": "divisor",
+          "relations": [],
+          "scope": "none"
+        },
+        "model": {
+          "action": "sum",
+          "object": "divisor",
+          "relations": [
+            "divisibility"
+          ],
+          "scope": "divisors"
+        },
+        "shown": [
+          "fractions",
+          "big"
+        ],
+        "lexicon_hits": 3
+      },
+      {
+        "family": "divisors",
+        "table": {
+          "action": "count",
+          "object": "divisor",
+          "relations": [],
+          "scope": "none"
+        },
+        "model": {
+          "action": "count",
+          "object": "divisor",
+          "relations": [
+            "divisibility"
+          ],
+          "scope": "divisors"
+        },
+        "shown": [
+          "divisors",
+          "datetime"
+        ],
+        "lexicon_hits": 3
+      },
+      {
+        "family": "probability",
+        "table": {
+          "action": "find_value",
+          "object": "fraction",
+          "relations": [
+            "inequality",
+            "probability_event"
+          ],
+          "scope": "none"
+        },
+        "model": {
+          "action": "probability",
+          "object": "integer",
+          "relations": [
+            "probability_event",
+            "sum"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "approx",
+          "fractions"
+        ],
+        "lexicon_hits": 6
+      },
+      {
+        "family": "probability",
+        "table": {
+          "action": "find_value",
+          "object": "integer",
+          "relations": [
+            "inequality",
+            "probability_event"
+          ],
+          "scope": "range"
+        },
+        "model": {
+          "action": "probability",
+          "object": "pair",
+          "relations": [
+            "distinctness",
+            "primality",
+            "probability_event"
+          ],
+          "scope": "range"
+        },
+        "shown": [
+          "big",
+          "approx"
+        ],
+        "lexicon_hits": 8
+      },
+      {
+        "family": "probability",
+        "table": {
+          "action": "find_value",
+          "object": "integer",
+          "relations": [
+            "inequality",
+            "probability_event"
+          ],
+          "scope": "range"
+        },
+        "model": {
+          "action": "probability",
+          "object": "triple",
+          "relations": [
+            "probability_event",
+            "sum"
+          ],
+          "scope": "range"
+        },
+        "shown": [
+          "big",
+          "approx"
+        ],
+        "lexicon_hits": 9
+      },
+      {
+        "family": "statistics",
+        "table": {
+          "action": "find_value",
+          "object": "amount",
+          "relations": [
+            "cardinality"
+          ],
+          "scope": "none"
+        },
+        "model": {
+          "action": "find_value",
+          "object": "fraction",
+          "relations": [
+            "cardinality",
+            "sum"
+          ],
+          "scope": "list"
+        },
+        "shown": [
+          "statistics",
+          "finance"
+        ],
+        "lexicon_hits": 4
+      },
+      {
+        "family": "statistics",
+        "table": {
+          "action": "find_value",
+          "object": "fraction",
+          "relations": [],
+          "scope": "range"
+        },
+        "model": null,
+        "shown": [
+          "fractions",
+          "approx"
+        ],
+        "lexicon_hits": 3
+      },
+      {
+        "family": "statistics",
+        "table": {
+          "action": "find_value",
+          "object": "amount",
+          "relations": [],
+          "scope": "none"
+        },
+        "model": {
+          "action": "find_value",
+          "object": "sequence_term",
+          "relations": [
+            "ordering"
+          ],
+          "scope": "list"
+        },
+        "shown": [
+          "finance",
+          "formula"
+        ],
+        "lexicon_hits": 1
+      },
+      {
+        "family": "datetime",
+        "table": {
+          "action": "count",
+          "object": "date",
+          "relations": [],
+          "scope": "range"
+        },
+        "model": {
+          "action": "count",
+          "object": "date",
+          "relations": [
+            "ordering",
+            "unit"
+          ],
+          "scope": "range"
+        },
+        "shown": [
+          "datetime",
+          "count"
+        ],
+        "lexicon_hits": 5
+      },
+      {
+        "family": "datetime",
+        "table": {
+          "action": "find_value",
+          "object": "date",
+          "relations": [],
+          "scope": "none"
+        },
+        "model": {
+          "action": "find_value",
+          "object": "date",
+          "relations": [
+            "unit"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "fractions",
+          "big"
+        ],
+        "lexicon_hits": 1
+      },
+      {
+        "family": "datetime",
+        "table": {
+          "action": "find_value",
+          "object": "date",
+          "relations": [],
+          "scope": "none"
+        },
+        "model": {
+          "action": "find_value",
+          "object": "date",
+          "relations": [
+            "unit"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "fractions",
+          "big"
+        ],
+        "lexicon_hits": 2
+      },
+      {
+        "family": "finance",
+        "table": {
+          "action": "find_value",
+          "object": "fraction",
+          "relations": [
+            "percentage"
+          ],
+          "scope": "none"
+        },
+        "model": {
+          "action": "find_value",
+          "object": "amount",
+          "relations": [
+            "percentage"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "finance",
+          "fractions"
+        ],
+        "lexicon_hits": 5
+      },
+      {
+        "family": "finance",
+        "table": {
+          "action": "find_value",
+          "object": "amount",
+          "relations": [
+            "percentage"
+          ],
+          "scope": "range"
+        },
+        "model": {
+          "action": "find_value",
+          "object": "amount",
+          "relations": [
+            "percentage",
+            "recurrence"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "finance",
+          "statistics"
+        ],
+        "lexicon_hits": 5
+      },
+      {
+        "family": "finance",
+        "table": {
+          "action": "find_value",
+          "object": "fraction",
+          "relations": [
+            "percentage"
+          ],
+          "scope": "range"
+        },
+        "model": {
+          "action": "find_value",
+          "object": "amount",
+          "relations": [
+            "percentage",
+            "power"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "finance",
+          "fractions"
+        ],
+        "lexicon_hits": 4
+      }
+    ]
+  },
+  "mixed": {
+    "n": 34,
+    "table_retrieval": 26,
+    "model_retrieval": 26,
+    "covered": 34,
+    "action_object_agreement": 44,
+    "rows": [
+      {
+        "family": "approx",
+        "table": {
+          "action": "find_value",
+          "object": "fraction",
+          "relations": [
+            "inequality"
+          ],
+          "scope": "none"
+        },
+        "model": {
+          "action": "minimise",
+          "object": "fraction",
+          "relations": [
+            "inequality",
+            "ordering"
+          ],
+          "scope": "range"
+        },
+        "shown": [
+          "approx",
+          "fractions"
+        ],
+        "lexicon_hits": 5
+      },
+      {
+        "family": "approx",
+        "table": {
+          "action": "find_value",
+          "object": "fraction",
+          "relations": [
+            "inequality"
+          ],
+          "scope": "none"
+        },
+        "model": {
+          "action": "minimise",
+          "object": "fraction",
+          "relations": [
+            "inequality",
+            "ordering"
+          ],
+          "scope": "range"
+        },
+        "shown": [
+          "approx",
+          "fractions"
+        ],
+        "lexicon_hits": 5
+      },
+      {
+        "family": "basearith",
+        "table": {
+          "action": "find_value",
+          "object": "amount",
+          "relations": [],
+          "scope": "none"
+        },
+        "model": {
+          "action": "sum",
+          "object": "digit_string",
+          "relations": [
+            "equation"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "finance",
+          "formula"
+        ],
+        "lexicon_hits": 1
+      },
+      {
+        "family": "basearith",
+        "table": {
+          "action": "find_value",
+          "object": "amount",
+          "relations": [],
+          "scope": "none"
+        },
+        "model": {
+          "action": "sum",
+          "object": "digit_string",
+          "relations": [
+            "equation"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "finance",
+          "formula"
+        ],
+        "lexicon_hits": 1
+      },
+      {
+        "family": "big",
+        "table": {
+          "action": "find_value",
+          "object": "amount",
+          "relations": [],
+          "scope": "none"
+        },
+        "model": {
+          "action": "find_value",
+          "object": "integer",
+          "relations": [
+            "equation"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "finance",
+          "formula"
+        ],
+        "lexicon_hits": 1
+      },
+      {
+        "family": "big",
+        "table": {
+          "action": "find_value",
+          "object": "amount",
+          "relations": [
+            "power",
+            "remainder"
+          ],
+          "scope": "none"
+        },
+        "model": {
+          "action": "find_value",
+          "object": "integer",
+          "relations": [
+            "power",
+            "remainder"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "finance",
+          "formula"
+        ],
+        "lexicon_hits": 3
+      },
+      {
+        "family": "convert",
+        "table": {
+          "action": "count",
+          "object": "amount",
+          "relations": [
+            "inequality",
+            "unit"
+          ],
+          "scope": "none"
+        },
+        "model": {
+          "action": "convert",
+          "object": "fraction",
+          "relations": [
+            "unit"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "convert",
+          "datetime"
+        ],
+        "lexicon_hits": 10
+      },
+      {
+        "family": "convert",
+        "table": {
+          "action": "count",
+          "object": "amount",
+          "relations": [
+            "inequality",
+            "unit"
+          ],
+          "scope": "none"
+        },
+        "model": {
+          "action": "convert",
+          "object": "fraction",
+          "relations": [
+            "unit"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "convert",
+          "datetime"
+        ],
+        "lexicon_hits": 9
+      },
+      {
+        "family": "count",
+        "table": {
+          "action": "count",
+          "object": "integer",
+          "relations": [
+            "divisibility",
+            "remainder"
+          ],
+          "scope": "range"
+        },
+        "model": {
+          "action": "count",
+          "object": "integer",
+          "relations": [
+            "divisibility",
+            "remainder"
+          ],
+          "scope": "range"
+        },
+        "shown": [
+          "count",
+          "partition"
+        ],
+        "lexicon_hits": 6
+      },
+      {
+        "family": "count",
+        "table": {
+          "action": "count",
+          "object": "integer",
+          "relations": [
+            "digit_property"
+          ],
+          "scope": "range"
+        },
+        "model": {
+          "action": "count",
+          "object": "integer",
+          "relations": [
+            "digit_property",
+            "inequality"
+          ],
+          "scope": "range"
+        },
+        "shown": [
+          "count",
+          "partition"
+        ],
+        "lexicon_hits": 5
+      },
+      {
+        "family": "datetime",
+        "table": {
+          "action": "count",
+          "object": "date",
+          "relations": [],
+          "scope": "range"
+        },
+        "model": {
+          "action": "count",
+          "object": "date",
+          "relations": [
+            "consecutive",
+            "ordering"
+          ],
+          "scope": "range"
+        },
+        "shown": [
+          "datetime",
+          "count"
+        ],
+        "lexicon_hits": 4
+      },
+      {
+        "family": "datetime",
+        "table": {
+          "action": "count",
+          "object": "date",
+          "relations": [],
+          "scope": "range"
+        },
+        "model": {
+          "action": "count",
+          "object": "date",
+          "relations": [
+            "ordering",
+            "unit"
+          ],
+          "scope": "range"
+        },
+        "shown": [
+          "datetime",
+          "count"
+        ],
+        "lexicon_hits": 4
+      },
+      {
+        "family": "divisors",
+        "table": {
+          "action": "count",
+          "object": "divisor",
+          "relations": [
+            "factorial"
+          ],
+          "scope": "none"
+        },
+        "model": {
+          "action": "count",
+          "object": "divisor",
+          "relations": [
+            "divisibility",
+            "factorial"
+          ],
+          "scope": "divisors"
+        },
+        "shown": [
+          "divisors",
+          "datetime"
+        ],
+        "lexicon_hits": 4
+      },
+      {
+        "family": "divisors",
+        "table": {
+          "action": "count",
+          "object": "divisor",
+          "relations": [
+            "factorial"
+          ],
+          "scope": "none"
+        },
+        "model": {
+          "action": "count",
+          "object": "divisor",
+          "relations": [
+            "divisibility",
+            "factorial"
+          ],
+          "scope": "divisors"
+        },
+        "shown": [
+          "divisors",
+          "datetime"
+        ],
+        "lexicon_hits": 4
+      },
+      {
+        "family": "finance",
+        "table": {
+          "action": "find_value",
+          "object": "amount",
+          "relations": [
+            "percentage"
+          ],
+          "scope": "none"
+        },
+        "model": {
+          "action": "find_value",
+          "object": "amount",
+          "relations": [
+            "percentage"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "finance",
+          "formula"
+        ],
+        "lexicon_hits": 4
+      },
+      {
+        "family": "finance",
+        "table": {
+          "action": "find_value",
+          "object": "fraction",
+          "relations": [
+            "percentage"
+          ],
+          "scope": "none"
+        },
+        "model": {
+          "action": "find_value",
+          "object": "amount",
+          "relations": [
+            "percentage"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "finance",
+          "fractions"
+        ],
+        "lexicon_hits": 6
+      },
+      {
+        "family": "fractions",
+        "table": {
+          "action": "find_value",
+          "object": "fraction",
+          "relations": [
+            "inequality"
+          ],
+          "scope": "none"
+        },
+        "model": {
+          "action": "find_value",
+          "object": "fraction",
+          "relations": [
+            "power",
+            "recurrence"
+          ],
+          "scope": "range"
+        },
+        "shown": [
+          "approx",
+          "fractions"
+        ],
+        "lexicon_hits": 2
+      },
+      {
+        "family": "fractions",
+        "table": {
+          "action": "sum",
+          "object": "fraction",
+          "relations": [
+            "recurrence"
+          ],
+          "scope": "none"
+        },
+        "model": {
+          "action": "find_value",
+          "object": "fraction",
+          "relations": [
+            "recurrence"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "fractions",
+          "sequence"
+        ],
+        "lexicon_hits": 3
+      },
+      {
+        "family": "logexp",
+        "table": {
+          "action": "count",
+          "object": "amount",
+          "relations": [
+            "digit_property",
+            "power"
+          ],
+          "scope": "none"
+        },
+        "model": {
+          "action": "count",
+          "object": "digit_string",
+          "relations": [
+            "digit_property",
+            "power"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "logexp",
+          "datetime"
+        ],
+        "lexicon_hits": 4
+      },
+      {
+        "family": "logexp",
+        "table": {
+          "action": "count",
+          "object": "amount",
+          "relations": [
+            "factorial"
+          ],
+          "scope": "none"
+        },
+        "model": {
+          "action": "count",
+          "object": "integer",
+          "relations": [
+            "divisibility",
+            "factorial",
+            "prime"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "divisors",
+          "datetime"
+        ],
+        "lexicon_hits": 3
+      },
+      {
+        "family": "matrix",
+        "table": {
+          "action": "find_value",
+          "object": "matrix",
+          "relations": [],
+          "scope": "none"
+        },
+        "model": {
+          "action": "find_value",
+          "object": "matrix",
+          "relations": [
+            "equation"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "matrix",
+          "fractions"
+        ],
+        "lexicon_hits": 2
+      },
+      {
+        "family": "matrix",
+        "table": {
+          "action": "find_value",
+          "object": "matrix",
+          "relations": [],
+          "scope": "none"
+        },
+        "model": {
+          "action": "find_value",
+          "object": "matrix",
+          "relations": [
+            "equation"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "matrix",
+          "fractions"
+        ],
+        "lexicon_hits": 2
+      },
+      {
+        "family": "partition",
+        "table": {
+          "action": "count",
+          "object": "amount",
+          "relations": [
+            "cardinality"
+          ],
+          "scope": "none"
+        },
+        "model": {
+          "action": "count",
+          "object": "amount",
+          "relations": [
+            "distinctness",
+            "divisibility",
+            "unit"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "datetime",
+          "partition"
+        ],
+        "lexicon_hits": 6
+      },
+      {
+        "family": "partition",
+        "table": {
+          "action": "count",
+          "object": "amount",
+          "relations": [
+            "cardinality"
+          ],
+          "scope": "none"
+        },
+        "model": {
+          "action": "count",
+          "object": "sequence_term",
+          "relations": [
+            "equation",
+            "ordering"
+          ],
+          "scope": "list"
+        },
+        "shown": [
+          "datetime",
+          "partition"
+        ],
+        "lexicon_hits": 6
+      },
+      {
+        "family": "primes",
+        "table": {
+          "action": "count",
+          "object": "prime",
+          "relations": [
+            "primality"
+          ],
+          "scope": "range"
+        },
+        "model": {
+          "action": "count",
+          "object": "prime",
+          "relations": [
+            "inequality",
+            "primality"
+          ],
+          "scope": "range"
+        },
+        "shown": [
+          "primes",
+          "count"
+        ],
+        "lexicon_hits": 5
+      },
+      {
+        "family": "primes",
+        "table": {
+          "action": "find_value",
+          "object": "prime",
+          "relations": [
+            "cardinality",
+            "primality"
+          ],
+          "scope": "range"
+        },
+        "model": null,
+        "shown": [
+          "statistics",
+          "matrix"
+        ],
+        "lexicon_hits": 6
+      },
+      {
+        "family": "probability",
+        "table": {
+          "action": "find_value",
+          "object": "fraction",
+          "relations": [
+            "cardinality",
+            "probability_event"
+          ],
+          "scope": "none"
+        },
+        "model": {
+          "action": "probability",
+          "object": "fraction",
+          "relations": [
+            "probability_event"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "fractions",
+          "approx"
+        ],
+        "lexicon_hits": 6
+      },
+      {
+        "family": "probability",
+        "table": {
+          "action": "find_value",
+          "object": "fraction",
+          "relations": [
+            "cardinality",
+            "probability_event"
+          ],
+          "scope": "none"
+        },
+        "model": {
+          "action": "probability",
+          "object": "triple",
+          "relations": [
+            "probability_event",
+            "sum"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "fractions",
+          "approx"
+        ],
+        "lexicon_hits": 6
+      },
+      {
+        "family": "sequence",
+        "table": {
+          "action": "find_value",
+          "object": "sequence_term",
+          "relations": [
+            "inequality"
+          ],
+          "scope": "none"
+        },
+        "model": {
+          "action": "find_value",
+          "object": "sequence_term",
+          "relations": [
+            "recurrence"
+          ],
+          "scope": "range"
+        },
+        "shown": [
+          "approx",
+          "sequence"
+        ],
+        "lexicon_hits": 5
+      },
+      {
+        "family": "sequence",
+        "table": {
+          "action": "find_value",
+          "object": "sequence_term",
+          "relations": [
+            "inequality"
+          ],
+          "scope": "none"
+        },
+        "model": {
+          "action": "find_value",
+          "object": "sequence_term",
+          "relations": [
+            "recurrence"
+          ],
+          "scope": "range"
+        },
+        "shown": [
+          "approx",
+          "sequence"
+        ],
+        "lexicon_hits": 5
+      },
+      {
+        "family": "statistics",
+        "table": {
+          "action": "find_value",
+          "object": "amount",
+          "relations": [
+            "cardinality"
+          ],
+          "scope": "none"
+        },
+        "model": {
+          "action": "find_value",
+          "object": "amount",
+          "relations": [
+            "cardinality"
+          ],
+          "scope": "list"
+        },
+        "shown": [
+          "statistics",
+          "finance"
+        ],
+        "lexicon_hits": 6
+      },
+      {
+        "family": "statistics",
+        "table": {
+          "action": "find_value",
+          "object": "amount",
+          "relations": [
+            "cardinality"
+          ],
+          "scope": "none"
+        },
+        "model": {
+          "action": "find_value",
+          "object": "integer",
+          "relations": [
+            "ordering"
+          ],
+          "scope": "list"
+        },
+        "shown": [
+          "statistics",
+          "finance"
+        ],
+        "lexicon_hits": 3
+      },
+      {
+        "family": "strcount",
+        "table": {
+          "action": "count",
+          "object": "word",
+          "relations": [
+            "distinctness"
+          ],
+          "scope": "none"
+        },
+        "model": {
+          "action": "count",
+          "object": "word",
+          "relations": [
+            "distinctness",
+            "ordering"
+          ],
+          "scope": "list"
+        },
+        "shown": [
+          "strcount",
+          "datetime"
+        ],
+        "lexicon_hits": 5
+      },
+      {
+        "family": "strcount",
+        "table": {
+          "action": "count",
+          "object": "word",
+          "relations": [
+            "distinctness"
+          ],
+          "scope": "none"
+        },
+        "model": {
+          "action": "count",
+          "object": "set_of_sets",
+          "relations": [
+            "distinctness",
+            "ordering"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "strcount",
+          "datetime"
+        ],
+        "lexicon_hits": 5
+      }
+    ]
+  }
+}

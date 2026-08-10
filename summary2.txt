@@ -1583,3 +1583,42 @@ generalises past its clause.
 That is exactly what the external control was for. Without it the honest-looking sentence
 "the graph executor beats the one-spec pipeline five to nothing" would have shipped, and
 it would have been true only of problems I wrote to be true of.
+
+================================================================================
+PHASE 138 — a closed vocabulary: the role call becomes a lookup
+================================================================================
+
+The observation is not this study's: with a small closed vocabulary the map from word to
+embedding is a TABLE, so you can go out to an embedding and read the word straight back,
+and the network before and after stops being needed. A transformer already works this way
+— its input matrix is a dictionary-sized word-to-vector table and its output projection is
+that table read backwards — so a closed vocabulary changes the SIZE and the
+INVERTIBILITY, not the mechanism.
+
+The consequence here is exact: phase 131 spends one model call per problem turning a
+sentence into a role signature. If the vocabulary is closed, that call is a lookup. So the
+table was written from what the words MEAN, in both languages, never from which problems
+failed — 134 entries, 17 of them carrying more than one role, because a word with several
+senses gets several entries and that ambiguity is the point.
+
+    set          table    model    words found    action+object agreement
+    Norwegian     9/18    15/18       18/18            22/36
+    English      26/34    26/34       34/34            44/68
+    TOTAL        35/52    41/52
+
+    model calls: 52 for the model key, ZERO for the table
+
+ON ENGLISH THE TABLE TIES THE MODEL EXACTLY, 26 to 26, for free. A hundred and thirty-four
+words replace a call per problem and lose nothing measurable — which is the strongest
+version of this study's oldest move, since here the record does not merely check the
+model's work but does it instead.
+
+On Norwegian it loses, 9 to 15, and the reason is coverage rather than principle: the
+table holds about ninety English words and forty Norwegian ones. The fix is more entries,
+not a better model, and it is the same shape as phase 122 — translate the surface and the
+lexical layer comes back.
+
+What that says about the bigger idea: a full dictionary-sized table is not a different
+kind of thing from what the model already carries, it is the same table made readable. The
+saving is not in intelligence, it is in not paying a forward pass to look up something
+that was always a lookup.

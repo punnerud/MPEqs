@@ -1797,6 +1797,15 @@ CHECKS = [
      15.0, 0.001, "GSM8K solved by the graph arm, against one-spec 21 and solo 28"),
     ("data/custom/gsmgraph.json", lambda d: float(d["ran"]),
      17.0, 0.001, "systems that resolved, of 26 parsed"),
+    # A closed vocabulary: the role signature by lookup instead of by call.
+    ("data/custom/lexroles.json", lambda d: float(d["mixed"]["table_retrieval"]),
+     26.0, 0.001, "English retrieval from a 134-word table, at zero model calls"),
+    ("data/custom/lexroles.json", lambda d: float(d["mixed"]["model_retrieval"]),
+     26.0, 0.001, "the same by one model call per problem — an exact tie"),
+    ("data/custom/lexroles.json", lambda d: float(d["norwegian"]["table_retrieval"]),
+     9.0, 0.001, "Norwegian by table, where the vocabulary is half as covered"),
+    ("data/custom/lexroles.json", lambda d: float(d["ambiguous_words"]),
+     17.0, 0.001, "words carrying more than one role, as senses require"),
     # Two-sided labels on the chord metric: no better than one relay, twice the memory.
     ("data/custom/hub-corpus.json", lambda d: d["exact_cell_pct"],
      1.34, 0.7, "two-sided hub labels on the angular metric"),
