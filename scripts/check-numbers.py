@@ -1783,6 +1783,15 @@ CHECKS = [
      6.83, 0.05, "road-matrix cells never built per cell actually generated"),
     ("data/custom/islands.json", lambda d: float(d["solvers_typed"]),
      41.0, 0.001, "machines given a consumes/produces type, none rewritten"),
+    # Chaining measured, and the split that makes it readable.
+    ("data/custom/twostep.json", lambda d: float(d["total"]["oneshot"]),
+     0.0, 0.001, "two-step problems today's one-spec pipeline can express: none"),
+    ("data/custom/twostep.json", lambda d: float(d["by_family"]["practical"]["graph"]),
+     5.0, 0.001, "practical chains the graph executor got right, of eight"),
+    ("data/custom/twostep.json", lambda d: float(d["by_family"]["olympiad"]["graph"]),
+     1.0, 0.001, "olympiad chains, of eight — chaining is not what was missing there"),
+    ("data/custom/twostep.json", lambda d: float(d["total"]["graph"]),
+     6.0, 0.001, "chains executed correctly overall, against solo's two"),
     # Two-sided labels on the chord metric: no better than one relay, twice the memory.
     ("data/custom/hub-corpus.json", lambda d: d["exact_cell_pct"],
      1.34, 0.7, "two-sided hub labels on the angular metric"),

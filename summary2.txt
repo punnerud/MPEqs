@@ -1516,3 +1516,38 @@ FOUR BUGS, ALL MINE, ALL CAUGHT BY THE SELF-TEST BEFORE ANY MODEL SAW IT:
 That last one is the phase's real lesson repeated at the level of the plumbing: an index,
 a boundary and a name are the three things this study keeps getting wrong, and the only
 reason none of them shipped is that the truth was written before the code ran.
+
+================================================================================
+PHASE 136 — chaining measured, split in two on purpose
+================================================================================
+
+Sixteen problems that genuinely need two machines, truths computed from the structure
+before any wording was written, and split deliberately because "chaining works" and
+"chaining works where the mapping works" are different claims this study has confused
+before.
+
+    half         n    solo   one-shot   GRAPH   note
+    practical    8      1        0        5     two machines, inside the measured band
+    olympiad     8      1        0        1     two machines, competition wording
+    TOTAL       16      2        0        6     graph arm executed 16 steps, 2 wrong
+
+ONE-SHOT SCORES ZERO, WHICH IS THE POINT OF HAVING IT. Today's pipeline maps to exactly one
+machine and these problems need two, so its column is the floor a chain has to beat, and
+it is a floor at zero rather than an argument.
+
+THE GRAPH ARM BEATS IT — AND ONLY ON ONE HALF. Five of eight practical against one of
+eight olympiad, from the same prompt, the same executor and the same catalogue. The split
+you asked for is what makes that readable: chaining is not the thing competition problems
+were missing. Phases 94, 130 and 124 all said the mapping is the bottleneck there, and
+giving the mapper a second machine to reach for does not help a mapper that cannot express
+the first one.
+
+Where it does work it works cleanly: a date span into a percentage, a divisor sum into a
+digit root, a prime count into a fraction of the range, an arrangement count divided
+down — each two definitions the record ran in topological order, each exact, none of them
+expressible as a single spec at all.
+
+Two wrong deliveries out of eight that produced a number, both in the half where the
+mapping is honest, and both from a first step that was right feeding a second step that
+misread what it was given. That is the cost of chaining stated plainly: a chain multiplies
+the ways a mapping can be wrong, and it does not multiply the ways it can be checked.

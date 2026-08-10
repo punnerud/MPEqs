@@ -1,0 +1,207 @@
+{
+  "by_family": {
+    "practical": {
+      "n": 8,
+      "solo": 1,
+      "oneshot": 0,
+      "graph": 5,
+      "graph_steps": 12,
+      "routed": 3,
+      "wrong": 1
+    },
+    "olympiad": {
+      "n": 8,
+      "solo": 1,
+      "oneshot": 0,
+      "graph": 1,
+      "graph_steps": 4,
+      "routed": 7,
+      "wrong": 1
+    }
+  },
+  "total": {
+    "n": 16,
+    "solo": 2,
+    "oneshot": 0,
+    "graph": 6,
+    "wrong": 2
+  },
+  "rows": [
+    {
+      "family": "practical",
+      "truth": "11753/10",
+      "solo_ok": false,
+      "oneshot_ok": false,
+      "graph_ok": true,
+      "graph_value": "11753/10",
+      "why": "ok",
+      "steps": 2,
+      "story": "How many days are there from 7 March 2024 to 24 December 2026, and wha"
+    },
+    {
+      "family": "practical",
+      "truth": "27",
+      "solo_ok": false,
+      "oneshot_ok": false,
+      "graph_ok": true,
+      "graph_value": "27",
+      "why": "ok",
+      "steps": 2,
+      "story": "What is the sum of all positive divisors of 498960, and what is the di"
+    },
+    {
+      "family": "practical",
+      "truth": "369/2",
+      "solo_ok": false,
+      "oneshot_ok": false,
+      "graph_ok": false,
+      "graph_value": "None",
+      "why": "search_result: refused: multisearch needs 1 to 6 variables",
+      "steps": null,
+      "story": "How many integers from 1 to 200000 are divisible by 37 and leave remai"
+    },
+    {
+      "family": "practical",
+      "truth": "546612",
+      "solo_ok": false,
+      "oneshot_ok": false,
+      "graph_ok": false,
+      "graph_value": "None",
+      "why": "d: error: KeyError: 'n'",
+      "steps": null,
+      "story": "How many positive divisors does 22 factorial have, and what is that nu"
+    },
+    {
+      "family": "practical",
+      "truth": "4203/40000",
+      "solo_ok": false,
+      "oneshot_ok": false,
+      "graph_ok": true,
+      "graph_value": "4203/40000",
+      "why": "ok",
+      "steps": 2,
+      "story": "How many prime numbers are there below 40000, and what is that count a"
+    },
+    {
+      "family": "practical",
+      "truth": "1386",
+      "solo_ok": false,
+      "oneshot_ok": false,
+      "graph_ok": true,
+      "graph_value": "1386",
+      "why": "ok",
+      "steps": 2,
+      "story": "How many distinct arrangements are there of the letters of MISSISSIPPI"
+    },
+    {
+      "family": "practical",
+      "truth": "1631/2",
+      "solo_ok": false,
+      "oneshot_ok": false,
+      "graph_ok": true,
+      "graph_value": "1631/2",
+      "why": "ok",
+      "steps": 2,
+      "story": "What is the exact population variance of 23, 41, 7, 19, 33 and 12, and"
+    },
+    {
+      "family": "practical",
+      "truth": "1581",
+      "solo_ok": true,
+      "oneshot_ok": false,
+      "graph_ok": false,
+      "graph_value": "11072/7",
+      "why": "ok",
+      "steps": 2,
+      "story": "How many days are there from 9 September 1999 to 1 January 2030, and h"
+    },
+    {
+      "family": "olympiad",
+      "truth": "12",
+      "solo_ok": false,
+      "oneshot_ok": false,
+      "graph_ok": false,
+      "graph_value": "None",
+      "why": "fact: error: KeyError: 'n'",
+      "steps": null,
+      "story": "The sum of all positive integers m such that 13!/m is a perfect square"
+    },
+    {
+      "family": "olympiad",
+      "truth": "2",
+      "solo_ok": false,
+      "oneshot_ok": false,
+      "graph_ok": false,
+      "graph_value": "None",
+      "why": "count: refused: multisearch needs 1 to 6 variables",
+      "steps": null,
+      "story": "Call a positive integer extra-distinct if its remainders on division b"
+    },
+    {
+      "family": "olympiad",
+      "truth": "2",
+      "solo_ok": true,
+      "oneshot_ok": false,
+      "graph_ok": false,
+      "graph_value": "None",
+      "why": "triangles: error: AttributeError: 'str' object has no attribute 'get'",
+      "steps": null,
+      "story": "Twenty points on a circle are labelled 1 to 20 and a segment joins two"
+    },
+    {
+      "family": "olympiad",
+      "truth": "10",
+      "solo_ok": false,
+      "oneshot_ok": false,
+      "graph_ok": false,
+      "graph_value": "2",
+      "why": "ok",
+      "steps": 2,
+      "story": "How many subsets of the numbers 1 to 10 contain exactly one pair of co"
+    },
+    {
+      "family": "olympiad",
+      "truth": "7",
+      "solo_ok": false,
+      "oneshot_ok": false,
+      "graph_ok": false,
+      "graph_value": "None",
+      "why": "incidents_3: refused: no steps and no answer expression",
+      "steps": null,
+      "story": "A plane holds 40 lines, no two parallel, with 3 points where exactly 3"
+    },
+    {
+      "family": "olympiad",
+      "truth": "DV",
+      "solo_ok": false,
+      "oneshot_ok": false,
+      "graph_ok": true,
+      "graph_value": "DV",
+      "why": "ok",
+      "steps": 2,
+      "story": "How many trailing zeros does 2025 factorial have, and what is that num"
+    },
+    {
+      "family": "olympiad",
+      "truth": "8",
+      "solo_ok": false,
+      "oneshot_ok": false,
+      "graph_ok": false,
+      "graph_value": "None",
+      "why": "'name' is referenced but never defined",
+      "steps": null,
+      "story": "How many integers from 1 to 100000 are divisible by 13 and have digits"
+    },
+    {
+      "family": "olympiad",
+      "truth": "36",
+      "solo_ok": false,
+      "oneshot_ok": false,
+      "graph_ok": false,
+      "graph_value": "None",
+      "why": "the asked node 'a * a' is never defined",
+      "steps": null,
+      "story": "How many ordered pairs of positive integers satisfy 7a + 11b = 500, an"
+    }
+  ]
+}
