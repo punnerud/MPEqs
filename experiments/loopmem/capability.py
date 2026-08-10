@@ -42,6 +42,8 @@ ROWS = [
      "the scaling law re-measured"),
     ("Eighteen Norwegian problems", "norsk.json", "solo", "mpeqs", 18,
      "English catalogue, retrieval half-collapsed"),
+    ("The same, exemplars translated", "norsk_bank.json", "solo", "mpeqs", 18,
+     "retrieval 8/18 -> 17/18"),
     ("Fresh 24, the full policy live", "pipeline.json", "solo", "pipeline", 24,
      "23 right, zero wrong, one refusal"),
     ("AIME, model-mapped", "aimefewshot.json", None, "exact", 15,

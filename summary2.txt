@@ -1084,3 +1084,50 @@ an adaptation, and adaptation is the boundary phase 119 drew and phase 120 could
 Which closes the language question in the shape everything else in this study has taken:
 the mechanical part travels, the part that needs judgement does not, and the whole art is
 moving as much as possible from the second into the first.
+
+================================================================================
+WHAT MPEqs IS, AFTER PHASES 92-123 — the whole arc in one place
+================================================================================
+
+THE MEASUREMENT, assembled from the JSON each run wrote (see capability.py):
+
+    comparable totals across every two-armed battery    107 model     292 MPEqs
+                                                        of 345 problems
+
+    where the machinery loses: grade-school word problems (28 against 21) and easy
+    instances of any class (15 against 15) — both because the arithmetic was never hard
+    where it wins: everything whose answer is an exact ratio, a large integer, a wide
+    count, a calendar span or a structure the model cannot enumerate
+    where neither reaches: competition mathematics, hand-mapped ceiling 5 of 15
+
+THE LIBRARY: 37 solvers over 17 classes, 52 self-tests exact, 14 named refusals, split
+across an engine (expression sandbox, pruned tuple search, folds, dispatch) and its
+domains. It grew from 15 in thirty-one phases, and every single addition was demanded by
+a failure someone measured rather than chosen because it seemed useful.
+
+THE RECIPE, each part measured separately before being combined:
+
+    A MACHINE that is exact and refuses by name. The refusal is not a consolation, it is
+      the routing signal: taking the machine's answer and handing back only refusals beat
+      every text-feature router tried (117 of 135 against 95).
+    A SCHEMA LINE that states its units and leads with its distinction. Three separate
+      phases lost problems to a buried k-versus-n, an unstated percent, an ambiguous
+      rate. The model reads the schema literally and has nothing else.
+    AN EXEMPLAR THAT IS RETRIEVED. A catalogue cannot grow inside a prompt: with generic
+      examples two classes vanished entirely, with retrieval the same battery went 25 of
+      27 with nothing wrong, and at 37 machines it went 33 of 34.
+    A SLOT THAT CAN BE FILLED RATHER THAN COMPOSED, for small models. Naming "multiply"
+      and "add" instead of asking for a step expression, and taking units in the
+      question's own words, is what moves a 1B off zero.
+
+THE SMALL MODEL, the thread that ran the longest: OLMoE-1B answers 1 of 27 alone and
+drives 37 exact machines to 23 of 34 — and every gain came from making the example more
+copyable, never from asking the model for more. Its ceiling is adaptation: it cannot
+change an example's units, compose a fold's step, or cross a language boundary.
+
+WHAT THE STUDY IS ACTUALLY ABOUT, visible now that the numbers are in: none of this is
+about arithmetic. The record could always compute. Everything measured here was about
+ADDRESSABILITY — whether a capability can be reached by the thing holding the problem.
+The formula library sat unused for fifteen phases and answered nothing until it had a
+schema line; the unit router the same; a machine nobody can name is not a capability,
+and the whole engineering task turned out to be building addresses.

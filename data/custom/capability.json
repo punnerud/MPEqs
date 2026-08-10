@@ -99,6 +99,13 @@
       "note": "English catalogue, retrieval half-collapsed"
     },
     {
+      "band": "The same, exemplars translated",
+      "solo": 6,
+      "mpeqs": 16,
+      "n": 18,
+      "note": "retrieval 8/18 -> 17/18"
+    },
+    {
       "band": "Fresh 24, the full policy live",
       "solo": 3,
       "mpeqs": 23,
@@ -120,8 +127,8 @@
       "note": "what the vocabulary reaches"
     }
   ],
-  "total_solo": 101,
-  "total_mpeqs": 276,
-  "total_n": 327,
+  "total_solo": 107,
+  "total_mpeqs": 292,
+  "total_n": 345,
   "solvers": 37
 }

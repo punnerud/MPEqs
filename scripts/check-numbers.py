@@ -1621,11 +1621,11 @@ CHECKS = [
      14.0, 0.001, "and through the machinery: the band appears with the difficulty"),
     # The capability sheet, assembled from the runs.
     ("data/custom/capability.json", lambda d: float(d["total_mpeqs"]),
-     276.0, 0.001, "problems solved through MPEqs across every two-armed battery"),
+     292.0, 0.001, "problems solved through MPEqs across every two-armed battery"),
     ("data/custom/capability.json", lambda d: float(d["total_solo"]),
-     101.0, 0.001, "solved by the same model answering alone"),
+     107.0, 0.001, "solved by the same model answering alone"),
     ("data/custom/capability.json", lambda d: float(d["total_n"]),
-     327.0, 0.001, "problems in those batteries"),
+     345.0, 0.001, "problems in those batteries"),
     # Routing: the a priori rule loses to not routing, and refusal is the signal.
     ("data/custom/router.json", lambda d: float(d["always_mpeqs"]),
      113.0, 0.001, "always sending to the machinery"),
