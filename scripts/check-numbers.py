@@ -1696,6 +1696,11 @@ CHECKS = [
      6.0, 0.001, "and what the model alone managed in Norwegian"),
     ("data/custom/norsk.json", lambda d: float(d["retrieval_hit"]),
      8.0, 0.001, "retrieval hits of eighteen, against 32 of 34 in English"),
+    # Translating the exemplars restores the retrieval layer.
+    ("data/custom/norsk_bank.json", lambda d: float(d["retrieval_hit"]),
+     17.0, 0.001, "retrieval hits with a Norwegian bank, against 8 with English"),
+    ("data/custom/norsk_bank.json", lambda d: float(d["mpeqs"]),
+     16.0, 0.001, "Norwegian problems solved with a Norwegian bank"),
     # Two-sided labels on the chord metric: no better than one relay, twice the memory.
     ("data/custom/hub-corpus.json", lambda d: d["exact_cell_pct"],
      1.34, 0.7, "two-sided hub labels on the angular metric"),

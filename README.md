@@ -133,6 +133,7 @@ every delivery mechanically.
 | Bases, approximation, words, primes (n=16) | 5/16 | **16/16** |
 | Seventeen classes at 37 solvers (n=34) | 10/34 | **33/34** |
 | Eighteen problems in **Norwegian** (n=18) | 6/18 | **15/18** |
+| the same, with the exemplar bank translated | 6/18 | **16/18** (retrieval 8→17) |
 | Fresh 24, full policy live (n=24) | 3/24 | **23/24**, zero wrong |
 | **Every two-armed battery together** | **101/327** | **276/327** |
 

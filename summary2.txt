@@ -1029,3 +1029,29 @@ BANK does not, because a nearest-neighbour lookup is only as multilingual as its
 so a Norwegian deployment should write its exemplars in Norwegian, or embed them with a
 multilingual encoder, and would then presumably recover the classes that fell here
 (divisors at 1 of 3 is the visible cost).
+
+================================================================================
+PHASE 122 — the bank in Norwegian: the retrieval layer comes back
+================================================================================
+
+Phase 121 ended on a deployment note — write the bank in the user's language — and a note
+that is not measured is an opinion. So the nine exemplars were translated, PROBLEM TEXT
+ONLY: every spec stayed exactly as it was, because the schema is the interface and not
+the language.
+
+    the needed class was retrieved for   17/18   (English bank: 8/18)
+    MPEqs                                16/18   (English bank: 15/18)
+    SOLO-35B                              6/18   unchanged
+
+    count 2/3 -> 3/3; every other class held; divisors stays at 1/3 for its own reasons
+
+Translating nine sentences doubled the retrieval hit rate and bought one problem. The
+small score gain is the honest headline: the mapping layer had already been compensating
+for the broken retrieval by reading the catalogue directly, so fixing retrieval recovered
+the margin rather than the middle. What it really buys is the SMALL model, which cannot
+compensate — phase 119 measured the 1B living entirely off whether the retrieved example
+can be copied, and an example it never sees cannot be copied at all.
+
+The two layers, finally stated as a rule: SCHEMAS are structure and travel; EXEMPLARS are
+surface and must be written in the language of the person asking. Both are cheap, and
+neither needs a different model.
