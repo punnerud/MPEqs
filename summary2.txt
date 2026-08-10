@@ -907,3 +907,30 @@ what keeps the working set constant while the library grows, which is the whole 
 the study's oldest instinct — keep as little as possible in working memory, store the
 rest, and fetch what this problem needs — turns out to apply to the tool as well as to
 the reasoning.
+
+================================================================================
+PHASE 118 — the small model at thirty-seven machines: it went UP
+================================================================================
+
+The library grew by eleven machines and the catalogue by a third since phase 109 put
+OLMoE-1B in the driving seat, which is exactly the direction that should hurt a model
+whose failure mode was never arithmetic but instruction-following. Same battery as the
+35B run, same bank, same retrieval, same prefill — only the seat changes.
+
+    OLMoE-1B alone                     2/34
+    OLMoE-1B through MPEqs            18/34   (31 specs parsed, 22 ran, 4 wrong)
+    Qwen-35B through MPEqs            33/34
+
+    at twenty-six machines (phase 109) the same model scored 12/27 — 44 percent
+    at thirty-seven machines it scores 53 percent
+
+THE BIGGER LIBRARY HELPED THE SMALLER MODEL. Not because the 1B got better at anything,
+but because more of the problems now have a machine whose exemplar is nearly a template:
+sequences, matrices, primes, statistics, calendars, base arithmetic and approximation
+all come in at 2 of 2. What it still misses are the classes where the exemplar has to be
+ADAPTED — a fold with different constants, a conversion between units the example did not
+mention — which is the same boundary phase 109 drew, unmoved by a third more catalogue.
+
+So the recipe's cost to a small model is not the size of the library. It is whether the
+retrieved example can be copied with the numbers changed, and that is a property of how
+the exemplars are written, which is a thing anyone can improve without touching a model.
