@@ -1546,6 +1546,11 @@ CHECKS = [
      5.0, 0.001, "specs that run after the linear-solve growth, up from three"),
     ("data/custom/aimefewshot_after.json", lambda d: float(d["after"]["exact"]),
      1.0, 0.001, "still exact: growing the machine did not fix the mapping"),
+    # Retrieved exemplars: retrieval perfect, mapper still the bottleneck.
+    ("data/custom/mapmemory.json", lambda d: float(d.get("retrieval_hit", 0)),
+     5.0, 0.001, "reachable problems shown the exemplar shape they needed"),
+    ("data/custom/mapmemory.json", lambda d: float(d.get("exact_reachable", 0)),
+     1.0, 0.001, "of those, mapped correctly — the bottleneck, isolated"),
     # Two-sided labels on the chord metric: no better than one relay, twice the memory.
     ("data/custom/hub-corpus.json", lambda d: d["exact_cell_pct"],
      1.34, 0.7, "two-sided hub labels on the angular metric"),

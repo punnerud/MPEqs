@@ -1,0 +1,368 @@
+{
+  "n": 15,
+  "k": 2,
+  "retrieval_hit": 5,
+  "claimed": 10,
+  "ran": 6,
+  "wrong": 5,
+  "exact_reachable": 1,
+  "exact": 1,
+  "no_reply": 2,
+  "refused": 4,
+  "declined": 3,
+  "declined_ok": 3,
+  "rows": [
+    {
+      "i": 0,
+      "truth": "12",
+      "shown": [
+        "factorial_divisors",
+        "modular_inverse"
+      ],
+      "reachable": true,
+      "outcome": "9698458770 != 12",
+      "spec": {
+        "solver": "search",
+        "domain": {
+          "kind": "divisors_of_factorial",
+          "k": 13
+        },
+        "conditions": [
+          {
+            "op": "quotient_is_square",
+            "arg": 6227020800
+          }
+        ],
+        "aggregate": "sum"
+      }
+    },
+    {
+      "i": 1,
+      "truth": "4",
+      "shown": [
+        "aggregate_mod",
+        "power_mod"
+      ],
+      "reachable": true,
+      "outcome": "4 EXACT",
+      "spec": {
+        "solver": "multisearch",
+        "variables": [
+          {
+            "name": "k",
+            "from": 3,
+            "to": 40
+          }
+        ],
+        "conditions": [],
+        "objective": "(k*(k-1)//2)*(k*(k-1)//2 - 1)//2",
+        "aggregate": "sum",
+        "post": {
+          "op": "mod",
+          "arg": 1000
+        }
+      }
+    },
+    {
+      "i": 2,
+      "truth": "81",
+      "shown": [
+        "triples",
+        "steps"
+      ],
+      "reachable": false,
+      "outcome": "unparseable"
+    },
+    {
+      "i": 3,
+      "truth": "125",
+      "shown": [
+        "bits",
+        "recurrence"
+      ],
+      "reachable": false,
+      "outcome": "1 != 125",
+      "spec": {
+        "solver": "multisearch",
+        "variables": [
+          {
+            "name": "pairing",
+            "from": 0,
+            "to": 3
+          }
+        ],
+        "conditions": [
+          "pairing == 0",
+          "not (pairing == 1 or pairing == 2 or pairing == 3)"
+        ],
+        "objective": "0",
+        "aggregate": "count"
+      }
+    },
+    {
+      "i": 4,
+      "truth": "751",
+      "shown": [
+        "bits",
+        "steps"
+      ],
+      "reachable": false,
+      "outcome": "['0', '2', '8', '-10'] != 751",
+      "spec": {
+        "solver": "linear_system",
+        "rows": [
+          [
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            1,
+            0
+          ]
+        ],
+        "rhs": [
+          0,
+          0,
+          2,
+          8
+        ]
+      }
+    },
+    {
+      "i": 5,
+      "truth": "738",
+      "shown": [
+        "polynomial",
+        "triples"
+      ],
+      "reachable": false,
+      "outcome": "refused: refused: expression syntax: invalid syntax",
+      "spec": {
+        "solver": "multisearch",
+        "variables": [
+          {
+            "name": "a",
+            "from": -20,
+            "to": 20
+          },
+          {
+            "name": "b",
+            "from": -20,
+            "to": 20
+          },
+          {
+            "name": "c",
+            "from": -20,
+            "to": 20
+          }
+        ],
+        "conditions": [
+          "exists m, m != 2, p(m) == p(2)",
+          "not exists m1, m2, m1 != m2, m1 != 2, m2 != 2, p(m1) == p(2), p(m2) == p(2)"
+        ],
+        "aggregate": "count"
+      }
+    },
+    {
+      "i": 6,
+      "truth": "250",
+      "shown": [
+        "steps",
+        "triples"
+      ],
+      "reachable": false,
+      "outcome": "declined"
+    },
+    {
+      "i": 7,
+      "truth": "928",
+      "shown": [
+        "bits",
+        "digit_property"
+      ],
+      "reachable": true,
+      "outcome": "unparseable"
+    },
+    {
+      "i": 8,
+      "truth": "51",
+      "shown": [
+        "steps",
+        "bits"
+      ],
+      "reachable": false,
+      "outcome": "declined"
+    },
+    {
+      "i": 9,
+      "truth": "75",
+      "shown": [
+        "diophantine",
+        "triples"
+      ],
+      "reachable": false,
+      "outcome": "declined"
+    },
+    {
+      "i": 10,
+      "truth": "756",
+      "shown": [
+        "triples",
+        "modular_inverse"
+      ],
+      "reachable": false,
+      "outcome": "refused: error: ValueError: too many values to unpack",
+      "spec": {
+        "solver": "geometry",
+        "kind": "distance_squared",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "i": 11,
+      "truth": "244",
+      "shown": [
+        "diophantine",
+        "triples"
+      ],
+      "reachable": false,
+      "outcome": "[11] != 244",
+      "spec": {
+        "solver": "multisearch",
+        "variables": [
+          {
+            "name": "m",
+            "from": 1,
+            "to": 10
+          },
+          {
+            "name": "n",
+            "from": 1,
+            "to": 10
+          }
+        ],
+        "conditions": [
+          "m == 7",
+          "n == 5"
+        ],
+        "objective": "m + n - 1",
+        "aggregate": "list"
+      }
+    },
+    {
+      "i": 12,
+      "truth": "154",
+      "shown": [
+        "diophantine",
+        "steps"
+      ],
+      "reachable": true,
+      "outcome": "550 != 154",
+      "spec": {
+        "solver": "multisearch",
+        "variables": [
+          {
+            "name": "initial_total",
+            "from": 1,
+            "to": 10000
+          },
+          {
+            "name": "initial_adults",
+            "from": 1,
+            "to": 10000
+          }
+        ],
+        "conditions": [
+          "initial_adults * 12 == initial_total * 5",
+          "(initial_adults + 50) * 25 == (initial_total + 50) * 11"
+        ],
+        "objective": "initial_adults + 50",
+        "aggregate": "min"
+      }
+    },
+    {
+      "i": 13,
+      "truth": "363",
+      "shown": [
+        "modular_inverse",
+        "triples"
+      ],
+      "reachable": true,
+      "outcome": "refused: refused: expression calls something outside ",
+      "spec": {
+        "solver": "multisearch",
+        "variables": [
+          {
+            "name": "n",
+            "from": 1,
+            "to": 1000
+          }
+        ],
+        "conditions": [
+          "modular(kind='inverse', a=23, modulus='2**n') == modular(kind='inverse', a=23, modulus='2**(n+1)')"
+        ],
+        "aggregate": "count"
+      }
+    },
+    {
+      "i": 14,
+      "truth": "245",
+      "shown": [
+        "triples",
+        "modular_inverse"
+      ],
+      "reachable": false,
+      "outcome": "refused: refused: expression syntax: positional argum",
+      "spec": {
+        "solver": "multisearch",
+        "variables": [
+          {
+            "name": "n",
+            "from": 1,
+            "to": 2022
+          }
+        ],
+        "conditions": [
+          "S(n) == sum(k=0..n, choose(n, k)^2 * k)"
+        ],
+        "aggregate": "list",
+        "post": {
+          "op": "mod",
+          "arg": 1000
+        }
+      }
+    }
+  ]
+}

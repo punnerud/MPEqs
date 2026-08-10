@@ -1627,3 +1627,40 @@ the latter because the model assumed all fifty new arrivals were adults). Growin
 machine converts refusals into answers, not into correct answers. The mapping is still
 where the error lives, and every layer that could hide that has now been measured
 separately.
+
+================================================================================
+PHASE 101 — retrieved exemplars: retrieval is perfect, the mapper still is not
+================================================================================
+
+Phase 100's three fixed examples could not cover the shapes the reachable problems
+need, so the bank grew and became retrievable: twelve exemplar mappings (invented, no
+leakage), each embedded with numbers masked, the two nearest shown per problem. Phase
+88's translation memory moved up a level — the library's memory of HOW ITS MACHINES GET
+USED.
+
+    retrieved the needed shape for the reachable five   5/5
+    claimed 10, ran 6, EXACT 1 (of the reachable five: 1)
+    baselines: no examples 0, fixed three 1, hand-mapped ceiling 5
+
+RETRIEVAL IS NOT THE PROBLEM. Every one of the five reachable problems had the right
+exemplar in front of the model — factorial_divisors for the 13! question, bits for the
+dodecagon, diophantine for the concert crowd, modular_inverse for the powers of two —
+and one came back right. The decomposition is now complete, each layer measured
+separately:
+
+    machines        exact, 20 solvers, 18/18 self-tests, refusals named
+    vocabulary      reaches 5 of 15 (proved by hand)
+    retrieval       puts the right shape up 5 of 5
+    THE MAPPER      converts 1 of 5
+
+Whatever is missing lives in the step where a problem in language becomes a filled
+spec, with the machine, the vocabulary and the example all present. That is a clean
+result and an unglamorous one: nothing else in the pipeline is worth optimising until
+it moves.
+
+One harness bug caught on the way, and it would have poisoned everything downstream:
+the encoder returned 17 vectors for 15 problems, because a LaTeX-dense statement
+tokenises past the 512-token window and llama-embedding silently emits an extra row —
+which shifts every later vector onto the wrong problem. Stripping the markup before
+embedding fixed it and improved the key, since the shape lives in the words, not the
+typesetting.
