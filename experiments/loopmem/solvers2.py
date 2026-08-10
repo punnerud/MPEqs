@@ -810,6 +810,9 @@ CASES = [
       "max_denominator": 50}, "22/7"),
     ({"solver": "primes", "kind": "count", "from": 1, "to": 100}, 25),
     ({"solver": "primes", "kind": "nth", "n": 1000}, 7919),
+    # the equation solver, addressable at last: 3/2x + 7 = 5x - 2 gives x = 18/7
+    ({"solver": "equation", "equation": "3/2x + 7 = 5x - 2"}, "18/7"),
+    ({"solver": "equation", "equation": "4y - 9 = 2y + 15", "variable": "y"}, "12"),
     # And the old library must still answer through the joint dispatcher.
     ({"solver": "crt", "residues": [2, 3, 2], "moduli": [3, 5, 7]}, 23),
 ]
@@ -833,6 +836,8 @@ REFUSALS = [
     ({"solver": "geometry", "kind": "circle_through",
       "points": [[0, 0], [1, 1], [2, 2]]}, "collinear"),
     ({"solver": "convert", "value": 1, "from": "kr", "to": "kg"}, "no route"),
+    ({"solver": "equation", "equation": "2x + 3 = 2x + 5"}, "contradiction"),
+    ({"solver": "equation", "equation": "2x + 3 = 2x + 3"}, "identity"),
     ({"solver": "sequence", "terms": [1, 2, 4, 8, 17], "n": 9}, "no arithmetic"),
     ({"solver": "matrix", "kind": "inverse", "matrix": [[1, 2], [2, 4]]},
      "singular"),

@@ -1489,7 +1489,7 @@ CHECKS = [
     # Was 6 at phase 95; arith added two refusal cases in phase 98 (unknown variable,
     # division by zero in a step). The library grew, so the guard grew with it.
     ("data/custom/solvers2.json", lambda d: float(d["refusals_named"]),
-     14.0, 0.001, "refusals named, three of them expression-sandbox escapes"),
+     16.0, 0.001, "refusals named, three of them expression-sandbox escapes"),
     # AIME coverage: willingness to map is not reach.
     ("data/custom/aimecover.json", lambda d: float(d.get("claimed", 0)),
      22.0, 0.001, "AIME problems the model claimed it could map"),
@@ -1527,7 +1527,7 @@ CHECKS = [
     ("data/custom/gsmgate.json", lambda d: float(d["both"][2]),
      0.0, 0.001, "wrong deliveries under echo plus cross-kind agreement"),
     ("data/custom/solvers2.json", lambda d: float(d["passed"]),
-     52.0, 0.001, "grown-library self-tests, plus the named-slot fold of phase 120"),
+     54.0, 0.001, "grown-library self-tests, through the phase 125 equation solver"),
     # The ceiling: what the vocabulary reaches when a human does the mapping.
     ("data/custom/aimeceiling.json", lambda d: float(d["hand_exact"]),
      5.0, 0.001, "AIME problems hand-mapped onto the library and exact"),
@@ -1659,7 +1659,7 @@ CHECKS = [
     ("data/custom/bands5.json", lambda d: float(d["byfam"]["approx"][1]),
      0.0, 0.001, "rational approximations the model found alone: none"),
     ("data/custom/solvers2.json", lambda d: float(d["solvers_total"]),
-     37.0, 0.001, "solvers in MPEqs after the phase 115 additions"),
+     38.0, 0.001, "solvers in MPEqs after the equation solver was addressed"),
     # The scaling law re-measured at thirty-seven machines.
     ("data/custom/grandmix.json", lambda d: float(d["mpeqs"]),
      33.0, 0.001, "problems solved across seventeen classes at 37 solvers"),

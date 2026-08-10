@@ -145,7 +145,7 @@ sums, routing through machinery only adds a place to slip.
 
 ### How it works
 
-1. **Solvers** (`solvers.py`, `solvers2.py`) — 37 parameterised exact machines across 17 classes: a generic
+1. **Solvers** (`solvers.py`, `solvers2.py`) — 38 parameterised exact machines across 18 classes: a generic
    search over ranges/divisors/factorial-divisors with 22 predicates, multi-variable
    search whose conditions are AST-vetted arithmetic expressions, a fold, exact linear
    systems, polynomials, CRT, modular arithmetic, coordinate geometry, series,

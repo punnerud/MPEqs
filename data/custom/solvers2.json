@@ -1,11 +1,11 @@
 {
   "shape_repairs": 1,
-  "cases": 52,
-  "passed": 52,
+  "cases": 54,
+  "passed": 54,
   "failed": 0,
-  "refusals": 14,
-  "refusals_named": 14,
-  "solvers_total": 37,
+  "refusals": 16,
+  "refusals_named": 16,
+  "solvers_total": 38,
   "expr_funcs": 16,
   "rows": [
     {
@@ -363,6 +363,20 @@
       "ok": true,
       "got": "7919",
       "truth": "7919",
+      "why": "ok"
+    },
+    {
+      "solver": "equation",
+      "ok": true,
+      "got": "18/7",
+      "truth": "18/7",
+      "why": "ok"
+    },
+    {
+      "solver": "equation",
+      "ok": true,
+      "got": "12",
+      "truth": "12",
       "why": "ok"
     },
     {

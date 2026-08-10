@@ -663,7 +663,64 @@ def solve_primes(spec):
     raise Refusal(f"unknown prime kind {kind!r}")
 
 
+def solve_equation(spec):
+    """A linear equation written as a STRING, solved exactly — phases 80 to 84, at last
+    addressable.
+
+    The both-sides machinery has existed since phase 80 and answered nothing a mapped
+    problem asked, for the same reason the formula library and the unit router did not:
+    no schema line, no address. Here the model copies the equation as the problem writes
+    it and the record parses, normalises and solves in Fractions, refusing an identity or
+    a contradiction by name rather than returning a number for either.
+    """
+    text = str(spec.get("equation", "")).replace(" ", "").lower()
+    var = str(spec.get("variable", "x")).lower()
+    if text.count("=") != 1:
+        raise Refusal("an equation needs exactly one equals sign")
+    if not var or len(var) != 1:
+        raise Refusal("the variable must be a single letter")
+
+    def side(t):
+        """Sum the terms of one side into (coefficient of var, constant)."""
+        t = t.replace("-", "+-")
+        coef, const = F(0), F(0)
+        for term in filter(None, t.split("+")):
+            if var in term:
+                # "3x" -> 3, "x" -> 1, "x/2" -> 1/2, "-2x/3" -> -2/3, "3*x" -> 3.
+                head = term.replace(var, "").replace("*", "") or "1"
+                if head in ("-", "+"):
+                    head += "1"
+                if head.startswith("/"):
+                    head = "1" + head
+                elif head.startswith(("-/", "+/")):
+                    head = head[0] + "1" + head[1:]
+                if head.endswith(("*", "/")):
+                    raise Refusal(f"cannot read the term {term!r}")
+                try:
+                    coef += F(head)
+                except (ValueError, ZeroDivisionError):
+                    raise Refusal(f"cannot read the term {term!r}") from None
+            else:
+                try:
+                    const += F(term)
+                except (ValueError, ZeroDivisionError):
+                    raise Refusal(f"cannot read the term {term!r}") from None
+        return coef, const
+
+    left, right = text.split("=")
+    (a, b), (c, d) = side(left), side(right)
+    if a == c:
+        raise Refusal("identity" if b == d else "contradiction: no solution")
+    x = (d - b) / (a - c)
+    check = a * x + b == c * x + d
+    if not check:
+        raise Refusal("solution failed substitution")
+    return {"value": str(x), "normal_form": f"{a}{var} + {b} = {c}{var} + {d}",
+            "checked": True}
+
+
 SOLVERS3 = {
+    "equation": solve_equation,
     "probability": solve_probability,
     "convert": solve_convert,
     "statistics": solve_statistics,
