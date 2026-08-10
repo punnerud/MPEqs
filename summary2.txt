@@ -1876,3 +1876,52 @@ HOW BIG. 3,168 rows, 108,004 entries, 422 KB at four bytes each — and it prune
 keeping the top four student experts per teacher expert is 12% of the entries. The
 teacher's own word tables stay offline; what ships is this matrix and a byte-offset
 lookup.
+
+================================================================================
+PHASE 145 — the tables in bytes and milliseconds, at 600GB-on-32GB ratios
+================================================================================
+
+The framing corrected: the target is a 600 GB model streaming from a 4 TB SSD into 32 GB
+of RAM, so the residency that matters is five percent, not the twenty-five the coverage
+work used, and the currency is MiB and milliseconds rather than a coverage ratio. Small
+models are the test bed for limits and speeds.
+
+Simulated over the corrected 65k trace with this machine's measured cost model (6,662 ns
+per fetch, 0.0781 ns per byte; experts are 3.6 MiB each, 3.90 GB total):
+
+    residency   policy    stalls/token   MiB/token   stall ms/token
+      50.0%     pinned         32.5        118.1          9.9
+      50.0%     token          31.2        156.2          9.5
+      25.0%     pinned         61.6        223.8         18.7
+      25.0%     token          57.2        313.8         17.4
+      10.0%     pinned         91.8        333.6         27.9
+      10.0%     token          75.7        512.5         23.0
+       5.3%     pinned        106.7        387.8         32.5   <- 600GB on 32GB
+       5.3%     token          80.8        603.5         24.6
+       2.0%     pinned        120.2        436.8         36.6
+       2.0%     token          83.9        676.5         25.5
+
+AT THE RATIO THAT MATTERS THE TOKEN TABLE REMOVES 24% OF STALL TIME and moves 26 fetches
+per token off the critical path — and the gain GROWS as residency falls, from 4% at half
+resident to 30% at two percent, because a prefetch matters exactly when nothing is
+cached. It costs traffic: 604 MiB per token issued against 388, since a prefetch that
+turns out wrong is still read. On a device with spare bandwidth and no spare latency —
+which is what streaming from SSD is — that is the right trade, and it is the only thing a
+lookup available at time zero can buy.
+
+TWO CORRECTIONS TO MY OWN METHOD ON THE WAY, both caught by disagreeing with a
+measurement rather than by inspection:
+
+  THE ARCHIVED CACHE CURVE CANNOT VALIDATE ANYTHING. It was replayed against the trace
+  the README suspends as an artefact, and the artefact's signature is visible in its own
+  numbers — hit rate tracking residency almost exactly is what uniform-by-construction
+  access looks like. fetchbench was re-run on the corrected trace instead: 13.4%, 30.2%,
+  64.3% at 512, 1024, 2048 MiB.
+
+  MY INTERLEAVED TRAIN/TEST SPLIT LEAKED LOCALITY. Testing on blocks adjacent to training
+  blocks reported static pinning at 37.2% where a distant contiguous region gives 18.4%
+  — most of the distance to fetchbench's measured 13.4%, and it inflated phases 142 to
+  144 in the same direction. The split is contiguous now, and the numbers above are the
+  honest ones. The residual gap to 13.4% is fetchbench replaying 256 tokens with a
+  ranking built from the first 128 of them; a table built offline from a real corpus is
+  the deployment case and it is the one simulated here.

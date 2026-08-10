@@ -1,0 +1,158 @@
+{
+  "expert_mib": 3.63,
+  "validation": [
+    {
+      "cache_mib": 512,
+      "measured": 13.3575439453125,
+      "simulated": 36.9
+    },
+    {
+      "cache_mib": 1024,
+      "measured": 30.157470703125,
+      "simulated": 55.5
+    },
+    {
+      "cache_mib": 2048,
+      "measured": 64.3218994140625,
+      "simulated": 77.9
+    }
+  ],
+  "rows": [
+    {
+      "residency": 0.5,
+      "policy": "pinned",
+      "fetches_per_token": 32.51837158203125,
+      "stalled_per_token": 32.51837158203125,
+      "overlapped_per_token": 0.0,
+      "mib_per_token": 118.1331467628479,
+      "stall_ms_per_token": 9.893953995282565
+    },
+    {
+      "residency": 0.5,
+      "policy": "token",
+      "fetches_per_token": 42.986083984375,
+      "stalled_per_token": 31.17431640625,
+      "overlapped_per_token": 1.34405517578125,
+      "mib_per_token": 156.1603832244873,
+      "stall_ms_per_token": 9.485015311414115
+    },
+    {
+      "residency": 0.5,
+      "policy": "oracle",
+      "fetches_per_token": 32.51837158203125,
+      "stalled_per_token": 0.0,
+      "overlapped_per_token": 32.51837158203125,
+      "mib_per_token": 118.1331467628479,
+      "stall_ms_per_token": 0.0
+    },
+    {
+      "residency": 0.25,
+      "policy": "pinned",
+      "fetches_per_token": 61.593597412109375,
+      "stalled_per_token": 61.593597412109375,
+      "overlapped_per_token": 0.0,
+      "mib_per_token": 223.7579905986786,
+      "stall_ms_per_token": 18.7403055427322
+    },
+    {
+      "residency": 0.25,
+      "policy": "token",
+      "fetches_per_token": 86.37200927734375,
+      "stalled_per_token": 57.170928955078125,
+      "overlapped_per_token": 4.42266845703125,
+      "mib_per_token": 313.77331495285034,
+      "stall_ms_per_token": 17.394676099392125
+    },
+    {
+      "residency": 0.25,
+      "policy": "oracle",
+      "fetches_per_token": 61.593597412109375,
+      "stalled_per_token": 0.0,
+      "overlapped_per_token": 61.593597412109375,
+      "mib_per_token": 223.7579905986786,
+      "stall_ms_per_token": 0.0
+    },
+    {
+      "residency": 0.1,
+      "policy": "pinned",
+      "fetches_per_token": 91.81756591796875,
+      "stalled_per_token": 91.81756591796875,
+      "overlapped_per_token": 0.0,
+      "mib_per_token": 333.55600118637085,
+      "stall_ms_per_token": 27.936170507787217
+    },
+    {
+      "residency": 0.1,
+      "policy": "token",
+      "fetches_per_token": 141.0743408203125,
+      "stalled_per_token": 75.67108154296875,
+      "overlapped_per_token": 16.146484375,
+      "mib_per_token": 512.4966287612915,
+      "stall_ms_per_token": 23.02348374581929
+    },
+    {
+      "residency": 0.1,
+      "policy": "oracle",
+      "fetches_per_token": 91.81756591796875,
+      "stalled_per_token": 0.0,
+      "overlapped_per_token": 91.81756591796875,
+      "mib_per_token": 333.55600118637085,
+      "stall_ms_per_token": 0.0
+    },
+    {
+      "residency": 0.053,
+      "policy": "pinned",
+      "fetches_per_token": 106.73587036132812,
+      "stalled_per_token": 106.73587036132812,
+      "overlapped_per_token": 0.0,
+      "mib_per_token": 387.75140404701233,
+      "stall_ms_per_token": 32.47517448213682
+    },
+    {
+      "residency": 0.053,
+      "policy": "token",
+      "fetches_per_token": 166.11111450195312,
+      "stalled_per_token": 80.80270385742188,
+      "overlapped_per_token": 25.93316650390625,
+      "mib_per_token": 603.4505331516266,
+      "stall_ms_per_token": 24.58481762049646
+    },
+    {
+      "residency": 0.053,
+      "policy": "oracle",
+      "fetches_per_token": 106.73587036132812,
+      "stalled_per_token": 0.0,
+      "overlapped_per_token": 106.73587036132812,
+      "mib_per_token": 387.75140404701233,
+      "stall_ms_per_token": 0.0
+    },
+    {
+      "residency": 0.02,
+      "policy": "pinned",
+      "fetches_per_token": 120.2244873046875,
+      "stalled_per_token": 120.2244873046875,
+      "overlapped_per_token": 0.0,
+      "mib_per_token": 436.75302028656006,
+      "stall_ms_per_token": 36.57918550744076
+    },
+    {
+      "residency": 0.02,
+      "policy": "token",
+      "fetches_per_token": 186.2178955078125,
+      "stalled_per_token": 83.89739990234375,
+      "overlapped_per_token": 36.32708740234375,
+      "mib_per_token": 676.4946985244751,
+      "stall_ms_per_token": 25.526401679236937
+    },
+    {
+      "residency": 0.02,
+      "policy": "oracle",
+      "fetches_per_token": 120.2244873046875,
+      "stalled_per_token": 0.0,
+      "overlapped_per_token": 120.2244873046875,
+      "mib_per_token": 436.75302028656006,
+      "stall_ms_per_token": 0.0
+    }
+  ],
+  "stall_reduction_at_5pct": 0.243
+}

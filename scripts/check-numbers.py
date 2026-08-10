@@ -1863,6 +1863,19 @@ CHECKS = [
      11.0, 0.001, "cross-domain cells where transfer beats native, of twelve"),
     ("data/custom/transfer2.json", lambda d: float(d["matrix_entries"]),
      108004.0, 1.0, "entries in the correspondence, 422 KB before pruning"),
+    # Streaming from SSD: what the tables are worth in stall time at 5% residency.
+    ("data/custom/ssdsim.json", lambda d: float(d["stall_reduction_at_5pct"]),
+     0.24, 0.02, "stall time the token table removes at the 600GB-on-32GB ratio"),
+    ("data/custom/ssdsim.json",
+     lambda d: next(r["stall_ms_per_token"] for r in d["rows"]
+                    if r["policy"] == "pinned" and abs(r["residency"] - 0.053) < 1e-9),
+     32.5, 0.5, "stall milliseconds per token under static pinning there"),
+    ("data/custom/ssdsim.json",
+     lambda d: next(r["stall_ms_per_token"] for r in d["rows"]
+                    if r["policy"] == "token" and abs(r["residency"] - 0.053) < 1e-9),
+     24.6, 0.5, "and with the token table issuing fetches at time zero"),
+    ("data/custom/ssdsim.json", lambda d: float(d["validation"][0]["measured"]),
+     13.4, 0.1, "fetchbench's static pinning on the corrected trace, 512 MiB"),
     # Two-sided labels on the chord metric: no better than one relay, twice the memory.
     ("data/custom/hub-corpus.json", lambda d: d["exact_cell_pct"],
      1.34, 0.7, "two-sided hub labels on the angular metric"),
