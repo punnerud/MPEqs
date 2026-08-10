@@ -1486,10 +1486,12 @@ CHECKS = [
     ("data/custom/solvemap.json", lambda d: float(d["embed_top1"]),
      28.0, 0.001, "solver classes the embedding alone picked right"),
     # Growth: expressions, tuples, polynomials, coordinates, modular arithmetic.
+    # Was 6 at phase 95; arith added two refusal cases in phase 98 (unknown variable,
+    # division by zero in a step). The library grew, so the guard grew with it.
     ("data/custom/solvers2.json", lambda d: float(d["refusals_named"]),
-     6.0, 0.001, "refusals named, three of them expression-sandbox escapes"),
+     8.0, 0.001, "refusals named, three of them expression-sandbox escapes"),
     ("data/custom/solvers2.json", lambda d: float(d["solvers_total"]),
-     19.0, 0.001, "solvers in MPEqs after the growth phase"),
+     20.0, 0.001, "solvers in MPEqs after phase 98 added arith"),
     # AIME coverage: willingness to map is not reach.
     ("data/custom/aimecover.json", lambda d: float(d.get("claimed", 0)),
      22.0, 0.001, "AIME problems the model claimed it could map"),
