@@ -1,0 +1,1306 @@
+{
+  "norwegian": {
+    "hits": 15,
+    "scored": 17,
+    "n": 18,
+    "no_signature": 1,
+    "rows": [
+      {
+        "family": "count",
+        "signature": {
+          "action": "count",
+          "object": "integer",
+          "relations": [
+            "divisibility",
+            "remainder"
+          ],
+          "scope": "range"
+        },
+        "shown": [
+          "count",
+          "partition"
+        ]
+      },
+      {
+        "family": "count",
+        "signature": {
+          "action": "sum",
+          "object": "integer",
+          "relations": [
+            "digit_property",
+            "divisibility"
+          ],
+          "scope": "range"
+        },
+        "shown": [
+          "count",
+          "big"
+        ]
+      },
+      {
+        "family": "count",
+        "signature": {
+          "action": "count",
+          "object": "integer",
+          "relations": [
+            "inequality",
+            "power"
+          ],
+          "scope": "range"
+        },
+        "shown": [
+          "count",
+          "partition"
+        ]
+      },
+      {
+        "family": "divisors",
+        "signature": {
+          "action": "count",
+          "object": "divisor",
+          "relations": [
+            "divisibility",
+            "factorial"
+          ],
+          "scope": "divisors"
+        },
+        "shown": [
+          "divisors",
+          "count"
+        ]
+      },
+      {
+        "family": "divisors",
+        "signature": {
+          "action": "sum",
+          "object": "divisor",
+          "relations": [
+            "divisibility"
+          ],
+          "scope": "divisors"
+        },
+        "shown": [
+          "divisors",
+          "count"
+        ]
+      },
+      {
+        "family": "divisors",
+        "signature": {
+          "action": "count",
+          "object": "divisor",
+          "relations": [
+            "divisibility"
+          ],
+          "scope": "divisors"
+        },
+        "shown": [
+          "divisors",
+          "count"
+        ]
+      },
+      {
+        "family": "probability",
+        "signature": {
+          "action": "probability",
+          "object": "integer",
+          "relations": [
+            "probability_event",
+            "sum"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "probability",
+          "big"
+        ]
+      },
+      {
+        "family": "probability",
+        "signature": {
+          "action": "probability",
+          "object": "pair",
+          "relations": [
+            "distinctness",
+            "primality",
+            "probability_event"
+          ],
+          "scope": "range"
+        },
+        "shown": [
+          "probability",
+          "primes"
+        ]
+      },
+      {
+        "family": "probability",
+        "signature": {
+          "action": "probability",
+          "object": "triple",
+          "relations": [
+            "probability_event",
+            "sum"
+          ],
+          "scope": "range"
+        },
+        "shown": [
+          "probability",
+          "count"
+        ]
+      },
+      {
+        "family": "statistics",
+        "signature": {
+          "action": "find_value",
+          "object": "fraction",
+          "relations": [
+            "cardinality",
+            "sum"
+          ],
+          "scope": "list"
+        },
+        "shown": [
+          "statistics",
+          "matrix"
+        ]
+      },
+      {
+        "family": "statistics",
+        "signature": null,
+        "shown": []
+      },
+      {
+        "family": "statistics",
+        "signature": {
+          "action": "find_value",
+          "object": "sequence_term",
+          "relations": [
+            "ordering"
+          ],
+          "scope": "list"
+        },
+        "shown": [
+          "sequence",
+          "statistics"
+        ]
+      },
+      {
+        "family": "datetime",
+        "signature": {
+          "action": "count",
+          "object": "date",
+          "relations": [
+            "ordering",
+            "unit"
+          ],
+          "scope": "range"
+        },
+        "shown": [
+          "datetime",
+          "count"
+        ]
+      },
+      {
+        "family": "datetime",
+        "signature": {
+          "action": "find_value",
+          "object": "date",
+          "relations": [
+            "unit"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "fractions",
+          "big"
+        ]
+      },
+      {
+        "family": "datetime",
+        "signature": {
+          "action": "find_value",
+          "object": "date",
+          "relations": [
+            "unit"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "fractions",
+          "big"
+        ]
+      },
+      {
+        "family": "finance",
+        "signature": {
+          "action": "find_value",
+          "object": "amount",
+          "relations": [
+            "percentage"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "finance",
+          "formula"
+        ]
+      },
+      {
+        "family": "finance",
+        "signature": {
+          "action": "find_value",
+          "object": "amount",
+          "relations": [
+            "percentage",
+            "recurrence"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "finance",
+          "formula"
+        ]
+      },
+      {
+        "family": "finance",
+        "signature": {
+          "action": "find_value",
+          "object": "amount",
+          "relations": [
+            "percentage",
+            "power"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "finance",
+          "formula"
+        ]
+      }
+    ]
+  },
+  "mixed": {
+    "hits": 26,
+    "scored": 33,
+    "n": 34,
+    "no_signature": 1,
+    "rows": [
+      {
+        "family": "approx",
+        "signature": {
+          "action": "minimise",
+          "object": "fraction",
+          "relations": [
+            "inequality",
+            "ordering"
+          ],
+          "scope": "range"
+        },
+        "shown": [
+          "approx",
+          "fractions"
+        ]
+      },
+      {
+        "family": "approx",
+        "signature": {
+          "action": "minimise",
+          "object": "fraction",
+          "relations": [
+            "inequality",
+            "ordering"
+          ],
+          "scope": "range"
+        },
+        "shown": [
+          "approx",
+          "fractions"
+        ]
+      },
+      {
+        "family": "basearith",
+        "signature": {
+          "action": "sum",
+          "object": "digit_string",
+          "relations": [
+            "equation"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "formula",
+          "equation"
+        ]
+      },
+      {
+        "family": "basearith",
+        "signature": {
+          "action": "sum",
+          "object": "digit_string",
+          "relations": [
+            "equation"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "formula",
+          "equation"
+        ]
+      },
+      {
+        "family": "big",
+        "signature": {
+          "action": "find_value",
+          "object": "integer",
+          "relations": [
+            "equation"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "formula",
+          "kinematics"
+        ]
+      },
+      {
+        "family": "big",
+        "signature": {
+          "action": "find_value",
+          "object": "integer",
+          "relations": [
+            "power",
+            "remainder"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "big",
+          "fractions"
+        ]
+      },
+      {
+        "family": "convert",
+        "signature": {
+          "action": "convert",
+          "object": "fraction",
+          "relations": [
+            "unit"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "convert",
+          "fractions"
+        ]
+      },
+      {
+        "family": "convert",
+        "signature": {
+          "action": "convert",
+          "object": "fraction",
+          "relations": [
+            "unit"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "convert",
+          "fractions"
+        ]
+      },
+      {
+        "family": "count",
+        "signature": {
+          "action": "count",
+          "object": "integer",
+          "relations": [
+            "divisibility",
+            "remainder"
+          ],
+          "scope": "range"
+        },
+        "shown": [
+          "count",
+          "partition"
+        ]
+      },
+      {
+        "family": "count",
+        "signature": {
+          "action": "count",
+          "object": "integer",
+          "relations": [
+            "digit_property",
+            "inequality"
+          ],
+          "scope": "range"
+        },
+        "shown": [
+          "count",
+          "partition"
+        ]
+      },
+      {
+        "family": "datetime",
+        "signature": {
+          "action": "count",
+          "object": "date",
+          "relations": [
+            "consecutive",
+            "ordering"
+          ],
+          "scope": "range"
+        },
+        "shown": [
+          "datetime",
+          "count"
+        ]
+      },
+      {
+        "family": "datetime",
+        "signature": {
+          "action": "count",
+          "object": "date",
+          "relations": [
+            "ordering",
+            "unit"
+          ],
+          "scope": "range"
+        },
+        "shown": [
+          "datetime",
+          "count"
+        ]
+      },
+      {
+        "family": "divisors",
+        "signature": {
+          "action": "count",
+          "object": "divisor",
+          "relations": [
+            "divisibility",
+            "factorial"
+          ],
+          "scope": "divisors"
+        },
+        "shown": [
+          "divisors",
+          "count"
+        ]
+      },
+      {
+        "family": "divisors",
+        "signature": {
+          "action": "count",
+          "object": "divisor",
+          "relations": [
+            "divisibility",
+            "factorial"
+          ],
+          "scope": "divisors"
+        },
+        "shown": [
+          "divisors",
+          "count"
+        ]
+      },
+      {
+        "family": "finance",
+        "signature": {
+          "action": "find_value",
+          "object": "amount",
+          "relations": [
+            "percentage"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "finance",
+          "formula"
+        ]
+      },
+      {
+        "family": "finance",
+        "signature": {
+          "action": "find_value",
+          "object": "amount",
+          "relations": [
+            "percentage"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "finance",
+          "formula"
+        ]
+      },
+      {
+        "family": "fractions",
+        "signature": {
+          "action": "find_value",
+          "object": "fraction",
+          "relations": [
+            "power",
+            "recurrence"
+          ],
+          "scope": "range"
+        },
+        "shown": [
+          "fractions",
+          "approx"
+        ]
+      },
+      {
+        "family": "fractions",
+        "signature": {
+          "action": "find_value",
+          "object": "fraction",
+          "relations": [
+            "recurrence"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "fractions",
+          "sequence"
+        ]
+      },
+      {
+        "family": "logexp",
+        "signature": {
+          "action": "count",
+          "object": "digit_string",
+          "relations": [
+            "digit_property",
+            "power"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "logexp",
+          "basearith"
+        ]
+      },
+      {
+        "family": "logexp",
+        "signature": {
+          "action": "count",
+          "object": "integer",
+          "relations": [
+            "divisibility",
+            "factorial",
+            "prime"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "count",
+          "partition"
+        ]
+      },
+      {
+        "family": "matrix",
+        "signature": {
+          "action": "find_value",
+          "object": "matrix",
+          "relations": [
+            "equation"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "formula",
+          "kinematics"
+        ]
+      },
+      {
+        "family": "matrix",
+        "signature": {
+          "action": "find_value",
+          "object": "matrix",
+          "relations": [
+            "equation"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "formula",
+          "kinematics"
+        ]
+      },
+      {
+        "family": "partition",
+        "signature": {
+          "action": "count",
+          "object": "amount",
+          "relations": [
+            "distinctness",
+            "divisibility",
+            "unit"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "strcount",
+          "convert"
+        ]
+      },
+      {
+        "family": "partition",
+        "signature": {
+          "action": "count",
+          "object": "sequence_term",
+          "relations": [
+            "equation",
+            "ordering"
+          ],
+          "scope": "list"
+        },
+        "shown": [
+          "partition",
+          "inclusion"
+        ]
+      },
+      {
+        "family": "primes",
+        "signature": {
+          "action": "count",
+          "object": "prime",
+          "relations": [
+            "inequality",
+            "primality"
+          ],
+          "scope": "range"
+        },
+        "shown": [
+          "primes",
+          "count"
+        ]
+      },
+      {
+        "family": "primes",
+        "signature": null,
+        "shown": []
+      },
+      {
+        "family": "probability",
+        "signature": {
+          "action": "probability",
+          "object": "fraction",
+          "relations": [
+            "probability_event"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "probability",
+          "fractions"
+        ]
+      },
+      {
+        "family": "probability",
+        "signature": {
+          "action": "probability",
+          "object": "triple",
+          "relations": [
+            "probability_event",
+            "sum"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "probability",
+          "fractions"
+        ]
+      },
+      {
+        "family": "sequence",
+        "signature": {
+          "action": "find_value",
+          "object": "sequence_term",
+          "relations": [
+            "recurrence"
+          ],
+          "scope": "range"
+        },
+        "shown": [
+          "sequence",
+          "fractions"
+        ]
+      },
+      {
+        "family": "sequence",
+        "signature": {
+          "action": "find_value",
+          "object": "sequence_term",
+          "relations": [
+            "recurrence"
+          ],
+          "scope": "range"
+        },
+        "shown": [
+          "sequence",
+          "fractions"
+        ]
+      },
+      {
+        "family": "statistics",
+        "signature": {
+          "action": "find_value",
+          "object": "amount",
+          "relations": [
+            "cardinality"
+          ],
+          "scope": "list"
+        },
+        "shown": [
+          "statistics",
+          "matrix"
+        ]
+      },
+      {
+        "family": "statistics",
+        "signature": {
+          "action": "find_value",
+          "object": "integer",
+          "relations": [
+            "ordering"
+          ],
+          "scope": "list"
+        },
+        "shown": [
+          "big",
+          "statistics"
+        ]
+      },
+      {
+        "family": "strcount",
+        "signature": {
+          "action": "count",
+          "object": "word",
+          "relations": [
+            "distinctness",
+            "ordering"
+          ],
+          "scope": "list"
+        },
+        "shown": [
+          "strcount",
+          "partition"
+        ]
+      },
+      {
+        "family": "strcount",
+        "signature": {
+          "action": "count",
+          "object": "set_of_sets",
+          "relations": [
+            "distinctness",
+            "ordering"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "strcount",
+          "inclusion"
+        ]
+      }
+    ]
+  },
+  "aime_fresh": {
+    "hits": 4,
+    "scored": 5,
+    "n": 30,
+    "no_signature": 0,
+    "rows": [
+      {
+        "family": null,
+        "signature": {
+          "action": "find_value",
+          "object": "amount",
+          "relations": [
+            "geometric"
+          ],
+          "scope": "geometry"
+        },
+        "shown": [
+          "shape",
+          "statistics"
+        ]
+      },
+      {
+        "family": null,
+        "signature": {
+          "action": "count",
+          "object": "fraction",
+          "relations": [
+            "distinctness",
+            "divisibility",
+            "gcd_lcm"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "strcount",
+          "datetime"
+        ]
+      },
+      {
+        "family": null,
+        "signature": {
+          "action": "find_value",
+          "object": "angle_or_length",
+          "relations": [
+            "geometric"
+          ],
+          "scope": "geometry"
+        },
+        "shown": [
+          "shape",
+          "fractions"
+        ]
+      },
+      {
+        "family": null,
+        "signature": {
+          "action": "count",
+          "object": "pair",
+          "relations": [
+            "equation",
+            "ordering",
+            "power"
+          ],
+          "scope": "range"
+        },
+        "shown": [
+          "count",
+          "logexp"
+        ]
+      },
+      {
+        "family": null,
+        "signature": {
+          "action": "count",
+          "object": "pair",
+          "relations": [
+            "distinctness",
+            "ordering"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "strcount",
+          "datetime"
+        ]
+      },
+      {
+        "family": null,
+        "signature": {
+          "action": "minimise",
+          "object": "fraction",
+          "relations": [
+            "distinctness",
+            "divisibility",
+            "equation"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "fractions",
+          "approx"
+        ]
+      },
+      {
+        "family": null,
+        "signature": {
+          "action": "probability",
+          "object": "fraction",
+          "relations": [
+            "distinctness",
+            "ordering",
+            "probability_event"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "probability",
+          "fractions"
+        ]
+      },
+      {
+        "family": null,
+        "signature": {
+          "action": "minimise",
+          "object": "amount",
+          "relations": [
+            "equation",
+            "inequality"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "formula",
+          "kinematics"
+        ]
+      },
+      {
+        "family": null,
+        "signature": {
+          "action": "find_value",
+          "object": "sequence_term",
+          "relations": [
+            "divisibility",
+            "equation",
+            "power"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "big",
+          "sequence"
+        ]
+      },
+      {
+        "family": null,
+        "signature": {
+          "action": "sum",
+          "object": "triple",
+          "relations": [
+            "cardinality",
+            "inequality",
+            "ordering"
+          ],
+          "scope": "range"
+        },
+        "shown": [
+          "count",
+          "probability"
+        ]
+      },
+      {
+        "family": null,
+        "signature": {
+          "action": "find_value",
+          "object": "amount",
+          "relations": [
+            "geometric"
+          ],
+          "scope": "geometry"
+        },
+        "shown": [
+          "shape",
+          "statistics"
+        ]
+      },
+      {
+        "family": null,
+        "signature": {
+          "action": "count",
+          "object": "triple",
+          "relations": [
+            "distinctness",
+            "geometric",
+            "primality"
+          ],
+          "scope": "geometry"
+        },
+        "shown": [
+          "strcount",
+          "primes"
+        ]
+      },
+      {
+        "family": null,
+        "signature": {
+          "action": "find_value",
+          "object": "amount",
+          "relations": [
+            "geometric"
+          ],
+          "scope": "geometry"
+        },
+        "shown": [
+          "shape",
+          "statistics"
+        ]
+      },
+      {
+        "family": null,
+        "signature": {
+          "action": "count",
+          "object": "integer",
+          "relations": [
+            "equation",
+            "inequality"
+          ],
+          "scope": "range"
+        },
+        "shown": [
+          "count",
+          "partition"
+        ]
+      },
+      {
+        "family": null,
+        "signature": {
+          "action": "find_value",
+          "object": "integer",
+          "relations": [
+            "divisibility",
+            "equation",
+            "inequality"
+          ],
+          "scope": "range"
+        },
+        "shown": [
+          "big",
+          "formula"
+        ]
+      },
+      {
+        "family": null,
+        "signature": {
+          "action": "count",
+          "object": "subset",
+          "relations": [
+            "cardinality",
+            "consecutive",
+            "distinctness"
+          ],
+          "scope": "range"
+        },
+        "shown": [
+          "count",
+          "datetime"
+        ]
+      },
+      {
+        "family": null,
+        "signature": {
+          "action": "count",
+          "object": "sequence_term",
+          "relations": [
+            "cardinality",
+            "distinctness",
+            "recurrence"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "datetime",
+          "strcount"
+        ]
+      },
+      {
+        "family": null,
+        "signature": {
+          "action": "find_value",
+          "object": "fraction",
+          "relations": [
+            "equation",
+            "power"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "fractions",
+          "approx"
+        ]
+      },
+      {
+        "family": null,
+        "signature": {
+          "action": "find_value",
+          "object": "integer",
+          "relations": [
+            "cardinality",
+            "geometric"
+          ],
+          "scope": "geometry"
+        },
+        "shown": [
+          "shape",
+          "big"
+        ]
+      },
+      {
+        "family": null,
+        "signature": {
+          "action": "count",
+          "object": "integer",
+          "relations": [
+            "distinctness",
+            "inequality",
+            "remainder"
+          ],
+          "scope": "range"
+        },
+        "shown": [
+          "count",
+          "partition"
+        ]
+      },
+      {
+        "family": null,
+        "signature": {
+          "action": "find_value",
+          "object": "amount",
+          "relations": [
+            "geometric"
+          ],
+          "scope": "geometry"
+        },
+        "shown": [
+          "shape",
+          "statistics"
+        ]
+      },
+      {
+        "family": null,
+        "signature": {
+          "action": "find_value",
+          "object": "sequence_term",
+          "relations": [
+            "consecutive",
+            "equation",
+            "ordering"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "sequence",
+          "formula"
+        ]
+      },
+      {
+        "family": null,
+        "signature": {
+          "action": "arrange",
+          "object": "set_of_sets",
+          "relations": [
+            "distinctness",
+            "divisibility",
+            "geometric"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "inclusion",
+          "strcount"
+        ]
+      },
+      {
+        "family": null,
+        "signature": {
+          "action": "find_value",
+          "object": "angle_or_length",
+          "relations": [
+            "geometric"
+          ],
+          "scope": "geometry"
+        },
+        "shown": [
+          "shape",
+          "fractions"
+        ]
+      },
+      {
+        "family": null,
+        "signature": {
+          "action": "count",
+          "object": "integer",
+          "relations": [
+            "digit_property",
+            "equation",
+            "inequality",
+            "power"
+          ],
+          "scope": "range"
+        },
+        "shown": [
+          "count",
+          "partition"
+        ]
+      },
+      {
+        "family": null,
+        "signature": {
+          "action": "sum",
+          "object": "set_of_sets",
+          "relations": [
+            "distinctness",
+            "equation"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "formula",
+          "strcount"
+        ]
+      },
+      {
+        "family": null,
+        "signature": {
+          "action": "sum",
+          "object": "fraction",
+          "relations": [
+            "equation",
+            "gcd_lcm"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "fractions",
+          "approx"
+        ]
+      },
+      {
+        "family": null,
+        "signature": {
+          "action": "probability",
+          "object": "fraction",
+          "relations": [
+            "geometric",
+            "probability_event"
+          ],
+          "scope": "geometry"
+        },
+        "shown": [
+          "probability",
+          "shape"
+        ]
+      },
+      {
+        "family": null,
+        "signature": {
+          "action": "find_value",
+          "object": "amount",
+          "relations": [
+            "equation",
+            "power"
+          ],
+          "scope": "none"
+        },
+        "shown": [
+          "formula",
+          "kinematics"
+        ]
+      },
+      {
+        "family": null,
+        "signature": {
+          "action": "find_value",
+          "object": "amount",
+          "relations": [
+            "geometric"
+          ],
+          "scope": "geometry"
+        },
+        "shown": [
+          "shape",
+          "statistics"
+        ]
+      }
+    ]
+  }
+}

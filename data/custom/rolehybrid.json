@@ -1,0 +1,28 @@
+{
+ "per_set": {
+  "norwegian": {
+   "text": 6,
+   "role": 15,
+   "hybrid": 16,
+   "scored": 18
+  },
+  "mixed": {
+   "text": 32,
+   "role": 26,
+   "hybrid": 32,
+   "scored": 34
+  },
+  "aime_fresh": {
+   "text": 3,
+   "role": 4,
+   "hybrid": 3,
+   "scored": 5
+  }
+ },
+ "total": {
+  "text": 41,
+  "role": 45,
+  "hybrid": 51,
+  "scored": 57
+ }
+}

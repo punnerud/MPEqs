@@ -1318,3 +1318,46 @@ the exemplars and the retrieval have moved that number from zero to zero.
 Worth stating plainly beside it: on the classes where the mapping IS transcription, the
 same pipeline is at 316 of 369. The difference between those two numbers is the whole
 finding.
+
+================================================================================
+PHASE 131 — mapping by role, not by word: the verb, the subject, the relations
+================================================================================
+
+The bank has been keyed on masked surface TEXT since phase 88, and two measurements had
+already named that as the wrong key without my noticing: Norwegian retrieval collapsed to
+8 of 18 where English scores 32 of 34, and olympiad problems retrieved nothing useful
+because their wording resembles nothing in the bank while their STRUCTURE resembles it
+exactly. Both are lexical failures of a lexical key.
+
+So the key became the structure: ACTION (count, sum, minimise, solve, convert,
+probability), OBJECT (integer, pair, subset, divisor, date, word, matrix), RELATIONS
+(divisibility, remainder, primality, distinctness, ordering, digits, equation, unit) and
+SCOPE — the verb, the subject and the relations between them, extracted in one small
+model call and matched by role agreement with no embedding anywhere.
+
+THE FIRST THING IT DID WAS PROVE THE POINT ON A PAIR OF SENTENCES:
+
+    "Hvor mange heltall fra 1 til 300000 er delelige med 19 og gir rest 4..."
+    "How many integers from 1 to 400000 are divisible by 13 and leave remainder 4..."
+    both -> {count, integer, [divisibility, remainder], range}    IDENTICAL
+
+Retrieval hit rates, same problems, same bank, only the key changed:
+
+    set              scored   text key   role key   both together
+    Norwegian           18        6         15           16
+    Mixed English       34       32         26           32
+    Fresh AIME           5        3          4            3
+    TOTAL               57       41         45           51
+
+THE KEYS FAIL IN OPPOSITE DIRECTIONS, WHICH IS WHY THE SUM BEATS EITHER. A text key is
+excellent when the surface is familiar and the language matches — 32 of 34 on English —
+and worthless the moment either fails: 6 of 18 across a language boundary. A role key
+does not care what language the sentence is in (15 of 18) or whether the story is about
+apples, and it blurs classes the words would have separated (statistics and finance are
+both "find_value" on an "amount", so it drops to 26 on English). Together: 51 of 57,
+better than either alone on every set but the smallest.
+
+The correction was right and the measurement is sharper than the correction: mapping
+should be against roles because roles are what survives translation and rewording — and
+the words should be kept anyway, because when they ARE reliable they separate structures
+that share a verb.

@@ -1737,6 +1737,15 @@ CHECKS = [
      3.0, 0.001, "what the model got answering them directly"),
     ("data/custom/aimefresh.json", lambda d: float(d.get("claimed", 0)),
      23.0, 0.001, "problems it claimed it could map"),
+    # Mapping by role rather than by word, and why both keys are kept.
+    ("data/custom/rolehybrid.json", lambda d: float(d["per_set"]["norwegian"]["role"]),
+     15.0, 0.001, "Norwegian retrieval by role, against 6 by text"),
+    ("data/custom/rolehybrid.json", lambda d: float(d["per_set"]["norwegian"]["text"]),
+     6.0, 0.001, "the same by masked surface text"),
+    ("data/custom/rolehybrid.json", lambda d: float(d["per_set"]["mixed"]["role"]),
+     26.0, 0.001, "role key on English, where words separate what roles blur"),
+    ("data/custom/rolehybrid.json", lambda d: float(d["total"]["hybrid"]),
+     51.0, 0.001, "both keys together, against 41 text and 45 role"),
     # Two-sided labels on the chord metric: no better than one relay, twice the memory.
     ("data/custom/hub-corpus.json", lambda d: d["exact_cell_pct"],
      1.34, 0.7, "two-sided hub labels on the angular metric"),
