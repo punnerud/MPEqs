@@ -92,6 +92,13 @@
       "note": "the scaling law re-measured"
     },
     {
+      "band": "Eighteen Norwegian problems",
+      "solo": 6,
+      "mpeqs": 15,
+      "n": 18,
+      "note": "English catalogue, retrieval half-collapsed"
+    },
+    {
       "band": "Fresh 24, the full policy live",
       "solo": 3,
       "mpeqs": 23,
@@ -113,8 +120,8 @@
       "note": "what the vocabulary reaches"
     }
   ],
-  "total_solo": 95,
-  "total_mpeqs": 261,
-  "total_n": 309,
+  "total_solo": 101,
+  "total_mpeqs": 276,
+  "total_n": 327,
   "solvers": 37
 }

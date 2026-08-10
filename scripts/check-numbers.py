@@ -1621,11 +1621,11 @@ CHECKS = [
      14.0, 0.001, "and through the machinery: the band appears with the difficulty"),
     # The capability sheet, assembled from the runs.
     ("data/custom/capability.json", lambda d: float(d["total_mpeqs"]),
-     261.0, 0.001, "problems solved through MPEqs across every two-armed battery"),
+     276.0, 0.001, "problems solved through MPEqs across every two-armed battery"),
     ("data/custom/capability.json", lambda d: float(d["total_solo"]),
-     95.0, 0.001, "solved by the same model answering alone"),
+     101.0, 0.001, "solved by the same model answering alone"),
     ("data/custom/capability.json", lambda d: float(d["total_n"]),
-     309.0, 0.001, "problems in those batteries"),
+     327.0, 0.001, "problems in those batteries"),
     # Routing: the a priori rule loses to not routing, and refusal is the signal.
     ("data/custom/router.json", lambda d: float(d["always_mpeqs"]),
      113.0, 0.001, "always sending to the machinery"),
@@ -1689,6 +1689,13 @@ CHECKS = [
      2.0, 0.001, "conversions the 1B got once the slot took the question's words"),
     ("data/custom/grandmix_1b_k3.json", lambda d: float(d["mpeqs"]),
      19.0, 0.001, "the same with three exemplars: interference, not help"),
+    # Norwegian: the schemas travel, the embedding-based retrieval does not.
+    ("data/custom/norsk.json", lambda d: float(d["mpeqs"]),
+     15.0, 0.001, "Norwegian problems solved through an English catalogue"),
+    ("data/custom/norsk.json", lambda d: float(d["solo"]),
+     6.0, 0.001, "and what the model alone managed in Norwegian"),
+    ("data/custom/norsk.json", lambda d: float(d["retrieval_hit"]),
+     8.0, 0.001, "retrieval hits of eighteen, against 32 of 34 in English"),
     # Two-sided labels on the chord metric: no better than one relay, twice the memory.
     ("data/custom/hub-corpus.json", lambda d: d["exact_cell_pct"],
      1.34, 0.7, "two-sided hub labels on the angular metric"),

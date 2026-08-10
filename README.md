@@ -132,8 +132,9 @@ every delivery mechanically.
 | Sequences, matrices, partitions, logs (n=16) | 3/16 | **15/16** |
 | Bases, approximation, words, primes (n=16) | 5/16 | **16/16** |
 | Seventeen classes at 37 solvers (n=34) | 10/34 | **33/34** |
+| Eighteen problems in **Norwegian** (n=18) | 6/18 | **15/18** |
 | Fresh 24, full policy live (n=24) | 3/24 | **23/24**, zero wrong |
-| **Every two-armed battery together** | **95/309** | **261/309** |
+| **Every two-armed battery together** | **101/327** | **276/327** |
 
 The middle row is the point: twelve-step exact fraction folds, big-integer powers, counts
 over hundreds of thousands, divisor structure of large factorials — the model answers all

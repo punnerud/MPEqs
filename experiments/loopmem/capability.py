@@ -40,6 +40,8 @@ ROWS = [
      "a complete sweep"),
     ("Seventeen classes at 37 solvers", "grandmix.json", "solo", "mpeqs", 34,
      "the scaling law re-measured"),
+    ("Eighteen Norwegian problems", "norsk.json", "solo", "mpeqs", 18,
+     "English catalogue, retrieval half-collapsed"),
     ("Fresh 24, the full policy live", "pipeline.json", "solo", "pipeline", 24,
      "23 right, zero wrong, one refusal"),
     ("AIME, model-mapped", "aimefewshot.json", None, "exact", 15,

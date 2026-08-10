@@ -999,3 +999,33 @@ So the deployment note for small models is narrower than the recipe: retrieve ex
 two, and spend the bank's scarce room on slots that can be FILLED rather than on more
 examples of composition. Folds stayed at zero throughout, and the honest reading is that
 naming two slots was not enough for a step that varies in more than two ways.
+
+================================================================================
+PHASE 121 — Norwegian: the catalogue travels, the retrieval does not
+================================================================================
+
+Every battery so far has been in English, which is an assumption rather than a
+measurement: the catalogue is English, the exemplars are English, and the mapping step is
+the only place language enters at all. Eighteen problems across six classes were written
+in Norwegian — faithful renderings of shapes the batteries already cover, new numbers,
+truths computed here — and nothing else changed.
+
+    the needed class was retrieved for   8/18   (against 32/34 in English)
+    SOLO-35B                             6/18
+    MPEqs                               15/18   (18 parsed, 16 ran, 1 wrong)
+    by class: datetime 3/3, finance 3/3, probability 3/3, statistics 3/3,
+              count 2/3, divisors 1/3
+
+TWO LAYERS, TWO ANSWERS. The retrieval layer half-collapses — a MiniLM trained on English
+puts "Hvor mange heltall fra 1 til 300000 er delelige med 19" nowhere near "How many
+integers from 1 to 90000 are divisible by 19", so the right exemplar arrives less than
+half the time. The mapping layer does not care: with the catalogue in view the model
+reads the Norwegian problem and fills the English schema anyway, and the pipeline lands
+83 percent against the model's 33.
+
+That is a useful separation for anyone deploying this. The SCHEMAS carry across languages
+because they describe structure, and structure is what the model is actually reading. The
+BANK does not, because a nearest-neighbour lookup is only as multilingual as its encoder —
+so a Norwegian deployment should write its exemplars in Norwegian, or embed them with a
+multilingual encoder, and would then presumably recover the classes that fell here
+(divisors at 1 of 3 is the visible cost).
