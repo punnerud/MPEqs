@@ -121,6 +121,9 @@ every delivery mechanically.
 |---|---|---|
 | Grade-school word problems (GSM8K, n=30) | **28/30** | 21/30 |
 | Hard exact arithmetic (held out, n=20) | 0/20 | **17/20** |
+| Exact probability and unit conversion (n=20) | 1/20 | **17/20** |
+| Statistics, calendars, percentage chains (n=18) | 8/18 | **18/18** |
+| Nine classes mixed, retrieved exemplars (n=27) | 7/27 | **25/27**, none wrong |
 | Competition mathematics (AIME, n=15) | 2/10 solo | 1/15 mapped (5/15 hand-mapped) |
 
 The middle row is the point: twelve-step exact fraction folds, big-integer powers, counts
@@ -144,6 +147,13 @@ sums, routing through machinery only adds a place to slip.
    the problem) and two-machine agreement. Measured on both sides: they make delivery
    lie-free where the risk is mapping, and they do not transfer to the arithmetic band.
 
+The scaling recipe, each part measured before being combined: an exact machine that
+refuses by name, a schema line that states its units and leads with its distinction
+(the model reads it literally), and an exemplar that is **retrieved** rather than fixed
+— a catalogue cannot grow inside a prompt. With generic examples a nine-class mixed
+battery scores 20/27 and two classes vanish entirely; with retrieval, 25/27 and nothing
+wrong.
+
 ### Reading it
 
 - [`summary2-part1.txt`](summary2-part1.txt) (phases 0–25),
@@ -152,7 +162,7 @@ sums, routing through machinery only adds a place to slip.
   [`summary2.txt`](summary2.txt) (92 onward) — the full chronology, negative results and
   autopsied mistakes included.
 - [`experiments/loopmem/`](experiments/loopmem/) — one self-contained script per phase.
-- `make all` — the quality gate; `scripts/check-numbers.py` re-verifies **558 pinned
+- `make all` — the quality gate; `scripts/check-numbers.py` re-verifies **570 pinned
   numbers** from the phase results in `data/custom/*.json`.
 
 ---
