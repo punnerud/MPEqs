@@ -106,21 +106,53 @@ redundancy. Layout survives because it changes nothing about the computation.
 refuses to report success unless the file hashes back to exactly that. `--dry-run` reports
 what would move without writing.
 
-## The question-solver study (loopmem)
+## MPEqs — the question-solver study (loopmem)
 
 The second half of the repository is a phase-by-phase study of how far a small local
 LLM gets when everything that CAN be mechanical IS mechanical: the model only reads and
 plans, while an exact record executes reversible bricks (rRETL), routes units through
 type space, solves equations by both-sides operations, stores solved roads and
-translations as memory, and gates every delivery mechanically (agreement on reads,
-substitution and executable checks on solves, dimension unification against a formula
-library with embeddings coupled to the graph).
+translations as memory, maps problems onto a library of generic exact solvers, and gates
+every delivery mechanically.
 
-- [`summary2-part1.txt`](summary2-part1.txt), [`summary2-part2.txt`](summary2-part2.txt),
-  [`summary2.txt`](summary2.txt) — the full chronology, phases 0–91, negative results
-  included.
+### What it is measured to do
+
+| band | the model alone | through MPEqs |
+|---|---|---|
+| Grade-school word problems (GSM8K, n=30) | **28/30** | 21/30 |
+| Hard exact arithmetic (held out, n=20) | 0/20 | **17/20** |
+| Competition mathematics (AIME, n=15) | 2/10 solo | 1/15 mapped (5/15 hand-mapped) |
+
+The middle row is the point: twelve-step exact fraction folds, big-integer powers, counts
+over hundreds of thousands, divisor structure of large factorials — the model answers all
+twenty and gets none right, never once abstaining, while mapping them onto exact machines
+gets seventeen. The top row is the honest counterweight: where a model can already do the
+sums, routing through machinery only adds a place to slip.
+
+### How it works
+
+1. **Solvers** (`solvers.py`, `solvers2.py`) — 21 parameterised exact machines: a generic
+   search over ranges/divisors/factorial-divisors with 22 predicates, multi-variable
+   search whose conditions are AST-vetted arithmetic expressions, a fold, exact linear
+   systems, polynomials, CRT, modular arithmetic, coordinate geometry, series,
+   combinatorics, and the word-problem staples. Everything in `Fraction`; every refusal
+   named; a linear innermost variable is solved rather than scanned.
+2. **Mapping** (`solvemap.py`, `mapmemory.py`) — the model emits a typed spec, never code.
+   Embeddings propose the solver from a bank of exemplar mappings; the typed shape
+   disposes; the slots may overrule a wrong solver name.
+3. **Gates** (`specgate.py`, `gateablate.py`) — value echo (every literal must appear in
+   the problem) and two-machine agreement. Measured on both sides: they make delivery
+   lie-free where the risk is mapping, and they do not transfer to the arithmetic band.
+
+### Reading it
+
+- [`summary2-part1.txt`](summary2-part1.txt) (phases 0–25),
+  [`summary2-part2.txt`](summary2-part2.txt) (26–49),
+  [`summary2-part3.txt`](summary2-part3.txt) (50–91),
+  [`summary2.txt`](summary2.txt) (92 onward) — the full chronology, negative results and
+  autopsied mistakes included.
 - [`experiments/loopmem/`](experiments/loopmem/) — one self-contained script per phase.
-- `make all` — the quality gate; `scripts/check-numbers.py` re-verifies **509 pinned
+- `make all` — the quality gate; `scripts/check-numbers.py` re-verifies **558 pinned
   numbers** from the phase results in `data/custom/*.json`.
 
 ---
