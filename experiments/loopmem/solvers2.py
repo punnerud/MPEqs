@@ -783,8 +783,195 @@ def solve_formula(spec):
     return {"value": str(fn(*[F(str(a)) for a in args]))}
 
 
+def solve_sequence(spec):
+    """Identify the rule from the given terms, then extrapolate exactly.
+
+    Arithmetic, geometric, quadratic and two-term linear recurrences are each FITTED and
+    then VERIFIED against every given term before a single extrapolation is reported —
+    a rule that explains four of five terms is not the rule, and saying so is the
+    difference between a solver and a guess.
+    """
+    xs = [F(str(v)) for v in spec["terms"]]
+    n = int(spec["n"])                      # index to report, 0-based
+    if len(xs) < 3:
+        raise Refusal("need at least three terms")
+    if n > 100_000:
+        raise Refusal("index too large")
+
+    d = xs[1] - xs[0]
+    if all(xs[i + 1] - xs[i] == d for i in range(len(xs) - 1)):
+        return {"value": str(xs[0] + n * d), "rule": "arithmetic", "step": str(d)}
+    if all(x != 0 for x in xs):
+        r = xs[1] / xs[0]
+        if all(xs[i + 1] == xs[i] * r for i in range(len(xs) - 1)):
+            return {"value": str(xs[0] * r ** n), "rule": "geometric",
+                    "ratio": str(r)}
+    if len(xs) >= 4:                        # quadratic: constant second difference
+        d1 = [xs[i + 1] - xs[i] for i in range(len(xs) - 1)]
+        d2 = [d1[i + 1] - d1[i] for i in range(len(d1) - 1)]
+        if all(v == d2[0] for v in d2):
+            a = d2[0] / 2
+            b = d1[0] - a
+            c = xs[0]
+            return {"value": str(a * n * n + b * n + c), "rule": "quadratic",
+                    "coefficients": [str(a), str(b), str(c)]}
+    if len(xs) >= 4:                        # a(k) = p a(k-1) + q a(k-2)
+        det = xs[1] * xs[1] - xs[0] * xs[2]
+        if det != 0:
+            p_ = (xs[2] * xs[1] - xs[3] * xs[0]) / det
+            q_ = (xs[1] * xs[3] - xs[2] * xs[2]) / det
+            if all(xs[i] == p_ * xs[i - 1] + q_ * xs[i - 2]
+                   for i in range(2, len(xs))):
+                seq = list(xs)
+                while len(seq) <= n:
+                    seq.append(p_ * seq[-1] + q_ * seq[-2])
+                return {"value": str(seq[n]), "rule": "linear recurrence",
+                        "coefficients": [str(p_), str(q_)]}
+    raise Refusal("no arithmetic, geometric, quadratic or two-term rule fits all terms")
+
+
+def solve_matrix(spec):
+    """Exact small-matrix work in Fractions: determinant, inverse, product, power."""
+    def mat(key):
+        m = [[F(str(x)) for x in row] for row in spec[key]]
+        if any(len(r) != len(m) for r in m):
+            raise Refusal(f"{key} is not square")
+        if len(m) > 8:
+            raise Refusal("matrices up to 8 by 8")
+        return m
+
+    def mul(a, b):
+        return [[sum(a[i][k] * b[k][j] for k in range(len(b)))
+                 for j in range(len(b[0]))] for i in range(len(a))]
+
+    def det(m):
+        m = [row[:] for row in m]
+        n, out = len(m), F(1)
+        for c in range(n):
+            piv = next((r for r in range(c, n) if m[r][c] != 0), None)
+            if piv is None:
+                return F(0)
+            if piv != c:
+                m[c], m[piv] = m[piv], m[c]
+                out = -out
+            out *= m[c][c]
+            inv = 1 / m[c][c]
+            m[c] = [x * inv for x in m[c]]
+            for r in range(c + 1, n):
+                if m[r][c]:
+                    f = m[r][c]
+                    m[r] = [x - f * y for x, y in zip(m[r], m[c])]
+        return out
+
+    kind = spec.get("kind", "determinant")
+    if kind == "determinant":
+        return {"value": str(det(mat("matrix")))}
+    if kind == "multiply":
+        a, b = mat("a"), mat("b")
+        return {"value": [[str(x) for x in row] for row in mul(a, b)]}
+    if kind == "power":
+        a, k = mat("matrix"), int(spec["exponent"])
+        if not 0 <= k <= 64:
+            raise Refusal("exponent must be between 0 and 64")
+        n = len(a)
+        out = [[F(int(i == j)) for j in range(n)] for i in range(n)]
+        for _ in range(k):
+            out = mul(out, a)
+        return {"value": [[str(x) for x in row] for row in out]}
+    if kind == "inverse":
+        a = mat("matrix")
+        n = len(a)
+        if det(a) == 0:
+            raise Refusal("singular matrix has no inverse")
+        aug = [a[i][:] + [F(int(i == j)) for j in range(n)] for i in range(n)]
+        for c in range(n):
+            piv = next(r for r in range(c, n) if aug[r][c] != 0)
+            aug[c], aug[piv] = aug[piv], aug[c]
+            pv = aug[c][c]
+            aug[c] = [x / pv for x in aug[c]]
+            for r in range(n):
+                if r != c and aug[r][c]:
+                    f = aug[r][c]
+                    aug[r] = [x - f * y for x, y in zip(aug[r], aug[c])]
+        return {"value": [[str(x) for x in row[n:]] for row in aug]}
+    raise Refusal(f"unknown matrix kind {kind!r}")
+
+
+def solve_partition(spec):
+    """Counting ways to make a total — the DP a search cannot reach.
+
+    Unordered partitions into parts from a set, ordered compositions, and change-making
+    with unlimited or limited copies. multisearch handles up to six bounded variables;
+    "how many ways to make 200 from coins" is none of those shapes.
+    """
+    total = int(spec["total"])
+    if total > 100_000:
+        raise Refusal("total too large")
+    parts = [int(p) for p in spec.get("parts", [])] or list(
+        range(1, int(spec.get("max_part", total)) + 1))
+    if any(p <= 0 for p in parts):
+        raise Refusal("parts must be positive")
+    kind = spec.get("kind", "unordered")
+    if kind == "unordered":                 # each part usable any number of times
+        dp = [0] * (total + 1)
+        dp[0] = 1
+        for p in parts:
+            for v in range(p, total + 1):
+                dp[v] += dp[v - p]
+        return {"value": dp[total]}
+    if kind == "ordered":                   # compositions: order matters
+        dp = [0] * (total + 1)
+        dp[0] = 1
+        for v in range(1, total + 1):
+            dp[v] = sum(dp[v - p] for p in parts if p <= v)
+        return {"value": dp[total]}
+    if kind == "distinct":                  # each part at most once
+        dp = [0] * (total + 1)
+        dp[0] = 1
+        for p in parts:
+            for v in range(total, p - 1, -1):
+                dp[v] += dp[v - p]
+        return {"value": dp[total]}
+    raise Refusal(f"unknown partition kind {kind!r}")
+
+
+def solve_logexp(spec):
+    """Integer logarithms, digit counts of huge powers, and exact exponential solves."""
+    kind = spec["kind"]
+    if kind == "digits_of_power":
+        b, e = int(spec["base"]), int(spec["exponent"])
+        if b <= 0 or e < 0 or e > 200_000:
+            raise Refusal("base must be positive and the exponent at most 200000")
+        return {"value": len(str(b ** e))}
+    if kind == "integer_log":
+        b, x = int(spec["base"]), int(spec["value"])
+        if b < 2 or x < 1:
+            raise Refusal("base at least 2 and value at least 1")
+        k, v = 0, 1
+        while v < x:
+            v *= b
+            k += 1
+        if v != x:
+            raise Refusal(f"{x} is not an exact power of {b}")
+        return {"value": k}
+    if kind == "solve_power":               # a^x = b with an exact integer solution
+        a, b = int(spec["a"]), int(spec["b"])
+        return solve_logexp({"kind": "integer_log", "base": a, "value": b})
+    if kind == "trailing_zeros_factorial":
+        n, z, p = int(spec["n"]), 0, 5
+        while p <= n:
+            z += n // p
+            p *= 5
+        return {"value": z}
+    raise Refusal(f"unknown logexp kind {kind!r}")
+
+
 SOLVERS2 = {
     "arith": solve_arith,
+    "sequence": solve_sequence,
+    "matrix": solve_matrix,
+    "partition": solve_partition,
+    "logexp": solve_logexp,
     "shape": solve_shape,
     "inclusion_exclusion": solve_inclusion,
     "formula": solve_formula,
@@ -801,6 +988,16 @@ SOLVERS2 = {
 }
 
 WORDINGS2 = {
+    "sequence": ["what is the next term in the sequence",
+                 "the nth term of this pattern", "continue the series"],
+    "matrix": ["the determinant of the matrix", "multiply the two matrices",
+               "the inverse of the matrix"],
+    "partition": ["how many ways to make the total from these parts",
+                  "in how many ways can the amount be paid",
+                  "count the compositions of the number"],
+    "logexp": ["how many digits does the power have",
+               "how many trailing zeros in the factorial",
+               "what power of the base gives this value"],
     "shape": ["the area of the circle", "the volume of the cylinder",
               "how much surface does the box have"],
     "inclusion_exclusion": ["how many take at least one of the subjects",
@@ -1028,6 +1225,23 @@ CASES = [
       "total": 50, "report": "neither"}, "7"),
     # formula: momentum of 6 kg at 14 m/s
     ({"solver": "formula", "name": "momentum", "args": [6, 14]}, "84"),
+    # 2, 6, 12, 20, 30 is k(k+1) with the FIRST term at index 0, so term 20 is
+    # 21*22 = 462. The anchor said 420, which is the one-based reading — the ninth
+    # hand-anchor error of the study against one machinery error.
+    ({"solver": "sequence", "terms": [2, 6, 12, 20, 30], "n": 20}, "462"),
+    ({"solver": "sequence", "terms": [3, 6, 12, 24], "n": 10}, "3072"),
+    # 3(54-10) - 8(36-14) + (20-42) = 132 - 176 - 22 = -66, worked by hand outside
+    # the library; the anchor said -124.
+    ({"solver": "matrix", "kind": "determinant",
+      "matrix": [[3, 8, 1], [4, 6, 2], [7, 5, 9]]}, "-66"),
+    ({"solver": "matrix", "kind": "power", "matrix": [[1, 1], [1, 0]],
+      "exponent": 10}, [["89", "55"], ["55", "34"]]),
+    # 100 from 1, 5, 10, 25 coins: the classic 242
+    ({"solver": "partition", "kind": "unordered", "total": 100,
+      "parts": [1, 5, 10, 25]}, 242),
+    ({"solver": "logexp", "kind": "digits_of_power", "base": 2, "exponent": 1000},
+     302),
+    ({"solver": "logexp", "kind": "trailing_zeros_factorial", "n": 1000}, 249),
     # And the old library must still answer through the joint dispatcher.
     ({"solver": "crt", "residues": [2, 3, 2], "moduli": [3, 5, 7]}, 23),
 ]
@@ -1051,6 +1265,9 @@ REFUSALS = [
     ({"solver": "geometry", "kind": "circle_through",
       "points": [[0, 0], [1, 1], [2, 2]]}, "collinear"),
     ({"solver": "convert", "value": 1, "from": "kr", "to": "kg"}, "no route"),
+    ({"solver": "sequence", "terms": [1, 2, 4, 8, 17], "n": 9}, "no arithmetic"),
+    ({"solver": "matrix", "kind": "inverse", "matrix": [[1, 2], [2, 4]]},
+     "singular"),
     ({"solver": "arith", "let": {"a": "1", "b": "c + 1"}}, "unknown variable"),
     ({"solver": "iterate", "init": "1", "step": "acc * m", "from": 1, "to": 3},
      "unknown variable"),

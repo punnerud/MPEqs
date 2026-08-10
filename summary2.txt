@@ -804,3 +804,34 @@ band's own maturity has driven near zero.
 What twelve phases of growth bought, end to end and on unseen problems: 3/24 becomes
 23/24, with the wrong-answer count at zero and every number the record produced derived
 by exact arithmetic from a spec a small model wrote.
+
+================================================================================
+PHASE 114 — four more classes: sequences, matrices, partitions, logarithms
+================================================================================
+
+The growth loop now has a rule and a recipe, so these four went in under both, chosen
+where a model reliably fails and a machine reliably does not:
+
+  SEQUENCE   fit the rule from the terms and extrapolate — and REFUSE when no rule
+             explains EVERY term, because a rule that fits four of five is not the rule
+  MATRIX     determinants, inverses, products and powers, exact in Fractions
+  PARTITION  the counting DP a bounded search cannot reach: ways to make a total from
+             given parts, ordered, unordered or distinct
+  LOGEXP     digits of huge powers, trailing zeros of factorials, exact integer logs
+
+    sixteen problems, truths computed before any model call
+
+    SOLO-35B    3/16    sequence 0/4, partition 0/4, matrix 1/4, logexp 2/4
+    MPEqs      15/16    sequence 4/4, partition 4/4, matrix 3/4, logexp 4/4
+
+Partitions and sequences are shutouts: "in how many ways can 200 kroner be paid with
+coins of 1, 5, 10, 20 and 50" has one answer, 2930, and no amount of fluency finds it.
+
+TWO SELF-TEST FAILURES, BOTH MINE AGAIN. The quadratic sequence anchor read the index
+one-based where the solver documents zero-based (462, not 420), and a three-by-three
+determinant I wrote as -124 is -66 when worked by hand. The tally across the study is
+nine hand-anchor errors against one machinery error, and every one of the nine was
+caught by the machinery it was meant to check — which is the argument for writing the
+truth first stated as a score rather than as a principle.
+
+Library: 33 solvers, 45 self-tests exact, 13 refusals named.

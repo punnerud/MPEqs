@@ -71,6 +71,13 @@
       "note": "27 of 27 specs valid, arithmetic never its job"
     },
     {
+      "band": "Sequences, matrices, partitions, logs",
+      "solo": 3,
+      "mpeqs": 15,
+      "n": 16,
+      "note": "partitions and sequences are shutouts"
+    },
+    {
       "band": "Fresh 24, the full policy live",
       "solo": 3,
       "mpeqs": 23,
@@ -92,8 +99,8 @@
       "note": "what the vocabulary reaches"
     }
   ],
-  "total_solo": 77,
-  "total_mpeqs": 197,
-  "total_n": 243,
-  "solvers": 29
+  "total_solo": 80,
+  "total_mpeqs": 212,
+  "total_n": 259,
+  "solvers": 33
 }

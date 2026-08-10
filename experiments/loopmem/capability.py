@@ -34,6 +34,8 @@ ROWS = [
      "retrieval closes the gap, nothing wrong"),
     ("The same 27, driven by a 1B", "mixedretr_1b.json", "solo", "mpeqs", 27,
      "27 of 27 specs valid, arithmetic never its job"),
+    ("Sequences, matrices, partitions, logs", "bands4.json", "solo", "mpeqs", 16,
+     "partitions and sequences are shutouts"),
     ("Fresh 24, the full policy live", "pipeline.json", "solo", "pipeline", 24,
      "23 right, zero wrong, one refusal"),
     ("AIME, model-mapped", "aimefewshot.json", None, "exact", 15,

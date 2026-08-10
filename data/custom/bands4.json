@@ -1,0 +1,348 @@
+{
+  "n": 16,
+  "solo": 3,
+  "mpeqs": 15,
+  "parsed": 16,
+  "ran": 16,
+  "wrong": 1,
+  "byfam": {
+    "sequence": [
+      4,
+      0,
+      4
+    ],
+    "matrix": [
+      4,
+      1,
+      3
+    ],
+    "partition": [
+      4,
+      0,
+      4
+    ],
+    "logexp": [
+      4,
+      2,
+      4
+    ]
+  },
+  "rows": [
+    {
+      "family": "sequence",
+      "truth": "1930",
+      "solo_ok": false,
+      "mpeqs": "1930",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "sequence",
+        "terms": [
+          5,
+          10,
+          21,
+          38,
+          61
+        ],
+        "n": 25
+      }
+    },
+    {
+      "family": "sequence",
+      "truth": "1449",
+      "solo_ok": false,
+      "mpeqs": "1449",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "sequence",
+        "terms": [
+          9,
+          6,
+          5,
+          6,
+          9
+        ],
+        "n": 40
+      }
+    },
+    {
+      "family": "sequence",
+      "truth": "3838203947",
+      "solo_ok": false,
+      "mpeqs": "3838203947",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "sequence",
+        "terms": [
+          4,
+          7,
+          17,
+          44,
+          115
+        ],
+        "n": 22
+      }
+    },
+    {
+      "family": "sequence",
+      "truth": "100442349",
+      "solo_ok": false,
+      "mpeqs": "100442349",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "sequence",
+        "terms": [
+          7,
+          21,
+          63,
+          189
+        ],
+        "n": 15
+      }
+    },
+    {
+      "family": "matrix",
+      "truth": "-217",
+      "solo_ok": false,
+      "mpeqs": "-217",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "matrix",
+        "kind": "determinant",
+        "matrix": [
+          [
+            4,
+            7,
+            2
+          ],
+          [
+            9,
+            1,
+            8
+          ],
+          [
+            3,
+            6,
+            5
+          ]
+        ]
+      }
+    },
+    {
+      "family": "matrix",
+      "truth": "318076",
+      "solo_ok": false,
+      "mpeqs": "318076",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "matrix",
+        "kind": "determinant",
+        "matrix": [
+          [
+            13,
+            29,
+            7,
+            4
+          ],
+          [
+            5,
+            18,
+            22,
+            11
+          ],
+          [
+            31,
+            2,
+            16,
+            27
+          ],
+          [
+            8,
+            24,
+            3,
+            19
+          ]
+        ]
+      }
+    },
+    {
+      "family": "matrix",
+      "truth": "1346269",
+      "solo_ok": false,
+      "mpeqs": "[['1346269', '832040'], ['832040', '514229']]",
+      "mpeqs_ok": false,
+      "spec": {
+        "solver": "matrix",
+        "kind": "power",
+        "matrix": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "exponent": 30
+      }
+    },
+    {
+      "family": "matrix",
+      "truth": "-1417",
+      "solo_ok": true,
+      "mpeqs": "-1417",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "matrix",
+        "kind": "determinant",
+        "matrix": [
+          [
+            12,
+            35
+          ],
+          [
+            47,
+            19
+          ]
+        ]
+      }
+    },
+    {
+      "family": "partition",
+      "truth": "2930",
+      "solo_ok": false,
+      "mpeqs": "2930",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "partition",
+        "kind": "unordered",
+        "total": 200,
+        "parts": [
+          1,
+          5,
+          10,
+          20,
+          50
+        ]
+      }
+    },
+    {
+      "family": "partition",
+      "truth": "53798080",
+      "solo_ok": false,
+      "mpeqs": "53798080",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "partition",
+        "kind": "ordered",
+        "total": 30,
+        "parts": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "family": "partition",
+      "truth": "8523",
+      "solo_ok": false,
+      "mpeqs": "8523",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "partition",
+        "kind": "distinct",
+        "total": 75,
+        "parts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ]
+      }
+    },
+    {
+      "family": "partition",
+      "truth": "13",
+      "solo_ok": false,
+      "mpeqs": "13",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "partition",
+        "kind": "unordered",
+        "total": 143,
+        "parts": [
+          7,
+          11,
+          13
+        ]
+      }
+    },
+    {
+      "family": "logexp",
+      "truth": "1043",
+      "solo_ok": false,
+      "mpeqs": "1043",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "logexp",
+        "kind": "digits_of_power",
+        "base": 7,
+        "exponent": 1234
+      }
+    },
+    {
+      "family": "logexp",
+      "truth": "505",
+      "solo_ok": false,
+      "mpeqs": "505",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "logexp",
+        "kind": "trailing_zeros_factorial",
+        "n": 2025
+      }
+    },
+    {
+      "family": "logexp",
+      "truth": "961",
+      "solo_ok": true,
+      "mpeqs": "961",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "logexp",
+        "kind": "digits_of_power",
+        "base": 12,
+        "exponent": 890
+      }
+    },
+    {
+      "family": "logexp",
+      "truth": "2499",
+      "solo_ok": true,
+      "mpeqs": "2499",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "logexp",
+        "kind": "trailing_zeros_factorial",
+        "n": 10000
+      }
+    }
+  ]
+}

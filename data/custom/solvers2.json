@@ -1,11 +1,11 @@
 {
   "shape_repairs": 1,
-  "cases": 38,
-  "passed": 38,
+  "cases": 45,
+  "passed": 45,
   "failed": 0,
-  "refusals": 11,
-  "refusals_named": 11,
-  "solvers_total": 29,
+  "refusals": 13,
+  "refusals_named": 13,
+  "solvers_total": 33,
   "expr_funcs": 16,
   "rows": [
     {
@@ -265,6 +265,55 @@
       "ok": true,
       "got": "84",
       "truth": "84",
+      "why": "ok"
+    },
+    {
+      "solver": "sequence",
+      "ok": true,
+      "got": "462",
+      "truth": "462",
+      "why": "ok"
+    },
+    {
+      "solver": "sequence",
+      "ok": true,
+      "got": "3072",
+      "truth": "3072",
+      "why": "ok"
+    },
+    {
+      "solver": "matrix",
+      "ok": true,
+      "got": "-66",
+      "truth": "-66",
+      "why": "ok"
+    },
+    {
+      "solver": "matrix",
+      "ok": true,
+      "got": "[['89', '55'], ['55', '34']]",
+      "truth": "[['89', '55'], ['55', '34']]",
+      "why": "ok"
+    },
+    {
+      "solver": "partition",
+      "ok": true,
+      "got": "242",
+      "truth": "242",
+      "why": "ok"
+    },
+    {
+      "solver": "logexp",
+      "ok": true,
+      "got": "302",
+      "truth": "302",
+      "why": "ok"
+    },
+    {
+      "solver": "logexp",
+      "ok": true,
+      "got": "249",
+      "truth": "249",
       "why": "ok"
     },
     {
