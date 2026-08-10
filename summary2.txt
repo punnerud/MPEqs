@@ -934,3 +934,33 @@ mention — which is the same boundary phase 109 drew, unmoved by a third more c
 So the recipe's cost to a small model is not the size of the library. It is whether the
 retrieved example can be copied with the numbers changed, and that is a property of how
 the exemplars are written, which is a thing anyone can improve without touching a model.
+
+================================================================================
+PHASE 119 — the small model's ceiling was the exemplar, and it moved
+================================================================================
+
+Phase 118 ended on a claim about the EXEMPLARS rather than the model: the 1B solves the
+classes whose retrieved example is nearly a template and misses the ones where it must be
+adapted. That is testable by rewriting five examples, so five were — big products, unit
+conversion, factorial divisors, fraction folds, word arrangements — each phrased the way
+those problems are usually phrased, each on different numbers and a different question
+from anything in the battery. Nothing else changed: same model, same catalogue, same
+machines, same thirty-four problems.
+
+    OLMoE-1B alone                          2/34
+    OLMoE-1B, phase 118 exemplars          18/34   (31 parsed, 22 ran)
+    OLMoE-1B, five rewritten exemplars     23/34   (32 parsed, 28 ran)
+
+    gains: big products, factorial divisors, word arrangements, partitions and
+    logarithms each go from missed to solved; conversions and fraction folds do not
+
+FIVE SENTENCES OF PROMPT BOUGHT FIVE PROBLEMS, at fifty-three percent to sixty-eight, on
+a model that computes nothing. The ceiling was where the claim said it was, and the lever
+is one no model release is needed to pull: write the example so it can be copied with the
+numbers changed.
+
+What still resists is instructive. Conversions stay at zero because the example's units
+are never the problem's units — copying gets you "mile/second" where the question says
+kilometres per hour — and fraction folds stay at zero because the fold's step expression
+is the whole problem and cannot be lifted from an example at all. Those two are genuine
+adaptation, and adaptation is where a 1B stops.

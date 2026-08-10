@@ -1676,6 +1676,11 @@ CHECKS = [
      2.0, 0.001, "and what it managed alone"),
     ("data/custom/grandmix_1b.json", lambda d: float(d["parsed"]),
      31.0, 0.001, "1B specs that parsed against a 36-line catalogue"),
+    # Five rewritten exemplars, same model: the ceiling was the example.
+    ("data/custom/grandmix_1b_tpl.json", lambda d: float(d["mpeqs"]),
+     23.0, 0.001, "1B with near-template exemplars, up from eighteen"),
+    ("data/custom/grandmix_1b_tpl.json", lambda d: float(d["ran"]),
+     28.0, 0.001, "1B specs that executed, up from twenty-two"),
     # Two-sided labels on the chord metric: no better than one relay, twice the memory.
     ("data/custom/hub-corpus.json", lambda d: d["exact_cell_pct"],
      1.34, 0.7, "two-sided hub labels on the angular metric"),
