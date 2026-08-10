@@ -1621,11 +1621,11 @@ CHECKS = [
      14.0, 0.001, "and through the machinery: the band appears with the difficulty"),
     # The capability sheet, assembled from the runs.
     ("data/custom/capability.json", lambda d: float(d["total_mpeqs"]),
-     228.0, 0.001, "problems solved through MPEqs across every two-armed battery"),
+     261.0, 0.001, "problems solved through MPEqs across every two-armed battery"),
     ("data/custom/capability.json", lambda d: float(d["total_solo"]),
-     85.0, 0.001, "solved by the same model answering alone"),
+     95.0, 0.001, "solved by the same model answering alone"),
     ("data/custom/capability.json", lambda d: float(d["total_n"]),
-     275.0, 0.001, "problems in those batteries"),
+     309.0, 0.001, "problems in those batteries"),
     # Routing: the a priori rule loses to not routing, and refusal is the signal.
     ("data/custom/router.json", lambda d: float(d["always_mpeqs"]),
      113.0, 0.001, "always sending to the machinery"),
@@ -1660,6 +1660,15 @@ CHECKS = [
      0.0, 0.001, "rational approximations the model found alone: none"),
     ("data/custom/solvers2.json", lambda d: float(d["solvers_total"]),
      37.0, 0.001, "solvers in MPEqs after the phase 115 additions"),
+    # The scaling law re-measured at thirty-seven machines.
+    ("data/custom/grandmix.json", lambda d: float(d["mpeqs"]),
+     33.0, 0.001, "problems solved across seventeen classes at 37 solvers"),
+    ("data/custom/grandmix.json", lambda d: float(d["solo"]),
+     10.0, 0.001, "what the model alone got of the same thirty-four"),
+    ("data/custom/grandmix.json", lambda d: float(d["retrieval_hit"]),
+     32.0, 0.001, "problems whose own class was retrieved from a bank of twenty"),
+    ("data/custom/grandmix.json", lambda d: float(d["wrong"]),
+     1.0, 0.001, "wrong deliveries at the biggest catalogue tested"),
     # Two-sided labels on the chord metric: no better than one relay, twice the memory.
     ("data/custom/hub-corpus.json", lambda d: d["exact_cell_pct"],
      1.34, 0.7, "two-sided hub labels on the angular metric"),

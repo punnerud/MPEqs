@@ -38,6 +38,8 @@ ROWS = [
      "partitions and sequences are shutouts"),
     ("Bases, approximation, words, primes", "bands5.json", "solo", "mpeqs", 16,
      "a complete sweep"),
+    ("Seventeen classes at 37 solvers", "grandmix.json", "solo", "mpeqs", 34,
+     "the scaling law re-measured"),
     ("Fresh 24, the full policy live", "pipeline.json", "solo", "pipeline", 24,
      "23 right, zero wrong, one refusal"),
     ("AIME, model-mapped", "aimefewshot.json", None, "exact", 15,

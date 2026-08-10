@@ -880,3 +880,30 @@ lazily inside its dispatcher, so run2 still reaches all 37 machines and not one 
 fifteen calling files changed except two that imported a unit parser by its old address.
 51/51 self-tests exact and 14/14 refusals named after the move, and every domain
 re-verified through the unchanged entry point.
+
+================================================================================
+PHASE 117 — the scaling law at thirty-seven machines
+================================================================================
+
+A scaling law that holds once is a coincidence until it holds again at a size that could
+have broken it. Phase 108 measured the recipe at twenty-six solvers; the library is now
+thirty-seven across seventeen classes, the catalogue is thirty-six lines long and the
+bank holds twenty exemplars, which is exactly the crowding that should start to hurt.
+
+    thirty-four problems, two from each class, all with truths computed before any
+    model saw them; the whole catalogue in the prompt; two nearest exemplars retrieved
+
+    the needed class was retrieved for  32/34
+    SOLO-35B                            10/34
+    MPEqs                               33/34   (parsed 34, ran 34, wrong 1)
+
+    sixteen of seventeen classes complete; the single miss is one count problem
+
+Ninety-seven percent at thirty-seven machines, against seventy-four percent of the same
+problems that the model alone gets wrong. The prompt is four times the length it was at
+phase 94 and the mapping is BETTER, because what the model has to hold has not grown:
+it still reads one problem, sees two matched exemplars and writes one spec. Retrieval is
+what keeps the working set constant while the library grows, which is the whole reason
+the study's oldest instinct — keep as little as possible in working memory, store the
+rest, and fetch what this problem needs — turns out to apply to the tool as well as to
+the reasoning.

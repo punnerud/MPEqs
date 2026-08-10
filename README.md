@@ -129,8 +129,9 @@ every delivery mechanically.
 | Competition mathematics (AIME, n=15) | 2/10 solo | 1/15 mapped (5/15 hand-mapped) |
 | Sequences, matrices, partitions, logs (n=16) | 3/16 | **15/16** |
 | Bases, approximation, words, primes (n=16) | 5/16 | **16/16** |
+| Seventeen classes at 37 solvers (n=34) | 10/34 | **33/34** |
 | Fresh 24, full policy live (n=24) | 3/24 | **23/24**, zero wrong |
-| **Every two-armed battery together** | **85/275** | **228/275** |
+| **Every two-armed battery together** | **95/309** | **261/309** |
 
 The middle row is the point: twelve-step exact fraction folds, big-integer powers, counts
 over hundreds of thousands, divisor structure of large factorials — the model answers all
