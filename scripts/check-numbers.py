@@ -1792,6 +1792,11 @@ CHECKS = [
      1.0, 0.001, "olympiad chains, of eight — chaining is not what was missing there"),
     ("data/custom/twostep.json", lambda d: float(d["total"]["graph"]),
      6.0, 0.001, "chains executed correctly overall, against solo's two"),
+    # The external control: chaining on wording nobody here chose.
+    ("data/custom/gsmgraph.json", lambda d: float(d["exact"]),
+     15.0, 0.001, "GSM8K solved by the graph arm, against one-spec 21 and solo 28"),
+    ("data/custom/gsmgraph.json", lambda d: float(d["ran"]),
+     17.0, 0.001, "systems that resolved, of 26 parsed"),
     # Two-sided labels on the chord metric: no better than one relay, twice the memory.
     ("data/custom/hub-corpus.json", lambda d: d["exact_cell_pct"],
      1.34, 0.7, "two-sided hub labels on the angular metric"),

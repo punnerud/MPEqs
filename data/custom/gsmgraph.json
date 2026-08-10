@@ -1,0 +1,223 @@
+{
+  "n": 30,
+  "parsed": 26,
+  "ran": 17,
+  "exact": 15,
+  "wrong": 2,
+  "steps": 93,
+  "multi": 17,
+  "oneshot_reference": 21,
+  "solo_reference": 28,
+  "rows": [
+    {
+      "truth": "27",
+      "got": "None",
+      "ok": false,
+      "steps": null,
+      "why": "malformed system"
+    },
+    {
+      "truth": "1300",
+      "got": "1300",
+      "ok": true,
+      "steps": 7,
+      "why": "ok"
+    },
+    {
+      "truth": "40",
+      "got": "40",
+      "ok": true,
+      "steps": 4,
+      "why": "ok"
+    },
+    {
+      "truth": "48",
+      "got": "48",
+      "ok": true,
+      "steps": 6,
+      "why": "ok"
+    },
+    {
+      "truth": "34",
+      "got": "34",
+      "ok": true,
+      "steps": 5,
+      "why": "ok"
+    },
+    {
+      "truth": "8",
+      "got": "None",
+      "ok": false,
+      "steps": null,
+      "why": "arms: unknown solver 'solver'"
+    },
+    {
+      "truth": "3",
+      "got": "None",
+      "ok": false,
+      "steps": null,
+      "why": "letters_per_week: unknown solver 'solver'"
+    },
+    {
+      "truth": "8",
+      "got": "8",
+      "ok": true,
+      "steps": 4,
+      "why": "ok"
+    },
+    {
+      "truth": "55",
+      "got": "55",
+      "ok": true,
+      "steps": 2,
+      "why": "ok"
+    },
+    {
+      "truth": "70",
+      "got": "70",
+      "ok": true,
+      "steps": 4,
+      "why": "ok"
+    },
+    {
+      "truth": "2050",
+      "got": "None",
+      "ok": false,
+      "steps": null,
+      "why": "total_suitcases_cost: refused: no steps and no answer expression"
+    },
+    {
+      "truth": "260",
+      "got": "None",
+      "ok": false,
+      "steps": null,
+      "why": "malformed system"
+    },
+    {
+      "truth": "21",
+      "got": "21",
+      "ok": true,
+      "steps": 4,
+      "why": "ok"
+    },
+    {
+      "truth": "60",
+      "got": "60",
+      "ok": true,
+      "steps": 7,
+      "why": "ok"
+    },
+    {
+      "truth": "195",
+      "got": "None",
+      "ok": false,
+      "steps": null,
+      "why": "pizzas_needed: refused: no steps and no answer expression"
+    },
+    {
+      "truth": "95200",
+      "got": "6808514310459077/68719476736",
+      "ok": false,
+      "steps": 5,
+      "why": "ok"
+    },
+    {
+      "truth": "5",
+      "got": "5",
+      "ok": true,
+      "steps": 5,
+      "why": "ok"
+    },
+    {
+      "truth": "19",
+      "got": "None",
+      "ok": false,
+      "steps": null,
+      "why": "shoplift_kicked: refused: no steps and no answer expression"
+    },
+    {
+      "truth": "9",
+      "got": "None",
+      "ok": false,
+      "steps": null,
+      "why": "A: refused: no steps and no answer expression"
+    },
+    {
+      "truth": "2450",
+      "got": "2450",
+      "ok": true,
+      "steps": 6,
+      "why": "ok"
+    },
+    {
+      "truth": "250",
+      "got": "None",
+      "ok": false,
+      "steps": null,
+      "why": "total_calls: refused: let must be an object of name -> expression"
+    },
+    {
+      "truth": "31",
+      "got": "31",
+      "ok": true,
+      "steps": 8,
+      "why": "ok"
+    },
+    {
+      "truth": "31",
+      "got": "None",
+      "ok": false,
+      "steps": null,
+      "why": "bought: unknown solver 'solver'"
+    },
+    {
+      "truth": "100",
+      "got": "100",
+      "ok": true,
+      "steps": 4,
+      "why": "ok"
+    },
+    {
+      "truth": "4",
+      "got": "None",
+      "ok": false,
+      "steps": null,
+      "why": "malformed system"
+    },
+    {
+      "truth": "224000",
+      "got": "None",
+      "ok": false,
+      "steps": null,
+      "why": "malformed system"
+    },
+    {
+      "truth": "91",
+      "got": "None",
+      "ok": false,
+      "steps": null,
+      "why": "warm_up_to_400_time: refused: no steps and no answer expression"
+    },
+    {
+      "truth": "7500",
+      "got": "7500",
+      "ok": true,
+      "steps": 8,
+      "why": "ok"
+    },
+    {
+      "truth": "21",
+      "got": "21",
+      "ok": true,
+      "steps": 5,
+      "why": "ok"
+    },
+    {
+      "truth": "160",
+      "got": "405323966463344635/2251799813685248",
+      "ok": false,
+      "steps": 9,
+      "why": "ok"
+    }
+  ]
+}

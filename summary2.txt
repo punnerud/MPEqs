@@ -1551,3 +1551,35 @@ Two wrong deliveries out of eight that produced a number, both in the half where
 mapping is honest, and both from a first step that was right feeding a second step that
 misread what it was given. That is the cost of chaining stated plainly: a chain multiplies
 the ways a mapping can be wrong, and it does not multiply the ways it can be checked.
+
+================================================================================
+PHASE 137 — the external control: chaining loses on wording I did not choose
+================================================================================
+
+Phase 136's practical half was a battery I wrote, which is the self-confirmation the plan
+flagged in advance, so the graph arm went to GSM8K: multi-step by construction, written by
+strangers, and already measured twice on the same thirty problems with the same seed.
+
+    the model alone (phase 98)      28/30
+    one-spec pipeline (phase 98)    21/30
+    GRAPH arm                       15/30   (26 systems parsed, 17 ran, 2 wrong,
+                                             17 of those used more than one step)
+
+CHAINING LOSES HERE, AND THE REASON IS NOT THAT CHAINING IS BAD. Grade-school problems
+mostly need ONE spec with a few named steps inside it, which the arith machine already
+does; asking for a system of definitions buys nothing and costs a heavier output format
+that failed to parse or resolve thirteen times out of thirty.
+
+Put beside phase 136 the law is clean and narrow:
+
+    a chain wins only where a single spec is STRUCTURALLY impossible
+    where one spec suffices, the heavier format loses to it
+
+My own two-step battery satisfied the first clause by construction — one-shot scored 0 of
+16 there because those problems cannot be written as one spec — and GSM8K satisfies the
+second, where one-shot scores 21 and the graph 15. Both numbers are real and neither
+generalises past its clause.
+
+That is exactly what the external control was for. Without it the honest-looking sentence
+"the graph executor beats the one-spec pipeline five to nothing" would have shipped, and
+it would have been true only of problems I wrote to be true of.
