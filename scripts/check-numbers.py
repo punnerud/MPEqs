@@ -1605,6 +1605,13 @@ CHECKS = [
      0.0, 0.001, "wrong deliveries under retrieval: none"),
     ("data/custom/mixedretr.json", lambda d: float(d["solo"]),
      7.0, 0.001, "what the model alone got of the same twenty-seven"),
+    # The 1B as mapper, once retrieval fetches the exemplar.
+    ("data/custom/mixedretr_1b.json", lambda d: float(d["mpeqs"]),
+     12.0, 0.001, "problems the 1B solved by driving exact machines"),
+    ("data/custom/mixedretr_1b.json", lambda d: float(d["solo"]),
+     1.0, 0.001, "and what it managed alone on the same twenty-seven"),
+    ("data/custom/mixedretr_1b.json", lambda d: float(d["parsed"]),
+     27.0, 0.001, "1B specs that parsed, against sixteen of thirty in phase 98"),
     # Two-sided labels on the chord metric: no better than one relay, twice the memory.
     ("data/custom/hub-corpus.json", lambda d: d["exact_cell_pct"],
      1.34, 0.7, "two-sided hub labels on the angular metric"),

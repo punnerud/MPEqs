@@ -1,0 +1,299 @@
+{
+  "n": 27,
+  "model": "olmoe-1b",
+  "solver_lines": 25,
+  "solo": 1,
+  "mpeqs": 12,
+  "parsed": 27,
+  "ran": 17,
+  "wrong": 5,
+  "retrieval_hit": 26,
+  "byfam": {
+    "fractions": [
+      3,
+      0,
+      0
+    ],
+    "big": [
+      3,
+      0,
+      1
+    ],
+    "count": [
+      3,
+      0,
+      2
+    ],
+    "divisors": [
+      3,
+      0,
+      0
+    ],
+    "probability": [
+      3,
+      0,
+      3
+    ],
+    "convert": [
+      3,
+      0,
+      0
+    ],
+    "statistics": [
+      3,
+      0,
+      2
+    ],
+    "datetime": [
+      3,
+      0,
+      3
+    ],
+    "finance": [
+      3,
+      1,
+      1
+    ]
+  },
+  "qwen_retrieved": 25,
+  "focused": {
+    "fractions": 4,
+    "big": 4,
+    "count": 4,
+    "divisors": 5,
+    "probability": 9,
+    "convert": 8,
+    "statistics": 6,
+    "datetime": 6,
+    "finance": 6
+  },
+  "focused_n": {
+    "fractions": 5,
+    "big": 5,
+    "count": 5,
+    "divisors": 5,
+    "probability": 10,
+    "convert": 10,
+    "statistics": 6,
+    "datetime": 6,
+    "finance": 6
+  },
+  "rows": [
+    {
+      "family": "fractions",
+      "truth": "3750/7",
+      "solo_ok": false,
+      "mpeqs": "refused: multisearch needs 1 to 6 va",
+      "mpeqs_ok": false,
+      "solver": "multisearch"
+    },
+    {
+      "family": "fractions",
+      "truth": "359318563/204073344",
+      "solo_ok": false,
+      "mpeqs": "refused: multisearch needs 1 to 6 va",
+      "mpeqs_ok": false,
+      "solver": "multisearch"
+    },
+    {
+      "family": "fractions",
+      "truth": "41517947/97389600",
+      "solo_ok": false,
+      "mpeqs": "refused: unknown variable 'k'",
+      "mpeqs_ok": false,
+      "solver": "iterate"
+    },
+    {
+      "family": "big",
+      "truth": "493827157172839511",
+      "solo_ok": false,
+      "mpeqs": "4938271592172839511",
+      "mpeqs_ok": false,
+      "solver": "arith"
+    },
+    {
+      "family": "big",
+      "truth": "134085083",
+      "solo_ok": false,
+      "mpeqs": "refused: unknown predicate 'power'",
+      "mpeqs_ok": false,
+      "solver": "search"
+    },
+    {
+      "family": "big",
+      "truth": "369988485035127055642762037754464131327342307386008330396395495389638874",
+      "solo_ok": false,
+      "mpeqs": "369988485035127055642762037754464131327342307386008330396395495389638874",
+      "mpeqs_ok": true,
+      "solver": "arith"
+    },
+    {
+      "family": "count",
+      "truth": "2673",
+      "solo_ok": false,
+      "mpeqs": "2673",
+      "mpeqs_ok": true,
+      "solver": "search"
+    },
+    {
+      "family": "count",
+      "truth": "6995",
+      "solo_ok": false,
+      "mpeqs": "8823",
+      "mpeqs_ok": false,
+      "solver": "search"
+    },
+    {
+      "family": "count",
+      "truth": "27360342",
+      "solo_ok": false,
+      "mpeqs": "27360342",
+      "mpeqs_ok": true,
+      "solver": "search"
+    },
+    {
+      "family": "divisors",
+      "truth": "14688",
+      "solo_ok": false,
+      "mpeqs": "340032",
+      "mpeqs_ok": false,
+      "solver": "arith"
+    },
+    {
+      "family": "divisors",
+      "truth": "7864320",
+      "solo_ok": false,
+      "mpeqs": "340032",
+      "mpeqs_ok": false,
+      "solver": "arith"
+    },
+    {
+      "family": "divisors",
+      "truth": "40",
+      "solo_ok": false,
+      "mpeqs": "93383273455325195473152000",
+      "mpeqs_ok": false,
+      "solver": "factor"
+    },
+    {
+      "family": "probability",
+      "truth": "1/9",
+      "solo_ok": false,
+      "mpeqs": "1/9",
+      "mpeqs_ok": true,
+      "solver": "probability"
+    },
+    {
+      "family": "probability",
+      "truth": "1/8",
+      "solo_ok": false,
+      "mpeqs": "1/8",
+      "mpeqs_ok": true,
+      "solver": "probability"
+    },
+    {
+      "family": "probability",
+      "truth": "91/144",
+      "solo_ok": false,
+      "mpeqs": "91/144",
+      "mpeqs_ok": true,
+      "solver": "probability"
+    },
+    {
+      "family": "convert",
+      "truth": "10863072/625",
+      "solo_ok": false,
+      "mpeqs": "refused: no route from 'miles per se",
+      "mpeqs_ok": false,
+      "solver": "convert"
+    },
+    {
+      "family": "convert",
+      "truth": "312500/3429",
+      "solo_ok": false,
+      "mpeqs": "refused: no route from 'kilometers p",
+      "mpeqs_ok": false,
+      "solver": "convert"
+    },
+    {
+      "family": "convert",
+      "truth": "3312235311/125000000",
+      "solo_ok": false,
+      "mpeqs": "refused: no route from 'gallons' to ",
+      "mpeqs_ok": false,
+      "solver": "convert"
+    },
+    {
+      "family": "statistics",
+      "truth": "4",
+      "solo_ok": false,
+      "mpeqs": "4",
+      "mpeqs_ok": true,
+      "solver": "statistics"
+    },
+    {
+      "family": "statistics",
+      "truth": "11",
+      "solo_ok": false,
+      "mpeqs": "11",
+      "mpeqs_ok": true,
+      "solver": "statistics"
+    },
+    {
+      "family": "statistics",
+      "truth": "169/8",
+      "solo_ok": false,
+      "mpeqs": "error: KeyError: 'values'",
+      "mpeqs_ok": false,
+      "solver": "statistics"
+    },
+    {
+      "family": "datetime",
+      "truth": "61",
+      "solo_ok": false,
+      "mpeqs": "61",
+      "mpeqs_ok": true,
+      "solver": "datetime"
+    },
+    {
+      "family": "datetime",
+      "truth": "20675",
+      "solo_ok": false,
+      "mpeqs": "20675",
+      "mpeqs_ok": true,
+      "solver": "datetime"
+    },
+    {
+      "family": "datetime",
+      "truth": "367",
+      "solo_ok": false,
+      "mpeqs": "367",
+      "mpeqs_ok": true,
+      "solver": "datetime"
+    },
+    {
+      "family": "finance",
+      "truth": "96",
+      "solo_ok": true,
+      "mpeqs": "96",
+      "mpeqs_ok": true,
+      "solver": "finance"
+    },
+    {
+      "family": "finance",
+      "truth": "16767/8",
+      "solo_ok": false,
+      "mpeqs": "error: KeyError: 'variables'",
+      "mpeqs_ok": false,
+      "solver": "probability"
+    },
+    {
+      "family": "finance",
+      "truth": "1874048/3125",
+      "solo_ok": false,
+      "mpeqs": "refused: multisearch needs 1 to 6 va",
+      "mpeqs_ok": false,
+      "solver": "multisearch"
+    }
+  ]
+}

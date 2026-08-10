@@ -631,3 +631,36 @@ every machine carries its own way of being addressed — and the thing that fina
 twenty-six solvers behave like twenty-six solvers, rather than like the three the prompt
 happened to illustrate, was a 384-dimensional nearest-neighbour lookup that costs no
 model call at all.
+
+================================================================================
+PHASE 109 — the 1B can map, once the exemplar is fetched for it
+================================================================================
+
+The oldest open thread in this study is whether the small model can be made useful by
+making the task mechanical. Phase 84 found OLMoE-1B answering at the parrot line on
+one-bit reads; phase 98 saw it parse sixteen specs of thirty with three executing. Both
+were before retrieval existed, and the 1B's failure was never arithmetic — the record
+does that — it was knowing what to write.
+
+A retrieved exemplar is exactly a template of what to write, in the shape of this
+problem, for a machine that fits. So the phase 108 run was repeated with nothing changed
+but the seat:
+
+    OLMoE-1B alone                    1/27
+    OLMoE-1B through MPEqs           12/27   (specs parsed 27/27, ran 17, wrong 5)
+    Qwen-35B through MPEqs           25/27
+
+    by class: datetime 3/3, probability 3/3, statistics 2/3, count 2/3, big 1/3,
+    finance 1/3, convert 0/3, divisors 0/3, fractions 0/3
+
+TWENTY-SEVEN OF TWENTY-SEVEN SPECS PARSED, against sixteen of thirty in phase 98. The 1B
+went from producing JSON-shaped text to producing valid specs, and from one right answer
+to twelve, on problems where it computes nothing at all. The classes it gets are the ones
+whose exemplar is a near-template — a date subtraction, a dice probability, a variance —
+and the ones it misses need the exemplar ADAPTED rather than copied, which is the
+capability boundary drawn in the sharpest terms this study has managed.
+
+So the answer to a question asked many phases ago — make it simple enough for a 1B to
+apply — is a measured yes with a stated shape: the 1B can drive twenty-six exact
+machines at forty-four percent on nine classes where it manages four percent by itself,
+provided the arithmetic is not its job and the example is fetched, not remembered.

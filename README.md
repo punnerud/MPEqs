@@ -124,6 +124,7 @@ every delivery mechanically.
 | Exact probability and unit conversion (n=20) | 1/20 | **17/20** |
 | Statistics, calendars, percentage chains (n=18) | 8/18 | **18/18** |
 | Nine classes mixed, retrieved exemplars (n=27) | 7/27 | **25/27**, none wrong |
+| The same 27 driven by a **1B** model | 1/27 | **12/27** (27/27 specs valid) |
 | Competition mathematics (AIME, n=15) | 2/10 solo | 1/15 mapped (5/15 hand-mapped) |
 
 The middle row is the point: twelve-step exact fraction folds, big-integer powers, counts
