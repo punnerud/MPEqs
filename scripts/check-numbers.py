@@ -1628,6 +1628,15 @@ CHECKS = [
      74.0, 0.001, "solved by the same model answering alone"),
     ("data/custom/capability.json", lambda d: float(d["total_n"]),
      219.0, 0.001, "problems in those batteries"),
+    # Routing: the a priori rule loses to not routing, and refusal is the signal.
+    ("data/custom/router.json", lambda d: float(d["always_mpeqs"]),
+     113.0, 0.001, "always sending to the machinery"),
+    ("data/custom/router.json", lambda d: float(d["rule_right"]),
+     95.0, 0.001, "the text-feature router written from the law: worse"),
+    ("data/custom/router.json", lambda d: float(d["fallback"]),
+     117.0, 0.001, "machinery with the model on refusal, three short of the oracle"),
+    ("data/custom/router.json", lambda d: float(d["oracle"]),
+     120.0, 0.001, "the oracle over 135 problems both arms answered"),
     # Two-sided labels on the chord metric: no better than one relay, twice the memory.
     ("data/custom/hub-corpus.json", lambda d: d["exact_cell_pct"],
      1.34, 0.7, "two-sided hub labels on the angular metric"),

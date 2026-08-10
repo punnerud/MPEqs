@@ -734,3 +734,41 @@ The recipe, each part measured before being combined:
     an EXEMPLAR that is RETRIEVED, because a catalogue cannot grow inside a prompt
     a ROUTER that asks whether the arithmetic will fit in the model's head, since that
       and not the topic is what decides who should do the work
+
+================================================================================
+PHASE 112 — the router, and the simpler policy that beats it
+================================================================================
+
+Phase 110's law reads like a deployment instruction — route by whether the arithmetic
+fits in the model's head — so the rule was written from the law BEFORE looking at any
+outcome, reading nothing but the problem text (exactness words, a fraction, a number
+past ten thousand, a wide range, calendar language), and scored over every problem both
+arms had recorded. 135 of them, no model calls: the batteries stored their verdicts, and
+the two batteries that stored no text draw their problems deterministically, so replaying
+the draw recovers the strings exactly.
+
+    policy                              right   rate   sent to the machinery
+    always the model                       44   0.33   0
+    always the machinery                  113   0.84   135
+    coin flip (expected)                   78   0.58   ~67
+    THE A PRIORI RULE                      95   0.70   80
+    best single feature, leave-one-out     73   0.54   -
+    MACHINERY, MODEL ON REFUSAL           117   0.87   124
+    oracle (either arm right)             120   0.89   -
+
+THE ROUTER LOSES TO NOT ROUTING. The rule I was confident in scores 0.70 where sending
+everything to the machinery scores 0.84, because on the measured distribution the two
+arms are not comparable at all: the machinery alone is right on 76 problems the model
+misses and the model is right on 7 the machinery misses. Routing is only worth doing
+between arms of similar strength, and these are not.
+
+WHAT DOES BEAT IT IS THE THING THE MACHINES ALREADY DO. Take the machinery's answer
+whenever the record produced one, and hand back to the model ONLY where the record
+REFUSED — not where it answered wrongly, which would be conflating a shrug with a lie.
+That reaches 117 of 135, three short of the oracle, and it needs no features, no
+thresholds and no text analysis: the refusal IS the routing signal, and it was there
+from phase 92.
+
+So the deployment rule at the end of all this is one sentence, and it is not the one I
+wrote at the start of the phase: map everything, execute what validates, and let the
+model answer exactly what the record declined.

@@ -1,0 +1,14 @@
+{
+  "n": 135,
+  "always_solo": 44,
+  "always_mpeqs": 113,
+  "fallback": 117,
+  "handed_back": 11,
+  "rule_right": 95,
+  "rule_sent": 80,
+  "oracle": 120,
+  "loo_right": 73,
+  "only_machinery": 76,
+  "only_model": 7,
+  "neither": 15
+}
