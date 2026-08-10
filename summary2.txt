@@ -1708,3 +1708,50 @@ Twelve against zero. The same machinery that LOSES to the model on grade-school 
 beats it twelve to nothing where the arithmetic is real — and the library grew by what
 the problems asked for, four extra solves bought by five fixes that the failures wrote
 themselves. Library: 21 solvers, 23/23 self-tests exact, 9/9 refusals named.
+
+================================================================================
+PHASE 103 — the gate does not transfer: different band, different failure mode
+================================================================================
+
+Phase 102's win came with an uncomfortable detail: MPEqs answers 12 of 20 correctly and
+6 wrongly, and nothing in that arm says which is which. So phase 97's gate was carried
+into the winning band — two machines plus value echo — and it does not survive the
+journey.
+
+    gate      delivered  right  WRONG        (hard-arithmetic battery, n = 20)
+    none            16     12      4
+    echo             7      4      3
+    echo relaxed     9      6      3
+    agree            0      0      0
+    both             0      0      0
+
+TWO MECHANISMS, BOTH DEAD, FOR REASONS THAT ARE PROPERTIES OF THE BAND:
+
+  AGREEMENT IS UNAVAILABLE. A second, genuinely different machine was offered for 17 of
+  20 problems and ran for 8, and it never agreed. There is no second way to compute
+  987654321 x 123456789 in this library — one natural machine per problem is not a
+  weakness of the mapper, it is what an exact arithmetic question IS. Phase 97 measured
+  agreement as the weaker layer; here it is not a layer at all.
+
+  VALUE ECHO IS ACTIVELY HARMFUL. Precision falls from 0.75 ungated to 0.57 with echo,
+  because in this band the literals are DERIVED rather than invented: the twelve-step
+  fold needs the 3 and 4 inside (k+2), the six-digit palindrome count needs 100000 and
+  999999 that the problem says only as the word "six-digit". Echo was built to catch a
+  hallucinated bound; here it catches arithmetic.
+
+WHAT REMAINS TRUE IS THE COMPARISON THAT MATTERS. The model alone on this battery:
+0 right, 20 confident wrong, 0 abstentions. MPEqs ungated: 12 right, 4 wrong, 4 flagged
+by the machines themselves (refusals and unparsed specs). Routing through the machinery
+takes the lie rate from 100% to 20% and correctness from 0% to 60% — without any gate
+at all, because the machines' own refusals are already a partial gate.
+
+The general law, now with two sides measured: a delivery gate is only as good as the
+independence it can find. Where the risk is MAPPING, two entry points and a value echo
+find it cheaply. Where the risk is ARITHMETIC, both mechanisms have nothing to grip,
+and the honest report is the residual error rate — not a gate that flags everything and
+calls it safety.
+
+One more bug caught, in the gate itself: isinstance(True, int) is true in Python, so a
+JSON boolean inside a spec was being reported as an invented literal named "True".
+Phase 97's numbers were checked against the fix and are unchanged (no booleans in those
+specs); the hard battery had ten.

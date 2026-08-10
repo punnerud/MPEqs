@@ -86,6 +86,10 @@ def literals(obj, out=None):
     elif isinstance(obj, list):
         for v in obj:
             literals(v, out)
+    elif isinstance(obj, bool):
+        pass          # a JSON true is not a number the problem failed to mention;
+                      # isinstance(True, int) is True in Python, and the hard-battery
+                      # gate flagged 'True' as an invented literal until this line
     elif isinstance(obj, (int, float)):
         out.append(str(obj))
     elif isinstance(obj, str):

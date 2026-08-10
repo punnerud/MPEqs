@@ -1560,6 +1560,15 @@ CHECKS = [
      4.0, 0.001, "exact-fraction folds solved once the iterate machine existed"),
     ("data/custom/hardarith.json", lambda d: float(d["ran"]),
      18.0, 0.001, "specs that executed of nineteen parsed"),
+    # The gate does not transfer to the arithmetic band.
+    ("data/custom/hardgate_ablate.json", lambda d: float(d["none"][1]),
+     12.0, 0.001, "ungated MPEqs answers right in the hard band"),
+    ("data/custom/hardgate_ablate.json", lambda d: float(d["none"][2]),
+     4.0, 0.001, "and wrong — against the model's twenty wrong, zero right"),
+    ("data/custom/hardgate_ablate.json", lambda d: float(d["agree"][0]),
+     0.0, 0.001, "deliveries under two-machine agreement: it finds no second machine"),
+    ("data/custom/hardgate_ablate.json", lambda d: float(d["echo"][1]),
+     4.0, 0.001, "value echo keeps only four of twelve right answers here"),
     # Two-sided labels on the chord metric: no better than one relay, twice the memory.
     ("data/custom/hub-corpus.json", lambda d: d["exact_cell_pct"],
      1.34, 0.7, "two-sided hub labels on the angular metric"),

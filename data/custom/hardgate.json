@@ -1,0 +1,695 @@
+{
+  "n": 20,
+  "both_roads": 17,
+  "a_ran": 16,
+  "b_ran": 8,
+  "delivered": 0,
+  "right": 0,
+  "wrong": 0,
+  "flagged": 20,
+  "echo_flag": 10,
+  "disagree": 3,
+  "one_road": 4,
+  "a_right_ungated": 12,
+  "rows": [
+    {
+      "family": "fractions",
+      "truth": "5000/7",
+      "verdict": "echo ['3', '3']",
+      "story": "A balance starts at 1000. In step k, for k = 1 to 12, it is multiplied by (1 + (-1)^k / (k+2)). Give the exact final balance as a fraction.",
+      "spec_a": {
+        "solver": "arith",
+        "let": {
+          "term1": "1 + (-1)^1 / (1+2)",
+          "term2": "1 + (-1)^2 / (2+2)",
+          "term3": "1 + (-1)^3 / (3+2)",
+          "term4": "1 + (-1)^4 / (4+2)",
+          "term5": "1 + (-1)^5 / (5+2)",
+          "term6": "1 + (-1)^6 / (6+2)",
+          "term7": "1 + (-1)^7 / (7+2)",
+          "term8": "1 + (-1)^8 / (8+2)",
+          "term9": "1 + (-1)^9 / (9+2)",
+          "term10": "1 + (-1)^10 / (10+2)",
+          "term11": "1 + (-1)^11 / (11+2)",
+          "term12": "1 + (-1)^12 / (12+2)",
+          "product": "1000 * term1 * term2 * term3 * term4 * term5 * term6 * term7 * term8 * term9 * term10 * term11 * term12"
+        },
+        "answer": "product"
+      },
+      "spec_b": {
+        "solver": "search",
+        "domain": {
+          "kind": "divisors_of_factorial",
+          "k": 12
+        },
+        "conditions": [
+          {
+            "op": "divides",
+            "arg": 1000
+          }
+        ],
+        "aggregate": "product",
+        "post": {
+          "op": "mod",
+          "arg": 1
+        }
+      }
+    },
+    {
+      "family": "fractions",
+      "truth": "10478607/9175040",
+      "verdict": "no spec_a",
+      "story": "Start with 3/7. Nine times in a row, add 2/5 and then multiply by 3/4. Give the exact result as a fraction.",
+      "spec_a": null,
+      "spec_b": null
+    },
+    {
+      "family": "fractions",
+      "truth": "65230/111069",
+      "verdict": "only one road ran",
+      "story": "Add up 1/(k(k+3)) for every integer k from 1 to 40. Give the exact sum as a fraction.",
+      "spec_a": {
+        "solver": "search",
+        "domain": {
+          "kind": "range",
+          "from": 1,
+          "to": 40
+        },
+        "conditions": [],
+        "aggregate": "sum",
+        "post": {
+          "op": "mod",
+          "arg": 1
+        }
+      },
+      "spec_b": {
+        "solver": "arith",
+        "let": {
+          "term": "1/(k*(k+3))",
+          "k": "1",
+          "sum": "0",
+          "next_k": "k+1",
+          "next_sum": "sum + 1/(next_k*(next_k+3))",
+          "final_sum": "next_sum",
+          "result": "final_sum"
+        },
+        "answer": "result"
+      }
+    },
+    {
+      "family": "fractions",
+      "truth": "122/99",
+      "verdict": "echo ['3', '4']",
+      "story": "Take 5/11 cubed, multiply by 121/25, then add 7/9. Give the exact value as a fraction.",
+      "spec_a": {
+        "solver": "arith",
+        "let": {
+          "step1": "5/11",
+          "step2": "step1 * step1 * step1",
+          "step3": "step2 * 121/25",
+          "step4": "step3 + 7/9"
+        },
+        "answer": "step4"
+      },
+      "spec_b": {
+        "solver": "polynomial",
+        "coefficients": [
+          1,
+          0,
+          0,
+          -7
+        ],
+        "at": 11
+      }
+    },
+    {
+      "family": "fractions",
+      "truth": "15/8",
+      "verdict": "echo ['4/3', '9/8']",
+      "story": "Multiply k^2/(k^2 - 1) for every integer k from 2 to 15. Give the exact product as a fraction.",
+      "spec_a": {
+        "solver": "search",
+        "domain": {
+          "kind": "range",
+          "from": 2,
+          "to": 15
+        },
+        "conditions": [],
+        "aggregate": "product",
+        "post": {
+          "op": "mod",
+          "arg": 1
+        }
+      },
+      "spec_b": {
+        "solver": "arith",
+        "let": {
+          "term_2": "4/3",
+          "term_3": "9/8",
+          "term_4": "16/15",
+          "term_5": "25/24",
+          "term_6": "36/35",
+          "term_7": "49/48",
+          "term_8": "64/63",
+          "term_9": "81/80",
+          "term_10": "100/99",
+          "term_11": "121/120",
+          "term_12": "144/143",
+          "term_13": "169/168",
+          "term_14": "196/195",
+          "term_15": "225/224",
+          "product": "term_2 * term_3 * term_4 * term_5 * term_6 * term_7 * term_8 * term_9 * term_10 * term_11 * term_12 * term_13 * term_14 * term_15"
+        },
+        "answer": "product"
+      }
+    },
+    {
+      "family": "big",
+      "truth": "121932631112635269",
+      "verdict": "echo ['121000000', '122000000']",
+      "story": "What is 987654321 times 123456789?",
+      "spec_a": {
+        "solver": "arith",
+        "let": {
+          "a": "987654321",
+          "b": "123456789"
+        },
+        "answer": "a * b"
+      },
+      "spec_b": {
+        "solver": "multisearch",
+        "variables": [
+          {
+            "name": "x",
+            "from": 121000000,
+            "to": 122000000
+          }
+        ],
+        "conditions": [
+          "x * 987654321 == 1218765432109876549"
+        ],
+        "objective": "x",
+        "aggregate": "list"
+      }
+    },
+    {
+      "family": "big",
+      "truth": "224787023",
+      "verdict": "echo ['1000000006']",
+      "story": "What is the remainder when 7 to the power 1000 is divided by 1000000007?",
+      "spec_a": {
+        "solver": "modular",
+        "kind": "power",
+        "base": 7,
+        "exponent": 1000,
+        "modulus": 1000000007
+      },
+      "spec_b": {
+        "solver": "search",
+        "domain": {
+          "kind": "range",
+          "from": 0,
+          "to": 1000000006
+        },
+        "conditions": [
+          {
+            "op": "mod_eq",
+            "arg": [
+              1000000007,
+              0
+            ]
+          }
+        ],
+        "aggregate": "min",
+        "post": {
+          "op": "mod",
+          "arg": 1000000007
+        }
+      }
+    },
+    {
+      "family": "big",
+      "truth": "1606938044258474898021230081010126141392437372510090727779375",
+      "verdict": "no spec_a",
+      "story": "What is 2 to the power 200 minus 3 to the power 100?",
+      "spec_a": null,
+      "spec_b": null
+    },
+    {
+      "family": "big",
+      "truth": "9000000009",
+      "verdict": "only one road ran",
+      "story": "What is the greatest common divisor of 987654321987654321 and 123456789123456789?",
+      "spec_a": {
+        "solver": "gcd_lcm",
+        "values": [
+          987654321987654321,
+          123456789123456789
+        ]
+      },
+      "spec_b": {
+        "solver": "search",
+        "domain": {
+          "kind": "divisors_of",
+          "n": 987654321987654321
+        },
+        "conditions": [
+          {
+            "op": "divides",
+            "arg": 123456789123456789
+          }
+        ],
+        "aggregate": "max"
+      }
+    },
+    {
+      "family": "big",
+      "truth": "4934801718028",
+      "verdict": "only one road ran",
+      "story": "What is the sum of all integers from 1 to 3141592?",
+      "spec_a": {
+        "solver": "series",
+        "kind": "arithmetic",
+        "first": 1,
+        "step": 1,
+        "terms": 3141592
+      },
+      "spec_b": {
+        "solver": "search",
+        "domain": {
+          "kind": "range",
+          "from": 1,
+          "to": 3141592
+        },
+        "conditions": [],
+        "aggregate": "sum"
+      }
+    },
+    {
+      "family": "count",
+      "truth": "3419",
+      "verdict": "roads disagree",
+      "story": "How many integers from 1 to 400000 are divisible by 13 and leave remainder 4 when divided by 9?",
+      "spec_a": {
+        "solver": "search",
+        "domain": {
+          "kind": "range",
+          "from": 1,
+          "to": 400000
+        },
+        "conditions": [
+          {
+            "op": "divisible_by",
+            "arg": 13
+          },
+          {
+            "op": "mod_eq",
+            "arg": [
+              9,
+              4
+            ]
+          }
+        ],
+        "aggregate": "count"
+      },
+      "spec_b": {
+        "solver": "crt",
+        "residues": [
+          0,
+          4
+        ],
+        "moduli": [
+          13,
+          9
+        ]
+      }
+    },
+    {
+      "family": "count",
+      "truth": "10911",
+      "verdict": "echo ['9', '9']",
+      "story": "How many integers from 1 to 200000 have digits adding to exactly 20?",
+      "spec_a": {
+        "solver": "search",
+        "domain": {
+          "kind": "range",
+          "from": 1,
+          "to": 200000
+        },
+        "conditions": [
+          {
+            "op": "digit_sum_eq",
+            "arg": 20
+          }
+        ],
+        "aggregate": "count"
+      },
+      "spec_b": {
+        "solver": "multisearch",
+        "variables": [
+          {
+            "name": "a",
+            "from": 0,
+            "to": 9
+          },
+          {
+            "name": "b",
+            "from": 0,
+            "to": 9
+          },
+          {
+            "name": "c",
+            "from": 0,
+            "to": 9
+          },
+          {
+            "name": "d",
+            "from": 0,
+            "to": 9
+          },
+          {
+            "name": "e",
+            "from": 0,
+            "to": 9
+          }
+        ],
+        "conditions": [
+          "a + b + c + d + e == 20",
+          "a * 10000 + b * 1000 + c * 100 + d * 10 + e >= 1",
+          "a * 10000 + b * 1000 + c * 100 + d * 10 + e <= 200000"
+        ],
+        "aggregate": "count"
+      }
+    },
+    {
+      "family": "count",
+      "truth": "64933113",
+      "verdict": "roads disagree",
+      "story": "What is the sum of all integers from 1 to 100000 that are divisible by 7 and leave remainder 3 when divided by 11?",
+      "spec_a": {
+        "solver": "search",
+        "domain": {
+          "kind": "range",
+          "from": 1,
+          "to": 100000
+        },
+        "conditions": [
+          {
+            "op": "mod_eq",
+            "arg": [
+              7,
+              0
+            ]
+          },
+          {
+            "op": "mod_eq",
+            "arg": [
+              11,
+              3
+            ]
+          }
+        ],
+        "aggregate": "sum"
+      },
+      "spec_b": {
+        "solver": "crt",
+        "residues": [
+          0,
+          3
+        ],
+        "moduli": [
+          7,
+          11
+        ]
+      }
+    },
+    {
+      "family": "count",
+      "truth": "605",
+      "verdict": "roads disagree",
+      "story": "How many integers from 1 to 300000 are perfect squares or perfect cubes?",
+      "spec_a": {
+        "solver": "search",
+        "domain": {
+          "kind": "range",
+          "from": 1,
+          "to": 300000
+        },
+        "conditions": [
+          {
+            "op": "is_square",
+            "arg": null
+          },
+          {
+            "op": "is_cube",
+            "arg": null
+          }
+        ],
+        "aggregate": "count"
+      },
+      "spec_b": {
+        "solver": "arith",
+        "let": {
+          "squares": "isqrt(300000)",
+          "cubes": "isqrt(isqrt(300000))",
+          "sixth": "isqrt(isqrt(isqrt(300000)))",
+          "total": "squares + cubes - sixth"
+        },
+        "answer": "total"
+      }
+    },
+    {
+      "family": "count",
+      "truth": "140",
+      "verdict": "echo ['100000', '999999']",
+      "story": "How many six-digit palindromes are divisible by 7?",
+      "spec_a": {
+        "solver": "search",
+        "domain": {
+          "kind": "range",
+          "from": 100000,
+          "to": 999999
+        },
+        "conditions": [
+          {
+            "op": "palindrome",
+            "arg": true
+          },
+          {
+            "op": "mod_eq",
+            "arg": [
+              7,
+              0
+            ]
+          }
+        ],
+        "aggregate": "count"
+      },
+      "spec_b": {
+        "solver": "multisearch",
+        "variables": [
+          {
+            "name": "a",
+            "from": 1,
+            "to": 9
+          },
+          {
+            "name": "b",
+            "from": 0,
+            "to": 9
+          },
+          {
+            "name": "c",
+            "from": 0,
+            "to": 9
+          }
+        ],
+        "ordering": "strict_increasing",
+        "conditions": [
+          "a*100001 + b*10010 + c*1100 == 0 mod 7"
+        ],
+        "objective": "1",
+        "aggregate": "count"
+      }
+    },
+    {
+      "family": "divisors",
+      "truth": "340032",
+      "verdict": "echo ['4', '8']",
+      "story": "How many positive divisors does 25 factorial have?",
+      "spec_a": {
+        "solver": "search",
+        "domain": {
+          "kind": "divisors_of_factorial",
+          "k": 25
+        },
+        "conditions": [],
+        "aggregate": "count"
+      },
+      "spec_b": {
+        "solver": "arith",
+        "let": {
+          "p2": "25 - 25 // 2 - 25 // 4 - 25 // 8 - 25 // 16",
+          "p3": "25 - 25 // 3 - 25 // 9 - 25 // 27",
+          "p5": "25 - 25 // 5 - 25 // 25",
+          "p7": "25 - 25 // 7 - 25 // 49",
+          "p11": "25 - 25 // 11 - 25 // 121",
+          "p13": "25 - 25 // 13 - 25 // 169",
+          "p17": "25 - 25 // 17 - 25 // 289",
+          "p19": "25 - 25 // 19 - 25 // 361",
+          "p23": "25 - 25 // 23 - 25 // 529",
+          "e2": "p2 + 1",
+          "e3": "p3 + 1",
+          "e5": "p5 + 1",
+          "e7": "p7 + 1",
+          "e11": "p11 + 1",
+          "e13": "p13 + 1",
+          "e17": "p17 + 1",
+          "e19": "p19 + 1",
+          "e23": "p23 + 1",
+          "answer": "e2 * e3 * e5 * e7 * e11 * e13 * e17 * e19 * e23"
+        },
+        "answer": "e2 * e3 * e5 * e7 * e11 * e13 * e17 * e19 * e23"
+      }
+    },
+    {
+      "family": "divisors",
+      "truth": "102435840",
+      "verdict": "no spec_a",
+      "story": "How many positive divisors does 40 factorial have?",
+      "spec_a": null,
+      "spec_b": null
+    },
+    {
+      "family": "divisors",
+      "truth": "59",
+      "verdict": "echo ['3', '5']",
+      "story": "What is the sum of the exponents in the prime factorisation of 30 factorial?",
+      "spec_a": {
+        "solver": "search",
+        "domain": {
+          "kind": "divisors_of_factorial",
+          "k": 30
+        },
+        "conditions": [
+          {
+            "op": "is_prime",
+            "arg": true
+          }
+        ],
+        "aggregate": "sum"
+      },
+      "spec_b": {
+        "solver": "arith",
+        "let": {
+          "sum": "0",
+          "primes": [
+            2,
+            3,
+            5,
+            7,
+            11,
+            13,
+            17,
+            19,
+            23,
+            29
+          ],
+          "p1": "2",
+          "e1": "15 + 7 + 3 + 1",
+          "p2": "3",
+          "e2": "10 + 3 + 1",
+          "p3": "5",
+          "e3": "6 + 1",
+          "p4": "7",
+          "e4": "4 + 1",
+          "p5": "11",
+          "e5": "2",
+          "p6": "13",
+          "e6": "2",
+          "p7": "17",
+          "e7": "1",
+          "p8": "19",
+          "e8": "1",
+          "p9": "23",
+          "e9": "1",
+          "p10": "29",
+          "e10": "1",
+          "total": "e1 + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10"
+        },
+        "answer": "total"
+      }
+    },
+    {
+      "family": "divisors",
+      "truth": "6",
+      "verdict": "echo ['3', '5']",
+      "story": "How many positive divisors of 5040 are perfect squares?",
+      "spec_a": {
+        "solver": "search",
+        "domain": {
+          "kind": "divisors_of",
+          "n": 5040
+        },
+        "conditions": [
+          {
+            "op": "is_square",
+            "arg": true
+          }
+        ],
+        "aggregate": "count"
+      },
+      "spec_b": {
+        "solver": "arith",
+        "let": {
+          "prime_factors": [
+            2,
+            3,
+            5,
+            7
+          ],
+          "exponents": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "square_exponents": [
+            4,
+            2,
+            0,
+            0
+          ],
+          "num_square_divisors": 1,
+          "step1": "num_square_divisors * (4/2 + 1)",
+          "step2": "step1 * (2/2 + 1)",
+          "step3": "step2 * (0/2 + 1)",
+          "step4": "step3 * (0/2 + 1)"
+        },
+        "answer": "step4"
+      }
+    },
+    {
+      "family": "divisors",
+      "truth": "3249792",
+      "verdict": "only one road ran",
+      "story": "What is the sum of all positive divisors of 720720?",
+      "spec_a": {
+        "solver": "search",
+        "domain": {
+          "kind": "divisors_of",
+          "n": 720720
+        },
+        "conditions": [],
+        "aggregate": "sum"
+      },
+      "spec_b": {
+        "solver": "arith",
+        "let": {
+          "sigma_2": "sigma(2, 720720)"
+        },
+        "answer": "sigma_2"
+      }
+    }
+  ]
+}
