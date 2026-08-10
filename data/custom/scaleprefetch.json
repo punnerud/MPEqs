@@ -1,0 +1,30 @@
+{
+  "small": {
+    "train_positions": 4096,
+    "coverage": {
+      "freq": 0.5345,
+      "unigram": 0.6441,
+      "exact": 0.6442,
+      "composed": 0.6777
+    },
+    "starved_share": 0.7239
+  },
+  "big": {
+    "train_positions": 61440,
+    "coverage": {
+      "freq": 0.5485,
+      "unigram": 0.6392,
+      "exact": 0.6207,
+      "composed": 0.6495
+    },
+    "starved_share": 0.3953
+  },
+  "exact_gain": [
+    0.0001,
+    -0.0185
+  ],
+  "composed_gain": [
+    0.0336,
+    0.0103
+  ]
+}

@@ -1759,3 +1759,41 @@ difference between a property of the method and a property of the thing being pr
 Declared confound: the validation slice sits in a different register of the multi-corpus
 than the test half (its absolute coverage differs), but it only chose among weight
 schemes that were within 0.8 points of each other.
+
+================================================================================
+PHASE 142 — eight times the trace: the lookup-able part of routing SATURATES
+================================================================================
+
+The predictions written before the run said unigram coverage would rise clearly and
+exact-context more. Getting to an answer took three designs, each killed by its own tell:
+
+  HALF-SPLIT ON THE BIG TRACE: every number fell, including the frequency baseline —
+  and no lookup table can be hurt by more rows, so the test set had moved (the corpus
+  is register-interleaved; the halves sampled it differently).
+  TWO TRACES COMPARED: 23% of overlapping records differ between two identical runs
+  (Metal flips boundary experts; differing sets still share 6.7 of 8) — a noise floor
+  that puts cross-trace comparison out of bounds and, incidentally, caps ANY predictor
+  near 96%.
+  FIXED TEST SET, ONE TRACE, training scaled 4,096 -> 61,440 positions. Clean.
+
+    (budget 16 of 64)      4k train    61k train
+    frequency                 53.4%       54.9%
+    unigram                   64.4%       63.9%
+    exact bigram backoff      64.4%       62.1%
+    composed contributions    67.8%       65.0%
+    unseen-bigram share       72.4%       39.5%
+
+THE PREDICTIONS WERE WRONG, AND THE WAY THEY ARE WRONG IS THE FINDING. Fifteen times the
+data halved the starvation (72% of test bigrams unseen down to 40%) and coverage went
+DOWN everywhere except the frequency floor. A key's routing distribution drifts with the
+wider context it sits in, so additional occurrences gathered from farther text do not
+sharpen its table — they blur it toward the global frequency. The word's predictable
+share of routing is learned from a handful of occurrences and SATURATES there; everything
+above it is context, and phase 141 already measured context as non-additive.
+
+What survives is cheap and now well-bounded: a per-word table built from a few thousand
+positions gives 64-68% expert coverage against frequency's 53% at 25% residency — ten to
+fifteen points, available at time zero, in parallel, from tables that stop improving
+almost immediately (so they are also SMALL). The best variant measured is the composed
+contributions of phase 141 on the small table: 67.8%. More data is not the lever;
+attention keeps the rest.
