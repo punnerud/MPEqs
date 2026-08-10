@@ -1,0 +1,424 @@
+{
+  "n": 15,
+  "k": 2,
+  "retrieval_hit": 5,
+  "claimed": 12,
+  "ran": 8,
+  "exact": 2,
+  "exact_reachable": 2,
+  "no_reply": 1,
+  "wrong": 6,
+  "declined": 2,
+  "declined_ok": 2,
+  "refused": 4,
+  "rows": [
+    {
+      "i": 0,
+      "truth": "12",
+      "shown": [
+        "factorial_divisors",
+        "modular_inverse"
+      ],
+      "reachable": true,
+      "outcome": "12 EXACT",
+      "spec": {
+        "solver": "search",
+        "domain": {
+          "kind": "divisors_of_factorial",
+          "k": 13
+        },
+        "conditions": [
+          {
+            "op": "quotient_is_square",
+            "arg": 6227020800
+          }
+        ],
+        "aggregate": "sum",
+        "post": {
+          "op": "exponent_sum"
+        }
+      }
+    },
+    {
+      "i": 1,
+      "truth": "4",
+      "shown": [
+        "aggregate_mod",
+        "power_mod"
+      ],
+      "reachable": true,
+      "outcome": "4 EXACT",
+      "spec": {
+        "solver": "multisearch",
+        "variables": [
+          {
+            "name": "k",
+            "from": 3,
+            "to": 40
+          }
+        ],
+        "objective": "(k*(k-1)//2)*(k*(k-1)//2 - 1)//2",
+        "aggregate": "sum",
+        "post": {
+          "op": "mod",
+          "arg": 1000
+        }
+      }
+    },
+    {
+      "i": 2,
+      "truth": "81",
+      "shown": [
+        "triples",
+        "steps"
+      ],
+      "reachable": false,
+      "outcome": "unparseable"
+    },
+    {
+      "i": 3,
+      "truth": "125",
+      "shown": [
+        "bits",
+        "recurrence"
+      ],
+      "reachable": false,
+      "outcome": "0 != 125",
+      "spec": {
+        "solver": "probability",
+        "variables": [
+          {
+            "name": "a",
+            "from": 0,
+            "to": 3
+          },
+          {
+            "name": "b",
+            "from": 0,
+            "to": 3
+          },
+          {
+            "name": "c",
+            "from": 0,
+            "to": 3
+          },
+          {
+            "name": "d",
+            "from": 0,
+            "to": 3
+          }
+        ],
+        "conditions": [
+          "a != b and a != c and a != d and b != c and b != d and c != d",
+          "not (a == 0 and b == 1)",
+          "not (a == 1 and b == 0)",
+          "not (a == 0 and c == 1)",
+          "not (a == 1 and c == 0)",
+          "not (a == 0 and d == 1)",
+          "not (a == 1 and d == 0)",
+          "not (a == 2 and b == 1)",
+          "not (a == 2 and c == 1)",
+          "not (a == 2 and d == 1)",
+          "not (a == 3 and b == 1)",
+          "not (a == 3 and c == 1)",
+          "not (a == 3 and d == 1)"
+        ],
+        "event": [
+          "b == 1"
+        ],
+        "report": "m_plus_n"
+      }
+    },
+    {
+      "i": 4,
+      "truth": "751",
+      "shown": [
+        "bits",
+        "steps"
+      ],
+      "reachable": false,
+      "outcome": "declined"
+    },
+    {
+      "i": 5,
+      "truth": "738",
+      "shown": [
+        "polynomial",
+        "triples"
+      ],
+      "reachable": false,
+      "outcome": "refused: refused: expression syntax: invalid syntax",
+      "spec": {
+        "solver": "multisearch",
+        "variables": [
+          {
+            "name": "a",
+            "from": -20,
+            "to": 20
+          },
+          {
+            "name": "b",
+            "from": -20,
+            "to": 20
+          },
+          {
+            "name": "c",
+            "from": -20,
+            "to": 20
+          }
+        ],
+        "conditions": [
+          "exists m in [-20, 20] such that m != 2 and p(m) == p(2)",
+          "not exists m1 in [-20, 20] such that m1 != 2 and p(m1) == p(2) and exists m2 in [-20, 20] such that m2 != 2 and m2 != m1 and p(m2) == p(2)"
+        ],
+        "aggregate": "count"
+      }
+    },
+    {
+      "i": 6,
+      "truth": "250",
+      "shown": [
+        "steps",
+        "triples"
+      ],
+      "reachable": false,
+      "outcome": "declined"
+    },
+    {
+      "i": 7,
+      "truth": "928",
+      "shown": [
+        "bits",
+        "digit_property"
+      ],
+      "reachable": true,
+      "outcome": "0 != 928",
+      "spec": {
+        "solver": "multisearch",
+        "variables": [
+          {
+            "name": "c",
+            "from": 0,
+            "to": 4095
+          }
+        ],
+        "conditions": [
+          "not ((c//2**0)%2 == 1 and (c//2**3)%2 == 1 and (c//2**6)%2 == 1 and (c//2**9)%2 == 1)",
+          "not ((c//2**0)%2 == 1 and (c//2**3)%2 == 1 and (c//2**6)%2 == 1 and (c//2**9)%2 == 0)",
+          "not ((c//2**0)%2 == 1 and (c//2**3)%2 == 1 and (c//2**6)%2 == 0 and (c//2**9)%2 == 1)",
+          "not ((c//2**0)%2 == 1 and (c//2**3)%2 == 1 and (c//2**6)%2 == 0 and (c//2**9)%2 == 0)",
+          "not ((c//2**0)%2 == 1 and (c//2**3)%2 == 0 and (c//2**6)%2 == 1 and (c//2**9)%2 == 1)",
+          "not ((c//2**0)%2 == 1 and (c//2**3)%2 == 0 and (c//2**6)%2 == 1 and (c//2**9)%2 == 0)",
+          "not ((c//2**0)%2 == 1 and (c//2**3)%2 == 0 and (c//2**6)%2 == 0 and (c//2**9)%2 == 1)",
+          "not ((c//2**0)%2 == 1 and (c//2**3)%2 == 0 and (c//2**6)%2 == 0 and (c//2**9)%2 == 0)",
+          "not ((c//2**0)%2 == 0 and (c//2**3)%2 == 1 and (c//2**6)%2 == 1 and (c//2**9)%2 == 1)",
+          "not ((c//2**0)%2 == 0 and (c//2**3)%2 == 1 and (c//2**6)%2 == 1 and (c//2**9)%2 == 0)",
+          "not ((c//2**0)%2 == 0 and (c//2**3)%2 == 1 and (c//2**6)%2 == 0 and (c//2**9)%2 == 1)",
+          "not ((c//2**0)%2 == 0 and (c//2**3)%2 == 1 and (c//2**6)%2 == 0 and (c//2**9)%2 == 0)",
+          "not ((c//2**0)%2 == 0 and (c//2**3)%2 == 0 and (c//2**6)%2 == 1 and (c//2**9)%2 == 1)",
+          "not ((c//2**0)%2 == 0 and (c//2**3)%2 == 0 and (c//2**6)%2 == 1 and (c//2**9)%2 == 0)",
+          "not ((c//2**0)%2 == 0 and (c//2**3)%2 == 0 and (c//2**6)%2 == 0 and (c//2**9)%2 == 1)",
+          "not ((c//2**0)%2 == 0 and (c//2**3)%2 == 0 and (c//2**6)%2 == 0 and (c//2**9)%2 == 0)"
+        ],
+        "aggregate": "count"
+      }
+    },
+    {
+      "i": 8,
+      "truth": "51",
+      "shown": [
+        "steps",
+        "bits"
+      ],
+      "reachable": false,
+      "outcome": "1 != 51",
+      "spec": {
+        "solver": "probability",
+        "variables": [
+          {
+            "name": "a",
+            "from": 0,
+            "to": 3
+          },
+          {
+            "name": "b",
+            "from": 0,
+            "to": 3
+          }
+        ],
+        "conditions": [
+          "a + b == 6"
+        ],
+        "event": [
+          "true"
+        ],
+        "report": "m_plus_n"
+      }
+    },
+    {
+      "i": 9,
+      "truth": "75",
+      "shown": [
+        "diophantine",
+        "triples"
+      ],
+      "reachable": false,
+      "outcome": "refused: refused: expression calls something outside ",
+      "spec": {
+        "solver": "multisearch",
+        "variables": [
+          {
+            "name": "x",
+            "from": 1,
+            "to": 55
+          }
+        ],
+        "conditions": [
+          "x > 0",
+          "x < 55",
+          "cos(angle_AEP) == (55^2 + 30^2 - (55-40)^2) / (2 * 55 * 30)",
+          "cos(angle_BFP) == (55^2 + 7^2 - (55-30)^2) / (2 * 55 * 7)",
+          "cos(angle_CDP) == (55^2 + (55-30)^2 - 7^2) / (2 * 55 * (55-30))"
+        ],
+        "objective": "tan(angle_AEP)^2",
+        "aggregate": "min"
+      }
+    },
+    {
+      "i": 10,
+      "truth": "756",
+      "shown": [
+        "triples",
+        "modular_inverse"
+      ],
+      "reachable": false,
+      "outcome": "0 != 756",
+      "spec": {
+        "solver": "multisearch",
+        "variables": [
+          {
+            "name": "h",
+            "from": 1,
+            "to": 100
+          }
+        ],
+        "conditions": [
+          "pow2(11) - pow2(h) == 560"
+        ],
+        "aggregate": "count"
+      }
+    },
+    {
+      "i": 11,
+      "truth": "244",
+      "shown": [
+        "diophantine",
+        "triples"
+      ],
+      "reachable": false,
+      "outcome": "[25] != 244",
+      "spec": {
+        "solver": "multisearch",
+        "variables": [
+          {
+            "name": "m",
+            "from": 7,
+            "to": 7
+          },
+          {
+            "name": "n",
+            "from": 5,
+            "to": 5
+          }
+        ],
+        "conditions": [
+          "m > 0",
+          "n > 0"
+        ],
+        "objective": "(m - 1) * (n - 1) + 1",
+        "aggregate": "list"
+      }
+    },
+    {
+      "i": 12,
+      "truth": "154",
+      "shown": [
+        "diophantine",
+        "steps"
+      ],
+      "reachable": true,
+      "outcome": "550 != 154",
+      "spec": {
+        "solver": "multisearch",
+        "variables": [
+          {
+            "name": "A",
+            "from": 1,
+            "to": 10000
+          },
+          {
+            "name": "C",
+            "from": 1,
+            "to": 10000
+          }
+        ],
+        "conditions": [
+          "A == C * 5 / 12",
+          "(A + 50) == (C + 50) * 11 / 25",
+          "C * 5 % 12 == 0",
+          "(C + 50) * 11 % 25 == 0"
+        ],
+        "objective": "A + 50",
+        "aggregate": "min"
+      }
+    },
+    {
+      "i": 13,
+      "truth": "363",
+      "shown": [
+        "modular_inverse",
+        "triples"
+      ],
+      "reachable": true,
+      "outcome": "refused: refused: expression calls something outside ",
+      "spec": {
+        "solver": "multisearch",
+        "variables": [
+          {
+            "name": "n",
+            "from": 1,
+            "to": 1000
+          }
+        ],
+        "conditions": [
+          "modular_inverse(23, pow2(n)) == modular_inverse(23, pow2(n+1))"
+        ],
+        "aggregate": "count"
+      }
+    },
+    {
+      "i": 14,
+      "truth": "245",
+      "shown": [
+        "triples",
+        "modular_inverse"
+      ],
+      "reachable": false,
+      "outcome": "refused: refused: expression syntax: invalid syntax",
+      "spec": {
+        "solver": "multisearch",
+        "variables": [
+          {
+            "name": "n",
+            "from": 1,
+            "to": 2022
+          }
+        ],
+        "conditions": [
+          "S(n) == sum(|A intersect B| for all A, B subset of {1..n} with |A| == |B|)"
+        ],
+        "aggregate": "list"
+      }
+    }
+  ]
+}

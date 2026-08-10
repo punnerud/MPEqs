@@ -1708,6 +1708,11 @@ CHECKS = [
      4.0, 0.001, "and with the bank translated"),
     ("data/custom/norsk_1b.json", lambda d: float(d["retrieval_hit"]),
      17.0, 0.001, "its retrieval hits once the exemplars speak the language"),
+    # AIME with the full machinery: one more problem, and the diagnosis stands.
+    ("data/custom/aimefinal.json", lambda d: float(d.get("exact_reachable", 0)),
+     2.0, 0.001, "reachable AIME problems mapped right with 37 machines"),
+    ("data/custom/aimefinal.json", lambda d: float(d.get("retrieval_hit", 0)),
+     5.0, 0.001, "and retrieval still perfect on all five"),
     # Two-sided labels on the chord metric: no better than one relay, twice the memory.
     ("data/custom/hub-corpus.json", lambda d: d["exact_cell_pct"],
      1.34, 0.7, "two-sided hub labels on the angular metric"),

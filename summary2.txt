@@ -1131,3 +1131,33 @@ ADDRESSABILITY — whether a capability can be reached by the thing holding the 
 The formula library sat unused for fifteen phases and answered nothing until it had a
 schema line; the unit router the same; a machine nobody can name is not a capability,
 and the whole engineering task turned out to be building addresses.
+
+================================================================================
+PHASE 124 — AIME once more, with everything: 2 of 5, and the diagnosis stands
+================================================================================
+
+Since phase 101 measured the mapper as the bottleneck on competition mathematics, the
+library went from 20 machines to 37, the schemas learned to state their units, composed
+slots became fillable ones, and exemplars became templates. None of that was aimed at
+AIME, so the oldest open thread got one more measurement with all of it in place.
+
+    retrieved the needed shape for the reachable five   5/5
+    of those five, solved                               2   (phase 101: 1, phase 94: 0)
+    overall: claimed 12 of 15, ran 8, exact 2, wrong 6, declined 2
+
+Two of five. Everything the night produced — a library nearly doubled, schema lines
+rewritten three times over, exemplars rebuilt as templates, a retrieval layer that never
+misses — bought one additional AIME problem, and the two that come back are the two whose
+mapping is nearest to transcription.
+
+So phase 99's diagnosis stands as the honest last word: a third of these problems is
+expressible, the machines are exact, the retrieval is perfect, and what is missing is the
+step where a competition problem in language becomes a filled spec. That step is not a
+prompt away, and thirty phases of improving everything around it have now measured how
+much it is not.
+
+The contrast with the same machinery's other results is the point rather than a
+disappointment: 292 of 345 across the batteries, 23 of 24 on fresh hard-arithmetic
+problems with nothing wrong, 33 of 34 across seventeen classes — and 2 of 15 here. The
+tool has a domain, the domain has an edge, and the edge is exactly where the mapping stops
+being transcription and starts being mathematics.
