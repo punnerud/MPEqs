@@ -1275,3 +1275,46 @@ retrieved shapes and the machine's working.
 
 A study is a pile of numbers until someone can run it. This is the smallest thing that
 makes the numbers usable, and it fits on a line.
+
+================================================================================
+PHASE 130 — thirty AIME problems never touched: 0 for the mapper, 5 for the hand
+================================================================================
+
+Every olympiad number in this study came from one sample of thirty drawn with seed 5,
+which the library and the exemplars have been shaped around at one remove. The other
+thirty problems in the cached set had never been read by anything here, and they got the
+finished machine exactly as it stands — 41 solvers, the full catalogue, the retrieval
+bank, one spec each, executed exactly.
+
+    SOLO-35B, visible working    3/30
+    MPEqs                        0/30   claimed 23, ran 13, ALL 13 wrong,
+                                        refused 10, declined 5, unparseable 2
+    either arm right             3/30
+
+Zero. The prediction written before the run was two to five, and the sample said none.
+
+THEN THE SAME FIVE PROBLEMS WERE MAPPED BY HAND, and all five came back exact:
+
+    [11]  triangles among 20 circle points whose labels differ by a prime      72
+    [15]  subsets of 1..10 with exactly one consecutive pair                  235
+    [18]  40 lines, points where exactly two of them cross                    607
+    [19]  n < 1000 whose remainders mod 2,3,4,5,6 are all distinct             49
+    [21]  six trees in arithmetic sequence, greatest double the least         220
+
+Five of thirty are expressible in the vocabulary as it stands — the same one-sixth phase
+99 measured on the other sample, replicated on problems nothing here has seen. And the
+mapper produced a spec for all five and got all five wrong: 24 for 72 (it dropped one of
+the three prime conditions), 35 for 235 (it counted something else entirely), a decline
+for a problem that is one subtraction, 0 for the remainders (it reached for the
+single-variable search and could not express five simultaneous inequalities), and the
+series solver for an arithmetic-sequence word problem it then failed to fill.
+
+So the study's headline result about competition mathematics survives contact with an
+unseen sample, in the sharpest form yet: THE VOCABULARY REACHES ONE PROBLEM IN SIX AND
+THE MAPPER REACHES NONE OF THEM. Everything between language and a filled spec is where
+the remaining work is, and thirty-eight phases of improving the machines, the schemas,
+the exemplars and the retrieval have moved that number from zero to zero.
+
+Worth stating plainly beside it: on the classes where the mapping IS transcription, the
+same pipeline is at 316 of 369. The difference between those two numbers is the whole
+finding.

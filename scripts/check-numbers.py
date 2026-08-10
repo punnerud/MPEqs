@@ -1728,6 +1728,15 @@ CHECKS = [
      0.0, 0.001, "rows that changed outcome or solver between two identical runs"),
     ("data/custom/variance.json", lambda d: float(d["run1"] - d["run2"]),
      0.0, 0.001, "the difference between the two totals"),
+    # Thirty unseen AIME problems: the ceiling replicates, the mapper does not move.
+    ("data/custom/aimefresh.json", lambda d: float(d.get("exact", 0)),
+     0.0, 0.001, "fresh AIME problems the mapper got right"),
+    ("data/custom/aimefresh.json", lambda d: float(d["hand_mapped_exact"]),
+     5.0, 0.001, "and how many of the same thirty are hand-mappable and exact"),
+    ("data/custom/aimefresh.json", lambda d: float(d["solo"]),
+     3.0, 0.001, "what the model got answering them directly"),
+    ("data/custom/aimefresh.json", lambda d: float(d.get("claimed", 0)),
+     23.0, 0.001, "problems it claimed it could map"),
     # Two-sided labels on the chord metric: no better than one relay, twice the memory.
     ("data/custom/hub-corpus.json", lambda d: d["exact_cell_pct"],
      1.34, 0.7, "two-sided hub labels on the angular metric"),

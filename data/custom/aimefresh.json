@@ -1,0 +1,333 @@
+{
+  "n": 30,
+  "declined": 5,
+  "solo": 3,
+  "claimed": 23,
+  "refused": 10,
+  "ran": 13,
+  "wrong": 13,
+  "unparseable": 2,
+  "either": 3,
+  "both": 0,
+  "solvers": {
+    "multisearch": 10,
+    "geometry": 4,
+    "equation": 1,
+    "none": 1,
+    "search": 4,
+    "series": 1,
+    "linear_system": 1,
+    "probability": 1,
+    "polynomial": 1
+  },
+  "rows": [
+    {
+      "truth": "150",
+      "mpeqs": "None",
+      "mpeqs_ok": false,
+      "solo": "2",
+      "solo_ok": false,
+      "solver": null,
+      "why": "declined: The problem requires geometric reasoning inv",
+      "problem": "Let $ABCD$ be a parallelogram with $\\angle BAD < 90^\\circ.$ A circle tangent to sides $\\overline{DA},$ $\\overline{AB},$ and $\\overline{BC}$ intersects diagonal $\\overline{AC}$ at points $P$ and $Q$ with $AP < AQ,$ as shown. Suppose that $AP=3,$ $PQ=9,$ and $QC=16.$ Then the area of $ABCD$ can be exp"
+    },
+    {
+      "truth": "392",
+      "mpeqs": "None",
+      "mpeqs_ok": false,
+      "solo": "1",
+      "solo_ok": false,
+      "solver": "multisearch",
+      "why": "refused: refused: expression uses Dict",
+      "problem": "Let $S$ be the set of all rational numbers that can be expressed as a repeating decimal in the form $0.\\overline{abcd},$ where at least one of the digits $a,$ $b,$ $c,$ or $d$ is nonzero. Let $N$ be the number of distinct numerators obtained when numbers in $S$ are written as fractions in lowest ter"
+    },
+    {
+      "truth": "242",
+      "mpeqs": "166500",
+      "mpeqs_ok": false,
+      "solo": "0",
+      "solo_ok": false,
+      "solver": "geometry",
+      "why": "",
+      "problem": "In isosceles trapezoid $ABCD$, parallel bases $\\overline{AB}$ and $\\overline{CD}$ have lengths $500$ and $650$, respectively, and $AD=BC=333$. The angle bisectors of $\\angle{A}$ and $\\angle{D}$ meet at $P$, and the angle bisectors of $\\angle{B}$ and $\\angle{C}$ meet at $Q$. Find $PQ$."
+    },
+    {
+      "truth": "834",
+      "mpeqs": "None",
+      "mpeqs_ok": false,
+      "solo": "1",
+      "solo_ok": false,
+      "solver": "multisearch",
+      "why": "refused: refused: expression syntax: invalid syntax",
+      "problem": "Let $w = \\dfrac{\\sqrt{3} + i}{2}$ and $z = \\dfrac{-1 + i\\sqrt{3}}{2},$ where $i = \\sqrt{-1}.$ Find the number of ordered pairs $(r,s)$ of positive integers not exceeding $100$ that satisfy the equation $i \\cdot w^r = z^s.$"
+    },
+    {
+      "truth": "228",
+      "mpeqs": "None",
+      "mpeqs_ok": false,
+      "solo": "50",
+      "solo_ok": false,
+      "solver": "multisearch",
+      "why": "refused: refused: expression syntax: invalid syntax. ",
+      "problem": "Find the number of ordered pairs of integers $(a, b)$ such that the sequence\\[3, 4, 5, a, b, 30, 40, 50\\]is strictly increasing and no set of four (not necessarily consecutive) terms forms an arithmetic progression."
+    },
+    {
+      "truth": "289",
+      "mpeqs": "None",
+      "mpeqs_ok": false,
+      "solo": "162",
+      "solo_ok": false,
+      "solver": "multisearch",
+      "why": "refused: refused: multisearch needs 1 to 6 variables",
+      "problem": "Let $a,b,c,d,e,f,g,h,i$ be distinct integers from $1$ to $9.$ The minimum possible positive value of \\[\\dfrac{a \\cdot b \\cdot c - d \\cdot e \\cdot f}{g \\cdot h \\cdot i}\\] can be written as $\\frac{m}{n},$ where $m$ and $n$ are relatively prime positive integers. Find $m+n.$"
+    },
+    {
+      "truth": "247",
+      "mpeqs": "None",
+      "mpeqs_ok": false,
+      "solo": "6",
+      "solo_ok": false,
+      "solver": null,
+      "why": "unparseable",
+      "problem": "Ellina has twelve blocks, two each of red ($\\textbf{R}$), blue ($\\textbf{B}$), yellow ($\\textbf{Y}$), green ($\\textbf{G}$), orange ($\\textbf{O}$), and purple ($\\textbf{P}$). Call an arrangement of blocks $\\textit{even}$ if there is an even number of blocks between each pair of blocks of the same col"
+    },
+    {
+      "truth": "23",
+      "mpeqs": "None",
+      "mpeqs_ok": false,
+      "solo": "11",
+      "solo_ok": false,
+      "solver": null,
+      "why": "declined: The problem involves finding the minimum of ",
+      "problem": "Let $a, b, x,$ and $y$ be real numbers with $a>4$ and $b>1$ such that\\[\\frac{x^2}{a^2}+\\frac{y^2}{a^2-16}=\\frac{(x-20)^2}{b^2-1}+\\frac{(y-11)^2}{b^2}=1.\\]Find the least possible value of $a+b.$"
+    },
+    {
+      "truth": "220",
+      "mpeqs": "None",
+      "mpeqs_ok": false,
+      "solo": "30",
+      "solo_ok": false,
+      "solver": null,
+      "why": "unparseable",
+      "problem": "There is a polynomial $P(x)$ with integer coefficients such that\\[P(x)=\\frac{(x^{2310}-1)^6}{(x^{105}-1)(x^{70}-1)(x^{42}-1)(x^{30}-1)}\\]holds for every $0<x<1.$ Find the coefficient of $x^{2022}$ in $P(x)$."
+    },
+    {
+      "truth": "188",
+      "mpeqs": "None",
+      "mpeqs_ok": false,
+      "solo": "1",
+      "solo_ok": false,
+      "solver": "multisearch",
+      "why": "refused: refused: tuple space 1000000000 exceeds the ",
+      "problem": "For positive integers $a$, $b$, and $c$ with $a < b < c$, consider collections of postage stamps in denominations $a$, $b$, and $c$ cents that contain at least one stamp of each denomination. If there exists such a collection that contains sub-collections worth every whole number of cents up to $100"
+    },
+    {
+      "truth": "140",
+      "mpeqs": "240",
+      "mpeqs_ok": false,
+      "solo": "1",
+      "solo_ok": false,
+      "solver": "geometry",
+      "why": "",
+      "problem": "Two externally tangent circles $\\omega_1$ and $\\omega_2$ have centers $O_1$ and $O_2$, respectively. A third circle $\\Omega$ passing through $O_1$ and $O_2$ intersects $\\omega_1$ at $B$ and $C$ and $\\omega_2$ at $A$ and $D$, as shown. Suppose that $AB = 2$, $O_1O_2 = 15$, $CD = 16$, and $ABO_1CDO_2$"
+    },
+    {
+      "truth": "72",
+      "mpeqs": "24",
+      "mpeqs_ok": false,
+      "solo": "2",
+      "solo_ok": false,
+      "solver": "multisearch",
+      "why": "",
+      "problem": "Twenty distinct points are marked on a circle and labeled $1$ through $20$ in clockwise order. A line segment is drawn between every pair of points whose labels differ by a prime number. Find the number of triangles formed whose vertices are among the original $20$ points."
+    },
+    {
+      "truth": "192",
+      "mpeqs": "180",
+      "mpeqs_ok": false,
+      "solo": "6",
+      "solo_ok": false,
+      "solver": "geometry",
+      "why": "",
+      "problem": "A circle with radius $6$ is externally tangent to a circle with radius $24$. Find the area of the triangular region bounded by the three common tangent lines of these two circles."
+    },
+    {
+      "truth": "80",
+      "mpeqs": "None",
+      "mpeqs_ok": false,
+      "solo": "6",
+      "solo_ok": false,
+      "solver": "multisearch",
+      "why": "refused: refused: expression calls something outside ",
+      "problem": "Find the number of positive integers $n \\le 600$ whose value can be uniquely determined when the values of $\\left\\lfloor \\frac n4\\right\\rfloor$, $\\left\\lfloor\\frac n5\\right\\rfloor$, and $\\left\\lfloor\\frac n6\\right\\rfloor$ are given, where $\\lfloor x \\rfloor$ denotes the greatest integer less than or"
+    },
+    {
+      "truth": "944",
+      "mpeqs": "None",
+      "mpeqs_ok": false,
+      "solo": "1",
+      "solo_ok": false,
+      "solver": "multisearch",
+      "why": "refused: refused: expression calls something outside ",
+      "problem": "There exists a unique positive integer $a$ for which the sum \\[U=\\sum_{n=1}^{2023}\\left\\lfloor\\dfrac{n^{2}-na}{5}\\right\\rfloor\\] is an integer strictly between $-1000$ and $1000$. For that unique $a$, find $a+U$. (Note that $\\lfloor x\\rfloor$ denotes the greatest integer that is less than or equal t"
+    },
+    {
+      "truth": "235",
+      "mpeqs": "35",
+      "mpeqs_ok": false,
+      "solo": "-1",
+      "solo_ok": false,
+      "solver": "multisearch",
+      "why": "",
+      "problem": "Find the number of subsets of $\\{1,2,3,\\ldots,10\\}$ that contain exactly one pair of consecutive integers. Examples of such subsets are $\\{\\mathbf{1},\\mathbf{2},5\\}$ and $\\{1,3,\\mathbf{6},\\mathbf{7},10\\}.$"
+    },
+    {
+      "truth": "608",
+      "mpeqs": "24",
+      "mpeqs_ok": false,
+      "solo": "144",
+      "solo_ok": false,
+      "solver": "multisearch",
+      "why": "",
+      "problem": "The following analog clock has two hands that can move independently of each other. Initially, both hands point to the number $12$. The clock performs a sequence of hand movements so that on each movement, one of the two hands moves clockwise to the next number on the clock face while the other hand"
+    },
+    {
+      "truth": "881",
+      "mpeqs": "None",
+      "mpeqs_ok": false,
+      "solo": "881",
+      "solo_ok": true,
+      "solver": "equation",
+      "why": "refused: refused: an equation needs exactly one equal",
+      "problem": "Positive real numbers $b \\not= 1$ and $n$ satisfy the equations \\[\\sqrt{\\log_b n} = \\log_b \\sqrt{n} \\qquad \\text{and} \\qquad b \\cdot \\log_b n = \\log_b (bn).\\] The value of $n$ is $\\frac{j}{k},$ where $j$ and $k$ are relatively prime positive integers. Find $j+k.$"
+    },
+    {
+      "truth": "607",
+      "mpeqs": "None",
+      "mpeqs_ok": false,
+      "solo": "607",
+      "solo_ok": true,
+      "solver": "none",
+      "why": "declined: The problem requires combinatorial geometry ",
+      "problem": "A plane contains $40$ lines, no $2$ of which are parallel. Suppose that there are $3$ points where exactly $3$ lines intersect, $4$ points where exactly $4$ lines intersect, $5$ points where exactly $5$ lines intersect, $6$ points where exactly $6$ lines intersect, and no points where more than $6$ "
+    },
+    {
+      "truth": "49",
+      "mpeqs": "0",
+      "mpeqs_ok": false,
+      "solo": "4",
+      "solo_ok": false,
+      "solver": "search",
+      "why": "",
+      "problem": "Call a positive integer $n$ extra-distinct if the remainders when $n$ is divided by $2, 3, 4, 5,$ and $6$ are distinct. Find the number of extra-distinct positive integers less than $1000$."
+    },
+    {
+      "truth": "125",
+      "mpeqs": "None",
+      "mpeqs_ok": false,
+      "solo": "5",
+      "solo_ok": false,
+      "solver": null,
+      "why": "declined: geometry",
+      "problem": "Rhombus $ABCD$ has $\\angle BAD < 90^\\circ.$ There is a point $P$ on the incircle of the rhombus such that the distances from $P$ to the lines $DA,AB,$ and $BC$ are $9,$ $5,$ and $16,$ respectively. Find the perimeter of $ABCD.$"
+    },
+    {
+      "truth": "220",
+      "mpeqs": "None",
+      "mpeqs_ok": false,
+      "solo": "220",
+      "solo_ok": true,
+      "solver": "series",
+      "why": "refused: error: ValueError: Invalid literal for Fract",
+      "problem": "The numbers of apples growing on each of six apple trees form an arithmetic sequence where the greatest number of apples growing on any of the six trees is double the least number of apples growing on any of the six trees. The total number of apples growing on all six trees is $990.$ Find the greate"
+    },
+    {
+      "truth": "144",
+      "mpeqs": "660",
+      "mpeqs_ok": false,
+      "solo": "4",
+      "solo_ok": false,
+      "solver": "search",
+      "why": "",
+      "problem": "Let $N$ be the number of ways to place the integers $1$ through $12$ in the $12$ cells of a $2 \\times 6$ grid so that for any two cells sharing a side, the difference between the numbers in those cells is not divisible by $3.$ One way to do this is shown below. Find the number of positive integer di"
+    },
+    {
+      "truth": "247",
+      "mpeqs": "84",
+      "mpeqs_ok": false,
+      "solo": "148",
+      "solo_ok": false,
+      "solver": "geometry",
+      "why": "",
+      "problem": "In $\\triangle ABC$ with side lengths $AB = 13,$ $BC = 14,$ and $CA = 15,$ let $M$ be the midpoint of $\\overline{BC}.$ Let $P$ be the point on the circumcircle of $\\triangle ABC$ such that $M$ is on $\\overline{AP}.$ There exists a unique point $Q$ on segment $\\overline{AM}$ such that $\\angle PBQ = \\a"
+    },
+    {
+      "truth": "167",
+      "mpeqs": "0",
+      "mpeqs_ok": false,
+      "solo": "2",
+      "solo_ok": false,
+      "solver": "search",
+      "why": "",
+      "problem": "Let $A$ be an acute angle such that $\\tan A = 2 \\cos A.$ Find the number of positive integers $n$ less than or equal to $1000$ such that $\\sec^n A + \\tan^n A$ is a positive integer whose units digit is $9.$"
+    },
+    {
+      "truth": "273",
+      "mpeqs": "None",
+      "mpeqs_ok": false,
+      "solo": "0",
+      "solo_ok": false,
+      "solver": "linear_system",
+      "why": "refused: refused: system is not square",
+      "problem": "Let $x,y,$ and $z$ be real numbers satisfying the system of equations \\begin{align*} xy + 4z &= 60 \\\\ yz + 4x &= 60 \\\\ zx + 4y &= 60. \\end{align*} Let $S$ be the set of possible values of $x.$ Find the sum of the squares of the elements of $S.$"
+    },
+    {
+      "truth": "719",
+      "mpeqs": "0",
+      "mpeqs_ok": false,
+      "solo": "2970",
+      "solo_ok": false,
+      "solver": "search",
+      "why": "",
+      "problem": "Let $S$ be the set of all positive rational numbers $r$ such that when the two numbers $r$ and $55r$ are written as fractions in lowest terms, the sum of the numerator and denominator of one fraction is the same as the sum of the numerator and denominator of the other fraction. The sum of all the el"
+    },
+    {
+      "truth": "35",
+      "mpeqs": "0",
+      "mpeqs_ok": false,
+      "solo": "1",
+      "solo_ok": false,
+      "solver": "probability",
+      "why": "",
+      "problem": "Consider the L-shaped region formed by three unit squares joined at their sides, as shown below. Two points $A$ and $B$ are chosen independently and uniformly at random from inside the region. The probability that the midpoint of $\\overline{AB}$ also lies inside this L-shaped region can be expressed"
+    },
+    {
+      "truth": "24",
+      "mpeqs": "2",
+      "mpeqs_ok": false,
+      "solo": "6",
+      "solo_ok": false,
+      "solver": "polynomial",
+      "why": "",
+      "problem": "Let $\\omega = \\cos\\frac{2\\pi}{7} + i \\cdot \\sin\\frac{2\\pi}{7},$ where $i = \\sqrt{-1}.$ Find the value of the product\\[\\prod_{k=0}^6 \\left(\\omega^{3k} + \\omega^k + 1\\right).\\]"
+    },
+    {
+      "truth": "33",
+      "mpeqs": "None",
+      "mpeqs_ok": false,
+      "solo": "2",
+      "solo_ok": false,
+      "solver": null,
+      "why": "declined: geometry",
+      "problem": "Circles $\\omega_1$ and $\\omega_2$ intersect at two points $P$ and $Q,$ and their common tangent line closer to $P$ intersects $\\omega_1$ and $\\omega_2$ at points $A$ and $B,$ respectively. The line parallel to $AB$ that passes through $P$ intersects $\\omega_1$ and $\\omega_2$ for the second time at p"
+    }
+  ],
+  "hand_mapped_exact": 5,
+  "hand_mapped_indices": [
+    11,
+    15,
+    18,
+    19,
+    21
+  ]
+}
