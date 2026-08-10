@@ -462,3 +462,37 @@ One more bug caught, in the gate itself: isinstance(True, int) is true in Python
 JSON boolean inside a spec was being reported as an invented literal named "True".
 Phase 97's numbers were checked against the fix and are unchanged (no booleans in those
 specs); the hard battery had ten.
+
+================================================================================
+PHASE 104 — held out: the tuning generalises, 17/20 on problems it never saw
+================================================================================
+
+Three rounds of sharpening (missing machines, a report vocabulary, a schema line
+rewritten) took the hard-arithmetic battery from 8 to 15 of 20 — against a battery I
+had been reading the failures of the whole time, which is exactly how a score stops
+meaning anything. So the four families were regenerated with new numbers, new ranges
+and new phrasings, and run ONCE with no further tuning of anything.
+
+    HELD OUT (n = 20)      MPEqs 17/20      specs parsed 19, ran 19, wrong 2
+                           SOLO-35B 0/20    no abstentions, twenty wrong numbers
+    by family              fractions 4, big 4, count 4, divisors 5
+
+    tuned battery for comparison: 15/20
+
+Seventeen on problems the prompt has never seen, against fifteen on the one it was
+tuned against — the growth was in the machines and in schema lines that say what they
+mean, not in accidental fit to twenty particular questions. The count family, weakest
+at 2 on the tuned set, came in at 4 here, which is the ordinary variance of twenty
+items and worth no story at all.
+
+The band is now measured from both sides with a held-out check in the middle:
+
+    grade-school word problems   the model alone wins       28/30 against 21/30
+    hard exact arithmetic        the machinery wins         17/20 against 0/20
+    competition mathematics      neither reaches            hand-mapped 5/15,
+                                 the mapper 1/15
+
+A tool earns its keep by its domain. This one's domain is now drawn with numbers on
+three sides, and the honest summary of MPEqs is a sentence: it turns problems whose
+arithmetic a model cannot hold into problems whose only remaining difficulty is saying
+what to compute.

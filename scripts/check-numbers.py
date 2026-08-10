@@ -1571,6 +1571,13 @@ CHECKS = [
      0.0, 0.001, "deliveries under two-machine agreement: it finds no second machine"),
     ("data/custom/hardgate_ablate.json", lambda d: float(d["echo"][1]),
      4.0, 0.001, "value echo keeps only four of twelve right answers here"),
+    # Held out: the sharpening generalises to problems it never saw.
+    ("data/custom/hardarith_heldout.json", lambda d: float(d["mpeqs"]),
+     17.0, 0.001, "held-out hard-arithmetic problems solved through MPEqs"),
+    ("data/custom/hardarith_heldout.json", lambda d: float(d["solo"]),
+     0.0, 0.001, "held-out problems the model solved alone: none, again"),
+    ("data/custom/hardarith_heldout.json", lambda d: float(d["ran"]),
+     19.0, 0.001, "held-out specs that executed"),
     # Two-sided labels on the chord metric: no better than one relay, twice the memory.
     ("data/custom/hub-corpus.json", lambda d: d["exact_cell_pct"],
      1.34, 0.7, "two-sided hub labels on the angular metric"),

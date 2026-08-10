@@ -61,8 +61,16 @@ Problem: {story}
 Spec:"""
 
 
-def build():
-    """Truths first: every answer computed here, exactly, before any model sees it."""
+def build(variant=0):
+    """Truths first: every answer computed here, exactly, before any model sees it.
+
+    variant 1 is the HELD-OUT battery. The prompt and the schemas were sharpened
+    against variant 0 across three growth rounds, which is exactly how a score stops
+    meaning anything, so the same four families are regenerated with different numbers,
+    different ranges and different phrasings and run once with no further tuning.
+    """
+    if variant:
+        return build_heldout()
     out = []
 
     # FRACTIONS — twelve compounding steps, exact rational answer.
@@ -151,8 +159,99 @@ def build():
     return out
 
 
-def main(out="data/custom/hardarith.json"):
-    battery = build()
+def build_heldout():
+    """Same four families, all new problems, truths computed here."""
+    out = []
+    # k = 1..10 telescopes back to exactly 500 — a truth a model could hit by naming
+    # the starting value, so the range is odd-length and the pairing is broken.
+    v = F(500)
+    for k in range(1, 12):
+        v = v * (1 - F((-1) ** k, k + 3))
+    out.append(("fractions",
+                "A balance starts at 500. In step k, for k = 1 to 11, it is multiplied "
+                "by (1 - (-1)^k / (k+3)). Give the exact final balance as a fraction.",
+                str(v)))
+    v2 = F(2, 9)
+    for _ in range(11):
+        v2 = (v2 * F(5, 6)) + F(1, 3)
+    out.append(("fractions",
+                "Start with 2/9. Eleven times in a row, multiply by 5/6 and then add "
+                "1/3. Give the exact result as a fraction.", str(v2)))
+    v3 = sum(F(1, k * (k + 5)) for k in range(1, 31))
+    out.append(("fractions",
+                "Add up 1/(k(k+5)) for every integer k from 1 to 30. Give the exact "
+                "sum as a fraction.", str(v3)))
+    v4 = F(7, 13) ** 2 * F(169, 49) - F(4, 11)
+    out.append(("fractions",
+                "Take 7/13 squared, multiply by 169/49, then subtract 4/11. Give the "
+                "exact value as a fraction.", str(v4)))
+    v5 = F(1)
+    for k in range(3, 21):
+        v5 *= F(k * k - 1, k * k)
+    out.append(("fractions",
+                "Multiply (k^2 - 1)/k^2 for every integer k from 3 to 20. Give the "
+                "exact product as a fraction.", str(v5)))
+
+    out.append(("big", "What is 555555553 times 888888887?",
+                str(555555553 * 888888887)))
+    out.append(("big", "What is the remainder when 11 to the power 777 is divided by "
+                "1000000009?", str(pow(11, 777, 1000000009))))
+    out.append(("big", "What is 3 to the power 150 plus 5 to the power 80?",
+                str(3 ** 150 + 5 ** 80)))
+    out.append(("big", "What is the least common multiple of 111111111111 and "
+                "222222222?", str(math.lcm(111111111111, 222222222))))
+    out.append(("big", "What is the sum of all integers from 1 to 2718281?",
+                str(2718281 * 2718282 // 2)))
+
+    c1 = sum(1 for n in range(1, 500001) if n % 17 == 0 and n % 11 == 5)
+    out.append(("count", "How many integers from 1 to 500000 are divisible by 17 and "
+                "leave remainder 5 when divided by 11?", str(c1)))
+    c2 = sum(1 for n in range(1, 150001) if sum(map(int, str(n))) == 17)
+    out.append(("count", "How many integers from 1 to 150000 have digits adding to "
+                "exactly 17?", str(c2)))
+    c3 = sum(n for n in range(1, 80001) if n % 9 == 0 and n % 13 == 6)
+    out.append(("count", "What is the sum of all integers from 1 to 80000 that are "
+                "divisible by 9 and leave remainder 6 when divided by 13?", str(c3)))
+    c4 = sum(1 for n in range(1, 250001) if math.isqrt(n) ** 2 == n
+             and round(n ** (1 / 3)) ** 3 == n)
+    out.append(("count", "How many integers from 1 to 250000 are both perfect squares "
+                "and perfect cubes?", str(c4)))
+    c5 = sum(1 for n in range(10000, 100000) if str(n) == str(n)[::-1] and n % 11 == 0)
+    out.append(("count", "How many five-digit palindromes are divisible by 11?",
+                str(c5)))
+
+    def fact_fac(k):
+        f = {}
+        for p in range(2, k + 1):
+            if all(p % q for q in range(2, int(p ** 0.5) + 1)):
+                e, q = 0, p
+                while q <= k:
+                    e += k // q
+                    q *= p
+                f[p] = e
+        return f
+
+    for k in (18, 33):
+        f = fact_fac(k)
+        out.append(("divisors",
+                    f"How many positive divisors does {k} factorial have?",
+                    str(math.prod(e + 1 for e in f.values()))))
+    f22 = fact_fac(22)
+    out.append(("divisors", "What is the sum of the exponents in the prime "
+                "factorisation of 22 factorial?", str(sum(f22.values()))))
+    out.append(("divisors", "How many positive divisors of 27720 are perfect cubes?",
+                str(sum(1 for d in range(1, 27721) if 27720 % d == 0
+                        and round(d ** (1 / 3)) ** 3 == d))))
+    out.append(("divisors", "What is the sum of all positive divisors of 498960?",
+                str(sum(d for d in range(1, 498961) if 498960 % d == 0))))
+    return out
+
+
+def main(variant=0, out=None):
+    variant = int(variant)
+    out = out or ("data/custom/hardarith.json" if not variant
+                  else "data/custom/hardarith_heldout.json")
+    battery = build(variant)
     catalogue = "\n".join(f"- {v}" for v in
                           {"arith": ARITH_SCHEMA, **SCHEMAS, **SCHEMAS2}.values())
     t = {k: 0 for k in ("solo", "mpeqs", "parsed", "ran", "wrong", "solo_none")}
