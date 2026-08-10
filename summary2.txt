@@ -496,3 +496,35 @@ A tool earns its keep by its domain. This one's domain is now drawn with numbers
 three sides, and the honest summary of MPEqs is a sentence: it turns problems whose
 arithmetic a model cannot hold into problems whose only remaining difficulty is saying
 what to compute.
+
+================================================================================
+PHASE 105 — widening the band: exact probability and unit conversion
+================================================================================
+
+With the domain drawn and the mapper measured as the bottleneck for competition
+mathematics, the cheap direction is to widen the band where the pipeline already works.
+Two classes went in, both failing a model for the same reason the hard-arithmetic
+battery does — the answer is an exact ratio it cannot hold — while the mapping stays one
+sentence long:
+
+  PROBABILITY  a uniform space of tuples, an event as more constraints, and the answer
+               as a Fraction. Both counts run through the multisearch machine, so
+               pruning, budgets and the expression sandbox are inherited, not rebuilt.
+               The m+n report the competitions ask for is one field.
+  CONVERT      the phase 73 brick router as a library member at last. Sixteen written
+               conversion facts, lifted through compound type space on demand, exact,
+               and refusing honestly when no path exists (kroner to kilograms).
+
+    twenty problems, ten of each, truths computed before any model call
+
+    SOLO-35B    1/20     probability 0/10, convert 1/10
+    MPEqs      17/20     probability 9/10, convert 8/10 (parsed 20, ran 18, wrong 1)
+
+Nine of ten exact probabilities where the model gets none: it answers 0.11 or 4/36
+unreduced or simply the wrong count, and the exact m/n is what was asked. Eight of ten
+conversions where it gets one: 3 miles per second is 10863072/625 km/h and no amount of
+confidence produces that from mental arithmetic.
+
+The routing machinery had existed as its own experiment since phase 73 and could not be
+REACHED by a mapped problem until it became a solver with a schema line. That is the
+whole lesson of this phase: a capability nobody can address is not a capability.

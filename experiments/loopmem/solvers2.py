@@ -505,8 +505,71 @@ def solve_iterate(spec):
     return {"value": str(acc), "iterations": hi - lo + 1}
 
 
+def solve_probability(spec):
+    """Exact probability as a ratio of two counts over the same tuple space.
+
+    A uniform sample space described by variables and constraints, an event described
+    by more constraints, and the answer is a Fraction — never a decimal, because the
+    competition answer is m/n and the real-world answer is 'one in seven'. Both counts
+    run through the multisearch machine, so pruning, budgets and the expression sandbox
+    are inherited rather than rebuilt.
+    """
+    base = {"solver": "multisearch", "variables": spec["variables"],
+            "conditions": list(spec.get("conditions", [])),
+            "ordering": spec.get("ordering"), "aggregate": "count"}
+    total = solve_multisearch(base)["value"]
+    if total == 0:
+        raise Refusal("the sample space is empty")
+    ev = dict(base)
+    ev["conditions"] = list(spec.get("conditions", [])) + list(spec["event"])
+    favourable = solve_multisearch(ev)["value"]
+    prob = F(favourable, total)
+    out = {"value": str(prob), "favourable": favourable, "total": total}
+    rep = spec.get("report")
+    if rep == "m_plus_n":
+        out["m_plus_n"] = prob.numerator + prob.denominator
+    elif rep == "percent":
+        out["percent"] = str(prob * 100)
+    return out
+
+
+def parse_units(text):
+    """'km/hour', 'm/second^2', 'kg*m/second' -> the exponent map the router wants."""
+    dims = {}
+    num, _, den = str(text).replace(" ", "").partition("/")
+    for part, sign in ((num, 1), (den, -1)):
+        for factor in filter(None, part.split("*")):
+            unit, _, power = factor.partition("^")
+            try:
+                e = int(power) if power else 1
+            except ValueError:
+                raise Refusal(f"bad exponent in {factor!r}") from None
+            dims[unit] = dims.get(unit, 0) + sign * e
+    return {u: e for u, e in dims.items() if e}
+
+
+def solve_convert(spec):
+    """Unit conversion through the phase 73 brick router — sixteen facts, lifted.
+
+    The routing machinery existed for twenty phases as its own experiment; making it a
+    library member is what lets a mapped problem reach it. The chain is exact and the
+    router refuses when no path exists, which is the honest answer to 'convert kroner
+    into kilograms'.
+    """
+    from bricks import build_registry, route
+    src, dst = parse_units(spec["from"]), parse_units(spec["to"])
+    res, _explored = route(build_registry(), src, dst)
+    if res is None:
+        raise Refusal(f"no route from {spec['from']!r} to {spec['to']!r}")
+    factor, path = res
+    value = F(str(spec.get("value", 1))) * factor
+    return {"value": str(value), "factor": str(factor), "steps": len(path)}
+
+
 SOLVERS2 = {
     "arith": solve_arith,
+    "probability": solve_probability,
+    "convert": solve_convert,
     "iterate": solve_iterate,
     "multisearch": solve_multisearch,
     "polynomial": solve_polynomial,
@@ -515,6 +578,10 @@ SOLVERS2 = {
 }
 
 WORDINGS2 = {
+    "probability": ["what is the probability that", "the chance of the event",
+                    "how likely is it, as a fraction"],
+    "convert": ["convert one unit into another", "how fast is that in other units",
+                "express the length in a different measure"],
     "iterate": ["repeat the same operation many times over",
                 "each round changes the amount by the same rule",
                 "compound the value step after step"],
@@ -690,6 +757,19 @@ CASES = [
     ({"solver": "arith", "let": {"a": "(-1)^3 * 8"}, "answer": "a + 10"}, "2"),
     # 2^200 - 3^100: a large literal exponent is bounded, so the guard lets it pass.
     ({"solver": "arith", "let": {"a": "2^200 - 3^100"}}, str(2 ** 200 - 3 ** 100)),
+    # probability: two dice, exact chance the sum is 9 -> 4/36 = 1/9
+    ({"solver": "probability",
+      "variables": [{"name": "a", "from": 1, "to": 6}, {"name": "b", "from": 1,
+                     "to": 6}], "event": ["a + b == 9"]}, "1/9"),
+    # and the m+n convention competitions ask for
+    ({"solver": "probability",
+      "variables": [{"name": "a", "from": 1, "to": 6}, {"name": "b", "from": 1,
+                     "to": 6}], "event": ["a + b == 9"], "report": "m_plus_n"}, "1/9"),
+    # convert: the founding example, exact
+    ({"solver": "convert", "value": 3, "from": "mile/second", "to": "km/hour"},
+     "10863072/625"),
+    ({"solver": "convert", "value": 100, "from": "km/hour", "to": "foot/second"},
+     "312500/3429"),
     # And the old library must still answer through the joint dispatcher.
     ({"solver": "crt", "residues": [2, 3, 2], "moduli": [3, 5, 7]}, 23),
 ]
@@ -712,6 +792,7 @@ REFUSALS = [
     ({"solver": "arith", "let": {"a": "2 ** 5000"}}, "exponent must be a literal"),
     ({"solver": "geometry", "kind": "circle_through",
       "points": [[0, 0], [1, 1], [2, 2]]}, "collinear"),
+    ({"solver": "convert", "value": 1, "from": "kr", "to": "kg"}, "no route"),
     ({"solver": "arith", "let": {"a": "1", "b": "c + 1"}}, "unknown variable"),
     ({"solver": "iterate", "init": "1", "step": "acc * m", "from": 1, "to": 3},
      "unknown variable"),

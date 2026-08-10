@@ -1489,9 +1489,7 @@ CHECKS = [
     # Was 6 at phase 95; arith added two refusal cases in phase 98 (unknown variable,
     # division by zero in a step). The library grew, so the guard grew with it.
     ("data/custom/solvers2.json", lambda d: float(d["refusals_named"]),
-     10.0, 0.001, "refusals named, three of them expression-sandbox escapes"),
-    ("data/custom/solvers2.json", lambda d: float(d["solvers_total"]),
-     21.0, 0.001, "solvers in MPEqs after phase 102 added iterate"),
+     11.0, 0.001, "refusals named, three of them expression-sandbox escapes"),
     # AIME coverage: willingness to map is not reach.
     ("data/custom/aimecover.json", lambda d: float(d.get("claimed", 0)),
      22.0, 0.001, "AIME problems the model claimed it could map"),
@@ -1529,7 +1527,7 @@ CHECKS = [
     ("data/custom/gsmgate.json", lambda d: float(d["both"][2]),
      0.0, 0.001, "wrong deliveries under echo plus cross-kind agreement"),
     ("data/custom/solvers2.json", lambda d: float(d["passed"]),
-     24.0, 0.001, "grown-library self-tests after the phase 102 additions"),
+     28.0, 0.001, "grown-library self-tests after the phase 105 additions"),
     # The ceiling: what the vocabulary reaches when a human does the mapping.
     ("data/custom/aimeceiling.json", lambda d: float(d["hand_exact"]),
      5.0, 0.001, "AIME problems hand-mapped onto the library and exact"),
@@ -1578,6 +1576,15 @@ CHECKS = [
      0.0, 0.001, "held-out problems the model solved alone: none, again"),
     ("data/custom/hardarith_heldout.json", lambda d: float(d["ran"]),
      19.0, 0.001, "held-out specs that executed"),
+    # Widening the band: exact probability and unit conversion as library members.
+    ("data/custom/newbands.json", lambda d: float(d["mpeqs"]),
+     17.0, 0.001, "new-band problems solved through MPEqs"),
+    ("data/custom/newbands.json", lambda d: float(d["solo"]),
+     1.0, 0.001, "solved by the model alone across both new classes"),
+    ("data/custom/newbands.json", lambda d: float(d["byfam"]["probability"][2]),
+     9.0, 0.001, "exact probabilities delivered as fractions, of ten"),
+    ("data/custom/solvers2.json", lambda d: float(d["solvers_total"]),
+     23.0, 0.001, "solvers in MPEqs after probability and convert"),
     # Two-sided labels on the chord metric: no better than one relay, twice the memory.
     ("data/custom/hub-corpus.json", lambda d: d["exact_cell_pct"],
      1.34, 0.7, "two-sided hub labels on the angular metric"),

@@ -1,0 +1,471 @@
+{
+  "n": 20,
+  "solo": 1,
+  "mpeqs": 17,
+  "parsed": 20,
+  "ran": 18,
+  "wrong": 1,
+  "byfam": {
+    "probability": [
+      10,
+      0,
+      9
+    ],
+    "convert": [
+      10,
+      1,
+      8
+    ]
+  },
+  "rows": [
+    {
+      "family": "probability",
+      "story": "Two fair six-sided dice are rolled. What is the exact probability that",
+      "truth": "1/9",
+      "solo": "1",
+      "solo_ok": false,
+      "mpeqs": "1/9",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "probability",
+        "variables": [
+          {
+            "name": "a",
+            "from": 1,
+            "to": 6
+          },
+          {
+            "name": "b",
+            "from": 1,
+            "to": 6
+          }
+        ],
+        "event": [
+          "a + b == 9"
+        ],
+        "report": "m_plus_n"
+      }
+    },
+    {
+      "family": "probability",
+      "story": "Three fair six-sided dice are rolled. What is the exact probability th",
+      "truth": "1/8",
+      "solo": "6",
+      "solo_ok": false,
+      "mpeqs": "1/8",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "probability",
+        "variables": [
+          {
+            "name": "a",
+            "from": 1,
+            "to": 6
+          },
+          {
+            "name": "b",
+            "from": 1,
+            "to": 6
+          },
+          {
+            "name": "c",
+            "from": 1,
+            "to": 6
+          }
+        ],
+        "event": [
+          "a + b + c == 10"
+        ],
+        "report": "m_plus_n"
+      }
+    },
+    {
+      "family": "probability",
+      "story": "Two numbers are picked independently and uniformly from 1 to 12. What ",
+      "truth": "91/144",
+      "solo": "3",
+      "solo_ok": false,
+      "mpeqs": "144",
+      "mpeqs_ok": false,
+      "spec": {
+        "solver": "probability",
+        "variables": [
+          {
+            "name": "a",
+            "from": 1,
+            "to": 12
+          },
+          {
+            "name": "b",
+            "from": 1,
+            "to": 12
+          }
+        ],
+        "event": [
+          "coprime_to(a, b) == 1"
+        ],
+        "report": "m_plus_n"
+      }
+    },
+    {
+      "family": "probability",
+      "story": "Two numbers are picked independently and uniformly from 1 to 20. What ",
+      "truth": "1/2",
+      "solo": "0",
+      "solo_ok": false,
+      "mpeqs": "1/2",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "probability",
+        "variables": [
+          {
+            "name": "a",
+            "from": 1,
+            "to": 20
+          },
+          {
+            "name": "b",
+            "from": 1,
+            "to": 20
+          }
+        ],
+        "event": [
+          "(a * b) % 4 == 0"
+        ]
+      }
+    },
+    {
+      "family": "probability",
+      "story": "Three numbers are picked independently and uniformly from 1 to 5. What",
+      "truth": "2/25",
+      "solo": "5",
+      "solo_ok": false,
+      "mpeqs": "2/25",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "probability",
+        "variables": [
+          {
+            "name": "a",
+            "from": 1,
+            "to": 5
+          },
+          {
+            "name": "b",
+            "from": 1,
+            "to": 5
+          },
+          {
+            "name": "c",
+            "from": 1,
+            "to": 5
+          }
+        ],
+        "event": [
+          "a < b",
+          "b < c"
+        ]
+      }
+    },
+    {
+      "family": "probability",
+      "story": "Two numbers are picked independently and uniformly from 1 to 10. What ",
+      "truth": "11/25",
+      "solo": "5",
+      "solo_ok": false,
+      "mpeqs": "11/25",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "probability",
+        "variables": [
+          {
+            "name": "a",
+            "from": 1,
+            "to": 10
+          },
+          {
+            "name": "b",
+            "from": 1,
+            "to": 10
+          }
+        ],
+        "event": [
+          "abs(a - b) <= 2"
+        ]
+      }
+    },
+    {
+      "family": "probability",
+      "story": "Four fair coins are flipped, each 0 or 1. What is the exact probabilit",
+      "truth": "3/8",
+      "solo": "3",
+      "solo_ok": false,
+      "mpeqs": "3/8",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "probability",
+        "variables": [
+          {
+            "name": "a",
+            "from": 0,
+            "to": 1
+          },
+          {
+            "name": "b",
+            "from": 0,
+            "to": 1
+          },
+          {
+            "name": "c",
+            "from": 0,
+            "to": 1
+          },
+          {
+            "name": "d",
+            "from": 0,
+            "to": 1
+          }
+        ],
+        "event": [
+          "a + b + c + d == 2"
+        ]
+      }
+    },
+    {
+      "family": "probability",
+      "story": "Two numbers are picked independently and uniformly from 1 to 8. What i",
+      "truth": "11/32",
+      "solo": "2",
+      "solo_ok": false,
+      "mpeqs": "11/32",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "probability",
+        "variables": [
+          {
+            "name": "a",
+            "from": 1,
+            "to": 8
+          },
+          {
+            "name": "b",
+            "from": 1,
+            "to": 8
+          }
+        ],
+        "event": [
+          "(a + b) % 3 == 0"
+        ]
+      }
+    },
+    {
+      "family": "probability",
+      "story": "Three numbers are picked independently and uniformly from 1 to 4. What",
+      "truth": "1/8",
+      "solo": "1",
+      "solo_ok": false,
+      "mpeqs": "1/8",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "probability",
+        "variables": [
+          {
+            "name": "a",
+            "from": 1,
+            "to": 4
+          },
+          {
+            "name": "b",
+            "from": 1,
+            "to": 4
+          },
+          {
+            "name": "c",
+            "from": 1,
+            "to": 4
+          }
+        ],
+        "event": [
+          "a * b * c % 2 == 1"
+        ]
+      }
+    },
+    {
+      "family": "probability",
+      "story": "Two numbers are picked independently and uniformly from 1 to 15. What ",
+      "truth": "9/25",
+      "solo": "19",
+      "solo_ok": false,
+      "mpeqs": "9/25",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "probability",
+        "variables": [
+          {
+            "name": "a",
+            "from": 1,
+            "to": 15
+          },
+          {
+            "name": "b",
+            "from": 1,
+            "to": 15
+          }
+        ],
+        "event": [
+          "a * a + b * b > 200"
+        ]
+      }
+    },
+    {
+      "family": "convert",
+      "story": "A probe moves at 3 miles per second. Exactly how fast is that in kilom",
+      "truth": "10863072/625",
+      "solo": "60934",
+      "solo_ok": false,
+      "mpeqs": "10863072/625",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "convert",
+        "value": 3,
+        "from": "mile/second",
+        "to": "km/hour"
+      }
+    },
+    {
+      "family": "convert",
+      "story": "A car drives at 100 kilometres per hour. Exactly how fast is that in f",
+      "truth": "312500/3429",
+      "solo": "2",
+      "solo_ok": false,
+      "mpeqs": "312500/3429",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "convert",
+        "value": 100,
+        "from": "km/hour",
+        "to": "foot/second"
+      }
+    },
+    {
+      "family": "convert",
+      "story": "A tank holds 7 gallons. Exactly how many litres is that? Give the exac",
+      "truth": "3312235311/125000000",
+      "solo": "473176473",
+      "solo_ok": false,
+      "mpeqs": "3312235311/125000000",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "convert",
+        "value": 7,
+        "from": "gallon",
+        "to": "litre"
+      }
+    },
+    {
+      "family": "convert",
+      "story": "A runner moves at 5 miles per hour. Exactly how many metres per second",
+      "truth": "1397/625",
+      "solo": "9",
+      "solo_ok": false,
+      "mpeqs": "1397/625",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "convert",
+        "value": 5,
+        "from": "mile/hour",
+        "to": "m/second"
+      }
+    },
+    {
+      "family": "convert",
+      "story": "A parcel weighs 12 ounces. Exactly how many grams is that? Give the ex",
+      "truth": "136077711/400000",
+      "solo": "1600",
+      "solo_ok": false,
+      "mpeqs": "refused: no route from 'ounce' to 'gram'",
+      "mpeqs_ok": false,
+      "spec": {
+        "solver": "convert",
+        "value": 12,
+        "from": "ounce",
+        "to": "gram"
+      }
+    },
+    {
+      "family": "convert",
+      "story": "A snail crawls 3 yards per minute. Exactly how many millimetres per se",
+      "truth": "1143/25",
+      "solo": "3",
+      "solo_ok": false,
+      "mpeqs": "1143/25",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "convert",
+        "value": 3,
+        "from": "yard/minute",
+        "to": "mm/second"
+      }
+    },
+    {
+      "family": "convert",
+      "story": "A syrup has density 2 grams per millilitre. Exactly what is that in po",
+      "truth": "49161192/2945405",
+      "solo": "45359237/100000",
+      "solo_ok": false,
+      "mpeqs": "49161192/2945405",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "convert",
+        "value": 2,
+        "from": "g/ml",
+        "to": "pound/gallon"
+      }
+    },
+    {
+      "family": "convert",
+      "story": "A car accelerates at 40 miles per hour squared. Exactly what is that i",
+      "truth": "1397/281250",
+      "solo": "1",
+      "solo_ok": false,
+      "mpeqs": "refused: no route from 'mile/hour^2' to ",
+      "mpeqs_ok": false,
+      "spec": {
+        "solver": "convert",
+        "value": 40,
+        "from": "mile/hour^2",
+        "to": "m/s^2"
+      }
+    },
+    {
+      "family": "convert",
+      "story": "A voyage lasts 6 weeks. Exactly how many hours is that?",
+      "truth": "1008",
+      "solo": "1008",
+      "solo_ok": true,
+      "mpeqs": "1008",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "convert",
+        "value": 6,
+        "from": "week",
+        "to": "hour"
+      }
+    },
+    {
+      "family": "convert",
+      "story": "A screen is 9 inches wide. Exactly how many millimetres is that? Give ",
+      "truth": "1143/5",
+      "solo": "1143",
+      "solo_ok": false,
+      "mpeqs": "1143/5",
+      "mpeqs_ok": true,
+      "spec": {
+        "solver": "convert",
+        "value": 9,
+        "from": "inch",
+        "to": "mm"
+      }
+    }
+  ]
+}
