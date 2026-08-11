@@ -1,0 +1,33 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mpeqs"
+version = "0.1.0"
+description = "Exact answers for the arithmetic a language model should not be doing itself."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [{ name = "Morten Punnerud-Engelstad" }]
+keywords = ["solver", "arithmetic", "exact", "llm", "tool-use", "fractions"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: Other/Proprietary License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Mathematics",
+]
+# None. The whole library is standard library, which is why one wheel serves every
+# platform and the install is instant.
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/punnerud/MPEqs"
+
+[tool.hatch.build.targets.wheel]
+packages = ["mpeqs"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
