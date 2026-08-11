@@ -32,11 +32,11 @@ jobs:
         working-directory: python
         run: |
           python -m pip install --upgrade pip
-          pip install -e . pytest ruff
+          pip install -e ".[pyspell]" pytest ruff
 
       - name: Lint
         working-directory: python
-        run: python -m ruff check mpeqs/__init__.py tests
+        run: python -m ruff check mpeqs/__init__.py mpeqs/pyspell.py tests
 
       - name: Test
         working-directory: python

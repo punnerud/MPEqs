@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "mpeqs"
-version = "0.1.0"
+version = "0.2.0"
 description = "Exact answers for the arithmetic a language model should not be doing itself."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -22,6 +22,15 @@ classifiers = [
 # None. The whole library is standard library, which is why one wheel serves every
 # platform and the install is instant.
 dependencies = []
+
+[project.optional-dependencies]
+# PySpell: running a procedure a model wrote, instead of only an expression.
+#
+# Kept optional on purpose. mpedb is a compiled wheel needing CPython 3.12+, and
+# mpeqs runs from 3.10 with one py3-none-any artefact for every platform. Making
+# this a hard dependency would trade that away for a feature most callers of
+# solve() never touch.
+pyspell = ["mpedb>=0.2.9"]
 
 [project.urls]
 Homepage = "https://github.com/punnerud/MPEqs"

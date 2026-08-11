@@ -24,6 +24,11 @@ A spec that cannot be evaluated raises ``Refusal`` with a reason:
     mpeqs.Refusal: ...
 
 Pure standard library. No dependencies, one wheel for every platform.
+
+For a *procedure* rather than an expression -- a loop, a branch, an accumulator --
+see ``mpeqs.pyspell``, which runs code the model wrote in a deterministic subset
+with the property it claims verified rather than believed. That one needs the
+optional ``mpeqs[pyspell]`` extra.
 """
 
 from __future__ import annotations
@@ -42,7 +47,7 @@ if str(_HERE) not in sys.path:
 from solvers import Refusal
 from solvers2 import SOLVERS2, run2
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 __all__ = ["SPEC_HELP", "Refusal", "run2", "solve", "solvers"]
 
 SPEC_HELP = (
