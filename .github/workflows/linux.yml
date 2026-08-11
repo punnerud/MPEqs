@@ -39,9 +39,17 @@ jobs:
           python -m pip install --upgrade pip
           pip install -e . pytest ruff
 
+      - name: Install the PySpell extra
+        working-directory: python
+        # mpedb is a compiled wheel needing CPython 3.12+. On 3.10 and 3.11 the
+        # PySpell tests skip themselves, which is the behaviour a user on those
+        # versions gets and is worth exercising too.
+        if: matrix.python-version != '3.10' && matrix.python-version != '3.11'
+        run: pip install -e ".[pyspell]"
+
       - name: Lint
         working-directory: python
-        run: python -m ruff check mpeqs/__init__.py tests
+        run: python -m ruff check mpeqs/__init__.py mpeqs/pyspell.py tests
 
       - name: Test
         working-directory: python
