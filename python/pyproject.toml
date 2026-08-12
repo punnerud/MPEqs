@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "mpeqs"
-version = "0.3.0"
+version = "0.4.0"
 description = "Exact answers for the arithmetic a language model should not be doing itself."
 readme = "README.md"
 requires-python = ">=3.10"

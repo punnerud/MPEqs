@@ -47,7 +47,7 @@ if str(_HERE) not in sys.path:
 from solvers import Refusal
 from solvers2 import SOLVERS2, run2
 
-__version__ = "0.3.0"
+__version__ = "0.4.0"
 __all__ = ["SPEC_HELP", "Refusal", "run2", "solve", "solvers"]
 
 SPEC_HELP = (

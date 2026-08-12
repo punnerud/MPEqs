@@ -36,7 +36,7 @@ jobs:
 
       - name: Lint
         working-directory: python
-        run: python -m ruff check mpeqs/__init__.py mpeqs/pyspell.py tests
+        run: python -m ruff check mpeqs/__init__.py mpeqs/pyspell.py mpeqs/calculus.py mpeqs/units.py tests
 
       - name: Test
         working-directory: python

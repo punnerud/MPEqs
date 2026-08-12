@@ -60,6 +60,34 @@ The whole library is standard library. One `py3-none-any` wheel serves Linux, ma
 Windows on every supported interpreter, the install is instant, and a test asserts that
 no third-party import creeps in.
 
+## Calculus: three derivatives that must agree
+
+`mpeqs.calculus` differentiates (chain rule included), integrates expanded polynomials
+exactly, and solves linear and quadratic equations with exact rational roots — refusing
+irrational discriminants **by value** rather than floating them.
+
+The derivative ships three ways on purpose: symbolic rules, dual-number **autograd**
+(the chain rule falls out of the arithmetic), and `grad_pyspell` — an interpreter for the
+PySpell subset run over dual numbers, so a function with loops and branches differentiates
+exactly at a point. The tests demand all three agree at scores of random rational points;
+a bug in one must be a matching bug in another to survive.
+
+```python
+from mpeqs import calculus
+calculus.differentiate("(3*x**2 + 5)**4")        # 4 * (3*x**2 + 5)**3 * (3 * (2*x))
+calculus.integrate("x**2", lower=0, upper=1)      # Fraction(1, 3)
+calculus.solve_quadratic(1, -5, 6)                # (Fraction(3), Fraction(2))
+calculus.grad_pyspell("""
+def f(x):
+    y = 1
+    n = 0
+    while n < 4:
+        y = y * (3*x*x + 5)
+        n = n + 1
+    return y
+""", Fraction(1, 2))                              # Fraction(36501, 16) -- exact
+```
+
 ## PySpell: when an expression is not enough
 
 `solve()` evaluates *expressions*, and is safe by restriction — the source is parsed to
